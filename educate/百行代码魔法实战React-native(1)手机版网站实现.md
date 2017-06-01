@@ -30,9 +30,7 @@ React-native
 
 3. 编码
 ---
-
-
-
+替换index.android.js
 
 	import React, {Component} from 'react';
 	import {
