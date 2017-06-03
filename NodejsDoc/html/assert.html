@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">assert (断言)</a></li><li><a href="#2">assert(value[, message])</a></li><li><a href="#3">assert.deepEqual(actual, expected[, message])</a></li><li><a href="#4">assert.deepStrictEqual(actual, expected[, message])</a></li><li><a href="#5">assert.doesNotThrow(block[, error][, message])</a></li><li><a href="#6">assert.equal(actual, expected[, message])</a></li><li><a href="#7">assert.fail(actual, expected, message, operator)</a></li><li><a href="#8">assert.ifError(value)</a></li><li><a href="#9">assert.notDeepEqual(actual, expected[, message])</a></li><li><a href="#10">assert.notDeepStrictEqual(actual, expected[, message])</a></li><li><a href="#11">assert.notEqual(actual, expected[, message])</a></li><li><a href="#12">assert.notStrictEqual(actual, expected[, message])</a></li><li><a href="#13">assert.ok(value[, message])</a></li><li><a href="#14">assert.strictEqual(actual, expected[, message])</a></li><li><a href="#15">assert.throws(block[, error][, message])</a></li></ul></div><div class="span9"><h1 id="1">assert (断言)</h1>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>assert</code> 模块提供了一组简单的断言测试集合，可被用于测试不变量。</p>
+
+<h2 id="2">assert(value[, message])</h2>
+
+<ul>
+<li><code>value</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>[<code>assert.ok()</code>] 的别名。</p>
+
+<h2 id="3">assert.deepEqual(actual, expected[, message])</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>测试 <code>actual</code> 参数与 <code>expected</code> 参数是否深度相等。
+原始值使用相等运算符（<code>==</code>）比较。</p>
+
+<p>只比较可枚举的自身属性。
+<code>deepEqual()</code> 不比较对象的原型、连接符、或不可枚举的属性。
+这可能会导致一些意料之外的结果。
+例如，下面的例子不会抛出 <code>AssertionError</code>，因为 <a href="errors.html#errors_class_error">Error</a> 对象的属性是不可枚举的：</p>
+
+<pre class="prettyprint"><code>// 注意：这不会抛出 AssertionError！
+assert.deepEqual(Error('a'), Error('b'));
+</code></pre>
+
+<p>深度相等意味着子对象的可枚举的自身属性也会被比较：</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+const obj1 = {
+  a : {
+    b : 1
+  }
+};
+const obj2 = {
+  a : {
+    b : 2
+  }
+};
+const obj3 = {
+  a : {
+    b : 1
+  }
+};
+const obj4 = Object.create(obj1);
+
+assert.deepEqual(obj1, obj1);
+// 通过，对象与自身相等
+
+assert.deepEqual(obj1, obj2);
+// 抛出 AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
+// b 的值不同
+
+assert.deepEqual(obj1, obj3);
+// 通过，两个对象相等
+
+assert.deepEqual(obj1, obj4);
+// 抛出 AssertionError: { a: { b: 1 } } deepEqual {}
+// 原型会被忽略
+</code></pre>
+
+<p>如果两个值不相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<h2 id="4">assert.deepStrictEqual(actual, expected[, message])</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>大多数情况下与 <code>assert.deepEqual()</code> 一样，但有两个例外。
+首先，原始值使用全等运算符（<code>===</code>）比较。
+其次，对象的比较包括检查它们的原型是否全等。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.deepEqual({a:1}, {a:'1'});
+// 通过，因为 1 == '1'
+
+assert.deepStrictEqual({a:1}, {a:'1'});
+// 抛出 AssertionError: { a: 1 } deepStrictEqual { a: '1' }
+// 因为 1 !== '1' 使用全等运算符
+</code></pre>
+
+<p>如果两个值不相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<h2 id="5">assert.doesNotThrow(block[, error][, message])</h2>
+
+<ul>
+<li><code>block</code> {Function}</li>
+<li><code>error</code> {RegExp|Function}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>断言 <code>block</code> 函数不会抛出错误。
+查看 <a href="#assert_assert_throws_block_error_message">assert.throws()</a> 了解更多。</p>
+
+<p>当 <code>assert.doesNotThrow()</code> 被调用时，它会立即调用 <code>block</code> 函数。</p>
+
+<p>如果抛出错误且错误类型与 <code>error</code> 参数指定的相同，则抛出 <code>AssertionError</code>。
+如果错误类型不相同，或 <code>error</code> 参数是 <code>undefined</code>，则错误会被抛回给调用者。</p>
+
+<p>以下例子会抛出 <a href="errors.html#errors_class_typeerror">TypeError</a>，因为在断言中没有匹配的错误类型：</p>
+
+<pre class="prettyprint"><code>assert.doesNotThrow(
+  () =&gt; {
+    throw new TypeError('错误');
+  },
+  SyntaxError
+);
+</code></pre>
+
+<p>以下例子会抛出一个带有 <code>Got unwanted exception (TypeError)..</code> 信息的 <code>AssertionError</code>：</p>
+
+<pre class="prettyprint"><code>assert.doesNotThrow(
+  () =&gt; {
+    throw new TypeError('错误');
+  },
+  TypeError
+);
+</code></pre>
+
+<p>如果抛出了 <code>AssertionError</code> 且有给 <code>message</code> 参数传值，则 <code>message</code> 的值会被附加到 <code>AssertionError</code> 的信息中：</p>
+
+<pre class="prettyprint"><code>assert.doesNotThrow(
+  () =&gt; {
+    throw new TypeError('错误');
+  },
+  TypeError,
+  '抛出错误'
+);
+// 抛出 AssertionError: Got unwanted exception (TypeError). 抛出错误
+</code></pre>
+
+<h2 id="6">assert.equal(actual, expected[, message])</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>使用相等运算符（<code>==</code>）测试 <code>actual</code> 参数与 <code>expected</code> 参数是否相等。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.equal(1, 1);
+// 通过，1 == 1
+assert.equal(1, '1');
+// 通过，1 == '1'
+
+assert.equal(1, 2);
+// 抛出 AssertionError: 1 == 2
+assert.equal({a: {b: 1}}, {a: {b: 1}});
+// 抛出 AssertionError: { a: { b: 1 } } == { a: { b: 1 } }
+</code></pre>
+
+<p>如果两个值不相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<h2 id="7">assert.fail(actual, expected, message, operator)</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+<li><code>operator</code> {String}</li>
+</ul>
+
+<p>抛出 <code>AssertionError</code>。
+如果 <code>message</code> 不存在，则错误信息会被设为 <code>actual</code> 的值加分隔符 <code>operator</code> 再加 <code>expected</code> 的值。
+否则，错误信息为 <code>message</code> 的值。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.fail(1, 2, undefined, '&gt;');
+// 抛出 AssertionError: 1 &gt; 2
+
+assert.fail(1, 2, '错误信息', '&gt;');
+// 抛出 AssertionError: 错误信息
+</code></pre>
+
+<h2 id="8">assert.ifError(value)</h2>
+
+<ul>
+<li><code>value</code> {any}</li>
+</ul>
+
+<p>如果 <code>value</code> 为真，则抛出 <code>value</code>。
+可用于测试回调函数的 <code>error</code> 参数。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.ifError(0);
+// 通过
+assert.ifError(1);
+// 抛出 1
+assert.ifError('error');
+// 抛出 'error'
+assert.ifError(new Error());
+// 抛出 Error
+</code></pre>
+
+<h2 id="9">assert.notDeepEqual(actual, expected[, message])</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>测试是否不深度相等。
+与 [<code>assert.deepEqual()</code>] 相反。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+const obj1 = {
+  a : {
+    b : 1
+  }
+};
+const obj2 = {
+  a : {
+    b : 2
+  }
+};
+const obj3 = {
+  a : {
+    b : 1
+  }
+};
+const obj4 = Object.create(obj1);
+
+assert.notDeepEqual(obj1, obj1);
+// 抛出 AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
+
+assert.notDeepEqual(obj1, obj2);
+// 通过，obj1 与 obj2 不深度相等
+
+assert.notDeepEqual(obj1, obj3);
+// 抛出 AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
+
+assert.notDeepEqual(obj1, obj4);
+// 通过，obj1 与 obj4 不深度相等
+</code></pre>
+
+<p>如果两个值深度相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<h2 id="10">assert.notDeepStrictEqual(actual, expected[, message])</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>测试是否不深度全等。
+与 [<code>assert.deepStrictEqual()</code>] 相反。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.notDeepEqual({a:1}, {a:'1'});
+// 抛出 AssertionError: { a: 1 } notDeepEqual { a: '1' }
+
+assert.notDeepStrictEqual({a:1}, {a:'1'});
+// 通过
+</code></pre>
+
+<p>如果两个值深度全等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<h2 id="11">assert.notEqual(actual, expected[, message])</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>使用不等运算符（<code>!=</code>）测试是否不相等。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.notEqual(1, 2);
+// 通过
+
+assert.notEqual(1, 1);
+// 抛出 AssertionError: 1 != 1
+
+assert.notEqual(1, '1');
+// 抛出 AssertionError: 1 != '1'
+</code></pre>
+
+<p>如果两个值相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<h2 id="12">assert.notStrictEqual(actual, expected[, message])</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>使用不全等运算符（<code>!==</code>）测试是否不全等。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.notStrictEqual(1, 2);
+// 通过
+
+assert.notStrictEqual(1, 1);
+// 抛出 AssertionError: 1 !== 1
+
+assert.notStrictEqual(1, '1');
+// 通过
+</code></pre>
+
+<p>如果两个值全等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<h2 id="13">assert.ok(value[, message])</h2>
+
+<ul>
+<li><code>value</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>测试 <code>value</code> 是否为真值。
+相当于 <code>assert.equal(!!value, true, message)</code>。</p>
+
+<p>如果 <code>value</code> 不为真值，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.ok(true);
+// 通过
+assert.ok(1);
+// 通过
+assert.ok(false);
+// 抛出 "AssertionError: false == true"
+assert.ok(0);
+// 抛出 "AssertionError: 0 == true"
+assert.ok(false, '不是真值');
+// 抛出 "AssertionError: 不是真值"
+</code></pre>
+
+<h2 id="14">assert.strictEqual(actual, expected[, message])</h2>
+
+<ul>
+<li><code>actual</code> {any}</li>
+<li><code>expected</code> {any}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>使用全等运算符（<code>===</code>）测试是否全等。</p>
+
+<pre class="prettyprint"><code>const assert = require('assert');
+
+assert.strictEqual(1, 2);
+// 抛出 AssertionError: 1 === 2
+
+assert.strictEqual(1, 1);
+// 通过
+
+assert.strictEqual(1, '1');
+// 抛出 AssertionError: 1 === '1'
+</code></pre>
+
+<p>如果两个值不全等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
+如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
+
+<h2 id="15">assert.throws(block[, error][, message])</h2>
+
+<ul>
+<li><code>block</code> {Function}</li>
+<li><code>error</code> {RegExp|Function}</li>
+<li><code>message</code> {any}</li>
+</ul>
+
+<p>期望 <code>block</code> 函数抛出错误。</p>
+
+<p>如果指定了 <code>error</code>，<code>error</code> 可以是构造函数、[正则表达式]、或自定义的验证函数。</p>
+
+<p>如果指定了 <code>message</code>，则当 <code>block</code> 不抛出错误时，<code>message</code> 会作为 <code>AssertionError</code> 的错误信息。</p>
+
+<p>例子，使用构造函数验证实例：</p>
+
+<pre class="prettyprint"><code>assert.throws(
+  () =&gt; {
+    throw new Error('错误信息');
+  },
+  Error
+);
+</code></pre>
+
+<p>例子，使用 [正则表达式] 验证错误信息：</p>
+
+<pre class="prettyprint"><code>assert.throws(
+  () =&gt; {
+    throw new Error('错误信息');
+  },
+  /错误/
+);
+</code></pre>
+
+<p>例子，自定义的错误验证函数：</p>
+
+<pre class="prettyprint"><code>assert.throws(
+  () =&gt; {
+    throw new Error('错误信息');
+  },
+  function(err) {
+    if ( (err instanceof Error) &amp;&amp; /错误/.test(err) ) {
+      return true;
+    }
+  },
+  '不是期望的错误'
+);
+</code></pre>
+
+<p>注意，<code>error</code> 不能是一个字符串。
+如果第二个参数是一个字符串，则视为省略 <code>error</code> 参数，传入的字符串会被用于 <code>message</code>。
+这点比较容易搞错：</p>
+
+<pre class="prettyprint"><code>// 这是错误的！不要这么做！
+assert.throws(myFunction, '错误', '没有抛出期望的信息');
+
+// 应该这么做。
+assert.throws(myFunction, /错误/, '没有抛出期望的信息');
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>
