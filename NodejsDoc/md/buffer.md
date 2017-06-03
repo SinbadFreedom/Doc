@@ -14,28 +14,28 @@
 
 例子：
 
-```js
-// 创建一个长度为 10、且用 0 填充的 Buffer。
-const buf1 = Buffer.alloc(10);
+  
+  // 创建一个长度为 10、且用 0 填充的 Buffer。
+  const buf1 = Buffer.alloc(10);
 
-// 创建一个长度为 10、且用 0x1 填充的 Buffer。 
-const buf2 = Buffer.alloc(10, 1);
+  // 创建一个长度为 10、且用 0x1 填充的 Buffer。
+  const buf2 = Buffer.alloc(10, 1);
 
-// 创建一个长度为 10、且未初始化的 Buffer。
-// 这个方法比调用 Buffer.alloc() 更快，
-// 但返回的 Buffer 实例可能包含旧数据，
-// 因此需要使用 fill() 或 write() 重写。
-const buf3 = Buffer.allocUnsafe(10);
+  // 创建一个长度为 10、且未初始化的 Buffer。
+  // 这个方法比调用 Buffer.alloc() 更快，
+  // 但返回的 Buffer 实例可能包含旧数据，
+  // 因此需要使用 fill() 或 write() 重写。
+  const buf3 = Buffer.allocUnsafe(10);
 
-// 创建一个包含 [0x1, 0x2, 0x3] 的 Buffer。
-const buf4 = Buffer.from([1, 2, 3]);
+  // 创建一个包含 [0x1, 0x2, 0x3] 的 Buffer。
+  const buf4 = Buffer.from([1, 2, 3]);
 
-// 创建一个包含 UTF-8 字节数组 [0x74, 0xc3, 0xa9, 0x73, 0x74] 的 Buffer。
-const buf5 = Buffer.from('tést');
+  // 创建一个包含 UTF-8 字节数组 [0x74, 0xc3, 0xa9, 0x73, 0x74] 的 Buffer。
+  const buf5 = Buffer.from('tést');
 
-// 创建一个包含 Latin-1 字节数组 [0x74, 0xe9, 0x73, 0x74] 的 Buffer。
-const buf6 = Buffer.from('tést', 'latin-1');
-```
+  // 创建一个包含 Latin-1 字节数组 [0x74, 0xe9, 0x73, 0x74] 的 Buffer。
+  const buf6 = Buffer.from('tést', 'latin-1');
+  
 
 ##Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()
 
@@ -73,11 +73,11 @@ Node.js 可以在一开始就使用 `--zero-fill-buffers` 命令行选项强制�
 
 例子：
 
-```txt
-$ node --zero-fill-buffers
-> Buffer.allocUnsafe(5);
-<Buffer 00 00 00 00 00>
-```
+
+    $ node --zero-fill-buffers
+    > Buffer.allocUnsafe(5);
+    <Buffer 00 00 00 00 00>
+
 
 ##是什么令 Buffer.allocUnsafe() 和 Buffer.allocUnsafeSlow() 不安全？
 
@@ -96,15 +96,15 @@ $ node --zero-fill-buffers
 
 例子：
 
-```js
-const buf = Buffer.from('hello world', 'ascii');
-
-// 输出 68656c6c6f20776f726c64
-console.log(buf.toString('hex'));
-
-// 输出 aGVsbG8gd29ybGQ=
-console.log(buf.toString('base64'));
-```
+	  
+	  const buf = Buffer.from('hello world', 'ascii');
+	
+	  // 输出 68656c6c6f20776f726c64
+	  console.log(buf.toString('hex'));
+	
+	  // 输出 aGVsbG8gd29ybGQ=
+	  console.log(buf.toString('base64'));
+	  
 
 Node.js 目前支持的字符编码包括：
 
@@ -143,45 +143,45 @@ Node.js 目前支持的字符编码包括：
 也可以通过 TypeArray 对象的 `.buffer` 属性创建一个新建的且与 [`TypedArray`] 实例共享同一分配内存的 `Buffer` 。
 
 例子：
-
-```js
-const arr = new Uint16Array(2);
-
-arr[0] = 5000;
-arr[1] = 4000;
-
-// 拷贝 `arr` 的内容
-const buf1 = Buffer.from(arr);
-
-// 与 `arr` 共享内存
-const buf2 = Buffer.from(arr.buffer);
-
-// 输出: <Buffer 88 a0>
-console.log(buf1);
-
-// 输出: <Buffer 88 13 a0 0f>
-console.log(buf2);
-
-arr[1] = 6000;
-
-// 输出: <Buffer 88 a0>
-console.log(buf1);
-
-// 输出: <Buffer 88 13 70 17>
-console.log(buf2);
-```
+	
+	
+	const arr = new Uint16Array(2);
+	
+	arr[0] = 5000;
+	arr[1] = 4000;
+	
+	// 拷贝 `arr` 的内容
+	const buf1 = Buffer.from(arr);
+	
+	// 与 `arr` 共享内存
+	const buf2 = Buffer.from(arr.buffer);
+	
+	// 输出: <Buffer 88 a0>
+	console.log(buf1);
+	
+	// 输出: <Buffer 88 13 a0 0f>
+	console.log(buf2);
+	
+	arr[1] = 6000;
+	
+	// 输出: <Buffer 88 a0>
+	console.log(buf1);
+	
+	// 输出: <Buffer 88 13 70 17>
+	console.log(buf2);
+	
 
 注意，当使用 [`TypedArray`] 的 `.buffer` 创建 `Buffer` 时，也可以通过传入 `byteOffset` 和 `length` 参数只使用 [`ArrayBuffer`] 的一部分。
 
 例子：
 
-```js
-const arr = new Uint16Array(20);
-const buf = Buffer.from(arr.buffer, 0, 16);
-
-// 输出: 16
-console.log(buf.length);
-```
+	
+	const arr = new Uint16Array(20);
+	const buf = Buffer.from(arr.buffer, 0, 16);
+	
+	// 输出: 16
+	console.log(buf.length);
+	
 
 `Buffer.from()` 和 [`TypedArray.from()`] 有着不同的签名与实现。
 具体而言，[`TypedArray`] 的变种接受第二个参数，在类型数组的每个元素上调用一次映射函数：
@@ -202,17 +202,17 @@ console.log(buf.length);
 
 例子：
 
-```js
-const buf = Buffer.from([1, 2, 3]);
-
-// 输出:
-//   1
-//   2
-//   3
-for (const b of buf) {
-  console.log(b);
-}
-```
+	
+	const buf = Buffer.from([1, 2, 3]);
+	
+	// 输出:
+	//   1
+	//   2
+	//   3
+	for (const b of buf) {
+	  console.log(b);
+	}
+	
 
 此外，[`buf.values()`] 、[`buf.keys()`] 和 [`buf.entries()`] 方法可用于创建迭代器。
 
@@ -235,12 +235,12 @@ for (const b of buf) {
 
 例子：
 
-```js
-const buf = Buffer.alloc(5);
-
-// 输出: <Buffer 00 00 00 00 00>
-console.log(buf);
-```
+	
+	const buf = Buffer.alloc(5);
+	
+	// 输出: <Buffer 00 00 00 00 00>
+	console.log(buf);
+	
 
 `size` 必须小于或等于 [`buffer.kMaxLength`] 的值，否则会抛出 [`RangeError`] 错误。
 如果 `size` 小于或等于0，则创建一个长度为0的 `Buffer` 。
@@ -248,24 +248,24 @@ console.log(buf);
 如果指定了 `fill` ，则会调用 [`buf.fill(fill)`] 初始化分配的 `Buffer` 。
 
 例子：
-
-```js
-const buf = Buffer.alloc(5, 'a');
-
-// 输出: <Buffer 61 61 61 61 61>
-console.log(buf);
-```
+	
+	
+	const buf = Buffer.alloc(5, 'a');
+	
+	// 输出: <Buffer 61 61 61 61 61>
+	console.log(buf);
+	
 
 如果同时指定了 `fill` 和 `encoding` ，则会调用 [`buf.fill(fill, encoding)`] 初始化分配的 `Buffer` 。
 
 例子：
 
-```js
-const buf = Buffer.alloc(11, 'aGVsbG8gd29ybGQ=', 'base64');
-
-// 输出: <Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64>
-console.log(buf);
-```
+	
+	const buf = Buffer.alloc(11, 'aGVsbG8gd29ybGQ=', 'base64');
+	
+	// 输出: <Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64>
+	console.log(buf);
+	
 
 调用 [`Buffer.alloc()`] 会明显地比另一个方法 [`Buffer.allocUnsafe()`] 慢，但是能确保新建的 `Buffer` 实例的内容**不会包含敏感数据**。
 
@@ -285,17 +285,17 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(10);
-
-// 输出: (内容可能不同): <Buffer a0 8b 28 3f 01 00 00 00 50 32>
-console.log(buf);
-
-buf.fill(0);
-
-// 输出: <Buffer 00 00 00 00 00 00 00 00 00 00>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(10);
+	
+	// 输出: (内容可能不同): <Buffer a0 8b 28 3f 01 00 00 00 50 32>
+	console.log(buf);
+	
+	buf.fill(0);
+	
+	// 输出: <Buffer 00 00 00 00 00 00 00 00 00 00>
+	console.log(buf);
+	
 
 如果 `size` 不是一个数值，则抛出 `TypeError` 错误。
 
@@ -327,22 +327,22 @@ console.log(buf);
 
 例子：
 
-```js
-// 需要保留一小块内存块
-const store = [];
-
-socket.on('readable', () => {
-  const data = socket.read();
-
-  // 为保留的数据分配内存
-  const sb = Buffer.allocUnsafeSlow(10);
-
-  // 拷贝数据进新分配的内存
-  data.copy(sb, 0, 0, 10);
-
-  store.push(sb);
-});
-```
+	
+	// 需要保留一小块内存块
+	const store = [];
+	
+	socket.on('readable', () => {
+	  const data = socket.read();
+	
+	  // 为保留的数据分配内存
+	  const sb = Buffer.allocUnsafeSlow(10);
+	
+	  // 拷贝数据进新分配的内存
+	  data.copy(sb, 0, 0, 10);
+	
+	  store.push(sb);
+	});
+	
 
 `Buffer.allocUnsafeSlow()` 应当仅仅作为开发者已经在他们的应用程序中观察到过度的内存保留之后的终极手段使用。
 
@@ -359,17 +359,17 @@ socket.on('readable', () => {
 这与 [`String.prototype.length`] 不同，因为那返回字符串的**字符**数。
 
 *注意* 对于 `'base64'` 和 `'hex'`， 该函数假定有效的输入。 对于包含 non-Base64/Hex-encoded 数据的字符串 (e.g. 空格)， 返回值可能大于
-从字符串中创建的 `Buffer` 的长度。 
+从字符串中创建的 `Buffer` 的长度。
 
 例子：
 
-```js
-const str = '\u00bd + \u00bc = \u00be';
-
-// 输出: ½ + ¼ = ¾: 9 个字符, 12 个字节
-console.log(`${str}: ${str.length} 个字符, ` +
-            `${Buffer.byteLength(str, 'utf8')} 个字节`);
-```
+	
+	const str = '\u00bd + \u00bc = \u00be';
+	
+	// 输出: ½ + ¼ = ¾: 9 个字符, 12 个字节
+	console.log(`${str}: ${str.length} 个字符, ` +
+	            `${Buffer.byteLength(str, 'utf8')} 个字节`);
+	
 
 当 `string` 是一个 `Buffer`/[`DataView`]/[`TypedArray`]/[`ArrayBuffer`] 时，返回实际的字节长度。
 
@@ -386,15 +386,15 @@ console.log(`${str}: ${str.length} 个字符, ` +
 
 例子：
 
-```js
-const buf1 = Buffer.from('1234');
-const buf2 = Buffer.from('0123');
-const arr = [buf1, buf2];
-
-// 输出: [ <Buffer 30 31 32 33>, <Buffer 31 32 33 34> ]
-// (结果相当于: [buf2, buf1])
-console.log(arr.sort(Buffer.compare));
-```
+	
+	const buf1 = Buffer.from('1234');
+	const buf2 = Buffer.from('0123');
+	const arr = [buf1, buf2];
+	
+	// 输出: [ <Buffer 30 31 32 33>, <Buffer 31 32 33 34> ]
+	// (结果相当于: [buf2, buf1])
+	console.log(arr.sort(Buffer.compare));
+	
 
 ##类方法：Buffer.concat(list[, totalLength])
 
@@ -411,23 +411,23 @@ console.log(arr.sort(Buffer.compare));
 
 例子：从一个包含三个 `Buffer` 实例的数组创建为一个单一的 `Buffer`。
 
-```js
-const buf1 = Buffer.alloc(10);
-const buf2 = Buffer.alloc(14);
-const buf3 = Buffer.alloc(18);
-const totalLength = buf1.length + buf2.length + buf3.length;
-
-// 输出: 42
-console.log(totalLength);
-
-const bufA = Buffer.concat([buf1, buf2, buf3], totalLength);
-
-// 输出: <Buffer 00 00 00 00 ...>
-console.log(bufA);
-
-// 输出: 42
-console.log(bufA.length);
-```
+	
+	const buf1 = Buffer.alloc(10);
+	const buf2 = Buffer.alloc(14);
+	const buf3 = Buffer.alloc(18);
+	const totalLength = buf1.length + buf2.length + buf3.length;
+	
+	// 输出: 42
+	console.log(totalLength);
+	
+	const bufA = Buffer.concat([buf1, buf2, buf3], totalLength);
+	
+	// 输出: <Buffer 00 00 00 00 ...>
+	console.log(bufA);
+	
+	// 输出: 42
+	console.log(bufA.length);
+	
 
 ##类方法：Buffer.from(array)
 
@@ -437,10 +437,10 @@ console.log(bufA.length);
 
 例子：
 
-```js
-// 创建一个新的包含字符串 'buffer' 的 UTF-8 字节的 Buffer
-const buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
-```
+	
+	// 创建一个新的包含字符串 'buffer' 的 UTF-8 字节的 Buffer
+	const buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
+	
 
 如果 `array` 不是一个数组，则抛出 `TypeError` 错误。
 
@@ -450,41 +450,41 @@ const buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
 * `byteOffset` {Integer} 开始拷贝的索引。默认为 `0`。
 * `length` {Integer} 拷贝的字节数。默认为 `arrayBuffer.length - byteOffset`。
 
-This creates a view of the [`ArrayBuffer`] without copying the underlying memory. 
+This creates a view of the [`ArrayBuffer`] without copying the underlying memory.
 例如，当传入一个 [`TypedArray`] 实例的 `.buffer` 属性的引用时，这个新建的 `Buffer` 会像 [`TypedArray`] 那样共享同一分配的内存。
 
 例子：
 
-```js
-const arr = new Uint16Array(2);
-
-arr[0] = 5000;
-arr[1] = 4000;
-
-// 与 `arr` 共享内存
-const buf = Buffer.from(arr.buffer);
-
-// 输出: <Buffer 88 13 a0 0f>
-console.log(buf);
-
-// 改变原始的 Uint16Array 也会改变 Buffer
-arr[1] = 6000;
-
-// 输出: <Buffer 88 13 70 17>
-console.log(buf);
-```
+	
+	const arr = new Uint16Array(2);
+	
+	arr[0] = 5000;
+	arr[1] = 4000;
+	
+	// 与 `arr` 共享内存
+	const buf = Buffer.from(arr.buffer);
+	
+	// 输出: <Buffer 88 13 a0 0f>
+	console.log(buf);
+	
+	// 改变原始的 Uint16Array 也会改变 Buffer
+	arr[1] = 6000;
+	
+	// 输出: <Buffer 88 13 70 17>
+	console.log(buf);
+	
 
 可选的 `byteOffset` 和 `length` 参数指定将与 `Buffer` 共享的 `arrayBuffer` 的内存范围。
 
 例子：
 
-```js
-const ab = new ArrayBuffer(10);
-const buf = Buffer.from(ab, 0, 2);
-
-// 输出: 2
-console.log(buf.length);
-```
+	
+	const ab = new ArrayBuffer(10);
+	const buf = Buffer.from(ab, 0, 2);
+	
+	// 输出: 2
+	console.log(buf.length);
+	
 
 如果 `arrayBuffer` 不是一个 [`ArrayBuffer`]，则抛出 `TypeError` 错误。
 
@@ -495,19 +495,19 @@ console.log(buf.length);
 将传入的 `buffer` 数据拷贝到一个新建的 `Buffer` 实例。
 
 例子：
-
-```js
-const buf1 = Buffer.from('buffer');
-const buf2 = Buffer.from(buf1);
-
-buf1[0] = 0x61;
-
-// 输出: auffer
-console.log(buf1.toString());
-
-// 输出: buffer
-console.log(buf2.toString());
-```
+	
+	
+	const buf1 = Buffer.from('buffer');
+	const buf2 = Buffer.from(buf1);
+	
+	buf1[0] = 0x61;
+	
+	// 输出: auffer
+	console.log(buf1.toString());
+	
+	// 输出: buffer
+	console.log(buf2.toString());
+	
 
 如果 `buffer` 不是一个 `Buffer`，则抛出 `TypeError` 错误。
 
@@ -521,21 +521,21 @@ console.log(buf2.toString());
 
 例子：
 
-```js
-const buf1 = Buffer.from('this is a tést');
-
-// 输出: this is a tést
-console.log(buf1.toString());
-
-// 输出: this is a tC)st
-console.log(buf1.toString('ascii'));
-
-
-const buf2 = Buffer.from('7468697320697320612074c3a97374', 'hex');
-
-// 输出: this is a tést
-console.log(buf2.toString());
-```
+	
+	const buf1 = Buffer.from('this is a tést');
+	
+	// 输出: this is a tést
+	console.log(buf1.toString());
+	
+	// 输出: this is a tC)st
+	console.log(buf1.toString('ascii'));
+	
+	
+	const buf2 = Buffer.from('7468697320697320612074c3a97374', 'hex');
+	
+	// 输出: this is a tést
+	console.log(buf2.toString());
+	
 
 如果 `string` 不是一个字符串，则抛出 `TypeError` 错误。
 
@@ -569,17 +569,17 @@ console.log(buf2.toString());
 
 例如：拷贝一个 ASCII 字符串到一个 `Buffer`，每次一个字节。
 
-```js
-const str = 'Node.js';
-const buf = Buffer.allocUnsafe(str.length);
-
-for (let i = 0; i < str.length ; i++) {
-  buf[i] = str.charCodeAt(i);
-}
-
-// 输出: Node.js
-console.log(buf.toString('ascii'));
-```
+	
+	const str = 'Node.js';
+	const buf = Buffer.allocUnsafe(str.length);
+	
+	for (let i = 0; i < str.length ; i++) {
+	  buf[i] = str.charCodeAt(i);
+	}
+	
+	// 输出: Node.js
+	console.log(buf.toString('ascii'));
+	
 
 ##buf.compare(target[, targetStart[, targetEnd[, sourceStart[, sourceEnd]]]])
 
@@ -606,48 +606,48 @@ console.log(buf.toString('ascii'));
 
 例子：
 
-```js
-const buf1 = Buffer.from('ABC');
-const buf2 = Buffer.from('BCD');
-const buf3 = Buffer.from('ABCD');
-
-// 输出: 0
-console.log(buf1.compare(buf1));
-
-// 输出: -1
-console.log(buf1.compare(buf2));
-
-// 输出: -1
-console.log(buf1.compare(buf3));
-
-// 输出: 1
-console.log(buf2.compare(buf1));
-
-// 输出: 1
-console.log(buf2.compare(buf3));
-
-// 输出: [ <Buffer 41 42 43>, <Buffer 41 42 43 44>, <Buffer 42 43 44> ]
-// (结果相当于: [buf1, buf3, buf2])
-console.log([buf1, buf2, buf3].sort(Buffer.compare));
-```
+	
+	const buf1 = Buffer.from('ABC');
+	const buf2 = Buffer.from('BCD');
+	const buf3 = Buffer.from('ABCD');
+	
+	// 输出: 0
+	console.log(buf1.compare(buf1));
+	
+	// 输出: -1
+	console.log(buf1.compare(buf2));
+	
+	// 输出: -1
+	console.log(buf1.compare(buf3));
+	
+	// 输出: 1
+	console.log(buf2.compare(buf1));
+	
+	// 输出: 1
+	console.log(buf2.compare(buf3));
+	
+	// 输出: [ <Buffer 41 42 43>, <Buffer 41 42 43 44>, <Buffer 42 43 44> ]
+	// (结果相当于: [buf1, buf3, buf2])
+	console.log([buf1, buf2, buf3].sort(Buffer.compare));
+	
 
 可选的  `targetStart` 、 `targetEnd` 、 `sourceStart` 与 `sourceEnd` 参数可用于分别在 `target` 与 `buf` 中限制对比在指定的范围内。
 
 例子：
 
-```js
-const buf1 = Buffer.from([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-const buf2 = Buffer.from([5, 6, 7, 8, 9, 1, 2, 3, 4]);
-
-// 输出: 0
-console.log(buf1.compare(buf2, 5, 9, 0, 4));
-
-// 输出: -1
-console.log(buf1.compare(buf2, 0, 6, 4));
-
-// 输出: 1
-console.log(buf1.compare(buf2, 5, 6, 5));
-```
+	
+	const buf1 = Buffer.from([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+	const buf2 = Buffer.from([5, 6, 7, 8, 9, 1, 2, 3, 4]);
+	
+	// 输出: 0
+	console.log(buf1.compare(buf2, 5, 9, 0, 4));
+	
+	// 输出: -1
+	console.log(buf1.compare(buf2, 0, 6, 4));
+	
+	// 输出: 1
+	console.log(buf1.compare(buf2, 5, 6, 5));
+	
 
 如果 `targetStart < 0` 、 `sourceStart < 0` 、 `targetEnd > target.byteLength` 或 `sourceEnd > source.byteLength`，则抛出 `RangeError` 错误。
 
@@ -668,36 +668,36 @@ console.log(buf1.compare(buf2, 5, 6, 5));
 
 例子：创建两个 `Buffer` 实例 `buf1` 与 `buf2` ，并拷贝 `buf1` 中第 16 个至第 19 个字节到 `buf2` 第 8 个字节起。
 
-```js
-const buf1 = Buffer.allocUnsafe(26);
-const buf2 = Buffer.allocUnsafe(26).fill('!');
-
-for (let i = 0 ; i < 26 ; i++) {
-  // 97 是 'a' 的十进制 ASCII 值
-  buf1[i] = i + 97;
-}
-
-buf1.copy(buf2, 8, 16, 20);
-
-// 输出: !!!!!!!!qrst!!!!!!!!!!!!!
-console.log(buf2.toString('ascii', 0, 25));
-```
+	
+	const buf1 = Buffer.allocUnsafe(26);
+	const buf2 = Buffer.allocUnsafe(26).fill('!');
+	
+	for (let i = 0 ; i < 26 ; i++) {
+	  // 97 是 'a' 的十进制 ASCII 值
+	  buf1[i] = i + 97;
+	}
+	
+	buf1.copy(buf2, 8, 16, 20);
+	
+	// 输出: !!!!!!!!qrst!!!!!!!!!!!!!
+	console.log(buf2.toString('ascii', 0, 25));
+	
 
 例子：创建一个 `Buffer` ，并拷贝同一 `Buffer` 中一个区域的数据到另一个重叠的区域。
 
-```js
-const buf = Buffer.allocUnsafe(26);
-
-for (let i = 0 ; i < 26 ; i++) {
-  // 97 是 'a' 的十进制 ASCII 值
-  buf[i] = i + 97;
-}
-
-buf.copy(buf, 0, 4, 10);
-
-// 输出: efghijghijklmnopqrstuvwxyz
-console.log(buf.toString());
-```
+	
+	const buf = Buffer.allocUnsafe(26);
+	
+	for (let i = 0 ; i < 26 ; i++) {
+	  // 97 是 'a' 的十进制 ASCII 值
+	  buf[i] = i + 97;
+	}
+	
+	buf.copy(buf, 0, 4, 10);
+	
+	// 输出: efghijghijklmnopqrstuvwxyz
+	console.log(buf.toString());
+	
 
 ##buf.entries()
 
@@ -707,20 +707,20 @@ console.log(buf.toString());
 
 例子：记录一个 `Buffer` 全部的内容。
 
-```js
-const buf = Buffer.from('buffer');
-
-// 输出:
-//   [0, 98]
-//   [1, 117]
-//   [2, 102]
-//   [3, 102]
-//   [4, 101]
-//   [5, 114]
-for (const pair of buf.entries()) {
-  console.log(pair);
-}
-```
+	
+	const buf = Buffer.from('buffer');
+	
+	// 输出:
+	//   [0, 98]
+	//   [1, 117]
+	//   [2, 102]
+	//   [3, 102]
+	//   [4, 101]
+	//   [5, 114]
+	for (const pair of buf.entries()) {
+	  console.log(pair);
+	}
+	
 
 ##buf.equals(otherBuffer)
 
@@ -731,17 +731,17 @@ for (const pair of buf.entries()) {
 
 例子：
 
-```js
-const buf1 = Buffer.from('ABC');
-const buf2 = Buffer.from('414243', 'hex');
-const buf3 = Buffer.from('ABCD');
-
-// 输出: true
-console.log(buf1.equals(buf2));
-
-// 输出: false
-console.log(buf1.equals(buf3));
-```
+	
+	const buf1 = Buffer.from('ABC');
+	const buf2 = Buffer.from('414243', 'hex');
+	const buf3 = Buffer.from('ABCD');
+	
+	// 输出: true
+	console.log(buf1.equals(buf2));
+	
+	// 输出: false
+	console.log(buf1.equals(buf3));
+	
 
 ##buf.fill(value[, offset[, end]][, encoding])
 
@@ -757,12 +757,12 @@ console.log(buf1.equals(buf3));
 
 例子：用 ASCII 字符 `'h'` 填充 `Buffer`。
 
-```js
-const b = Buffer.allocUnsafe(50).fill('h');
-
-// 输出: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-console.log(b.toString());
-```
+	
+	const b = Buffer.allocUnsafe(50).fill('h');
+	
+	// 输出: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+	console.log(b.toString());
+	
 
 `value` 如果不是一个字符串或整数，则会被强行转换为 `uint32` 值。
 
@@ -772,10 +772,10 @@ then only the first bytes of that character that fit into `buf` are written.
 
 例子：用一个两个字节的字符填充 `Buffer`。
 
-```js
-// 输出: <Buffer c8 a2 c8>
-console.log(Buffer.allocUnsafe(3).fill('\u0222'));
-```
+	
+	// 输出: <Buffer c8 a2 c8>
+	console.log(Buffer.allocUnsafe(3).fill('\u0222'));
+	
 
 ##buf.indexOf(value[, byteOffset][, encoding])
 
@@ -793,64 +793,64 @@ console.log(Buffer.allocUnsafe(3).fill('\u0222'));
 
 例子：
 
-```js
-const buf = Buffer.from('this is a buffer');
-
-// 输出: 0
-console.log(buf.indexOf('this'));
-
-// 输出: 2
-console.log(buf.indexOf('is'));
-
-// 输出: 8
-console.log(buf.indexOf(Buffer.from('a buffer')));
-
-// 输出: 8
-// (97 是 'a' 的十进制 ASCII 值)
-console.log(buf.indexOf(97));
-
-// 输出: -1
-console.log(buf.indexOf(Buffer.from('a buffer example')));
-
-// 输出: 8
-console.log(buf.indexOf(Buffer.from('a buffer example').slice(0, 8)));
-
-
-const utf16Buffer = Buffer.from('\u039a\u0391\u03a3\u03a3\u0395', 'ucs2');
-
-// 输出: 4
-console.log(utf16Buffer.indexOf('\u03a3', 0, 'ucs2'));
-
-// 输出: 6
-console.log(utf16Buffer.indexOf('\u03a3', -4, 'ucs2'));
-```
+	
+	const buf = Buffer.from('this is a buffer');
+	
+	// 输出: 0
+	console.log(buf.indexOf('this'));
+	
+	// 输出: 2
+	console.log(buf.indexOf('is'));
+	
+	// 输出: 8
+	console.log(buf.indexOf(Buffer.from('a buffer')));
+	
+	// 输出: 8
+	// (97 是 'a' 的十进制 ASCII 值)
+	console.log(buf.indexOf(97));
+	
+	// 输出: -1
+	console.log(buf.indexOf(Buffer.from('a buffer example')));
+	
+	// 输出: 8
+	console.log(buf.indexOf(Buffer.from('a buffer example').slice(0, 8)));
+	
+	
+	const utf16Buffer = Buffer.from('\u039a\u0391\u03a3\u03a3\u0395', 'ucs2');
+	
+	// 输出: 4
+	console.log(utf16Buffer.indexOf('\u03a3', 0, 'ucs2'));
+	
+	// 输出: 6
+	console.log(utf16Buffer.indexOf('\u03a3', -4, 'ucs2'));
+	
 
 If `value` is not a string, number, or `Buffer`, this method will throw a
 `TypeError`. If `value` is a number, it will be coerced to a valid byte value,
 an integer between 0 and 255.
 
 如果 `value` 不是一个字符串， 数字， 或者 `Buffer`， 该方法会抛出一个
-`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值， 
-该值介于0到255之间。 
+`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值，
+该值介于0到255之间。
 
-如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`， 
-的参数， 将会搜索整个 buffer。 该行为和 [`String#indexOf()`] 保持一致。 
+如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`，
+的参数， 将会搜索整个 buffer。 该行为和 [`String#indexOf()`] 保持一致。
 
-```js
-const b = Buffer.from('abcdef');
-
-// Passing a value that's a number, but not a valid byte
-// Prints: 2, equivalent to searching for 99 or 'c'
-console.log(b.indexOf(99.9));
-console.log(b.indexOf(256 + 99));
-
-// Passing a byteOffset that coerces to NaN or 0
-// Prints: 1, searching the whole buffer
-console.log(b.indexOf('b', undefined));
-console.log(b.indexOf('b', {}));
-console.log(b.indexOf('b', null));
-console.log(b.indexOf('b', []));
-```
+	
+	const b = Buffer.from('abcdef');
+	
+	// Passing a value that's a number, but not a valid byte
+	// Prints: 2, equivalent to searching for 99 or 'c'
+	console.log(b.indexOf(99.9));
+	console.log(b.indexOf(256 + 99));
+	
+	// Passing a byteOffset that coerces to NaN or 0
+	// Prints: 1, searching the whole buffer
+	console.log(b.indexOf('b', undefined));
+	console.log(b.indexOf('b', {}));
+	console.log(b.indexOf('b', null));
+	console.log(b.indexOf('b', []));
+	
 
 ##buf.includes(value[, byteOffset][, encoding])
 
@@ -863,32 +863,32 @@ console.log(b.indexOf('b', []));
 相当于 [`buf.indexOf() !== -1`]。
 
 例子：
-
-```js
-const buf = Buffer.from('this is a buffer');
-
-// 输出: true
-console.log(buf.includes('this'));
-
-// 输出: true
-console.log(buf.includes('is'));
-
-// 输出: true
-console.log(buf.includes(Buffer.from('a buffer')));
-
-// 输出: true
-// (97 是 'a' 的十进制 ASCII 值)
-console.log(buf.includes(97));
-
-// 输出: false
-console.log(buf.includes(Buffer.from('a buffer example')));
-
-// 输出: true
-console.log(buf.includes(Buffer.from('a buffer example').slice(0, 8)));
-
-// 输出: false
-console.log(buf.includes('this', 4));
-```
+	
+	
+	const buf = Buffer.from('this is a buffer');
+	
+	// 输出: true
+	console.log(buf.includes('this'));
+	
+	// 输出: true
+	console.log(buf.includes('is'));
+	
+	// 输出: true
+	console.log(buf.includes(Buffer.from('a buffer')));
+	
+	// 输出: true
+	// (97 是 'a' 的十进制 ASCII 值)
+	console.log(buf.includes(97));
+	
+	// 输出: false
+	console.log(buf.includes(Buffer.from('a buffer example')));
+	
+	// 输出: true
+	console.log(buf.includes(Buffer.from('a buffer example').slice(0, 8)));
+	
+	// 输出: false
+	console.log(buf.includes('this', 4));
+	
 
 ##buf.keys()
 
@@ -898,20 +898,20 @@ console.log(buf.includes('this', 4));
 
 例子：
 
-```js
-const buf = Buffer.from('buffer');
-
-// 输出:
-//   0
-//   1
-//   2
-//   3
-//   4
-//   5
-for (const key of buf.keys()) {
-  console.log(key);
-}
-```
+	
+	const buf = Buffer.from('buffer');
+	
+	// 输出:
+	//   0
+	//   1
+	//   2
+	//   3
+	//   4
+	//   5
+	for (const key of buf.keys()) {
+	  console.log(key);
+	}
+	
 
 ##buf.lastIndexOf(value[, byteOffset][, encoding])
 
@@ -925,67 +925,67 @@ for (const key of buf.keys()) {
 与 [`buf.indexOf()`] 类似，除了 `buf` 是从后往前搜索而不是从前往后。
 
 例子：
-
-```js
-const buf = Buffer.from('this buffer is a buffer');
-
-// 输出: 0
-console.log(buf.lastIndexOf('this'));
-
-// 输出: 17
-console.log(buf.lastIndexOf('buffer'));
-
-// 输出: 17
-console.log(buf.lastIndexOf(Buffer.from('buffer')));
-
-// 输出: 15
-// (97 是 'a' 的十进制 ASCII 值)
-console.log(buf.lastIndexOf(97));
-
-// 输出: -1
-console.log(buf.lastIndexOf(Buffer.from('yolo')));
-
-// 输出: 5
-console.log(buf.lastIndexOf('buffer', 5));
-
-// 输出: -1
-console.log(buf.lastIndexOf('buffer', 4));
-
-
-const utf16Buffer = Buffer.from('\u039a\u0391\u03a3\u03a3\u0395', 'ucs2');
-
-// 输出: 6
-console.log(utf16Buffer.lastIndexOf('\u03a3', undefined, 'ucs2'));
-
-// 输出: 4
-console.log(utf16Buffer.lastIndexOf('\u03a3', -5, 'ucs2'));
-```
+	
+	
+	const buf = Buffer.from('this buffer is a buffer');
+	
+	// 输出: 0
+	console.log(buf.lastIndexOf('this'));
+	
+	// 输出: 17
+	console.log(buf.lastIndexOf('buffer'));
+	
+	// 输出: 17
+	console.log(buf.lastIndexOf(Buffer.from('buffer')));
+	
+	// 输出: 15
+	// (97 是 'a' 的十进制 ASCII 值)
+	console.log(buf.lastIndexOf(97));
+	
+	// 输出: -1
+	console.log(buf.lastIndexOf(Buffer.from('yolo')));
+	
+	// 输出: 5
+	console.log(buf.lastIndexOf('buffer', 5));
+	
+	// 输出: -1
+	console.log(buf.lastIndexOf('buffer', 4));
+	
+	
+	const utf16Buffer = Buffer.from('\u039a\u0391\u03a3\u03a3\u0395', 'ucs2');
+	
+	// 输出: 6
+	console.log(utf16Buffer.lastIndexOf('\u03a3', undefined, 'ucs2'));
+	
+	// 输出: 4
+	console.log(utf16Buffer.lastIndexOf('\u03a3', -5, 'ucs2'));
+	
 
 如果 `value` 不是一个字符串， 数字， 或者 `Buffer`， 该方法会抛出一个
-`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值， 
-该值介于0到255之间。 
+`TypeError` 异常， 如果 `value` 是一个数字， 它将会被强制转换成一个有效的 byte 值，
+该值介于0到255之间。
 
-如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`， 
-的参数， 将会搜索整个 buffer。 该行为和 [`String#lastIndexOf()`] 保持一致。 
+如果 `byteOffset` 不是一个数字， 它将会被强制转换成一个数字。  任何对 `NaN` or 0, like `{}`, `[]`, `null` or `undefined`，
+的参数， 将会搜索整个 buffer。 该行为和 [`String#lastIndexOf()`] 保持一致。
 
-```js
-const b = Buffer.from('abcdef');
-
-// Passing a value that's a number, but not a valid byte
-// Prints: 2, equivalent to searching for 99 or 'c'
-console.log(b.lastIndexOf(99.9));
-console.log(b.lastIndexOf(256 + 99));
-
-// Passing a byteOffset that coerces to NaN
-// Prints: 1, searching the whole buffer
-console.log(b.lastIndexOf('b', undefined));
-console.log(b.lastIndexOf('b', {}));
-
-// Passing a byteOffset that coerces to 0
-// Prints: -1, equivalent to passing 0
-console.log(b.lastIndexOf('b', null));
-console.log(b.lastIndexOf('b', []));
-```
+	
+	const b = Buffer.from('abcdef');
+	
+	// Passing a value that's a number, but not a valid byte
+	// Prints: 2, equivalent to searching for 99 or 'c'
+	console.log(b.lastIndexOf(99.9));
+	console.log(b.lastIndexOf(256 + 99));
+	
+	// Passing a byteOffset that coerces to NaN
+	// Prints: 1, searching the whole buffer
+	console.log(b.lastIndexOf('b', undefined));
+	console.log(b.lastIndexOf('b', {}));
+	
+	// Passing a byteOffset that coerces to 0
+	// Prints: -1, equivalent to passing 0
+	console.log(b.lastIndexOf('b', null));
+	console.log(b.lastIndexOf('b', []));
+	
 
 ##buf.length
 
@@ -996,36 +996,36 @@ console.log(b.lastIndexOf('b', []));
 
 例子：创建一个 `Buffer` 并写入一个较短的 ASCII 字符串。
 
-```js
-const buf = Buffer.alloc(1234);
-
-// 输出: 1234
-console.log(buf.length);
-
-buf.write('some string', 0, 'ascii');
-
-// 输出: 1234
-console.log(buf.length);
-```
+	
+	const buf = Buffer.alloc(1234);
+	
+	// 输出: 1234
+	console.log(buf.length);
+	
+	buf.write('some string', 0, 'ascii');
+	
+	// 输出: 1234
+	console.log(buf.length);
+	
 
 虽然 `length` 属性不是不可变的，但改变 `length` 的值可能会导致不确定、不一致的行为。
 那些希望修改一个 `Buffer` 的长度的应用程序应当将 `length` 视为只读的，且使用 [`buf.slice()`] 创建一个新的 `Buffer`。
 
 例子：
 
-```js
-let buf = Buffer.allocUnsafe(10);
-
-buf.write('abcdefghj', 0, 'ascii');
-
-// 输出: 10
-console.log(buf.length);
-
-buf = buf.slice(0, 5);
-
-// 输出: 5
-console.log(buf.length);
-```
+	
+	let buf = Buffer.allocUnsafe(10);
+	
+	buf.write('abcdefghj', 0, 'ascii');
+	
+	// 输出: 10
+	console.log(buf.length);
+	
+	buf = buf.slice(0, 5);
+	
+	// 输出: 5
+	console.log(buf.length);
+	
 
 ##buf.readDoubleBE(offset[, noAssert])
 
@@ -1039,22 +1039,22 @@ console.log(buf.length);
 
 例子：
 
-```js
-const buf = Buffer.from([1, 2, 3, 4, 5, 6, 7, 8]);
-
-// 输出: 8.20788039913184e-304
-console.log(buf.readDoubleBE());
-
-// 输出: 5.447603722011605e-270
-console.log(buf.readDoubleLE());
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readDoubleLE(1));
-
-// 警告: 读取超出 buffer 的最后一位字节！
-// 这会导致内存区段错误！不要这么做！
-console.log(buf.readDoubleLE(1, true));
-```
+	
+	const buf = Buffer.from([1, 2, 3, 4, 5, 6, 7, 8]);
+	
+	// 输出: 8.20788039913184e-304
+	console.log(buf.readDoubleBE());
+	
+	// 输出: 5.447603722011605e-270
+	console.log(buf.readDoubleLE());
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readDoubleLE(1));
+	
+	// 警告: 读取超出 buffer 的最后一位字节！
+	// 这会导致内存区段错误！不要这么做！
+	console.log(buf.readDoubleLE(1, true));
+	
 
 ##buf.readFloatLE(offset[, noAssert])
 
@@ -1068,22 +1068,22 @@ console.log(buf.readDoubleLE(1, true));
 
 例子：
 
-```js
-const buf = Buffer.from([1, 2, 3, 4]);
-
-// 输出: 2.387939260590663e-38
-console.log(buf.readFloatBE());
-
-// 输出: 1.539989614439558e-36
-console.log(buf.readFloatLE());
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readFloatLE(1));
-
-// 警告: 读取超出 buffer 的最后一位字节！
-// 这会导致内存区段错误！不要这么做！
-console.log(buf.readFloatLE(1, true));
-```
+	
+	const buf = Buffer.from([1, 2, 3, 4]);
+	
+	// 输出: 2.387939260590663e-38
+	console.log(buf.readFloatBE());
+	
+	// 输出: 1.539989614439558e-36
+	console.log(buf.readFloatLE());
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readFloatLE(1));
+	
+	// 警告: 读取超出 buffer 的最后一位字节！
+	// 这会导致内存区段错误！不要这么做！
+	console.log(buf.readFloatLE(1, true));
+	
 
 ##buf.readInt8(offset[, noAssert])
 
@@ -1099,18 +1099,18 @@ console.log(buf.readFloatLE(1, true));
 
 例子：
 
-```js
-const buf = Buffer.from([-1, 5]);
-
-// 输出: -1
-console.log(buf.readInt8(0));
-
-// 输出: 5
-console.log(buf.readInt8(1));
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readInt8(2));
-```
+	
+	const buf = Buffer.from([-1, 5]);
+	
+	// 输出: -1
+	console.log(buf.readInt8(0));
+	
+	// 输出: 5
+	console.log(buf.readInt8(1));
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readInt8(2));
+	
 ##buf.readInt16BE(offset[, noAssert])
 ##buf.readInt16LE(offset[, noAssert])
 
@@ -1126,18 +1126,18 @@ console.log(buf.readInt8(2));
 
 例子：
 
-```js
-const buf = Buffer.from([0, 5]);
-
-// 输出: 5
-console.log(buf.readInt16BE());
-
-// 输出: 1280
-console.log(buf.readInt16LE());
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readInt16LE(1));
-```
+	
+	const buf = Buffer.from([0, 5]);
+	
+	// 输出: 5
+	console.log(buf.readInt16BE());
+	
+	// 输出: 1280
+	console.log(buf.readInt16LE());
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readInt16LE(1));
+	
 
 ##buf.readInt32BE(offset[, noAssert])
 ##buf.readInt32LE(offset[, noAssert])
@@ -1154,18 +1154,18 @@ console.log(buf.readInt16LE(1));
 
 例子：
 
-```js
-const buf = Buffer.from([0, 0, 0, 5]);
-
-// 输出: 5
-console.log(buf.readInt32BE());
-
-// 输出: 83886080
-console.log(buf.readInt32LE());
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readInt32LE(1));
-```
+	
+	const buf = Buffer.from([0, 0, 0, 5]);
+	
+	// 输出: 5
+	console.log(buf.readInt32BE());
+	
+	// 输出: 83886080
+	console.log(buf.readInt32LE());
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readInt32LE(1));
+	
 
 ##buf.readIntLE(offset, byteLength[, noAssert])
 
@@ -1181,18 +1181,18 @@ console.log(buf.readInt32LE(1));
 
 例子：
 
-```js
-const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
-
-// 输出: -546f87a9cbee
-console.log(buf.readIntLE(0, 6).toString(16));
-
-// 输出: 1234567890ab
-console.log(buf.readIntBE(0, 6).toString(16));
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readIntBE(1, 6).toString(16));
-```
+	
+	const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
+	
+	// 输出: -546f87a9cbee
+	console.log(buf.readIntLE(0, 6).toString(16));
+	
+	// 输出: 1234567890ab
+	console.log(buf.readIntBE(0, 6).toString(16));
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readIntBE(1, 6).toString(16));
+	
 
 ##buf.readUInt8(offset[, noAssert])
 
@@ -1206,18 +1206,18 @@ console.log(buf.readIntBE(1, 6).toString(16));
 
 例子：
 
-```js
-const buf = Buffer.from([1, -2]);
-
-// 输出: 1
-console.log(buf.readUInt8(0));
-
-// 输出: 254
-console.log(buf.readUInt8(1));
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readUInt8(2));
-```
+	
+	const buf = Buffer.from([1, -2]);
+	
+	// 输出: 1
+	console.log(buf.readUInt8(0));
+	
+	// 输出: 254
+	console.log(buf.readUInt8(1));
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readUInt8(2));
+	
 ##buf.readUInt16BE(offset[, noAssert])
 ##buf.readUInt16LE(offset[, noAssert])
 
@@ -1231,24 +1231,24 @@ console.log(buf.readUInt8(2));
 
 例子：
 
-```js
-const buf = Buffer.from([0x12, 0x34, 0x56]);
-
-// 输出: 1234
-console.log(buf.readUInt16BE(0).toString(16));
-
-// 输出: 3412
-console.log(buf.readUInt16LE(0).toString(16));
-
-// 输出: 3456
-console.log(buf.readUInt16BE(1).toString(16));
-
-// 输出: 5634
-console.log(buf.readUInt16LE(1).toString(16));
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readUInt16LE(2).toString(16));
-```
+	
+	const buf = Buffer.from([0x12, 0x34, 0x56]);
+	
+	// 输出: 1234
+	console.log(buf.readUInt16BE(0).toString(16));
+	
+	// 输出: 3412
+	console.log(buf.readUInt16LE(0).toString(16));
+	
+	// 输出: 3456
+	console.log(buf.readUInt16BE(1).toString(16));
+	
+	// 输出: 5634
+	console.log(buf.readUInt16LE(1).toString(16));
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readUInt16LE(2).toString(16));
+	
 
 ##buf.readUInt32BE(offset[, noAssert])
 ##buf.readUInt32LE(offset[, noAssert])
@@ -1263,18 +1263,18 @@ console.log(buf.readUInt16LE(2).toString(16));
 
 例子：
 
-```js
-const buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);
-
-// 输出: 12345678
-console.log(buf.readUInt32BE(0).toString(16));
-
-// 输出: 78563412
-console.log(buf.readUInt32LE(0).toString(16));
-
-// 抛出异常: RangeError: Index out of range
-console.log(buf.readUInt32LE(1).toString(16));
-```
+	
+	const buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);
+	
+	// 输出: 12345678
+	console.log(buf.readUInt32BE(0).toString(16));
+	
+	// 输出: 78563412
+	console.log(buf.readUInt32LE(0).toString(16));
+	
+	// 抛出异常: RangeError: Index out of range
+	console.log(buf.readUInt32LE(1).toString(16));
+	
 ##buf.readUIntBE(offset, byteLength[, noAssert])
 ##buf.readUIntLE(offset, byteLength[, noAssert])
 
@@ -1290,18 +1290,18 @@ console.log(buf.readUInt32LE(1).toString(16));
 
 例子：
 
-```js
-const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
-
-// 输出: 1234567890ab
-console.log(buf.readUIntBE(0, 6).toString(16));
-
-// 输出: ab9078563412
-console.log(buf.readUIntLE(0, 6).toString(16));
-
-//抛出异常: RangeError: Index out of range
-console.log(buf.readUIntBE(1, 6).toString(16));
-```
+	
+	const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
+	
+	// 输出: 1234567890ab
+	console.log(buf.readUIntBE(0, 6).toString(16));
+	
+	// 输出: ab9078563412
+	console.log(buf.readUIntLE(0, 6).toString(16));
+	
+	//抛出异常: RangeError: Index out of range
+	console.log(buf.readUIntBE(1, 6).toString(16));
+	
 
 ##buf.slice([start[, end]])
 
@@ -1316,44 +1316,44 @@ console.log(buf.readUIntBE(1, 6).toString(16));
 
 例子：创建一个包含 ASCII 字母表的 `Buffer`，并进行切片，然后修改原始 `Buffer` 上的一个字节。
 
-```js
-const buf1 = Buffer.allocUnsafe(26);
-
-for (let i = 0 ; i < 26 ; i++) {
-  // 97 是 'a' 的十进制 ASCII 值 
-  buf1[i] = i + 97;
-}
-
-const buf2 = buf1.slice(0, 3);
-
-// 输出: abc
-console.log(buf2.toString('ascii', 0, buf2.length));
-
-buf1[0] = 33;
-
-// 输出: !bc
-console.log(buf2.toString('ascii', 0, buf2.length));
-```
+	
+	const buf1 = Buffer.allocUnsafe(26);
+	
+	for (let i = 0 ; i < 26 ; i++) {
+	  // 97 是 'a' 的十进制 ASCII 值
+	  buf1[i] = i + 97;
+	}
+	
+	const buf2 = buf1.slice(0, 3);
+	
+	// 输出: abc
+	console.log(buf2.toString('ascii', 0, buf2.length));
+	
+	buf1[0] = 33;
+	
+	// 输出: !bc
+	console.log(buf2.toString('ascii', 0, buf2.length));
+	
 
 指定负的索引会导致切片的生成是相对于 `buf` 的末尾而不是开头。
 
 例子：
 
-```js
-const buf = Buffer.from('buffer');
-
-// 输出: buffe
-// (相当于 buf.slice(0, 5))
-console.log(buf.slice(-6, -1).toString());
-
-// 输出: buff
-// (相当于 buf.slice(0, 4))
-console.log(buf.slice(-6, -2).toString());
-
-// 输出: uff
-// (相当于 buf.slice(1, 4))
-console.log(buf.slice(-5, -2).toString());
-```
+	
+	const buf = Buffer.from('buffer');
+	
+	// 输出: buffe
+	// (相当于 buf.slice(0, 5))
+	console.log(buf.slice(-6, -1).toString());
+	
+	// 输出: buff
+	// (相当于 buf.slice(0, 4))
+	console.log(buf.slice(-6, -2).toString());
+	
+	// 输出: uff
+	// (相当于 buf.slice(1, 4))
+	console.log(buf.slice(-5, -2).toString());
+	
 
 ##buf.swap16()
 
@@ -1364,23 +1364,23 @@ console.log(buf.slice(-5, -2).toString());
 
 例子：
 
-```js
-const buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
-
-// 输出: <Buffer 01 02 03 04 05 06 07 08>
-console.log(buf1);
-
-buf1.swap16();
-
-// 输出: <Buffer 02 01 04 03 06 05 08 07>
-console.log(buf1);
-
-
-const buf2 = Buffer.from([0x1, 0x2, 0x3]);
-
-// 抛出异常: RangeError: Buffer size must be a multiple of 16-bits
-buf2.swap16();
-```
+	
+	const buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
+	
+	// 输出: <Buffer 01 02 03 04 05 06 07 08>
+	console.log(buf1);
+	
+	buf1.swap16();
+	
+	// 输出: <Buffer 02 01 04 03 06 05 08 07>
+	console.log(buf1);
+	
+	
+	const buf2 = Buffer.from([0x1, 0x2, 0x3]);
+	
+	// 抛出异常: RangeError: Buffer size must be a multiple of 16-bits
+	buf2.swap16();
+	
 
 ##buf.swap32()
 
@@ -1391,23 +1391,23 @@ buf2.swap16();
 
 例子：
 
-```js
-const buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
-
-// 输出: <Buffer 01 02 03 04 05 06 07 08>
-console.log(buf1);
-
-buf1.swap32();
-
-// 输出: <Buffer 04 03 02 01 08 07 06 05>
-console.log(buf1);
-
-
-const buf2 = Buffer.from([0x1, 0x2, 0x3]);
-
-// 抛出异常: RangeError: Buffer size must be a multiple of 32-bits
-buf2.swap32();
-```
+	
+	const buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
+	
+	// 输出: <Buffer 01 02 03 04 05 06 07 08>
+	console.log(buf1);
+	
+	buf1.swap32();
+	
+	// 输出: <Buffer 04 03 02 01 08 07 06 05>
+	console.log(buf1);
+	
+	
+	const buf2 = Buffer.from([0x1, 0x2, 0x3]);
+	
+	// 抛出异常: RangeError: Buffer size must be a multiple of 32-bits
+	buf2.swap32();
+	
 
 ##buf.swap64()
 
@@ -1418,23 +1418,23 @@ buf2.swap32();
 
 例子：
 
-```js
-const buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
-
-// 输出: <Buffer 01 02 03 04 05 06 07 08>
-console.log(buf1);
-
-buf1.swap64();
-
-// 输出: <Buffer 08 07 06 05 04 03 02 01>
-console.log(buf1);
-
-
-const buf2 = Buffer.from([0x1, 0x2, 0x3]);
-
-// 抛出异常: RangeError: Buffer size must be a multiple of 64-bits
-buf2.swap64();
-```
+	
+	const buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
+	
+	// 输出: <Buffer 01 02 03 04 05 06 07 08>
+	console.log(buf1);
+	
+	buf1.swap64();
+	
+	// 输出: <Buffer 08 07 06 05 04 03 02 01>
+	console.log(buf1);
+	
+	
+	const buf2 = Buffer.from([0x1, 0x2, 0x3]);
+	
+	// 抛出异常: RangeError: Buffer size must be a multiple of 64-bits
+	buf2.swap64();
+	
 
 注意，JavaScript 不能编码64位整数。
 该方法是用来处理64位浮点数的。
@@ -1452,32 +1452,32 @@ buf2.swap64();
 
 例子：
 
-```js
-const buf1 = Buffer.allocUnsafe(26);
-
-for (let i = 0 ; i < 26 ; i++) {
-  // 97 是 'a' 的十进制 ASCII 值
-  buf1[i] = i + 97;
-}
-
-// 输出: abcdefghijklmnopqrstuvwxyz
-console.log(buf1.toString('ascii'));
-
-// 输出: abcde
-console.log(buf1.toString('ascii', 0, 5));
-
-
-const buf2 = Buffer.from('tést');
-
-// 输出: 74c3a97374
-console.log(buf2.toString('hex'));
-
-// 输出: té
-console.log(buf2.toString('utf8', 0, 3));
-
-// 输出: té
-console.log(buf2.toString(undefined, 0, 3));
-```
+	
+	const buf1 = Buffer.allocUnsafe(26);
+	
+	for (let i = 0 ; i < 26 ; i++) {
+	  // 97 是 'a' 的十进制 ASCII 值
+	  buf1[i] = i + 97;
+	}
+	
+	// 输出: abcdefghijklmnopqrstuvwxyz
+	console.log(buf1.toString('ascii'));
+	
+	// 输出: abcde
+	console.log(buf1.toString('ascii', 0, 5));
+	
+	
+	const buf2 = Buffer.from('tést');
+	
+	// 输出: 74c3a97374
+	console.log(buf2.toString('hex'));
+	
+	// 输出: té
+	console.log(buf2.toString('utf8', 0, 3));
+	
+	// 输出: té
+	console.log(buf2.toString(undefined, 0, 3));
+	
 
 ##buf.toJSON()
 
@@ -1487,23 +1487,23 @@ console.log(buf2.toString(undefined, 0, 3));
 当字符串化一个 `Buffer` 实例时，[`JSON.stringify()`] 会隐式地调用该函数。
 
 例子：
-
-```js
-const buf = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);
-const json = JSON.stringify(buf);
-
-// 输出: {"type":"Buffer","data":[1,2,3,4,5]}
-console.log(json);
-
-const copy = JSON.parse(json, (key, value) => {
-  return value && value.type === 'Buffer'
-    ? Buffer.from(value.data)
-    : value;
-});
-
-// 输出: <Buffer 01 02 03 04 05>
-console.log(copy);
-```
+	
+	
+	const buf = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);
+	const json = JSON.stringify(buf);
+	
+	// 输出: {"type":"Buffer","data":[1,2,3,4,5]}
+	console.log(json);
+	
+	const copy = JSON.parse(json, (key, value) => {
+	  return value && value.type === 'Buffer'
+	    ? Buffer.from(value.data)
+	    : value;
+	});
+	
+	// 输出: <Buffer 01 02 03 04 05>
+	console.log(copy);
+	
 
 ##buf.values()
 
@@ -1514,31 +1514,31 @@ console.log(copy);
 
 例子：
 
-```js
-const buf = Buffer.from('buffer');
-
-// 输出:
-//   98
-//   117
-//   102
-//   102
-//   101
-//   114
-for (const value of buf.values()) {
-  console.log(value);
-}
-
-// 输出:
-//   98
-//   117
-//   102
-//   102
-//   101
-//   114
-for (const value of buf) {
-  console.log(value);
-}
-```
+	
+	const buf = Buffer.from('buffer');
+	
+	// 输出:
+	//   98
+	//   117
+	//   102
+	//   102
+	//   101
+	//   114
+	for (const value of buf.values()) {
+	  console.log(value);
+	}
+	
+	// 输出:
+	//   98
+	//   117
+	//   102
+	//   102
+	//   101
+	//   114
+	for (const value of buf) {
+	  console.log(value);
+	}
+	
 
 ##buf.write(string[, offset[, length]][, encoding])
 
@@ -1555,14 +1555,14 @@ for (const value of buf) {
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(256);
-
-const len = buf.write('\u00bd + \u00bc = \u00be', 0);
-
-// 输出: 12 个字节: ½ + ¼ = ¾
-console.log(`${len} 个字节: ${buf.toString('utf8', 0, len)}`);
-```
+	
+	const buf = Buffer.allocUnsafe(256);
+	
+	const len = buf.write('\u00bd + \u00bc = \u00be', 0);
+	
+	// 输出: 12 个字节: ½ + ¼ = ¾
+	console.log(`${len} 个字节: ${buf.toString('utf8', 0, len)}`);
+	
 ##buf.writeDoubleBE(value, offset[, noAssert])
 ##buf.writeDoubleLE(value, offset[, noAssert])
 
@@ -1579,19 +1579,19 @@ console.log(`${len} 个字节: ${buf.toString('utf8', 0, len)}`);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(8);
-
-buf.writeDoubleBE(0xdeadbeefcafebabe, 0);
-
-// 输出: <Buffer 43 eb d5 b7 dd f9 5f d7>
-console.log(buf);
-
-buf.writeDoubleLE(0xdeadbeefcafebabe, 0);
-
-// 输出: <Buffer d7 5f f9 dd b7 d5 eb 43>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(8);
+	
+	buf.writeDoubleBE(0xdeadbeefcafebabe, 0);
+	
+	// 输出: <Buffer 43 eb d5 b7 dd f9 5f d7>
+	console.log(buf);
+	
+	buf.writeDoubleLE(0xdeadbeefcafebabe, 0);
+	
+	// 输出: <Buffer d7 5f f9 dd b7 d5 eb 43>
+	console.log(buf);
+	
 ##buf.writeFloatBE(value, offset[, noAssert])
 ##buf.writeFloatLE(value, offset[, noAssert])
 
@@ -1608,19 +1608,19 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(4);
-
-buf.writeFloatBE(0xcafebabe, 0);
-
-// 输出: <Buffer 4f 4a fe bb>
-console.log(buf);
-
-buf.writeFloatLE(0xcafebabe, 0);
-
-// 输出: <Buffer bb fe 4a 4f>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(4);
+	
+	buf.writeFloatBE(0xcafebabe, 0);
+	
+	// 输出: <Buffer 4f 4a fe bb>
+	console.log(buf);
+	
+	buf.writeFloatLE(0xcafebabe, 0);
+	
+	// 输出: <Buffer bb fe 4a 4f>
+	console.log(buf);
+	
 
 ##buf.writeInt8(value, offset[, noAssert])
 
@@ -1639,15 +1639,15 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(2);
-
-buf.writeInt8(2, 0);
-buf.writeInt8(-2, 1);
-
-// 输出: <Buffer 02 fe>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(2);
+	
+	buf.writeInt8(2, 0);
+	buf.writeInt8(-2, 1);
+	
+	// 输出: <Buffer 02 fe>
+	console.log(buf);
+	
 
 ##buf.writeInt16BE(value, offset[, noAssert])
 ##buf.writeInt16LE(value, offset[, noAssert])
@@ -1667,15 +1667,15 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(4);
-
-buf.writeInt16BE(0x0102, 0);
-buf.writeInt16LE(0x0304, 2);
-
-// 输出: <Buffer 01 02 04 03>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(4);
+	
+	buf.writeInt16BE(0x0102, 0);
+	buf.writeInt16LE(0x0304, 2);
+	
+	// 输出: <Buffer 01 02 04 03>
+	console.log(buf);
+	
 
 ##buf.writeInt32BE(value, offset[, noAssert])
 ##buf.writeInt32LE(value, offset[, noAssert])
@@ -1695,15 +1695,15 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(8);
-
-buf.writeInt32BE(0x01020304, 0);
-buf.writeInt32LE(0x05060708, 4);
-
-// 输出: <Buffer 01 02 03 04 08 07 06 05>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(8);
+	
+	buf.writeInt32BE(0x01020304, 0);
+	buf.writeInt32LE(0x05060708, 4);
+	
+	// 输出: <Buffer 01 02 03 04 08 07 06 05>
+	console.log(buf);
+	
 
 ##buf.writeIntBE(value, offset, byteLength[, noAssert])
 ##buf.writeIntLE(value, offset, byteLength[, noAssert])
@@ -1722,19 +1722,19 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(6);
-
-buf.writeUIntBE(0x1234567890ab, 0, 6);
-
-// 输出: <Buffer 12 34 56 78 90 ab>
-console.log(buf);
-
-buf.writeUIntLE(0x1234567890ab, 0, 6);
-
-// 输出: <Buffer ab 90 78 56 34 12>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(6);
+	
+	buf.writeUIntBE(0x1234567890ab, 0, 6);
+	
+	// 输出: <Buffer 12 34 56 78 90 ab>
+	console.log(buf);
+	
+	buf.writeUIntLE(0x1234567890ab, 0, 6);
+	
+	// 输出: <Buffer ab 90 78 56 34 12>
+	console.log(buf);
+	
 
 ##buf.writeUInt8(value, offset[, noAssert])
 
@@ -1752,17 +1752,17 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(4);
-
-buf.writeUInt8(0x3, 0);
-buf.writeUInt8(0x4, 1);
-buf.writeUInt8(0x23, 2);
-buf.writeUInt8(0x42, 3);
-
-// 输出: <Buffer 03 04 23 42>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(4);
+	
+	buf.writeUInt8(0x3, 0);
+	buf.writeUInt8(0x4, 1);
+	buf.writeUInt8(0x23, 2);
+	buf.writeUInt8(0x42, 3);
+	
+	// 输出: <Buffer 03 04 23 42>
+	console.log(buf);
+	
 
 ##buf.writeUInt16BE(value, offset[, noAssert])
 ##buf.writeUInt16LE(value, offset[, noAssert])
@@ -1781,21 +1781,21 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(4);
-
-buf.writeUInt16BE(0xdead, 0);
-buf.writeUInt16BE(0xbeef, 2);
-
-// 输出: <Buffer de ad be ef>
-console.log(buf);
-
-buf.writeUInt16LE(0xdead, 0);
-buf.writeUInt16LE(0xbeef, 2);
-
-// 输出: <Buffer ad de ef be>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(4);
+	
+	buf.writeUInt16BE(0xdead, 0);
+	buf.writeUInt16BE(0xbeef, 2);
+	
+	// 输出: <Buffer de ad be ef>
+	console.log(buf);
+	
+	buf.writeUInt16LE(0xdead, 0);
+	buf.writeUInt16LE(0xbeef, 2);
+	
+	// 输出: <Buffer ad de ef be>
+	console.log(buf);
+	
 
 ##buf.writeUInt32BE(value, offset[, noAssert])
 ##buf.writeUInt32LE(value, offset[, noAssert])
@@ -1813,19 +1813,19 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(4);
-
-buf.writeUInt32BE(0xfeedface, 0);
-
-// 输出: <Buffer fe ed fa ce>
-console.log(buf);
-
-buf.writeUInt32LE(0xfeedface, 0);
-
-// 输出: <Buffer ce fa ed fe>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(4);
+	
+	buf.writeUInt32BE(0xfeedface, 0);
+	
+	// 输出: <Buffer fe ed fa ce>
+	console.log(buf);
+	
+	buf.writeUInt32LE(0xfeedface, 0);
+	
+	// 输出: <Buffer ce fa ed fe>
+	console.log(buf);
+	
 
 ##buf.writeUIntBE(value, offset, byteLength[, noAssert])
 ##buf.writeUIntLE(value, offset, byteLength[, noAssert])
@@ -1844,19 +1844,19 @@ console.log(buf);
 
 例子：
 
-```js
-const buf = Buffer.allocUnsafe(6);
-
-buf.writeUIntBE(0x1234567890ab, 0, 6);
-
-// 输出: <Buffer 12 34 56 78 90 ab>
-console.log(buf);
-
-buf.writeUIntLE(0x1234567890ab, 0, 6);
-
-// 输出: <Buffer ab 90 78 56 34 12>
-console.log(buf);
-```
+	
+	const buf = Buffer.allocUnsafe(6);
+	
+	buf.writeUIntBE(0x1234567890ab, 0, 6);
+	
+	// 输出: <Buffer 12 34 56 78 90 ab>
+	console.log(buf);
+	
+	buf.writeUIntLE(0x1234567890ab, 0, 6);
+	
+	// 输出: <Buffer ab 90 78 56 34 12>
+	console.log(buf);
+	
 
 ##buffer.INSPECT_MAX_BYTES
 
@@ -1874,16 +1874,3 @@ console.log(buf);
 
 在32位架构上，该值为 `(2^30)-1` (~1GB)。
 在64位架构上，该值为 `(2^31)-1` (~2GB)。
-
-
-
-
-
-
-
-
-
-
-
-
-
