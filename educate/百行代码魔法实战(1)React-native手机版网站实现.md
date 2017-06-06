@@ -1,35 +1,34 @@
 百行代码魔法实战React-native(1)手机版网站实现
 ---
 
+###前言   
 
 开始冒出这个想法，感觉这是个很酷。   
 That’s cool man!   
 
 
-分析可行性：   
+###分析可行性：   
 采用React-native框架，结合WebView显示,这个菜可以搞定。   
 
 
-佐料：   
+###佐料：   
 React-native   
 
 
-步骤：   
+###步骤：   
 
-1. 搭建开发环境   
----
+##1. 搭建开发环境   
 
 	参考文章:	
 	`http://reactnative.cn/docs/0.44/getting-started.html#content`	
 	
-2. 初始化React-native项目
----        
+##2. 初始化React-native项目
 
 	react-native init PythonDocApp   
 
 
-3. 编码
----
+##3. 编码
+
 替换index.android.js
 
 	import React, {Component} from 'react';
@@ -83,8 +82,7 @@ React-native
 	AppRegistry.registerComponent('PythonDocApp', () => PythonDocApp);
 	
    
-4. 手机调试   
----
+##4. 手机调试   
 
 手机开启USB调试模式.连接到电脑上，进入项目根目录执行命令:
 
@@ -92,7 +90,7 @@ React-native
 	react-native run-android   
 
 
-Done！   
+# Well Done!    
 That's cool!   
 
 
