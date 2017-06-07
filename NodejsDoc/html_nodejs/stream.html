@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!--type=misc-->
+
+<!--type=example-->
+
+<p>以下是可读流的一个基本例子，触发数字1到1,000,000升序，然后结束</p>
+
+<pre class="prettyprint"><code>const Readable = require('stream').Readable;
+
+class Counter extends Readable {
+  constructor(opt) {
+    super(opt);
+    this._max = 1000000;
+    this._index = 1;
+  }
+
+  _read() {
+    var i = this._index++;
+    if (i &gt; this._max)
+      this.push(null);
+    else {
+      var str = '' + i;
+      var buf = Buffer.from(str, 'ascii');
+      this.push(buf);
+    }
+  }
+}
+</code></pre>
+
+<p>The following illustrates a simple example of a Duplex stream that wraps a
+hypothetical lower-level source object to which data can be written, and
+from which data can be read, albeit using an API that is not compatible with
+Node.js streams.
+The following illustrates a simple example of a Duplex stream that buffers
+incoming written data via the [Writable][] interface that is read back out
+via the [Readable][] interface.</p>
+
+<pre class="prettyprint"><code>const Duplex = require('stream').Duplex;
+const kSource = Symbol('source');
+
+class MyDuplex extends Duplex {
+  constructor(source, options) {
+    super(options);
+    this[kSource] = source;
+  }
+
+  _write(chunk, encoding, callback) {
+    // The underlying source only deals with strings
+    if (Buffer.isBuffer(chunk))
+      chunk = chunk.toString();
+    this[kSource].writeSomeData(chunk);
+    callback();
+  }
+
+  _read(size) {
+    this[kSource].fetchSomeData(size, (data, encoding) =&gt; {
+      this.push(Buffer.from(data, encoding));
+    });
+  }
+}
+</code></pre>
+
+<p>The most important aspect of a Duplex stream is that the Readable and Writable
+sides operate independently of one another despite co-existing within a single
+object instance.</p>
+
+<p>下面说明了一个相当简单（有点无意义）的可写流实现。虽然这个具体的可写流实例没有任何真正的特殊用途，但该示例说明了一个自定义流实例所需要的元素：</p>
+
+<pre class="prettyprint"><code>const Writable = require('stream').Writable;
+
+class MyWritable extends Writable {
+  constructor(options) {
+    super(options);
+  }
+
+  _write(chunk, encoding, callback) {
+    if (chunk.toString().indexOf('a') &gt;= 0) {
+      callback(new Error('chunk is invalid'));
+    } else {
+      callback();
+    }
+  }
+}
+</code></pre>
+
+<!--type=misc-->
+
+<p>几乎所有的 Node.js 应用，不管多么简单，都在某种程度上使用了流。
+下面是在 Node.js 应用中使用流实现的一个简单的 HTTP 服务器：</p>
+
+<pre class="prettyprint"><code>const http = require('http');
+
+const server = http.createServer( (req, res) =&gt; {
+  // req 是 http.IncomingMessage 的实例，这是一个 Readable Stream
+  // res 是 http.ServerResponse 的实例，这是一个 Writable Stream
+
+  let body = '';
+  // 接收数据为 utf8 字符串，
+  // 如果没有设置字符编码，将接收到 Buffer 对象。
+  req.setEncoding('utf8');
+
+  // 如果监听了 'data' 事件，Readable streams 触发 'data' 事件 
+  req.on('data', (chunk) =&gt; {
+    body += chunk;
+  });
+
+  // end 事件表明整个 body 都接收完毕了 
+  req.on('end', () =&gt; {
+    try {
+      const data = JSON.parse(body);
+      // 发送一些信息给用户
+      res.write(typeof data);
+      res.end();
+    } catch (er) {
+      // json 数据解析失败 
+      res.statusCode = 400;
+      return res.end(`error: ${er.message}`);
+    }
+  });
+});
+
+server.listen(1337);
+
+// $ curl localhost:1337 -d '{}'
+// object
+// $ curl localhost:1337 -d '"foo"'
+// string
+// $ curl localhost:1337 -d 'not json'
+// error: Unexpected token o
+</code></pre>
+
+<p>[Writable][] 流 (比如例子中的 <code>res</code>) 暴露了一些方法，比如
+<code>write()</code> 和 <code>end()</code> 。这些方法可以将数据写入到流中。</p>
+
+<p>当流中的数据可以读取时，[Readable][] 流使用 [<code>EventEmitter</code>][] API 来通知应用。
+这些数据可以使用多种方法从流中读取。</p>
+
+<p>[Writable][] 和 [Readable][] 流都使用了 [<code>EventEmitter</code>][] API ，通过多种方式，
+与流的当前状态进行交互。</p>
+
+<p>[Duplex][] 和 [Transform][] 都是同时满足 [Writable][] 和 [Readable][] 。</p>
+
+<p>对于只是简单写入数据到流和从流中消费数据的应用来说，
+不要求直接实现流接口，通常也不需要调用 <code>require('stream')</code>。</p>
+
+<p>需要实现两种类型流的开发者可以参考 [API for Stream Implementers][]。</p>
+
+<!--type=misc-->
+
+<p>The <code>stream</code> module API has been designed to make it possible to easily
+implement streams using JavaScript's prototypal inheritance model.</p>
+
+<p>First, a stream developer would declare a new JavaScript class that extends one
+of the four basic stream classes (<code>stream.Writable</code>, <code>stream.Readable</code>,
+<code>stream.Duplex</code>, or <code>stream.Transform</code>), making sure the call the appropriate
+parent class constructor:</p>
+
+<pre class="prettyprint"><code>const Writable = require('stream').Writable;
+
+class MyWritable extends Writable {
+  constructor(options) {
+    super(options);
+  }
+}
+</code></pre>
+
+<p>The new stream class must then implement one or more specific methods, depending
+on the type of stream being created, as detailed in the chart below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        <p>Use-case</p>
+      </th>
+      <th>
+        <p>Class</p>
+      </th>
+      <th>
+        <p>Method(s) to implement</p>
+      </th>
+    </tr>
+  </thead>
+  <tr>
+    <td>
+      <p>Reading only</p>
+    </td>
+    <td>
+      <p>[Readable](#stream_class_stream_readable)</p>
+    </td>
+    <td>
+      <p><code>[_read][stream-_read]</code></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Writing only</p>
+    </td>
+    <td>
+      <p>[Writable](#stream_class_stream_writable)</p>
+    </td>
+    <td>
+      <p><code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Reading and writing</p>
+    </td>
+    <td>
+      <p>[Duplex](#stream_class_stream_duplex)</p>
+    </td>
+    <td>
+      <p><code>[_read][stream-_read]</code>, <code>[_write][stream-_write]</code>, <code>[_writev][stream-_writev]</code></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Operate on written data, then read the result</p>
+    </td>
+    <td>
+      <p>[Transform](#stream_class_stream_transform)</p>
+    </td>
+    <td>
+      <p><code>[_transform][stream-_transform]</code>, <code>[_flush][stream-_flush]</code></p>
+    </td>
+  </tr>
+</table>
+
+<p><em>Note</em>: The implementation code for a stream should <em>never</em> call the "public"
+methods of a stream that are intended for use by consumers (as described in
+the [API for Stream Consumers][] section). Doing so may lead to adverse
+side effects in application code consuming the stream.</p>
+
+<!--type=misc-->
+
+<p>[Writable][] 和 [Readable][] 流都会将数据存储到内部的缓存（buffer）中。这些缓存可以
+通过相应的 <code>writable._writableState.getBuffer()</code> 或
+<code>readable._readableState.buffer</code>来获取。</p>
+
+<p>缓存的大小取决于传递给流构造函数的 <code>highWaterMark</code> 选项。
+对于普通的流， <code>highWaterMark</code>
+选项指定了总共的字节数。对于工作在对象模式的流，
+<code>highWaterMark</code> 指定了对象的总数。</p>
+
+<p>当可读流的实现调用 
+[<code>stream.push(chunk)</code>][stream-push] 方法时，数据被放到缓存中。如果流的消费者
+没有调用 [<code>stream.read()</code>][stream-read] 方法， 这些数据会始终存在于内部队列中，直到被消费。</p>
+
+<p>当内部可读缓存的大小达到 <code>highWaterMark</code> 指定的阈值时，流会暂停从底层资源读取数据，直到当前
+缓存的数据被消费 (也就是说，
+流会在内部停止调用 <code>readable._read()</code> 来填充可读缓存)。</p>
+
+<p>可写流通过反复调用
+[<code>writable.write(chunk)</code>][stream-write] 方法将数据放到缓存。
+当内部可写缓存的总大小小于
+<code>highWaterMark</code> 指定的阈值时， 调用 <code>writable.write()</code> 将返回<code>true</code>。 
+一旦内部缓存的大小达到或超过 <code>highWaterMark</code> ，调用 <code>writable.write()</code> 将返回 <code>false</code> 。</p>
+
+<p><code>stream</code> API 的关键目标， 尤其对于 [<code>stream.pipe()</code>] 方法，
+就是限制缓存数据大小，以达到可接受的程度。这样，对于读写速度不匹配的源头和目标，就不会超出可用的内存大小。</p>
+
+<p>[Duplex][] 和 [Transform][] 都是可读写的。
+在内部，它们都维护了 <em>两个</em> 相互独立的缓存用于读和写。
+在维持了合理高效的数据流的同时，也使得对于读和写可以独立进行而互不影响。
+例如， [<code>net.Socket</code>][] 就是 [Duplex][] 的实例，它的可读端可以消费从套接字（socket）中接收的数据， 
+可写端则可以将数据写入到套接字。
+由于数据写入到套接字中的速度可能比从套接字接收数据的速度快或者慢，
+在读写两端使用独立缓存，并进行独立操作就显得很重要了。</p>
+
+<p>可读流 API 的演化贯穿了多个 Node.js 版本，提供了多种方法来消费流数据。通常开发者应该选择其中 <em>一种</em> 来消费数据，而 <em>不应该</em> 在单个流使用多种方法来消费数据。</p>
+
+<p>对于大多数用户，建议使用 <code>readable.pipe()</code> 方法来消费流数据，因为它是最简单的一种实现。开发者如果要精细地控制数据传递和产生的过程，可以使用 [<code>EventEmitter</code>][] 和 <code>readable.pause()</code>/<code>readable.resume()</code> 提供的 API 。</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<!--type=class-->
+
+<p>Duplex 流是同时实现了 [Readable][] 和
+[Writable][] 接口的流。</p>
+
+<p>Duplex 流的实例包括了：</p>
+
+<ul>
+<li>[TCP sockets][]</li>
+<li>[zlib streams][zlib]</li>
+<li>[crypto streams][crypto]</li>
+</ul>
+
+<p>The <code>stream.PassThrough</code> class is a trivial implementation of a [Transform][]
+stream that simply passes the input bytes across to the output. Its purpose is
+primarily for examples and testing, but there are some use cases where
+<code>stream.PassThrough</code> is useful as a building block for novel sorts of streams.</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<!--type=class-->
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<!--type=class-->
+
+<p>变换流（Transform streams） 是一种 [Duplex][] 流。它的输出与输入是通过某种方式关联的。和所有 [Duplex][] 流一样，变换流同时实现了 [Readable][] 和 [Writable][] 接口。</p>
+
+<p>变换流的实例包括：</p>
+
+<ul>
+<li>[zlib streams][zlib]</li>
+<li>[crypto streams][crypto]</li>
+</ul>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<!--type=class-->
+
+<!--type=misc-->
+
+<p>In versions of Node.js prior to v0.10, the Readable stream interface was
+simpler, but also less powerful and less useful.</p>
+
+<ul>
+<li>Rather than waiting for calls the [<code>stream.read()</code>][stream-read] method,
+[<code>'data'</code>][] events would begin emitting immediately. Applications that
+would need to perform some amount of work to decide how to handle data
+were required to store read data into buffers so the data would not be lost.</li>
+<li>The [<code>stream.pause()</code>][stream-pause] method was advisory, rather than
+guaranteed. This meant that it was still necessary to be prepared to receive
+[<code>'data'</code>][] events <em>even when the stream was in a paused state</em>.</li>
+</ul>
+
+<p>In Node.js v0.10, the [Readable][] class was added. For backwards compatibility
+with older Node.js programs, Readable streams switch into "flowing mode" when a
+[<code>'data'</code>][] event handler is added, or when the
+[<code>stream.resume()</code>][stream-resume] method is called. The effect is that, even
+when not using the new [<code>stream.read()</code>][stream-read] method and
+[<code>'readable'</code>][] event, it is no longer necessary to worry about losing
+[<code>'data'</code>][] chunks.</p>
+
+<p>While most applications will continue to function normally, this introduces an
+edge case in the following conditions:</p>
+
+<ul>
+<li>No [<code>'data'</code>][] event listener is added.</li>
+<li>The [<code>stream.resume()</code>][stream-resume] method is never called.</li>
+<li>The stream is not piped to any writable destination.</li>
+</ul>
+
+<p>For example, consider the following code:</p>
+
+<pre class="prettyprint"><code>// WARNING!  BROKEN!
+net.createServer((socket) =&gt; {
+
+  // we add an 'end' method, but never consume the data
+  socket.on('end', () =&gt; {
+    // It will never get here.
+    socket.end('The message was received but was not processed.\n');
+  });
+
+}).listen(1337);
+</code></pre>
+
+<p>In versions of Node.js prior to v0.10, the incoming message data would be
+simply discarded. However, in Node.js v0.10 and beyond, the socket remains
+paused forever.</p>
+
+<p>The workaround in this situation is to call the
+[<code>stream.resume()</code>][stream-resume] method to begin the flow of data:</p>
+
+<pre class="prettyprint"><code>// Workaround
+net.createServer((socket) =&gt; {
+
+  socket.on('end', () =&gt; {
+    socket.end('The message was received but was not processed.\n');
+  });
+
+  // start the flow of data, discarding it.
+  socket.resume();
+
+}).listen(1337);
+</code></pre>
+
+<p>In addition to new Readable streams switching into flowing mode,
+pre-v0.10 style streams can be wrapped in a Readable class using the
+[<code>readable.wrap()</code>][<code>stream.wrap()</code>] method.</p>
+
+<ul>
+<li><code>options</code> {Object}
+<ul><li><code>highWaterMark</code> {Number} Buffer level when
+[<code>stream.write()</code>][stream-write] starts returning <code>false</code>. Defaults to
+<code>16384</code> (16kb), or <code>16</code> for <code>objectMode</code> streams.</li>
+<li><code>decodeStrings</code> {Boolean} Whether or not to decode strings into
+Buffers before passing them to [<code>stream._write()</code>][stream-_write].
+Defaults to <code>true</code></li>
+<li><code>objectMode</code> {Boolean} Whether or not the
+[<code>stream.write(anyObj)</code>][stream-write] is a valid operation. When set,
+it becomes possible to write JavaScript values other than string or
+<code>Buffer</code> if supported by the stream implementation. Defaults to <code>false</code></li>
+<li><code>write</code> {Function} Implementation for the
+[<code>stream._write()</code>][stream-_write] method.</li>
+<li><code>writev</code> {Function} Implementation for the
+[<code>stream._writev()</code>][stream-_writev] method.</li></ul></li>
+</ul>
+
+<p>For example:</p>
+
+<pre class="prettyprint"><code>const Writable = require('stream').Writable;
+
+class MyWritable extends Writable {
+  constructor(options) {
+    // Calls the stream.Writable() constructor
+    super(options);
+  }
+}
+</code></pre>
+
+<p>Or, when using pre-ES6 style constructors:</p>
+
+<pre class="prettyprint"><code>const Writable = require('stream').Writable;
+const util = require('util');
+
+function MyWritable(options) {
+  if (!(this instanceof MyWritable))
+    return new MyWritable(options);
+  Writable.call(this, options);
+}
+util.inherits(MyWritable, Writable);
+</code></pre>
+
+<p>Or, using the Simplified Constructor approach:</p>
+
+<pre class="prettyprint"><code>const Writable = require('stream').Writable;
+
+const myWritable = new Writable({
+  write(chunk, encoding, callback) {
+    // ...
+  },
+  writev(chunks, callback) {
+    // ...
+  }
+});
+</code></pre>
+
+<p>It is recommended that errors occurring during the processing of the
+<code>readable._read()</code> method are emitted using the <code>'error'</code> event rather than
+being thrown. Throwing an Error from within <code>readable._read()</code> can result in
+unexpected and inconsistent behavior depending on whether the stream is
+operating in flowing or paused mode. Using the <code>'error'</code> event ensures
+consistent and predictable handling of errors.</p>
+
+<pre class="prettyprint"><code>const Readable = require('stream').Readable;
+
+const myReadable = new Readable({
+  read(size) {
+    if (checkSomeErrorCondition()) {
+      process.nextTick(() =&gt; this.emit('error', err));
+      return;
+    }
+    // do some work
+  }
+});
+</code></pre>
+
+<p>It is recommended that errors occurring during the processing of the
+<code>writable._write()</code> and <code>writable._writev()</code> methods are reported by invoking
+the callback and passing the error as the first argument. This will cause an
+<code>'error'</code> event to be emitted by the Writable. Throwing an Error from within
+<code>writable._write()</code> can result in unexpected and inconsistent behavior depending
+on how the stream is being used.  Using the callback ensures consistent and
+predictable handling of errors.</p>
+
+<pre class="prettyprint"><code>const Writable = require('stream').Writable;
+
+const myWritable = new Writable({
+  write(chunk, encoding, callback) {
+    if (chunk.toString().indexOf('a') &gt;= 0) {
+      callback(new Error('chunk is invalid'));
+    } else {
+      callback();
+    }
+  }
+});
+</code></pre>
+
+<p>The [<code>'finish'</code>][] and [<code>'end'</code>][] events are from the <code>stream.Writable</code>
+and <code>stream.Readable</code> classes, respectively. The <code>'finish'</code> event is emitted
+after [<code>stream.end()</code>][stream-end] is called and all chunks have been processed
+by [<code>stream._transform()</code>][stream-_transform]. The <code>'end'</code> event is emitted
+after all data has been output, which occurs after the callback in
+[<code>transform._flush()</code>][stream-_flush] has been called.</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<p><code>'close'</code> 事件将在流或其底层资源（比如一个文件）关闭后触发。<code>'close'</code> 事件触发后，该流将不会再触发任何事件。</p>
+
+<p>不是所有可写流都会触发 <code>'close'</code> 事件。</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<p><code>'close'</code> 事件将在流或其底层资源（比如一个文件）关闭后触发。<code>'close'</code> 事件触发后，该流将不会再触发任何事件。</p>
+
+<p>不是所有 [Readable][] 都会触发 <code>'close'</code> 事件。</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>chunk</code> {Buffer|String|any} 数据片段。对于非对象模式的可读流，这是一个字符串或者 <code>Buffer</code>。
+对于对象模式的可读流，这可以是除 <code>null</code> 以外的任意类型 JavaScript 值。</li>
+</ul>
+
+<p><code>'data'</code> 事件会在流将数据传递给消费者时触发。当流转换到 flowing 模式时会触发该事件。调用 <code>readable.pipe()</code>， <code>readable.resume()</code> 方法，或为 <code>'data'</code> 事件添加回调可以将流转换到 flowing 模式。 <code>'data'</code> 事件也会在调用 <code>readable.read()</code> 方法并有数据返回时触发。</p>
+
+<p>在没有明确暂停的流上添加 <code>'data'</code> 事件监听会将流转换为 flowing 模式。 数据会在可用时尽快传递给下个流程。</p>
+
+<p>如果调用 <code>readable.setEncoding()</code> 方法明确为流指定了默认编码，回调函数将接收到一个字符串，否则接收到的数据将是一个
+<code>Buffer</code> 实例。</p>
+
+<pre class="prettyprint"><code>const readable = getReadableStreamSomehow();
+readable.on('data', (chunk) =&gt; {
+  console.log(`Received ${chunk.length} bytes of data.`);
+});
+</code></pre>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<p>如果调用 [<code>stream.write(chunk)</code>][stream-write] 方法返回 <code>false</code>，流将在适当的时机触发
+<code>'drain'</code> 事件，这时才可以继续向流中写入数据。</p>
+
+<pre class="prettyprint"><code>// 向可写流中写入数据一百万次。
+// 需要注意背压 （back-pressure）。
+function writeOneMillionTimes(writer, data, encoding, callback) {
+  let i = 1000000;
+  write();
+  function write() {
+    var ok = true;
+    do {
+      i--;
+      if (i === 0) {
+        // 最后 一次
+        writer.write(data, encoding, callback);
+      } else {
+        // 检查是否可以继续写入。 
+        // 这里不要传递 callback， 因为写入还没有结束！ 
+        ok = writer.write(data, encoding);
+      }
+    } while (i &gt; 0 &amp;&amp; ok);
+    if (i &gt; 0) {
+      // 这里提前停下了， 
+      // 'drain' 事件触发后才可以继续写入  
+      writer.once('drain', write);
+    }
+  }
+}
+</code></pre>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<p><code>'end'</code> 事件将在流中再没有数据可供消费时触发。</p>
+
+<p><em>注意</em>： <code>'end'</code> 事件只有在数据被完全消费后 <strong>才会触发</strong> 。 可以在数据被完全消费后，通过将流转换到 
+flowing 模式， 或反复调用 [<code>stream.read()</code>][stream-read] 方法来实现这一点。</p>
+
+<pre class="prettyprint"><code>const readable = getReadableStreamSomehow();
+readable.on('data', (chunk) =&gt; {
+  console.log(`Received ${chunk.length} bytes of data.`);
+});
+readable.on('end', () =&gt; {
+  console.log('There will be no more data.');
+});
+</code></pre>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li>{Error}</li>
+</ul>
+
+<p><code>'error'</code> 事件在写入数据出错或者使用管道出错时触发。事件发生时，回调函数仅会接收到一个 <code>Error</code> 参数。</p>
+
+<p><em>注意</em>: <code>'error'</code> 事件发生时，流并不会关闭。</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li>{Error}</li>
+</ul>
+
+<p><code>'error'</code> 事件可以在任何时候在可读流实现（Readable implementation）上触发。
+通常，这会在底层系统内部出错从而不能产生数据，或当流的实现试图传递错误数据时发生。</p>
+
+<p>回调函数将接收到一个 <code>Error</code> 对象。</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<p>在调用了 [<code>stream.end()</code>][stream-end] 方法，且缓冲区数据都已经传给底层系统（underlying system）之后， <code>'finish'</code> 事件将被触发。</p>
+
+<pre class="prettyprint"><code>const writer = getWritableStreamSomehow();
+for (var i = 0; i &lt; 100; i ++) {
+  writer.write(`hello, #${i}!\n`);
+}
+writer.end('This is the end\n');
+writer.on('finish', () =&gt; {
+  console.error('All writes are now complete.');
+});
+</code></pre>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>src</code> {stream.Readable} 输出到目标可写流（writable）的源流（source stream）</li>
+</ul>
+
+<p>在可读流（readable stream）上调用 [<code>stream.pipe()</code>][] 方法，并在目标流向 (destinations) 中添加当前可写流 ( writable ) 时，将会在可写流上触发 <code>'pipe'</code> 事件。</p>
+
+<pre class="prettyprint"><code>const writer = getWritableStreamSomehow();
+const reader = getReadableStreamSomehow();
+writer.on('pipe', (src) =&gt; {
+  console.error('something is piping into the writer');
+  assert.equal(src, reader);
+});
+reader.pipe(writer);
+</code></pre>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<p><code>'readable'</code> 事件将在流中有数据可供读取时触发。在某些情况下，为 <code>'readable'</code> 事件添加回调将会导致一些数据被读取到内部缓存中。</p>
+
+<pre class="prettyprint"><code>const readable = getReadableStreamSomehow();
+readable.on('readable', () =&gt; {
+  // 有一些数据可读了
+});
+</code></pre>
+
+<p>当到达流数据尾部时， <code>'readable'</code> 事件也会触发。触发顺序在 <code>'end'</code> 事件之前。</p>
+
+<p>事实上， <code>'readable'</code> 事件表明流有了新的动态：要么是有了新的数据，要么是到了流的尾部。 对于前者， [<code>stream.read()</code>][stream-read] 将返回可用的数据。而对于后者， [<code>stream.read()</code>][stream-read] 将返回
+<code>null</code>。 例如，下面的例子中的 <code>foo.txt</code> 是一个空文件：</p>
+
+<pre class="prettyprint"><code>const fs = require('fs');
+const rr = fs.createReadStream('foo.txt');
+rr.on('readable', () =&gt; {
+  console.log('readable:', rr.read());
+});
+rr.on('end', () =&gt; {
+  console.log('end');
+});
+</code></pre>
+
+<p>上面交脚本的输出如下：</p>
+
+<pre class="prettyprint"><code>$ node test.js
+readable: null
+end
+</code></pre>
+
+<p><em>注意</em>： 通常情况下， 应该使用 <code>readable.pipe()</code> 方法和 <code>'data'</code> 事件机制，而不是 <code>'readable'</code> 事件。</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>src</code> {[Readable][] Stream} [unpiped][<code>stream.unpipe()</code>] 当前可写流的源流</li>
+</ul>
+
+<p>在 [Readable][] 上调用 [<code>stream.unpipe()</code>][] 方法，从目标流向中移除当前 [Writable][] 时，将会触发 <code>'unpipe'</code> 事件。</p>
+
+<pre class="prettyprint"><code>const writer = getWritableStreamSomehow();
+const reader = getReadableStreamSomehow();
+writer.on('unpipe', (src) =&gt; {
+  console.error('Something has stopped piping into the writer.');
+  assert.equal(src, reader);
+});
+reader.pipe(writer);
+reader.unpipe(writer);
+</code></pre>
+
+<p>A [Duplex][] stream is one that implements both [Readable][] and [Writable][],
+such as a TCP socket connection.</p>
+
+<p>Because JavaScript does not have support for multiple inheritance, the
+<code>stream.Duplex</code> class is extended to implement a [Duplex][] stream (as opposed
+to extending the <code>stream.Readable</code> <em>and</em> <code>stream.Writable</code> classes).</p>
+
+<p><em>Note</em>: The <code>stream.Duplex</code> class prototypically inherits from <code>stream.Readable</code>
+and parasitically from <code>stream.Writable</code>, but <code>instanceof</code> will work properly
+for both base classes due to overriding [<code>Symbol.hasInstance</code>][]
+on <code>stream.Writable</code>.</p>
+
+<p>Custom Duplex streams <em>must</em> call the <code>new stream.Duplex([options])</code>
+constructor and implement <em>both</em> the <code>readable._read()</code> and
+<code>writable._write()</code> methods.</p>
+
+<p>The <code>stream.Readable</code> class is extended to implement a [Readable][] stream.</p>
+
+<p>Custom Readable streams <em>must</em> call the <code>new stream.Readable([options])</code>
+constructor and implement the <code>readable._read()</code> method.</p>
+
+<p>A [Transform][] stream is a [Duplex][] stream where the output is computed
+in some way from the input. Examples include [zlib][] streams or [crypto][]
+streams that compress, encrypt, or decrypt data.</p>
+
+<p><em>Note</em>: There is no requirement that the output be the same size as the input,
+the same number of chunks, or arrive at the same time. For example, a
+Hash stream will only ever have a single chunk of output which is
+provided when the input is ended. A <code>zlib</code> stream will produce output
+that is either much smaller or much larger than its input.</p>
+
+<p>The <code>stream.Transform</code> class is extended to implement a [Transform][] stream.</p>
+
+<p>The <code>stream.Transform</code> class prototypically inherits from <code>stream.Duplex</code> and
+implements its own versions of the <code>writable._write()</code> and <code>readable._read()</code>
+methods. Custom Transform implementations <em>must</em> implement the
+[<code>transform._transform()</code>][stream-_transform] method and <em>may</em> also implement
+the [<code>transform._flush()</code>][stream-_flush] method.</p>
+
+<p><em>Note</em>: Care must be taken when using Transform streams in that data written
+to the stream can cause the Writable side of the stream to become paused if
+the output on the Readable side is not consumed.</p>
+
+<p>The <code>stream.Writable</code> class is extended to implement a [Writable][] stream.</p>
+
+<p>Custom Writable streams <em>must</em> call the <code>new stream.Writable([options])</code>
+constructor and implement the <code>writable._write()</code> method. The
+<code>writable._writev()</code> method <em>may</em> also be implemented.</p>
+
+<ul>
+<li><code>options</code> {Object} Passed to both Writable and Readable
+constructors. Also has the following fields:
+<ul><li><code>allowHalfOpen</code> {Boolean} Defaults to <code>true</code>. If set to <code>false</code>, then
+the stream will automatically end the readable side when the
+writable side ends and vice versa.</li>
+<li><code>readableObjectMode</code> {Boolean} Defaults to <code>false</code>. Sets <code>objectMode</code>
+for readable side of the stream. Has no effect if <code>objectMode</code>
+is <code>true</code>.</li>
+<li><code>writableObjectMode</code> {Boolean} Defaults to <code>false</code>. Sets <code>objectMode</code>
+for writable side of the stream. Has no effect if <code>objectMode</code>
+is <code>true</code>.</li></ul></li>
+</ul>
+
+<p>For example:</p>
+
+<pre class="prettyprint"><code>const Duplex = require('stream').Duplex;
+
+class MyDuplex extends Duplex {
+  constructor(options) {
+    super(options);
+  }
+}
+</code></pre>
+
+<p>Or, when using pre-ES6 style constructors:</p>
+
+<pre class="prettyprint"><code>const Duplex = require('stream').Duplex;
+const util = require('util');
+
+function MyDuplex(options) {
+  if (!(this instanceof MyDuplex))
+    return new MyDuplex(options);
+  Duplex.call(this, options);
+}
+util.inherits(MyDuplex, Duplex);
+</code></pre>
+
+<p>Or, using the Simplified Constructor approach:</p>
+
+<pre class="prettyprint"><code>const Duplex = require('stream').Duplex;
+
+const myDuplex = new Duplex({
+  read(size) {
+    // ...
+  },
+  write(chunk, encoding, callback) {
+    // ...
+  }
+});
+</code></pre>
+
+<ul>
+<li><code>options</code> {Object}
+<ul><li><code>highWaterMark</code> {Number} The maximum number of bytes to store in
+the internal buffer before ceasing to read from the underlying
+resource. Defaults to <code>16384</code> (16kb), or <code>16</code> for <code>objectMode</code> streams</li>
+<li><code>encoding</code> {String} If specified, then buffers will be decoded to
+strings using the specified encoding. Defaults to <code>null</code></li>
+<li><code>objectMode</code> {Boolean} Whether this stream should behave
+as a stream of objects. Meaning that [<code>stream.read(n)</code>][stream-read] returns
+a single value instead of a Buffer of size n. Defaults to <code>false</code></li>
+<li><code>read</code> {Function} Implementation for the [<code>stream._read()</code>][stream-_read]
+method.</li></ul></li>
+</ul>
+
+<p>For example:</p>
+
+<pre class="prettyprint"><code>const Readable = require('stream').Readable;
+
+class MyReadable extends Readable {
+  constructor(options) {
+    // Calls the stream.Readable(options) constructor
+    super(options);
+  }
+}
+</code></pre>
+
+<p>Or, when using pre-ES6 style constructors:</p>
+
+<pre class="prettyprint"><code>const Readable = require('stream').Readable;
+const util = require('util');
+
+function MyReadable(options) {
+  if (!(this instanceof MyReadable))
+    return new MyReadable(options);
+  Readable.call(this, options);
+}
+util.inherits(MyReadable, Readable);
+</code></pre>
+
+<p>Or, using the Simplified Constructor approach:</p>
+
+<pre class="prettyprint"><code>const Readable = require('stream').Readable;
+
+const myReadable = new Readable({
+  read(size) {
+    // ...
+  }
+});
+</code></pre>
+
+<ul>
+<li><code>options</code> {Object} Passed to both Writable and Readable
+constructors. Also has the following fields:
+<ul><li><code>transform</code> {Function} Implementation for the
+[<code>stream._transform()</code>][stream-_transform] method.</li>
+<li><code>flush</code> {Function} Implementation for the [<code>stream._flush()</code>][stream-_flush]
+method.</li></ul></li>
+</ul>
+
+<p>For example:</p>
+
+<pre class="prettyprint"><code>const Transform = require('stream').Transform;
+
+class MyTransform extends Transform {
+  constructor(options) {
+    super(options);
+  }
+}
+</code></pre>
+
+<p>Or, when using pre-ES6 style constructors:</p>
+
+<pre class="prettyprint"><code>const Transform = require('stream').Transform;
+const util = require('util');
+
+function MyTransform(options) {
+  if (!(this instanceof MyTransform))
+    return new MyTransform(options);
+  Transform.call(this, options);
+}
+util.inherits(MyTransform, Transform);
+</code></pre>
+
+<p>Or, using the Simplified Constructor approach:</p>
+
+<pre class="prettyprint"><code>const Transform = require('stream').Transform;
+
+const myTransform = new Transform({
+  transform(chunk, encoding, callback) {
+    // ...
+  }
+});
+</code></pre>
+
+<p>所有使用 Node.js API 创建的流对象都只能操作 strings 和 <code>Buffer</code>
+对象。但是，通过一些第三方流的实现，你依然能够处理其它类型的 JavaScript 值 (除了 <code>null</code>，它在流处理中有特殊意义)。 这些流被认为是工作在 “对象模式”（object mode）。</p>
+
+<p>在创建流的实例时，可以通过 <code>objectMode</code> 选项使流的实例切换到对象模式。试图将已经存在的流切换到对象模式是不安全的。</p>
+
+<p>For Duplex streams, <code>objectMode</code> can be set exclusively for either the Readable
+or Writable side using the <code>readableObjectMode</code> and <code>writableObjectMode</code> options
+respectively.</p>
+
+<p>In the following example, for instance, a new Transform stream (which is a
+type of [Duplex][] stream) is created that has an object mode Writable side
+that accepts JavaScript numbers that are converted to hexadecimal strings on
+the Readable side.</p>
+
+<pre class="prettyprint"><code>const Transform = require('stream').Transform;
+
+// All Transform streams are also Duplex Streams
+const myTransform = new Transform({
+  writableObjectMode: true,
+
+  transform(chunk, encoding, callback) {
+    // Coerce the chunk to a number if necessary
+    chunk |= 0;
+
+    // Transform the chunk into something else.
+    const data = chunk.toString(16);
+
+    // Push the data onto the readable queue.
+    callback(null, '0'.repeat(data.length % 2) + data);
+  }
+});
+
+myTransform.setEncoding('ascii');
+myTransform.on('data', (chunk) =&gt; console.log(chunk));
+
+myTransform.write(1);
+// Prints: 01
+myTransform.write(10);
+// Prints: 0a
+myTransform.write(100);
+// Prints: 64
+</code></pre>
+
+<p>本文档主要分为两节，第三节是一些额外的注意事项。第一节阐述了在应用中和 <em>使用</em> 流相关的 API 。 第二节阐述了和 <em>实现</em> 新的流类型相关的 API 。</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<ul>
+<li>返回： {Boolean}</li>
+</ul>
+
+<p><code>readable.isPaused()</code> 方法返回可读流的当前操作状态。 该方法主要是在
+<code>readable.pipe()</code> 方法的底层机制中用到。大多数情况下，没有必要直接使用该方法。</p>
+
+<pre class="prettyprint"><code>const readable = new stream.Readable
+
+readable.isPaused() // === false
+readable.pause()
+readable.isPaused() // === true
+readable.resume()
+readable.isPaused() // === false
+</code></pre>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li>返回： <code>this</code></li>
+</ul>
+
+<p><code>readable.pause()</code> 方法将会使 flowing 模式的流停止触发 [<code>'data'</code>][] 事件， 进而切出 flowing 模式。任何可用的数据都将保存在内部缓存中。</p>
+
+<pre class="prettyprint"><code>const readable = getReadableStreamSomehow();
+readable.on('data', (chunk) =&gt; {
+  console.log(`Received ${chunk.length} bytes of data.`);
+  readable.pause();
+  console.log('There will be no additional data for 1 second.');
+  setTimeout(() =&gt; {
+    console.log('Now data will start flowing again.');
+    readable.resume();
+  }, 1000);
+});
+</code></pre>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>destination</code> {stream.Writable} 数据写入目标</li>
+<li><code>options</code> {Object} Pipe 选项
+<ul><li><code>end</code> {Boolean} 在 reader 结束时结束 writer 。默认为 <code>true</code>。</li></ul></li>
+</ul>
+
+<p><code>readable.pipe()</code> 绑定一个 [Writable][] 到 <code>readable</code> 上，
+将可写流自动切换到 flowing 模式并将所有数据传给绑定的 [Writable][]。数据流将被自动管理。这样，即使是可读流较快，目标可写流也不会超负荷（overwhelmed）。</p>
+
+<p>下面例子将 <code>readable</code> 中的所有数据通过管道传递给名为 <code>file.txt</code> 的文件：</p>
+
+<pre class="prettyprint"><code>const readable = getReadableStreamSomehow();
+const writable = fs.createWriteStream('file.txt');
+// readable 中的所有数据都传给了 'file.txt'
+readable.pipe(writable);
+</code></pre>
+
+<p>可以在单个可读流上绑定多个可写流。</p>
+
+<p><code>readable.pipe()</code> 方法返回 <em>目标流</em> 的引用，这样就可以对流进行链式地管道操作：</p>
+
+<pre class="prettyprint"><code>const r = fs.createReadStream('file.txt');
+const z = zlib.createGzip();
+const w = fs.createWriteStream('file.txt.gz');
+r.pipe(z).pipe(w);
+</code></pre>
+
+<p>默认情况下，当源可读流（the source Readable stream）触发 [<code>'end'</code>][] 事件时，目标流也会调用 [<code>stream.end()</code>][stream-end] 方法从而结束写入。要禁用这一默认行为， <code>end</code>
+选项应该指定为 <code>false</code>， 这将使目标流保持打开，
+如下面例子所示：</p>
+
+<pre class="prettyprint"><code>reader.pipe(writer, { end: false });
+reader.on('end', () =&gt; {
+  writer.end('Goodbye\n');
+});
+</code></pre>
+
+<p>这里有一点要警惕，如果可读流在处理时发生错误，目标可写流 <em>不会</em> 自动关闭。
+如果发生错误，需要 <em>手动</em> 关闭所有流以避免内存泄漏。</p>
+
+<p><em>注意</em>：不管对 [<code>process.stderr</code>][] 和 [<code>process.stdout</code>][] 指定什么选项，它们都是直到 Node.js 进程退出才关闭。</p>
+
+<p>Use of <code>readable.push('')</code> is not recommended.</p>
+
+<p>Pushing a zero-byte string or <code>Buffer</code> to a stream that is not in object mode
+has an interesting side effect. Because it <em>is</em> a call to
+[<code>readable.push()</code>][stream-push], the call will end the reading process.
+However, because the argument is an empty string, no data is added to the
+readable buffer so there is nothing for a user to consume.</p>
+
+<p>Use of <code>readable.push('')</code> is not recommended.</p>
+
+<p>Pushing a zero-byte string or <code>Buffer</code> to a stream that is not in object mode
+has an interesting side effect. Because it <em>is</em> a call to
+[<code>readable.push()</code>][stream-push], the call will end the reading process.
+However, because the argument is an empty string, no data is added to the
+readable buffer so there is nothing for a user to consume.</p>
+
+<ul>
+<li><code>chunk</code> {Buffer|Null|String} Chunk of data to push into the read queue</li>
+<li><code>encoding</code> {String} Encoding of String chunks.  Must be a valid
+Buffer encoding, such as <code>'utf8'</code> or <code>'ascii'</code></li>
+<li>Returns {Boolean} <code>true</code> if additional chunks of data may continued to be
+pushed; <code>false</code> otherwise.</li>
+</ul>
+
+<p>When <code>chunk</code> is a <code>Buffer</code> or <code>string</code>, the <code>chunk</code> of data will be added to the
+internal queue for users of the stream to consume. Passing <code>chunk</code> as <code>null</code>
+signals the end of the stream (EOF), after which no more data can be written.</p>
+
+<p>When the Readable is operating in paused mode, the data added with
+<code>readable.push()</code> can be read out by calling the
+[<code>readable.read()</code>][stream-read] method when the [<code>'readable'</code>][] event is
+emitted.</p>
+
+<p>When the Readable is operating in flowing mode, the data added with
+<code>readable.push()</code> will be delivered by emitting a <code>'data'</code> event.</p>
+
+<p>The <code>readable.push()</code> method is designed to be as flexible as possible. For
+example, when wrapping a lower-level source that provides some form of
+pause/resume mechanism, and a data callback, the low-level source can be wrapped
+by the custom Readable instance as illustrated in the following example:</p>
+
+<pre class="prettyprint"><code>// source is an object with readStop() and readStart() methods,
+// and an `ondata` member that gets called when it has data, and
+// an `onend` member that gets called when the data is over.
+
+class SourceWrapper extends Readable {
+  constructor(options) {
+    super(options);
+
+    this._source = getLowlevelSourceObject();
+
+    // Every time there's data, push it into the internal buffer.
+    this._source.ondata = (chunk) =&gt; {
+      // if push() returns false, then stop reading from source
+      if (!this.push(chunk))
+        this._source.readStop();
+    };
+
+    // When the source ends, push the EOF-signaling `null` chunk
+    this._source.onend = () =&gt; {
+      this.push(null);
+    };
+  }
+  // _read will be called when the stream wants to pull more data in
+  // the advisory size argument is ignored in this case.
+  _read(size) {
+    this._source.readStart();
+  }
+}
+</code></pre>
+
+<p><em>Note</em>: The <code>readable.push()</code> method is intended be called only by Readable
+Implementers, and only from within the <code>readable._read()</code> method.</p>
+
+<p>There are some cases where it is necessary to trigger a refresh of the
+underlying readable stream mechanisms, without actually consuming any
+data. In such cases, it is possible to call <code>readable.read(0)</code>, which will
+always return <code>null</code>.</p>
+
+<p>If the internal read buffer is below the <code>highWaterMark</code>, and the
+stream is not currently reading, then calling <code>stream.read(0)</code> will trigger
+a low-level [<code>stream._read()</code>][stream-_read] call.</p>
+
+<p>While most applications will almost never need to do this, there are
+situations within Node.js where this is done, particularly in the
+Readable stream class internals.</p>
+
+<p>There are some cases where it is necessary to trigger a refresh of the
+underlying readable stream mechanisms, without actually consuming any
+data. In such cases, it is possible to call <code>readable.read(0)</code>, which will
+always return <code>null</code>.</p>
+
+<p>If the internal read buffer is below the <code>highWaterMark</code>, and the
+stream is not currently reading, then calling <code>stream.read(0)</code> will trigger
+a low-level [<code>stream._read()</code>][stream-_read] call.</p>
+
+<p>While most applications will almost never need to do this, there are
+situations within Node.js where this is done, particularly in the
+Readable stream class internals.</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>size</code> {Number} Optional argument to specify how much data to read.</li>
+<li>Return {String|Buffer|Null}</li>
+</ul>
+
+<p>The <code>readable.read()</code> method pulls some data out of the internal buffer and
+returns it. If no data available to be read, <code>null</code> is returned. By default,
+the data will be returned as a <code>Buffer</code> object unless an encoding has been
+specified using the <code>readable.setEncoding()</code> method or the stream is operating
+in object mode.</p>
+
+<p>The optional <code>size</code> argument specifies a specific number of bytes to read. If
+<code>size</code> bytes are not available to be read, <code>null</code> will be returned <em>unless</em>
+the stream has ended, in which case all of the data remaining in the internal
+buffer will be returned (<em>even if it exceeds <code>size</code> bytes</em>).</p>
+
+<p>If the <code>size</code> argument is not specified, all of the data contained in the
+internal buffer will be returned.</p>
+
+<p>The <code>readable.read()</code> method should only be called on Readable streams operating
+in paused mode. In flowing mode, <code>readable.read()</code> is called automatically until
+the internal buffer is fully drained.</p>
+
+<pre class="prettyprint"><code>const readable = getReadableStreamSomehow();
+readable.on('readable', () =&gt; {
+  var chunk;
+  while (null !== (chunk = readable.read())) {
+    console.log(`Received ${chunk.length} bytes of data.`);
+  }
+});
+</code></pre>
+
+<p>In general, it is recommended that developers avoid the use of the <code>'readable'</code>
+event and the <code>readable.read()</code> method in favor of using either
+<code>readable.pipe()</code> or the <code>'data'</code> event.</p>
+
+<p>A Readable stream in object mode will always return a single item from
+a call to [<code>readable.read(size)</code>][stream-read], regardless of the value of the
+<code>size</code> argument.</p>
+
+<p><em>Note:</em> If the <code>readable.read()</code> method returns a chunk of data, a <code>'data'</code>
+event will also be emitted.</p>
+
+<p><em>Note</em>: Calling [<code>stream.read([size])</code>][stream-read] after the [<code>'end'</code>][]
+event has been emitted will return <code>null</code>. No runtime error will be raised.</p>
+
+<ul>
+<li><code>size</code> {Number} Number of bytes to read asynchronously</li>
+</ul>
+
+<p><em>Note</em>: <strong>This function MUST NOT be called by application code directly.</strong> It
+should be implemented by child classes, and called only by the internal Readable
+class methods only.</p>
+
+<p>All Readable stream implementations must provide an implementation of the
+<code>readable._read()</code> method to fetch data from the underlying resource.</p>
+
+<p>When <code>readable._read()</code> is called, if data is available from the resource, the
+implementation should begin pushing that data into the read queue using the
+[<code>this.push(dataChunk)</code>][stream-push] method. <code>_read()</code> should continue reading
+from the resource and pushing data until <code>readable.push()</code> returns <code>false</code>. Only
+when <code>_read()</code> is called again after it has stopped should it resume pushing
+additional data onto the queue.</p>
+
+<p><em>Note</em>: Once the <code>readable._read()</code> method has been called, it will not be
+called again until the [<code>readable.push()</code>][stream-push] method is called.</p>
+
+<p>The <code>size</code> argument is advisory. For implementations where a "read" is a
+single operation that returns data can use the <code>size</code> argument to determine how
+much data to fetch. Other implementations may ignore this argument and simply
+provide data whenever it becomes available. There is no need to "wait" until
+<code>size</code> bytes are available before calling [<code>stream.push(chunk)</code>][stream-push].</p>
+
+<p>The <code>readable._read()</code> method is prefixed with an underscore because it is
+internal to the class that defines it, and should never be called directly by
+user programs.</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li>Returns: <code>this</code></li>
+</ul>
+
+<p>The <code>readable.resume()</code> method causes an explicitly paused Readable stream to
+resume emitting [<code>'data'</code>][] events, switching the stream into flowing mode.</p>
+
+<p>The <code>readable.resume()</code> method can be used to fully consume the data from a
+stream without actually processing any of that data as illustrated in the
+following example:</p>
+
+<pre class="prettyprint"><code>getReadableStreamSomehow()
+  .resume()
+  .on('end', () =&gt; {
+    console.log('Reached the end, but did not read anything.');
+  });
+</code></pre>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>encoding</code> {String} 要使用的编码</li>
+<li>Returns: <code>this</code></li>
+</ul>
+
+<p><code>readble.setEncoding()</code> 方法会为从可读流读入的数据设置默认字符编码</p>
+
+<p>设置编码会使得该流数据返回指定编码的字符串而不是<code>Buffer</code>对象。例如，调用<code>readable.setEncoding('utf-8')</code>会使得输出数据作为UTF-8数据解析，并作为字符串返回。调用<code>readable.setEncoding('hex')</code>使得数据被编码成16进制字符串格式。</p>
+
+<p>可读流会妥善处理多字节字符，如果仅仅直接从流中取出<code>Buffer</code>对象，很可能会导致错误解码。</p>
+
+<p>调用<code>readable.setEncoding(null)</code>可以禁止编码。该方法在处理二进制数据或大字节字符串分割为许多块时非常有用。</p>
+
+<pre class="prettyprint"><code>const readable = getReadableStreamSomehow();
+readable.setEncoding('utf8');
+readable.on('data', (chunk) =&gt; {
+  assert.equal(typeof chunk, 'string');
+  console.log('got %d characters of string data', chunk.length);
+});
+</code></pre>
+
+<p>可读流（Readable streams）是对提供数据的 <em>源头</em> （source）的抽象。</p>
+
+<p>可读流的例子包括：</p>
+
+<ul>
+<li>[HTTP responses, on the client][http-incoming-message]</li>
+<li>[HTTP requests, on the server][http-incoming-message]</li>
+<li>[fs read streams][]</li>
+<li>[zlib streams][zlib]</li>
+<li>[crypto streams][crypto]</li>
+<li>[TCP sockets][]</li>
+<li>[child process stdout and stderr][]</li>
+<li>[<code>process.stdin</code>][]</li>
+</ul>
+
+<p>所有的 [Readable][] 都实现了
+<code>stream.Readable</code> 类定义的接口。</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>destination</code> {stream.Writable} Optional specific stream to unpipe</li>
+</ul>
+
+<p>The <code>readable.unpipe()</code> method detaches a Writable stream previously attached
+using the [<code>stream.pipe()</code>][] method.</p>
+
+<p>If the <code>destination</code> is not specified, then <em>all</em> pipes are detached.</p>
+
+<p>If the <code>destination</code> is specified, but no pipe is set up for it, then
+the method does nothing.</p>
+
+<pre class="prettyprint"><code>const readable = getReadableStreamSomehow();
+const writable = fs.createWriteStream('file.txt');
+// All the data from readable goes into 'file.txt',
+// but only for the first second
+readable.pipe(writable);
+setTimeout(() =&gt; {
+  console.log('Stop writing to file.txt');
+  readable.unpipe(writable);
+  console.log('Manually close the file stream');
+  writable.end();
+}, 1000);
+</code></pre>
+
+<!-- YAML
+added: v0.9.11
+-->
+
+<ul>
+<li><code>chunk</code> {Buffer|String} Chunk of data to unshift onto the read queue</li>
+</ul>
+
+<p>The <code>readable.unshift()</code> method pushes a chunk of data back into the internal
+buffer. This is useful in certain situations where a stream is being consumed by
+code that needs to "un-consume" some amount of data that it has optimistically
+pulled out of the source, so that the data can be passed on to some other party.</p>
+
+<p><em>Note</em>: The <code>stream.unshift(chunk)</code> method cannot be called after the
+[<code>'end'</code>][] event has been emitted or a runtime error will be thrown.</p>
+
+<p>Developers using <code>stream.unshift()</code> often should consider switching to
+use of a [Transform][] stream instead. See the [API for Stream Implementers][]
+section for more information.</p>
+
+<pre class="prettyprint"><code>// Pull off a header delimited by \n\n
+// use unshift() if we get too much
+// Call the callback with (error, header, stream)
+const StringDecoder = require('string_decoder').StringDecoder;
+function parseHeader(stream, callback) {
+  stream.on('error', callback);
+  stream.on('readable', onReadable);
+  const decoder = new StringDecoder('utf8');
+  var header = '';
+  function onReadable() {
+    var chunk;
+    while (null !== (chunk = stream.read())) {
+      var str = decoder.write(chunk);
+      if (str.match(/\n\n/)) {
+        // found the header boundary
+        var split = str.split(/\n\n/);
+        header += split.shift();
+        const remaining = split.join('\n\n');
+        const buf = Buffer.from(remaining, 'utf8');
+        stream.removeListener('error', callback);
+        // remove the readable listener before unshifting
+        stream.removeListener('readable', onReadable);
+        if (buf.length)
+          stream.unshift(buf);
+        // now the body of the message can be read from the stream.
+        callback(null, header, stream);
+      } else {
+        // still reading the header.
+        header += str;
+      }
+    }
+  }
+}
+</code></pre>
+
+<p><em>Note</em>: Unlike [<code>stream.push(chunk)</code>][stream-push], <code>stream.unshift(chunk)</code>
+will not end the reading process by resetting the internal reading state of the
+stream. This can cause unexpected results if <code>readable.unshift()</code> is called
+during a read (i.e. from within a [<code>stream._read()</code>][stream-_read]
+implementation on a custom stream). Following the call to <code>readable.unshift()</code>
+with an immediate [<code>stream.push('')</code>][stream-push] will reset the reading state
+appropriately, however it is best to simply avoid calling <code>readable.unshift()</code>
+while in the process of performing a read.</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>stream</code> {Stream} An "old style" readable stream</li>
+</ul>
+
+<p>Versions of Node.js prior to v0.10 had streams that did not implement the
+entire <code>stream</code> module API as it is currently defined. (See [Compatibility][]
+for more information.)</p>
+
+<p>When using an older Node.js library that emits [<code>'data'</code>][] events and has a
+[<code>stream.pause()</code>][stream-pause] method that is advisory only, the
+<code>readable.wrap()</code> method can be used to create a [Readable][] stream that uses
+the old stream as its data source.</p>
+
+<p>It will rarely be necessary to use <code>readable.wrap()</code> but the method has been
+provided as a convenience for interacting with older Node.js applications and
+libraries.</p>
+
+<p>For example:</p>
+
+<pre class="prettyprint"><code>const OldReader = require('./old-api-module.js').OldReader;
+const Readable = require('stream').Readable;
+const oreader = new OldReader;
+const myReader = new Readable().wrap(oreader);
+
+myReader.on('readable', () =&gt; {
+  myReader.read(); // etc.
+});
+</code></pre>
+
+<p>For many simple cases, it is possible to construct a stream without relying on
+inheritance. This can be accomplished by directly creating instances of the
+<code>stream.Writable</code>, <code>stream.Readable</code>, <code>stream.Duplex</code> or <code>stream.Transform</code>
+objects and passing appropriate methods as constructor options.</p>
+
+<p>For example:</p>
+
+<pre class="prettyprint"><code>const Writable = require('stream').Writable;
+
+const myWritable = new Writable({
+  write(chunk, encoding, callback) {
+    // ...
+  }
+});
+</code></pre>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p>流（stream）在 Node.js 中是处理流数据的抽象接口（abstract interface）。
+<code>stream</code> 模块提供了基础的 API 。使用这些 API 可以很容易地来构建实现流接口的对象。</p>
+
+<p>Node.js 提供了多种流对象。 例如，
+[HTTP 请求][http-incoming-message] 和 [<code>process.stdout</code>][]
+就都是流的实例。</p>
+
+<p>流可以是可读的、可写的，或是可读写的。所有的流都是
+[<code>EventEmitter</code>][] 的实例。</p>
+
+<p><code>stream</code> 模块可以通过以下方式引入：</p>
+
+<pre class="prettyprint"><code>const stream = require('stream');
+</code></pre>
+
+<p>尽管所有的 Node.js 用户都应该理解流的工作方式，这点很重要，
+但是 <code>stream</code> 模块本身只对于那些需要创建新的流的实例的开发者最有用处。 对于主要是 <em>消费</em> 流的开发者来说，他们很少（如果有的话）需要直接使用
+ <code>stream</code> 模块。</p>
+
+<p>可读流的“两种操作模式”是一种简单抽象。它抽象了在可读流实现（Readable stream implementation）内部发生的复杂的状态管理过程。</p>
+
+<p>在任意时刻，任意可读流应确切处于下面三种状态之一：</p>
+
+<ul>
+<li><code>readable._readableState.flowing = null</code></li>
+<li><code>readable._readableState.flowing = false</code></li>
+<li><code>readable._readableState.flowing = true</code></li>
+</ul>
+
+<p>若 <code>readable._readableState.flowing</code> 为 <code>null</code>，由于不存在数据消费者，可读流将不会产生数据。</p>
+
+<p>如果监听 <code>'data'</code> 事件，调用 <code>readable.pipe()</code>
+方法，或者调用 <code>readable.resume()</code> 方法，
+<code>readable._readableState.flowing</code> 的值将会变为 <code>true</code> 。这时，随着数据生成，可读流开始频繁触发事件。</p>
+
+<p>调用 <code>readable.pause()</code> 方法， <code>readable.unpipe()</code> 方法， 或者接收 “背压”（back pressure），
+将导致 <code>readable._readableState.flowing</code> 值变为 <code>false</code>。
+这将暂停事件流，但 <em>不会</em> 暂停数据生成。</p>
+
+<p>当 <code>readable._readableState.flowing</code> 值为 <code>false</code> 时， 数据可能堆积到流的内部缓存中。</p>
+
+<ul>
+<li><code>callback</code> {Function} A callback function (optionally with an error
+argument) to be called when remaining data has been flushed.</li>
+</ul>
+
+<p><em>Note</em>: <strong>This function MUST NOT be called by application code directly.</strong> It
+should be implemented by child classes, and called only by the internal Readable
+class methods only.</p>
+
+<p>In some cases, a transform operation may need to emit an additional bit of
+data at the end of the stream. For example, a <code>zlib</code> compression stream will
+store an amount of internal state used to optimally compress the output. When
+the stream ends, however, that additional data needs to be flushed so that the
+compressed data will be complete.</p>
+
+<p>Custom [Transform][] implementations <em>may</em> implement the <code>transform._flush()</code>
+method. This will be called when there is no more written data to be consumed,
+but before the [<code>'end'</code>][] event is emitted signaling the end of the
+[Readable][] stream.</p>
+
+<p>Within the <code>transform._flush()</code> implementation, the <code>readable.push()</code> method
+may be called zero or more times, as appropriate. The <code>callback</code> function must
+be called when the flush operation is complete.</p>
+
+<p>The <code>transform._flush()</code> method is prefixed with an underscore because it is
+internal to the class that defines it, and should never be called directly by
+user programs.</p>
+
+<ul>
+<li><code>chunk</code> {Buffer|String} The chunk to be transformed. Will <strong>always</strong>
+be a buffer unless the <code>decodeStrings</code> option was set to <code>false</code>.</li>
+<li><code>encoding</code> {String} If the chunk is a string, then this is the
+encoding type. If chunk is a buffer, then this is the special
+value - 'buffer', ignore it in this case.</li>
+<li><code>callback</code> {Function} A callback function (optionally with an error
+argument and data) to be called after the supplied <code>chunk</code> has been
+processed.</li>
+</ul>
+
+<p><em>Note</em>: <strong>This function MUST NOT be called by application code directly.</strong> It
+should be implemented by child classes, and called only by the internal Readable
+class methods only.</p>
+
+<p>All Transform stream implementations must provide a <code>_transform()</code>
+method to accept input and produce output. The <code>transform._transform()</code>
+implementation handles the bytes being written, computes an output, then passes
+that output off to the readable portion using the <code>readable.push()</code> method.</p>
+
+<p>The <code>transform.push()</code> method may be called zero or more times to generate
+output from a single input chunk, depending on how much is to be output
+as a result of the chunk.</p>
+
+<p>It is possible that no output is generated from any given chunk of input data.</p>
+
+<p>The <code>callback</code> function must be called only when the current chunk is completely
+consumed. The first argument passed to the <code>callback</code> must be an <code>Error</code> object
+if an error occurred while processing the input or <code>null</code> otherwise. If a second
+argument is passed to the <code>callback</code>, it will be forwarded on to the
+<code>readable.push()</code> method. In other words the following are equivalent:</p>
+
+<pre class="prettyprint"><code>transform.prototype._transform = function (data, encoding, callback) {
+  this.push(data);
+  callback();
+};
+
+transform.prototype._transform = function (data, encoding, callback) {
+  callback(null, data);
+};
+</code></pre>
+
+<p>The <code>transform._transform()</code> method is prefixed with an underscore because it
+is internal to the class that defines it, and should never be called directly by
+user programs.</p>
+
+<p>可读流事实上工作在下面两种模式之一：flowing 和 paused 。</p>
+
+<p>在 flowing 模式下， 可读流自动从系统底层读取数据，并通过 [<code>EventEmitter</code>][] 接口的事件尽快将数据提供给应用。</p>
+
+<p>在 paused 模式下，必须显式调用 [<code>stream.read()</code>][stream-read] 方法来从流中读取数据片段。</p>
+
+<p>所有初始工作模式为 paused 的 [Readable][] 流，可以通过下面三种途径切换到 flowing
+模式：</p>
+
+<ul>
+<li>监听 [<code>'data'</code>][] 事件。</li>
+<li>调用 [<code>stream.resume()</code>][stream-resume] 方法。</li>
+<li>调用 [<code>stream.pipe()</code>][] 方法将数据发送到 [Writable][]。</li>
+</ul>
+
+<p>可读流可以通过下面途径切换到 paused 模式：</p>
+
+<ul>
+<li>如果不存在管道目标（pipe destination），可以通过调用
+[<code>stream.pause()</code>][stream-pause] 方法实现。</li>
+<li>如果存在管道目标，可以通过取消 [<code>'data'</code>][] 事件监听，并调用 [<code>stream.unpipe()</code>][] 方法移除所有管道目标来实现。</li>
+</ul>
+
+<p>这里需要记住的重要概念就是，可读流需要先为其提供消费或忽略数据的机制，才能开始提供数据。如果消费机制被禁用或取消，可读流将 <em>尝试</em>
+停止生成数据。</p>
+
+<p><em>注意</em>: 为了向后兼容，取消 [<code>'data'</code>][] 事件监听并 <strong>不会</strong> 自动将流暂停。同时，如果存在管道目标（pipe destination），且目标状态变为可以接收数据（drain and ask for
+more data），调用了 [<code>stream.pause()</code>][stream-pause] 方法也并不保证流会一直 <em>保持</em> 暂停状态。</p>
+
+<p><em>注意</em>: 如果 [Readable][] 切换到 flowing 模式，且没有消费者处理流中的数据，这些数据将会丢失。
+比如， 调用了 <code>readable.resume()</code> 方法却没有监听 <code>'data'</code> 事件，或是取消了 <code>'data'</code> 事件监听，就有可能出现这种情况。</p>
+
+<p>Node.js 中有四种基本的流类型：</p>
+
+<ul>
+<li>[Readable][] - 可读的流 (例如
+ [<code>fs.createReadStream()</code>][]).</li>
+<li>[Writable][] - 可写的流 (例如
+ [<code>fs.createWriteStream()</code>][]).</li>
+<li>[Duplex][] - 可读写的流 (例如
+ [<code>net.Socket</code>][]).</li>
+<li>[Transform][] - 在读写过程中可以修改和变换数据的 Duplex 流  (例如 [<code>zlib.createDeflate()</code>][]).</li>
+</ul>
+
+<!-- YAML
+added: v0.11.2
+-->
+
+<p>调用 <code>writable.cork()</code> 方法将强制所有写入数据都内存中的缓冲区里。
+直到调用 [<code>stream.uncork()</code>][] 或
+[<code>stream.end()</code>][stream-end] 方法时，缓冲区里的数据才会被输出。</p>
+
+<p>在向流中写入大量小块数据（small chunks of data）时，内部缓冲区（internal
+buffer）可能失效，从而导致性能下降。<code>writable.cork()</code> 方法主要就是用来避免这种情况。 对于这种情况，
+实现了 <code>writable._writev()</code> 方法的流可以对写入的数据进行缓冲，从而提高写入效率。</p>
+
+<p>也可查看 [<code>writable.uncork()</code>]。</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>chunk</code> {String|Buffer|any} 可选的，需要写入的数据。对于非对象模式下的流， <code>chunk</code> 必须是字符串或者 <code>Buffer</code>。对于对象模式下的流， <code>chunk</code> 可以是任意的 JavaScript 值，除了 <code>null</code>。</li>
+<li><code>encoding</code> {String} 如果 <code>chunk</code> 是字符串，这里指定字符编码。</li>
+<li><code>callback</code> {Function} 可选的，流结束时的回调函数。</li>
+</ul>
+
+<p>调用 <code>writable.end()</code> 方法表明接下来没有数据要被写入 [Writable][]。通过传入可选的 <code>chunk</code> 和 <code>encoding</code> 参数，可以在关闭流之前再写入一段数据。如果传入了可选的 <code>callback</code> 函数，它将作为 [<code>'finish'</code>][] 事件的回调函数。</p>
+
+<p>在调用了 [<code>stream.end()</code>][stream-end] 方法之后，再调用 [<code>stream.write()</code>][stream-write] 方法将会导致错误。</p>
+
+<pre class="prettyprint"><code>// 写入 'hello, ' ，并用 'world!' 来结束写入
+const file = fs.createWriteStream('example.txt');
+file.write('hello, ');
+file.end('world!');
+// 后面不允许再写入数据！
+</code></pre>
+
+<!-- YAML
+added: v0.11.15
+-->
+
+<ul>
+<li><code>encoding</code> {String} 新的默认编码</li>
+<li>返回： <code>this</code></li>
+</ul>
+
+<p><code>writable.setDefaultEncoding()</code> 用于为 [Writable][] 设置 <code>encoding</code>。</p>
+
+<p>Writable streams 是 <em>destination</em> 的一种抽象，这种 <em>destination</em> 允许数据写入。</p>
+
+<p>[Writable][] 的例子包括了：</p>
+
+<ul>
+<li>[HTTP requests, on the client][]</li>
+<li>[HTTP responses, on the server][]</li>
+<li>[fs write streams][]</li>
+<li>[zlib streams][zlib]</li>
+<li>[crypto streams][crypto]</li>
+<li>[TCP sockets][]</li>
+<li>[child process stdin][]</li>
+<li>[<code>process.stdout</code>][], [<code>process.stderr</code>][]</li>
+</ul>
+
+<p><em>注意</em>: 上面的某些例子事实上是 [Duplex][] 流，只是实现了 [Writable][] 接口。</p>
+
+<p>所有 [Writable][] 流都实现了
+<code>stream.Writable</code> 类定义的接口。</p>
+
+<p>尽管特定的 [Writable][] 流的实现可能略有差别，
+所有的 Writable streams 都可以按一种基本模式进行使用，如下面例子所示：</p>
+
+<pre class="prettyprint"><code>const myStream = getWritableStreamSomehow();
+myStream.write('some data');
+myStream.write('some more data');
+myStream.end('done writing data');
+</code></pre>
+
+<!-- YAML
+added: v0.11.2
+-->
+
+<p><code>writable.uncork()</code> 将输出在 [<code>stream.cork()</code>][] 方法被调用之后缓冲在内存中的所有数据。</p>
+
+<p>如果使用 [<code>writable.cork()</code>] 和 <code>writable.uncork()</code> 来管理写入缓存，建议使用 <code>process.nextTick()</code> 来延迟调用 <code>writable.uncork()</code> 方法。通过这种方式，可以对单个 Node.js 事件循环中调用的所有 <code>writable.write()</code> 方法进行批处理。</p>
+
+<pre class="prettyprint"><code>stream.cork();
+stream.write('some ');
+stream.write('data ');
+process.nextTick(() =&gt; stream.uncork());
+</code></pre>
+
+<p>如果一个流多次调用了 [<code>writable.cork()</code>] 方法，那么也必须调用同样次数的 <code>writable.uncork()</code> 方法以输出缓冲区数据。</p>
+
+<pre class="prettyprint"><code>stream.cork();
+stream.write('some ');
+stream.cork();
+stream.write('data ');
+process.nextTick(() =&gt; {
+  stream.uncork();
+  // 之前的数据只有在 uncork() 被二次调用后才会输出
+  stream.uncork();
+});
+</code></pre>
+
+<p>也可查看 [<code>writable.cork()</code>]。</p>
+
+<ul>
+<li><code>chunks</code> {Array} The chunks to be written. Each chunk has following
+format: <code>{ chunk: ..., encoding: ... }</code>.</li>
+<li><code>callback</code> {Function} A callback function (optionally with an error
+argument) to be invoked when processing is complete for the supplied chunks.</li>
+</ul>
+
+<p><em>Note</em>: <strong>This function MUST NOT be called by application code directly.</strong> It
+should be implemented by child classes, and called only by the internal Writable
+class methods only.</p>
+
+<p>The <code>writable._writev()</code> method may be implemented in addition to
+<code>writable._write()</code> in stream implementations that are capable of processing
+multiple chunks of data at once. If implemented, the method will be called with
+all chunks of data currently buffered in the write queue.</p>
+
+<p>The <code>writable._writev()</code> method is prefixed with an underscore because it is
+internal to the class that defines it, and should never be called directly by
+user programs.</p>
+
+<!-- YAML
+added: v0.9.4
+-->
+
+<ul>
+<li><code>chunk</code> {String|Buffer} 要写入的数据</li>
+<li><code>encoding</code> {String} 如果 <code>chunk</code> 是字符串，这里指定字符编码</li>
+<li><code>callback</code> {Function} 缓冲数据输出时的回调函数</li>
+<li>返回： {Boolean} 如果流需要等待 <code>'drain'</code> 事件触发才能继续写入数据，这里将返回 <code>false</code> ； 否则返回 <code>true</code>。</li>
+</ul>
+
+<p><code>writable.write()</code> 方法向流中写入数据，并在数据处理完成后调用 <code>callback</code> 。如果有错误发生， <code>callback</code> <em>不一定</em> 会接收到这个错误作为第一个参数。要确保可靠地检测到写入错误，应该监听
+<code>'error'</code> 事件。</p>
+
+<p>在确认了 <code>chunk</code> 后，如果内部缓冲区的大小小于创建流时设定的 <code>highWaterMark</code> 阈值，函数将返回 <code>true</code> 。
+如果返回值为 <code>false</code> ，应该停止向流中写入数据，直到 [<code>'drain'</code>][] 事件被触发。</p>
+
+<p>当一个流不处在 drain 的状态， 对 <code>write()</code> 的调用会缓存数据块， 并且返回 false。
+一旦所有当前所有缓存的数据块都排空了（被操作系统接受来进行输出）， 那么 <code>'drain'</code> 事件就会被触发。
+我们建议， 一旦 write() 返回 false， 在 <code>'drain'</code> 事件触发前， 不能写入任何数据块。 
+然而，当流不处在 <code>'drain'</code> 状态时， 调用 <code>write()</code> 是被允许的， Node.js 会缓存所有已经写入的数据块， 
+直到达到最大内存占用， 这时它会无条件中止。 甚至在它中止之前， 高内存占用将会导致差的垃圾回收器的性能和高的系统相对敏感性
+（即使内存不在需要，也通常不会被释放回系统）。 如果远程的另一端没有读取数据， TCP sockets 可能永远也不会 drain ， 
+所以写入到一个不会drain的socket可能会导致远程可利用的漏洞。 </p>
+
+<p>对于一个 [Transform][], 写入数据到一个不会drain的流尤其成问题， 因为 <code>Transform</code> 流默认被暂停， 直到它们被pipe或者被添加了
+ <code>'data'</code> 或 <code>'readable'</code> event handler。 </p>
+
+<p>如果将要被写入的数据可以根据需要生成或者取得，我们建议将逻辑封装为一个 [Readable][] 流并且使用 
+[<code>stream.pipe()</code>][]。 但是如果调用 <code>write()</code> 优先, 那么可以使用 [<code>'drain'</code>][] 事件来防止回压并且避免内存问题:</p>
+
+<pre class="prettyprint"><code>function write (data, cb) {
+  if (!stream.write(data)) {
+    stream.once('drain', cb)
+  } else {
+    process.nextTick(cb)
+  }
+}
+
+// Wait for cb to be called before doing any other write.
+write('hello', () =&gt; {
+  console.log('write completed, do more writes now')
+})
+</code></pre>
+
+<p>对象模式的写入流将忽略 <code>encoding</code> 参数。</p>
+
+<ul>
+<li><code>chunk</code> {Buffer|String} The chunk to be written. Will <strong>always</strong>
+be a buffer unless the <code>decodeStrings</code> option was set to <code>false</code>.</li>
+<li><code>encoding</code> {String} If the chunk is a string, then <code>encoding</code> is the
+character encoding of that string. If chunk is a <code>Buffer</code>, or if the
+stream is operating in object mode, <code>encoding</code> may be ignored.</li>
+<li><code>callback</code> {Function} Call this function (optionally with an error
+argument) when processing is complete for the supplied chunk.</li>
+</ul>
+
+<p>All Writable stream implementations must provide a
+[<code>writable._write()</code>][stream-_write] method to send data to the underlying
+resource.</p>
+
+<p><em>Note</em>: [Transform][] streams provide their own implementation of the
+[<code>writable._write()</code>][stream-_write].</p>
+
+<p><em>Note</em>: <strong>This function MUST NOT be called by application code directly.</strong> It
+should be implemented by child classes, and called only by the internal Writable
+class methods only.</p>
+
+<p>The <code>callback</code> method must be called to signal either that the write completed
+successfully or failed with an error. The first argument passed to the
+<code>callback</code> must be the <code>Error</code> object if the call failed or <code>null</code> if the
+write succeeded.</p>
+
+<p>It is important to note that all calls to <code>writable.write()</code> that occur between
+the time <code>writable._write()</code> is called and the <code>callback</code> is called will cause
+the written data to be buffered. Once the <code>callback</code> is invoked, the stream will
+emit a [<code>'drain'</code>][] event. If a stream implementation is capable of processing
+multiple chunks of data at once, the <code>writable._writev()</code> method should be
+implemented.</p>
+
+<p>If the <code>decodeStrings</code> property is set in the constructor options, then
+<code>chunk</code> may be a string rather than a Buffer, and <code>encoding</code> will
+indicate the character encoding of the string. This is to support
+implementations that have an optimized handling for certain string
+data encodings. If the <code>decodeStrings</code> property is explicitly set to <code>false</code>,
+the <code>encoding</code> argument can be safely ignored, and <code>chunk</code> will remain the same
+object that is passed to <code>.write()</code>.</p>
+
+<p>The <code>writable._write()</code> method is prefixed with an underscore because it is
+internal to the class that defines it, and should never be called directly by
+user programs.</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

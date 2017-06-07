@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!-- YAML
+added: v0.5.8
+-->
+
+<p><code>tty.ReadStream</code> 类是 <code>net.Socket</code> 的一个子类，表示一个 TTY 的可读部分。
+正常情况下，<code>process.stdin</code> 是一个 Node.js 进程中唯一的 <code>tty.ReadStream</code> 实例，没有理由创建更多的实例。</p>
+
+<!-- YAML
+added: v0.5.8
+-->
+
+<p><code>tty.WriteStream</code> 类是 <code>net.Socket</code> 的一个子类，表示一个 TTY 的可写部分。
+正常情况下，<code>process.stdout</code> 和 <code>process.stderr</code> 是一个 Node.js 进程中唯一的 <code>tty.WriteStream</code> 实例，没有理由创建更多的实例。</p>
+
+<!-- YAML
+added: v0.7.7
+-->
+
+<p>当 <code>writeStream.columns</code> 属性或 <code>writeStream.rows</code> 属性发生变化时触发 <code>'resize'</code> 事件。
+监听器回调没有参数传入。</p>
+
+<pre class="prettyprint"><code>process.stdout.on('resize', () =&gt; {
+  console.log('屏幕大小已改变！');
+  console.log(`${process.stdout.columns}x${process.stdout.rows}`);
+});
+</code></pre>
+
+<!-- YAML
+added: v0.7.7
+-->
+
+<p>一个 <code>boolean</code> 值，如果 TTY 当前被配置成作为一个原始设备来操作，则返回 <code>true</code>。
+默认为 <code>false</code>。</p>
+
+<!-- YAML
+added: v0.7.7
+-->
+
+<p>允许配置 <code>tty.ReadStream</code> 作为一个原始设备来操作。</p>
+
+<p>当在原始模式中，输入总是按字符生效，但不包括修饰符。
+此外，终端对字符的所有特殊处理会被禁用，包括应答输入的字符。
+注意，该模式中 <code>CTRL</code>+<code>C</code> 不再产生一个 <code>SIGINT</code>。</p>
+
+<ul>
+<li><code>mode</code> {boolean} 如果为 <code>true</code>，则配置 <code>tty.ReadStream</code> 作为一个原始设备来操作。
+如果为 <code>false</code>，则配置 <code>tty.ReadStream</code> 以默认模式来操作。
+<code>readStream.isRaw</code> 属性会被设为对应的值。</li>
+</ul>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>tty</code> 模块提供了 <code>tty.ReadStream</code> 类和 <code>tty.WriteStream</code> 类。
+大多数情况下无需直接使用此模块。
+它可以通过以下方式使用：</p>
+
+<pre class="prettyprint"><code>const tty = require('tty');
+</code></pre>
+
+<p>当 Node.js 检测到它正被运行在一个文本终端（TTY）的上下文中时，则 <code>process.stdin</code> 默认会被初始化为一个 <code>tty.ReadStream</code> 实例，<code>process.stdout</code> 和 <code>process.stderr</code> 默认会被初始化为一个 <code>tty.WriteStream</code> 实例。
+判断 Node.js 是否正被运行在一个 TTY 上下文中的首选方法是去检查 <code>process.stdout.isTTY</code> 属性的值是否为 <code>true</code>：</p>
+
+<pre class="prettyprint"><code>$ node -p -e "Boolean(process.stdout.isTTY)"
+true
+$ node -p -e "Boolean(process.stdout.isTTY)" | cat
+false
+</code></pre>
+
+<p>大多数情况下，应用程序几乎没有理由创建 <code>tty.ReadStream</code> 类和 <code>tty.WriteStream</code> 类的实例。</p>
+
+<!-- YAML
+added: v0.5.8
+-->
+
+<ul>
+<li><code>fd</code> {number} 一个数值型的文件描述符。</li>
+</ul>
+
+<p>如果给定的 <code>fd</code> 与一个 TTY 相关联，则 <code>tty.isatty()</code> 方法返回 <code>true</code>，否则返回 <code>false</code>。</p>
+
+<!-- YAML
+added: v0.7.7
+-->
+
+<p>一个 <code>number</code>，指明 TTY 当前具有的列数。
+当 <code>'resize'</code> 事件被触发时，该属性会被更新。</p>
+
+<!-- YAML
+added: v0.7.7
+-->
+
+<p>一个 <code>number</code>，指明 TTY 当前具有的行数。
+当 <code>'resize'</code> 事件被触发时，该属性会被更新。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

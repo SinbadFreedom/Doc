@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><p>URL 只被允许包含一个特定范围的字符串。
+URL 对象的属性中的空格（<code>' '</code>）和以下字符会被自动转义。</p>
+
+<pre class="prettyprint"><code>&lt; &gt; " ` \r \n \t { } | \ ^ '
+</code></pre>
+
+<p>例如，ASCII 空格字符（<code>' '</code>）被编码成 <code>%20</code>。
+ASCII 斜杠字符（<code>/</code>）被编码成 <code>%3C</code>。</p>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>url</code> 模块提供了一些实用函数，用于 URL 处理与解析。
+可以通过以下方式使用：</p>
+
+<pre class="prettyprint"><code>const url = require('url');
+</code></pre>
+
+<p><code>auth</code> 属性是 URL 的用户名与密码部分。
+该字符串跟在 <code>protocol</code> 和双斜杠（如果有）的后面，排在 <code>host</code> 部分的前面且被一个 ASCII 的 at 符号（<code>@</code>）分隔。
+该字符的格式为 <code>{username}[:{password}]</code>，<code>[:{password}]</code> 部分是可选的。</p>
+
+<p>例如：<code>'user:pass'</code></p>
+
+<p><code>hash</code> 属性包含 URL 的碎片部分，包括开头的 ASCII 哈希字符（<code>#</code>）。</p>
+
+<p>例如：<code>'#hash'</code></p>
+
+<p><code>host</code> 属性是 URL 的完整的小写的主机部分，包括 <code>port</code>（如果有）。</p>
+
+<p>例如：<code>'host.com:8080'</code></p>
+
+<p><code>hostname</code> 属性是 <code>host</code> 组成部分排除 <code>port</code> 之后的小写的主机名部分。</p>
+
+<p>例如：<code>'host.com'</code></p>
+
+<p><code>href</code> 属性是解析后的完整的 URL 字符串，<code>protocol</code> 和 <code>host</code> 都会被转换为小写的。</p>
+
+<p>例如：<code>'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'</code></p>
+
+<p><code>path</code> 属性是一个 <code>pathname</code> 与 <code>search</code> 组成部分的串接。</p>
+
+<p>例如：<code>'/p/a/t/h?query=string'</code></p>
+
+<p>不会对 <code>path</code> 执行解码。</p>
+
+<p><code>pathname</code> 属性包含 URL 的整个路径部分。
+它跟在 <code>host</code> （包括 <code>port</code>）后面，排在 <code>query</code> 或 <code>hash</code> 组成部分的前面且被 ASCII 问号（<code>?</code>）或哈希字符（<code>#</code>）分隔。</p>
+
+<p>例如：<code>'/p/a/t/h'</code></p>
+
+<p>不会对路径字符串执行解码。</p>
+
+<p><code>port</code> 属性是 <code>host</code> 组成部分中的数值型的端口部分。</p>
+
+<p>例如：<code>'8080'</code></p>
+
+<p><code>protocol</code> 属性表明 URL 的小写的协议体制。</p>
+
+<p>例如：<code>'http:'</code></p>
+
+<p><code>query</code> 属性是不含开头 ASCII 问号（<code>?</code>）的查询字符串，或一个被 [<code>querystring</code>] 模块的 <code>parse()</code> 方法返回的对象。
+<code>query</code> 属性是一个字符串还是一个对象是由传入 <code>url.parse()</code> 的 <code>parseQueryString</code> 参数决定的。</p>
+
+<p>例如：<code>'query=string'</code> or <code>{'query': 'string'}</code></p>
+
+<p>如果返回一个字符串，则不会对查询字符串执行解码。
+如果返回一个对象，则键和值都会被解码。</p>
+
+<p><code>search</code> 属性包含 URL 的整个查询字符串部分，包括开头的 ASCII 问号字符（<code>?</code>）。</p>
+
+<p>例如：<code>'?query=string'</code></p>
+
+<p>不会对查询字符串执行解码。</p>
+
+<p><code>slashes</code> 属性是一个 <code>boolean</code>，如果 <code>protocol</code> 中的冒号后面跟着两个 ASCII 斜杠字符（<code>/</code>），则值为 <code>true</code>。</p>
+
+<!-- YAML
+added: v0.1.25
+-->
+
+<ul>
+<li><code>urlObject</code> {Object | String} 一个 URL 对象（就像 <code>url.parse()</code> 返回的）。
+如果是一个字符串，则通过 <code>url.parse()</code> 转换为一个对象。</li>
+</ul>
+
+<p><code>url.format()</code> 方法返回一个从 <code>urlObject</code> 格式化后的 URL 字符串。</p>
+
+<p>如果 <code>urlObject</code> 不是一个对象或字符串，则 <code>url.parse()</code> 抛出 [<code>TypeError</code>]。</p>
+
+<p>格式化过程如下：</p>
+
+<ul>
+<li>创建一个新的空字符串 <code>result</code>。</li>
+<li>如果 <code>urlObject.protocol</code> 是一个字符串，则它会被原样添加到 <code>result</code>。</li>
+<li>否则，如果 <code>urlObject.protocol</code> 不是 <code>undefined</code> 也不是一个字符串，则抛出 [<code>Error</code>]。</li>
+<li>对于不是以 <code>:</code> 结束的 <code>urlObject.protocol</code>，<code>:</code> 会被添加到 <code>result</code>。</li>
+<li>如果以下条件之一为真，则 <code>//</code> 会被添加到 <code>result</code>：
+<ul><li><code>urlObject.slashes</code> 属性为真；</li>
+<li><code>urlObject.protocol</code> 以 <code>http</code>、<code>https</code>、<code>ftp</code>、<code>gopher</code> 或 <code>file</code> 开头；</li></ul></li>
+<li>如果 <code>urlObject.auth</code> 属性的值为真，且 <code>urlObject.host</code> 或 <code>urlObject.hostname</code> 不为 <code>undefined</code>，则 <code>urlObject.auth</code> 会被添加到 <code>result</code>，且后面带上 <code>@</code>。</li>
+<li>如果 <code>urlObject.host</code> 属性为 <code>undefined</code>，则：
+<ul><li>如果 <code>urlObject.hostname</code> 是一个字符串，则它会被添加到 <code>result</code>。</li>
+<li>否则，如果 <code>urlObject.hostname</code> 不是 <code>undefined</code> 也不是一个字符串，则抛出 [<code>Error</code>]。</li>
+<li>如果 <code>urlObject.port</code> 属性的值为真，且 <code>urlObject.hostname</code> 不为 <code>undefined</code>：</li>
+<li><code>:</code> 会被添加到 <code>result</code>。</li>
+<li><code>urlObject.port</code> 的值会被添加到 <code>result</code>。</li></ul></li>
+<li>否则，如果 <code>urlObject.host</code> 属性的值为真，则 <code>urlObject.host</code> 的值会被添加到 <code>result</code>。</li>
+<li>如果 <code>urlObject.pathname</code> 属性是一个字符串且不是一个空字符串：
+<ul><li>如果 <code>urlObject.pathname</code> 不是以 <code>/</code> 开头，则 <code>/</code> 会被添加到 <code>result</code>。</li>
+<li><code>urlObject.pathname</code> 的值会被添加到 <code>result</code>。</li></ul></li>
+<li>否则，如果 <code>urlObject.pathname</code> 不是 <code>undefined</code> 也不是一个字符串，则抛出 [<code>Error</code>]。</li>
+<li>如果 <code>urlObject.search</code> 属性为 <code>undefined</code> 且 <code>urlObject.query</code> 属性是一个 <code>Object</code>，则 <code>?</code> 会被添加到 <code>result</code>，后面跟上把 <code>urlObject.query</code> 的值传入 [<code>querystring</code>] 模块的 <code>stringify()</code> 方法的调用结果。</li>
+<li>否则，如果 <code>urlObject.search</code> 是一个字符串：
+<ul><li>如果 <code>urlObject.search</code> 的值不是以 <code>?</code> 开头，则 <code>?</code> 会被添加到 <code>result</code>。</li>
+<li><code>urlObject.search</code> 的值会被添加到 <code>result</code>。</li></ul></li>
+<li>否则，如果 <code>urlObject.search</code> 不是 <code>undefined</code> 也不是一个字符串，则抛出 [<code>Error</code>]。</li>
+<li>如果 <code>urlObject.hash</code> 属性是一个字符串：
+<ul><li>如果 <code>urlObject.hash</code> 的值不是以 <code>#</code> 开头，则 <code>#</code> 会被添加到 <code>result</code>。</li>
+<li><code>urlObject.hash</code> 的值会被添加到 <code>result</code>。</li></ul></li>
+<li>否则，如果 <code>urlObject.hash</code> 属性不是 <code>undefined</code> 也不是一个字符串，则抛出 [<code>Error</code>]。</li>
+<li>返回 <code>result</code>。</li>
+</ul>
+
+<!-- YAML
+added: v0.1.25
+-->
+
+<ul>
+<li><code>urlString</code> {String} 要解析的 URL 字符串。</li>
+<li><code>parseQueryString</code> {Boolean} 如果为 <code>true</code>，则 <code>query</code> 属性总会通过 [<code>querystring</code>] 模块的 <code>parse()</code> 方法生成一个对象。
+如果为 <code>false</code>，则返回的 URL 对象上的 <code>query</code> 属性会是一个未解析、未解码的字符串。
+默认为 <code>false</code>。</li>
+<li><code>slashesDenoteHost</code> {Boolean} 如果为 <code>true</code>，则 <code>//</code> 之后至下一个 <code>/</code> 之前的字符串会被解析作为 <code>host</code>。
+例如，<code>//foo/bar</code> 会被解析为 <code>{host: 'foo', pathname: '/bar'}</code> 而不是 <code>{pathname: '//foo/bar'}</code>。
+默认为 <code>false</code>。</li>
+</ul>
+
+<p><code>url.parse()</code> 方法会解析一个 URL 字符串并返回一个 URL 对象。</p>
+
+<!-- YAML
+added: v0.1.25
+-->
+
+<ul>
+<li><code>from</code> {String} 解析时相对的基本 URL。</li>
+<li><code>to</code> {String} 要解析的超链接 URL。</li>
+</ul>
+
+<p><code>url.resolve()</code> 方法会以一种 Web 浏览器解析超链接的方式把一个目标 URL 解析成相对于一个基础 URL。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>url.resolve('/one/two/three', 'four')         // '/one/two/four'
+url.resolve('http://example.com/', '/one')    // 'http://example.com/one'
+url.resolve('http://example.com/one', '/two') // 'http://example.com/two'
+</code></pre>
+
+<p>一个 URL 字符串是一个结构化的字符串，它包含多个有意义的组成部分。
+当被解析时，会返回一个 URL 对象，它包含每个组成部分作为属性。</p>
+
+<p>以下详情描述了一个解析后的 URL 的每个组成部分。
+例子，<code>'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'</code>：</p>
+
+<pre class="prettyprint"><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│                                    href                                     │
+├──────────┬┬───────────┬─────────────────┬───────────────────────────┬───────┤
+│ protocol ││   auth    │      host       │           path            │ hash  │
+│          ││           ├──────────┬──────┼──────────┬────────────────┤       │
+│          ││           │ hostname │ port │ pathname │     search     │       │
+│          ││           │          │      │          ├─┬──────────────┤       │
+│          ││           │          │      │          │ │    query     │       │
+"  http:   // user:pass @ host.com : 8080   /p/a/t/h  ?  query=string   #hash "
+│          ││           │          │      │          │ │              │       │
+└──────────┴┴───────────┴──────────┴──────┴──────────┴─┴──────────────┴───────┘
+(请忽略字符串中的空格，它们只是为了格式化)
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

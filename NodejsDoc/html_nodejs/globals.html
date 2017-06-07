@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!-- YAML
+added: v0.1.103
+-->
+
+<!-- type=global -->
+
+<ul>
+<li>{Function}</li>
+</ul>
+
+<p>用于处理二进制数据。详见 [buffer 章节]。</p>
+
+<!-- YAML
+added: v0.9.1
+-->
+
+<!--type=global-->
+
+<p>[<code>clearImmediate</code>] 描述在[定时器]章节。</p>
+
+<!-- YAML
+added: v0.0.1
+-->
+
+<!--type=global-->
+
+<p>[<code>clearInterval</code>] 描述在[定时器]章节。</p>
+
+<!-- YAML
+added: v0.0.1
+-->
+
+<!--type=global-->
+
+<p>[<code>clearTimeout</code>] 描述在[定时器]章节。</p>
+
+<!-- YAML
+added: v0.1.100
+-->
+
+<!-- type=global -->
+
+<ul>
+<li>{Object}</li>
+</ul>
+
+<p>用于打印 <code>stdout</code> 和 <code>stderr</code>。
+详见 [<code>console</code>] 章节。</p>
+
+<!-- YAML
+added: v0.1.27
+-->
+
+<!-- type=var -->
+
+<ul>
+<li>{String}</li>
+</ul>
+
+<p>当前模块的目录名。
+等同于 [<code>__filename</code>] 的 [<code>path.dirname()</code>]。</p>
+
+<p><code>__dirname</code> 实际上不是一个全局变量，而是每个模块内部的。</p>
+
+<p>例子，从 <code>/Users/mjr</code> 运行 <code>node example.js</code>：</p>
+
+<pre class="prettyprint"><code>console.log(__dirname);
+// 输出: /Users/mjr
+console.log(path.dirname(__filename));
+// 输出: /Users/mjr
+</code></pre>
+
+<!-- YAML
+added: v0.1.12
+-->
+
+<!-- type=var -->
+
+<p><code>module.exports</code> 的一个简短的引用。
+何时使用 <code>exports</code> 与何时使用 <code>module.exports</code> 详见[模块系统文档]。</p>
+
+<p><code>exports</code> 实际上不是一个全局变量，而是每个模块内部的。</p>
+
+<p>详见[模块系统文档]。</p>
+
+<!-- YAML
+added: v0.0.1
+-->
+
+<!-- type=var -->
+
+<ul>
+<li>{String}</li>
+</ul>
+
+<p>当前模块的文件名。
+这是当前模块文件的解析后的绝对路径。</p>
+
+<p>对于主程序而言，无需与在命令行中使用的文件名相同。</p>
+
+<p>查看 [<code>__dirname</code>] 了解当前模块的目录名。</p>
+
+<p><code>__filename</code> 实际上不是一个全局变量，而是每个模块内部的。</p>
+
+<p>例子：</p>
+
+<p>从 <code>/Users/mjr</code> 运行 <code>node example.js</code>：</p>
+
+<pre class="prettyprint"><code>console.log(__filename);
+// 输出: /Users/mjr/example.js
+console.log(__dirname);
+// 输出: /Users/mjr
+</code></pre>
+
+<p>给出两个模块：<code>a</code> 和 <code>b</code>，其中 <code>b</code> 是 <code>a</code> 的一个依赖，目录结构如下：</p>
+
+<ul>
+<li><code>/Users/mjr/app/a.js</code></li>
+<li><code>/Users/mjr/app/node_modules/b/b.js</code></li>
+</ul>
+
+<p><code>b.js</code> 的 <code>__filename</code> 返回 <code>/Users/mjr/app/node_modules/b/b.js</code>，<code>a.js</code> 的 <code>__filename</code> 返回 <code>/Users/mjr/app/a.js</code>。</p>
+
+<!-- YAML
+added: v0.1.27
+-->
+
+<!-- type=global -->
+
+<ul>
+<li>{Object} 全局的命名空间对象。</li>
+</ul>
+
+<p>在浏览器中，顶层作用域就是全局作用域。
+这意味着在浏览器中，如果在全局作用域内使用 <code>var something</code> 会定义一个全局变量。
+在 Node.js 中则不同。
+顶层作用域不是全局作用域；在 Node.js 模块中使用 <code>var something</code> 会是模块内部的。</p>
+
+<!-- type=misc -->
+
+<p>这些对象在所有模块中都是可用的。
+有些对象实际上不在全局作用域内，而是在模块作用域内，这个在文档中会注明。</p>
+
+<p>以下列出的对象是特定于 Node.js 的。
+有些[内置对象]是 JavaScript 语言本身的一部分，它们也可以全局访问。</p>
+
+<!-- YAML
+added: v0.1.16
+-->
+
+<!-- type=var -->
+
+<ul>
+<li>{Object}</li>
+</ul>
+
+<p>当前模块的引用。
+具体地说，<code>module.exports</code> 用于定义一个模块导出什么，且通过 <code>require()</code> 引入。</p>
+
+<p><code>module</code> 实际上不是一个全局变量，而是每个模块内部的。</p>
+
+<p>详见[模块系统文档]。</p>
+
+<!-- YAML
+added: v0.1.7
+-->
+
+<!-- type=global -->
+
+<ul>
+<li>{Object}</li>
+</ul>
+
+<p>进程对象。详见 [<code>process</code> 对象]章节。</p>
+
+<!-- YAML
+added: v0.1.13
+-->
+
+<!-- type=var -->
+
+<ul>
+<li>{Function}</li>
+</ul>
+
+<p>用于引入模块。详见[模块]章节。
+<code>require</code> 实际上不是一个全部变量，而是每个模块内部的。</p>
+
+<!-- YAML
+added: v0.3.0
+-->
+
+<ul>
+<li>{Object}</li>
+</ul>
+
+<p>当模块被引入时，它们会缓存到这个对象。
+通过从该对象删除键值，下次调用 <code>require</code> 时会重新加载模块。
+注意，这不适用于[原生插件]，因为重新加载会导致错误。</p>
+
+<!-- YAML
+added: v0.3.0
+deprecated: v0.10.6
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li>{Object}</li>
+</ul>
+
+<p>Instruct <code>require</code> on how to handle certain file extensions.</p>
+
+<p>Process files with the extension <code>.sjs</code> as <code>.js</code>:</p>
+
+<pre class="prettyprint"><code>require.extensions['.sjs'] = require.extensions['.js'];
+</code></pre>
+
+<p><strong>Deprecated</strong>  In the past, this list has been used to load
+non-JavaScript modules into Node.js by compiling them on-demand.
+However, in practice, there are much better ways to do this, such as
+loading modules via some other Node.js program, or compiling them to
+JavaScript ahead of time.</p>
+
+<p>Since the Module system is locked, this feature will probably never go
+away.  However, it may have subtle bugs and complexities that are best
+left untouched.</p>
+
+<!-- YAML
+added: v0.3.0
+-->
+
+<p>使用内部的 <code>require()</code> 机制来查找模块的位置，但不会加载模块，只返回解析后的文件名。</p>
+
+<!-- YAML
+added: v0.9.1
+-->
+
+<!-- type=global -->
+
+<p>[<code>setImmediate</code>] 描述在[定时器]章节。</p>
+
+<!-- YAML
+added: v0.0.1
+-->
+
+<!-- type=global -->
+
+<p>[<code>setInterval</code>] 描述在[定时器]章节。</p>
+
+<!-- YAML
+added: v0.0.1
+-->
+
+<!-- type=global -->
+
+<p>[<code>setTimeout</code>] 描述在[定时器]章节。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><p>默认的解释器会自动加载被调用的 Node.js 核心模块到 REPL 环境中。
+例如，除非被声明为一个全局变量或一个有限范围的变量，否则输入 <code>fs</code> 会被解释为 <code>global.fs = require('fs')</code>。</p>
+
+<pre class="prettyprint"><code>&gt; fs.createReadStream('./some/file');
+</code></pre>
+
+<p>默认的解释器会把最近一次解释的表达式的结果赋值给变量 <code>_</code> （下划线）。</p>
+
+<pre class="prettyprint"><code>&gt; [ 'a', 'b', 'c' ]
+[ 'a', 'b', 'c' ]
+&gt; _.length
+3
+&gt; _ += 1
+4
+</code></pre>
+
+<p>显式地设置 <code>_</code> 为某个值能禁用该特性。</p>
+
+<!-- YAML
+added: v0.1.91
+-->
+
+<p><code>repl.REPLServer</code> 类继承自 [<code>readline.Interface</code>] 类。
+<code>repl.REPLServer</code> 的实例由 <code>repl.start()</code> 方法创建，不能直接使用 JavaScript 的 <code>new</code> 关键字创建。</p>
+
+<p>所有 REPL 的实例都支持下列特殊命令：</p>
+
+<ul>
+<li><code>.break</code> - 在输入一个多行表达式的过程中，输入 <code>.break</code> 命令（或按下 <code>&lt;ctrl&gt;-C</code> 组合键）将终止表达式的继续输入。</li>
+<li><code>.clear</code> - 重置 REPL 的 <code>context</code> 为一个空对象，并清除当前正输入的所有多行表达式。</li>
+<li><code>.exit</code> - 关闭输入输出流，退出 REPL。</li>
+<li><code>.help</code> - 显示特定命令的帮助列表。</li>
+<li><code>.save</code> - 保存当前 REPL 会话到一个文件：
+<code>&gt; .save ./file/to/save.js</code></li>
+<li><code>.load</code> - 读取一个文件到当前 REPL 会话。
+<code>&gt; .load ./file/to/load.js</code></li>
+<li><p><code>.editor</code> 进入编辑模式（<code>&lt;ctrl&gt;-D</code> 完成，<code>&lt;ctrl&gt;-C</code> 取消）</p>
+
+<blockquote>
+  <p>.editor
+  // 进入编辑模式（^D 完成，^C 取消）
+  function welcome(name) {
+    return <code>你好 ${name}！</code>;
+  }</p>
+</blockquote>
+
+<p>welcome('Node.js 用户');</p>
+
+<p>// ^D
+'你好 Node.js 用户！'
+
+
+<blockquote>
+  <p></p></li>
+  </ul>
+  REPL 中下列按键组合有特殊作用：</p>
+</blockquote>
+
+<ul>
+<li><code>&lt;ctrl&gt;-C</code> - 当按下一次时，与 <code>.break</code> 命令的效果一样。当在空白行按下两次时，与 <code>.exit</code> 命令的效果一样。</li>
+<li><code>&lt;ctrl&gt;-D</code> - 与 <code>.exit</code> 命令的效果一样。</li>
+<li><code>&lt;tab&gt;</code> - 当在空白行按下时，显示全局和本地作用域内的变量。当在输入时按下，显示相关的自动补全选项。</li>
+</ul>
+
+<p>默认情况下，在把输出写入到提供的可写流（默认为 <code>process.stdout</code>）之前，<code>repl.REPLServer</code> 实例会使用 [<code>util.inspect()</code>] 方法对输出进行格式化。
+使用 <code>util.inspect()</code> 方法时，<code>useColors</code> 选项可被指定是否在建立默认输出器时使用 ANSI 风格的代码给输出上色。</p>
+
+<p>在构造时，通过在 <code>writer</code> 选项传入一个新的函数，可以完全地自定义一个 <code>repl.REPLServer</code> 实例的输出。
+例子，把输入的任何文本转换为大写：</p>
+
+<pre class="prettyprint"><code>const repl = require('repl');
+
+const r = repl.start({prompt: '&gt;', eval: myEval, writer: myWriter});
+
+function myEval(cmd, context, filename, callback) {
+  callback(null,cmd);
+}
+
+function myWriter(output) {
+  return output.toUpperCase();
+}
+</code></pre>
+
+<p>当创建一个新的 <code>repl.REPLServer</code> 时，可以提供一个自定义的解释函数。
+这可以用于实现完全定制化的 REPL 应用。</p>
+
+<p>例子，一个执行文本翻译的 REPL：</p>
+
+<pre class="prettyprint"><code>const repl = require('repl');
+const Translator = require('translator').Translator;
+
+const myTranslator = new Translator('en', 'fr');
+
+function myEval(cmd, context, filename, callback) {
+  callback(null, myTranslator.translate(cmd));
+}
+
+repl.start({prompt: '&gt; ', eval: myEval});
+</code></pre>
+
+<p>默认情况下，所有 <code>repl.REPLServer</code> 实例使用了一个解释函数，它可以解释 JavaScript 表达式、提供对 Node.js 内置模块的访问。
+当 <code>repl.REPLServer</code> 实例被创建时可以传入一个替换的解释函数，覆盖其默认的功能。</p>
+
+<p><code>repl</code> 模块导出了 <code>repl.REPLServer</code> 类。
+当 <code>repl.REPLServer</code> 实例运行时，它接收用户输入的每一行，根据用户定义的解释函数解释这些输入，然后输出结果。
+输入可以是 <code>stdin</code>，输出可以是 <code>stdout</code>，或者也可以连接到其他任何 Node.js [流]。</p>
+
+<p><code>repl.REPLServer</code> 实例支持输入的自动补全、精简 Emacs 风格的行编辑、多行输入、ANSI 风格的输出、当前 REPL 会话状态的保存与恢复、错误校正、以及可定制的解释函数。</p>
+
+<p>使用以下环境变量，可以自定义 Node.js REPL 的各种行为：</p>
+
+<ul>
+<li><code>NODE_REPL_HISTORY</code> - 当给定了一个有效的路径，则 REPL 的历史记录将被保存到指定的文件，而不是用户目录下的 <code>.node_repl_history</code> 文件。
+设为 <code>""</code> 将禁用 REPL 历史记录。
+值两头的空格键会被去掉。</li>
+<li><code>NODE_REPL_HISTORY_SIZE</code> - 默认为 <code>1000</code>。控制历史记录的最大行数。必须是正数。</li>
+<li><code>NODE_REPL_MODE</code> - 可以是 <code>sloppy</code>、<code>strict</code> 或 <code>magic</code>。
+默认为 <code>magic</code>，在严格模式中会自动运行 "strict mode only" 声明。</li>
+</ul>
+
+<!-- YAML
+added: v0.7.7
+-->
+
+<p>当接收到 <code>.exit</code> 命令、或按下两次 <code>&lt;ctrl&gt;-C</code> 发出 <code>SIGINT</code> 信号、或按下 <code>&lt;ctrl&gt;-D</code> 发出 <code>'end'</code> 信号而使 REPL 被退出时，触发 <code>'exit'</code> 事件。
+监听器的回调函数被调用时不带任何参数。</p>
+
+<pre class="prettyprint"><code>replServer.on('exit', () =&gt; {
+  console.log('从 REPL 接收到 "exit" 事件！');
+  process.exit();
+});
+</code></pre>
+
+<!-- YAML
+added: v0.11.0
+-->
+
+<p>当 REPL 的上下文被重置时，触发 <code>'reset'</code> 事件。
+每当接收到 <code>.clear</code> 命令时会触发该事件，除非 REPL 正在使用默认的解释器并且 <code>repl.REPLServer</code> 实例被创建时 <code>useGlobal</code> 选项被设为 <code>true</code>。
+监听器的回调函数被调用时会带上 <code>context</code> 对象作为惟一的参数。</p>
+
+<p>这主要被用于重新初始化 REPL 上下文，使之达到某些预定义的状态，如下面的例子：</p>
+
+<pre class="prettyprint"><code>const repl = require('repl');
+
+function initializeContext(context) {
+  context.m = 'test';
+}
+
+var r = repl.start({prompt: '&gt;'});
+initializeContext(r.context);
+
+r.on('reset', initializeContext);
+</code></pre>
+
+<p>当代码被执行时，全局的 <code>'m'</code> 变量可以被修改，但随后的 <code>.clear</code> 命令会把它重置回初始值：</p>
+
+<pre class="prettyprint"><code>$ ./node example.js
+&gt;m
+'test'
+&gt;m = 1
+1
+&gt;m
+1
+&gt;.clear
+Clearing context...
+&gt;m
+'test'
+&gt;
+</code></pre>
+
+<p>默认的解释器提供了获取存在于全局作用域中的任何变量的途径。
+可以通过给每个 <code>REPLServer</code> 绑定的 <code>context</code> 对象指定变量，来显式地把变量暴露给 REPL。
+例如：</p>
+
+<pre class="prettyprint"><code>const repl = require('repl');
+var msg = 'message';
+
+repl.start('&gt; ').context.m = msg;
+</code></pre>
+
+<p><code>context</code> 对象的属性表现为 REPL 中的局部变量：</p>
+
+<pre class="prettyprint"><code>$ node repl_test.js
+&gt; m
+'message'
+</code></pre>
+
+<p>注意，默认情况下 <code>context</code> 的属性不是只读的。
+要指定只读的全局变量，<code>context</code> 的属性必须使用 <code>Object.defineProperty()</code> 来定义:</p>
+
+<pre class="prettyprint"><code>const repl = require('repl');
+var msg = 'message';
+
+const r = repl.start('&gt; ');
+Object.defineProperty(r.context, 'm', {
+  configurable: false,
+  enumerable: true,
+  value: msg
+});
+</code></pre>
+
+<p>默认的解释器支持直接解释 JavaScript 表达式：</p>
+
+<pre class="prettyprint"><code>&gt; 1 + 1
+2
+&gt; var m = 2
+undefined
+&gt; m + 1
+3
+</code></pre>
+
+<p>除非在块级作用域中（如 <code>{...}</code>）或函数中，否则变量不管是隐式地声明还是使用 <code>var</code> 关键字声明，都是声明在全局作用域中。</p>
+
+<!-- YAML
+added: v2.0.0
+deprecated: v3.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [NODE_REPL_HISTORY] 代替。</p>
+</blockquote>
+
+<p>Node.js/io.js v2.x 之前，REPL 的历史记录使用 <code>NODE_REPL_HISTORY_FILE</code> 变量来控制，且历史记录以 JSON 格式保存。
+该变量已被废弃，旧的 JSON 格式的 REPL 历史记录文件会被自动转换为一种精简的纯文本格式。
+这个新的文件会被保存到用户目录下或由 <code>NODE_REPL_HISTORY</code> 变量定义的目录下，详见[环境变量选项]。</p>
+
+<p>默认情况下，Node.js REPL 模块会把 <code>node</code> REPL 会话之间的历史记录保存到用户目录中的 <code>.node_repl_history</code> 文件。
+修改环境变量 <code>NODE_REPL_HISTORY=""</code> 可以禁用该功能。</p>
+
+<p>当用户正在 REPL 中输入时，按下 <code>&lt;enter&gt;</code> 键会把当前行的输入发送到 <code>eval</code> 函数。
+为了支持多行输入，<code>eval</code> 函数可以返回一个 <code>repl.Recoverable</code> 实例给提供的回调函数：</p>
+
+<pre class="prettyprint"><code>function eval(cmd, context, filename, callback) {
+  var result;
+  try {
+    result = vm.runInThisContext(cmd);
+  } catch (e) {
+    if (isRecoverableError(e)) {
+      return callback(new repl.Recoverable(e));
+    }
+  }
+  callback(null, result);
+}
+
+function isRecoverableError(error) {
+  if (error.name === 'SyntaxError') {
+    return /^(Unexpected end of input|Unexpected token)/.test(error.message);
+  }
+  return false;
+}
+</code></pre>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>repl</code> 模块提供了一种“读取-求值-输出”循环（REPL）的实现，它可作为一个独立的程序或嵌入到其他应用中。
+可以通过以下方式使用它：</p>
+
+<pre class="prettyprint"><code>const repl = require('repl');
+</code></pre>
+
+<!-- YAML
+added: v0.3.0
+-->
+
+<ul>
+<li><code>keyword</code> {String} 命令关键字（开头不带 <code>.</code> 字符）。</li>
+<li><code>cmd</code> {Object|Function} 当命令被执行时调用的函数。</li>
+</ul>
+
+<p><code>replServer.defineCommand()</code> 方法用于添加新的前缀为 <code>.</code> 的命令到 REPL 实例。
+这些命令通过输入一个 <code>.</code> 加 <code>keyword</code> 来调用。
+<code>cmd</code> 可以是一个函数或一个具有以下属性的对象：</p>
+
+<ul>
+<li><code>help</code> {String} 当键入 <code>.help</code> 时显示的帮助说明（可选）。</li>
+<li><code>action</code> {Function} 要执行的函数，可接受一个字符串参数。</li>
+</ul>
+
+<p>例子，添加两个新命令到 REPL 实例：</p>
+
+<pre class="prettyprint"><code>const repl = require('repl');
+
+var replServer = repl.start({prompt: '&gt; '});
+replServer.defineCommand('sayhello', {
+  help: '打招呼',
+  action: function(name) {
+    this.lineParser.reset();
+    this.bufferedCommand = '';
+    console.log(`你好，${name}！`);
+    this.displayPrompt();
+  }
+});
+replServer.defineCommand('saybye', function() {
+  console.log('再见！');
+  this.close();
+});
+</code></pre>
+
+<p>在 REPL 实例中使用新的命令：</p>
+
+<pre class="prettyprint"><code>&gt; .sayhello Node.js中文网
+你好，Node.js中文网！
+&gt; .saybye
+再见！
+</code></pre>
+
+<!-- YAML
+added: v0.1.91
+-->
+
+<ul>
+<li><code>preserveCursor</code> {Boolean}</li>
+</ul>
+
+<p><code>replServer.displayPrompt()</code> 方法会让 REPL 实例做好用户输入的准备，打印配置的 <code>prompt</code> 到 <code>output</code> 中新的一行，然后返回 <code>input</code> 等待新的输入。</p>
+
+<p>当正在键入多行输入时，会打印省略号而不是提示符。</p>
+
+<p>当 <code>preserveCursor</code> 为 <code>true</code> 时，游标位置不会被复位到 <code>0</code>。</p>
+
+<p><code>replServer.displayPrompt</code> 方法主要被使用 <code>replServer.defineCommand()</code> 方法注册的命令的 <code>action</code> 函数调用。</p>
+
+<!-- YAML
+added: v0.1.91
+-->
+
+<ul>
+<li><code>options</code> {Object | String}
+<ul><li><code>prompt</code> {String} 要显示的输入提示符。默认为 <code>&gt;</code>。</li>
+<li><code>input</code> {Readable} REPL 输入要被读取的可读流。默认为 <code>process.stdin</code>。</li>
+<li><code>output</code> {Writable} REPL 输出要被写入的可写流。默认为 <code>process.stdout</code>。</li>
+<li><code>terminal</code> {boolean} 如果为 <code>true</code>，则指定 <code>output</code> 应被当作一个 TTY 终端，并且可以使用 ANSI/VT100 转义码写入。
+默认值为初始化时 <code>output</code> 流的 <code>isTTY</code> 属性的值。</li>
+<li><code>eval</code> {Function} 当解释每行输入时使用的函数。默认为 JavaScript <code>eval()</code> 函数的异步封装。
+<code>eval</code> 函数出错时会返回 <code>repl.Recoverable</code>，表明输入不完整并提示用户完成输入。</li>
+<li><code>useColors</code> {boolean} 如果为 <code>true</code>，则指定默认的 <code>writer</code> 函数可以在 REPL 输出中包含 ANSI 颜色风格。
+如果提供了自定义的 <code>writer</code> 函数，则该参数无效。
+默认为 REPL 实例的 <code>terminal</code> 属性的值。</li>
+<li><code>useGlobal</code> {boolean} 如果为 <code>true</code>，则指定默认的解释函数使用 JavaScript <code>global</code> 作为上下文，而不是为 REPL 实例创建一个新的独立的上下文。
+默认为 <code>false</code>。</li>
+<li><code>ignoreUndefined</code> {boolean} 如果为 <code>true</code>，则指定默认的输出器不会输出命令返回的 <code>undefined</code> 值。
+默认为 <code>false</code>。</li>
+<li><code>writer</code> {Function} 在写入到 <code>output</code> 之前，该函数被调用用来格式化每个命令的输出。
+默认为 [<code>util.inspect()</code>]。</li>
+<li><code>completer</code> {Function} 可选的函数，用来自定义 Tab 键的自动补全。
+详见 [<code>readline.InterfaceCompleter</code>]。</li>
+<li><code>replMode</code> - 一个标志位，指定默认的解释器使用严格模式、默认模式、或混合模式中的哪一种来执行 JavaScript 命令。
+可选的值有：</li>
+<li><code>repl.REPL_MODE_SLOPPY</code> - 使用默认模式解释表达式。</li>
+<li><code>repl.REPL_MODE_STRICT</code> - 使用严格模式解释表达式。该模式等同于在每个 repl 声明前加上 <code>'use strict'</code>。</li>
+<li><code>repl.REPL_MODE_MAGIC</code> - 先尝试使用默认模式解释表达式，如果表达式解释出错，再使用严格模式重试。</li>
+<li><code>breakEvalOnSigint</code> - 当接收到 <code>SIGINT</code> 时停止解释当前代码，比如按下 <code>Ctrl+C</code>。
+不能与自定义的 <code>eval</code> 函数同时使用。
+默认为 <code>false</code>。</li></ul></li>
+</ul>
+
+<p><code>repl.start()</code> 方法创建并启动一个 <code>repl.REPLServer</code> 实例。</p>
+
+<p>如果 <code>options</code> 是一个字符串，则它指定了输入提示符：</p>
+
+<pre class="prettyprint"><code>const repl = require('repl');
+
+// 一个 Unix 风格的提示符
+repl.start('$ ');
+</code></pre>
+
+<p>可以在一个 Node.js 实例中创建并运行多个 REPL 实例，它们共享一个 <code>global</code> 对象但有独立的 I/O 接口。</p>
+
+<p>例子，在 <code>stdin</code>、Unix socket、和 TCP socket 上分别提供了独立的 REPL：</p>
+
+<pre class="prettyprint"><code>const net = require('net');
+const repl = require('repl');
+var connections = 0;
+
+repl.start({
+  prompt: 'Node.js 使用 stdin&gt; ',
+  input: process.stdin,
+  output: process.stdout
+});
+
+net.createServer((socket) =&gt; {
+  connections += 1;
+  repl.start({
+    prompt: 'Node.js 使用 Unix socket&gt; ',
+    input: socket,
+    output: socket
+  }).on('exit', () =&gt; {
+    socket.end();
+  });
+}).listen('/tmp/node-repl-sock');
+
+net.createServer((socket) =&gt; {
+  connections += 1;
+  repl.start({
+    prompt: 'Node.js 使用 TCP socket&gt; ',
+    input: socket,
+    output: socket
+  }).on('exit', () =&gt; {
+    socket.end();
+  });
+}).listen(5001);
+</code></pre>
+
+<p>从命令行运行这个应用会在 stdin 上启动一个 REPL。
+其他 REPL 客户端可以通过 Unix socket 或 TCP socket 进行连接。
+例如，可以使用 <code>telnet</code> 连接到 TCP socket，使用 <code>socat</code> 连接到 Unix socket 或 TCP socket。</p>
+
+<p>通过从一个基于 Unix socket 的服务器（而不是 stdin）启动一个 REPL，可以连接到一个长期运行的 Node.js 进程而无需重启它。</p>
+
+<p>例子，在一个 <code>net.Server</code> 实例和一个 <code>net.Socket</code> 实例上运行一个全特性的（<code>terminal</code>）REPL，详见：https://gist.github.com/2209310</p>
+
+<p>例子，在 curl(1) 上运行一个 REPL 实例，详见：https://gist.github.com/2053342</p>
+
+<p>Node.js 自身也使用 <code>repl</code> 模块为执行 JavaScript 代码提供交互接口。
+可以通过不带任何参数（或使用 <code>-i</code> 参数）地执行 Node.js 二进制文件来使用它：</p>
+
+<pre class="prettyprint"><code>$ node
+&gt; a = [1, 2, 3];
+[ 1, 2, 3 ]
+&gt; a.forEach((v) =&gt; {
+...   console.log(v);
+...   });
+1
+2
+3
+</code></pre>
+
+<p>对于高级的行编辑器，可以使用环境变量 <code>NODE_NO_READLINE=1</code> 来启动 Node.js。
+这会以标准的终端配置来启动主 REPL 和调试 REPL，可以使用 <code>rlwrap</code>。</p>
+
+<p>例如，你可以在你的 bashrc 文件中添加：</p>
+
+<pre class="prettyprint"><code>alias node="env NODE_NO_READLINE=1 rlwrap node"
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

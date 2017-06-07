@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><p><code>EventListener</code> 会按照监听器注册的顺序同步地调用所有监听器。
+所以需要确保事件的正确排序且避免竞争条件或逻辑错误。
+监听器函数可以使用 <code>setImmediate()</code> 或 <code>process.nextTick()</code> 方法切换到异步操作模式：</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+myEmitter.on('event', (a, b) =&gt; {
+  setImmediate(() =&gt; {
+    console.log('这个是异步发生的');
+  });
+});
+myEmitter.emit('event', 'a', 'b');
+</code></pre>
+
+<!-- YAML
+added: v0.1.26
+-->
+
+<p><code>EventEmitter</code> 类由 <code>events</code> 模块定义和开放的：</p>
+
+<pre class="prettyprint"><code>const EventEmitter = require('events');
+</code></pre>
+
+<p>当新的监听器被添加时，所有的 EventEmitter 会触发 <code>'newListener'</code> 事件；当移除已存在的监听器时，则触发 <code>'removeListener'</code>。</p>
+
+<!-- YAML
+added: v0.1.26
+-->
+
+<p><code>emitter.on(eventName, listener)</code> 的别名。</p>
+
+<!-- YAML
+added: v0.1.26
+-->
+
+<p>按监听器的注册顺序，同步地调用每个注册到名为 <code>eventName</code> 事件的监听器，并传入提供的参数。</p>
+
+<p>如果事件有监听器，则返回 <code>true</code> ，否则返回 <code>false</code>。</p>
+
+<!-- YAML
+added: v6.0.0
+-->
+
+<p>返回一个列出触发器已注册监听器的事件的数组。
+数组中的值为字符串或符号。 </p>
+
+<pre class="prettyprint"><code>const EventEmitter = require('events');
+const myEE = new EventEmitter();
+myEE.on('foo', () =&gt; {});
+myEE.on('bar', () =&gt; {});
+
+const sym = Symbol('symbol');
+myEE.on(sym, () =&gt; {});
+
+console.log(myEE.eventNames());
+// 打印: [ 'foo', 'bar', Symbol(symbol) ]
+</code></pre>
+
+<!-- YAML
+added: v1.0.0
+-->
+
+<p>返回 <code>EventEmitter</code> 当前的最大监听器限制值，该值可以通过 [<code>emitter.setMaxListeners(n)</code>] 设置或默认为 [<code>EventEmitter.defaultMaxListeners</code>]。</p>
+
+<!-- YAML
+added: v3.2.0
+-->
+
+<ul>
+<li><code>eventName</code> {String|Symbol} 正在被监听的事件名</li>
+</ul>
+
+<p>返回正在监听名为 <code>eventName</code> 的事件的监听器的数量。</p>
+
+<!-- YAML
+added: v0.1.26
+-->
+
+<p>返回名为 <code>eventName</code> 的事件的监听器数组的副本。</p>
+
+<pre class="prettyprint"><code>server.on('connection', (stream) =&gt; {
+  console.log('someone connected!');
+});
+console.log(util.inspect(server.listeners('connection')));
+// 打印: [ [Function] ]
+</code></pre>
+
+<!-- YAML
+added: v0.3.0
+-->
+
+<ul>
+<li><code>eventName</code> {String|Symbol} 事件名</li>
+<li><code>listener</code> {Function} 回调函数</li>
+</ul>
+
+<p>添加一个单次 <code>listener</code> 函数到名为 <code>eventName</code> 的事件。
+下次触发 <code>eventName</code> 事件时，监听器会被移除，然后调用。</p>
+
+<pre class="prettyprint"><code>server.once('connection', (stream) =&gt; {
+  console.log('首次调用！');
+});
+</code></pre>
+
+<p>返回一个 <code>EventEmitter</code> 引用，可以链式调用。</p>
+
+<p>默认情况下，事件监听器会按照添加的顺序依次调用。
+<code>emitter.prependOnceListener()</code> 方法可用于将事件监听器添加到监听器数组的开头。</p>
+
+<pre class="prettyprint"><code>const myEE = new EventEmitter();
+myEE.once('foo', () =&gt; console.log('a'));
+myEE.prependOnceListener('foo', () =&gt; console.log('b'));
+myEE.emit('foo');
+// 打印:
+//   b
+//   a
+</code></pre>
+
+<!-- YAML
+added: v0.1.101
+-->
+
+<ul>
+<li><code>eventName</code> {String|Symbol} 事件名</li>
+<li><code>listener</code> {Function} 回调函数</li>
+</ul>
+
+<p>添加 <code>listener</code> 函数到名为 <code>eventName</code> 的事件的监听器数组的末尾。
+不会检查 <code>listener</code> 是否已被添加。
+多次调用并传入相同的 <code>eventName</code> 和 <code>listener</code> 会导致 <code>listener</code> 被添加与调用多次。</p>
+
+<pre class="prettyprint"><code>server.on('connection', (stream) =&gt; {
+  console.log('有连接！');
+});
+</code></pre>
+
+<p>返回一个 <code>EventEmitter</code> 引用，可以链式调用。</p>
+
+<p>默认情况下，事件监听器会按照添加的顺序依次调用。
+<code>emitter.prependListener()</code> 方法可用于将事件监听器添加到监听器数组的开头。</p>
+
+<pre class="prettyprint"><code>const myEE = new EventEmitter();
+myEE.on('foo', () =&gt; console.log('a'));
+myEE.prependListener('foo', () =&gt; console.log('b'));
+myEE.emit('foo');
+// 打印:
+//   b
+//   a
+</code></pre>
+
+<!-- YAML
+added: v6.0.0
+-->
+
+<ul>
+<li><code>eventName</code> {String|Symbol} 事件名</li>
+<li><code>listener</code> {Function} 回调函数</li>
+</ul>
+
+<p>添加 <code>listener</code> 函数到名为 <code>eventName</code> 的事件的监听器数组的开头。
+不会检查 <code>listener</code> 是否已被添加。
+多次调用并传入相同的 <code>eventName</code> 和 <code>listener</code> 会导致 <code>listener</code> 被添加与调用多次。</p>
+
+<pre class="prettyprint"><code>server.prependListener('connection', (stream) =&gt; {
+  console.log('有连接！');
+});
+</code></pre>
+
+<p>返回一个 <code>EventEmitter</code> 引用，可以链式调用。</p>
+
+<!-- YAML
+added: v6.0.0
+-->
+
+<ul>
+<li><code>eventName</code> {String|Symbol} 事件名</li>
+<li><code>listener</code> {Function} 回调函数</li>
+</ul>
+
+<p>添加一个单次 <code>listener</code> 函数到名为 <code>eventName</code> 的事件的监听器数组的开头。
+下次触发 <code>eventName</code> 事件时，监听器会被移除，然后调用。</p>
+
+<pre class="prettyprint"><code>server.prependOnceListener('connection', (stream) =&gt; {
+  console.log('首次调用！');
+});
+</code></pre>
+
+<p>返回一个 <code>EventEmitter</code> 引用，可以链式调用。</p>
+
+<!-- YAML
+added: v0.1.26
+-->
+
+<p>移除全部或指定 <code>eventName</code> 的监听器。</p>
+
+<p>注意，在代码中移除其他地方添加的监听器是一个不好的做法，尤其是当 <code>EventEmitter</code> 实例是其他组件或模块（如 socket 或文件流）创建的。</p>
+
+<p>返回一个 <code>EventEmitter</code> 引用，可以链式调用。</p>
+
+<!-- YAML
+added: v0.1.26
+-->
+
+<p>从名为 <code>eventName</code> 的事件的监听器数组中移除指定的 <code>listener</code>。</p>
+
+<pre class="prettyprint"><code>const callback = (stream) =&gt; {
+  console.log('有连接！');
+};
+server.on('connection', callback);
+// ...
+server.removeListener('connection', callback);
+</code></pre>
+
+<p><code>removeListener</code> 最多只会从监听器数组里移除一个监听器实例。
+如果任何单一的监听器被多次添加到指定 <code>eventName</code> 的监听器数组中，则必须多次调用 <code>removeListener</code> 才能移除每个实例。</p>
+
+<p>注意，一旦一个事件被触发，所有绑定到它的监听器都会按顺序依次触发。
+这意味着，在事件触发后、最后一个监听器完成执行前，任何 <code>removeListener()</code> 或 <code>removeAllListeners()</code> 调用都不会从 <code>emit()</code> 中移除它们。
+随后的事件会像预期的那样发生。</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+
+const callbackA = () =&gt; {
+  console.log('A');
+  myEmitter.removeListener('event', callbackB);
+};
+
+const callbackB = () =&gt; {
+  console.log('B');
+};
+
+myEmitter.on('event', callbackA);
+
+myEmitter.on('event', callbackB);
+
+// callbackA 移除了监听器 callbackB，但它依然会被调用。
+// 触发是内部的监听器数组为 [callbackA, callbackB]
+myEmitter.emit('event');
+// 打印:
+//   A
+//   B
+
+// callbackB 被移除了。
+// 内部监听器数组为 [callbackA]
+myEmitter.emit('event');
+// 打印:
+//   A
+</code></pre>
+
+<p>因为监听器是使用内部数组进行管理的，所以调用它会改变在监听器被移除后注册的任何监听器的位置索引。
+虽然这不会影响监听器的调用顺序，但意味着由 <code>emitter.listeners()</code> 方法返回的监听器数组副本需要被重新创建。</p>
+
+<p>返回一个 <code>EventEmitter</code> 引用，可以链式调用。</p>
+
+<!-- YAML
+added: v0.3.5
+-->
+
+<p>默认情况下，如果为特定事件添加了超过 <code>10</code> 个监听器，则 <code>EventEmitter</code> 会打印一个警告。
+此限制有助于寻找内存泄露。
+但是，并不是所有的事件都要被限为 <code>10</code> 个。
+<code>emitter.setMaxListeners()</code> 方法允许修改指定的 <code>EventEmitter</code> 实例的限制。
+值设为 <code>Infinity</code>（或 <code>0</code>）表明不限制监听器的数量。</p>
+
+<p>返回一个 <code>EventEmitter</code> 引用，可以链式调用。</p>
+
+<p>当 <code>EventEmitter</code> 实例中发生错误时，会触发一个 <code>'error'</code> 事件。
+这在 Node.js 中是特殊情况。</p>
+
+<p>如果 <code>EventEmitter</code> 没有为 <code>'error'</code> 事件注册至少一个监听器，则当 <code>'error'</code> 事件触发时，会抛出错误、打印堆栈跟踪、且退出 Node.js 进程。</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+myEmitter.emit('error', new Error('whoops!'));
+// 抛出错误，并使 Node.js 奔溃
+</code></pre>
+
+<p>为了防止 Node.js 进程崩溃，可以在 [<code>process</code> 对象的 <code>uncaughtException</code> 事件]上注册监听器，或使用 [<code>domain</code>] 模块。
+（注意，<code>domain</code> 模块已被废弃）</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+
+process.on('uncaughtException', (err) =&gt; {
+  console.error('有错误');
+});
+
+myEmitter.emit('error', new Error('whoops!'));
+// 打印: 有错误
+</code></pre>
+
+<p>作为最佳实践，应该始终为 <code>'error'</code> 事件注册监听器。</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+myEmitter.on('error', (err) =&gt; {
+  console.error('有错误');
+});
+myEmitter.emit('error', new Error('whoops!'));
+// 打印: 有错误
+</code></pre>
+
+<!-- YAML
+added: v0.11.2
+-->
+
+<p>每个事件默认可以注册最多 10 个监听器。
+单个 <code>EventEmitter</code> 实例的限制可以使用 [<code>emitter.setMaxListeners(n)</code>] 方法改变。
+所有 <code>EventEmitter</code> 实例的默认值可以使用 <code>EventEmitter.defaultMaxListeners</code> 属性改变。</p>
+
+<p>设置 <code>EventEmitter.defaultMaxListeners</code> 要谨慎，因为会影响所有 <code>EventEmitter</code> 实例，包括之前创建的。
+因而，调用 [<code>emitter.setMaxListeners(n)</code>] 优先于 <code>EventEmitter.defaultMaxListeners</code>。</p>
+
+<p>注意，这不是一个硬性限制。
+<code>EventEmitter</code> 实例允许添加更多的监听器，但会向 <code>stderr</code> 输出跟踪警告，表明检测到一个可能的 EventEmitter 内存泄漏。
+对于任何单个 <code>EventEmitter</code> 实例，<code>emitter.getMaxListeners()</code> 和 <code>emitter.setMaxListeners()</code> 方法可用于暂时地消除此警告：</p>
+
+<pre class="prettyprint"><code>emitter.setMaxListeners(emitter.getMaxListeners() + 1);
+emitter.once('event', () =&gt; {
+  // 做些操作
+  emitter.setMaxListeners(Math.max(emitter.getMaxListeners() - 1, 0));
+});
+</code></pre>
+
+<p>[<code>--trace-warnings</code>] 命令行标志可用于显示此类警告的堆栈跟踪。</p>
+
+<p>触发的警告可以使用 [<code>process.on('warning')</code>] 检查，还有额外的 <code>emitter</code>、<code>type</code> 和 <code>count</code> 属性，分别代表事件触发器实例的引用、事件的名称、和附加的监听器的数量。</p>
+
+<!-- YAML
+added: v0.9.12
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>emitter.listenerCount()</code>] 代替。</p>
+</blockquote>
+
+<p>A class method that returns the number of listeners for the given <code>eventName</code>
+registered on the given <code>emitter</code>.</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+myEmitter.on('event', () =&gt; {});
+myEmitter.on('event', () =&gt; {});
+console.log(EventEmitter.listenerCount(myEmitter, 'event'));
+// Prints: 2
+</code></pre>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<!--type=module-->
+
+<p>大多数 Node.js 核心 API 都是采用惯用的异步事件驱动架构，其中某些类型的对象（称为触发器）会周期性地触发命名事件来调用函数对象（监听器）。</p>
+
+<p>例如，一个 [<code>net.Server</code>] 对象会在每次有新连接时触发一个事件；一个 [<code>fs.ReadStream</code>] 会在文件被打开时触发一个事件；一个 [stream] 会在数据可读时触发事件。</p>
+
+<p>所有能触发事件的对象都是 <code>EventEmitter</code> 类的实例。
+这些对象开放了一个 <code>eventEmitter.on()</code> 函数，允许将一个或多个函数附加到会被对象触发的命名事件上。
+事件名称通常是驼峰式的字符串，但也可以使用任何有效的 JavaScript 属性名。</p>
+
+<p>当 <code>EventEmitter</code> 对象触发一个事件时，所有附加在特定事件上的函数都被同步地调用。
+被调用的监听器返回的值都会被忽略并丢弃。</p>
+
+<p>以下例子展示了一个只有单个监听器的 <code>EventEmitter</code> 实例。
+<code>eventEmitter.on()</code> 方法用于注册监听器，<code>eventEmitter.emit()</code> 方法用于触发事件。</p>
+
+<pre class="prettyprint"><code>const EventEmitter = require('events');
+
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+myEmitter.on('event', () =&gt; {
+  console.log('发生了一个事件！');
+});
+myEmitter.emit('event');
+</code></pre>
+
+<!-- YAML
+added: v0.1.26
+-->
+
+<ul>
+<li><code>eventName</code> {String|Symbol} 要监听的事件的名称</li>
+<li><code>listener</code> {Function} 事件的句柄函数</li>
+</ul>
+
+<p><code>EventEmitter</code> 实例会在一个监听器被添加到其内部监听器数组之前触发自身的 <code>'newListener'</code> 事件。</p>
+
+<p>注册了 <code>'newListener'</code> 事件的监听器会传入事件名与被添加的监听器的引用。</p>
+
+<p>事实上，在添加监听器之前触发事件有一个微妙但重要的副作用：
+<code>'newListener'</code> 回调中任何额外的被注册到相同名称的监听器会在监听器被添加之前被插入 。</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+// 只处理一次，所以不会无限循环
+myEmitter.once('newListener', (event, listener) =&gt; {
+  if (event === 'event') {
+    // 在开头插入一个新的监听器
+    myEmitter.on('event', () =&gt; {
+      console.log('B');
+    });
+  }
+});
+myEmitter.on('event', () =&gt; {
+  console.log('A');
+});
+myEmitter.emit('event');
+// 打印:
+//   B
+//   A
+</code></pre>
+
+<!-- YAML
+added: v0.9.3
+-->
+
+<ul>
+<li><code>eventName</code> {String|Symbol} 事件名</li>
+<li><code>listener</code> {Function} 事件句柄函数</li>
+</ul>
+
+<p><code>'removeListener'</code> 事件在 <code>listener</code> 被移除后触发。</p>
+
+<p>当使用 <code>eventEmitter.on()</code> 方法注册监听器时，监听器会在每次触发命名事件时被调用。</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+let m = 0;
+myEmitter.on('event', () =&gt; {
+  console.log(++m);
+});
+myEmitter.emit('event');
+// 打印: 1
+myEmitter.emit('event');
+// 打印: 2
+</code></pre>
+
+<p>使用 <code>eventEmitter.once()</code> 方法时可以注册一个对于特定事件最多被调用一次的监听器。
+当事件被触发时，监听器会被注销，然后再调用。</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+let m = 0;
+myEmitter.once('event', () =&gt; {
+  console.log(++m);
+});
+myEmitter.emit('event');
+// 打印: 1
+myEmitter.emit('event');
+// 忽略
+</code></pre>
+
+<p><code>eventEmitter.emit()</code> 方法允许将任意参数传给监听器函数。
+当一个普通的监听器函数被 <code>EventEmitter</code> 调用时，标准的 <code>this</code> 关键词会被设置指向监听器所附加的 <code>EventEmitter</code>。</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+myEmitter.on('event', function(a, b) {
+  console.log(a, b, this);
+  // 打印:
+  //   a b MyEmitter {
+  //     domain: null,
+  //     _events: { event: [Function] },
+  //     _eventsCount: 1,
+  //     _maxListeners: undefined }
+});
+myEmitter.emit('event', 'a', 'b');
+</code></pre>
+
+<p>也可以使用 ES6 的箭头函数作为监听器。但是这样 <code>this</code> 关键词就不再指向 <code>EventEmitter</code> 实例：</p>
+
+<pre class="prettyprint"><code>const myEmitter = new MyEmitter();
+myEmitter.on('event', (a, b) =&gt; {
+  console.log(a, b, this);
+  // 打印: a b {}
+});
+myEmitter.emit('event', 'a', 'b');
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

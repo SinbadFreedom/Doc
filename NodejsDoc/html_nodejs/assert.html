@@ -23,7 +23,7 @@
 
   <div class="row">
 
-<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">assert (断言)</a></li><li><a href="#2">assert(value[, message])</a></li><li><a href="#3">assert.deepEqual(actual, expected[, message])</a></li><li><a href="#4">assert.deepStrictEqual(actual, expected[, message])</a></li><li><a href="#5">assert.doesNotThrow(block[, error][, message])</a></li><li><a href="#6">assert.equal(actual, expected[, message])</a></li><li><a href="#7">assert.fail(actual, expected, message, operator)</a></li><li><a href="#8">assert.ifError(value)</a></li><li><a href="#9">assert.notDeepEqual(actual, expected[, message])</a></li><li><a href="#10">assert.notDeepStrictEqual(actual, expected[, message])</a></li><li><a href="#11">assert.notEqual(actual, expected[, message])</a></li><li><a href="#12">assert.notStrictEqual(actual, expected[, message])</a></li><li><a href="#13">assert.ok(value[, message])</a></li><li><a href="#14">assert.strictEqual(actual, expected[, message])</a></li><li><a href="#15">assert.throws(block[, error][, message])</a></li></ul></div><div class="span9"><h1 id="1">assert (断言)</h1>
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">assert (断言)</a></li><li><a href="#2">assert.deepEqual(actual, expected[, message])</a></li><li><a href="#3">assert.deepStrictEqual(actual, expected[, message])</a></li><li><a href="#4">assert.doesNotThrow(block[, error][, message])</a></li><li><a href="#5">assert.equal(actual, expected[, message])</a></li><li><a href="#6">assert.fail(actual, expected, message, operator)</a></li><li><a href="#7">assert.ifError(value)</a></li><li><a href="#8">assert.notDeepEqual(actual, expected[, message])</a></li><li><a href="#9">assert.notDeepStrictEqual(actual, expected[, message])</a></li><li><a href="#10">assert.notEqual(actual, expected[, message])</a></li><li><a href="#11">assert.notStrictEqual(actual, expected[, message])</a></li><li><a href="#12">assert.ok(value[, message])</a></li><li><a href="#13">assert.strictEqual(actual, expected[, message])</a></li><li><a href="#14">assert.throws(block[, error][, message])</a></li><li><a href="#15">assert(value[, message])</a></li></ul></div><div class="span9"><h1 id="1">assert (断言)</h1>
 
 <blockquote>
   <p>稳定性: 2 - 稳定的</p>
@@ -31,21 +31,12 @@
 
 <p><code>assert</code> 模块提供了一组简单的断言测试集合，可被用于测试不变量。</p>
 
-<h2 id="2">assert(value[, message])</h2>
+<h2 id="2">assert.deepEqual(actual, expected[, message])</h2>
 
 <ul>
-<li><code>value</code> {any}</li>
-<li><code>message</code> {any}</li>
-</ul>
-
-<p>[<code>assert.ok()</code>] 的别名。</p>
-
-<h2 id="3">assert.deepEqual(actual, expected[, message])</h2>
-
-<ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>测试 <code>actual</code> 参数与 <code>expected</code> 参数是否深度相等。
@@ -99,12 +90,12 @@ assert.deepEqual(obj1, obj4);
 <p>如果两个值不相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
 如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
 
-<h2 id="4">assert.deepStrictEqual(actual, expected[, message])</h2>
+<h2 id="3">assert.deepStrictEqual(actual, expected[, message])</h2>
 
 <ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}  </li>
 </ul>
 
 <p>大多数情况下与 <code>assert.deepEqual()</code> 一样，但有两个例外。
@@ -124,12 +115,12 @@ assert.deepStrictEqual({a:1}, {a:'1'});
 <p>如果两个值不相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
 如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
 
-<h2 id="5">assert.doesNotThrow(block[, error][, message])</h2>
+<h2 id="4">assert.doesNotThrow(block[, error][, message])</h2>
 
 <ul>
-<li><code>block</code> {Function}</li>
-<li><code>error</code> {RegExp|Function}</li>
-<li><code>message</code> {any}</li>
+<li><code>block</code> {Function}   </li>
+<li><code>error</code> {RegExp|Function}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>断言 <code>block</code> 函数不会抛出错误。
@@ -172,12 +163,12 @@ assert.deepStrictEqual({a:1}, {a:'1'});
 // 抛出 AssertionError: Got unwanted exception (TypeError). 抛出错误
 </code></pre>
 
-<h2 id="6">assert.equal(actual, expected[, message])</h2>
+<h2 id="5">assert.equal(actual, expected[, message])</h2>
 
 <ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>使用相等运算符（<code>==</code>）测试 <code>actual</code> 参数与 <code>expected</code> 参数是否相等。</p>
@@ -198,13 +189,13 @@ assert.equal({a: {b: 1}}, {a: {b: 1}});
 <p>如果两个值不相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
 如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
 
-<h2 id="7">assert.fail(actual, expected, message, operator)</h2>
+<h2 id="6">assert.fail(actual, expected, message, operator)</h2>
 
 <ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
-<li><code>operator</code> {String}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}   </li>
+<li><code>operator</code> {String}   </li>
 </ul>
 
 <p>抛出 <code>AssertionError</code>。
@@ -220,10 +211,10 @@ assert.fail(1, 2, '错误信息', '&gt;');
 // 抛出 AssertionError: 错误信息
 </code></pre>
 
-<h2 id="8">assert.ifError(value)</h2>
+<h2 id="7">assert.ifError(value)</h2>
 
 <ul>
-<li><code>value</code> {any}</li>
+<li><code>value</code> {any}   </li>
 </ul>
 
 <p>如果 <code>value</code> 为真，则抛出 <code>value</code>。
@@ -241,12 +232,12 @@ assert.ifError(new Error());
 // 抛出 Error
 </code></pre>
 
-<h2 id="9">assert.notDeepEqual(actual, expected[, message])</h2>
+<h2 id="8">assert.notDeepEqual(actual, expected[, message])</h2>
 
 <ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>测试是否不深度相等。
@@ -287,12 +278,12 @@ assert.notDeepEqual(obj1, obj4);
 <p>如果两个值深度相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
 如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
 
-<h2 id="10">assert.notDeepStrictEqual(actual, expected[, message])</h2>
+<h2 id="9">assert.notDeepStrictEqual(actual, expected[, message])</h2>
 
 <ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>测试是否不深度全等。
@@ -310,12 +301,12 @@ assert.notDeepStrictEqual({a:1}, {a:'1'});
 <p>如果两个值深度全等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
 如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
 
-<h2 id="11">assert.notEqual(actual, expected[, message])</h2>
+<h2 id="10">assert.notEqual(actual, expected[, message])</h2>
 
 <ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>使用不等运算符（<code>!=</code>）测试是否不相等。</p>
@@ -335,12 +326,12 @@ assert.notEqual(1, '1');
 <p>如果两个值相等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
 如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
 
-<h2 id="12">assert.notStrictEqual(actual, expected[, message])</h2>
+<h2 id="11">assert.notStrictEqual(actual, expected[, message])</h2>
 
 <ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>使用不全等运算符（<code>!==</code>）测试是否不全等。</p>
@@ -360,11 +351,11 @@ assert.notStrictEqual(1, '1');
 <p>如果两个值全等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
 如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
 
-<h2 id="13">assert.ok(value[, message])</h2>
+<h2 id="12">assert.ok(value[, message])</h2>
 
 <ul>
-<li><code>value</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>value</code> {any}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>测试 <code>value</code> 是否为真值。
@@ -387,12 +378,12 @@ assert.ok(false, '不是真值');
 // 抛出 "AssertionError: 不是真值"
 </code></pre>
 
-<h2 id="14">assert.strictEqual(actual, expected[, message])</h2>
+<h2 id="13">assert.strictEqual(actual, expected[, message])</h2>
 
 <ul>
-<li><code>actual</code> {any}</li>
-<li><code>expected</code> {any}</li>
-<li><code>message</code> {any}</li>
+<li><code>actual</code> {any}   </li>
+<li><code>expected</code> {any}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>使用全等运算符（<code>===</code>）测试是否全等。</p>
@@ -412,12 +403,12 @@ assert.strictEqual(1, '1');
 <p>如果两个值不全等，则抛出一个带有 <code>message</code> 属性的 <code>AssertionError</code>，其中 <code>message</code> 属性的值等于传入的 <code>message</code> 参数的值。
 如果 <code>message</code> 参数为 <code>undefined</code>，则赋予默认的错误信息。</p>
 
-<h2 id="15">assert.throws(block[, error][, message])</h2>
+<h2 id="14">assert.throws(block[, error][, message])</h2>
 
 <ul>
-<li><code>block</code> {Function}</li>
-<li><code>error</code> {RegExp|Function}</li>
-<li><code>message</code> {any}</li>
+<li><code>block</code> {Function}   </li>
+<li><code>error</code> {RegExp|Function}   </li>
+<li><code>message</code> {any}   </li>
 </ul>
 
 <p>期望 <code>block</code> 函数抛出错误。</p>
@@ -471,6 +462,15 @@ assert.throws(myFunction, '错误', '没有抛出期望的信息');
 // 应该这么做。
 assert.throws(myFunction, /错误/, '没有抛出期望的信息');
 </code></pre>
+
+<h2 id="15">assert(value[, message])</h2>
+
+<ul>
+<li><code>value</code> {any}   </li>
+<li><code>message</code> {any}   </li>
+</ul>
+
+<p>[<code>assert.ok()</code>] 的别名。</p>
       </div>
     </div>
 

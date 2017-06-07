@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!-- YAML
+added: v0.1.25
+-->
+
+<ul>
+<li><code>str</code> {String}</li>
+</ul>
+
+<p><code>querystring.escape()</code> 方法对给定的 <code>str</code> 执行 URL 百分号编码。</p>
+
+<p><code>querystring.escape()</code> 方法是供 <code>querystring.stringify()</code> 使用的，且通常不被直接使用。
+它之所以对外开放，是为了在需要时可以通过给 <code>querystring.escape</code> 赋值一个函数来重写编码的实现。</p>
+
+<!-- YAML
+added: v0.1.25
+-->
+
+<ul>
+<li><code>str</code> {String} 要解析的 URL 查询字符串。</li>
+<li><code>sep</code> {String} 用于界定查询字符串中的键值对的子字符串。默认为 <code>'&amp;'</code>。</li>
+<li><code>eq</code> {String} 用于界定查询字符串中的键与值的子字符串。默认为 <code>'='</code>。</li>
+<li><code>options</code> {Object}
+<ul><li><code>decodeURIComponent</code> {Function} 当解码查询字符串中百分号编码的字符时使用的函数。默认为 <code>querystring.unescape()</code>。</li>
+<li><code>maxKeys</code> {number} 指定要解析的键的最大数量。默认为 <code>1000</code>。指定为 <code>0</code> 则移除键数的限制。</li></ul></li>
+</ul>
+
+<p><code>querystring.parse()</code> 方法能把一个 URL 查询字符串（<code>str</code>）解析成一个键值对的集合。</p>
+
+<p>例子，查询字符串 <code>'foo=bar&amp;abc=xyz&amp;abc=123'</code> 被解析成：</p>
+
+<pre class="prettyprint"><code>{
+  foo: 'bar',
+  abc: ['xyz', '123']
+}
+</code></pre>
+
+<p>注意：<code>querystring.parse()</code> 方法返回的对象不继承自 JavaScript 的 <code>Object</code>。
+这意味着典型的 <code>Object</code> 方法如 <code>obj.toString()</code>、<code>obj.hasOwnProperty()</code> 等没有被定义且无法使用。</p>
+
+<p>默认情况下，查询字符串中的百分号编码的字符会被认为使用了 UTF-8 编码。
+如果使用的是另一种字符编码，则 <code>decodeURIComponent</code> 选项需要被指定，如以下例子：</p>
+
+<pre class="prettyprint"><code>// 假设 gbkDecodeURIComponent 函数已存在。
+
+querystring.parse('w=%D6%D0%CE%C4&amp;foo=bar', null, null,
+  { decodeURIComponent: gbkDecodeURIComponent })
+</code></pre>
+
+<!-- YAML
+added: v0.1.25
+-->
+
+<ul>
+<li><code>obj</code> {Object} 要序列化成一个 URL 查询字符串的对象。</li>
+<li><code>sep</code> {String} 用于界定查询字符串中的键值对的子字符串。默认为 <code>'&amp;'</code>。</li>
+<li><code>eq</code> {String} 用于界定查询字符串中的键与值的子字符串。默认为 <code>'='</code>。</li>
+<li><code>options</code>
+<ul><li><code>encodeURIComponent</code> {Function} 当把对 URL 不安全的字符转换成查询字符串中的百分号编码时使用的函数。默认为 <code>querystring.escape()</code>。</li></ul></li>
+</ul>
+
+<p><code>querystring.stringify()</code> 方法通过遍历对象的自有属性，从一个给定的 <code>obj</code> 产生一个 URL 查询字符串。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' })
+// 返回 'foo=bar&amp;baz=qux&amp;baz=quux&amp;corge='
+
+querystring.stringify({foo: 'bar', baz: 'qux'}, ';', ':')
+// 返回 'foo:bar;baz:qux'
+</code></pre>
+
+<p>默认情况下，查询字符串中需要百分号编码的字符会作为 UTF-8 被编码。
+如果需要的是另一种编码，则 <code>encodeURIComponent</code> 选项需要被指定，如以下例子：</p>
+
+<pre class="prettyprint"><code>// 假设 gbkEncodeURIComponent 函数已存在。
+
+querystring.stringify({ w: '中文', foo: 'bar' }, null, null,
+  { encodeURIComponent: gbkEncodeURIComponent })
+</code></pre>
+
+<p><!-- YAML
+added: v0.1.25
+-->
+* <code>str</code> {String}</p>
+
+<p><code>querystring.unescape()</code> 方法对给定的 <code>str</code> 上的 URL 百分号编码的字符执行解码。</p>
+
+<p><code>querystring.unescape()</code> 方法是供 <code>querystring.parse()</code> 使用的，且通常不被直接使用。
+它之所以对外开放，是为了在需要时可以通过给 <code>querystring.unescape</code> 赋值一个函数来重写解码的实现。</p>
+
+<p><code>querystring.unescape()</code> 方法默认使用 JavaScript 内置的 <code>decodeURIComponent()</code> 方法来解码。</p>
+
+<blockquote>
+  <p>Stability: 2 - Stable</p>
+</blockquote>
+
+<!--name=querystring-->
+
+<p><code>querystring</code> 模块提供了一些实用工具，用于解析与格式化 URL 查询字符串。它可以通过以下方式被使用：</p>
+
+<pre class="prettyprint"><code>const querystring = require('querystring');
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

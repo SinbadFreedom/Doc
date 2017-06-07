@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!-- YAML
+added: v0.11.8
+-->
+
+<p>The <code>spkac</code> data structure includes a public key and a challenge. The
+<code>certificate.exportChallenge()</code> returns the challenge component in the
+form of a Node.js [<code>Buffer</code>][]. The <code>spkac</code> argument can be either a string
+or a [<code>Buffer</code>][].</p>
+
+<pre class="prettyprint"><code>const cert = require('crypto').Certificate();
+const spkac = getSpkacSomehow();
+const challenge = cert.exportChallenge(spkac);
+console.log(challenge.toString('utf8'));
+// Prints: the challenge as a UTF8 string
+</code></pre>
+
+<!-- YAML
+added: v0.11.8
+-->
+
+<p>The <code>spkac</code> data structure includes a public key and a challenge. The
+<code>certificate.exportPublicKey()</code> returns the public key component in the
+form of a Node.js [<code>Buffer</code>][]. The <code>spkac</code> argument can be either a string
+or a [<code>Buffer</code>][].</p>
+
+<pre class="prettyprint"><code>const cert = require('crypto').Certificate();
+const spkac = getSpkacSomehow();
+const publicKey = cert.exportPublicKey(spkac);
+console.log(publicKey);
+// Prints: the public key as &lt;Buffer ...&gt;
+</code></pre>
+
+<!-- YAML
+added: v0.11.8
+-->
+
+<p>Returns <code>true</code> if the given <code>spkac</code> data structure is valid, <code>false</code> otherwise.
+The <code>spkac</code> argument must be a Node.js [<code>Buffer</code>][].</p>
+
+<pre class="prettyprint"><code>const cert = require('crypto').Certificate();
+const spkac = getSpkacSomehow();
+console.log(cert.verifySpkac(Buffer.from(spkac)));
+// Prints: true or false
+</code></pre>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Returns any remaining enciphered contents. If <code>output_encoding</code>
+parameter is one of <code>'latin1'</code>, <code>'base64'</code> or <code>'hex'</code>, a string is returned.
+If an <code>output_encoding</code> is not provided, a [<code>Buffer</code>][] is returned.</p>
+
+<p>Once the <code>cipher.final()</code> method has been called, the <code>Cipher</code> object can no
+longer be used to encrypt data. Attempts to call <code>cipher.final()</code> more than
+once will result in an error being thrown.</p>
+
+<!-- YAML
+added: v1.0.0
+-->
+
+<p>When using an authenticated encryption mode (only <code>GCM</code> is currently
+supported), the <code>cipher.getAuthTag()</code> method returns a [<code>Buffer</code>][] containing
+the <em>authentication tag</em> that has been computed from the given data.</p>
+
+<p>The <code>cipher.getAuthTag()</code> method should only be called after encryption has
+been completed using the [<code>cipher.final()</code>][] method.</p>
+
+<!-- YAML
+added: v1.0.0
+-->
+
+<p>When using an authenticated encryption mode (only <code>GCM</code> is currently
+supported), the <code>cipher.setAAD()</code> method sets the value used for the
+<em>additional authenticated data</em> (AAD) input parameter.</p>
+
+<!-- YAML
+added: v0.7.1
+-->
+
+<p>When using block encryption algorithms, the <code>Cipher</code> class will automatically
+add padding to the input data to the appropriate block size. To disable the
+default padding call <code>cipher.setAutoPadding(false)</code>.</p>
+
+<p>When <code>auto_padding</code> is <code>false</code>, the length of the entire input data must be a
+multiple of the cipher's block size or [<code>cipher.final()</code>][] will throw an Error.
+Disabling automatic padding is useful for non-standard padding, for instance
+using <code>0x0</code> instead of PKCS padding.</p>
+
+<p>The <code>cipher.setAutoPadding()</code> method must be called before [<code>cipher.final()</code>][].</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Updates the cipher with <code>data</code>. If the <code>input_encoding</code> argument is given,
+its value must be one of <code>'utf8'</code>, <code>'ascii'</code>, or <code>'latin1'</code> and the <code>data</code>
+argument is a string using the specified encoding. If the <code>input_encoding</code>
+argument is not given, <code>data</code> must be a [<code>Buffer</code>][]. If <code>data</code> is a
+[<code>Buffer</code>][] then <code>input_encoding</code> is ignored.</p>
+
+<p>The <code>output_encoding</code> specifies the output format of the enciphered
+data, and can be <code>'latin1'</code>, <code>'base64'</code> or <code>'hex'</code>. If the <code>output_encoding</code>
+is specified, a string using the specified encoding is returned. If no
+<code>output_encoding</code> is provided, a [<code>Buffer</code>][] is returned.</p>
+
+<p>The <code>cipher.update()</code> method can be called multiple times with new data until
+[<code>cipher.final()</code>][] is called. Calling <code>cipher.update()</code> after
+[<code>cipher.final()</code>][] will result in an error being thrown.</p>
+
+<!-- YAML
+added: v0.11.8
+-->
+
+<p>SPKAC is a Certificate Signing Request mechanism originally implemented by
+Netscape and now specified formally as part of [HTML5's <code>keygen</code> element][].</p>
+
+<p>The <code>crypto</code> module provides the <code>Certificate</code> class for working with SPKAC
+data. The most common usage is handling output generated by the HTML5
+<code>&lt;keygen&gt;</code> element. Node.js uses <a href="https://www.openssl.org/docs/man1.0.2/apps/spkac.html">OpenSSL's SPKAC implementation</a> internally.</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Instances of the <code>Cipher</code> class are used to encrypt data. The class can be
+used in one of two ways:</p>
+
+<ul>
+<li>As a <a href="stream.html">stream</a> that is both readable and writable, where plain unencrypted
+data is written to produce encrypted data on the readable side, or</li>
+<li>Using the [<code>cipher.update()</code>][] and [<code>cipher.final()</code>][] methods to produce
+the encrypted data.</li>
+</ul>
+
+<p>The [<code>crypto.createCipher()</code>][] or [<code>crypto.createCipheriv()</code>][] methods are
+used to create <code>Cipher</code> instances. <code>Cipher</code> objects are not to be created
+directly using the <code>new</code> keyword.</p>
+
+<p>Example: Using <code>Cipher</code> objects as streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const cipher = crypto.createCipher('aes192', 'a password');
+
+let encrypted = '';
+cipher.on('readable', () =&gt; {
+  const data = cipher.read();
+  if (data)
+    encrypted += data.toString('hex');
+});
+cipher.on('end', () =&gt; {
+  console.log(encrypted);
+  // Prints: ca981be48e90867604588e75d04feabb63cc007a8f8ad89b10616ed84d815504
+});
+
+cipher.write('some clear text data');
+cipher.end();
+</code></pre>
+
+<p>Example: Using <code>Cipher</code> and piped streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const fs = require('fs');
+const cipher = crypto.createCipher('aes192', 'a password');
+
+const input = fs.createReadStream('test.js');
+const output = fs.createWriteStream('test.enc');
+
+input.pipe(cipher).pipe(output);
+</code></pre>
+
+<p>Example: Using the [<code>cipher.update()</code>][] and [<code>cipher.final()</code>][] methods:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const cipher = crypto.createCipher('aes192', 'a password');
+
+let encrypted = cipher.update('some clear text data', 'utf8', 'hex');
+encrypted += cipher.final('hex');
+console.log(encrypted);
+// Prints: ca981be48e90867604588e75d04feabb63cc007a8f8ad89b10616ed84d815504
+</code></pre>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Instances of the <code>Decipher</code> class are used to decrypt data. The class can be
+used in one of two ways:</p>
+
+<ul>
+<li>As a <a href="stream.html">stream</a> that is both readable and writable, where plain encrypted
+data is written to produce unencrypted data on the readable side, or</li>
+<li>Using the [<code>decipher.update()</code>][] and [<code>decipher.final()</code>][] methods to
+produce the unencrypted data.</li>
+</ul>
+
+<p>The [<code>crypto.createDecipher()</code>][] or [<code>crypto.createDecipheriv()</code>][] methods are
+used to create <code>Decipher</code> instances. <code>Decipher</code> objects are not to be created
+directly using the <code>new</code> keyword.</p>
+
+<p>Example: Using <code>Decipher</code> objects as streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const decipher = crypto.createDecipher('aes192', 'a password');
+
+let decrypted = '';
+decipher.on('readable', () =&gt; {
+  const data = decipher.read();
+  if (data)
+    decrypted += data.toString('utf8');
+});
+decipher.on('end', () =&gt; {
+  console.log(decrypted);
+  // Prints: some clear text data
+});
+
+const encrypted = 'ca981be48e90867604588e75d04feabb63cc007a8f8ad89b10616ed84d815504';
+decipher.write(encrypted, 'hex');
+decipher.end();
+</code></pre>
+
+<p>Example: Using <code>Decipher</code> and piped streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const fs = require('fs');
+const decipher = crypto.createDecipher('aes192', 'a password');
+
+const input = fs.createReadStream('test.enc');
+const output = fs.createWriteStream('test.js');
+
+input.pipe(decipher).pipe(output);
+</code></pre>
+
+<p>Example: Using the [<code>decipher.update()</code>][] and [<code>decipher.final()</code>][] methods:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const decipher = crypto.createDecipher('aes192', 'a password');
+
+const encrypted = 'ca981be48e90867604588e75d04feabb63cc007a8f8ad89b10616ed84d815504';
+let decrypted = decipher.update(encrypted, 'hex', 'utf8');
+decrypted += decipher.final('utf8');
+console.log(decrypted);
+// Prints: some clear text data
+</code></pre>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>The <code>DiffieHellman</code> class is a utility for creating Diffie-Hellman key
+exchanges.</p>
+
+<p>Instances of the <code>DiffieHellman</code> class can be created using the
+[<code>crypto.createDiffieHellman()</code>][] function.</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const assert = require('assert');
+
+// Generate Alice's keys...
+const alice = crypto.createDiffieHellman(2048);
+const aliceKey = alice.generateKeys();
+
+// Generate Bob's keys...
+const bob = crypto.createDiffieHellman(alice.getPrime(), alice.getGenerator());
+const bobKey = bob.generateKeys();
+
+// Exchange and generate the secret...
+const aliceSecret = alice.computeSecret(bobKey);
+const bobSecret = bob.computeSecret(aliceKey);
+
+// OK
+assert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));
+</code></pre>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>The <code>ECDH</code> class is a utility for creating Elliptic Curve Diffie-Hellman (ECDH)
+key exchanges.</p>
+
+<p>Instances of the <code>ECDH</code> class can be created using the
+[<code>crypto.createECDH()</code>][] function.</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const assert = require('assert');
+
+// Generate Alice's keys...
+const alice = crypto.createECDH('secp521r1');
+const aliceKey = alice.generateKeys();
+
+// Generate Bob's keys...
+const bob = crypto.createECDH('secp521r1');
+const bobKey = bob.generateKeys();
+
+// Exchange and generate the secret...
+const aliceSecret = alice.computeSecret(bobKey);
+const bobSecret = bob.computeSecret(aliceKey);
+
+assert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));
+  // OK
+</code></pre>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>The <code>Hash</code> class is a utility for creating hash digests of data. It can be
+used in one of two ways:</p>
+
+<ul>
+<li>As a <a href="stream.html">stream</a> that is both readable and writable, where data is written
+to produce a computed hash digest on the readable side, or</li>
+<li>Using the [<code>hash.update()</code>][] and [<code>hash.digest()</code>][] methods to produce the
+computed hash.</li>
+</ul>
+
+<p>The [<code>crypto.createHash()</code>][] method is used to create <code>Hash</code> instances. <code>Hash</code>
+objects are not to be created directly using the <code>new</code> keyword.</p>
+
+<p>Example: Using <code>Hash</code> objects as streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const hash = crypto.createHash('sha256');
+
+hash.on('readable', () =&gt; {
+  const data = hash.read();
+  if (data)
+    console.log(data.toString('hex'));
+    // Prints:
+    //   6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50
+});
+
+hash.write('some data to hash');
+hash.end();
+</code></pre>
+
+<p>Example: Using <code>Hash</code> and piped streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const fs = require('fs');
+const hash = crypto.createHash('sha256');
+
+const input = fs.createReadStream('test.js');
+input.pipe(hash).pipe(process.stdout);
+</code></pre>
+
+<p>Example: Using the [<code>hash.update()</code>][] and [<code>hash.digest()</code>][] methods:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const hash = crypto.createHash('sha256');
+
+hash.update('some data to hash');
+console.log(hash.digest('hex'));
+// Prints:
+//   6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50
+</code></pre>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>The <code>Hmac</code> Class is a utility for creating cryptographic HMAC digests. It can
+be used in one of two ways:</p>
+
+<ul>
+<li>As a <a href="stream.html">stream</a> that is both readable and writable, where data is written
+to produce a computed HMAC digest on the readable side, or</li>
+<li>Using the [<code>hmac.update()</code>][] and [<code>hmac.digest()</code>][] methods to produce the
+computed HMAC digest.</li>
+</ul>
+
+<p>The [<code>crypto.createHmac()</code>][] method is used to create <code>Hmac</code> instances. <code>Hmac</code>
+objects are not to be created directly using the <code>new</code> keyword.</p>
+
+<p>Example: Using <code>Hmac</code> objects as streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const hmac = crypto.createHmac('sha256', 'a secret');
+
+hmac.on('readable', () =&gt; {
+  const data = hmac.read();
+  if (data)
+    console.log(data.toString('hex'));
+    // Prints:
+    //   7fd04df92f636fd450bc841c9418e5825c17f33ad9c87c518115a45971f7f77e
+});
+
+hmac.write('some data to hash');
+hmac.end();
+</code></pre>
+
+<p>Example: Using <code>Hmac</code> and piped streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const fs = require('fs');
+const hmac = crypto.createHmac('sha256', 'a secret');
+
+const input = fs.createReadStream('test.js');
+input.pipe(hmac).pipe(process.stdout);
+</code></pre>
+
+<p>Example: Using the [<code>hmac.update()</code>][] and [<code>hmac.digest()</code>][] methods:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const hmac = crypto.createHmac('sha256', 'a secret');
+
+hmac.update('some data to hash');
+console.log(hmac.digest('hex'));
+// Prints:
+//   7fd04df92f636fd450bc841c9418e5825c17f33ad9c87c518115a45971f7f77e
+</code></pre>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>The <code>Sign</code> Class is a utility for generating signatures. It can be used in one
+of two ways:</p>
+
+<ul>
+<li>As a writable <a href="stream.html">stream</a>, where data to be signed is written and the
+[<code>sign.sign()</code>][] method is used to generate and return the signature, or</li>
+<li>Using the [<code>sign.update()</code>][] and [<code>sign.sign()</code>][] methods to produce the
+signature.</li>
+</ul>
+
+<p>The [<code>crypto.createSign()</code>][] method is used to create <code>Sign</code> instances. <code>Sign</code>
+objects are not to be created directly using the <code>new</code> keyword.</p>
+
+<p>Example: Using <code>Sign</code> objects as streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const sign = crypto.createSign('RSA-SHA256');
+
+sign.write('some data to sign');
+sign.end();
+
+const privateKey = getPrivateKeySomehow();
+console.log(sign.sign(privateKey, 'hex'));
+// Prints: the calculated signature
+</code></pre>
+
+<p>Example: Using the [<code>sign.update()</code>][] and [<code>sign.sign()</code>][] methods:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const sign = crypto.createSign('RSA-SHA256');
+
+sign.update('some data to sign');
+
+const privateKey = getPrivateKeySomehow();
+console.log(sign.sign(privateKey, 'hex'));
+// Prints: the calculated signature
+</code></pre>
+
+<p>A <code>Sign</code> instance can also be created by just passing in the digest
+algorithm name, in which case OpenSSL will infer the full signature algorithm
+from the type of the PEM-formatted private key, including algorithms that
+do not have directly exposed name constants, e.g. 'ecdsa-with-SHA256'.</p>
+
+<p>Example: signing using ECDSA with SHA256</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const sign = crypto.createSign('sha256');
+
+sign.update('some data to sign');
+
+const privateKey =
+`-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIF+jnWY1D5kbVYDNvxxo/Y+ku2uJPDwS0r/VuPZQrjjVoAoGCCqGSM49
+AwEHoUQDQgAEurOxfSxmqIRYzJVagdZfMMSjRNNhB8i3mXyIMq704m2m52FdfKZ2
+pQhByd5eyj3lgZ7m7jbchtdgyOF8Io/1ng==
+-----END EC PRIVATE KEY-----`;
+
+console.log(sign.sign(privateKey).toString('hex'));
+</code></pre>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>The <code>Verify</code> class is a utility for verifying signatures. It can be used in one
+of two ways:</p>
+
+<ul>
+<li>As a writable <a href="stream.html">stream</a> where written data is used to validate against the
+supplied signature, or</li>
+<li>Using the [<code>verify.update()</code>][] and [<code>verify.verify()</code>][] methods to verify
+the signature.</li>
+</ul>
+
+<p>The [<code>crypto.createVerify()</code>][] method is used to create <code>Verify</code> instances.
+<code>Verify</code> objects are not to be created directly using the <code>new</code> keyword.</p>
+
+<p>Example: Using <code>Verify</code> objects as streams:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const verify = crypto.createVerify('RSA-SHA256');
+
+verify.write('some data to sign');
+verify.end();
+
+const publicKey = getPublicKeySomehow();
+const signature = getSignatureToVerify();
+console.log(verify.verify(publicKey, signature));
+// Prints: true or false
+</code></pre>
+
+<p>Example: Using the [<code>verify.update()</code>][] and [<code>verify.verify()</code>][] methods:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const verify = crypto.createVerify('RSA-SHA256');
+
+verify.update('some data to sign');
+
+const publicKey = getPublicKeySomehow();
+const signature = getSignatureToVerify();
+console.log(verify.verify(publicKey, signature));
+// Prints: true or false
+</code></pre>
+
+<blockquote>
+  <p>Stability: 2 - Stable</p>
+</blockquote>
+
+<p>The <code>crypto</code> module provides cryptographic functionality that includes a set of
+wrappers for OpenSSL's hash, HMAC, cipher, decipher, sign and verify functions.</p>
+
+<p>Use <code>require('crypto')</code> to access this module.</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+
+const secret = 'abcdefg';
+const hash = crypto.createHmac('sha256', secret)
+                   .update('I love cupcakes')
+                   .digest('hex');
+console.log(hash);
+// Prints:
+//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e
+</code></pre>
+
+<!-- YAML
+added: v6.3.0
+-->
+
+<p>Returns an object containing commonly used constants for crypto and security
+related operations. The specific constants currently defined are described in
+<a href="#crypto_crypto_constants_1">Crypto Constants</a>.</p>
+
+<p>The following constants exported by <code>crypto.constants</code> apply to various uses of
+the <code>crypto</code>, <code>tls</code>, and <code>https</code> modules and are generally specific to OpenSSL.</p>
+
+<p>Creates and returns a <code>Cipher</code> object, with the given <code>algorithm</code>, <code>key</code> and
+initialization vector (<code>iv</code>).</p>
+
+<p>The <code>algorithm</code> is dependent on OpenSSL, examples are <code>'aes192'</code>, etc. On
+recent OpenSSL releases, <code>openssl list-cipher-algorithms</code> will display the
+available cipher algorithms.</p>
+
+<p>The <code>key</code> is the raw key used by the <code>algorithm</code> and <code>iv</code> is an
+<a href="https://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a>. Both arguments must be <code>'utf8'</code> encoded strings or
+[buffers][<code>Buffer</code>].</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Creates and returns a <code>Cipher</code> object that uses the given <code>algorithm</code> and
+<code>password</code>.</p>
+
+<p>The <code>algorithm</code> is dependent on OpenSSL, examples are <code>'aes192'</code>, etc. On
+recent OpenSSL releases, <code>openssl list-cipher-algorithms</code> will display the
+available cipher algorithms.</p>
+
+<p>The <code>password</code> is used to derive the cipher key and initialization vector (IV).
+The value must be either a <code>'latin1'</code> encoded string or a [<code>Buffer</code>][].</p>
+
+<p>The implementation of <code>crypto.createCipher()</code> derives keys using the OpenSSL
+function [<code>EVP_BytesToKey</code>][] with the digest algorithm set to MD5, one
+iteration, and no salt. The lack of salt allows dictionary attacks as the same
+password always creates the same key. The low iteration count and
+non-cryptographically secure hash algorithm allow passwords to be tested very
+rapidly.</p>
+
+<p>In line with OpenSSL's recommendation to use pbkdf2 instead of
+[<code>EVP_BytesToKey</code>][] it is recommended that developers derive a key and IV on
+their own using [<code>crypto.pbkdf2()</code>][] and to use [<code>crypto.createCipheriv()</code>][]
+to create the <code>Cipher</code> object.</p>
+
+<!-- YAML
+added: v0.1.92
+deprecated: v0.11.13
+-->
+
+<blockquote>
+  <p>Stability: 0 - Deprecated: Use [<code>tls.createSecureContext()</code>][] instead.</p>
+</blockquote>
+
+<ul>
+<li><code>details</code> {Object} Identical to [<code>tls.createSecureContext()</code>][].</li>
+</ul>
+
+<p>The <code>crypto.createCredentials()</code> method is a deprecated function for creating
+and returning a <code>tls.SecureContext</code>. It should not be used. Replace it with
+[<code>tls.createSecureContext()</code>][] which has the exact same arguments and return
+value.</p>
+
+<p>Returns a <code>tls.SecureContext</code>, as-if [<code>tls.createSecureContext()</code>][] had been
+called.</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Creates and returns a <code>Decipher</code> object that uses the given <code>algorithm</code>, <code>key</code>
+and initialization vector (<code>iv</code>).</p>
+
+<p>The <code>algorithm</code> is dependent on OpenSSL, examples are <code>'aes192'</code>, etc. On
+recent OpenSSL releases, <code>openssl list-cipher-algorithms</code> will display the
+available cipher algorithms.</p>
+
+<p>The <code>key</code> is the raw key used by the <code>algorithm</code> and <code>iv</code> is an
+<a href="https://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a>. Both arguments must be <code>'utf8'</code> encoded strings or
+[buffers][<code>Buffer</code>].</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Creates and returns a <code>Decipher</code> object that uses the given <code>algorithm</code> and
+<code>password</code> (key).</p>
+
+<p>The implementation of <code>crypto.createDecipher()</code> derives keys using the OpenSSL
+function [<code>EVP_BytesToKey</code>][] with the digest algorithm set to MD5, one
+iteration, and no salt. The lack of salt allows dictionary attacks as the same
+password always creates the same key. The low iteration count and
+non-cryptographically secure hash algorithm allow passwords to be tested very
+rapidly.</p>
+
+<p>In line with OpenSSL's recommendation to use pbkdf2 instead of
+[<code>EVP_BytesToKey</code>][] it is recommended that developers derive a key and IV on
+their own using [<code>crypto.pbkdf2()</code>][] and to use [<code>crypto.createDecipheriv()</code>][]
+to create the <code>Decipher</code> object.</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Creates a <code>DiffieHellman</code> key exchange object and generates a prime of
+<code>prime_length</code> bits using an optional specific numeric <code>generator</code>.
+If <code>generator</code> is not specified, the value <code>2</code> is used.</p>
+
+<!-- YAML
+added: v0.11.12
+-->
+
+<p>Creates a <code>DiffieHellman</code> key exchange object using the supplied <code>prime</code> and an
+optional specific <code>generator</code>.</p>
+
+<p>The <code>generator</code> argument can be a number, string, or [<code>Buffer</code>][]. If
+<code>generator</code> is not specified, the value <code>2</code> is used.</p>
+
+<p>The <code>prime_encoding</code> and <code>generator_encoding</code> arguments can be <code>'latin1'</code>,
+<code>'hex'</code>, or <code>'base64'</code>.</p>
+
+<p>If <code>prime_encoding</code> is specified, <code>prime</code> is expected to be a string; otherwise
+a [<code>Buffer</code>][] is expected.</p>
+
+<p>If <code>generator_encoding</code> is specified, <code>generator</code> is expected to be a string;
+otherwise either a number or [<code>Buffer</code>][] is expected.</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>Creates an Elliptic Curve Diffie-Hellman (<code>ECDH</code>) key exchange object using a
+predefined curve specified by the <code>curve_name</code> string. Use
+[<code>crypto.getCurves()</code>][] to obtain a list of available curve names. On recent
+OpenSSL releases, <code>openssl ecparam -list_curves</code> will also display the name
+and description of each available elliptic curve.</p>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Creates and returns a <code>Hash</code> object that can be used to generate hash digests
+using the given <code>algorithm</code>.</p>
+
+<p>The <code>algorithm</code> is dependent on the available algorithms supported by the
+version of OpenSSL on the platform. Examples are <code>'sha256'</code>, <code>'sha512'</code>, etc.
+On recent releases of OpenSSL, <code>openssl list-message-digest-algorithms</code> will
+display the available digest algorithms.</p>
+
+<p>Example: generating the sha256 sum of a file</p>
+
+<pre class="prettyprint"><code>const filename = process.argv[2];
+const crypto = require('crypto');
+const fs = require('fs');
+
+const hash = crypto.createHash('sha256');
+
+const input = fs.createReadStream(filename);
+input.on('readable', () =&gt; {
+  const data = input.read();
+  if (data)
+    hash.update(data);
+  else {
+    console.log(`${hash.digest('hex')} ${filename}`);
+  }
+});
+</code></pre>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Creates and returns an <code>Hmac</code> object that uses the given <code>algorithm</code> and <code>key</code>.</p>
+
+<p>The <code>algorithm</code> is dependent on the available algorithms supported by the
+version of OpenSSL on the platform. Examples are <code>'sha256'</code>, <code>'sha512'</code>, etc.
+On recent releases of OpenSSL, <code>openssl list-message-digest-algorithms</code> will
+display the available digest algorithms.</p>
+
+<p>The <code>key</code> is the HMAC key used to generate the cryptographic HMAC hash.</p>
+
+<p>Example: generating the sha256 HMAC of a file</p>
+
+<pre class="prettyprint"><code>const filename = process.argv[2];
+const crypto = require('crypto');
+const fs = require('fs');
+
+const hmac = crypto.createHmac('sha256', 'a secret');
+
+const input = fs.createReadStream(filename);
+input.on('readable', () =&gt; {
+  const data = input.read();
+  if (data)
+    hmac.update(data);
+  else {
+    console.log(`${hmac.digest('hex')} ${filename}`);
+  }
+});
+</code></pre>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Creates and returns a <code>Sign</code> object that uses the given <code>algorithm</code>.
+Use [<code>crypto.getHashes()</code>][] to obtain an array of names of the available
+signing algorithms.</p>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Creates and returns a <code>Verify</code> object that uses the given algorithm.
+Use [<code>crypto.getHashes()</code>][] to obtain an array of names of the available
+signing algorithms.</p>
+
+<!-- YAML
+added: v0.9.3
+-->
+
+<p>The default encoding to use for functions that can take either strings
+or [buffers][<code>Buffer</code>]. The default value is <code>'buffer'</code>, which makes methods
+default to [<code>Buffer</code>][] objects.</p>
+
+<p>The <code>crypto.DEFAULT_ENCODING</code> mechanism is provided for backwards compatibility
+with legacy programs that expect <code>'latin1'</code> to be the default encoding.</p>
+
+<p>New applications should expect the default to be <code>'buffer'</code>. This property may
+become deprecated in a future Node.js release.</p>
+
+<!-- YAML
+added: v6.0.0
+-->
+
+<p>Property for checking and controlling whether a FIPS compliant crypto provider is
+currently in use. Setting to true requires a FIPS build of Node.js.</p>
+
+<!-- YAML
+added: v0.9.3
+-->
+
+<p>Returns an array with the names of the supported cipher algorithms.</p>
+
+<p>Example:</p>
+
+<pre class="prettyprint"><code>const ciphers = crypto.getCiphers();
+console.log(ciphers); // ['aes-128-cbc', 'aes-128-ccm', ...]
+</code></pre>
+
+<!-- YAML
+added: v2.3.0
+-->
+
+<p>Returns an array with the names of the supported elliptic curves.</p>
+
+<p>Example:</p>
+
+<pre class="prettyprint"><code>const curves = crypto.getCurves();
+console.log(curves); // ['Oakley-EC2N-3', 'Oakley-EC2N-4', ...]
+</code></pre>
+
+<!-- YAML
+added: v0.7.5
+-->
+
+<p>Creates a predefined <code>DiffieHellman</code> key exchange object. The
+supported groups are: <code>'modp1'</code>, <code>'modp2'</code>, <code>'modp5'</code> (defined in
+<a href="https://www.rfc-editor.org/rfc/rfc2412.txt">RFC 2412</a>, but see <a href="#crypto_support_for_weak_or_compromised_algorithms">Caveats</a>) and <code>'modp14'</code>, <code>'modp15'</code>,
+<code>'modp16'</code>, <code>'modp17'</code>, <code>'modp18'</code> (defined in <a href="https://www.rfc-editor.org/rfc/rfc3526.txt">RFC 3526</a>). The
+returned object mimics the interface of objects created by
+[<code>crypto.createDiffieHellman()</code>][], but will not allow changing
+the keys (with [<code>diffieHellman.setPublicKey()</code>][] for example). The
+advantage of using this method is that the parties do not have to
+generate nor exchange a group modulus beforehand, saving both processor
+and communication time.</p>
+
+<p>Example (obtaining a shared secret):</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const alice = crypto.getDiffieHellman('modp14');
+const bob = crypto.getDiffieHellman('modp14');
+
+alice.generateKeys();
+bob.generateKeys();
+
+const aliceSecret = alice.computeSecret(bob.getPublicKey(), null, 'hex');
+const bobSecret = bob.computeSecret(alice.getPublicKey(), null, 'hex');
+
+/* aliceSecret and bobSecret should be the same */
+console.log(aliceSecret === bobSecret);
+</code></pre>
+
+<!-- YAML
+added: v0.9.3
+-->
+
+<p>Returns an array of the names of the supported hash algorithms,
+such as <code>RSA-SHA256</code>.</p>
+
+<p>Example:</p>
+
+<pre class="prettyprint"><code>const hashes = crypto.getHashes();
+console.log(hashes); // ['DSA', 'DSA-SHA', 'DSA-SHA1', ...]
+</code></pre>
+
+<!-- YAML
+added: v0.9.3
+-->
+
+<p>Provides a synchronous Password-Based Key Derivation Function 2 (PBKDF2)
+implementation. A selected HMAC digest algorithm specified by <code>digest</code> is
+applied to derive a key of the requested byte length (<code>keylen</code>) from the
+<code>password</code>, <code>salt</code> and <code>iterations</code>.</p>
+
+<p>If an error occurs an Error will be thrown, otherwise the derived key will be
+returned as a [<code>Buffer</code>][].</p>
+
+<p>The <code>iterations</code> argument must be a number set as high as possible. The
+higher the number of iterations, the more secure the derived key will be,
+but will take a longer amount of time to complete.</p>
+
+<p>The <code>salt</code> should also be as unique as possible. It is recommended that the
+salts are random and their lengths are greater than 16 bytes. See
+<a href="http://csrc.nist.gov/publications/nistpubs/800-132/nist-sp800-132.pdf">NIST SP 800-132</a> for details.</p>
+
+<p>Example:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const key = crypto.pbkdf2Sync('secret', 'salt', 100000, 512, 'sha512');
+console.log(key.toString('hex'));  // '3745e48...aa39b34'
+</code></pre>
+
+<p>An array of supported digest functions can be retrieved using
+[<code>crypto.getHashes()</code>][].</p>
+
+<!-- YAML
+added: v0.5.5
+-->
+
+<p>Provides an asynchronous Password-Based Key Derivation Function 2 (PBKDF2)
+implementation. A selected HMAC digest algorithm specified by <code>digest</code> is
+applied to derive a key of the requested byte length (<code>keylen</code>) from the
+<code>password</code>, <code>salt</code> and <code>iterations</code>.</p>
+
+<p>The supplied <code>callback</code> function is called with two arguments: <code>err</code> and
+<code>derivedKey</code>. If an error occurs, <code>err</code> will be set; otherwise <code>err</code> will be
+null. The successfully generated <code>derivedKey</code> will be passed as a [<code>Buffer</code>][].</p>
+
+<p>The <code>iterations</code> argument must be a number set as high as possible. The
+higher the number of iterations, the more secure the derived key will be,
+but will take a longer amount of time to complete.</p>
+
+<p>The <code>salt</code> should also be as unique as possible. It is recommended that the
+salts are random and their lengths are greater than 16 bytes. See
+<a href="http://csrc.nist.gov/publications/nistpubs/800-132/nist-sp800-132.pdf">NIST SP 800-132</a> for details.</p>
+
+<p>Example:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+crypto.pbkdf2('secret', 'salt', 100000, 512, 'sha512', (err, key) =&gt; {
+  if (err) throw err;
+  console.log(key.toString('hex'));  // '3745e48...aa39b34'
+});
+</code></pre>
+
+<p>An array of supported digest functions can be retrieved using
+[<code>crypto.getHashes()</code>][].</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>Decrypts <code>buffer</code> with <code>private_key</code>.</p>
+
+<p><code>private_key</code> can be an object or a string. If <code>private_key</code> is a string, it is
+treated as the key with no passphrase and will use <code>RSA_PKCS1_OAEP_PADDING</code>.
+If <code>private_key</code> is an object, it is interpreted as a hash object with the
+keys:</p>
+
+<ul>
+<li><code>key</code> : {String} - PEM encoded private key</li>
+<li><code>passphrase</code> : {String} - Optional passphrase for the private key</li>
+<li><code>padding</code> : An optional padding value, one of the following:
+<ul><li><code>crypto.constants.RSA_NO_PADDING</code></li>
+<li><code>crypto.constants.RSA_PKCS1_PADDING</code></li>
+<li><code>crypto.constants.RSA_PKCS1_OAEP_PADDING</code></li></ul></li>
+</ul>
+
+<p>All paddings are defined in <code>crypto.constants</code>.</p>
+
+<!-- YAML
+added: v1.1.0
+-->
+
+<p>Encrypts <code>buffer</code> with <code>private_key</code>.</p>
+
+<p><code>private_key</code> can be an object or a string. If <code>private_key</code> is a string, it is
+treated as the key with no passphrase and will use <code>RSA_PKCS1_PADDING</code>.
+If <code>private_key</code> is an object, it is interpreted as a hash object with the
+keys:</p>
+
+<ul>
+<li><code>key</code> : {String} - PEM encoded private key</li>
+<li><code>passphrase</code> : {String} - Optional passphrase for the private key</li>
+<li><code>padding</code> : An optional padding value, one of the following:
+<ul><li><code>crypto.constants.RSA_NO_PADDING</code></li>
+<li><code>crypto.constants.RSA_PKCS1_PADDING</code></li></ul></li>
+</ul>
+
+<p>All paddings are defined in <code>crypto.constants</code>.</p>
+
+<!-- YAML
+added: v1.1.0
+-->
+
+<p>Decrypts <code>buffer</code> with <code>public_key</code>.</p>
+
+<p><code>public_key</code> can be an object or a string. If <code>public_key</code> is a string, it is
+treated as the key with no passphrase and will use <code>RSA_PKCS1_PADDING</code>.
+If <code>public_key</code> is an object, it is interpreted as a hash object with the
+keys:</p>
+
+<ul>
+<li><code>key</code> : {String} - PEM encoded public key</li>
+<li><code>passphrase</code> : {String} - Optional passphrase for the private key</li>
+<li><code>padding</code> : An optional padding value, one of the following:
+<ul><li><code>crypto.constants.RSA_NO_PADDING</code></li>
+<li><code>crypto.constants.RSA_PKCS1_PADDING</code></li>
+<li><code>crypto.constants.RSA_PKCS1_OAEP_PADDING</code></li></ul></li>
+</ul>
+
+<p>Because RSA public keys can be derived from private keys, a private key may
+be passed instead of a public key.</p>
+
+<p>All paddings are defined in <code>crypto.constants</code>.</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>Encrypts <code>buffer</code> with <code>public_key</code>.</p>
+
+<p><code>public_key</code> can be an object or a string. If <code>public_key</code> is a string, it is
+treated as the key with no passphrase and will use <code>RSA_PKCS1_OAEP_PADDING</code>.
+If <code>public_key</code> is an object, it is interpreted as a hash object with the
+keys:</p>
+
+<ul>
+<li><code>key</code> : {String} - PEM encoded public key</li>
+<li><code>passphrase</code> : {String} - Optional passphrase for the private key</li>
+<li><code>padding</code> : An optional padding value, one of the following:
+<ul><li><code>crypto.constants.RSA_NO_PADDING</code></li>
+<li><code>crypto.constants.RSA_PKCS1_PADDING</code></li>
+<li><code>crypto.constants.RSA_PKCS1_OAEP_PADDING</code></li></ul></li>
+</ul>
+
+<p>Because RSA public keys can be derived from private keys, a private key may
+be passed instead of a public key.</p>
+
+<p>All paddings are defined in <code>crypto.constants</code>.</p>
+
+<!-- YAML
+added: v0.5.8
+-->
+
+<p>Generates cryptographically strong pseudo-random data. The <code>size</code> argument
+is a number indicating the number of bytes to generate.</p>
+
+<p>If a <code>callback</code> function is provided, the bytes are generated asynchronously
+and the <code>callback</code> function is invoked with two arguments: <code>err</code> and <code>buf</code>.
+If an error occurs, <code>err</code> will be an Error object; otherwise it is null. The
+<code>buf</code> argument is a [<code>Buffer</code>][] containing the generated bytes.</p>
+
+<pre class="prettyprint"><code>// Asynchronous
+const crypto = require('crypto');
+crypto.randomBytes(256, (err, buf) =&gt; {
+  if (err) throw err;
+  console.log(`${buf.length} bytes of random data: ${buf.toString('hex')}`);
+});
+</code></pre>
+
+<p>If the <code>callback</code> function is not provided, the random bytes are generated
+synchronously and returned as a [<code>Buffer</code>][]. An error will be thrown if
+there is a problem generating the bytes.</p>
+
+<pre class="prettyprint"><code>// Synchronous
+const buf = crypto.randomBytes(256);
+console.log(
+  `${buf.length} bytes of random data: ${buf.toString('hex')}`);
+</code></pre>
+
+<p>The <code>crypto.randomBytes()</code> method will block until there is sufficient entropy.
+This should normally never take longer than a few milliseconds. The only time
+when generating the random bytes may conceivably block for a longer period of
+time is right after boot, when the whole system is still low on entropy.</p>
+
+<!-- YAML
+added: v0.11.11
+-->
+
+<p>Load and set the <code>engine</code> for some or all OpenSSL functions (selected by flags).</p>
+
+<p><code>engine</code> could be either an id or a path to the engine's shared library.</p>
+
+<p>The optional <code>flags</code> argument uses <code>ENGINE_METHOD_ALL</code> by default. The <code>flags</code>
+is a bit field taking one of or a mix of the following flags (defined in
+<code>crypto.constants</code>):</p>
+
+<ul>
+<li><code>crypto.constants.ENGINE_METHOD_RSA</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_DSA</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_DH</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_RAND</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_ECDH</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_ECDSA</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_CIPHERS</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_DIGESTS</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_STORE</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_PKEY_METHS</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_PKEY_ASN1_METHS</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_ALL</code></li>
+<li><code>crypto.constants.ENGINE_METHOD_NONE</code></li>
+</ul>
+
+<!-- YAML
+added: v6.6.0
+-->
+
+<p>Returns true if <code>a</code> is equal to <code>b</code>, without leaking timing information that
+would allow an attacker to guess one of the values. This is suitable for
+comparing HMAC digests or secret values like authentication cookies or
+<a href="https://www.w3.org/TR/capability-urls/">capability urls</a>.</p>
+
+<p><code>a</code> and <code>b</code> must both be <code>Buffer</code>s, and they must have the same length.</p>
+
+<p><strong>Note</strong>: Use of <code>crypto.timingSafeEqual</code> does not guarantee that the
+<em>surrounding</em> code is timing-safe. Care should be taken to ensure that the
+surrounding code does not introduce timing vulnerabilities.</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Returns any remaining deciphered contents. If <code>output_encoding</code>
+parameter is one of <code>'latin1'</code>, <code>'ascii'</code> or <code>'utf8'</code>, a string is returned.
+If an <code>output_encoding</code> is not provided, a [<code>Buffer</code>][] is returned.</p>
+
+<p>Once the <code>decipher.final()</code> method has been called, the <code>Decipher</code> object can
+no longer be used to decrypt data. Attempts to call <code>decipher.final()</code> more
+than once will result in an error being thrown.</p>
+
+<!-- YAML
+added: v1.0.0
+-->
+
+<p>When using an authenticated encryption mode (only <code>GCM</code> is currently
+supported), the <code>decipher.setAAD()</code> method sets the value used for the
+<em>additional authenticated data</em> (AAD) input parameter.</p>
+
+<!-- YAML
+added: v1.0.0
+-->
+
+<p>When using an authenticated encryption mode (only <code>GCM</code> is currently
+supported), the <code>decipher.setAuthTag()</code> method is used to pass in the
+received <em>authentication tag</em>. If no tag is provided, or if the cipher text
+has been tampered with, [<code>decipher.final()</code>][] with throw, indicating that the
+cipher text should be discarded due to failed authentication.</p>
+
+<!-- YAML
+added: v0.7.1
+-->
+
+<p>When data has been encrypted without standard block padding, calling
+<code>decipher.setAutoPadding(false)</code> will disable automatic padding to prevent
+[<code>decipher.final()</code>][] from checking for and removing padding.</p>
+
+<p>Turning auto padding off will only work if the input data's length is a
+multiple of the ciphers block size.</p>
+
+<p>The <code>decipher.setAutoPadding()</code> method must be called before
+[<code>decipher.update()</code>][].</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Updates the decipher with <code>data</code>. If the <code>input_encoding</code> argument is given,
+its value must be one of <code>'latin1'</code>, <code>'base64'</code>, or <code>'hex'</code> and the <code>data</code>
+argument is a string using the specified encoding. If the <code>input_encoding</code>
+argument is not given, <code>data</code> must be a [<code>Buffer</code>][]. If <code>data</code> is a
+[<code>Buffer</code>][] then <code>input_encoding</code> is ignored.</p>
+
+<p>The <code>output_encoding</code> specifies the output format of the enciphered
+data, and can be <code>'latin1'</code>, <code>'ascii'</code> or <code>'utf8'</code>. If the <code>output_encoding</code>
+is specified, a string using the specified encoding is returned. If no
+<code>output_encoding</code> is provided, a [<code>Buffer</code>][] is returned.</p>
+
+<p>The <code>decipher.update()</code> method can be called multiple times with new data until
+[<code>decipher.final()</code>][] is called. Calling <code>decipher.update()</code> after
+[<code>decipher.final()</code>][] will result in an error being thrown.</p>
+
+<p>It is possible for Node.js to be built without including support for the
+<code>crypto</code> module. In such cases, calling <code>require('crypto')</code> will result in an
+error being thrown.</p>
+
+<pre class="prettyprint"><code>let crypto;
+try {
+  crypto = require('crypto');
+} catch (err) {
+  console.log('crypto support is disabled!');
+}
+</code></pre>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Computes the shared secret using <code>other_public_key</code> as the other
+party's public key and returns the computed shared secret. The supplied
+key is interpreted using the specified <code>input_encoding</code>, and secret is
+encoded using specified <code>output_encoding</code>. Encodings can be
+<code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If the <code>input_encoding</code> is not
+provided, <code>other_public_key</code> is expected to be a [<code>Buffer</code>][].</p>
+
+<p>If <code>output_encoding</code> is given a string is returned; otherwise, a
+[<code>Buffer</code>][] is returned.</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Generates private and public Diffie-Hellman key values, and returns
+the public key in the specified <code>encoding</code>. This key should be
+transferred to the other party. Encoding can be <code>'latin1'</code>, <code>'hex'</code>,
+or <code>'base64'</code>. If <code>encoding</code> is provided a string is returned; otherwise a
+[<code>Buffer</code>][] is returned.</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Returns the Diffie-Hellman generator in the specified <code>encoding</code>, which can
+be <code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If  <code>encoding</code> is provided a string is
+returned; otherwise a [<code>Buffer</code>][] is returned.</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Returns the Diffie-Hellman prime in the specified <code>encoding</code>, which can
+be <code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If <code>encoding</code> is provided a string is
+returned; otherwise a [<code>Buffer</code>][] is returned.</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Returns the Diffie-Hellman private key in the specified <code>encoding</code>,
+which can be <code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If <code>encoding</code> is provided a
+string is returned; otherwise a [<code>Buffer</code>][] is returned.</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Returns the Diffie-Hellman public key in the specified <code>encoding</code>, which
+can be <code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If <code>encoding</code> is provided a
+string is returned; otherwise a [<code>Buffer</code>][] is returned.</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Sets the Diffie-Hellman private key. If the <code>encoding</code> argument is provided
+and is either <code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>, <code>private_key</code> is expected
+to be a string. If no <code>encoding</code> is provided, <code>private_key</code> is expected
+to be a [<code>Buffer</code>][].</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>Sets the Diffie-Hellman public key. If the <code>encoding</code> argument is provided
+and is either <code>'latin1'</code>, <code>'hex'</code> or <code>'base64'</code>, <code>public_key</code> is expected
+to be a string. If no <code>encoding</code> is provided, <code>public_key</code> is expected
+to be a [<code>Buffer</code>][].</p>
+
+<!-- YAML
+added: v0.11.12
+-->
+
+<p>A bit field containing any warnings and/or errors resulting from a check
+performed during initialization of the <code>DiffieHellman</code> object.</p>
+
+<p>The following values are valid for this property (as defined in <code>constants</code>
+module):</p>
+
+<ul>
+<li><code>DH_CHECK_P_NOT_SAFE_PRIME</code></li>
+<li><code>DH_CHECK_P_NOT_PRIME</code></li>
+<li><code>DH_UNABLE_TO_CHECK_GENERATOR</code></li>
+<li><code>DH_NOT_SUITABLE_GENERATOR</code></li>
+</ul>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>Computes the shared secret using <code>other_public_key</code> as the other
+party's public key and returns the computed shared secret. The supplied
+key is interpreted using specified <code>input_encoding</code>, and the returned secret
+is encoded using the specified <code>output_encoding</code>. Encodings can be
+<code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If the <code>input_encoding</code> is not
+provided, <code>other_public_key</code> is expected to be a [<code>Buffer</code>][].</p>
+
+<p>If <code>output_encoding</code> is given a string will be returned; otherwise a
+[<code>Buffer</code>][] is returned.</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>Generates private and public EC Diffie-Hellman key values, and returns
+the public key in the specified <code>format</code> and <code>encoding</code>. This key should be
+transferred to the other party.</p>
+
+<p>The <code>format</code> arguments specifies point encoding and can be <code>'compressed'</code>,
+<code>'uncompressed'</code>, or <code>'hybrid'</code>. If <code>format</code> is not specified, the point will
+be returned in <code>'uncompressed'</code> format.</p>
+
+<p>The <code>encoding</code> argument can be <code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If
+<code>encoding</code> is provided a string is returned; otherwise a [<code>Buffer</code>][]
+is returned.</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>Returns the EC Diffie-Hellman private key in the specified <code>encoding</code>,
+which can be <code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If <code>encoding</code> is provided
+a string is returned; otherwise a [<code>Buffer</code>][] is returned.</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>Returns the EC Diffie-Hellman public key in the specified <code>encoding</code> and
+<code>format</code>.</p>
+
+<p>The <code>format</code> argument specifies point encoding and can be <code>'compressed'</code>,
+<code>'uncompressed'</code>, or <code>'hybrid'</code>. If <code>format</code> is not specified the point will be
+returned in <code>'uncompressed'</code> format.</p>
+
+<p>The <code>encoding</code> argument can be <code>'latin1'</code>, <code>'hex'</code>, or <code>'base64'</code>. If
+<code>encoding</code> is specified, a string is returned; otherwise a [<code>Buffer</code>][] is
+returned.</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>Sets the EC Diffie-Hellman private key. The <code>encoding</code> can be <code>'latin1'</code>,
+<code>'hex'</code> or <code>'base64'</code>. If <code>encoding</code> is provided, <code>private_key</code> is expected
+to be a string; otherwise <code>private_key</code> is expected to be a [<code>Buffer</code>][]. If
+<code>private_key</code> is not valid for the curve specified when the <code>ECDH</code> object was
+created, an error is thrown. Upon setting the private key, the associated
+public point (key) is also generated and set in the ECDH object.</p>
+
+<!-- YAML
+added: v0.11.14
+deprecated: v5.2.0
+-->
+
+<blockquote>
+  <p>Stability: 0 - Deprecated</p>
+</blockquote>
+
+<p>Sets the EC Diffie-Hellman public key. Key encoding can be <code>'latin1'</code>,
+<code>'hex'</code> or <code>'base64'</code>. If <code>encoding</code> is provided <code>public_key</code> is expected to
+be a string; otherwise a [<code>Buffer</code>][] is expected.</p>
+
+<p>Note that there is not normally a reason to call this method because <code>ECDH</code>
+only requires a private key and the other party's public key to compute the
+shared secret. Typically either [<code>ecdh.generateKeys()</code>][] or
+[<code>ecdh.setPrivateKey()</code>][] will be called. The [<code>ecdh.setPrivateKey()</code>][] method
+attempts to generate the public point/key associated with the private key being
+set.</p>
+
+<p>Example (obtaining a shared secret):</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+const alice = crypto.createECDH('secp256k1');
+const bob = crypto.createECDH('secp256k1');
+
+// Note: This is a shortcut way to specify one of Alice's previous private
+// keys. It would be unwise to use such a predictable private key in a real
+// application.
+alice.setPrivateKey(
+  crypto.createHash('sha256').update('alice', 'utf8').digest()
+);
+
+// Bob uses a newly generated cryptographically strong
+// pseudorandom key pair
+bob.generateKeys();
+
+const aliceSecret = alice.computeSecret(bob.getPublicKey(), null, 'hex');
+const bobSecret = bob.computeSecret(alice.getPublicKey(), null, 'hex');
+
+// aliceSecret and bobSecret should be the same shared secret value
+console.log(aliceSecret === bobSecret);
+</code></pre>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Calculates the digest of all of the data passed to be hashed (using the
+[<code>hash.update()</code>][] method). The <code>encoding</code> can be <code>'hex'</code>, <code>'latin1'</code> or
+<code>'base64'</code>. If <code>encoding</code> is provided a string will be returned; otherwise
+a [<code>Buffer</code>][] is returned.</p>
+
+<p>The <code>Hash</code> object can not be used again after <code>hash.digest()</code> method has been
+called. Multiple calls will cause an error to be thrown.</p>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Updates the hash content with the given <code>data</code>, the encoding of which
+is given in <code>input_encoding</code> and can be <code>'utf8'</code>, <code>'ascii'</code> or
+<code>'latin1'</code>. If <code>encoding</code> is not provided, and the <code>data</code> is a string, an
+encoding of <code>'utf8'</code> is enforced. If <code>data</code> is a [<code>Buffer</code>][] then
+<code>input_encoding</code> is ignored.</p>
+
+<p>This can be called many times with new data as it is streamed.</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Calculates the HMAC digest of all of the data passed using [<code>hmac.update()</code>][].
+The <code>encoding</code> can be <code>'hex'</code>, <code>'latin1'</code> or <code>'base64'</code>. If <code>encoding</code> is
+provided a string is returned; otherwise a [<code>Buffer</code>][] is returned;</p>
+
+<p>The <code>Hmac</code> object can not be used again after <code>hmac.digest()</code> has been
+called. Multiple calls to <code>hmac.digest()</code> will result in an error being thrown.</p>
+
+<!-- YAML
+added: v0.1.94
+-->
+
+<p>Updates the <code>Hmac</code> content with the given <code>data</code>, the encoding of which
+is given in <code>input_encoding</code> and can be <code>'utf8'</code>, <code>'ascii'</code> or
+<code>'latin1'</code>. If <code>encoding</code> is not provided, and the <code>data</code> is a string, an
+encoding of <code>'utf8'</code> is enforced. If <code>data</code> is a [<code>Buffer</code>][] then
+<code>input_encoding</code> is ignored.</p>
+
+<p>This can be called many times with new data as it is streamed.</p>
+
+<p>The Crypto module was added to Node.js before there was the concept of a
+unified Stream API, and before there were [<code>Buffer</code>][] objects for handling
+binary data. As such, the many of the <code>crypto</code> defined classes have methods not
+typically found on other Node.js classes that implement the <a href="stream.html">streams</a>
+API (e.g. <code>update()</code>, <code>final()</code>, or <code>digest()</code>). Also, many methods accepted
+and returned <code>'latin1'</code> encoded strings by default rather than Buffers. This
+default was changed after Node.js v0.8 to use [<code>Buffer</code>][] objects by default
+instead.</p>
+
+<p>Instances of the <code>Certificate</code> class can be created using the <code>new</code> keyword
+or by calling <code>crypto.Certificate()</code> as a function:</p>
+
+<pre class="prettyprint"><code>const crypto = require('crypto');
+
+const cert1 = new crypto.Certificate();
+const cert2 = crypto.Certificate();
+</code></pre>
+
+<table>
+  <tr>
+    <th>Constant</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>defaultCoreCipherList</code></td>
+    <td>Specifies the built-in default cipher list used by Node.js.</td>
+  </tr>
+  <tr>
+    <td><code>defaultCipherList</code></td>
+    <td>Specifies the active default cipher list used by the current Node.js
+    process.</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Constant</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_RSA</code></td>
+    <td>Limit engine usage to RSA</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_DSA</code></td>
+    <td>Limit engine usage to DSA</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_DH</code></td>
+    <td>Limit engine usage to DH</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_RAND</code></td>
+    <td>Limit engine usage to RAND</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_ECDH</code></td>
+    <td>Limit engine usage to ECDH</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_ECDSA</code></td>
+    <td>Limit engine usage to ECDSA</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_CIPHERS</code></td>
+    <td>Limit engine usage to CIPHERS</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_DIGESTS</code></td>
+    <td>Limit engine usage to DIGESTS</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_STORE</code></td>
+    <td>Limit engine usage to STORE</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_PKEY_METHS</code></td>
+    <td>Limit engine usage to PKEY_METHDS</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_PKEY_ASN1_METHS</code></td>
+    <td>Limit engine usage to PKEY_ASN1_METHS</td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_ALL</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>ENGINE_METHOD_NONE</code></td>
+    <td></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Constant</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_ALL</code></td>
+    <td>Applies multiple bug workarounds within OpenSSL. See
+    https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html for
+    detail.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION</code></td>
+    <td>Allows legacy insecure renegotiation between OpenSSL and unpatched
+    clients or servers. See
+    https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_CIPHER_SERVER_PREFERENCE</code></td>
+    <td>Attempts to use the server's preferences instead of the client's when
+    selecting a cipher. Behaviour depends on protocol version. See
+    https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_CISCO_ANYCONNECT</code></td>
+    <td>Instructs OpenSSL to use Cisco's "speshul" version of DTLS_BAD_VER.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_COOKIE_EXCHANGE</code></td>
+    <td>Instructs OpenSSL to turn on cookie exchange.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_CRYPTOPRO_TLSEXT_BUG</code></td>
+    <td>Instructs OpenSSL to add server-hello extension from an early version
+    of the cryptopro draft.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS</code></td>
+    <td>Instructs OpenSSL to disable a SSL 3.0/TLS 1.0 vulnerability
+    workaround added in OpenSSL 0.9.6d.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_EPHEMERAL_RSA</code></td>
+    <td>Instructs OpenSSL to always use the tmp_rsa key when performing RSA
+    operations.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_LEGACY_SERVER_CONNECT</code></td>
+    <td>Allows initial connection to servers that do not support RI.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_MICROSOFT_SESS_ID_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_MSIE_SSLV2_RSA_PADDING</code></td>
+    <td>Instructs OpenSSL to disable the workaround for a man-in-the-middle
+    protocol-version vulnerability in the SSL 2.0 server implementation.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NETSCAPE_CA_DN_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NETSCAPE_CHALLENGE_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_COMPRESSION</code></td>
+    <td>Instructs OpenSSL to disable support for SSL/TLS compression.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_QUERY_MTU</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION</code></td>
+    <td>Instructs OpenSSL to always start a new session when performing
+    renegotiation.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_SSLv2</code></td>
+    <td>Instructs OpenSSL to turn off SSL v2</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_SSLv3</code></td>
+    <td>Instructs OpenSSL to turn off SSL v3</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_TICKET</code></td>
+    <td>Instructs OpenSSL to disable use of RFC4507bis tickets.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_TLSv1</code></td>
+    <td>Instructs OpenSSL to turn off TLS v1</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_TLSv1_1</code></td>
+    <td>Instructs OpenSSL to turn off TLS v1.1</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_NO_TLSv1_2</code></td>
+    <td>Instructs OpenSSL to turn off TLS v1.2</td>
+  </tr>
+    <td><code>SSL_OP_PKCS1_CHECK_1</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_PKCS1_CHECK_2</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_SINGLE_DH_USE</code></td>
+    <td>Instructs OpenSSL to always create a new key when using
+    temporary/ephemeral DH parameters.</td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_SINGLE_ECDH_USE</code></td>
+    <td>Instructs OpenSSL to always create a new key when using
+    temporary/ephemeral ECDH parameters.</td>
+  </tr>
+    <td><code>SSL_OP_SSLEAY_080_CLIENT_DH_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_TLS_BLOCK_PADDING_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_TLS_D5_BUG</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>SSL_OP_TLS_ROLLBACK_BUG</code></td>
+    <td>Instructs OpenSSL to disable version rollback attack detection.</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Constant</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>DH_CHECK_P_NOT_SAFE_PRIME</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>DH_CHECK_P_NOT_PRIME</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>DH_UNABLE_TO_CHECK_GENERATOR</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>DH_NOT_SUITABLE_GENERATOR</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>NPN_ENABLED</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>ALPN_ENABLED</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>RSA_PKCS1_PADDING</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>RSA_SSLV23_PADDING</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>RSA_NO_PADDING</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>RSA_PKCS1_OAEP_PADDING</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>RSA_X931_PADDING</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>RSA_PKCS1_PSS_PADDING</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>POINT_CONVERSION_COMPRESSED</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>POINT_CONVERSION_UNCOMPRESSED</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>POINT_CONVERSION_HYBRID</code></td>
+    <td></td>
+  </tr>
+</table>
+
+<p>Usage of <code>ECDH</code> with non-dynamically generated key pairs has been simplified.
+Now, [<code>ecdh.setPrivateKey()</code>][] can be called with a preselected private key
+and the associated public point (key) will be computed and stored in the object.
+This allows code to only store and provide the private part of the EC key pair.
+[<code>ecdh.setPrivateKey()</code>][] now also validates that the private key is valid for
+the selected curve.</p>
+
+<p>The [<code>ecdh.setPublicKey()</code>][] method is now deprecated as its inclusion in the
+API is not useful. Either a previously stored private key should be set, which
+automatically generates the associated public key, or [<code>ecdh.generateKeys()</code>][]
+should be called. The main drawback of using [<code>ecdh.setPublicKey()</code>][] is that
+it can be used to put the ECDH key pair into an inconsistent state.</p>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Calculates the signature on all the data passed through using either
+[<code>sign.update()</code>][] or <a href="stream.html#stream_writable_write_chunk_encoding_callback"><code>sign.write()</code></a>.</p>
+
+<p>The <code>private_key</code> argument can be an object or a string. If <code>private_key</code> is a
+string, it is treated as a raw key with no passphrase. If <code>private_key</code> is an
+object, it is interpreted as a hash containing two properties:</p>
+
+<ul>
+<li><code>key</code> : {String} - PEM encoded private key</li>
+<li><code>passphrase</code> : {String} - passphrase for the private key</li>
+</ul>
+
+<p>The <code>output_format</code> can specify one of <code>'latin1'</code>, <code>'hex'</code> or <code>'base64'</code>. If
+<code>output_format</code> is provided a string is returned; otherwise a [<code>Buffer</code>][] is
+returned.</p>
+
+<p>The <code>Sign</code> object can not be again used after <code>sign.sign()</code> method has been
+called. Multiple calls to <code>sign.sign()</code> will result in an error being thrown.</p>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Updates the <code>Sign</code> content with the given <code>data</code>, the encoding of which
+is given in <code>input_encoding</code> and can be <code>'utf8'</code>, <code>'ascii'</code> or
+<code>'latin1'</code>. If <code>encoding</code> is not provided, and the <code>data</code> is a string, an
+encoding of <code>'utf8'</code> is enforced. If <code>data</code> is a [<code>Buffer</code>][] then
+<code>input_encoding</code> is ignored.</p>
+
+<p>This can be called many times with new data as it is streamed.</p>
+
+<p>The <code>crypto</code> module still supports some algorithms which are already
+compromised and are not currently recommended for use. The API also allows
+the use of ciphers and hashes with a small key size that are considered to be
+too weak for safe use.</p>
+
+<p>Users should take full responsibility for selecting the crypto
+algorithm and key size according to their security requirements.</p>
+
+<p>Based on the recommendations of <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar1.pdf">NIST SP 800-131A</a>:</p>
+
+<ul>
+<li>MD5 and SHA-1 are no longer acceptable where collision resistance is
+required such as digital signatures.</li>
+<li>The key used with RSA, DSA and DH algorithms is recommended to have
+at least 2048 bits and that of the curve of ECDSA and ECDH at least
+224 bits, to be safe to use for several years.</li>
+<li>The DH groups of <code>modp1</code>, <code>modp2</code> and <code>modp5</code> have a key size
+smaller than 2048 bits and are not recommended.</li>
+</ul>
+
+<p>See the reference for other recommendations and details.</p>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Updates the <code>Verify</code> content with the given <code>data</code>, the encoding of which
+is given in <code>input_encoding</code> and can be <code>'utf8'</code>, <code>'ascii'</code> or
+<code>'latin1'</code>. If <code>encoding</code> is not provided, and the <code>data</code> is a string, an
+encoding of <code>'utf8'</code> is enforced. If <code>data</code> is a [<code>Buffer</code>][] then
+<code>input_encoding</code> is ignored.</p>
+
+<p>This can be called many times with new data as it is streamed.</p>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>Verifies the provided data using the given <code>object</code> and <code>signature</code>.
+The <code>object</code> argument is a string containing a PEM encoded object, which can be
+one an RSA public key, a DSA public key, or an X.509 certificate.
+The <code>signature</code> argument is the previously calculated signature for the data, in
+the <code>signature_format</code> which can be <code>'latin1'</code>, <code>'hex'</code> or <code>'base64'</code>.
+If a <code>signature_format</code> is specified, the <code>signature</code> is expected to be a
+string; otherwise <code>signature</code> is expected to be a [<code>Buffer</code>][].</p>
+
+<p>Returns <code>true</code> or <code>false</code> depending on the validity of the signature for
+the data and public key.</p>
+
+<p>The <code>verifier</code> object can not be used again after <code>verify.verify()</code> has been
+called. Multiple calls to <code>verify.verify()</code> will result in an error being
+thrown.</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

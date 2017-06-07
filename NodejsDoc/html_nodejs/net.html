@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!-- YAML
+added: v0.1.90
+-->
+
+<p>本类用于创建TCP或本地服务器.</p>
+
+<p><code>net.Server</code> 是一个有着以下事件的[<code>EventEmitter</code>][] :</p>
+
+<!-- YAML
+added: v0.3.4
+-->
+
+<p>这个对象是TCP或者本地socket的一个抽象。<code>net.Socket</code>实例实现了
+一个双工流接口。它们可以由用户创建用于客户端（和[<code>connect()</code>][]），
+或者是由Node.js创建，用于通过一个服务器的<code>'connection'</code>事件传参给用户。</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>当服务器关闭时被触发。注意：如果还有连接存在的话，直到所有的连接都关闭时，这个事件才被触发。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<ul>
+<li><code>had_error</code> {Boolean} <code>true</code> 如果socket有传输错误的话。</li>
+</ul>
+
+<p>一旦socket完全关闭时被触发。参数<code>had_error</code>是一个布尔值，代表socket关闭是否是由于传输错误。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>当socket连接完全建立时，被触发。
+详细请看[<code>connect()</code>][].
+<!-- YAML
+added: v0.1.90
+--></p>
+
+<ul>
+<li>{net.Socket} 连接对象</li>
+</ul>
+
+<p>当一个新连接建立的时候被触发。<code>socket</code>是<code>net.Socket</code>的一个实例.</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<ul>
+<li>{Buffer}</li>
+</ul>
+
+<p>当接收到数据时被触发。 参数 <code>data</code> 是 <code>Buffer</code> 或者 <code>String</code> 类型。
+数据的编码由<code>socket.setEncoding()</code>设定。（查看 [Readable Stream][]一节获取更多信息）</p>
+
+<p>注意：如果当<code>Socket</code>触发<code>'data'</code>事件时，没有监听器在监听，这导致 <strong>数据可能会丢失</strong>。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>当写入缓存为空时被触发。可以被用于降速上传。</p>
+
+<p>查看：<code>socket.write()</code>的返回值。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>当socket连接的另一端发出FIN包时被触发。</p>
+
+<p>默认情况下(<code>allowHalfOpen == false</code>)，socket连接一旦将要写完写队列，就会破坏
+它的文件描述器。然而，通过设置<code>allowHalfOpen == true</code>，socket将不会自动的结束它
+这一端，并且允许用户写入任意大小的数据，并且附加说明用户需要手动的调用<code>end()</code>在他们那一端。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<ul>
+<li>{Error}</li>
+</ul>
+
+<p>当错误发生时触发。
+不像 [<code>net.Socket</code>]，[<code>'close'</code>] 事件不会紧接该事件触发，除非 [<code>server.close()</code>] 被手动调用。
+可在 [<code>server.listen()</code>] 的讨论中查看相关例子。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<ul>
+<li>{Error}</li>
+</ul>
+
+<p>当错误发生时被触发。<code>'close'</code>事件将在之后被直接触发。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>当调用<code>server.listen</code>后，服务器被绑定时触发.</p>
+
+<!-- YAML
+added: v0.11.3
+-->
+
+<p>在解析域名之后，进行连接之前被触发。 
+不能用于UNIX sockets. </p>
+
+<ul>
+<li><code>err</code> {Error|Null} 错误对象.  查看 [<code>dns.lookup()</code>][].</li>
+<li><code>address</code> {String} IP地址.</li>
+<li><code>family</code> {String|Null} IP地址类型.  See [<code>dns.lookup()</code>][].</li>
+<li><code>host</code> {String} 域名.</li>
+</ul>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>当socket在不活动中超时时被触发。这仅仅表明socket已经处于关闭中，用户需要手动关闭连接。 </p>
+
+<p>查看更多: [<code>socket.setTimeout()</code>][]</p>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>net</code> 模块给你提供了一个异步的网络封装. 它包含创建服务器和客户端（称为流）的功能。你可以这样使用这个模块 <code>require('net');</code>.</p>
+
+<!-- YAML
+added: v0.7.0
+-->
+
+<p>一个生产器函数，将返回一个新的 [<code>net.Socket</code>][] 并且自动的根据所提供的<code>options</code> 参数进行连接。</p>
+
+<p>options参数将被传递到[<code>net.Socket</code>][]构造函数和[<code>socket.connect</code>][]方法两个地方。</p>
+
+<p><code>connectListener</code>参数将一次被用作监听器来监听[<code>'connect'</code>][]事件。</p>
+
+<p>下面有一个例子来阐述之前描述过的响应服务器的客户端的用法</p>
+
+<pre class="prettyprint"><code>const net = require('net');
+const client = net.connect({port: 8124}, () =&gt; {
+  // 'connect' listener
+  console.log('connected to server!');
+  client.write('world!\r\n');
+});
+client.on('data', (data) =&gt; {
+  console.log(data.toString());
+  client.end();
+});
+client.on('end', () =&gt; {
+  console.log('disconnected from server');
+});
+</code></pre>
+
+<p>为了连接<code>/tmp/echo.sock</code>的socket，第二行应改为</p>
+
+<pre class="prettyprint"><code>const client = net.connect({path: '/tmp/echo.sock'});
+</code></pre>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>一个生成器函数，返回一个新的 Unix [<code>net.Socket</code>][] 并且自动的
+连接到所提供的<code>path</code>参数.</p>
+
+<p><code>connectListener</code>参数将一次被用作监听器来监听[<code>'connect'</code>][]事件。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>一个生成器函数，返回一个新的 Unix [<code>net.Socket</code>][] 并且自动的
+连接到所提供的 <code>port</code>和<code>host</code>参数.</p>
+
+<p>如果<code>host</code>被省略，<code>'localhost'</code> 将被默认使用。</p>
+
+<p><code>connectListener</code>参数将一次被用作监听器来监听[<code>'connect'</code>][]事件。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>一个生产器函数，将返回一个新的 [<code>net.Socket</code>][] 并且自动的根据所提供的<code>options</code> 参数进行连接。</p>
+
+<p>options参数将被传递到[<code>net.Socket</code>][]构造函数和[<code>socket.connect</code>][]方法两个地方。</p>
+
+<p>在socket创建之后，连接建立之前，传递<code>timeout</code>作为参数将调用[<code>socket.setTimeout()</code>][]。</p>
+
+<p><code>connectListener</code>参数将一次被用作监听器来监听[<code>'connect'</code>][]事件。</p>
+
+<p>Following is an example of a client of the echo server described
+in the [<code>net.createServer()</code>][] section:</p>
+
+<pre class="prettyprint"><code>const net = require('net');
+const client = net.createConnection({port: 8124}, () =&gt; {
+  //'connect' listener
+  console.log('connected to server!');
+  client.write('world!\r\n');
+});
+client.on('data', (data) =&gt; {
+  console.log(data.toString());
+  client.end();
+});
+client.on('end', () =&gt; {
+  console.log('disconnected from server');
+});
+</code></pre>
+
+<p>为了连接<code>/tmp/echo.sock</code>的socket，第二行应改为</p>
+
+<pre class="prettyprint"><code>const client = net.connect({path: '/tmp/echo.sock'});
+</code></pre>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>一个生成器函数，返回一个新的 Unix [<code>net.Socket</code>][] 并且自动的
+连接到所提供的<code>path</code>参数.</p>
+
+<p><code>connectListener</code>参数将一次被用作监听器来监听[<code>'connect'</code>][]事件。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>一个生成器函数，返回一个新的 Unix [<code>net.Socket</code>][] 并且自动的
+连接到所提供的 <code>port</code>和<code>host</code>参数.</p>
+
+<p>如果<code>host</code>被省略，<code>'localhost'</code> 将被默认使用。</p>
+
+<p><code>connectListener</code>参数将一次被用作监听器来监听[<code>'connect'</code>][]事件。</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<p>创建一个新的服务器。<code>connectionListener</code> 参数将一次被用作监听器来监听[<code>'connection'</code>][]事件。</p>
+
+<p><code>options</code> 是一个对象，有以下默认属性:</p>
+
+<pre class="prettyprint"><code>{
+  allowHalfOpen: false,
+  pauseOnConnect: false
+}
+</code></pre>
+
+<p>如果 <code>allowHalfOpen</code> 是 <code>true</code>, 那么socket不会自动的发送一个FIN包，即使socket的另一端
+发送了FIN包。socket变成不可读但是可写的。你应该显式地调用 [<code>end()</code>][] 方法。
+查看 [<code>'end'</code>][]事件获取更多信息。</p>
+
+<p>如果 <code>pauseOnConnect</code> 是 <code>true</code>, 那么与每个连入的连接的socket将会暂停，
+并且不能从其中读取任何数据。这允许将在进程中传递的连接不会被原始进程读取数据。 
+为了从暂停的socket中开始读取数据，调用[<code>resume()</code>][].</p>
+
+<p>下面有关于响应服务器的一个例子，监听连接的8124端口。</p>
+
+<pre class="prettyprint"><code>const net = require('net');
+const server = net.createServer((c) =&gt; {
+  // 'connection' listener
+  console.log('client connected');
+  c.on('end', () =&gt; {
+    console.log('client disconnected');
+  });
+  c.write('hello\r\n');
+  c.pipe(c);
+});
+server.on('error', (err) =&gt; {
+  throw err;
+});
+server.listen(8124, () =&gt; {
+  console.log('server bound');
+});
+</code></pre>
+
+<p>通过<code>telnet</code>来进行测试:</p>
+
+<pre class="prettyprint"><code>$ telnet localhost 8124
+</code></pre>
+
+<p>为了监听 <code>/tmp/echo.sock</code>socket，从倒数第三行起，应改为</p>
+
+<pre class="prettyprint"><code>server.listen('/tmp/echo.sock', () =&gt; {
+  console.log('server bound');
+});
+</code></pre>
+
+<p>用<code>nc</code> 来连接UNIX域socket服务器:</p>
+
+<pre class="prettyprint"><code>$ nc -U /tmp/echo.sock
+</code></pre>
+
+<!-- YAML
+added: v0.3.0
+-->
+
+<p>如果输入是IPv4地址的话，返回true, 否则返回false。</p>
+
+<p><!-- YAML
+added: v0.3.0
+-->
+如果输入是IPv6地址的话，返回true, 否则返回false。</p>
+
+<!-- YAML
+added: v0.3.0
+-->
+
+<p>测试输入是否是IP地址。如果是非法字符串，返回0；
+如果是IPv4地址，返回4，如果是IPv6地址，返回6.</p>
+
+<!-- YAML
+added: v0.3.4
+-->
+
+<p>构造一个新的socket对象。</p>
+
+<p><code>options</code> 是一个对象，有着以下默认值:</p>
+
+<pre class="prettyprint"><code>{
+  fd: null,
+  allowHalfOpen: false,
+  readable: false,
+  writable: false
+}
+</code></pre>
+
+<p><code>fd</code> 允许你指定socket的存在的文件描述器。
+设定 <code>readable</code> 和/或 <code>writable</code> 为 <code>true</code> 来允许在这个socket上进行读和/或写。
+(注意: 只有当 <code>fd</code> 被传参时，才工作).
+关于 <code>allowHalfOpen</code>, 请参照 [<code>net.createServer()</code>] 和 [<code>'end'</code>] 事件.</p>
+
+<p><code>net.Socket</code> 是 [<code>EventEmitter</code>][] 实例，有以下事件:</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>操作系统返回绑定的服务器的IP地址， IP地址协议簇，端口号 .
+当查看一个系统赋予的IP地址时，有利于发现被分配给了哪个端口号。
+返回对象的以下属性<code>port</code>, <code>family</code>, and <code>address</code> :
+<code>{ port: 12346, family: 'IPv4', address: '127.0.0.1' }</code></p>
+
+<p>例子:</p>
+
+<pre class="prettyprint"><code>const server = net.createServer((socket) =&gt; {
+  socket.end('goodbye\n');
+}).on('error', (err) =&gt; {
+  // handle errors here
+  throw err;
+});
+
+// grab a random port.
+server.listen(() =&gt; {
+  console.log('opened server on', server.address());
+});
+</code></pre>
+
+<p>直到<code>'listening'</code> 事件被触发后，才可以调用<code>server.address()</code> .</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>使服务器停止接受新连接，只保持现存的连接。这个函数是异步的，当所有连接
+断开时，服务器关闭并且发出[<code>'close'</code>][]事件。一旦<code>'close'</code>事件发生，可选的
+<code>callback</code>参数将被调用。不像<code>'close'</code>事件一样，它将在错误之后被调用，因为
+它唯一的缘由是服务器还没打开呢，就被关闭。</p>
+
+<!-- YAML
+added: v0.2.0
+deprecated: v0.9.7
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>server.getConnections()</code>] 代替。</p>
+</blockquote>
+
+<p>服务器上现在同时存在的连接的数目.</p>
+
+<p>当用[<code>child_process.fork()</code>][]向一个子进程发出socket连接时，这将变成<code>null</code>。
+当poll新进程和获取活着的连接的数目时，可以用异步的<code>server.getConnections</code> 代替.</p>
+
+<!-- YAML
+added: v0.9.7
+-->
+
+<p>异步的获取服务器当前共同存在的连接的数目。
+当sockets被发送forks时工作。</p>
+
+<p>Callback参数可以是<code>err</code> 或者 <code>count</code>。</p>
+
+<!-- YAML
+added: v5.7.0
+-->
+
+<p>一个布尔值，代表服务器是否在监听连接。</p>
+
+<!-- YAML
+added: v0.5.10
+-->
+
+<ul>
+<li><code>handle</code> {Object}</li>
+<li><code>backlog</code> {Number}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p><code>handle</code> 对象可以被设置为服务器或者是socket（任何有着下标<code>_handle</code>属性的对象）, 或者一个 <code>{fd: &lt;n&gt;}</code> 对象.</p>
+
+<p>这可能会导致服务器在特定的handle上接受连接，
+但是它被认为文件描述器或者处理器已经被绑定到一个端口或者socket域上。</p>
+
+<p>Windows系统不支持监听文件描述器。</p>
+
+<p>这个函数是异步的。当服务器已经被绑定时，
+[<code>'listening'</code>][] 事件将被触发.
+最后一个参数<code>callback</code>将被添加为 [<code>'listening'</code>][]事件的一个监听器 .</p>
+
+<p><code>backlog</code> 参数表现的同
+[<code>server.listen([port][, hostname][, backlog][, callback])</code>][<code>server.listen(port, host, backlog, callback)</code>]一样.</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<ul>
+<li><code>options</code> {Object} - 必须. 支持以下参数：
+<ul><li><code>port</code> {Number} - 可选.</li>
+<li><code>host</code> {String} - 可选.</li>
+<li><code>backlog</code> {Number} - 可选.</li>
+<li><code>path</code> {String} - 可选.</li>
+<li><code>exclusive</code> {Boolean} - 可选.</li></ul></li>
+<li><code>callback</code> {Function} - 可选.</li>
+</ul>
+
+<p><code>port</code>, <code>host</code>, 和 <code>backlog</code> 是 <code>options</code> 的参数,
+可选的 callback 函数, 表现的好像它们在调用
+[<code>server.listen([port][, hostname][, backlog][, callback])</code>][<code>server.listen(port, host, backlog, callback)</code>].
+另外,  <code>path</code> 参数可以用于确定UNIX套接字。</p>
+
+<p>如果 <code>exclusive</code> 是 <code>false</code> (默认), 那么cluster的worker对象将利用相同的基础处理方法，
+允许共享连接处理机制。当<code>exclusive</code> 是 <code>true</code>, 处理方法不被共享，企图共享端口将导致错误。
+下面是一个监听专用端口的例子：</p>
+
+<pre class="prettyprint"><code>server.listen({
+  host: 'localhost',
+  port: 80,
+  exclusive: true
+});
+</code></pre>
+
+<p><em>注意</em>: <code>server.listen()</code> 方法可能被多次调用. 每个随后的
+调用将利用提供的参数 <em>重新打开</em> 服务器。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<ul>
+<li><code>path</code> {String}</li>
+<li><code>backlog</code> {Number}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>在给定的<code>path</code>路径上，开启一个监听连接的本地socket服务器。</p>
+
+<p>这个函数是异步的. 当服务器被已经绑定时[<code>'listening'</code>][] 事件将被触发。最后一个参数
+<code>callback</code> 将被添加为[<code>'listening'</code>][]事件的监听器.</p>
+
+<p>在UNIX上, 本地域通常被称为UNIX域. 路径是文件系统路径名。
+它被截断至<code>sizeof(sockaddr_un.sun_path)</code>个字节，减去一。
+它根据操作系统的不同，在91和107个字节之间变动。典型的值为在Linux上
+为107，在OS X上为103.路径遵循相同的命名规则和权限检查，这会在文件生成的时候进行，
+可以在文件系统中可视，并且<em>直到不连接的时候才被允许</em>。</p>
+
+<p>在Windows系统上，本地域用具名管道实现。路径<em>必须</em>是<code>\\?\pipe\</code>或<code>\\.\pipe\</code>的入口。
+任何字符都是允许的，但是有一些处理可能会影响管道的名字，例如解析<code>..</code>序列。
+无论表现如何，管道命名空间是平的。管道<em>不允许</em>被移除，当他们的最后一个引用被关闭的时候。
+不要忘记JavaScript字符串转义需要路径用双斜线，例如</p>
+
+<pre class="prettyprint"><code>net.createServer().listen(
+    path.join('\\\\?\\pipe', process.cwd(), 'myctl'));
+</code></pre>
+
+<p><code>backlog</code>参数表现地跟
+[<code>server.listen([port][, hostname][, backlog][, callback])</code>][<code>server.listen(port, host, backlog, callback)</code>]一样。</p>
+
+<p><em>注意</em>: <code>server.listen()</code>方法可以被多次调用。每个随后的调用将
+用提供的参数<em>重新打开</em>服务器.</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>在特定的<code>port</code>和<code>hostname</code>开始接受连接. 如果<code>hostname</code>被省略，当IPv6可用的时候，服务器将
+接受所有的IPv6地址(<code>::</code>)或者所有的 IPv4 地址 (<code>0.0.0.0</code>)。省略端口参数，或者用的端口值为<code>0</code>，
+将被操作系统赋予一个任意的端口，这可以在<code>'listening'</code>事件被触发后，用<code>server.address().port</code>
+来获取。</p>
+
+<p>Backlog 是等待连接的队列长度的最大值。实际的长度在Linux上将由操作系统通过系统设置如
+<code>tcp_max_syn_backlog</code> 和 <code>somaxconn</code> 来确定。默认值为511（而不是512）。</p>
+
+<p>这个函数是异步的。网服务器被绑定时，[<code>'listening'</code>][]事件被触发。最后一个参数，
+<code>callback</code>将被加做[<code>'listening'</code>][]事件的监听器。</p>
+
+<p>一些用户运行的一个问题是得到<code>EADDRINUSE</code>错误。这意味这另一个服务器已经运行在请求的端口。
+处理这个问题的一个方式是等待一秒再次尝试运行：</p>
+
+<pre class="prettyprint"><code>server.on('error', (e) =&gt; {
+  if (e.code == 'EADDRINUSE') {
+    console.log('Address in use, retrying...');
+    setTimeout(() =&gt; {
+      server.close();
+      server.listen(PORT, HOST);
+    }, 1000);
+  }
+});
+</code></pre>
+
+<p>(注意: Node.js中所有的socket都被设置为<code>SO_REUSEADDR</code>.)</p>
+
+<p><em>注意</em>: <code>server.listen()</code>方法可以被多次调用。每个随后的调用将
+用提供的参数<em>重新打开</em>服务器.</p>
+
+<!-- YAML
+added: v0.2.0
+-->
+
+<p>设定这个属性，当服务器的连接超过此值时，新的连接将被拒绝。</p>
+
+<p>一旦连接已经用[<code>child_process.fork()</code>][]被发送到子进程时，它不被推荐使用。</p>
+
+<!-- YAML
+added: v0.9.1
+-->
+
+<p>与<code>unref</code>相反, 在一个原先是<code>unref</code>的服务器上调用 <code>ref</code> 将<em>不会</em>允许程序退出 
+即使它是唯一剩下的服务器（默认行为）。如果服务器已经是<code>ref</code>的了，再次调用<code>ref</code>将
+不会产生效果。</p>
+
+<p>返回<code>server</code>.</p>
+
+<!-- YAML
+added: v0.9.1
+-->
+
+<p>在服务器上调用 <code>unref</code>将允许程序当这是事件系统中唯一存活的服务器时退出。
+如果服务器已经是<code>unref</code>，再次调用<code>unref</code>没有任何效应.</p>
+
+<p>返回<code>server</code>.</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>返回操作系统报告的绑定的socket的IP地址，IP地址族和端口。
+返回有着以下三个属性的对象，例如
+<code>{ port: 12346, family: 'IPv4', address: '127.0.0.1' }</code></p>
+
+<!-- YAML
+added: v0.3.8
+-->
+
+<p><code>net.Socket</code> 有这样的一个性质，即 <code>socket.write()</code> 总是在运行。这是为了帮助用户运行地更快。
+计算机不能总是保持一定量的数据写入socket--网络连接肯能会变慢。Node.js将内部的把要写入socket的
+数据排队，然后在可能的时候将之通过网络发出。(在内部，它在socket文件描述器上轮询，等待可写）</p>
+
+<p>这样内部缓存的结果是使用的内存将增长。这个性质表明了当前缓存的等待被发送的字符的数量。
+（字符的数量近似与等待被写的字节的数目，但是缓存中可能包含字符串，字符串是懒散编码的，
+因此字节的确切的数目是未知的）</p>
+
+<p>体验过大的或增长的<code>bufferSize</code>的用户应该在他们的程序中试图用[<code>pause()</code>][]和[<code>resume()</code>][]
+"限制" 数据的增长。</p>
+
+<!-- YAML
+added: v0.5.3
+-->
+
+<p>收到的字节的数量.</p>
+
+<!-- YAML
+added: v0.5.3
+-->
+
+<p>发送的字节的数量.</p>
+
+<!-- YAML
+added: v6.1.0
+-->
+
+<p>如果是 <code>true</code> - [<code>socket.connect(options[, connectListener])</code>][<code>socket.connect(options, connectListener)</code>] 被调用，
+并且还没有完成。 在触发<code>connect</code>事件和/或调用[<code>socket.connect(options[, connectListener])</code>][<code>socket.connect(options, connectListener)</code>]
+的回调函数之前，将被设置为<code>false</code> 。
+<!-- YAML
+added: v0.1.90
+--></p>
+
+<p>根据给定的socket参数，打开连接.</p>
+
+<p>对于TCP socket, <code>options</code>参数应该是一个对象，它确定了:</p>
+
+<ul>
+<li><p><code>port</code>: 客户端应该连接的端口(必须).</p></li>
+<li><p><code>host</code>: 客户端应该连接的host主机. 默认为<code>'localhost'</code>.</p></li>
+<li><p><code>localAddress</code>: 为了网络连接应该绑定的本地接口。</p></li>
+<li><p><code>localPort</code>: 为了网络连接应该绑定的本地端口.</p></li>
+<li><p><code>family</code> : IP地址族的.默认为 <code>4</code>.</p></li>
+<li><p><code>hints</code>: [<code>dns.lookup()</code> hints][]. 默认为 <code>0</code>.</p></li>
+<li><p><code>lookup</code> : 可定制查询函数. 默认为 <code>dns.lookup</code>.</p></li>
+</ul>
+
+<p>对于本地域socket, <code>options</code> 参数 应当是一个参数，它确定了:</p>
+
+<ul>
+<li><code>path</code>: 客户端应该连接的路径 (必须).</li>
+</ul>
+
+<p>正常地，这个方法不是必要的，因为<code>net.createConnection</code>打开了socket。 
+如果你要实现自己定制的socket才用这个方法。</p>
+
+<p>这个函数是异步的。当[<code>'connect'</code>][]事件被触发时，socket已经建立。
+如果有一个问题连接，<code>'connect'</code>事件将不会被触发，有异常的[<code>'error'</code>][]事件
+将被触发。</p>
+
+<p><code>connectListener</code>参数将被添加为[<code>'connect'</code>][]事件的监听器。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>作为[<code>socket.connect(options[, connectListener])</code>][<code>socket.connect(options, connectListener)</code>],
+options参数有<code>{port: port, host: host}</code> 或者 <code>{path: path}</code>.</p>
+
+<p>一个布尔值，表明连接是否被破坏。一旦连接被破坏，
+就没有数据可以用它来传输。
+<!-- YAML
+added: v0.1.90
+--></p>
+
+<p>确保没有更多的I/O操作在这个socket上。只有必要的以防出错（解析错误等等）。</p>
+
+<p>如果<code>exception</code>被指定，[<code>'error'</code>][]将被触发并且，任何监听此事件的监听器都会收到
+<code>exception</code>为参数。</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>半关闭socket. 即它将发送一个FIN包. 服务器仍然可能发送一些数据。</p>
+
+<p>如果<code>data</code>是指定的，它等价于调用<code>socket.write(data, encoding)</code>，
+之后在调用<code>socket.end()</code>.</p>
+
+<!-- YAML
+added: v0.9.6
+-->
+
+<p>远程客户端连接的本地IP地址的字符串表示。 例如, 如果你监听<code>'0.0.0.0'</code> 而客户端连接的是
+<code>'192.168.1.1'</code>, 最后的值是 <code>'192.168.1.1'</code>.</p>
+
+<!-- YAML
+added: v0.9.6
+-->
+
+<p>本地端口的数字表示. 例如,
+<code>80</code> 或者 <code>21</code>.</p>
+
+<p>暂停读取数据。意味着, [<code>'data'</code>][] 事件将不会被触发.
+对上传进行限制时有用.</p>
+
+<!-- YAML
+added: v0.9.1
+-->
+
+<p>与<code>unref</code>相反, 在一个原先是<code>unref</code>的socket上调用 <code>ref</code> 将<em>不会</em>允许程序退出 
+即使它是唯一剩下的socket（默认行为）。如果socket已经是<code>ref</code>的了，再次调用<code>ref</code>将
+不会产生效果。</p>
+
+<p>返回<code>socket</code>.</p>
+
+<!-- YAML
+added: v0.5.10
+-->
+
+<p>远程IP地址的字符串表示. 例如,
+<code>'74.125.127.100'</code> 或者 <code>'2001:4860:a005::68'</code>. 如果socket
+被破坏掉的话（比如，客户端失去连接），值可能是<code>undefined</code>.</p>
+
+<!-- YAML
+added: v0.11.14
+-->
+
+<p>远程IP地址簇的字符串表示. <code>'IPv4'</code> 或 <code>'IPv6'</code>.</p>
+
+<!-- YAML
+added: v0.5.10
+-->
+
+<p>远程端口的数字表示.例如,
+<code>80</code> or <code>21</code>.</p>
+
+<p>在调用[<code>pause()</code>][]之后恢复读取.</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>把socket的编码设置为[Readable Stream][]. 查看
+[<code>stream.setEncoding()</code>][] 获取更多信息.</p>
+
+<!-- YAML
+added: v0.1.92
+-->
+
+<p>允许/禁止keep-alive功能, 并且可选地在第一个keep-alive探针发送到空闲的socket上
+之前，设置初始时延。
+<code>enable</code>默认是<code>false</code>.</p>
+
+<p>设置 <code>initialDelay</code>(毫秒)来设置在最后一个包收到之后和第一个keep-alive探针之前
+的时延。设置初始时延为0将不改变默认设置的值。值默认为0.</p>
+
+<p>返回 <code>socket</code>.</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>禁止Nagele算法。默认TCP连接使用Nagle算法，它们在发送数据之前先缓存。
+设置<code>noDelay</code>为<code>true</code>将在<code>socket.write()</code>每次被调用时，立即发送数据。
+<code>noDelay</code> 默认为 <code>true</code>.</p>
+
+<p>返回 <code>socket</code>.</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>在不活动的socket<code>timeout</code>几毫秒之后，设置socket为超时。
+默认，<code>net.Socket</code>没有超时。</p>
+
+<p>当一个空闲的超时被触发时，socket将收到[<code>'timeout'</code>][]事件，但是连接并不会停止。
+用户必须手动的[<code>end()</code>][]或者[<code>destroy()</code>][]这个socket。</p>
+
+<p>如果<code>timeout</code>的值为0，那么存在的空闲的超时将被禁止。</p>
+
+<p>可选的<code>callback</code>参数将被添加为[<code>'timeout'</code>][]事件的一次行监听器。</p>
+
+<p>返回<code>socket</code>.</p>
+
+<!-- YAML
+added: v0.9.1
+-->
+
+<p>在socket上调用 <code>unref</code>将允许程序当这是事件系统中唯一存活的socket时退出。
+如果socket已经是<code>unref</code>，再次调用<code>unref</code>没有任何效应.</p>
+
+<p>返回 <code>socket</code>.</p>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>在socket上发送数据。第二个参数制定字符串的编码格式--默认是UTF8编码。</p>
+
+<p>如果全部数据被成功地清空到内核缓存，返回<code>true</code>。如果全部或部分数据在用户内存中形成队列，将
+返回<code>false</code>。
+当buffer再次空白时，[<code>'drain'</code>][] 事件将被触发。</p>
+
+<p>当数据最终被写出时（这可能不是立即发生的），可选的<code>callback</code>参数将被执行。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

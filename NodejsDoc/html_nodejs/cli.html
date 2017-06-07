@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">命令行选项</a></li><li><a href="#2">-c, --check</a></li><li><a href="#3">--enable-fips</a></li><li><a href="#4">环境变量</a></li><li><a href="#5">-e, --eval "script"</a></li><li><a href="#6">--force-fips</a></li><li><a href="#7">-h, --help</a></li><li><a href="#8">--icu-data-dir=file</a></li><li><a href="#9">-i, --interactive</a></li><li><a href="#10">NODE_DEBUG=module[,…]</a></li><li><a href="#11">NODE_DISABLE_COLORS=1</a></li><li><a href="#12">NODE_EXTRA_CA_CERTS=file</a></li><li><a href="#13">NODE_PATH=path[:…]</a></li><li><a href="#14">--no-deprecation</a></li><li><a href="#15">--no-warnings</a></li><li><a href="#16">--openssl-config=file</a></li><li><a href="#17">选项</a></li><li><a href="#18">--preserve-symlinks</a></li><li><a href="#19">--prof-process</a></li><li><a href="#20">-p, --print "script"</a></li><li><a href="#21">-r, --require module</a></li><li><a href="#22">概要</a></li><li><a href="#23">--throw-deprecation</a></li><li><a href="#24">--tls-cipher-list=list</a></li><li><a href="#25">--trace-deprecation</a></li><li><a href="#26">--trace-sync-io</a></li><li><a href="#27">--trace-warnings</a></li><li><a href="#28">--track-heap-objects</a></li><li><a href="#29">--v8-options</a></li><li><a href="#30">-v, --version</a></li><li><a href="#31">--zero-fill-buffers</a></li></ul></div><div class="span9"><h1 id="1">命令行选项</h1>
+
+<p>Node.js 自带了各种命令行选项。
+这些选项对外暴露了内置调试、多种执行脚本的方式、以及其他有用的运行时选项。</p>
+
+<p>要在终端中查看本文档作为操作手册，运行 <code>man node</code>。</p>
+
+<h3 id="2">-c, --check</h3>
+
+<p>在不执行的情况下，对脚本进行语法检查。</p>
+
+<h3 id="3">--enable-fips</h3>
+
+<p>启动时启用符合 FIPS 标准的加密。
+（需要 Node.js 使用 <code>./configure --openssl-fips</code> 构建）</p>
+
+<h2 id="4">环境变量</h2>
+
+<h3 id="5">-e, --eval "script"</h3>
+
+<p>把跟随的参数作为 JavaScript 来执行。
+在 REPL 中预定义的模块也可以在 <code>script</code> 中使用。</p>
+
+<h3 id="6">--force-fips</h3>
+
+<p>启动时强制使用符合 FIPS 标准的加密。
+（无法通过脚本代码禁用。）
+（要求同 <code>--enable-fips</code>）</p>
+
+<h3 id="7">-h, --help</h3>
+
+<p>打印 node 的命令行选项。
+此选项的输出不如本文档详细。</p>
+
+<h3 id="8">--icu-data-dir=file</h3>
+
+<p>指定 ICU 数据的加载路径。
+（覆盖 <code>NODE_ICU_DATA</code>）</p>
+
+<h3 id="9">-i, --interactive</h3>
+
+<p>打开 REPL，即使 stdin 看起来不像终端。</p>
+
+<h3 id="10">NODE_DEBUG=module[,…]</h3>
+
+<p>以 <code>','</code> 分隔的应该打印调试信息的核心模块列表。</p>
+
+<h3 id="11">NODE_DISABLE_COLORS=1</h3>
+
+<p>当设为 <code>1</code> 时，不会在 REPL 中使用颜色。</p>
+
+<h3 id="12">NODE_EXTRA_CA_CERTS=file</h3>
+
+<p>当设置了此选项时，根 CA 证书（如 VeriSign）会被 <code>file</code> 指定的证书扩展。
+文件应该包括一个或多个可信的 PEM 格式的证书。
+如果文件丢失或有缺陷，则 [<code>process.emitWarning()</code>] 会触发一个消息。</p>
+
+<p>注意，当一个 TLS 或 HTTPS 的客户端或服务器的 <code>ca</code> 选项的属性被显式地指定时，则指定的证书不会被使用。</p>
+
+<!-- YAML
+added: v0.11.15
+-->
+
+<p>ICU（Intl 对象）数据的数据路径。
+当使用 <code>small-icu</code> 编译时，扩展链接的数据。</p>
+
+<h3 id="13">NODE_PATH=path[:…]</h3>
+
+<p>以 <code>':'</code> 分隔的有模块搜索路径作前缀的目录列表。</p>
+
+<p>注意，在 Windows 中，列表是用 <code>';'</code> 分隔的。</p>
+
+<!-- YAML
+added: v3.0.0
+-->
+
+<p>用于存储持久性的 REPL 历史记录的文件的路径。
+默认路径是 <code>~/.node_repl_history</code>，可被该变量覆盖。
+将值设为空字符串（<code>""</code> 或 <code>" "</code>）会禁用持久性的 REPL 历史记录。</p>
+
+<!-- YAML
+added: 6.4.0
+-->
+
+<p>当设为 <code>1</code> 时，当输出到一个支持异步输入输出的平台的 TTY 时，写入到 <code>stdout</code> 和 <code>stderr</code> 会是非阻塞与异步的。
+设置该值会使标准输入输出在程序退出时不会被交叉存取或丢弃。
+<strong>不建议使用这个模式。</strong></p>
+
+<h3 id="14">--no-deprecation</h3>
+
+<p>静默废弃的警告。</p>
+
+<h3 id="15">--no-warnings</h3>
+
+<p>静默一切进程警告（包括废弃警告）。</p>
+
+<h3 id="16">--openssl-config=file</h3>
+
+<p>启动时加载 OpenSSL 配置文件。
+在其他用途中，如果 Node.js 使用 <code>./configure --openssl-fips</code> 构建，它可以用于启用符合 FIPS 标准的加密。</p>
+
+<h2 id="17">选项</h2>
+
+<h3 id="18">--preserve-symlinks</h3>
+
+<p>当解析和缓存模块时，命令模块加载器保持符号连接。</p>
+
+<p>默认情况下，当 Node.js 从一个被符号连接到另一块磁盘位置的路径加载一个模块时，Node.js 会解引用该连接，并使用模块的真实磁盘的实际路径，作为定位其他依赖模块的标识符和根路径。
+大多数情况下，默认行为是可接受的。
+但是，当使用符号连接的同行依赖，如下例子所描述的，如果 <code>moduleA</code> 试图引入 <code>moduleB</code> 作为一个同行依赖，默认行为就会抛出异常：</p>
+
+<pre class="prettyprint"><code>{appDir}
+ ├── app
+ │   ├── index.js
+ │   └── node_modules
+ │       ├── moduleA -&gt; {appDir}/moduleA
+ │       └── moduleB
+ │           ├── index.js
+ │           └── package.json
+ └── moduleA
+     ├── index.js
+     └── package.json
+</code></pre>
+
+<p><code>--preserve-symlinks</code> 命令行标志命令 Node.js 使用模块的符号路径而不是真实路径，是符号连接的同行依赖能被找到。</p>
+
+<p>注意，使用 <code>--preserve-symlinks</code> 会有其他方面的影响。
+比如，如果符号连接的原生模块在依赖树里来自超过一个位置，它们会加载失败。
+（Node.js 会将它们视为两个独立的模块，且会试图多次加载模块，造成抛出异常。）</p>
+
+<h3 id="19">--prof-process</h3>
+
+<p>处理 v8 分析器的输出，通过使用 v8 选项 <code>--prof</code> 生成。</p>
+
+<h3 id="20">-p, --print "script"</h3>
+
+<p>与 <code>-e</code> 相同，但会打印结果。</p>
+
+<h3 id="21">-r, --require module</h3>
+
+<p>在启动时预加载指定的模块。</p>
+
+<p>遵循 <code>require()</code> 的模块解析规则。
+<code>module</code> 可以是一个文件的路径，或一个 node 模块名称。</p>
+
+<h2 id="22">概要</h2>
+
+<p><code>node [options] [v8 options] [script.js | -e "script"] [arguments]</code></p>
+
+<p><code>node debug [script.js | -e "script" | &lt;host&gt;:&lt;port&gt;] …</code></p>
+
+<p><code>node --v8-options</code></p>
+
+<p>执行时不带参数，会启动 [REPL]。</p>
+
+<p>关于 <code>node debug</code> 的更多信息，详见[调试器]文档。</p>
+
+<h3 id="23">--throw-deprecation</h3>
+
+<p>抛出废弃的错误。</p>
+
+<h3 id="24">--tls-cipher-list=list</h3>
+
+<p>指定备用的默认 TLS 加密列表。
+（需要 Node.js 被构建为支持加密。（默认））</p>
+
+<h3 id="25">--trace-deprecation</h3>
+
+<p>打印废弃的堆栈跟踪。</p>
+
+<h3 id="26">--trace-sync-io</h3>
+
+<p>每当事件循环的第一帧之后检测到同步 I/O 时，打印堆栈跟踪。</p>
+
+<h3 id="27">--trace-warnings</h3>
+
+<p>打印进程警告的堆栈跟踪（包括废弃警告）。</p>
+
+<h3 id="28">--track-heap-objects</h3>
+
+<p>为堆快照追踪堆栈对象的分配。</p>
+
+<h3 id="29">--v8-options</h3>
+
+<p>打印 v8 命令行选项。</p>
+
+<p>注意，v8 选项允许单词使用破折号（<code>-</code>）或下划线（<code>_</code>）分隔。</p>
+
+<p>例如，<code>--stack-trace-limit</code> 等同于 <code>--stack_trace_limit</code>。</p>
+
+<h3 id="30">-v, --version</h3>
+
+<p>打印 node 的版本号。</p>
+
+<h3 id="31">--zero-fill-buffers</h3>
+
+<p>自动用 0 填充所有新分配的 [Buffer] 和 [SlowBuffer] 实例。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

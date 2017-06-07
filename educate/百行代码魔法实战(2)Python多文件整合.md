@@ -48,11 +48,12 @@ windows对3.0以上的版本部分功能不兼容，推荐2.7版
 	import os
 	
 	rootFolder = "D:\\workplace\\git\\node-api-cn\\"
-	outFolder = "D:\\workplace\\output\\"
+	outFolder = "D:\\workplace\\git\\Doc\\NodejsDoc\\md\\"
 	
 	fileList = {}
 	
 	
+	# get all files from the directory
 	def getFiles(directory):
 	    if os.path.isdir(directory):
 	        for fileName in os.listdir(directory):
@@ -84,34 +85,23 @@ windows对3.0以上的版本部分功能不兼容，推荐2.7版
 	        newFile.write('\n')
 	        newFile.write("##" + newTitleName)
 	        newFile.write('\n')
-	
+	        # read file
 	        f = open(fileName, 'r')
-	        lines = f.readlines()
-	
+	        allLines = []
 	        useTab = False
 	
-	        for index, line in enumerate(lines):
-	            # for line in lines:
+	        for line in f:
+	            # for code area start and end
 	            if line.startswith("```"):
 	                useTab = not useTab
-	                continue
+	                allLines.append("\t\n")
+	            else:
+	                # for code content
+	                if useTab:
+	                    line = "    " + line
+	                allLines.append(line)
 	
-	            if useTab:
-	                lines.remove(line)
-	                line = "    " + line
-	                lines.insert(index, line)
-	
-	        newFile.writelines(lines)
-	        newFile.write('\n')
-	
-	                continue
-	
-	            if useTab:
-	                lines.remove(line)
-	                line = "    " + line
-	                lines.insert(index, line)
-	
-	        newFile.writelines(lines)
+	        newFile.writelines(allLines)
 	        newFile.write('\n')
 
 

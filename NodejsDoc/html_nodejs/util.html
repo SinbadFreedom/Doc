@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!-- type=misc -->
+
+<p>可以通过 <code>util.inspect.styles</code> 和 <code>util.inspect.colors</code> 属性全局地自定义 <code>util.inspect</code> 的颜色输出（如果已启用）。</p>
+
+<p><code>util.inspect.styles</code> 是一个映射，关联一个样式名到一个 <code>util.inspect.colors</code> 颜色。</p>
+
+<p>默认的样式与关联的颜色有：</p>
+
+<ul>
+<li><code>number</code> - <code>yellow</code></li>
+<li><code>boolean</code> - <code>yellow</code></li>
+<li><code>string</code> - <code>green</code></li>
+<li><code>date</code> - <code>magenta</code></li>
+<li><code>regexp</code> - <code>red</code></li>
+<li><code>null</code> - <code>bold</code></li>
+<li><code>undefined</code> - <code>grey</code></li>
+<li><code>special</code> - <code>cyan</code> （暂时只用于函数）</li>
+<li><code>name</code> - （无样式）</li>
+</ul>
+
+<p>预定义的颜色代码有：<code>white</code>、<code>grey</code>、<code>black</code>、<code>blue</code>、<code>cyan</code>、<code>green</code>、<code>magenta``red</code> 和 <code>yellow</code>。
+还有 <code>bold</code>、<code>italic</code>、<code>underline</code> 和 <code>inverse</code> 代码。</p>
+
+<p>颜色样式使用 ANSI 控制码，可能不是所有终端都支持。</p>
+
+<!-- type=misc -->
+
+<p>对象可以定义自己的 <code>[util.inspect.custom](depth, opts)</code>（或 <code>inspect(depth, opts)</code>） 函数，<code>util.inspect()</code> 会调用并使用查看对象时的结果：</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+class Box {
+  constructor(value) {
+    this.value = value;
+  }
+
+  inspect(depth, options) {
+    if (depth &lt; 0) {
+      return options.stylize('[Box]', 'special');
+    }
+
+    const newOptions = Object.assign({}, options, {
+      depth: options.depth === null ? null : options.depth - 1
+    });
+
+    // 五个空格的填充，因为那是 "Box&lt; " 的大小。
+    const padding = ' '.repeat(5);
+    const inner = util.inspect(this.value, newOptions).replace(/\n/g, '\n' + padding);
+    return options.stylize('Box', 'special') + '&lt; ' + inner + ' &gt;';
+  }
+}
+
+const box = new Box(true);
+
+util.inspect(box);
+// 返回: "Box&lt; true &gt;"
+</code></pre>
+
+<p>自定义的 <code>[util.inspect.custom](depth, opts)</code> 函数通常返回一个字符串，但也可以返回一个任何类型的值，它会相应地被 <code>util.inspect()</code> 格式化。</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+const obj = { foo: '这个不会出现在 inspect() 的输出中' };
+obj[util.inspect.custom] = function(depth) {
+  return { bar: 'baz' };
+};
+
+util.inspect(obj);
+// 返回: "{ bar: 'baz' }"
+</code></pre>
+
+<p>一个自定义的查看方法可以通过在一个对象上开放一个 <code>inspect(depth, opts)</code> 方法来提供：</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+const obj = { foo: '这个不会出现在 inspect() 的输出中' };
+obj.inspect = function(depth) {
+  return { bar: 'baz' };
+};
+
+util.inspect(obj);
+// 返回: "{ bar: 'baz' }"
+</code></pre>
+
+<p>以下 API 已被废弃，不应该再被使用。
+现存的应用和模块应该使用替代方法更新。</p>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>util</code> 模块主要用于支持 Node.js 内部 API 的需求。
+大部分实用工具也可用于应用程序与模块开发者。
+它可以通过以下方式使用：</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+</code></pre>
+
+<!-- YAML
+added: v0.11.3
+-->
+
+<ul>
+<li><code>section</code> {String} 一个字符串，指定要为应用的哪些部分创建 <code>debuglog</code> 函数。
+<code>debuglog</code> 函数要为哪些应用创建。</li>
+<li>返回: {Function} 日志函数</li>
+</ul>
+
+<p><code>util.debuglog()</code> 方法用于创建一个函数，基于 <code>NODE_DEBUG</code> 环境变量的存在与否有条件地写入调试信息到 <code>stderr</code>。
+如果 <code>section</code> 名称在环境变量的值中，则返回的函数类似于 [<code>console.error()</code>]。
+否则，返回的函数是一个空操作。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+const debuglog = util.debuglog('foo');
+
+debuglog('hello from foo [%d]', 123);
+</code></pre>
+
+<p>如果程序在环境中运行时带上 <code>NODE_DEBUG=foo</code>，则输出类似如下： </p>
+
+<pre class="prettyprint"><code>FOO 3245: hello from foo [123]
+</code></pre>
+
+<p>其中 <code>3245</code> 是进程 id。
+如果运行时没带上环境变量集合，则不会打印任何东西。</p>
+
+<p><code>NODE_DEBUG</code> 环境变量中可指定多个由逗号分隔的 <code>section</code> 名称。
+例如：<code>NODE_DEBUG=fs,net,tls</code>。</p>
+
+<!-- YAML
+added: v0.3.0
+deprecated: v0.11.3
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>console.error()</code>] 代替。</p>
+</blockquote>
+
+<ul>
+<li><code>string</code> {String} The message to print to <code>stderr</code></li>
+</ul>
+
+<p>Deprecated predecessor of <code>console.error</code>.</p>
+
+<!-- YAML
+added: v0.8.0
+-->
+
+<p><code>util.deprecate()</code> 方法会包装给定的 <code>function</code> 或类，并标记为废弃的。</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+exports.puts = util.deprecate(function() {
+  for (var i = 0, len = arguments.length; i &lt; len; ++i) {
+    process.stdout.write(arguments[i] + '\n');
+  }
+}, 'util.puts: 使用 console.log 代替');
+</code></pre>
+
+<p>当被调用时，<code>util.deprecate()</code> 会返回一个函数，这个函数会使用 <code>process.on('warning')</code> 事件触发一个 <code>DeprecationWarning</code>。
+默认情况下，警告只在首次被调用时才会被触发并打印到 <code>stderr</code>。
+警告被触发之后，被包装的 <code>function</code> 会被调用。</p>
+
+<p>如果使用了 <code>--no-deprecation</code> 或 <code>--no-warnings</code> 命令行标记，或 <code>process.noDeprecation</code> 属性在首次废弃警告之前被设为 <code>true</code>，则 <code>util.deprecate()</code> 方法什么也不做。</p>
+
+<p>如果设置了 <code>--trace-deprecation</code> 或 <code>--trace-warnings</code> 命令行标记，或 <code>process.traceDeprecation</code> 属性被设为 <code>true</code>，则废弃的函数首次被调用时会把警告与堆栈追踪打印到 <code>stderr</code>。</p>
+
+<p>如果设置了 <code>--throw-deprecation</code> 命令行标记，或 <code>process.throwDeprecation</code> 属性被设为 <code>true</code>，则当废弃的函数被调用时会抛出一个异常。</p>
+
+<p><code>--throw-deprecation</code> 命令行标记和 <code>process.throwDeprecation</code> 属性优先于 <code>--trace-deprecation</code> 和 <code>process.traceDeprecation</code>。</p>
+
+<!-- YAML
+added: v0.3.0
+deprecated: v0.11.3
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>console.error()</code>] 代替。</p>
+</blockquote>
+
+<ul>
+<li><code>...strings</code> {String} The message to print to <code>stderr</code></li>
+</ul>
+
+<p>Deprecated predecessor of <code>console.error</code>.</p>
+
+<!-- YAML
+added: v0.7.5
+deprecated: v6.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>Object.assign()</code>] 代替。</p>
+</blockquote>
+
+<p>The <code>util._extend()</code> method was never intended to be used outside of internal
+Node.js modules. The community found and used it anyway.</p>
+
+<p>It is deprecated and should not be used in new code. JavaScript comes with very
+similar built-in functionality through [<code>Object.assign()</code>].</p>
+
+<!-- YAML
+added: v0.5.3
+-->
+
+<ul>
+<li><code>format</code> {String} 一个类似 <code>printf</code> 的格式字符串。</li>
+</ul>
+
+<p><code>util.format()</code> 方法返回一个格式化后的字符串，使用第一个参数作为一个类似 <code>printf</code> 的格式。</p>
+
+<p>第一个参数是一个字符串，包含零个或多个占位符。
+每个占位符会被对应参数转换后的值所替换。
+支持的占位符有：</p>
+
+<ul>
+<li><code>%s</code> - 字符串。</li>
+<li><code>%d</code> - 数值（包括整数和浮点数）。</li>
+<li><code>%j</code> - JSON。如果参数包含循环引用，则用字符串 <code>'[Circular]'</code> 替换。</li>
+<li><code>%%</code> - 单个百分号（<code>'%'</code>）。不消耗参数。</li>
+</ul>
+
+<p>如果占位符没有对应的参数，则占位符不被替换。</p>
+
+<pre class="prettyprint"><code>util.format('%s:%s', 'foo');
+// 返回: 'foo:%s'
+</code></pre>
+
+<p>如果传入 <code>util.format()</code> 方法的参数比占位符的数量多，则多出的参数会被强制转换为字符串（对于对象和符号，使用 <code>util.inspect()</code>），然后拼接到返回的字符串，参数之间用一个空格分隔。</p>
+
+<pre class="prettyprint"><code>util.format('%s:%s', 'foo', 'bar', 'baz'); // 'foo:bar baz'
+</code></pre>
+
+<p>如果第一个参数不是一个格式字符串，则 <code>util.format()</code> 返回一个所有参数用空格分隔并连在一起的字符串。
+每个参数都使用 <code>util.inspect()</code> 转换为一个字符串。</p>
+
+<pre class="prettyprint"><code>util.format(1, 2, 3); // '1 2 3'
+</code></pre>
+
+<!-- YAML
+added: v0.3.0
+-->
+
+<p>注意，不建议使用 <code>util.inherits()</code>。
+请使用 ES6 的 <code>class</code> 和 <code>extends</code> 关键词获得语言层面的继承支持。
+注意，这两种方式是[语义上不兼容的]。</p>
+
+<ul>
+<li><code>constructor</code> {Function}</li>
+<li><code>superConstructor</code> {Function}</li>
+</ul>
+
+<p>从一个[构造函数]中继承原型方法到另一个。
+<code>constructor</code> 的原型会被设置到一个从 <code>superConstructor</code> 创建的新对象上。</p>
+
+<p><code>superConstructor</code> 可通过 <code>constructor.super_</code> 属性访问。</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+const EventEmitter = require('events');
+
+function MyStream() {
+  EventEmitter.call(this);
+}
+
+util.inherits(MyStream, EventEmitter);
+
+MyStream.prototype.write = function(data) {
+  this.emit('data', data);
+};
+
+const stream = new MyStream();
+
+console.log(stream instanceof EventEmitter); // true
+console.log(MyStream.super_ === EventEmitter); // true
+
+stream.on('data', (data) =&gt; {
+  console.log(`接收的数据："${data}"`);
+});
+stream.write('运作良好！'); // 接收的数据："运作良好！"
+</code></pre>
+
+<p>例子：使用 ES6 的 <code>class</code> 和 <code>extends</code>：</p>
+
+<pre class="prettyprint"><code>const EventEmitter = require('events');
+
+class MyStream extends EventEmitter {
+  constructor() {
+    super();
+  }
+  write(data) {
+    this.emit('data', data);
+  }
+}
+
+const stream = new MyStream();
+
+stream.on('data', (data) =&gt; {
+  console.log(`接收的数据："${data}"`);
+});
+stream.write('使用 ES6');
+</code></pre>
+
+<!-- YAML
+added: v6.6.0
+-->
+
+<p>一个符号，可被用于声明自定义的查看函数，详见[自定义对象的查看函数]。</p>
+
+<!-- YAML
+added: v6.4.0
+-->
+
+<p><code>defaultOptions</code> 值允许对被 <code>util.inspect</code> 使用的默认选项进行自定义。
+这对 <code>console.log</code> 或 <code>util.format</code> 等显式调用 <code>util.inspect</code> 的函数很有用。
+它需被设为一个对象，包含一个或多个有效的 [<code>util.inspect()</code>] 选项。
+也支持直接设置选项的属性。</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+const arr = Array(101);
+
+console.log(arr); // 打印截断的数组
+util.inspect.defaultOptions.maxArrayLength = null;
+console.log(arr); // 打印完整的数组
+</code></pre>
+
+<!-- YAML
+added: v0.3.0
+-->
+
+<ul>
+<li><code>object</code> {any} 任何 JavaScript 原始值或对象。</li>
+<li><code>options</code> {Object}
+<ul><li><code>showHidden</code> {boolean} 如果为 <code>true</code>，则 <code>object</code> 的不可枚举的符号与属性也会被包括在格式化后的结果中。
+默认为 <code>false</code>。</li>
+<li><code>depth</code> {number} 指定格式化 <code>object</code> 时递归的次数。
+这对查看大型复杂对象很有用。
+默认为 <code>2</code>。
+若要无限地递归则传入 <code>null</code>。</li>
+<li><code>colors</code> {boolean} 如果为 <code>true</code>，则输出样式使用 ANSI 颜色代码。
+默认为 <code>false</code>。
+颜色可自定义，详见[自定义 <code>util.inspect</code> 颜色]。</li>
+<li><code>customInspect</code> {boolean} 如果为 <code>false</code>，则 <code>object</code> 上自定义的 <code>inspect(depth, opts)</code> 函数不会被调用。
+默认为 <code>true</code>。</li>
+<li><code>showProxy</code> {boolean} 如果为 <code>true</code>，则 <code>Proxy</code> 对象的对象和函数会展示它们的 <code>target</code> 和 <code>handler</code> 对象。
+默认为 <code>false</code>。</li>
+<li><code>maxArrayLength</code> {number} 指定格式化时数组和 <code>TypedArray</code> 元素能包含的最大数量。
+默认为 <code>100</code>。
+设为 <code>null</code> 则显式全部数组元素。
+设为 <code>0</code> 或负数则不显式数组元素。</li>
+<li><code>breakLength</code> {number} 一个对象的键被拆分成多行的长度。
+设为 <code>Infinity</code> 则格式化一个对象为单行。
+默认为 <code>60</code>。</li></ul></li>
+</ul>
+
+<p><code>util.inspect()</code> 方法返回 <code>object</code> 的字符串表示，主要用于调试。
+附加的 <code>options</code> 可用于改变格式化字符串的某些方面。</p>
+
+<p>例子，查看 <code>util</code> 对象的所有属性：</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+console.log(util.inspect(util, { showHidden: true, depth: null }));
+</code></pre>
+
+<p>当调用到达递归查看的当前 <code>depth</code> 时，值支持自定义的 <code>inspect(depth, opts)</code> 函数，传入 <code>util.inspect()</code> 的选项对象也一样。</p>
+
+<!-- YAML
+added: v0.6.0
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Internal alias for [<code>Array.isArray</code>][].</p>
+
+<p>Returns <code>true</code> if the given <code>object</code> is an <code>Array</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isArray([]);
+// Returns: true
+util.isArray(new Array);
+// Returns: true
+util.isArray({});
+// Returns: false
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Boolean</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isBoolean(1);
+// Returns: false
+util.isBoolean(0);
+// Returns: false
+util.isBoolean(false);
+// Returns: true
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>Buffer.isBuffer()</code>] 代替。</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Buffer</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isBuffer({ length: 0 });
+// Returns: false
+util.isBuffer([]);
+// Returns: false
+util.isBuffer(Buffer.from('hello world'));
+// Returns: true
+</code></pre>
+
+<!-- YAML
+added: v0.6.0
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Date</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isDate(new Date());
+// Returns: true
+util.isDate(Date());
+// false (without 'new' returns a String)
+util.isDate({});
+// Returns: false
+</code></pre>
+
+<!-- YAML
+added: v0.6.0
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is an [<code>Error</code>][]. Otherwise, returns
+<code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isError(new Error());
+// Returns: true
+util.isError(new TypeError());
+// Returns: true
+util.isError({ name: 'Error', message: 'an error occurred' });
+// Returns: false
+</code></pre>
+
+<p>Note that this method relies on <code>Object.prototype.toString()</code> behavior. It is
+possible to obtain an incorrect result when the <code>object</code> argument manipulates
+<code>@@toStringTag</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+const obj = { name: 'Error', message: 'an error occurred' };
+
+util.isError(obj);
+// Returns: false
+obj[Symbol.toStringTag] = 'Error';
+util.isError(obj);
+// Returns: true
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Function</code>. Otherwise, returns
+<code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+function Foo() {}
+const Bar = function() {};
+
+util.isFunction({});
+// Returns: false
+util.isFunction(Foo);
+// Returns: true
+util.isFunction(Bar);
+// Returns: true
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is <code>null</code> or <code>undefined</code>. Otherwise,
+returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isNullOrUndefined(0);
+// Returns: false
+util.isNullOrUndefined(undefined);
+// Returns: true
+util.isNullOrUndefined(null);
+// Returns: true
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is strictly <code>null</code>. Otherwise, returns
+<code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isNull(0);
+// Returns: false
+util.isNull(undefined);
+// Returns: false
+util.isNull(null);
+// Returns: true
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Number</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isNumber(false);
+// Returns: false
+util.isNumber(Infinity);
+// Returns: true
+util.isNumber(0);
+// Returns: true
+util.isNumber(NaN);
+// Returns: true
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is strictly an <code>Object</code> <strong>and</strong> not a
+<code>Function</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isObject(5);
+// Returns: false
+util.isObject(null);
+// Returns: false
+util.isObject({});
+// Returns: true
+util.isObject(function(){});
+// Returns: false
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a primitive type. Otherwise, returns
+<code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isPrimitive(5);
+// Returns: true
+util.isPrimitive('foo');
+// Returns: true
+util.isPrimitive(false);
+// Returns: true
+util.isPrimitive(null);
+// Returns: true
+util.isPrimitive(undefined);
+// Returns: true
+util.isPrimitive({});
+// Returns: false
+util.isPrimitive(function() {});
+// Returns: false
+util.isPrimitive(/^$/);
+// Returns: false
+util.isPrimitive(new Date());
+// Returns: false
+</code></pre>
+
+<!-- YAML
+added: v0.6.0
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>RegExp</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isRegExp(/some regexp/);
+// Returns: true
+util.isRegExp(new RegExp('another regexp'));
+// Returns: true
+util.isRegExp({});
+// Returns: false
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>string</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isString('');
+// Returns: true
+util.isString('foo');
+// Returns: true
+util.isString(String('foo'));
+// Returns: true
+util.isString(5);
+// Returns: false
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Symbol</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.isSymbol(5);
+// Returns: false
+util.isSymbol('foo');
+// Returns: false
+util.isSymbol(Symbol('foo'));
+// Returns: true
+</code></pre>
+
+<!-- YAML
+added: v0.11.5
+deprecated: v4.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的</p>
+</blockquote>
+
+<ul>
+<li><code>object</code> {any}</li>
+</ul>
+
+<p>Returns <code>true</code> if the given <code>object</code> is <code>undefined</code>. Otherwise, returns <code>false</code>.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+const foo = undefined;
+util.isUndefined(5);
+// Returns: false
+util.isUndefined(foo);
+// Returns: true
+util.isUndefined(null);
+// Returns: false
+</code></pre>
+
+<!-- YAML
+added: v0.3.0
+deprecated: v6.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用第三方模块代替。</p>
+</blockquote>
+
+<ul>
+<li><code>string</code> {String}</li>
+</ul>
+
+<p>The <code>util.log()</code> method prints the given <code>string</code> to <code>stdout</code> with an included
+timestamp.</p>
+
+<pre class="prettyprint"><code>const util = require('util');
+
+util.log('Timestamped message.');
+</code></pre>
+
+<!-- YAML
+added: v0.3.0
+deprecated: v0.11.3
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>console.log()</code>] 代替。</p>
+</blockquote>
+
+<p>Deprecated predecessor of <code>console.log</code>.</p>
+
+<!-- YAML
+added: v0.3.0
+deprecated: v0.11.3
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>console.log()</code>] 代替。</p>
+</blockquote>
+
+<p>Deprecated predecessor of <code>console.log</code>.</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

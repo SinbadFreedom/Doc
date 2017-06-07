@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!--type=misc-->
+
+<p>该特性依赖于底层操作系统提供的一种方法来通知文件系统的变化。</p>
+
+<ul>
+<li>在 Linux 系统中，使用 [<code>inotify</code>]。</li>
+<li>在 BSD 系统中，使用 [<code>kqueue</code>]。</li>
+<li>在 OS X 系统中，对文件使用 [<code>kqueue</code>]，对目录使用 [<code>FSEvents</code>]。</li>
+<li>在 SunOS 系统（包括 Solaris 和 SmartOS）中，使用 [<code>event ports</code>]。</li>
+<li>在 Windows 系统中，该特性依赖 [<code>ReadDirectoryChangesW</code>]。</li>
+<li>在 Aix 系统中，该特性依赖 [<code>AHAFS</code>] 必须是启动的。</li>
+</ul>
+
+<p>如果底层功能因某些原因不可用，则 <code>fs.watch</code> 也无法正常工作。
+例如，当使用虚拟化软件如 Vagrant、Docker 等时，在网络文件系统（NFS、SMB 等）或主文件系统中监视文件或目录可能是不可靠的。</p>
+
+<p>你仍然可以使用 <code>fs.watchFile</code>，它使用状态查询，但它较慢且更不可靠。</p>
+
+<!-- YAML
+added: v6.0.0
+-->
+
+<p><code>fs</code> 函数支持传递和接收字符串路径与 Buffer 路径。
+后者的目的是使其可以在允许非 UTF-8 文件名的文件系统中工作。
+对于大多数普通用途，使用 Buffer 路径是不必要的，因为字符串 API 会自动与 UTF-8 相互转换。</p>
+
+<p><strong>注意</strong>，在某些文件系统（如 NTFS 和 HFS+），文件名总是被编码为 UTF-8。
+在这些文件系统中，传入非 UTF-8 编码的 Buffer 到 <code>fs</code> 函数将无法像预期那样工作。</p>
+
+<!--type=misc-->
+
+<p><code>fs.watch</code> API 不是 100％ 跨平台一致的，且在某些情况下不可用。</p>
+
+<p>递归选项只支持 OS X 和 Windows。</p>
+
+<!-- YAML
+added: v0.5.8
+-->
+
+<p>从 [<code>fs.watch()</code>] 返回的对象是该类型。</p>
+
+<p>提供给 <code>fs.watch()</code> 的 <code>listener</code> 回调会接收返回的 FSWatcher 的 <code>change</code> 事件。</p>
+
+<p>该对象本身可触发以下事件：</p>
+
+<!-- YAML
+added: v0.1.93
+-->
+
+<p><code>ReadStream</code> 是一个[可读流]。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<p>从 [<code>fs.stat()</code>]、[<code>fs.lstat()</code>] 和 [<code>fs.fstat()</code>] 及其同步版本返回的对象都是该类型。</p>
+
+<ul>
+<li><code>stats.isFile()</code></li>
+<li><code>stats.isDirectory()</code></li>
+<li><code>stats.isBlockDevice()</code></li>
+<li><code>stats.isCharacterDevice()</code></li>
+<li><code>stats.isSymbolicLink()</code> (仅对 [<code>fs.lstat()</code>] 有效)</li>
+<li><code>stats.isFIFO()</code></li>
+<li><code>stats.isSocket()</code></li>
+</ul>
+
+<p>对于一个普通文件，[<code>util.inspect(stats)</code>] 会返回一个类似如下的字符串：</p>
+
+<pre class="prettyprint"><code>Stats {
+  dev: 2114,
+  ino: 48064969,
+  mode: 33188,
+  nlink: 1,
+  uid: 85,
+  gid: 100,
+  rdev: 0,
+  size: 527,
+  blksize: 4096,
+  blocks: 8,
+  atime: Mon, 10 Oct 2011 23:24:11 GMT,
+  mtime: Mon, 10 Oct 2011 23:24:11 GMT,
+  ctime: Mon, 10 Oct 2011 23:24:11 GMT,
+  birthtime: Mon, 10 Oct 2011 23:24:11 GMT }
+</code></pre>
+
+<p>注意，<code>atime</code>、<code>mtime</code>、<code>birthtime</code> 和 <code>ctime</code> 是 [<code>Date</code>] 对象的实例，比较这些对象的值需要使用适当的方法。
+对于大多数一般用途，[<code>getTime()</code>] 会返回 <strong>1970年1月1日 00:00:00 UTC</strong> 至今已过的毫秒数，且该整数应该满足任何对比，当然也有可用于显示模糊信息的其他方法。
+详见 [MDN JavaScript 手册]。</p>
+
+<!-- YAML
+added: v0.1.93
+-->
+
+<p><code>WriteStream</code> 一个[可写流]。</p>
+
+<!-- YAML
+added: v0.5.8
+-->
+
+<ul>
+<li><code>eventType</code> {String} fs 变化的类型</li>
+<li><code>filename</code> {String | Buffer} 变化的文件名（如果是相关的/可用的）</li>
+</ul>
+
+<p>当一个被监视的目录或文件有变化时触发。
+详见 [<code>fs.watch()</code>]。</p>
+
+<p><code>filename</code> 参数可能不会被提供，这依赖于操作系统支持。
+如果提供了 <code>filename</code>，则若 <code>fs.watch()</code> 被调用时 <code>encoding</code> 选项被设置为 <code>'buffer'</code> 则它会是一个 <code>Buffer</code>，否则 <code>filename</code> 是一个字符串。</p>
+
+<pre class="prettyprint"><code>// 例子，处理 fs.watch 监听器
+fs.watch('./tmp', {encoding: 'buffer'}, (eventType, filename) =&gt; {
+  if (filename)
+    console.log(filename);
+    // 输出: &lt;Buffer ...&gt;
+});
+</code></pre>
+
+<!-- YAML
+added: v0.1.93
+-->
+
+<p>当 <code>ReadStream</code> 底层的文件描述符已被使用 <code>fs.close()</code> 方法关闭时触发。</p>
+
+<!-- YAML
+added: v0.1.93
+-->
+
+<p>当 <code>WriteStream</code> 底层的文件描述符已被使用 <code>fs.close()</code> 方法关闭时触发。</p>
+
+<!-- YAML
+added: v0.5.8
+-->
+
+<ul>
+<li><code>error</code> {Error}</li>
+</ul>
+
+<p>当发生错误时触发。</p>
+
+<!-- YAML
+added: v0.1.93
+-->
+
+<ul>
+<li><code>fd</code> {Integer} 被 ReadStream 使用的整数文件描述符。</li>
+</ul>
+
+<p>当 ReadStream 文件被打开时触发。</p>
+
+<!-- YAML
+added: v0.1.93
+-->
+
+<ul>
+<li><code>fd</code> {Integer} 被 WriteStream 使用的整数文件描述符。</li>
+</ul>
+
+<p>当 WriteStream 文件被打开时触发。</p>
+
+<!--type=misc-->
+
+<p>回调中提供的 <code>filename</code> 参数仅在 Linux 和 Windows 系统上支持。
+即使在支持的平台中，<code>filename</code> 也不能保证提供。
+因此，不要以为 <code>filename</code> 参数总是在回调中提供，如果它是空的，需要有一定的后备逻辑。</p>
+
+<pre class="prettyprint"><code>fs.watch('somedir', (eventType, filename) =&gt; {
+  console.log(`事件类型是: ${eventType}`);
+  if (filename) {
+    console.log(`提供的文件名: ${filename}`);
+  } else {
+    console.log('未提供文件名');
+  }
+});
+</code></pre>
+
+<p>以下常量用于 [<code>fs.access()</code>]。</p>
+
+<table>
+  <tr>
+    <th>常量</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><code>F_OK</code></td>
+    <td>该标志表明文件对于调用进程是可见的。</td>
+  </tr>
+  <tr>
+    <td><code>R_OK</code></td>
+    <td>该标志表明文件可被调用进程读取。</td>
+  </tr>
+  <tr>
+    <td><code>W_OK</code></td>
+    <td>该标志表明文件可被调用进程写入。</td>
+  </tr>
+  <tr>
+    <td><code>X_OK</code></td>
+    <td>该标志表明文件可被调用进程执行。</td>
+  </tr>
+</table>
+
+<p>以下常量用于 [<code>fs.Stats</code>] 对象中用于决定一个文件访问权限的 <code>mode</code> 属性。</p>
+
+<table>
+  <tr>
+    <th>常量</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><code>S_IRWXU</code></td>
+    <td>该文件模式表明可被所有者读取、写入、执行。</td>
+  </tr>
+  <tr>
+    <td><code>S_IRUSR</code></td>
+    <td>该文件模式表明可被所有者读取。</td>
+  </tr>
+  <tr>
+    <td><code>S_IWUSR</code></td>
+    <td>该文件模式表明可被所有者写入。</td>
+  </tr>
+  <tr>
+    <td><code>S_IXUSR</code></td>
+    <td>该文件模式表明可被所有者执行。</td>
+  </tr>
+  <tr>
+    <td><code>S_IRWXG</code></td>
+    <td>该文件模式表明可被群组读取、写入、执行。</td>
+  </tr>
+  <tr>
+    <td><code>S_IRGRP</code></td>
+    <td>该文件模式表明可被群组读取。</td>
+  </tr>
+  <tr>
+    <td><code>S_IWGRP</code></td>
+    <td>该文件模式表明可被群组写入。</td>
+  </tr>
+  <tr>
+    <td><code>S_IXGRP</code></td>
+    <td>该文件模式表明可被群组执行。</td>
+  </tr>
+  <tr>
+    <td><code>S_IRWXO</code></td>
+    <td>该文件模式表明可被其他人读取、写入、执行。</td>
+  </tr>
+  <tr>
+    <td><code>S_IROTH</code></td>
+    <td>该文件模式表明可被其他人读取。</td>
+  </tr>
+  <tr>
+    <td><code>S_IWOTH</code></td>
+    <td>该文件模式表明可被其他人写入。</td>
+  </tr>
+  <tr>
+    <td><code>S_IXOTH</code></td>
+    <td>该文件模式表明可被其他人执行。</td>
+  </tr>
+</table>
+
+<p>以下常量用于 <code>fs.open()</code>。</p>
+
+<table>
+  <tr>
+    <th>常量</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><code>O_RDONLY</code></td>
+    <td>该标志表明打开一个文件用于只读访问。</td>
+  </tr>
+  <tr>
+    <td><code>O_WRONLY</code></td>
+    <td>该标志表明打开一个文件用于只写访问。</td>
+  </tr>
+  <tr>
+    <td><code>O_RDWR</code></td>
+    <td>该标志表明打开一个文件用于读写访问。</td>
+  </tr>
+  <tr>
+    <td><code>O_CREAT</code></td>
+    <td>该标志表明如果文件不存在则创建一个文件。</td>
+  </tr>
+  <tr>
+    <td><code>O_EXCL</code></td>
+    <td>该标志表明如果设置了 <code>O_CREAT</code> 标志且文件已经存在，则打开一个文件应该失败。</td>
+  </tr>
+  <tr>
+    <td><code>O_NOCTTY</code></td>
+    <td>该标志表明如果路径是一个终端设备，则打开该路径不应该造成该终端变成进程的控制终端（如果进程还没有终端）。</td>
+  </tr>
+  <tr>
+    <td><code>O_TRUNC</code></td>
+    <td>该标志表明如果文件存在且为一个常规文件、且文件被成功打开为写入访问，则它的长度应该被截断至零。</td>
+  </tr>
+  <tr>
+    <td><code>O_APPEND</code></td>
+    <td>该标志表明数据会被追加到文件的末尾。</td>
+  </tr>
+  <tr>
+    <td><code>O_DIRECTORY</code></td>
+    <td>该标志表明如果路径不是一个目录，则打开应该失败。</td>
+  </tr>
+  <tr>
+  <td><code>O_NOATIME</code></td>
+    <td>该标志表明文件系统的读取访问权不再引起相关文件 `atime` 信息的更新。该标志只在 Linux 操作系统有效。</td>
+  </tr>
+  <tr>
+    <td><code>O_NOFOLLOW</code></td>
+    <td>该标志表明如果路径是一个符号链接，则打开应该失败。</td>
+  </tr>
+  <tr>
+    <td><code>O_SYNC</code></td>
+    <td>该标志表明文件打开用于同步 I/O。</td>
+  </tr>
+  <tr>
+    <td><code>O_SYMLINK</code></td>
+    <td>该标志表明打开符号链接自身，而不是它指向的资源。</td>
+  </tr>
+  <tr>
+    <td><code>O_DIRECT</code></td>
+    <td>当设置它时，会尝试最小化文件 I/O 的缓存效果。</td>
+  </tr>
+  <tr>
+    <td><code>O_NONBLOCK</code></td>
+    <td>该标志表明当可能时以非阻塞模式打开文件。</td>
+  </tr>
+</table>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<!--name=fs-->
+
+<p>文件 I/O 是由简单封装的标准 POSIX 函数提供的。
+通过 <code>require('fs')</code> 使用该模块。
+所有的方法都有异步和同步的形式。</p>
+
+<p>异步形式始终以完成回调作为它最后一个参数。
+传给完成回调的参数取决于具体方法，但第一个参数总是留给异常。
+如果操作成功完成，则第一个参数会是 <code>null</code> 或 <code>undefined</code>。</p>
+
+<p>当使用同步形式时，任何异常都会被立即抛出。
+可以使用 try/catch 来处理异常，或让它们往上冒泡。</p>
+
+<p>这是异步版本的例子：</p>
+
+<pre class="prettyprint"><code>const fs = require('fs');
+
+fs.unlink('/tmp/hello', (err) =&gt; {
+  if (err) throw err;
+  console.log('successfully deleted /tmp/hello');
+});
+</code></pre>
+
+<p>这是同步版本的例子：</p>
+
+<pre class="prettyprint"><code>const fs = require('fs');
+
+fs.unlinkSync('/tmp/hello');
+console.log('successfully deleted /tmp/hello');
+</code></pre>
+
+<p>异步方法不保证执行顺序。
+所以下面的例子容易出错：</p>
+
+<pre class="prettyprint"><code>fs.rename('/tmp/hello', '/tmp/world', (err) =&gt; {
+  if (err) throw err;
+  console.log('renamed complete');
+});
+fs.stat('/tmp/world', (err, stats) =&gt; {
+  if (err) throw err;
+  console.log(`stats: ${JSON.stringify(stats)}`);
+});
+</code></pre>
+
+<p><code>fs.stat</code> 可能在 <code>fs.rename</code> 之前执行。正确的方法是把回调链起来。</p>
+
+<pre class="prettyprint"><code>fs.rename('/tmp/hello', '/tmp/world', (err) =&gt; {
+  if (err) throw err;
+  fs.stat('/tmp/world', (err, stats) =&gt; {
+    if (err) throw err;
+    console.log(`stats: ${JSON.stringify(stats)}`);
+  });
+});
+</code></pre>
+
+<p>在繁忙的进程中，<strong>强烈推荐</strong>开发者使用这些函数的异步版本。
+同步版本会阻塞整个进程，直到它们完成（停止所有连接）。</p>
+
+<p>可使用文件名的相对路径。
+但该路径是相对 <code>process.cwd()</code> 的。</p>
+
+<p>大部分 fs 函数会让你忽略回调参数。
+如果你这么做，一个默认的回调将用于抛出错误。
+为了追踪原始的调用点，可设置 <code>NODE_DEBUG</code> 环境变量：</p>
+
+<pre class="prettyprint"><code>$ cat script.js
+function bad() {
+  require('fs').readFile('/');
+}
+bad();
+
+$ env NODE_DEBUG=fs node script.js
+fs.js:88
+        throw backtrace;
+        ^
+Error: EISDIR: illegal operation on a directory, read
+    &lt;stack trace.&gt;
+</code></pre>
+
+<p>以下常量用于 [<code>fs.Stats</code>] 对象中用于决定一个文件的类型的 <code>mode</code> 属性。</p>
+
+<table>
+  <tr>
+    <th>常量</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><code>S_IFMT</code></td>
+    <td>用于提取文件类型码的位掩码。</td>
+  </tr>
+  <tr>
+    <td><code>S_IFREG</code></td>
+    <td>表示一个常规文件的文件类型常量。</td>
+  </tr>
+  <tr>
+    <td><code>S_IFDIR</code></td>
+    <td>表示一个目录的文件类型常量。</td>
+  </tr>
+  <tr>
+    <td><code>S_IFCHR</code></td>
+    <td>表示一个面向字符的设备文件的文件类型常量。</td>
+  </tr>
+  <tr>
+    <td><code>S_IFBLK</code></td>
+    <td>表示一个面向块的设备文件的文件类型常量。</td>
+  </tr>
+  <tr>
+    <td><code>S_IFIFO</code></td>
+    <td>表示一个 FIFO/pipe 的文件类型常量。</td>
+  </tr>
+  <tr>
+    <td><code>S_IFLNK</code></td>
+    <td>表示一个符号链接的文件类型常量。</td>
+  </tr>
+  <tr>
+    <td><code>S_IFSOCK</code></td>
+    <td>表示一个 socket 的文件类型常量。</td>
+  </tr>
+</table>
+
+<!-- YAML
+added: v0.11.15
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>mode</code> {Integer}</li>
+</ul>
+
+<p>[<code>fs.access()</code>] 的同步版本。
+如果有任何可访问性检查失败则抛出错误，否则什么也不做。</p>
+
+<!-- YAML
+added: v0.11.15
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>mode</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>测试 <code>path</code> 指定的文件或目录的用户权限。
+<code>mode</code> 是一个可选的整数，指定要执行的可访问性检查。
+以下常量定义了 <code>mode</code> 的可能值。
+可以创建由两个或更多个值的位或组成的掩码。</p>
+
+<ul>
+<li><code>fs.constants.F_OK</code> - <code>path</code> 文件对调用进程可见。
+这在确定文件是否存在时很有用，但不涉及 <code>rwx</code> 权限。
+如果没指定 <code>mode</code>，则默认为该值。</li>
+<li><code>fs.constants.R_OK</code> - <code>path</code> 文件可被调用进程读取。</li>
+<li><code>fs.constants.W_OK</code> - <code>path</code> 文件可被调用进程写入。</li>
+<li><code>fs.constants.X_OK</code> - <code>path</code> 文件可被调用进程执行。
+对 Windows 系统没作用（相当于 <code>fs.constants.F_OK</code>）。</li>
+</ul>
+
+<p>最后一个参数 <code>callback</code> 是一个回调函数，会带有一个可能的错误参数被调用。
+如果可访问性检查有任何的失败，则错误参数会被传入。
+下面的例子会检查 <code>/etc/passwd</code> 文件是否可以被当前进程读取和写入。</p>
+
+<pre class="prettyprint"><code>fs.access('/etc/passwd', fs.constants.R_OK | fs.constants.W_OK, (err) =&gt; {
+  console.log(err ? 'no access!' : 'can read/write');
+});
+</code></pre>
+
+<p>不建议在调用 <code>fs.open()</code> 、 <code>fs.readFile()</code> 或 <code>fs.writeFile()</code> 之前使用 <code>fs.access()</code> 检查一个文件的可访问性。
+如此处理会造成紊乱情况，因为其他进程可能在两个调用之间改变该文件的状态。
+作为替代，用户代码应该直接打开/读取/写入文件，当文件无法访问时再处理错误。</p>
+
+<p>例子：</p>
+
+<p><strong>写入（不推荐）</strong></p>
+
+<pre class="prettyprint"><code>fs.access('myfile', (err) =&gt; {
+  if (!err) {
+    console.error('myfile already exists');
+    return;
+  }
+
+  fs.open('myfile', 'wx', (err, fd) =&gt; {
+    if (err) throw err;
+    writeMyData(fd);
+  });
+});
+</code></pre>
+
+<p><strong>写入（推荐）</strong></p>
+
+<pre class="prettyprint"><code>fs.open('myfile', 'wx', (err, fd) =&gt; {
+  if (err) {
+    if (err.code === 'EEXIST') {
+      console.error('myfile already exists');
+      return;
+    }
+
+    throw err;
+  }
+
+  writeMyData(fd);
+});
+</code></pre>
+
+<p><strong>读取（不推荐）</strong></p>
+
+<pre class="prettyprint"><code>fs.access('myfile', (err) =&gt; {
+  if (err) {
+    if (err.code === 'ENOENT') {
+      console.error('myfile does not exist');
+      return;
+    }
+
+    throw err;
+  }
+
+  fs.open('myfile', 'r', (err, fd) =&gt; {
+    if (err) throw err;
+    readMyData(fd);
+  });
+});
+</code></pre>
+
+<p><strong>读取（推荐）</strong></p>
+
+<pre class="prettyprint"><code>fs.open('myfile', 'r', (err, fd) =&gt; {
+  if (err) {
+    if (err.code === 'ENOENT') {
+      console.error('myfile does not exist');
+      return;
+    }
+
+    throw err;
+  }
+
+  readMyData(fd);
+});
+</code></pre>
+
+<p>以上<strong>不推荐</strong>的例子检查可访问性之后再使用文件；
+<strong>推荐</strong>的例子更好，因为它们直接使用文件并处理任何错误。</p>
+
+<p>通常，仅在文件不会被直接使用时才检查一个文件的可访问性，例如当它的可访问性是来自另一个进程的信号。</p>
+
+<!-- YAML
+added: v0.6.7
+-->
+
+<ul>
+<li><code>file</code> {String | Buffer | Number} 文件名或文件描述符</li>
+<li><code>data</code> {String | Buffer}</li>
+<li><code>options</code> {Object | String}
+<ul><li><code>encoding</code> {String | Null} 默认 = <code>'utf8'</code></li>
+<li><code>mode</code> {Integer} 默认 = <code>0o666</code></li>
+<li><code>flag</code> {String} 默认 = <code>'a'</code></li></ul></li>
+</ul>
+
+<p>[<code>fs.appendFile()</code>] 的同步版本。
+返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.6.7
+-->
+
+<ul>
+<li><code>file</code> {String | Buffer | Number} 文件名或文件描述符</li>
+<li><code>data</code> {String | Buffer}</li>
+<li><code>options</code> {Object | String}
+<ul><li><code>encoding</code> {String | Null} 默认 = <code>'utf8'</code></li>
+<li><code>mode</code> {Integer} 默认 = <code>0o666</code></li>
+<li><code>flag</code> {String} 默认 = <code>'a'</code></li></ul></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步地追加数据到一个文件，如果文件不存在则创建文件。
+<code>data</code> 可以是一个字符串或 buffer。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>fs.appendFile('message.txt', 'data to append', (err) =&gt; {
+  if (err) throw err;
+  console.log('The "data to append" was appended to file!');
+});
+</code></pre>
+
+<p>如果 <code>options</code> 是一个字符串，则它指定了字符编码。例如：</p>
+
+<pre class="prettyprint"><code>fs.appendFile('message.txt', 'data to append', 'utf8', callback);
+</code></pre>
+
+<p>任何指定的文件描述符必须为了追加而被打开。</p>
+
+<p>注意：如果文件描述符被指定为 <code>file</code>，则不会被自动关闭。</p>
+
+<!-- YAML
+added: v0.6.7
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>mode</code> {Integer}</li>
+</ul>
+
+<p>同步的 chmod(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.1.30
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>mode</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 chmod(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.97
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>uid</code> {Integer}</li>
+<li><code>gid</code> {Integer}</li>
+</ul>
+
+<p>同步的 chown(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.1.97
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>uid</code> {Integer}</li>
+<li><code>gid</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 chown(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+</ul>
+
+<p>同步的 close(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.0.2
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 close(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<p>返回一个包含常用文件系统操作的常量的对象。
+具体的常量定义在 [FS Constants] 中描述。</p>
+
+<p>以下常量由 <code>fs.constants</code> 输出。
+<strong>注意：</strong>不是所有的常量在每一个操作系统上都是可用的。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>flags</code> {String}</li>
+<li><code>encoding</code> {String}</li>
+<li><code>fd</code> {Integer}</li>
+<li><code>mode</code> {Integer}</li>
+<li><code>autoClose</code> {Boolean}</li>
+<li><code>start</code> {Integer}</li>
+<li><code>end</code> {Integer}</li></ul></li>
+</ul>
+
+<p>返回一个新建的 [<code>ReadStream</code>] 对象（详见[可读流]）。</p>
+
+<p>不同于在一个可读流上设置的 <code>highWaterMark</code> 默认值（16 kb），该方法在相同参数下返回的流具有 64 kb 的默认值。</p>
+
+<p><code>options</code> 是一个带有以下默认值的对象或字符串：</p>
+
+<pre class="prettyprint"><code>{
+  flags: 'r',
+  encoding: null,
+  fd: null,
+  mode: 0o666,
+  autoClose: true
+}
+</code></pre>
+
+<p><code>options</code> 可以包括 <code>start</code> 和 <code>end</code> 值，使其可以从文件读取一定范围的字节而不是整个文件。
+<code>start</code> 和 <code>end</code> 都是包括在内的，并且起始值是 0。
+如果指定了 <code>fd</code> 且 <code>start</code> 不传或为 <code>undefined</code>，则 <code>fs.createReadStream()</code> 从当前文件位置按顺序地读取。
+<code>encoding</code> 可以是任何可以被 [<code>Buffer</code>] 接受的值。</p>
+
+<p>如果指定了 <code>fd</code>，则 <code>ReadStream</code> 会忽略 <code>path</code> 参数并且会使用指定的文件描述符。
+这意味着不会触发 <code>'open'</code> 事件。
+注意，<code>fd</code> 应该是阻塞的；非阻塞的 <code>fd</code> 们应该传给 [<code>net.Socket</code>]。</p>
+
+<p>如果 <code>autoClose</code> 为 <code>false</code>，则文件描述符不会被关闭，即使有错误。
+你需要负责关闭它，并且确保没有文件描述符泄漏。
+如果 <code>autoClose</code> 被设置为 <code>true</code>（默认），则在 <code>error</code> 或 <code>end</code> 时，文件描述符会被自动关闭。</p>
+
+<p><code>mode</code> 用于设置文件模式（权限和粘结位），但仅限创建文件时。</p>
+
+<p>例子，从一个 100 字节长的文件中读取最后 10 个字节：</p>
+
+<pre class="prettyprint"><code>fs.createReadStream('sample.txt', {start: 90, end: 99});
+</code></pre>
+
+<p>如果 <code>options</code> 是一个字符串，则它指定了字符编码。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>flags</code> {String}</li>
+<li><code>defaultEncoding</code> {String}</li>
+<li><code>fd</code> {Integer}</li>
+<li><code>mode</code> {Integer}</li>
+<li><code>autoClose</code> {Boolean}</li>
+<li><code>start</code> {Integer}</li></ul></li>
+</ul>
+
+<p>返回一个新建的 [<code>WriteStream</code>] 对象（详见[可写流]）。</p>
+
+<p><code>options</code> 是一个带有以下默认值的对象或字符串：</p>
+
+<pre class="prettyprint"><code>{
+  flags: 'w',
+  defaultEncoding: 'utf8',
+  fd: null,
+  mode: 0o666,
+  autoClose: true
+}
+</code></pre>
+
+<p><code>options</code> 也可以包括一个 <code>start</code> 选项，使其可以写入数据到文件某个位置。
+如果是修改一个文件而不是覆盖它，则需要<code>flags</code> 模式为 <code>r+</code> 而不是默认的 <code>w</code> 模式。
+<code>defaultEncoding</code> 可以是任何可以被 [<code>Buffer</code>] 接受的值。</p>
+
+<p>如果 <code>autoClose</code> 被设置为 <code>true</code>（默认），则在 <code>error</code> 或 <code>end</code> 时，文件描述符会被自动关闭。
+如果 <code>autoClose</code> 为 <code>false</code>，则文件描述符不会被关闭，即使有错误。
+你需要负责关闭它，并且确保没有文件描述符泄漏。</p>
+
+<p>类似 [<code>ReadStream</code>]，如果指定了 <code>fd</code>，则 <code>WriteStream</code> 会忽略 <code>path</code> 参数并且会使用指定的文件描述符。
+这意味着不会触发 <code>'open'</code> 事件。
+注意，<code>fd</code> 应该是阻塞的；非阻塞的 <code>fd</code> 们应该传给 [<code>net.Socket</code>]。</p>
+
+<p>如果 <code>options</code> 是一个字符串，则它指定了字符编码。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+</ul>
+
+<p>[<code>fs.exists()</code>] 的同步版本。
+如果文件存在，则返回 <code>true</code>，否则返回 <code>false</code>。</p>
+
+<p>注意，虽然 <code>fs.exists()</code> 是废弃的，但 <code>fs.existsSync()</code> 不是。
+（<code>fs.exists()</code> 的回调接收的参数与其他 Node.js 回调不一致，<code>fs.existsSync()</code> 不使用回调。）</p>
+
+<!-- YAML
+added: v0.0.2
+deprecated: v1.0.0
+-->
+
+<blockquote>
+  <p>稳定性: 0 - 废弃的: 使用 [<code>fs.stat()</code>] 或 [<code>fs.access()</code>] 代替。</p>
+</blockquote>
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>Test whether or not the given path exists by checking with the file system.
+Then call the <code>callback</code> argument with either true or false.  Example:</p>
+
+<pre class="prettyprint"><code>fs.exists('/etc/passwd', (exists) =&gt; {
+  console.log(exists ? 'it\'s there' : 'no passwd!');
+});
+</code></pre>
+
+<p><strong>Note that the parameter to this callback is not consistent with other
+Node.js callbacks.</strong> Normally, the first parameter to a Node.js callback is
+an <code>err</code> parameter, optionally followed by other parameters. The
+<code>fs.exists()</code> callback has only one boolean parameter. This is one reason
+<code>fs.access()</code> is recommended instead of <code>fs.exists()</code>.</p>
+
+<p>Using <code>fs.exists()</code> to check for the existence of a file before calling
+<code>fs.open()</code>, <code>fs.readFile()</code> or <code>fs.writeFile()</code> is not recommended. Doing
+so introduces a race condition, since other processes may change the file's
+state between the two calls. Instead, user code should open/read/write the
+file directly and handle the error raised if the file does not exist.</p>
+
+<p>For example:</p>
+
+<p><strong>write (NOT RECOMMENDED)</strong></p>
+
+<pre class="prettyprint"><code>fs.exists('myfile', (exists) =&gt; {
+  if (exists) {
+    console.error('myfile already exists');
+  } else {
+    fs.open('myfile', 'wx', (err, fd) =&gt; {
+      if (err) throw err;
+      writeMyData(fd);
+    });
+  }
+});
+</code></pre>
+
+<p><strong>write (RECOMMENDED)</strong></p>
+
+<pre class="prettyprint"><code>fs.open('myfile', 'wx', (err, fd) =&gt; {
+  if (err) {
+    if (err.code === 'EEXIST') {
+      console.error('myfile already exists');
+      return;
+    }
+
+    throw err;
+  }
+
+  writeMyData(fd);
+});
+</code></pre>
+
+<p><strong>read (NOT RECOMMENDED)</strong></p>
+
+<pre class="prettyprint"><code>fs.exists('myfile', (exists) =&gt; {
+  if (exists) {
+    fs.open('myfile', 'r', (err, fd) =&gt; {
+      readMyData(fd);
+    });
+  } else {
+    console.error('myfile does not exist');
+  }
+});
+</code></pre>
+
+<p><strong>read (RECOMMENDED)</strong></p>
+
+<pre class="prettyprint"><code>fs.open('myfile', 'r', (err, fd) =&gt; {
+  if (err) {
+    if (err.code === 'ENOENT') {
+      console.error('myfile does not exist');
+      return;
+    }
+
+    throw err;
+  }
+
+  readMyData(fd);
+});
+</code></pre>
+
+<p>The "not recommended" examples above check for existence and then use the
+file; the "recommended" examples are better because they use the file directly
+and handle the error, if any.</p>
+
+<p>In general, check for the existence of a file only if the file won’t be
+used directly, for example when its existence is a signal from another
+process.</p>
+
+<!-- YAML
+added: v0.4.7
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>mode</code> {Integer}</li>
+</ul>
+
+<p>同步的 fchmod(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.4.7
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>mode</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 fchmod(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.4.7
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>uid</code> {Integer}</li>
+<li><code>gid</code> {Integer}</li>
+</ul>
+
+<p>同步的 fchown(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.4.7
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>uid</code> {Integer}</li>
+<li><code>gid</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 fchown(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.96
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+</ul>
+
+<p>同步的 fdatasync(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.1.96
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 fdatasync(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.95
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+</ul>
+
+<p>同步的 fstat(2)。返回一个 [<code>fs.Stats</code>] 实例。</p>
+
+<!-- YAML
+added: v0.1.95
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 fstat(2)。
+回调获得两个参数 <code>(err, stats)</code>，其中 <code>stats</code> 是一个 [<code>fs.Stats</code>] 对象。
+<code>fstat()</code> 与 [<code>stat()</code>] 类似，除了文件是通过文件描述符 <code>fd</code> 指定的。</p>
+
+<!-- YAML
+added: v0.1.96
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+</ul>
+
+<p>同步的 fsync(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.1.96
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 fsync(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.8.6
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>len</code> {Integer} 默认 = <code>0</code></li>
+</ul>
+
+<p>同步的 ftruncate(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.8.6
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>len</code> {Integer} 默认 = <code>0</code></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 ftruncate(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<p>如果文件描述符指向的文件大于 <code>len</code> 个字节，则只有前面 <code>len</code> 个字节会保留在文件中。</p>
+
+<p>例子，下面的程序会只保留文件前4个字节。</p>
+
+<pre class="prettyprint"><code>console.log(fs.readFileSync('temp.txt', 'utf8'));
+// 输出: Node.js
+
+// 获取要截断的文件的文件描述符
+const fd = fs.openSync('temp.txt', 'r+');
+
+// 截断文件至前4个字节
+fs.ftruncate(fd, 4, (err) =&gt; {
+  assert.ifError(err);
+  console.log(fs.readFileSync('temp.txt', 'utf8'));
+});
+// 输出: Node
+</code></pre>
+
+<p>如果前面的文件小于 <code>len</code> 个字节，则扩展文件，且扩展的部分用空字节（'\0'）填充。例子：</p>
+
+<pre class="prettyprint"><code>console.log(fs.readFileSync('temp.txt', 'utf-8'));
+// 输出: Node.js
+
+// 获取要截断的文件的文件描述符
+const fd = fs.openSync('temp.txt', 'r+');
+
+// 截断文件至前10个字节，但实际大小是7个字节
+fs.ftruncate(fd, 10, (err) =&gt; {
+  assert.ifError(err);
+  console.log(fs.readFileSync('temp.txt'));
+});
+// 输出: &lt;Buffer 4e 6f 64 65 2e 6a 73 00 00 00&gt;
+// ('Node.js\0\0\0' in UTF8)
+</code></pre>
+
+<p>最后3个字节是空字节（'\0'），用于补充超出的截断。</p>
+
+<!-- YAML
+added: v0.4.2
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>atime</code> {Integer}</li>
+<li><code>mtime</code> {Integer}</li>
+</ul>
+
+<p>[<code>fs.futimes()</code>] 的同步版本。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.4.2
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>atime</code> {Integer}</li>
+<li><code>mtime</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>改变由所提供的文件描述符所指向的文件的文件时间戳。</p>
+
+<!-- YAML
+deprecated: v0.4.7
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>mode</code> {Integer}</li>
+</ul>
+
+<p>同步的 lchmod(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+deprecated: v0.4.7
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>mode</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 lchmod(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<p>只在 Mac OS X 有效。</p>
+
+<!-- YAML
+deprecated: v0.4.7
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>uid</code> {Integer}</li>
+<li><code>gid</code> {Integer}</li>
+</ul>
+
+<p>同步的 lchown(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+deprecated: v0.4.7
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>uid</code> {Integer}</li>
+<li><code>gid</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 lchown(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>existingPath</code> {String | Buffer}</li>
+<li><code>newPath</code> {String | Buffer}</li>
+</ul>
+
+<p>同步的 link(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>existingPath</code> {String | Buffer}</li>
+<li><code>newPath</code> {String | Buffer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 link(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.30
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+</ul>
+
+<p>同步的 lstat(2)。返回一个 [<code>fs.Stats</code>] 实例。</p>
+
+<!-- YAML
+added: v0.1.30
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 lstat(2)。
+回调获得两个参数 <code>(err, stats)</code>，其中 <code>stats</code> 是一个 [<code>fs.Stats</code>] 对象。
+<code>lstat()</code> 与 [<code>stat()</code>] 类似，除非 <code>path</code> 是一个符号链接，则自身就是该链接，它指向的并不是文件。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>mode</code> {Integer}</li>
+</ul>
+
+<p>同步的 mkdir(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.1.8
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>mode</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 mkdir(2)。
+完成回调只有一个可能的异常参数。
+<code>mode</code> 默认为 <code>0o777</code>。</p>
+
+<!-- YAML
+added: v5.10.0
+-->
+
+<ul>
+<li><code>prefix</code> {String}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>encoding</code> {String} 默认 = <code>'utf8'</code></li></ul></li>
+</ul>
+
+<p>[<code>fs.mkdtemp()</code>] 的同步版本。
+返回创建的目录的路径。</p>
+
+<p>可选的 <code>options</code> 参数可以是一个字符串并指定一个字符编码，或是一个对象且由一个 <code>encoding</code> 属性指定使用的字符编码。</p>
+
+<!-- YAML
+added: v5.10.0
+-->
+
+<ul>
+<li><code>prefix</code> {String}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>encoding</code> {String} 默认 = <code>'utf8'</code></li></ul></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>创建一个唯一的临时目录。</p>
+
+<p>生成六位随机字符附加到一个要求的 <code>prefix</code> 后面，然后创建一个唯一的临时目录。</p>
+
+<p>创建的目录路径会作为字符串传给回调的第二个参数。</p>
+
+<p>可选的 <code>options</code> 参数可以是一个字符串并指定一个字符编码，或是一个对象且由一个 <code>encoding</code> 属性指定使用的字符编码。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>fs.mkdtemp('/tmp/foo-', (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // 输出: /tmp/foo-itXde2
+});
+</code></pre>
+
+<p><strong>注意</strong>：<code>fs.mkdtemp()</code> 方法会直接附加六位随机选择的字符串到 <code>prefix</code> 字符串。
+例如，指定一个目录 <code>/tmp</code>，如果目的是要在 <code>/tmp</code> 里创建一个临时目录，则 <code>prefix</code> <strong>必须</strong> 以一个指定平台的路径分隔符（<code>require('path').sep</code>）结尾。</p>
+
+<pre class="prettyprint"><code>// 新建的临时目录的父目录
+const tmpDir = '/tmp';
+
+// 该方法是 *错误的*：
+fs.mkdtemp(tmpDir, (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // 会输出类似于 `/tmpabc123`。
+  // 注意，一个新的临时目录会被创建在文件系统的根目录，而不是在 /tmp 目录里。
+});
+
+// 该方法是 *正确的*：
+const { sep } = require('path');
+fs.mkdtemp(`${tmpDir}${sep}`, (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // 会输出类似于 `/tmp/abc123`。
+  // 一个新的临时目录会被创建在 /tmp 目录里。
+});
+</code></pre>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>flags</code> {String | Number}</li>
+<li><code>mode</code> {Integer}</li>
+</ul>
+
+<p>[<code>fs.open()</code>] 的同步版本。
+返回一个表示文件描述符的整数。</p>
+
+<!-- YAML
+added: v0.0.2
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>flags</code> {String | Number}</li>
+<li><code>mode</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步地打开文件。详见 open(2)。
+<code>flags</code> 可以是：</p>
+
+<ul>
+<li><p><code>'r'</code> - 以读取模式打开文件。如果文件不存在则发生异常。</p></li>
+<li><p><code>'r+'</code> - 以读写模式打开文件。如果文件不存在则发生异常。</p></li>
+<li><p><code>'rs+'</code> - 以同步读写模式打开文件。命令操作系统绕过本地文件系统缓存。</p>
+
+<p>这对 NFS 挂载模式下打开文件很有用，因为它可以让你跳过潜在的旧本地缓存。
+它对 I/O 的性能有明显的影响，所以除非需要，否则不要使用此标志。</p>
+
+<p>注意，这不会使 <code>fs.open()</code> 进入同步阻塞调用。
+如果那是你想要的，则应该使用 <code>fs.openSync()</code>。</p></li>
+<li><p><code>'w'</code> - 以写入模式打开文件。文件会被创建（如果文件不存在）或截断（如果文件存在）。</p></li>
+<li><p><code>'wx'</code> - 类似 <code>'w'</code>，但如果 <code>path</code> 存在，则失败。</p></li>
+<li><p><code>'w+'</code> - 以读写模式打开文件。文件会被创建（如果文件不存在）或截断（如果文件存在）。</p></li>
+<li><p><code>'wx+'</code> - 类似 <code>'w+'</code>，但如果 <code>path</code> 存在，则失败。</p></li>
+<li><p><code>'a'</code> - 以追加模式打开文件。如果文件不存在，则会被创建。</p></li>
+<li><p><code>'ax'</code> - 类似于 <code>'a'</code>，但如果 <code>path</code> 存在，则失败。</p></li>
+<li><p><code>'a+'</code> - 以读取和追加模式打开文件。如果文件不存在，则会被创建。</p></li>
+<li><p><code>'ax+'</code> - 类似于 <code>'a+'</code>，但如果 <code>path</code> 存在，则失败。</p></li>
+</ul>
+
+<p><code>mode</code> 可设置文件模式（权限和 sticky 位），但只有当文件被创建时才有效。默认为 <code>0666</code>，可读写。</p>
+
+<p>该回调有两个参数 <code>(err, fd)</code>。</p>
+
+<p>特有的标志 <code>'x'</code>（在 open(2) 中的 <code>O_EXCL</code> 标志）确保 <code>path</code> 是新创建的。
+在 POSIX 操作系统中，<code>path</code> 会被视为存在，即使是一个链接到一个不存在的文件的符号。
+该特有的标志有可能在网络文件系统中无法使用。</p>
+
+<p><code>flags</code> 也可以是一个数字，[open(2)] 文档中有描述；
+常用的常量可从 <code>fs.constants</code> 获取。
+在 Windows 系统中，标志会被转换为与它等同的替代者，例如，<code>O_WRONLY</code> 转换为 <code>FILE_GENERIC_WRITE</code>、或 <code>O_EXCL|O_CREAT</code> 转换为 <code>CREATE_NEW</code>，通过 CreateFileW 接受。</p>
+
+<p>在 Linux 中，当文件以追加模式打开时，定位的写入不起作用。
+内核会忽略位置参数，并总是附加数据到文件的末尾。</p>
+
+<p>注意：<code>fs.open()</code> 某些标志的行为是与平台相关的。
+因此，在 OS X 和 Linux 下用 <code>'a+'</code> 标志打开一个目录（见下面的例子），会返回一个错误。
+与此相反，在 Windows 和 FreeBSD，则会返回一个文件描述符。</p>
+
+<pre class="prettyprint"><code>// OS X 与 Linux
+fs.open('&lt;directory&gt;', 'a+', (err, fd) =&gt; {
+  // =&gt; [Error: EISDIR: illegal operation on a directory, open &lt;directory&gt;]
+});
+
+// Windows 与 FreeBSD
+fs.open('&lt;directory&gt;', 'a+', (err, fd) =&gt; {
+  // =&gt; null, &lt;fd&gt;
+});
+</code></pre>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>encoding</code> {String} 默认 = <code>'utf8'</code></li></ul></li>
+</ul>
+
+<p>同步的 readdir(3). 
+返回一个不包括 <code>'.'</code> 和 <code>'..'</code> 的文件名的数组。</p>
+
+<p>可选的 <code>options</code> 参数用于传入回调的文件名，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 <code>encoding</code> 属性指定使用的字符编码。
+如果 <code>encoding</code> 设为 <code>'buffer'</code>，则返回的文件名会被作为 <code>Buffer</code> 对象传入。</p>
+
+<!-- YAML
+added: v0.1.8
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>encoding</code> {String} 默认 = <code>'utf8'</code></li></ul></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 readdir(3)。
+读取一个目录的内容。
+回调有两个参数 <code>(err, files)</code>，其中 <code>files</code> 是目录中不包括 <code>'.'</code> 和 <code>'..'</code> 的文件名的数组。</p>
+
+<p>可选的 <code>options</code> 参数用于传入回调的文件名，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 <code>encoding</code> 属性指定使用的字符编码。
+如果 <code>encoding</code> 设为 <code>'buffer'</code>，则返回的文件名会被作为 <code>Buffer</code> 对象传入。</p>
+
+<!-- YAML
+added: v0.1.8
+-->
+
+<ul>
+<li><code>file</code> {String | Buffer | Integer} 文件名或文件描述符</li>
+<li><code>options</code> {Object | String}
+<ul><li><code>encoding</code> {String | Null} 默认 = <code>null</code></li>
+<li><code>flag</code> {String} 默认 = <code>'r'</code></li></ul></li>
+</ul>
+
+<p>[<code>fs.readFile</code>] 的同步版本。
+返回 <code>file</code> 的内容。</p>
+
+<p>如果指定了 <code>encoding</code> 选项，则该函数返回一个字符串，否则返回一个 buffer。</p>
+
+<!-- YAML
+added: v0.1.29
+-->
+
+<ul>
+<li><code>file</code> {String | Buffer | Integer} 文件名或文件描述符</li>
+<li><code>options</code> {Object | String}
+<ul><li><code>encoding</code> {String | Null} 默认 = <code>null</code></li>
+<li><code>flag</code> {String} 默认 = <code>'r'</code></li></ul></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的读取一个文件的全部内容。
+例子：</p>
+
+<pre class="prettyprint"><code>fs.readFile('/etc/passwd', (err, data) =&gt; {
+  if (err) throw err;
+  console.log(data);
+});
+</code></pre>
+
+<p>回调有两个参数 <code>(err, data)</code>，其中 <code>data</code> 是文件的内容。</p>
+
+<p>如果字符编码未指定，则返回原始的 buffer。</p>
+
+<p>如果 <code>options</code> 是一个字符串，则它指定了字符编码。
+例子：</p>
+
+<pre class="prettyprint"><code>fs.readFile('/etc/passwd', 'utf8', callback);
+</code></pre>
+
+<p>任何指定的文件描述符必须支持读取。</p>
+
+<p>注意，如果一个文件描述符被指定为 <code>file</code>，则它不会被自动关闭。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>encoding</code> {String} 默认 = <code>'utf8'</code></li></ul></li>
+</ul>
+
+<p>同步的 readlink(2)。
+返回符号链接的字符串值。</p>
+
+<p>可选的 <code>options</code> 参数用于传入回调的链接路径，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 <code>encoding</code> 属性指定使用的字符编码。
+如果 <code>encoding</code> 设为 <code>'buffer'</code>，则返回的链接路径会被作为 <code>Buffer</code> 对象传入。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>encoding</code> {String} 默认 = <code>'utf8'</code></li></ul></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 readlink(2)。
+回调有两个参数  <code>(err, linkString)</code>。</p>
+
+<p>可选的 <code>options</code> 参数用于传入回调的链接路径，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 <code>encoding</code> 属性指定使用的字符编码。
+如果 <code>encoding</code> 设为 <code>'buffer'</code>，则返回的链接路径会被作为 <code>Buffer</code> 对象传入。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>buffer</code> {String | Buffer}</li>
+<li><code>offset</code> {Integer}</li>
+<li><code>length</code> {Integer}</li>
+<li><code>position</code> {Integer}</li>
+</ul>
+
+<p>[<code>fs.read()</code>] 的同步版本。
+返回 <code>bytesRead</code> 的数量。</p>
+
+<!-- YAML
+added: v0.0.2
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>buffer</code> {String | Buffer}</li>
+<li><code>offset</code> {Integer}</li>
+<li><code>length</code> {Integer}</li>
+<li><code>position</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>从 <code>fd</code> 指定的文件中读取数据。</p>
+
+<p><code>buffer</code> 是数据将被写入到的 buffer。</p>
+
+<p><code>offset</code> 是 buffer 中开始写入的偏移量。</p>
+
+<p><code>length</code> 是一个整数，指定要读取的字节数。</p>
+
+<p><code>position</code> 是一个整数，指定从文件中开始读取的位置。
+如果 <code>position</code> 为 <code>null</code>，则数据从当前文件位置开始读取。</p>
+
+<p>回调有三个参数 <code>(err, bytesRead, buffer)</code>。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer};</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>encoding</code> {String} 默认 = <code>'utf8'</code></li></ul></li>
+</ul>
+
+<p>同步的 realpath(3)。
+返回解析的路径。</p>
+
+<p>只支持可转换成 UTF8 字符串的路径。</p>
+
+<p>可选的 <code>options</code> 参数用于传入回调的路径，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 <code>encoding</code> 属性指定使用的字符编码。
+如果 <code>encoding</code> 设为 <code>'buffer'</code>，则返回的路径会被作为 <code>Buffer</code> 对象传入。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>encoding</code> {String} 默认 = <code>'utf8'</code></li></ul></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 realpath(3)。
+<code>callback</code> 有两个参数 <code>(err, resolvedPath)</code>。
+可以使用 <code>process.cwd</code> 解析相对路径。</p>
+
+<p>只支持可转换成 UTF8 字符串的路径。</p>
+
+<p>可选的 <code>options</code> 参数用于传入回调的路径，它可以是一个字符串并指定一个字符编码，或是一个对象且由一个 <code>encoding</code> 属性指定使用的字符编码。
+如果 <code>encoding</code> 设为 <code>'buffer'</code>，则返回的路径会被作为 <code>Buffer</code> 对象传入。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>oldPath</code> {String | Buffer}</li>
+<li><code>newPath</code> {String | Buffer}</li>
+</ul>
+
+<p>同步的 rename(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.0.2
+-->
+
+<ul>
+<li><code>oldPath</code> {String | Buffer}</li>
+<li><code>newPath</code> {String | Buffer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 rename(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+</ul>
+
+<p>同步的 rmdir(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.0.2
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 rmdir(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+</ul>
+
+<p>同步的 stat(2)。
+返回一个 [<code>fs.Stats</code>] 实例。</p>
+
+<!-- YAML
+added: v0.0.2
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 stat(2)。
+回调有两个参数 <code>(err, stats)</code> 其中 <code>stats</code> 是一个 [<code>fs.Stats</code>] 对象。</p>
+
+<p>如果发生错误，则 <code>err.code</code> 会是[常见系统错误]之一。</p>
+
+<p>不建议在调用 <code>fs.open()</code> 、<code>fs.readFile()</code> 或 <code>fs.writeFile()</code> 之前使用 <code>fs.stat()</code> 检查一个文件是否存在。
+作为替代，用户代码应该直接打开/读取/写入文件，当文件无效时再处理错误。</p>
+
+<p>如果要检查一个文件是否存在且不操作它，推荐使用 [<code>fs.access()</code>]。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>target</code> {String | Buffer}</li>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>type</code> {String}</li>
+</ul>
+
+<p>同步的 symlink(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>target</code> {String | Buffer}</li>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>type</code> {String}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 symlink(2)。
+完成回调只有一个可能的异常参数。
+<code>type</code> 参数可以设为 <code>'dir'</code>、<code>'file'</code> 或 <code>'junction'</code>（默认为 <code>'file'</code>），且仅在 Windows 上有效（在其他平台上忽略）。
+注意，Windows 结点要求目标路径是绝对的。
+当使用 <code>'junction'</code> 时，<code>target</code> 参数会被自动标准化为绝对路径。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>fs.symlink('./foo', './new-port', callback);
+</code></pre>
+
+<p>它创建了一个名为 "new-port" 且指向 "foo" 的符号链接。</p>
+
+<!-- YAML
+added: v0.8.6
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>len</code> {Integer} 默认 = <code>0</code></li>
+</ul>
+
+<p>同步的 truncate(2)。
+返回 <code>undefined</code>。
+文件描述符也可以作为第一个参数传入，在这种情况下，<code>fs.ftruncateSync()</code> 会被调用。</p>
+
+<!-- YAML
+added: v0.8.6
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>len</code> {Integer} 默认 = <code>0</code></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 truncate(2)。
+完成回调只有一个可能的异常参数。
+文件描述符也可以作为第一个参数传入，在这种情况下，<code>fs.ftruncate()</code> 会被调用。</p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+</ul>
+
+<p>同步的 unlink(2)。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.0.2
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步的 unlink(2)。
+完成回调只有一个可能的异常参数。</p>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>filename</code> {String | Buffer}</li>
+<li><code>listener</code> {Function}</li>
+</ul>
+
+<p>停止监视 <code>filename</code> 文件的变化。
+如果指定了 <code>listener</code>，则只移除特定的监听器。
+否则，<strong>所有</strong>的监听器都会被移除，且已经有效地停止监视 <code>filename</code>。</p>
+
+<p>调用 <code>fs.unwatchFile()</code> 且带上一个未被监视的文件名，将会是一个空操作，而不是一个错误。</p>
+
+<p>注意：[<code>fs.watch()</code>] 比 <code>fs.watchFile()</code> 和 <code>fs.unwatchFile()</code> 更高效。
+可能的话，应该使用 <code>fs.watch()</code> 而不是 <code>fs.watchFile()</code> 和 <code>fs.unwatchFile()</code>。</p>
+
+<!-- YAML
+added: v0.4.2
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>atime</code> {Integer}</li>
+<li><code>mtime</code> {Integer}</li>
+</ul>
+
+<p>[<code>fs.utimes()</code>] 的同步版本。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.4.2
+-->
+
+<ul>
+<li><code>path</code> {String | Buffer}</li>
+<li><code>atime</code> {Integer}</li>
+<li><code>mtime</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>改变指定的路径所指向的文件的文件时间戳。</p>
+
+<p>注意：<code>atime</code> 和 <code>mtime</code> 参数遵循以下规则：</p>
+
+<ul>
+<li>值应该是一个以秒为单位的 Unix 时间戳。
+例如，<code>Date.now()</code> 返回毫秒，所以在传入前应该除以1000。</li>
+<li>如果值是一个数值字符串，如 <code>'123456789'</code>，则该值会被转换为对应的数值。</li>
+<li>如果值是 <code>NaN</code> 或 <code>Infinity</code>，则该值会被转换为 <code>Date.now() / 1000</code>。</li>
+</ul>
+
+<!-- YAML
+added: v0.1.31
+-->
+
+<ul>
+<li><code>filename</code> {String | Buffer}</li>
+<li><code>options</code> {Object}
+<ul><li><code>persistent</code> {Boolean}</li>
+<li><code>interval</code> {Integer}</li></ul></li>
+<li><code>listener</code> {Function}</li>
+</ul>
+
+<p>监视 <code>filename</code> 的变化。
+回调 <code>listener</code> 会在每次访问文件时被调用。</p>
+
+<p><code>options</code> 参数可被省略。
+如果提供的话，它应该是一个对象。
+<code>options</code> 对象可能包含一个名为 <code>persistent</code> 的布尔值，表明当文件正在被监视时，进程是否应该继续运行。
+<code>options</code> 对象可以指定一个 <code>interval</code> 属性，表示目标应该每隔多少毫秒被轮询。
+默认值为 <code>{ persistent: true, interval: 5007 }</code>。</p>
+
+<p><code>listener</code> 有两个参数，当前的状态对象和以前的状态对象：</p>
+
+<pre class="prettyprint"><code>fs.watchFile('message.text', (curr, prev) =&gt; {
+  console.log(`the current mtime is: ${curr.mtime}`);
+  console.log(`the previous mtime was: ${prev.mtime}`);
+});
+</code></pre>
+
+<p>These stat objects are instances of <code>fs.Stat</code>.
+这里的状态对象是 <code>fs.Stat</code> 实例。</p>
+
+<p>如果你想在文件被修改而不只是访问时得到通知，则需要比较 <code>curr.mtime</code> 和 <code>prev.mtime</code>。</p>
+
+<p>注意：当一个 <code>fs.watchFile</code> 的运行结果是一个 <code>ENOENT</code> 错误时，它会调用监听器一次，且将所有字段置零（或将日期设为 Unix 纪元）。
+在 Windows 中，<code>blksize</code> 和 <code>blocks</code> 字段会是 <code>undefined</code> 而不是零。
+如果文件是在那之后创建的，则监听器会被再次调用，且带上最新的状态对象。
+这是在 v0.10 版之后在功能上的变化。</p>
+
+<p>注意：[<code>fs.watch()</code>] 比 <code>fs.watchFile</code> 和 <code>fs.unwatchFile</code> 更高效。
+可能的话，应该使用 <code>fs.watch</code> 而不是 <code>fs.watchFile</code> 和 <code>fs.unwatchFile</code>。</p>
+
+<!-- YAML
+added: v0.5.10
+-->
+
+<ul>
+<li><code>filename</code> {String | Buffer}</li>
+<li><code>options</code> {String | Object}
+<ul><li><code>persistent</code> {Boolean} 指明如果文件正在被监视，进程是否应该继续运行。默认 = <code>true</code></li>
+<li><code>recursive</code> {Boolean} 指明是否全部子目录应该被监视，或只是当前目录。
+适用于当一个目录被指定时，且只在支持的平台（详见 [Caveats]）。默认 = <code>false</code></li>
+<li><code>encoding</code> {String} 指定用于传给监听器的文件名的字符编码。默认 = <code>'utf8'</code></li></ul></li>
+<li><code>listener</code> {Function}</li>
+</ul>
+
+<p>监视 <code>filename</code> 的变化，<code>filename</code> 可以是一个文件或一个目录。
+返回的对象是一个 [<code>fs.FSWatcher</code>]。</p>
+
+<p>第二个参数是可选的。
+如果提供的 <code>options</code> 是一个字符串，则它指定了 <code>encoding</code>。
+否则 <code>options</code> 应该以一个对象传入。</p>
+
+<p>监听器回调有两个参数 <code>(eventType, filename)</code>。
+<code>eventType</code> 可以是 <code>'rename'</code> 或 <code>'change'</code>，<code>filename</code> 是触发事件的文件的名称。</p>
+
+<p>注意，在大多数平台，当一个文件出现或消失在一个目录里时，<code>'rename'</code> 会被触发。</p>
+
+<p>还需要注意，监听器回调是绑定在由 [<code>fs.FSWatcher</code>] 触发的 <code>'change'</code> 事件上，但它跟 <code>eventType</code> 的 <code>'change'</code> 值不是同一个东西。</p>
+
+<!-- YAML
+added: v0.1.29
+-->
+
+<ul>
+<li><code>file</code> {String | Buffer | Integer} 文件名或文件描述符</li>
+<li><code>data</code> {String | Buffer}</li>
+<li><code>options</code> {Object | String}
+<ul><li><code>encoding</code> {String | Null} 默认 = <code>'utf8'</code></li>
+<li><code>mode</code> {Integer} 默认 = <code>0o666</code></li>
+<li><code>flag</code> {String} 默认 = <code>'w'</code></li></ul></li>
+</ul>
+
+<p>[<code>fs.writeFile()</code>] 的同步版本。返回 <code>undefined</code>。</p>
+
+<!-- YAML
+added: v0.1.29
+-->
+
+<ul>
+<li><code>file</code> {String | Buffer | Integer} 文件名或文件描述符</li>
+<li><code>data</code> {String | Buffer}</li>
+<li><code>options</code> {Object | String}
+<ul><li><code>encoding</code> {String | Null} 默认 = <code>'utf8'</code></li>
+<li><code>mode</code> {Integer} 默认 = <code>0o666</code></li>
+<li><code>flag</code> {String} 默认 = <code>'w'</code></li></ul></li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>异步地写入数据到文件，如果文件已经存在，则替代文件。
+<code>data</code> 可以是一个字符串或一个 buffer。</p>
+
+<p>如果 <code>data</code> 是一个 buffer，则忽略 <code>encoding</code> 选项。它默认为 <code>'utf8'</code>。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>fs.writeFile('message.txt', 'Hello Node.js', (err) =&gt; {
+  if (err) throw err;
+  console.log('The file has been saved!');
+});
+</code></pre>
+
+<p>如果 <code>options</code> 是一个字符串，则它指定了字符编码。例如：</p>
+
+<pre class="prettyprint"><code>fs.writeFile('message.txt', 'Hello Node.js', 'utf8', callback);
+</code></pre>
+
+<p>任何指定的文件描述符必须支持写入。</p>
+
+<p>注意，多次对同一文件使用 <code>fs.writeFile</code> 且不等待回调，是不安全的。
+对于这种情况，强烈推荐使用 <code>fs.createWriteStream</code>。</p>
+
+<p><strong>注意：如果 <code>file</code> 指定为一个文件描述符，则它不会被自动关闭。</strong></p>
+
+<!-- YAML
+added: v0.1.21
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>buffer</code> {String | Buffer}</li>
+<li><code>offset</code> {Integer}</li>
+<li><code>length</code> {Integer}</li>
+<li><code>position</code> {Integer}</li>
+</ul>
+
+<!-- YAML
+added: v0.11.5
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>data</code> {String | Buffer}</li>
+<li><code>position</code> {Integer}</li>
+<li><code>encoding</code> {String}</li>
+</ul>
+
+<p>[<code>fs.write()</code>] 的同步版本。返回写入的字节数。</p>
+
+<!-- YAML
+added: v0.0.2
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>buffer</code> {String | Buffer}</li>
+<li><code>offset</code> {Integer}</li>
+<li><code>length</code> {Integer}</li>
+<li><code>position</code> {Integer}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>写入 <code>buffer</code> 到 <code>fd</code> 指定的文件。</p>
+
+<p><code>offset</code> 决定 buffer 中被写入的部分，<code>length</code> 是一个整数，指定要写入的字节数。</p>
+
+<p><code>position</code> 指向从文件开始写入数据的位置的偏移量。
+如果 <code>typeof position !== 'number'</code>，则数据从当前位置写入。详见 pwrite(2)。</p>
+
+<p>回调有三个参数 <code>(err, written, buffer)</code>，其中 <code>written</code> 指定从 <code>buffer</code> 写入了多少<strong>字节</strong>。</p>
+
+<p>注意，多次对同一文件使用 <code>fs.write</code> 且不等待回调，是不安全的。
+对于这种情况，强烈推荐使用 <code>fs.createWriteStream</code>。</p>
+
+<p>在 Linux 上，当文件以追加模式打开时，指定位置的写入是不起作用的。
+内核会忽略位置参数，并总是将数据追加到文件的末尾。</p>
+
+<!-- YAML
+added: v0.11.5
+-->
+
+<ul>
+<li><code>fd</code> {Integer}</li>
+<li><code>data</code> {String | Buffer}</li>
+<li><code>position</code> {Integer}</li>
+<li><code>encoding</code> {String}</li>
+<li><code>callback</code> {Function}</li>
+</ul>
+
+<p>写入 <code>data</code> 到 <code>fd</code> 指定的文件。
+如果 <code>data</code> 不是一个 Buffer 实例，则该值将被强制转换为一个字符串。</p>
+
+<p><code>position</code> 指向从文件开始写入数据的位置的偏移量。
+如果 <code>typeof position !== 'number'</code>，则数据从当前位置写入。详见 pwrite(2)。</p>
+
+<p><code>encoding</code> 是期望的字符串编码。</p>
+
+<p>回调有三个参数 <code>(err, written, string)</code>，其中 <code>written</code> 指定传入的字符串被写入多少字节。
+注意，写入的字节与字符串的字符是不同的。详见 [<code>Buffer.byteLength</code>]。</p>
+
+<p>不同于写入 <code>buffer</code>，该方法整个字符串必须被写入。
+不能指定子字符串。
+这是因为结果数据的字节偏移量可能与字符串的偏移量不同。</p>
+
+<p>注意，多次对同一文件使用 <code>fs.write</code> 且不等待回调，是不安全的。
+对于这种情况，强烈推荐使用 <code>fs.createWriteStream</code>。</p>
+
+<p>在 Linux 上，当文件以追加模式打开时，指定位置的写入是不起作用的。
+内核会忽略位置参数，并总是将数据追加到文件的末尾。</p>
+
+<!--type=misc-->
+
+<p>在 Linux 或 OS X 系统中，<code>fs.watch()</code> 解析路径到一个[索引节点]，并监视该索引节点。
+如果监视的路径被删除或重建，则它会被分配一个新的索引节点。
+监视器会发出一个删除事件，但会继续监视<strong>原始的</strong>索引节点。
+新建的索引节点的事件不会被触发。
+这是正常的行为。</p>
+
+<!-- YAML
+added: 6.4.0
+-->
+
+<p>已读取的字节数。</p>
+
+<!-- YAML
+added: v0.1.93
+-->
+
+<p>流正在读取的文件的路径，指定在 <code>fs.createReadStream()</code> 的第一个参数。
+如果 <code>path</code> 传入的是一个字符串，则 <code>readStream.path</code> 是一个字符串。
+如果 <code>path</code> 传入的是一个 <code>Buffer</code>，则 <code>readStream.path</code> 是一个 <code>Buffer</code>。</p>
+
+<p>stat 对象中的时间有以下语义：</p>
+
+<ul>
+<li><code>atime</code> "访问时间" - 文件数据最近被访问的时间。
+会被 mknod(2)、 utimes(2) 和 read(2) 系统调用改变。</li>
+<li><code>mtime</code> "修改时间" - 文件数据最近被修改的时间。
+会被 mknod(2)、 utimes(2) 和 write(2) 系统调用改变。</li>
+<li><code>ctime</code> "变化时间" - 文件状态最近更改的时间（修改索引节点数据）
+会被 chmod(2)、 chown(2)、 link(2)、 mknod(2)、 rename(2)、 unlink(2)、 utimes(2)、 read(2) 和 write(2) 系统调用改变。</li>
+<li><code>birthtime</code> "创建时间" -  文件创建的时间。
+当文件被创建时设定一次。
+在创建时间不可用的文件系统中，该字段可能被替代为 <code>ctime</code> 或 <code>1970-01-01T00:00Z</code>（如 Unix 的纪元时间戳 <code>0</code>）。
+注意，该值在此情况下可能会大于 <code>atime</code> 或 <code>mtime</code>。
+在 Darwin 和其它的 FreeBSD 衍生系统中，如果 <code>atime</code> 被使用 utimes(2) 系统调用显式地设置为一个比当前 <code>birthtime</code> 更早的值，也会有这种情况。</li>
+</ul>
+
+<p>在 Node.js v0.12 之前的版本中，<code>ctime</code> 在 Windows 系统中保存 <code>birthtime</code>。
+注意，在 v0.12 中，<code>ctime</code> 不是“创建时间”，并且在 Unix 系统中，它从来都不是。</p>
+
+<!-- YAML
+added: v0.5.8
+-->
+
+<p>停止监视给定的 <code>fs.FSWatcher</code> 的变化。</p>
+
+<!-- YAML
+added: v0.4.7
+-->
+
+<p>已写入的字节数。
+不包括仍在排队等待写入的数据。</p>
+
+<!-- YAML
+added: v0.1.93
+-->
+
+<p>流正在写入的文件的路径，指定在 <code>fs.createWriteStream()</code> 的第一个参数。
+如果 <code>path</code> 传入的是一个字符串，则 <code>writeStream.path</code> 是一个字符串。
+如果 <code>path</code> 传入的是一个 <code>Buffer</code>，则 <code>writeStream.path</code> 是一个 <code>Buffer</code>。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

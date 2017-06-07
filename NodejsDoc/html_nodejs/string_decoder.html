@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!-- YAML
+added: v0.1.99
+-->
+
+<ul>
+<li><code>encoding</code> {string} <code>StringDecoder</code> 使用的字符编码。默认为 <code>'utf8'</code>。</li>
+</ul>
+
+<p>创建一个新的 <code>StringDecoder</code> 实例。</p>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>string_decoder</code> 模块提供了一个 API，用于解码 <code>Buffer</code> 对象成字符串。它可以通过以下方式被使用：</p>
+
+<pre class="prettyprint"><code>const StringDecoder = require('string_decoder').StringDecoder;
+</code></pre>
+
+<p>以下例子展示了 <code>StringDecoder</code> 类的基本用法。</p>
+
+<pre class="prettyprint"><code>const StringDecoder = require('string_decoder').StringDecoder;
+const decoder = new StringDecoder('utf8');
+
+const cent = Buffer.from([0xC2, 0xA2]);
+console.log(decoder.write(cent));
+
+const euro = Buffer.from([0xE2, 0x82, 0xAC]);
+console.log(decoder.write(euro));
+</code></pre>
+
+<p>当一个 <code>Buffer</code> 实例被写入 <code>StringDecoder</code> 实例时，一个内部的 buffer 会被用于确保解码后的字符串不包含任何不完整的多字节字符。
+不完整的多字节字符被保存在 buffer 中，直到下次调用 <code>stringDecoder.write()</code> 或直到 <code>stringDecoder.end()</code> 被调用。</p>
+
+<p>以下例子中，欧元符号（<code>€</code>）的三个 UTF-8 编码的字节被分成三次操作写入：</p>
+
+<pre class="prettyprint"><code>const StringDecoder = require('string_decoder').StringDecoder;
+const decoder = new StringDecoder('utf8');
+
+decoder.write(Buffer.from([0xE2]));
+decoder.write(Buffer.from([0x82]));
+console.log(decoder.end(Buffer.from([0xAC])));
+</code></pre>
+
+<!-- YAML
+added: v0.9.3
+-->
+
+<ul>
+<li><code>buffer</code> {Buffer} 一个包含了要解码的字节的 <code>Buffer</code>。</li>
+</ul>
+
+<p>以字符串的形式返回任何剩下的被保存在内部 buffer 中的字节。
+不完整的 UTF-8 与 UTF-16 字符的字节会被替换成符合字符编码的替代字符。</p>
+
+<p>如果提供了 <code>buffer</code> 参数，则在返回剩余字节之前会再执行一次 <code>stringDecoder.write()</code>。</p>
+
+<!-- YAML
+added: v0.1.99
+-->
+
+<ul>
+<li><code>buffer</code> {Buffer} 一个包含了要解码的字节的 <code>Buffer</code>。</li>
+</ul>
+
+<p>返回一个解码后的字符串，并确保 <code>Buffer</code> 末尾的任何不完整的多字节字符从返回的字符串中被过滤并保存在一个内部的 buffer 中用于下次调用 <code>stringDecoder.write()</code> 或 <code>stringDecoder.end()</code>。</p>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>string_decoder</code> 模块提供了一个 API，用于解码 <code>Buffer</code> 对象成字符串。它可以通过以下方式被使用：</p>
+
+<pre class="prettyprint"><code>const StringDecoder = require('string_decoder').StringDecoder;
+</code></pre>
+
+<p>以下例子展示了 <code>StringDecoder</code> 类的基本用法。</p>
+
+<pre class="prettyprint"><code>const StringDecoder = require('string_decoder').StringDecoder;
+const decoder = new StringDecoder('utf8');
+
+const cent = Buffer.from([0xC2, 0xA2]);
+console.log(decoder.write(cent));
+
+const euro = Buffer.from([0xE2, 0x82, 0xAC]);
+console.log(decoder.write(euro));
+</code></pre>
+
+<p>当一个 <code>Buffer</code> 实例被写入 <code>StringDecoder</code> 实例时，一个内部的 buffer 会被用于确保解码后的字符串不包含任何不完整的多字节字符。
+不完整的多字节字符被保存在 buffer 中，直到下次调用 <code>stringDecoder.write()</code> 或直到 <code>stringDecoder.end()</code> 被调用。</p>
+
+<p>以下例子中，欧元符号（<code>€</code>）的三个 UTF-8 编码的字节被分成三次操作写入：</p>
+
+<pre class="prettyprint"><code>const StringDecoder = require('string_decoder').StringDecoder;
+const decoder = new StringDecoder('utf8');
+
+decoder.write(Buffer.from([0xE2]));
+decoder.write(Buffer.from([0x82]));
+console.log(decoder.end(Buffer.from([0xAC])));
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><p><code>console</code> 函数通常是异步的，除非目标是一个文件。
+带有高速磁盘的操作系统通常采用回写缓存；写入阻塞是一个非常罕见的情况，但存在可能性。</p>
+
+<p>此外，当输出到 OS X 的 TTY（终端）时，因操作系统较小的 1kb 的缓存大小，<code>console</code> 函数会遭到阻塞。
+这是为了防止 <code>stdout</code> 和 <code>stderr</code> 的交叉存取。</p>
+
+<!--type=class-->
+
+<p><code>Console</code> 类可用于创建一个具有可配置的输出流的简单记录器，可以通过 <code>require('console').Console</code> 或 <code>console.Console</code> 使用：</p>
+
+<pre class="prettyprint"><code>const Console = require('console').Console;
+const Console = console.Console;
+</code></pre>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>console</code> 模块提供了一个简单的调试控制台，它与 Web 浏览器提供的 JavaScript 控制台的机制类似。</p>
+
+<p>该模块导出两个特定组件：</p>
+
+<ul>
+<li>一个 <code>Console</code> 类，包含 <code>console.log()</code> 、 <code>console.error()</code> 和 <code>console.warn()</code> 等方法，可以用于写入到任何 Node.js 流。</li>
+<li>一个全局的 <code>console</code> 实例，用于写入 [<code>process.stdout</code>] 和 [<code>process.stderr</code>]。
+全局的 <code>console</code> 使用时无需调用 <code>require('console')</code>。</li>
+</ul>
+
+<p>注意：全局的 console 对象的方法既不总是同步的（如浏览器中类似的 API），也不总是异步的（如其他 Node.js 流）。
+详见 [关于 process I/O]。</p>
+
+<p>例子：使用全局的 <code>console</code>：</p>
+
+<pre class="prettyprint"><code>console.log('hello world');
+// 打印: hello world 到 stdout
+console.log('hello %s', 'world');
+// 打印: hello world 到 stdout
+console.error(new Error('错误信息'));
+// 打印: [Error: 错误信息] 到 stderr
+
+const name = 'Will Robinson';
+console.warn(`Danger ${name}! Danger!`);
+// 打印: Danger Will Robinson! Danger! 到 stderr
+</code></pre>
+
+<p>例子：使用 <code>Console</code> 类：</p>
+
+<pre class="prettyprint"><code>const out = getStreamSomehow();
+const err = getStreamSomehow();
+const myConsole = new console.Console(out, err);
+
+myConsole.log('hello world');
+// 打印: hello world 到 out
+myConsole.log('hello %s', 'world');
+// 打印: hello world 到 out
+myConsole.error(new Error('错误信息'));
+// 打印: [Error: 错误信息] 到 err
+
+const name = 'Will Robinson';
+myConsole.warn(`Danger ${name}! Danger!`);
+// 打印: Danger Will Robinson! Danger! 到 err
+</code></pre>
+
+<!-- YAML
+added: v0.1.101
+-->
+
+<p>一个简单的断言测试，验证 <code>value</code> 是否为真。
+如果不为真，则抛出 <code>AssertionError</code>。
+如果提供了 <code>message</code>，则使用 [<code>util.format()</code>] 格式化并作为错误信息使用。</p>
+
+<pre class="prettyprint"><code>console.assert(true, 'does nothing');
+// 通过
+console.assert(false, 'Whoops %s', 'didn\'t work');
+// AssertionError: Whoops didn't work
+</code></pre>
+
+<p>注意：Node.js 中的 <code>console.assert()</code> 方法与[在浏览器中]的 <code>console.assert()</code> 方法的实现是不一样的。</p>
+
+<p>具体地说，在浏览器中，用非真的断言调用 <code>console.assert()</code> 会导致 <code>message</code> 被打印到控制台但不会中断后续代码的执行。
+而在 Node.js 中，非真的断言会导致抛出 <code>AssertionError</code>。</p>
+
+<p>可以通过扩展 Node.js 的 <code>console</code> 并重写 <code>console.assert()</code> 方法来实现与浏览器中类似的功能。</p>
+
+<p>例子，创建一个简单的模块，并扩展与重写了 Node.js 中 <code>console</code> 的默认行为。</p>
+
+<pre class="prettyprint"><code>'use strict';
+
+// 用一个新的不带补丁的 assert 实现来创建一个简单的 console 扩展。
+const myConsole = Object.create(console, {
+  assert: {
+    value: function assert(assertion, message, ...args) {
+      try {
+        console.assert(assertion, message, ...args);
+      } catch (err) {
+        console.error(err.stack);
+      }
+    },
+    configurable: true,
+    enumerable: true,
+    writable: true,
+  },
+});
+
+module.exports = myConsole;
+</code></pre>
+
+<p>然后可以用来直接替换内置的 console：</p>
+
+<pre class="prettyprint"><code>const console = require('./myConsole');
+console.assert(false, '会打印这个消息，但不会抛出错误');
+console.log('这个也会打印');
+</code></pre>
+
+<!-- YAML
+added: v0.1.101
+-->
+
+<p>在 <code>obj</code> 上使用 [<code>util.inspect()</code>] 并打印结果字符串到 <code>stdout</code>。
+该函数会绕过任何定义在 <code>obj</code> 上的自定义的 <code>inspect()</code> 函数。
+可选的 <code>options</code> 对象可以传入用于改变被格式化的字符串：</p>
+
+<ul>
+<li><p><code>showHidden</code> - 如果为 <code>true</code>，则该对象中的不可枚举属性和 symbol 属性也会显示。默认为 <code>false</code>。</p></li>
+<li><p><code>depth</code> - 告诉 [<code>util.inspect()</code>] 函数当格式化对象时要递归多少次。
+这对于检查较大的复杂对象很有用。
+默认为 <code>2</code>。
+设为 <code>null</code> 可无限递归。</p></li>
+<li><p><code>colors</code> - 如果为 <code>true</code>，则输出会带有 ANSI 颜色代码。
+默认为 <code>false</code>。
+颜色是可定制的，详见[定制 <code>util.inspect()</code> 颜色]。</p></li>
+</ul>
+
+<!-- YAML
+added: v0.1.100
+-->
+
+<p>打印到 <code>stderr</code>，并带上换行符。
+可以传入多个参数，第一个参数作为主要信息，其他参数作为类似于 printf(3) 中的代替值（参数都会传给 [<code>util.format()</code>]）。</p>
+
+<pre class="prettyprint"><code>const code = 5;
+console.error('error #%d', code);
+// 打印: error #5 到 stderr
+console.error('error', code);
+// 打印: error 5 到 stderr
+</code></pre>
+
+<p>如果在第一个字符串中没有找到格式化元素（如 <code>%d</code>），则在每个参数上调用 [<code>util.inspect()</code>] 并将结果字符串值拼在一起。
+详见 [<code>util.format()</code>]。</p>
+
+<!-- YAML
+added: v0.1.100
+-->
+
+<p><code>console.info()</code> 函数是 [<code>console.log()</code>] 的一个别名。</p>
+
+<!-- YAML
+added: v0.1.100
+-->
+
+<p>打印到 <code>stdout</code>，并带上换行符。
+可以传入多个参数，第一个参数作为主要信息，其他参数作为类似于 printf(3) 中的代替值（参数都会传给 [<code>util.format()</code>]）。</p>
+
+<pre class="prettyprint"><code>const count = 5;
+console.log('count: %d', count);
+// 打印: count: 5 到 stdout
+console.log('count:', count);
+// 打印: count: 5 到 stdout
+</code></pre>
+
+<p>如果在第一个字符串中没有找到格式化元素（如 <code>%d</code>），则在每个参数上调用 [<code>util.inspect()</code>] 并将结果字符串值拼在一起。
+详见 [<code>util.format()</code>]。</p>
+
+<!-- YAML
+added: v0.1.104
+-->
+
+<p>停止之前通过调用 [<code>console.time()</code>] 启动的定时器，并打印结果到 <code>stdout</code>：</p>
+
+<pre class="prettyprint"><code>console.time('100-elements');
+for (let i = 0; i &lt; 100; i++) {
+  ;
+}
+console.timeEnd('100-elements');
+// 打印 100-elements: 225.438ms
+</code></pre>
+
+<p>注意：从 Node.js v6.0.0 开始，<code>console.timeEnd()</code> 删除了计时器以避免泄漏。
+在旧版本上，计时器依然保留。
+它允许 <code>console.timeEnd()</code> 可以多次调用同一标签。
+此功能是非计划中的，不再被支持。</p>
+
+<!-- YAML
+added: v0.1.104
+-->
+
+<p>启动一个定时器，用以计算一个操作的持续时间。
+定时器由一个唯一的 <code>label</code> 标识。
+当调用 [<code>console.timeEnd()</code>] 时，可以使用相同的 <code>label</code> 来停止定时器，并以毫秒为单位将持续时间输出到 <code>stdout</code>。
+定时器持续时间精确到亚毫秒。</p>
+
+<!-- YAML
+added: v0.1.104
+-->
+
+<p>打印字符串 <code>'Trace :'</code> 到 <code>stderr</code> ，并通过 [<code>util.format()</code>] 格式化消息与堆栈跟踪在代码中的当前位置。</p>
+
+<pre class="prettyprint"><code>console.trace('Show me');
+// 打印: (堆栈跟踪会根据被调用的跟踪的位置而变化)
+//  Trace: Show me
+//    at repl:2:9
+//    at REPLServer.defaultEval (repl.js:248:27)
+//    at bound (domain.js:287:14)
+//    at REPLServer.runBound [as eval] (domain.js:300:12)
+//    at REPLServer.&lt;anonymous&gt; (repl.js:412:12)
+//    at emitOne (events.js:82:20)
+//    at REPLServer.emit (events.js:169:7)
+//    at REPLServer.Interface._onLine (readline.js:210:10)
+//    at REPLServer.Interface._line (readline.js:549:8)
+//    at REPLServer.Interface._ttyWrite (readline.js:826:14)
+</code></pre>
+
+<!-- YAML
+added: v0.1.100
+-->
+
+<p><code>console.warn()</code> 函数是 [<code>console.error()</code>] 的一个别名。</p>
+
+<p>通过传入一个或两个可写流实例，创建一个新的 <code>Console</code> 对象。
+<code>stdout</code> 是一个可写流，用于打印日志或输出信息。
+<code>stderr</code> 用于输出警告或错误。
+如果没有传入 <code>stderr</code> ，则警告或错误输出会被发送到 <code>stdout</code> 。</p>
+
+<pre class="prettyprint"><code>const output = fs.createWriteStream('./stdout.log');
+const errorOutput = fs.createWriteStream('./stderr.log');
+// 自定义的简单记录器
+const logger = new Console(output, errorOutput);
+// 像 console 一样使用
+const count = 5;
+logger.log('count: %d', count);
+// stdout.log 中打印: count 5
+</code></pre>
+
+<p>全局的 <code>console</code> 是一个特殊的 <code>Console</code> 实例，它的输出会发送到 [<code>process.stdout</code>] 和 [<code>process.stderr</code>]。
+相当于调用：</p>
+
+<pre class="prettyprint"><code>new Console(process.stdout, process.stderr);
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

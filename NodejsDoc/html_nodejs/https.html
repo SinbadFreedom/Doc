@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><!-- YAML
+added: v0.4.5
+-->
+
+<p>HTTPS 的一个类似于 [<code>http.Agent</code>] 的代理对象。查看 [<code>https.request()</code>] 获取更多信息。</p>
+
+<!-- YAML
+added: v0.3.4
+-->
+
+<p>这个类是 <code>tls.Server</code> 的子类，跟 [<code>http.Server</code>] 一样触发事件。查看[<code>http.Server</code>] 获取更多信息。</p>
+
+<blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p>HTTPS 是 HTTP 基于 TLS/SSL 的版本。在 Node.js 中，它被实现为一个独立的模块。</p>
+
+<!-- YAML
+added: v0.3.4
+-->
+
+<p>返回一个新的 HTTPS 网络服务器对象。
+参数 <code>options</code> 类似于 [<code>tls.createServer()</code>]。
+参数 <code>requestListener</code> 是一个自动被加到 <code>'request'</code> 事件中的函数。</p>
+
+<p>例子:</p>
+
+<pre class="prettyprint"><code>// curl -k https://localhost:8000/
+const https = require('https');
+const fs = require('fs');
+
+const options = {
+  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),
+  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem')
+};
+
+https.createServer(options, (req, res) =&gt; {
+  res.writeHead(200);
+  res.end('hello world\n');
+}).listen(8000);
+</code></pre>
+
+<p>或者</p>
+
+<pre class="prettyprint"><code>const https = require('https');
+const fs = require('fs');
+
+const options = {
+  pfx: fs.readFileSync('test/fixtures/test_cert.pfx'),
+  passphrase: 'sample'
+};
+
+https.createServer(options, (req, res) =&gt; {
+  res.writeHead(200);
+  res.end('hello world\n');
+}).listen(8000);
+</code></pre>
+
+<!-- YAML
+added: v0.3.6
+-->
+
+<p>类似 [<code>http.get()</code>]，但是用于 HTTPS。</p>
+
+<p>参数 <code>options</code> 可以是一个对象或是一个字符串。
+如果参数 <code>options</code> 是一个字符串, 它自动被 [<code>url.parse()</code>] 所解析。</p>
+
+<p>例子:</p>
+
+<pre class="prettyprint"><code>const https = require('https');
+
+https.get('https://encrypted.google.com/', (res) =&gt; {
+  console.log('状态码：', res.statusCode);
+  console.log('请求头：', res.headers);
+
+  res.on('data', (d) =&gt; {
+    process.stdout.write(d);
+  });
+
+}).on('error', (e) =&gt; {
+  console.error(e);
+});
+</code></pre>
+
+<!-- YAML
+added: v0.5.9
+-->
+
+<p>[<code>https.Agent</code>] 的全局实例，用于所有 HTTPS 客户端请求。</p>
+
+<!-- YAML
+added: v0.3.6
+-->
+
+<p>向一个安全的服务器发起一个请求。</p>
+
+<p>参数 <code>options</code> 可以是一个对象或是一个字符串。
+如果参数 <code>options</code> 是一个字符串, 它自动被 [<code>url.parse()</code>] 所解析。</p>
+
+<p>所有来自 [<code>http.request()</code>] 的参数都是可用的。</p>
+
+<p>例子:</p>
+
+<pre class="prettyprint"><code>const https = require('https');
+
+const options = {
+  hostname: 'encrypted.google.com',
+  port: 443,
+  path: '/',
+  method: 'GET'
+};
+
+const req = https.request(options, (res) =&gt; {
+  console.log('状态码：', res.statusCode);
+  console.log('请求头：', res.headers);
+
+  res.on('data', (d) =&gt; {
+    process.stdout.write(d);
+  });
+});
+
+req.on('error', (e) =&gt; {
+  console.error(e);
+});
+req.end();
+</code></pre>
+
+<p><code>options</code> 参数可以有以下选择：</p>
+
+<ul>
+<li><code>host</code>: 一个处理请求的服务器的域名或者IP地址，默认是 <code>loaclhost</code>。</li>
+<li><code>hostname</code>: <code>host</code> 的别名。为了更好地支持 <code>url.parse()</code>，<code>hostname</code> 比 <code>host</code> 更被推荐使用。</li>
+<li><code>family</code>: 用于解析 <code>host</code> and <code>hostname</code> 的 IP 地址族。
+<code>4</code> 或者 <code>6</code> 都是有效数值。当不被指定时，IPv4 和 IPv6 都将被使用。</li>
+<li><code>port</code>: 远程服务器的端口。默认是 443。</li>
+<li><code>localAddress</code>: 用来绑定网络连接的本地接口。</li>
+<li><code>socketPath</code>: Unix 域 Socket（使用 host:port 或者 socketPath）。</li>
+<li><code>method</code>: 一个用来指定 HTTP 请求方法的字符串。默认是 <code>'GET'</code>。</li>
+<li><code>path</code>: 请求路径。默认是<code>'/'</code>。如果有的话，应该包含请求字符串。
+例如 <code>'/index.html?page=12'</code>。当请求路径包含非法字符的时候，将抛出异常。目前只有空格字符被拒绝，但是未来可能会有改变。</li>
+<li><code>headers</code>: 一个包含请求头的对象。</li>
+<li><code>auth</code>: 基本认证，例如 <code>'user:password'</code> 来计算认证头。</li>
+<li><code>agent</code>: 控制 [<code>Agent</code>] 的行为。当用代理时，请求默认是<code>Connection: keep-alive</code>。可能的值有:
+<ul><li><code>undefined</code> (默认): 这个主机和端口使用 [<code>globalAgent</code>]。</li>
+<li><code>Agent</code> 对象: 显式地在 <code>Agent</code> 中用传进来的参数。</li>
+<li><code>false</code>: 不对连接池使用 Agent, 默认是 <code>Connection: close</code>。</li></ul></li>
+</ul>
+
+<p>下面是来自 [<code>tls.connect()</code>] 的参数，它也可以被设置为:</p>
+
+<ul>
+<li><code>pfx</code>: 证书, 用于 SSL 的私钥和 CA 证书。默认是 <code>null</code>。</li>
+<li><code>key</code>: 用于 SSL 的私钥。默认是 <code>null</code>。</li>
+<li><code>passphrase</code>: 用于私钥或是 pfx 的密码字符串。默认是 <code>null</code>。</li>
+<li><code>cert</code>: 公共 x509 证书。默认是 <code>null</code>。</li>
+<li><code>ca</code>: 一个字符串、[<code>Buffer</code>]、字符串数组、或 PEM 格式的可信赖证书的 [<code>Buffer</code>]。 
+如果这被忽略，那么著名的根证书将被使用，比如说 VeriSign 数字证书。这些被用来授权连接。</li>
+<li><code>ciphers</code>: 一个用来描述要使用或排除的密码的字符串。
+查看 <a href="https://www.openssl.org/docs/man1.0.2/apps/ciphers.html#CIPHER-LIST-FORMAT">https://www.openssl.org/docs/man1.0.2/apps/ciphers.html#CIPHER-LIST-FORMAT</a> 获取格式的细节。</li>
+<li><code>rejectUnauthorized</code>: 如果设置为 <code>true</code>, 服务器证书根据CA提供的列表来进行验证。 
+如果验证失败的话，一个 <code>'error'</code> 事件将被触发。
+验证发生在连接层次, <em>早于</em> HTTP请求的发送。默认是 <code>true</code>。</li>
+<li><code>secureProtocol</code>: 使用的 SSL 方法，
+例如 <code>SSLv3_method</code> 来强制使用 SSL 版本 3。
+可能的值取决于安装的 OpenSSL 的版本，它被定义在 [<code>SSL_METHODS</code>] 常数中。</li>
+<li><code>servername</code>: SNI (Server Name Indication) TLS 扩展的服务器名。</li>
+</ul>
+
+<p>为了确定这些参数, 用一个定制的 [<code>Agent</code>]。</p>
+
+<p>例子:</p>
+
+<pre class="prettyprint"><code>const options = {
+  hostname: 'encrypted.google.com',
+  port: 443,
+  path: '/',
+  method: 'GET',
+  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),
+  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem')
+};
+options.agent = new https.Agent(options);
+
+const req = https.request(options, (res) =&gt; {
+  // ...
+});
+</code></pre>
+
+<p>也可以不对连接池使用 <code>Agent</code>。</p>
+
+<p>例子:</p>
+
+<pre class="prettyprint"><code>const options = {
+  hostname: 'encrypted.google.com',
+  port: 443,
+  path: '/',
+  method: 'GET',
+  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),
+  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem'),
+  agent: false
+};
+
+const req = https.request(options, (res) =&gt; {
+  // ...
+});
+</code></pre>
+
+<!-- YAML
+added: v0.1.90
+-->
+
+<p>查看 [<code>http.close()</code>] 获取细节。</p>
+
+<p>查看 [<code>http.listen()</code>] 获取细节。</p>
+
+<!-- YAML
+added: v0.11.2
+-->
+
+<p>查看 [<code>http.Server#setTimeout()</code>]。</p>
+
+<!-- YAML
+added: v0.11.2
+-->
+
+<p>查看 [<code>http.Server#timeout</code>]。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

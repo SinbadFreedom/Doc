@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><blockquote>
+  <p>稳定性: 2 - 稳定的</p>
+</blockquote>
+
+<p><code>path</code> 模块提供了一些工具函数，用于处理文件与目录的路径。可以通过以下方式使用：</p>
+
+<pre class="prettyprint"><code>const path = require('path');
+</code></pre>
+
+<!-- YAML
+added: v0.1.25
+-->
+
+<ul>
+<li><code>path</code> {String}</li>
+<li><code>ext</code> {String} 可选的文件扩展名</li>
+<li>返回: {String}</li>
+</ul>
+
+<p><code>path.basename()</code> 方法返回一个 <code>path</code> 的最后一部分，类似于 Unix 中的 <code>basename</code> 命令。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>path.basename('/foo/bar/baz/asdf/quux.html')
+// 返回: 'quux.html'
+
+path.basename('/foo/bar/baz/asdf/quux.html', '.html')
+// 返回: 'quux'
+</code></pre>
+
+<p>如果 <code>path</code> 不是一个字符串或提供了 <code>ext</code> 但不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.9.3
+-->
+
+<ul>
+<li>{String}</li>
+</ul>
+
+<p>提供平台特定的路径分隔符：</p>
+
+<ul>
+<li>Windows 上是 <code>;</code></li>
+<li>POSIX 上是 <code>:</code></li>
+</ul>
+
+<p>例如，在 POSIX 上：</p>
+
+<pre class="prettyprint"><code>console.log(process.env.PATH)
+// 输出: '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin'
+
+process.env.PATH.split(path.delimiter)
+// 返回: ['/usr/bin', '/bin', '/usr/sbin', '/sbin', '/usr/local/bin']
+</code></pre>
+
+<p>在 Windows 上：</p>
+
+<pre class="prettyprint"><code>console.log(process.env.PATH)
+// 输出: 'C:\Windows\system32;C:\Windows;C:\Program Files\node\'
+
+process.env.PATH.split(path.delimiter)
+// 返回: ['C:\\Windows\\system32', 'C:\\Windows', 'C:\\Program Files\\node\\']
+</code></pre>
+
+<!-- YAML
+added: v0.1.16
+-->
+
+<ul>
+<li><code>path</code> {String}</li>
+<li>返回: {String}</li>
+</ul>
+
+<p><code>path.dirname()</code> 方法返回一个 <code>path</code> 的目录名，类似于 Unix 中的 <code>dirname</code> 命令。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>path.dirname('/foo/bar/baz/asdf/quux')
+// 返回: '/foo/bar/baz/asdf'
+</code></pre>
+
+<p>如果 <code>path</code> 不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.1.25
+-->
+
+<ul>
+<li><code>path</code> {String}</li>
+<li>返回: {String}</li>
+</ul>
+
+<p><code>path.extname()</code> 方法返回 <code>path</code> 的扩展名，即从 <code>path</code> 的最后一部分中的最后一个 <code>.</code>（句号）字符到字符串结束。
+如果 <code>path</code> 的最后一部分没有 <code>.</code> 或 <code>path</code> 的文件名（见 <code>path.basename()</code>）的第一个字符是 <code>.</code>，则返回一个空字符串。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>path.extname('index.html')
+// 返回: '.html'
+
+path.extname('index.coffee.md')
+// 返回: '.md'
+
+path.extname('index.')
+// 返回: '.'
+
+path.extname('index')
+// 返回: ''
+
+path.extname('.index')
+// 返回: ''
+</code></pre>
+
+<p>如果 <code>path</code> 不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.11.15
+-->
+
+<ul>
+<li><code>pathObject</code> {Object}
+<ul><li><code>dir</code> {String}</li>
+<li><code>root</code> {String}</li>
+<li><code>base</code> {String}</li>
+<li><code>name</code> {String}</li>
+<li><code>ext</code> {String}</li></ul></li>
+<li>返回: {String}</li>
+</ul>
+
+<p><code>path.format()</code> 方法会从一个对象返回一个路径字符串。
+与 [<code>path.parse()</code>] 相反。</p>
+
+<p>当 <code>pathObject</code> 提供的属性有组合时，有些属性的优先级比其他的高：</p>
+
+<ul>
+<li>如果提供了 <code>pathObject.dir</code>，则 <code>pathObject.root</code> 会被忽略</li>
+<li>如果提供了 <code>pathObject.base</code> 存在，则 <code>pathObject.ext</code> 和 <code>pathObject.name</code> 会被忽略</li>
+</ul>
+
+<p>例如，在 POSIX 上：</p>
+
+<pre class="prettyprint"><code>// 如果提供了 `dir`、`root` 和 `base`，则返回 `${dir}${path.sep}${base}`。
+// `root` 会被忽略。
+path.format({
+  root: '/ignored',
+  dir: '/home/user/dir',
+  base: 'file.txt'
+});
+// 返回: '/home/user/dir/file.txt'
+
+// 如果没有指定 `dir`，则 `root` 会被使用。
+// 如果只提供了 `root` 或 `dir` 等于 `root`，则平台的分隔符不会被包含。
+// `ext` 会被忽略。
+path.format({
+  root: '/',
+  base: 'file.txt',
+  ext: 'ignored'
+});
+// 返回: '/file.txt'
+
+// 如果没有指定 `base`，则 `name` + `ext` 会被使用。
+path.format({
+  root: '/',
+  name: 'file',
+  ext: '.txt'
+});
+// 返回: '/file.txt'
+</code></pre>
+
+<p>在 Windows 上：</p>
+
+<pre class="prettyprint"><code>path.format({
+  dir : "C:\\path\\dir",
+  base : "file.txt"
+});
+// 返回: 'C:\\path\\dir\\file.txt'
+</code></pre>
+
+<!-- YAML
+added: v0.11.2
+-->
+
+<ul>
+<li><code>path</code> {String}</li>
+<li>返回: {Boolean}</li>
+</ul>
+
+<p><code>path.isAbsolute()</code> 方法会判定 <code>path</code> 是否为一个绝对路径。</p>
+
+<p>如果给定的 <code>path</code> 是一个长度为零的字符串，则返回 <code>false</code>。</p>
+
+<p>例如，在 POSIX 上：</p>
+
+<pre class="prettyprint"><code>path.isAbsolute('/foo/bar') // true
+path.isAbsolute('/baz/..')  // true
+path.isAbsolute('qux/')     // false
+path.isAbsolute('.')        // false
+</code></pre>
+
+<p>在 Windows 上：</p>
+
+<pre class="prettyprint"><code>path.isAbsolute('//server')    // true
+path.isAbsolute('\\\\server')  // true
+path.isAbsolute('C:/foo/..')   // true
+path.isAbsolute('C:\\foo\\..') // true
+path.isAbsolute('bar\\baz')    // false
+path.isAbsolute('bar/baz')     // false
+path.isAbsolute('.')           // false
+</code></pre>
+
+<p>如果 <code>path</code> 不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.1.16
+-->
+
+<ul>
+<li><code>...paths</code> {String} 一个路径片段的序列</li>
+<li>返回: {String}</li>
+</ul>
+
+<p><code>path.join()</code> 方法使用平台特定的分隔符把全部给定的 <code>path</code> 片段连接到一起，并规范化生成的路径。</p>
+
+<p>长度为零的 <code>path</code> 片段会被忽略。
+如果连接后的路径字符串是一个长度为零的字符串，则返回 <code>'.'</code>，表示当前工作目录。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>path.join('/foo', 'bar', 'baz/asdf', 'quux', '..')
+// 返回: '/foo/bar/baz/asdf'
+
+path.join('foo', {}, 'bar')
+// 抛出 TypeError: path.join 的参数必须为字符串
+</code></pre>
+
+<p>如果任一路径片段不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.1.23
+-->
+
+<ul>
+<li><code>path</code> {String}</li>
+<li>返回: {String}</li>
+</ul>
+
+<p><code>path.normalize()</code> 方法会规范化给定的 <code>path</code>，并解析 <code>'..'</code> 和 <code>'.'</code> 片段。</p>
+
+<p>当发现多个连续的路径分隔符时（如 POSIX 上的 <code>/</code> 与 Windows 上的 <code>\</code>），它们会被单一的路径分隔符替换。
+末尾的多个分隔符会被保留。</p>
+
+<p>如果 <code>path</code> 是一个长度为零的字符串，则返回 <code>'.'</code>，表示当前工作目录。</p>
+
+<p>例如，在 POSIX 上：</p>
+
+<pre class="prettyprint"><code>path.normalize('/foo/bar//baz/asdf/quux/..')
+// 返回: '/foo/bar/baz/asdf'
+</code></pre>
+
+<p>在 Windows 上：</p>
+
+<pre class="prettyprint"><code>path.normalize('C:\\temp\\\\foo\\bar\\..\\');
+// 返回: 'C:\\temp\\foo\\'
+</code></pre>
+
+<p>如果 <code>path</code> 不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.11.15
+-->
+
+<ul>
+<li><code>path</code> {String}</li>
+<li>返回: {Object}</li>
+</ul>
+
+<p><code>path.parse()</code> 方法返回一个对象，对象的属性表示 <code>path</code> 的元素。</p>
+
+<p>返回的对象有以下属性：</p>
+
+<ul>
+<li><code>root</code> {String}</li>
+<li><code>dir</code> {String}</li>
+<li><code>base</code> {String}</li>
+<li><code>ext</code> {String}</li>
+<li><code>name</code> {String}</li>
+</ul>
+
+<p>例如，在 POSIX 上：</p>
+
+<pre class="prettyprint"><code>path.parse('/home/user/dir/file.txt')
+// 返回:
+// {
+//    root : "/",
+//    dir : "/home/user/dir",
+//    base : "file.txt",
+//    ext : ".txt",
+//    name : "file"
+// }
+
+
+
+┌─────────────────────┬────────────┐
+│          dir        │    base    │
+├──────┬              ├──────┬─────┤
+│ root │              │ name │ ext │
+"  /    home/user/dir / file  .txt "
+└──────┴──────────────┴──────┴─────┘
+(请无视以上字符串中的空格，它们只是为了布局)
+</code></pre>
+
+<p>在 Windows 上：</p>
+
+<pre class="prettyprint"><code>path.parse('C:\\path\\dir\\file.txt')
+// 返回:
+// {
+//    root : "C:\\",
+//    dir : "C:\\path\\dir",
+//    base : "file.txt",
+//    ext : ".txt",
+//    name : "file"
+// }
+
+
+
+┌─────────────────────┬────────────┐
+│          dir        │    base    │
+├──────┬              ├──────┬─────┤
+│ root │              │ name │ ext │
+" C:\      path\dir   \ file  .txt "
+└──────┴──────────────┴──────┴─────┘
+(请无视以上字符串中的空格，它们只是为了布局)
+</code></pre>
+
+<p>如果 <code>path</code> 不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.11.15
+-->
+
+<ul>
+<li>{Object}</li>
+</ul>
+
+<p><code>path.posix</code> 属性提供了 <code>path</code> 方法针对 POSIX 的实现。</p>
+
+<!-- YAML
+added: v0.5.0
+-->
+
+<ul>
+<li><code>from</code> {String}</li>
+<li><code>to</code> {String}</li>
+<li>返回: {String}</li>
+</ul>
+
+<p><code>path.relative()</code> 方法返回从 <code>from</code> 到 <code>to</code> 的相对路径。
+如果 <code>from</code> 和 <code>to</code> 各自解析到同一路径（调用 <code>path.resolve()</code>），则返回一个长度为零的字符串。</p>
+
+<p>如果 <code>from</code> 或 <code>to</code> 传入了一个长度为零的字符串，则当前工作目录会被用于代替长度为零的字符串。</p>
+
+<p>例如，在 POSIX 上：</p>
+
+<pre class="prettyprint"><code>path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb')
+// 返回: '../../impl/bbb'
+</code></pre>
+
+<p>在 Windows 上：</p>
+
+<pre class="prettyprint"><code>path.relative('C:\\orandea\\test\\aaa', 'C:\\orandea\\impl\\bbb')
+// 返回: '..\\..\\impl\\bbb'
+</code></pre>
+
+<p>如果 <code>from</code> 或 <code>to</code> 不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.3.4
+-->
+
+<ul>
+<li><code>...paths</code> {String} 一个路径或路径片段的序列</li>
+<li>返回: {String}</li>
+</ul>
+
+<p><code>path.resolve()</code> 方法会把一个路径或路径片段的序列解析为一个绝对路径。</p>
+
+<p>给定的路径的序列是从右往左被处理的，后面每个 <code>path</code> 被依次解析，直到构造完成一个绝对路径。
+例如，给定的路径片段的序列为：<code>/foo</code>、<code>/bar</code>、<code>baz</code>，则调用 <code>path.resolve('/foo', '/bar', 'baz')</code> 会返回 <code>/bar/baz</code>。</p>
+
+<p>如果处理完全部给定的 <code>path</code> 片段后还未生成一个绝对路径，则当前工作目录会被用上。</p>
+
+<p>生成的路径是规范化后的，且末尾的斜杠会被删除，除非路径被解析为根目录。</p>
+
+<p>长度为零的 <code>path</code> 片段会被忽略。</p>
+
+<p>如果没有传入 <code>path</code> 片段，则 <code>path.resolve()</code> 会返回当前工作目录的绝对路径。</p>
+
+<p>例子：</p>
+
+<pre class="prettyprint"><code>path.resolve('/foo/bar', './baz')
+// 返回: '/foo/bar/baz'
+
+path.resolve('/foo/bar', '/tmp/file/')
+// 返回: '/tmp/file'
+
+path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')
+// 如果当前工作目录为 /home/myself/node，
+// 则返回 '/home/myself/node/wwwroot/static_files/gif/image.gif'
+</code></pre>
+
+<p>如果任何参数不是一个字符串，则抛出 [<code>TypeError</code>]。</p>
+
+<!-- YAML
+added: v0.7.9
+-->
+
+<ul>
+<li>{String}</li>
+</ul>
+
+<p>提供了平台特定的路径片段分隔符：</p>
+
+<ul>
+<li>Windows 上是 <code>\</code></li>
+<li>POSIX 上是 <code>/</code></li>
+</ul>
+
+<p>例如，在 POSIX 上：</p>
+
+<pre class="prettyprint"><code>'foo/bar/baz'.split(path.sep)
+// 返回: ['foo', 'bar', 'baz']
+</code></pre>
+
+<p>在 Windows 上：</p>
+
+<pre class="prettyprint"><code>'foo\\bar\\baz'.split(path.sep)
+// 返回: ['foo', 'bar', 'baz']
+</code></pre>
+
+<!-- YAML
+added: v0.11.15
+-->
+
+<ul>
+<li>{Object}</li>
+</ul>
+
+<p><code>path.win32</code> 属性提供了 <code>path</code> 方法针对 Windows 的实现。</p>
+
+<p>注意：在 Windows 上，斜杠字符（<code>/</code>）和反斜杠字符（<code>\</code>）都可作为路径分隔符；
+但返回值中只用到反斜杠（<code>\</code>）。</p>
+
+<p><code>path</code> 模块的默认操作会根据 Node.js 应用程序运行的操作系统的不同而变化。
+比如，当运行在 Windows 操作系统上时，<code>path</code> 模块会认为使用的是 Windows 风格的路径。</p>
+
+<p>例如，对 Windows 文件路径 <code>C:\temp\myfile.html</code> 使用 <code>path.basename()</code> 函数，运行在 POSIX 上与运行在 Windows 上会产生不同的结果：</p>
+
+<p>在 POSIX 上:</p>
+
+<pre class="prettyprint"><code>path.basename('C:\\temp\\myfile.html');
+// 返回: 'C:\\temp\\myfile.html'
+</code></pre>
+
+<p>在 Windows 上:</p>
+
+<pre class="prettyprint"><code>path.basename('C:\\temp\\myfile.html');
+// 返回: 'myfile.html'
+</code></pre>
+
+<p>要想在任何操作系统上处理 Windows 文件路径时获得一致的结果，可以使用 [<code>path.win32</code>]：</p>
+
+<p>在 POSIX 和 Windows 上:</p>
+
+<pre class="prettyprint"><code>path.win32.basename('C:\\temp\\myfile.html');
+// 返回: 'myfile.html'
+</code></pre>
+
+<p>要想在任何操作系统上处理 POSIX 文件路径时获得一致的结果，可以使用 [<code>path.posix</code>]：</p>
+
+<p>在 POSIX 和 Windows 上:</p>
+
+<pre class="prettyprint"><code>path.posix.basename('/tmp/myfile.html');
+// 返回: 'myfile.html'
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

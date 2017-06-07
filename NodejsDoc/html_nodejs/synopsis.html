@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><p>例子，一个使用 Node.js 编写的 [web 服务器]，响应返回 <code>'Hello World'</code>：</p>
+
+<pre class="prettyprint"><code>const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req, res) =&gt; {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+server.listen(port, hostname, () =&gt; {
+  console.log(`服务器运行在 http://${hostname}:${port}/`);
+});
+</code></pre>
+
+<p>要运行这个服务器，需将代码保存到一个名为 <code>example.js</code> 的文件，并用 Node.js 执行它：</p>
+
+<pre class="prettyprint"><code>$ node example.js
+服务器运行在 http://127.0.0.1:3000/
+</code></pre>
+
+<p>文档中所有例子都可以用类似的方法运行。</p>
+
+<!--type=misc-->
+
+<p><code>node [options] [v8 options] [script.js | -e "script"] [arguments]</code></p>
+
+<p>可查看 [命令行选项] 文档，了解更多使用 Node.js 运行脚本的选项与方法。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>
