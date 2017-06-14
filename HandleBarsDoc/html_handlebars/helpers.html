@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">Helpers</a></li></ul></div><div class="span9"><h2 id="1">Helpers</h2>
+
+<p>Handlebars 的 helpers 在模板中可以访问任何的上下文。 可以通过 Handlebars.registerHelper 方法注册一个 helper。   </p>
+
+<pre class="prettyprint"><code>&lt;div class="post"&gt;
+  &lt;h1&gt;By {{fullName author}}&lt;/h1&gt;
+  &lt;div class="body"&gt;{{body}}&lt;/div&gt;
+
+  &lt;h1&gt;Comments&lt;/h1&gt;
+
+  {{#each comments}}
+  &lt;h2&gt;By {{fullName author}}&lt;/h2&gt;
+  &lt;div class="body"&gt;{{body}}&lt;/div&gt;
+  {{/each}}
+&lt;/div&gt;
+</code></pre>
+
+<p>当时用下面的上下文数据和 helpers：   </p>
+
+<pre class="prettyprint"><code>var context = {
+  author: {firstName: "Alan", lastName: "Johnson"},
+  body: "I Love Handlebars",
+  comments: [{
+    author: {firstName: "Yehuda", lastName: "Katz"},
+    body: "Me too!"
+  }]
+};
+
+Handlebars.registerHelper('fullName', function(person) {
+  return person.firstName + " " + person.lastName;
+});
+</code></pre>
+
+<p>会得到如下结果：   </p>
+
+<pre class="prettyprint"><code>&lt;div class="post"&gt;
+  &lt;h1&gt;By Alan Johnson&lt;/h1&gt;
+  &lt;div class="body"&gt;I Love Handlebars&lt;/div&gt;
+
+  &lt;h1&gt;Comments&lt;/h1&gt;
+
+  &lt;h2&gt;By Yehuda Katz&lt;/h2&gt;
+  &lt;div class="body"&gt;Me Too!&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Helpers 会把当前的上下文作为函数中的 this 上下文。   </p>
+
+<pre class="prettyprint"><code>&lt;ul&gt;
+  {{#each items}}
+  &lt;li&gt;{{agree_button}}&lt;/li&gt;
+  {{/each}}
+&lt;/ul&gt;
+</code></pre>
+
+<p>当使用下面的 this上下文 和 helpers：   </p>
+
+<pre class="prettyprint"><code>var context = {
+  items: [
+    {name: "Handlebars", emotion: "love"},
+    {name: "Mustache", emotion: "enjoy"},
+    {name: "Ember", emotion: "want to learn"}
+  ]
+};
+
+Handlebars.registerHelper('agree_button', function() {
+  var emotion = Handlebars.escapeExpression(this.emotion),
+      name = Handlebars.escapeExpression(this.name);
+
+  return new Handlebars.SafeString(
+    "&lt;button&gt;I agree. I " + emotion + " " + name + "&lt;/button&gt;"
+  );
+});
+</code></pre>
+
+<p>会得到如下结果：   </p>
+
+<pre class="prettyprint"><code>&lt;ul&gt;
+  &lt;li&gt;&lt;button&gt;I agree. I love Handlebars&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button&gt;I agree. I enjoy Mustache&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button&gt;I agree. I want to learn Ember&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>如果你不希望你的 helper 返回的 HTML 值被编码，就请务必返回一个 Handlebars.SafeStrin</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

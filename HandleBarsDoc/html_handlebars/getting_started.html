@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">快速开始</a></li></ul></div><div class="span9"><h2 id="1">快速开始</h2>
+
+<p>Handlebars模板看起来就像是正常的Html，并使用了嵌入的 handlebars 表达式。</p>
+
+<pre class="prettyprint"><code>&lt;div class="entry"&gt;
+  &lt;h1&gt;{{title}}&lt;/h1&gt;
+  &lt;div class="body"&gt;
+    {{body}}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>handlebars表达式，是以 <code>{{</code> 开始，跟一些内容，然后以 <code>}}</code> 结束。 <br>
+你可以通过<code>&lt;script&gt;</code>标签把一段模板加载到浏览器中。   </p>
+
+<pre class="prettyprint"><code>&lt;script id="entry-template" type="text/x-handlebars-template"&gt;
+  &lt;div class="entry"&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    &lt;div class="body"&gt;
+      {{body}}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+</code></pre>
+
+<p>在 <code>JavaScript</code> 中使用 <code>Handlebars.compile</code> 来编译模板。   </p>
+
+<pre class="prettyprint"><code>var source   = $("#entry-template").html();
+var template = Handlebars.compile(source);
+</code></pre>
+
+<p>还可以预编译模板。这样的话，就只需要一个更小的运行时库文件，并且对性能来说是一个极大的节约，因为这样就不必在浏览器中编译模板了。这点在移动版的开发中就更显的非常重要了。</p>
+
+<p>只需传递一个上下文context执行模板，即可得到返回的 HTML 的值。   </p>
+
+<pre class="prettyprint"><code>var context = {title: "My New Post", body: "This is my first post!"};
+var html    = template(context);
+得到下面的HTML
+&lt;div class="entry"&gt;
+  &lt;h1&gt;My New Post&lt;/h1&gt;
+  &lt;div class="body"&gt;
+    This is my first post!
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

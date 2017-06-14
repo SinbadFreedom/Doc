@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"></ul></div><div class="span9"><p>HTML转义</p>
+
+<p>Handlebars的 <code>{{expression}}</code>表达式会返回一个 HTML编码 HTML-escape 过的值。如果不希望Handlebars来编码这些值，使用三个大括号即可：<code>{{{</code>。   </p>
+
+<pre class="prettyprint"><code>&lt;div class="entry"&gt;
+  &lt;h1&gt;{{title}}&lt;/h1&gt;
+  &lt;div class="body"&gt;
+    {{{body}}}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>使用这段上下文（数据）：   </p>
+
+<pre class="prettyprint"><code>{
+  title: "All about &lt;p&gt; Tags",
+  body: "&lt;p&gt;This is a post about &amp;lt;p&amp;gt; tags&lt;/p&gt;"
+}
+</code></pre>
+
+<p>会得到如下结果：   </p>
+
+<pre class="prettyprint"><code>&lt;div class="entry"&gt;
+  &lt;h1&gt;All About &amp;lt;p&amp;gt; Tags&lt;/h1&gt;
+  &lt;div class="body"&gt;
+    &lt;p&gt;This is a post about &amp;lt;p&amp;gt; tags&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Handlebars 不会再对 Handlebars.SafeString 安全字符串进行编码。如果你写的 helper 用来生成 HTML， 就经常需要返回一个 new Handlebars.SafeString(result)。 在这种情况下，你就需要手动的来编码参数了。   </p>
+
+<pre class="prettyprint"><code>Handlebars.registerHelper('link', function(text, url) {
+  text = Handlebars.Utils.escapeExpression(text);
+  url  = Handlebars.Utils.escapeExpression(url);
+
+  var result = '&lt;a href="' + url + '"&gt;' + text + '&lt;/a&gt;';
+
+  return new Handlebars.SafeString(result);
+});
+</code></pre>
+
+<p>这样来编码传递进来的参数，并把返回的值标记为 安全，这样的话， 即便不是哟给你“三个大括号”，Handlebars 就不会再次编码它了。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

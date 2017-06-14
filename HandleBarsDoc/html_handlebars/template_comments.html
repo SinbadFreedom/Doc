@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">模板注释：{{!-- --}} 或 {{! }}</a></li></ul></div><div class="span9"><h2 id="1">模板注释：{{!-- --}} 或 {{! }}</h2>
+
+<p>你可以在 handlebars 代码中加注释，就跟在代码中写注释一样。 对于有一定程度的逻辑的部分来说，这倒是一个很好的实践。   </p>
+
+<pre class="prettyprint"><code>&lt;div class="entry"&gt;
+  {{!-- only output author name if an author exists --}}
+  {{#if author}}
+    &lt;h1&gt;{{firstName}} {{lastName}}&lt;/h1&gt;
+  {{/if}}
+&lt;/div&gt;
+</code></pre>
+
+<p>注释是不会最终输出到返回结果中的。如果你希望把注释展示出来，就使用 HTML 的注释就行了。   </p>
+
+<pre class="prettyprint"><code>&lt;div class="entry"&gt;
+  {{! This comment will not be in the output }}
+  &lt;!-- This comment will be in the output --&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>所有注释都必须有 }}，一些多行注释可以使用 {{!-- --}} 语法。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>
