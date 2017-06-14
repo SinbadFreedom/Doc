@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">块表达式</a></li></ul></div><div class="span9"><h2 id="1">块表达式</h2>
+
+<p>块级表达式允许你定义一个helpers， 并使用一个不同于当前的上下文（context）来调用你模板的一部分。 现在考虑下这种情况，你需要一个helper来生成一段 HTML 列表：
+并使用下面的上下文（数据）：   </p>
+
+<pre class="prettyprint"><code>{{#list people}}{{firstName}} {{lastName}}{{/list}}
+</code></pre>
+
+<p>并使用下面的上下文（数据）：   </p>
+
+<pre class="prettyprint"><code>{
+  people: [
+    {firstName: "Yehuda", lastName: "Katz"},
+    {firstName: "Carl", lastName: "Lerche"},
+    {firstName: "Alan", lastName: "Johnson"}
+  ]
+}
+</code></pre>
+
+<p>此时需要创建一个 名为 list 的 helper 来生成这段 HTML 列表。 这个 helper 使用 people 作为第一个参数， 还有一个 options 对象（hash哈希）作为第二个参数。 这个 options 对象有一个叫 fn 的属性，你可以传递一个上下文给它（fn）， 就跟执行一个普通的 Handlebars 模板一样：    </p>
+
+<pre class="prettyprint"><code>Handlebars.registerHelper('list', function(items, options) {
+  var out = "&lt;ul&gt;";
+
+  for(var i=0, l=items.length; i&lt;l; i++) {
+    out = out + "&lt;li&gt;" + options.fn(items[i]) + "&lt;/li&gt;";
+  }
+
+  return out + "&lt;/ul&gt;";
+});
+</code></pre>
+
+<p>执行之后，这个模板就会渲染出：   </p>
+
+<pre class="prettyprint"><code>&lt;ul&gt;
+  &lt;li&gt;Yehuda Katz&lt;/li&gt;
+  &lt;li&gt;Carl Lerche&lt;/li&gt;
+  &lt;li&gt;Alan Johnson&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>块级的 helpers 还有很多其他的特性，比如可以创建一个 else 区块（例如，内置的 if helper 就是用 else）。
+注意，因为在你执行 options.fn(context) 的时候，这个 helper 已经把内容编码一次了， 所以 Handlebars 不会再对这个 helper 输出的值进行编码了。 如果编码了，这些内容就会被编码两次！</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

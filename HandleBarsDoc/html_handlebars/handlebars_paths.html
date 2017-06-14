@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1">Handlebars 路径</a></li></ul></div><div class="span9"><h2 id="1">Handlebars 路径</h2>
+
+<p>Handlebars 支持简单的路径，就像Mustache那样。   </p>
+
+<pre class="prettyprint"><code>&lt;p&gt;{{name}}&lt;/p&gt;
+</code></pre>
+
+<p>Handlebars 同样也支持嵌套的路径，这样的话就可以在当前的上下文中查找内部嵌套的属性了。   </p>
+
+<pre class="prettyprint"><code>&lt;div class="entry"&gt;
+  &lt;h1&gt;{{title}}&lt;/h1&gt;
+  &lt;h2&gt;By {{author.name}}&lt;/h2&gt;
+
+  &lt;div class="body"&gt;
+    {{body}}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>上面的模板使用下面这段上下文：   </p>
+
+<pre class="prettyprint"><code>var context = {
+  title: "My First Blog Post!",
+  author: {
+    id: 47,
+    name: "Yehuda Katz"
+  },
+  body: "My first post. Wheeeee!"
+};
+</code></pre>
+
+<p>这样一来 Handlebars 就可以直接把JSON数据拿来用了。
+巢状嵌套的 handlebars 路径也可以使用 ../， 这样会把路径指向父级（上层）上下文。   </p>
+
+<pre class="prettyprint"><code>&lt;h1&gt;Comments&lt;/h1&gt;
+
+&lt;div id="comments"&gt;
+  {{#each comments}}
+  &lt;h2&gt;&lt;a href="/posts/{{../permalink}}#{{id}}"&gt;{{title}}&lt;/a&gt;&lt;/h2&gt;
+  &lt;div&gt;{{body}}&lt;/div&gt;
+  {{/each}}
+&lt;/div&gt;
+</code></pre>
+
+<p>尽管 a 链接在输出时是以 comment 评论为上下文的， 但它仍然可以退回上一层的上下文（post上下文）并取出permalink（固定链接）值。
+../ 标识符表示对模板的父级作用域的引用，并不表示在上下文数据中的上一层。 这是因为块级 helpers 可以以任何上下文来调用一个块级表达式， 所以这个【上一层】的概念用来指模板作用域的父级更有意义些。   </p>
+
+<pre class="prettyprint"><code>{{permalink}}
+{{#each comments}}
+  {{../permalink}}
+
+  {{#if title}}
+    {{../permalink}}
+  {{/if}}
+{{/each}}
+</code></pre>
+
+<p>在这个例子中所有上述基准相同的 permalink 即使它们位于不同的块内的值。 此行为是新的 Handlebars 4， release notes 讨论以前的行为，以及迁移计划。
+Handlebars也允许通过一个 this 的引用来解决 helpers 和 数据字段间的名字冲突：   </p>
+
+<pre class="prettyprint"><code>&lt;p&gt;{{./name}} or {{this/name}} or {{this.name}}&lt;/p&gt;
+</code></pre>
+
+<p>上面的这一种方式都会将 name 字段引用到当前上下文上， 而不是 helper 上的同名属性。</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

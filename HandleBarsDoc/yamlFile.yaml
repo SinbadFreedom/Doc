@@ -1,0 +1,16 @@
+title: "handlebars中文文档"
+description: "handlebars中文文档"
+author: "Sinbad"
+catalog: [
+	{"chapter": "简介", url: "introduction.html"},
+	{"chapter": "快速开始", url: "getting_started.html"},
+	{"chapter": "HTML字符转义", url: "html_escaping.html"},
+	{"chapter": "块表达式", url: "block_expressions.html"},
+	{"chapter": "handlebars路径", url: "handlebars_paths.html"},
+	{"chapter": "模板注释", url: "template_comments.html"},
+	{"chapter": "Helpers", url: "helpers.html"},
+	{"chapter": "Literals", url: "literals.html"},
+	{"chapter": "Partials", url: "partials.html"},
+	{"chapter": "Built-In Helpers", url: "built-in_helpers.html"},
+	{"chapter": "API Reference", url: "api_reference.html"}
+]
