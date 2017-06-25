@@ -1,4 +1,4 @@
-#Buffer
+
 > 稳定性: 2 - 稳定的
 
 在 ECMAScript 2015 (ES6) 引入 [`TypedArray`] 之前，JavaScript 语言没有读取或操作二进制数据流的机制。
@@ -37,7 +37,7 @@
 	
 
 
-##Buffer 与字符编码
+
 `Buffer` 实例一般用于表示编码字符的序列，比如 UTF-8 、 UCS2 、 Base64 、或十六进制编码的数据。
 通过使用显式的字符编码，就可以在 `Buffer` 实例与普通的 JavaScript 字符串之间进行相互转换。
 
@@ -75,7 +75,7 @@ Node.js 目前支持的字符编码包括：
 这意味着当进行例如 `http.get()` 这样的操作时，如果返回的字符编码是 WHATWG 规范列表中的，则有可能服务器真的返回 win-1252 编码的数据，此时使用 `'latin1'` 字符编码可能会错误地解码数据。
 
 
-##Buffer 与 ES6 迭代器
+
 `Buffer` 实例可以使用 ECMAScript 2015 (ES6) 的 `for..of` 语法进行遍历。
 
 例子：
@@ -95,7 +95,7 @@ Node.js 目前支持的字符编码包括：
 此外，[`buf.values()`] 、[`buf.keys()`] 和 [`buf.entries()`] 方法可用于创建迭代器。
 
 
-##Buffer 与 TypedArray
+
 `Buffer` 实例也是 [`Uint8Array`] 实例。
 但是与 ECMAScript 2015 中的 TypedArray 规范还是有些微妙的不同。
 例如，当 [`ArrayBuffer#slice()`] 创建一个切片的副本时，[`Buffer#slice()`] 的实现是在现有的 `Buffer` 上不经过拷贝直接进行创建，这也使得 [`Buffer#slice()`] 更高效。
@@ -163,33 +163,6 @@ Node.js 目前支持的字符编码包括：
 * [`Buffer.from(string[, encoding])`][`Buffer.from(string)`]
 
 
-##Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()
-在 Node.js v6 之前的版本中，`Buffer` 实例是通过 `Buffer` 构造函数创建的，它根据提供的参数返回不同的 `Buffer`：
-
-* 传一个数值作为第一个参数给 `Buffer()`（如 `new Buffer(10)`），则分配一个指定大小的新建的 `Buffer` 对象。
-  分配给这种 `Buffer` 实例的内存是**没有**初始化的，且**可能包含敏感数据**。
-  这种 `Buffer` 实例**必须手动地**被初始化，可以使用 [`buf.fill(0)`] 或写满这个 `Buffer`。
-  虽然这种行为是为了提高性能而**有意为之的**，但开发经验表明，创建一个快速但未初始化的 `Buffer` 与创建一个慢点但更安全的 `Buffer` 之间需要有更明确的区分。
-* 传一个字符串、数组、或 `Buffer` 作为第一个参数，则将所传对象的数据拷贝到 `Buffer` 中。
-* 传入一个 [`ArrayBuffer`]，则返回一个与给定的 [`ArrayBuffer`] 共享所分配内存的 `Buffer`。
-
-因为 `new Buffer()` 的行为会根据所传入的第一个参数的值的数据类型而明显地改变，所以如果应用程序没有正确地校验传给 `new Buffer()` 的参数、或未能正确地初始化新分配的 `Buffer` 的内容，就有可能在无意中为他们的代码引入安全性与可靠性问题。
-
-为了使 `Buffer` 实例的创建更可靠、更不容易出错，各种 `new Buffer()` 构造函数已被 **废弃**，并由 `Buffer.from()`、[`Buffer.alloc()`]、和 [`Buffer.allocUnsafe()`] 方法替代。
-
-**开发者们应当把所有正在使用的 `new Buffer()` 构造函数迁移到这些新的 API 上。**
-
-* [`Buffer.from(array)`] 返回一个新建的包含所提供的字节数组的副本的 `Buffer`。
-* [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`] 返回一个新建的与给定的 [`ArrayBuffer`] 共享同一内存的 `Buffer`。
-* [`Buffer.from(buffer)`] 返回一个新建的包含所提供的 `Buffer` 的内容的副本的 `Buffer`。
-* [`Buffer.from(string[, encoding])`][`Buffer.from(string)`] 返回一个新建的包含所提供的字符串的副本的 `Buffer`。
-* [`Buffer.alloc(size[, fill[, encoding]])`][`Buffer.alloc()`] 返回一个指定大小的被填满的 `Buffer` 实例。
-  这个方法会明显地比 [`Buffer.allocUnsafe(size)`] 慢，但可确保新创建的 `Buffer` 实例绝不会包含旧的和潜在的敏感数据。
-* [`Buffer.allocUnsafe(size)`] 与 [`Buffer.allocUnsafeSlow(size)`] 返回一个新建的指定 `size` 的 `Buffer`，但它的内容**必须**被初始化，可以使用 [`buf.fill(0)`] 或完全写满。
-
-如果 `size` 小于或等于 [`Buffer.poolSize`] 的一半，则 [`Buffer.allocUnsafe()`] 返回的 `Buffer` 实例**可能**会被分配进一个共享的内部内存池。
-
-
 
 在 Node.js v6 之前的版本中，`Buffer` 实例是通过 `Buffer` 构造函数创建的，它根据提供的参数返回不同的 `Buffer`：
 
@@ -217,7 +190,36 @@ Node.js 目前支持的字符编码包括：
 如果 `size` 小于或等于 [`Buffer.poolSize`] 的一半，则 [`Buffer.allocUnsafe()`] 返回的 `Buffer` 实例**可能**会被分配进一个共享的内部内存池。
 
 
-###buffer.INSPECT_MAX_BYTES
+
+在 Node.js v6 之前的版本中，`Buffer` 实例是通过 `Buffer` 构造函数创建的，它根据提供的参数返回不同的 `Buffer`：
+
+* 传一个数值作为第一个参数给 `Buffer()`（如 `new Buffer(10)`），则分配一个指定大小的新建的 `Buffer` 对象。
+  分配给这种 `Buffer` 实例的内存是**没有**初始化的，且**可能包含敏感数据**。
+  这种 `Buffer` 实例**必须手动地**被初始化，可以使用 [`buf.fill(0)`] 或写满这个 `Buffer`。
+  虽然这种行为是为了提高性能而**有意为之的**，但开发经验表明，创建一个快速但未初始化的 `Buffer` 与创建一个慢点但更安全的 `Buffer` 之间需要有更明确的区分。
+* 传一个字符串、数组、或 `Buffer` 作为第一个参数，则将所传对象的数据拷贝到 `Buffer` 中。
+* 传入一个 [`ArrayBuffer`]，则返回一个与给定的 [`ArrayBuffer`] 共享所分配内存的 `Buffer`。
+
+因为 `new Buffer()` 的行为会根据所传入的第一个参数的值的数据类型而明显地改变，所以如果应用程序没有正确地校验传给 `new Buffer()` 的参数、或未能正确地初始化新分配的 `Buffer` 的内容，就有可能在无意中为他们的代码引入安全性与可靠性问题。
+
+为了使 `Buffer` 实例的创建更可靠、更不容易出错，各种 `new Buffer()` 构造函数已被 **废弃**，并由 `Buffer.from()`、[`Buffer.alloc()`]、和 [`Buffer.allocUnsafe()`] 方法替代。
+
+**开发者们应当把所有正在使用的 `new Buffer()` 构造函数迁移到这些新的 API 上。**
+
+* [`Buffer.from(array)`] 返回一个新建的包含所提供的字节数组的副本的 `Buffer`。
+* [`Buffer.from(arrayBuffer[, byteOffset [, length]])`][`Buffer.from(arrayBuffer)`] 返回一个新建的与给定的 [`ArrayBuffer`] 共享同一内存的 `Buffer`。
+* [`Buffer.from(buffer)`] 返回一个新建的包含所提供的 `Buffer` 的内容的副本的 `Buffer`。
+* [`Buffer.from(string[, encoding])`][`Buffer.from(string)`] 返回一个新建的包含所提供的字符串的副本的 `Buffer`。
+* [`Buffer.alloc(size[, fill[, encoding]])`][`Buffer.alloc()`] 返回一个指定大小的被填满的 `Buffer` 实例。
+  这个方法会明显地比 [`Buffer.allocUnsafe(size)`] 慢，但可确保新创建的 `Buffer` 实例绝不会包含旧的和潜在的敏感数据。
+* [`Buffer.allocUnsafe(size)`] 与 [`Buffer.allocUnsafeSlow(size)`] 返回一个新建的指定 `size` 的 `Buffer`，但它的内容**必须**被初始化，可以使用 [`buf.fill(0)`] 或完全写满。
+
+如果 `size` 小于或等于 [`Buffer.poolSize`] 的一半，则 [`Buffer.allocUnsafe()`] 返回的 `Buffer` 实例**可能**会被分配进一个共享的内部内存池。
+
+
+<!-- YAML
+added: v0.5.4
+-->
 
 * {Integer} **默认:** `50`
 
@@ -228,7 +230,9 @@ Node.js 目前支持的字符编码包括：
 注意，这个属性是在通过 `require('buffer')` 返回的 `buffer` 模块上，而不是在 `Buffer` 的全局变量或 `Buffer` 实例上。
 
 
-###buffer.kMaxLength
+<!-- YAML
+added: v3.0.0
+-->
 
 * {Integer} 分配给单个 `Buffer` 实例的最大内存
 
@@ -236,7 +240,9 @@ Node.js 目前支持的字符编码包括：
 在64位架构上，该值为 `(2^31)-1` (~2GB)。
 
 
-###buf.compare(target[, targetStart[, targetEnd[, sourceStart[, sourceEnd]]]])
+<!-- YAML
+added: v0.11.13
+-->
 
 * `target` {Buffer} 要比较的 `Buffer`
 * `targetStart` {Integer} `target` 中开始对比的偏移量。
@@ -307,7 +313,9 @@ Node.js 目前支持的字符编码包括：
 如果 `targetStart < 0` 、 `sourceStart < 0` 、 `targetEnd > target.byteLength` 或 `sourceEnd > source.byteLength`，则抛出 `RangeError` 错误。
 
 
-###buf.copy(target[, targetStart[, sourceStart[, sourceEnd]]])
+<!-- YAML
+added: v0.1.90
+-->
 
 * `target` {Buffer|Uint8Array} 要拷贝进的 `Buffer` 或 [`Uint8Array`]。
 * `targetStart` {Integer} `target` 中开始拷贝进的偏移量。
@@ -356,7 +364,9 @@ Node.js 目前支持的字符编码包括：
 	
 
 
-###buf.entries()
+<!-- YAML
+added: v1.1.0
+-->
 
 * 返回: {Iterator}
 
@@ -380,7 +390,9 @@ Node.js 目前支持的字符编码包括：
 	
 
 
-###buf.equals(otherBuffer)
+<!-- YAML
+added: v0.11.13
+-->
 
 * `otherBuffer` {Buffer} 要比较的 `Buffer`
 * 返回: {Boolean}
@@ -402,7 +414,10 @@ Node.js 目前支持的字符编码包括：
 	
 
 
-###buf.fill(value[, offset[, end]][, encoding])
+<!-- YAML
+added: v0.5.0
+-->
+
 * `value` {String | Buffer | Integer} 用来填充 `buf` 的值
 * `offset` {Integer} 开始填充 `buf` 的位置。**默认:** `0`
 * `end` {Integer} 结束填充 `buf` 的位置（不包含）。**默认:** [`buf.length`]
@@ -436,7 +451,9 @@ then only the first bytes of that character that fit into `buf` are written.
 	
 
 
-###buf.includes(value[, byteOffset][, encoding])
+<!-- YAML
+added: v5.3.0
+-->
 
 * `value` {String | Buffer | Integer} 要搜索的值
 * `byteOffset` {Integer} `buf` 中开始搜索的位置。**默认:** `0`
@@ -475,7 +492,11 @@ then only the first bytes of that character that fit into `buf` are written.
 	
 
 
-###buf[index]
+<!-- YAML
+type: property
+name: [index]
+-->
+
 索引操作符 `[index]` 可用于获取或设置 `buf` 中指定 `index` 位置的八位字节。
 这个值指向的是单个字节，所以合法的值范围是的 `0x00` 至 `0xFF`（十六进制），或 `0` 至 `255`（十进制）。
 
@@ -496,7 +517,9 @@ then only the first bytes of that character that fit into `buf` are written.
 	
 
 
-###buf.indexOf(value[, byteOffset][, encoding])
+<!-- YAML
+added: v1.5.0
+-->
 
 * `value` {String | Buffer | Integer} 要搜索的值
 * `byteOffset` {Integer} `buf` 中开始搜索的位置。**默认:** `0`
@@ -572,7 +595,10 @@ an integer between 0 and 255.
 	
 
 
-###buf.keys()
+<!-- YAML
+added: v1.1.0
+-->
+
 * 返回: {Iterator}
 
 创建并返回一个包含 `buf` 键名（索引）的[迭代器]。
@@ -595,7 +621,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.lastIndexOf(value[, byteOffset][, encoding])
+<!-- YAML
+added: v6.0.0
+-->
 
 * `value` {String | Buffer | Integer} 要搜索的值
 * `byteOffset` {Integer} `buf` 中开始搜索的位置。
@@ -670,7 +698,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.length
+<!-- YAML
+added: v0.1.90
+-->
 
 * {Integer}
 
@@ -712,7 +742,9 @@ an integer between 0 and 255.
 
 
 
-###buf.readDoubleLE(offset[, noAssert])
+<!-- YAML
+added: v0.11.15
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 8`
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
@@ -743,7 +775,9 @@ an integer between 0 and 255.
 
 
 
-###buf.readFloatLE(offset[, noAssert])
+<!-- YAML
+added: v0.11.15
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 4`
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
@@ -774,7 +808,9 @@ an integer between 0 and 255.
 
 
 
-###buf.readInt16LE(offset[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 2`
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
@@ -803,7 +839,9 @@ an integer between 0 and 255.
 
 
 
-###buf.readInt32LE(offset[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 4`
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
@@ -831,7 +869,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.readInt8(offset[, noAssert])
+<!-- YAML
+added: v0.5.0
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 1`
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
@@ -860,7 +900,9 @@ an integer between 0 and 255.
 
 
 
-###buf.readIntLE(offset, byteLength[, noAssert])
+<!-- YAML
+added: v0.11.15
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - byteLength`
 * `byteLength` {Integer} 要读取的字节数。必须满足：`0 < byteLength <= 6`
@@ -889,7 +931,9 @@ an integer between 0 and 255.
 
 
 
-###buf.readUInt16LE(offset[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 2`
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
@@ -922,7 +966,9 @@ an integer between 0 and 255.
 
 
 
-###buf.readUInt32LE(offset[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 4`
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
@@ -948,7 +994,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.readUInt8(offset[, noAssert])
+<!-- YAML
+added: v0.5.0
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - 1`
 * `noAssert` {Boolean} 是否跳过 `offset` 检验？**默认:** `false`
@@ -975,7 +1023,9 @@ an integer between 0 and 255.
 
 
 
-###buf.readUIntLE(offset, byteLength[, noAssert])
+<!-- YAML
+added: v0.11.15
+-->
 
 * `offset` {Integer} 开始读取的位置，必须满足：`0 <= offset <= buf.length - byteLength`
 * `byteLength` {Integer} 要读取的字节数。必须满足：`0 < byteLength <= 6`
@@ -1003,7 +1053,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.slice([start[, end]])
+<!-- YAML
+added: v0.3.0
+-->
 
 * `start` {Integer} 新建的 `Buffer` 开始的位置。 **默认:** `0`
 * `end` {Integer} 新建的 `Buffer` 结束的位置（不包含）。
@@ -1056,7 +1108,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.swap16()
+<!-- YAML
+added: v5.10.0
+-->
 
 * 返回: {Buffer} `buf` 的引用
 
@@ -1084,7 +1138,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.swap32()
+<!-- YAML
+added: v5.10.0
+-->
 
 * 返回: {Buffer} `buf` 的引用
 
@@ -1112,7 +1168,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.swap64()
+<!-- YAML
+added: v6.3.0
+-->
 
 * 返回: {Buffer} `buf` 的引用
 
@@ -1143,7 +1201,9 @@ an integer between 0 and 255.
 该方法是用来处理64位浮点数的。
 
 
-###buf.toJSON()
+<!-- YAML
+added: v0.9.2
+-->
 
 * 返回: {Object}
 
@@ -1170,7 +1230,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.toString([encoding[, start[, end]]])
+<!-- YAML
+added: v0.1.90
+-->
 
 * `encoding` {String} 解码使用的字符编码。**默认:** `'utf8'`
 * `start` {Integer} 开始解码的字节偏移量。**默认:** `0`
@@ -1211,7 +1273,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.values()
+<!-- YAML
+added: v1.1.0
+-->
 
 * 返回: {Iterator}
 
@@ -1248,7 +1312,9 @@ an integer between 0 and 255.
 
 
 
-###buf.writeDoubleLE(value, offset[, noAssert])
+<!-- YAML
+added: v0.11.15
+-->
 
 * `value` {Number} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 8`
@@ -1279,7 +1345,9 @@ an integer between 0 and 255.
 
 
 
-###buf.writeFloatLE(value, offset[, noAssert])
+<!-- YAML
+added: v0.11.15
+-->
 
 * `value` {Number} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 4`
@@ -1310,7 +1378,9 @@ an integer between 0 and 255.
 
 
 
-###buf.writeInt16LE(value, offset[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `value` {Integer} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 2`
@@ -1339,7 +1409,9 @@ an integer between 0 and 255.
 
 
 
-###buf.writeInt32LE(value, offset[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `value` {Integer} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 4`
@@ -1367,7 +1439,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.writeInt8(value, offset[, noAssert])
+<!-- YAML
+added: v0.5.0
+-->
 
 * `value` {Integer} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 1`
@@ -1396,7 +1470,9 @@ an integer between 0 and 255.
 
 
 
-###buf.writeIntLE(value, offset, byteLength[, noAssert])
+<!-- YAML
+added: v0.11.15
+-->
 
 * `value` {Integer} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - byteLength`
@@ -1428,7 +1504,9 @@ an integer between 0 and 255.
 
 
 
-###buf.writeUInt16LE(value, offset[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `value` {Integer} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 2`
@@ -1461,7 +1539,9 @@ an integer between 0 and 255.
 
 
 
-###buf.writeUInt32LE(value, offset[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `value` {Integer} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 4`
@@ -1491,7 +1571,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.writeUInt8(value, offset[, noAssert])
+<!-- YAML
+added: v0.5.0
+-->
 
 * `value` {Integer} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - 1`
@@ -1520,7 +1602,9 @@ an integer between 0 and 255.
 
 
 
-###buf.writeUIntLE(value, offset, byteLength[, noAssert])
+<!-- YAML
+added: v0.5.5
+-->
 
 * `value` {Integer} 要写入 `buf` 的数值
 * `offset` {Integer} 开始写入的位置，必须满足：`0 <= offset <= buf.length - byteLength`
@@ -1551,7 +1635,9 @@ an integer between 0 and 255.
 	
 
 
-###buf.write(string[, offset[, length]][, encoding])
+<!-- YAML
+added: v0.1.90
+-->
 
 * `string` {String} 要写入 `buf` 的字符串
 * `offset` {Integer} 开始写入 `string` 的位置。**默认:** `0`
@@ -1576,12 +1662,14 @@ an integer between 0 and 255.
 	
 
 
-##Buffer 类
+
 `Buffer` 类是一个全局变量类型，用来直接处理二进制数据的。
 它能够使用多种方式构建。
 
 
-###类方法：Buffer.allocUnsafeSlow(size)
+<!-- YAML
+added: v5.10.0
+-->
 
 * `size` {Integer} 新建的 `Buffer` 期望的长度
 
@@ -1623,7 +1711,9 @@ an integer between 0 and 255.
 如果 `size` 不是一个数值，则抛出 `TypeError` 错误。
 
 
-###类方法：Buffer.allocUnsafe(size)
+<!-- YAML
+added: v5.10.0
+-->
 
 * `size` {Integer} 新建的 `Buffer` 期望的长度
 
@@ -1660,7 +1750,9 @@ an integer between 0 and 255.
 当应用程序需要 [`Buffer.allocUnsafe()`] 提供额外的性能时，这个细微的区别是非常重要的。
 
 
-###类方法：Buffer.alloc(size[, fill[, encoding]])
+<!-- YAML
+added: v5.10.0
+-->
 
 * `size` {Integer} 新建的 `Buffer` 期望的长度
 * `fill` {String | Buffer | Integer} 用来预填充新建的 `Buffer` 的值。
@@ -1710,7 +1802,9 @@ an integer between 0 and 255.
 如果 `size` 不是一个数值，则抛出 `TypeError` 错误。
 
 
-###类方法：Buffer.byteLength(string[, encoding])
+<!-- YAML
+added: v0.1.90
+-->
 
 * `string` {String | Buffer | TypedArray | DataView | ArrayBuffer} 要计算长度的值
 * `encoding` {String} 如果 `string` 是字符串，则这是它的字符编码。
@@ -1738,7 +1832,10 @@ an integer between 0 and 255.
 否则，会转换为 `String` 并返回字符串的字节长度。
 
 
-###类方法：Buffer.compare(buf1, buf2)
+<!-- YAML
+added: v0.11.13
+-->
+
 * `buf1` {Buffer}
 * `buf2` {Buffer}
 * Returns: {Integer}
@@ -1759,7 +1856,9 @@ an integer between 0 and 255.
 	
 
 
-###类方法：Buffer.concat(list[, totalLength])
+<!-- YAML
+added: v0.7.11
+-->
 
 * `list` {Array} 要合并的 `Buffer` 实例的数组
 * `totalLength` {Integer} 合并时 `list` 中 `Buffer` 实例的总长度
@@ -1793,7 +1892,9 @@ an integer between 0 and 255.
 	
 
 
-###类方法：Buffer.from(array)
+<!-- YAML
+added: v5.10.0
+-->
 
 * `array` {Array}
 
@@ -1809,7 +1910,9 @@ an integer between 0 and 255.
 如果 `array` 不是一个数组，则抛出 `TypeError` 错误。
 
 
-###类方法：Buffer.from(arrayBuffer[, byteOffset[, length]])
+<!-- YAML
+added: v5.10.0
+-->
 
 * `arrayBuffer` {ArrayBuffer} 一个 [`ArrayBuffer`]，或一个 [`TypedArray`] 的 `.buffer` 属性。
 * `byteOffset` {Integer} 开始拷贝的索引。默认为 `0`。
@@ -1854,7 +1957,10 @@ This creates a view of the [`ArrayBuffer`] without copying the underlying memory
 如果 `arrayBuffer` 不是一个 [`ArrayBuffer`]，则抛出 `TypeError` 错误。
 
 
-###类方法：Buffer.from(buffer)
+<!-- YAML
+added: v5.10.0
+-->
+
 * `buffer` {Buffer} 一个要拷贝数据的已存在的 `Buffer`
 
 将传入的 `buffer` 数据拷贝到一个新建的 `Buffer` 实例。
@@ -1877,7 +1983,9 @@ This creates a view of the [`ArrayBuffer`] without copying the underlying memory
 如果 `buffer` 不是一个 `Buffer`，则抛出 `TypeError` 错误。
 
 
-###类方法：Buffer.from(string[, encoding])
+<!-- YAML
+added: v5.10.0
+-->
 
 * `string` {String} 要编码的字符串
 * `encoding` {String} `string` 的字符编码。 **默认:** `'utf8'`
@@ -1906,14 +2014,19 @@ This creates a view of the [`ArrayBuffer`] without copying the underlying memory
 如果 `string` 不是一个字符串，则抛出 `TypeError` 错误。
 
 
-###类方法：Buffer.isBuffer(obj)
+<!-- YAML
+added: v0.1.101
+-->
+
 * `obj` {Object}
 * 返回: {Boolean}
 
 如果 `obj` 是一个 `Buffer` 则返回 `true` ，否则返回 `false` 。
 
 
-###类方法：Buffer.isEncoding(encoding)
+<!-- YAML
+added: v0.9.1
+-->
 
 * `encoding` {String} 一个要检查的字符编码名称
 * 返回: {Boolean}
@@ -1921,7 +2034,9 @@ This creates a view of the [`ArrayBuffer`] without copying the underlying memory
 如果 `encoding` 是一个支持的字符编码则返回 `true`，否则返回 `false` 。
 
 
-###类属性：Buffer.poolSize
+<!-- YAML
+added: v0.11.3
+-->
 
 * {Integer} **默认:** `8192`
 
@@ -2151,7 +2266,9 @@ Example:
 	
 
 
-###--zero-fill-buffers 命令行选项
+<!-- YAML
+added: v5.10.0
+-->
 
 Node.js 可以在一开始就使用 `--zero-fill-buffers` 命令行选项强制所有使用 `new Buffer(size)` 、[`Buffer.allocUnsafe()`] 、[`Buffer.allocUnsafeSlow()`] 或 `new SlowBuffer(size)` 新分配的 `Buffer` 实例在创建时**自动用 0 填充**。
 使用这个选项会**改变**这些方法的**默认行为**，且**对性能有明显的影响**。
@@ -2166,7 +2283,7 @@ Node.js 可以在一开始就使用 `--zero-fill-buffers` 命令行选项强制�
 	
 
 
-###是什么令 Buffer.allocUnsafe() 和 Buffer.allocUnsafeSlow() 不安全？
+
 当调用 [`Buffer.allocUnsafe()`] 和 [`Buffer.allocUnsafeSlow()`] 时，被分配的内存段是**未初始化的**（没有用 0 填充）。
 虽然这样的设计使得内存的分配非常快，但已分配的内存段可能包含潜在的敏感旧数据。
 使用通过 [`Buffer.allocUnsafe()`] 创建的没有被**完全**重写内存的 `Buffer` ，在 `Buffer` 内存可读的情况下，可能泄露它的旧数据。

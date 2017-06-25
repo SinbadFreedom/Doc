@@ -1,11 +1,13 @@
-##Class: Worker
+<!-- YAML
+added: v0.7.0
+-->
 
 A Worker object contains all public information and method about a worker.
 In the master it can be obtained using `cluster.workers`. In a worker
 it can be obtained using `cluster.worker`.
 
 
-#cluster (集群)
+
 > 稳定性: 2 - 稳定的
 
 Node.js的一个实例运行在一个单独的线程上。用多核系统的用户有时会想扩展一个Node.js的集群，去处理负载。
@@ -53,7 +55,9 @@ cluster模块可以让您轻松创建所有共享服务器端口的子进程。
 
 请注意，在Windows上，还不能建立一个命名管道。
 
-##cluster.disconnect([callback])
+<!-- YAML
+added: v0.7.7
+-->
 
 * `callback` {Function} called when all workers are disconnected and handles are
   closed
@@ -68,7 +72,9 @@ The method takes an optional callback argument which will be called when finishe
 This can only be called from the master process.
 
 
-##cluster.fork([env])
+<!-- YAML
+added: v0.6.0
+-->
 
 * `env` {Object} Key/value pairs to add to worker process environment.
 * return {cluster.Worker}
@@ -78,7 +84,9 @@ Spawn a new worker process.
 This can only be called from the master process.
 
 
-##cluster.isMaster
+<!-- YAML
+added: v0.8.1
+-->
 
 * {Boolean}
 
@@ -87,14 +95,18 @@ by the `process.env.NODE_UNIQUE_ID`. If `process.env.NODE_UNIQUE_ID` is
 undefined, then `isMaster` is `true`.
 
 
-##cluster.isWorker
+<!-- YAML
+added: v0.6.0
+-->
 
 * {Boolean}
 
 True if the process is not a master (it is the negation of `cluster.isMaster`).
 
 
-##cluster.schedulingPolicy
+<!-- YAML
+added: v0.11.2
+-->
 
 The scheduling policy, either `cluster.SCHED_RR` for round-robin or
 `cluster.SCHED_NONE` to leave it to the operating system. This is a
@@ -110,7 +122,9 @@ distribute IOCP handles without incurring a large performance hit.
 values are `"rr"` and `"none"`.
 
 
-##cluster.settings
+<!-- YAML
+added: v0.7.1
+-->
 
 * {Object}
   * `execArgv` {Array} list of string arguments passed to the Node.js
@@ -132,7 +146,9 @@ the settings, including the default values.
 This object is not supposed to be changed or set manually, by you.
 
 
-##cluster.setupMaster([settings])
+<!-- YAML
+added: v0.7.1
+-->
 
 * `settings` {Object}
   * `exec` {String} file path to worker file.  (Default=`process.argv[1]`)
@@ -175,7 +191,9 @@ Example:
 This can only be called from the master process.
 
 
-##cluster.worker
+<!-- YAML
+added: v0.7.0
+-->
 
 * {Object}
 
@@ -194,7 +212,9 @@ A reference to the current worker object. Not available in the master process.
 	
 
 
-##cluster.workers
+<!-- YAML
+added: v0.7.0
+-->
 
 * {Object}
 
@@ -239,7 +259,9 @@ the worker's unique id is the easiest way to find the worker.
 [child_process event: 'message']: child_process.html#child_process_event_message
 [`process` event: `'message'`]: process.html#process_event_message
 
-##Event: 'disconnect'
+<!-- YAML
+added: v0.7.7
+-->
 
 Similar to the `cluster.on('disconnect')` event, but specific to this worker.
 
@@ -250,7 +272,9 @@ Similar to the `cluster.on('disconnect')` event, but specific to this worker.
 	
 
 
-##Event: 'disconnect'
+<!-- YAML
+added: v0.7.9
+-->
 
 * `worker` {cluster.Worker}
 
@@ -269,14 +293,18 @@ long-living connections.
 	
 
 
-###Event: 'error'
+<!-- YAML
+added: v0.7.3
+-->
 
 This event is the same as the one provided by [`child_process.fork()`][].
 
 In a worker you can also use `process.on('error')`.
 
 
-###Event: 'exit'
+<!-- YAML
+added: v0.11.2
+-->
 
 * `code` {Number} the exit code, if it exited normally.
 * `signal` {String} the name of the signal (e.g. `'SIGHUP'`) that caused
@@ -298,7 +326,10 @@ Similar to the `cluster.on('exit')` event, but specific to this worker.
 	
 
 
-##Event: 'exit'
+<!-- YAML
+added: v0.7.9
+-->
+
 * `worker` {cluster.Worker}
 * `code` {Number} the exit code, if it exited normally.
 * `signal` {String} the name of the signal (e.g. `'SIGHUP'`) that caused
@@ -319,7 +350,9 @@ This can be used to restart the worker by calling `.fork()` again.
 See [child_process event: 'exit'][].
 
 
-##Event: 'fork'
+<!-- YAML
+added: v0.7.0
+-->
 
 * `worker` {cluster.Worker}
 
@@ -345,7 +378,9 @@ This can be used to log worker activity, and create your own timeout.
 	
 
 
-###Event: 'listening'
+<!-- YAML
+added: v0.7.0
+-->
 
 * `address` {Object}
 
@@ -360,7 +395,9 @@ Similar to the `cluster.on('listening')` event, but specific to this worker.
 It is not emitted in the worker.
 
 
-##Event: 'listening'
+<!-- YAML
+added: v0.7.0
+-->
 
 * `worker` {cluster.Worker}
 * `address` {Object}
@@ -388,7 +425,9 @@ The `addressType` is one of:
 * `"udp4"` or `"udp6"` (UDP v4 or v6)
 
 
-###Event: 'message'
+<!-- YAML
+added: v0.7.0
+-->
 
 * `message` {Object}
 * `handle` {undefined|Object}
@@ -444,7 +483,7 @@ in the master process using the message system:
 	
 
 
-##Event: 'message'
+
 * `worker` {cluster.Worker}
 * `message` {Object}
 * `handle` {undefined|Object}
@@ -471,7 +510,9 @@ you can work around the discrepancy by checking the number of arguments:
 	
 
 
-###Event: 'online'
+<!-- YAML
+added: v0.7.0
+-->
 
 Similar to the `cluster.on('online')` event, but specific to this worker.
 
@@ -484,7 +525,9 @@ Similar to the `cluster.on('online')` event, but specific to this worker.
 It is not emitted in the worker.
 
 
-##Event: 'online'
+<!-- YAML
+added: v0.7.0
+-->
 
 * `worker` {cluster.Worker}
 
@@ -500,7 +543,9 @@ master forks a worker, and 'online' is emitted when the worker is running.
 	
 
 
-##Event: 'setup'
+<!-- YAML
+added: v0.7.1
+-->
 
 * `settings` {Object}
 
@@ -513,7 +558,7 @@ The `settings` object is the `cluster.settings` object at the time
 If accuracy is important, use `cluster.settings`.
 
 
-##How It Works
+
 <!--type=misc-->
 
 The worker processes are spawned using the [`child_process.fork()`][] method,
@@ -574,7 +619,9 @@ responsibility to manage the worker pool for your application's needs.
 
 
 
-###worker.disconnect()
+<!-- YAML
+added: v0.7.7
+-->
 
 In a worker, this function will close all servers, wait for the `'close'` event on
 those servers, and then disconnect the IPC channel.
@@ -636,7 +683,9 @@ the `'disconnect'` event has not been emitted after some time.
 	
 
 
-###worker.exitedAfterDisconnect
+<!-- YAML
+added: v6.0.0
+-->
 
 * {Boolean}
 
@@ -658,7 +707,9 @@ this value.
 	
 
 
-###worker.id
+<!-- YAML
+added: v0.8.0
+-->
 
 * {Number}
 
@@ -669,20 +720,27 @@ While a worker is alive, this is the key that indexes it in
 cluster.workers
 
 
-###worker.isConnected()
+<!-- YAML
+added: v0.11.14
+-->
 
 This function returns `true` if the worker is connected to its master via its IPC
 channel, `false` otherwise. A worker is connected to its master after it's been
 created. It is disconnected after the `'disconnect'` event is emitted.
 
 
-###worker.isDead()
+<!-- YAML
+added: v0.11.14
+-->
 
 This function returns `true` if the worker's process has terminated (either
 because of exiting or being signaled). Otherwise, it returns `false`.
 
 
-###worker.kill([signal='SIGTERM'])
+<!-- YAML
+added: v0.9.12
+-->
+
 * `signal` {String} Name of the kill signal to send to the worker
   process.
 
@@ -698,7 +756,9 @@ Note that in a worker, `process.kill()` exists, but it is not this function,
 it is [`kill`][].
 
 
-###worker.process
+<!-- YAML
+added: v0.7.0
+-->
 
 * {ChildProcess}
 
@@ -713,7 +773,9 @@ on `process` and `.exitedAfterDisconnect` is not `true`. This protects against
 accidental disconnection.
 
 
-###worker.send(message[, sendHandle][, callback])
+<!-- YAML
+added: v0.7.0
+-->
 
 * `message` {Object}
 * `sendHandle` {Handle}
@@ -743,7 +805,10 @@ This example will echo back all messages from the master:
 	
 
 
-###worker.suicide
+<!-- YAML
+added: v0.7.0
+deprecated: v6.0.0
+-->
 
 > Stability: 0 - Deprecated: Use [`worker.exitedAfterDisconnect`][] instead.
 

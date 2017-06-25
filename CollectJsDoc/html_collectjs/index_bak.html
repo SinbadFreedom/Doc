@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1"><img src="https://raw.githubusercontent.com/ecrmnn/collect.js/master/collectjs.jpg" alt="collect.js"></a></li><li><a href="#2">Installation</a></li><li><a href="#3">Tip</a></li><li><a href="#4">Usage</a></li><li><a href="#5">Strictness and comparisons</a></li><li><a href="#6">Methods that have not been implemented:</a></li><li><a href="#7"><code>all()</code></a></li><li><a href="#8"><code>average()</code></a></li><li><a href="#9"><code>avg()</code></a></li><li><a href="#10"><code>chunk()</code></a></li><li><a href="#11"><code>collapse()</code></a></li><li><a href="#12"><code>combine()</code></a></li><li><a href="#13"><code>contains()</code></a></li><li><a href="#14"><code>count()</code></a></li><li><a href="#15"><code>diff()</code></a></li><li><a href="#16"><code>diffKeys()</code></a></li><li><a href="#17"><code>each()</code></a></li><li><a href="#18"><code>every()</code></a></li><li><a href="#19"><code>except()</code></a></li><li><a href="#20"><code>filter()</code></a></li><li><a href="#21"><code>first()</code></a></li><li><a href="#22"><code>flatMap()</code></a></li><li><a href="#23"><code>flatten()</code></a></li><li><a href="#24"><code>flip()</code></a></li><li><a href="#25"><code>forget()</code></a></li><li><a href="#26"><code>forPage()</code></a></li><li><a href="#27"><code>get()</code></a></li><li><a href="#28"><code>groupBy()</code></a></li><li><a href="#29"><code>has()</code></a></li><li><a href="#30"><code>implode()</code></a></li><li><a href="#31"><code>intersect()</code></a></li><li><a href="#32"><code>isEmpty()</code></a></li><li><a href="#33"><code>keyBy()</code></a></li><li><a href="#34"><code>keys()</code></a></li><li><a href="#35"><code>last()</code></a></li><li><a href="#36"><code>macro()</code></a></li><li><a href="#37"><code>map()</code></a></li><li><a href="#38"><code>mapWithKeys()</code></a></li><li><a href="#39"><code>max()</code></a></li><li><a href="#40"><code>median()</code></a></li><li><a href="#41"><code>merge()</code></a></li><li><a href="#42"><code>min()</code></a></li><li><a href="#43"><code>mode()</code></a></li><li><a href="#44"><code>nth()</code></a></li><li><a href="#45"><code>only()</code></a></li><li><a href="#46"><code>partition()</code></a></li><li><a href="#47"><code>pipe()</code></a></li><li><a href="#48"><code>pluck()</code></a></li><li><a href="#49"><code>pop()</code></a></li><li><a href="#50"><code>prepend()</code></a></li><li><a href="#51"><code>pull()</code></a></li><li><a href="#52"><code>push()</code></a></li><li><a href="#53"><code>put()</code></a></li><li><a href="#54"><code>random()</code></a></li><li><a href="#55"><code>reduce()</code></a></li><li><a href="#56"><code>reject()</code></a></li><li><a href="#57"><code>reverse()</code></a></li><li><a href="#58"><code>search()</code></a></li><li><a href="#59"><code>shift()</code></a></li><li><a href="#60"><code>shuffle()</code></a></li><li><a href="#61"><code>slice()</code></a></li><li><a href="#62"><code>sort()</code></a></li><li><a href="#63"><code>sortBy()</code></a></li><li><a href="#64"><code>sortByDesc()</code></a></li><li><a href="#65"><code>splice()</code></a></li><li><a href="#66"><code>split()</code></a></li><li><a href="#67"><code>sum()</code></a></li><li><a href="#68"><code>take()</code></a></li><li><a href="#69"><code>tap()</code></a></li><li><a href="#70"><code>times()</code></a></li><li><a href="#71"><code>toArray()</code></a></li><li><a href="#72"><code>toJson()</code></a></li><li><a href="#73"><code>transform()</code></a></li><li><a href="#74"><code>union()</code></a></li><li><a href="#75"><code>unique()</code></a></li><li><a href="#76"><code>values()</code></a></li><li><a href="#77"><code>when()</code></a></li><li><a href="#78"><code>where()</code></a></li><li><a href="#79"><code>whereIn()</code></a></li><li><a href="#80"><code>whereNotIn()</code></a></li><li><a href="#81"><code>zip()</code></a></li><li><a href="#82">Contribute</a></li><li><a href="#83">License</a></li></ul></div><div class="span9"><h1 id="1"><img src="https://raw.githubusercontent.com/ecrmnn/collect.js/master/collectjs.jpg" alt="collect.js"></h1>
+
+<blockquote>
+  <p>Convenient and dependency free wrapper for working with arrays and objects</p>
+</blockquote>
+
+<p><a href="https://travis-ci.org/ecrmnn/collect.js.svg?branch=master"><img src="https://img.shields.io/travis/ecrmnn/collect.js.svg?style=flat-square" alt="Travis" title="" /></a>
+<a href="http://badge.fury.io/js/collect.js"><img src="https://img.shields.io/npm/v/collect.js.svg?style=flat-square" alt="npm version" title="" /></a>
+<a href="http://badge.fury.io/js/collect.js"><img src="https://img.shields.io/npm/dm/collect.js.svg?style=flat-square" alt="npm downloads" title="" /></a>
+<a href="http://badge.fury.io/js/collect.js"><img src="https://img.shields.io/npm/l/collect.js.svg?style=flat-square" alt="npm license" title="" /></a>
+<a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" title="" /></a></p>
+
+<h3 id="2">Installation</h3>
+
+<pre class="prettyprint"><code>npm install collect.js --save
+</code></pre>
+
+<h3 id="3">Tip</h3>
+
+<p>Using Laravel as your backend? Collect.js offers an (almost) identical api to <a href="https://laravel.com/docs/5.4/collections">Laravel Collections</a> 5.4. <a href="#strictness-and-comparisons">See differences</a>.</p>
+
+<h3 id="4">Usage</h3>
+
+<p>All available methods <br>
+- <a href="#all">all</a> <br>
+- <a href="#average">average</a> <br>
+- <a href="#chunk">chunk</a> <br>
+- <a href="#collapse">collapse</a> <br>
+- <a href="#combine">combine</a> <br>
+- <a href="#contains">contains</a> <br>
+- <a href="#count">count</a>
+- <a href="#diff">diff</a> <br>
+- <a href="#diffkeys">diffKeys</a> <br>
+- <a href="#each">each</a> <br>
+- <a href="#every">every</a> <br>
+- <a href="#except">except</a> <br>
+- <a href="#filter">filter</a> <br>
+- <a href="#first">first</a> <br>
+- <a href="#flatmap">flatMap</a> <br>
+- <a href="#flatten">flatten</a> <br>
+- <a href="#flip">flip</a> <br>
+- <a href="#forget">forget</a> <br>
+- <a href="#forpage">forPage</a> <br>
+- <a href="#get">get</a> <br>
+- <a href="#groupby">groupBy</a> <br>
+- <a href="#has">has</a> <br>
+- <a href="#implode">implode</a> <br>
+- <a href="#intersect">intersect</a> <br>
+- <a href="#isempty">isEmpty</a> <br>
+- <a href="#isnotempty">isNotEmpty</a> <br>
+- <a href="#keyby">keyBy</a> <br>
+- <a href="#keys">keys</a> <br>
+- <a href="#last">last</a> <br>
+- <a href="#macro">macro</a> <br>
+- <a href="#map">map</a> <br>
+- <a href="#mapwithkeys">mapWithKeys</a> <br>
+- <a href="#max">max</a> <br>
+- <a href="#median">median</a> <br>
+- <a href="#merge">merge</a> <br>
+- <a href="#min">min</a> <br>
+- <a href="#mode">mode</a> <br>
+- <a href="#nth">nth</a> <br>
+- <a href="#only">only</a> <br>
+- <a href="#partition">partition</a> <br>
+- <a href="#pipe">pipe</a> <br>
+- <a href="#pluck">pluck</a> <br>
+- <a href="#pop">pop</a> <br>
+- <a href="#prepend">prepend</a> <br>
+- <a href="#pull">pull</a> <br>
+- <a href="#push">push</a> <br>
+- <a href="#put">put</a> <br>
+- <a href="#random">random</a> <br>
+- <a href="#reduce">reduce</a> <br>
+- <a href="#reject">reject</a> <br>
+- <a href="#reverse">reverse</a> <br>
+- <a href="#search">search</a> <br>
+- <a href="#shift">shift</a> <br>
+- <a href="#shuffle">shuffle</a> <br>
+- <a href="#slice">slice</a> <br>
+- <a href="#sort">sort</a> <br>
+- <a href="#sortby">sortBy</a> <br>
+- <a href="#sortbydesc">sortByDesc</a> <br>
+- <a href="#splice">splice</a> <br>
+- <a href="#split">split</a> <br>
+- <a href="#sum">sum</a> <br>
+- <a href="#take">take</a> <br>
+- <a href="#tap">tap</a> <br>
+- <a href="#times">times</a> <br>
+- <a href="#toarray">toArray</a> <br>
+- <a href="#tojson">toJson</a> <br>
+- <a href="#transform">transform</a> <br>
+- <a href="#union">union</a> <br>
+- <a href="#unique">unique</a> <br>
+- <a href="#values">values</a> <br>
+- <a href="#when">when</a> <br>
+- <a href="#where">where</a> <br>
+- <a href="#wherein">whereIn</a> <br>
+- <a href="#whereNotIn">whereNotIn</a> <br>
+- <a href="#zip">zip</a>   </p>
+
+<h3 id="5">Strictness and comparisons</h3>
+
+<p>All comparisons in <code>collect.js</code> are done using strict equality. Using loose equality comparisons are generally frowned upon in JavaScript. Laravel only performs "loose" comparisons by default and offer several "strict" comparison methods. These methods have not been implemented in <code>collect.js</code> because all methods are strict by default. </p>
+
+<h5 id="6">Methods that have not been implemented:</h5>
+
+<ul>
+<li>~~<code>containsStrict</code>~~ use <code>contains()</code></li>
+<li>~~<code>uniqueStrict</code>~~ use <code>unique()</code></li>
+<li>~~<code>whereStrict</code>~~ use <code>where()</code></li>
+<li>~~<code>whereInStrict</code>~~ use <code>whereIn()</code></li>
+<li>~~<code>whereNotInStrict</code>~~ use <code>whereNotIn()</code></li>
+</ul>
+
+<h4 id="7"><code>all()</code></h4>
+
+<p>The all method returns the underlying array represented by the collection:</p>
+
+<pre class="prettyprint"><code>collect([1, 2, 3]).all();
+
+//=&gt; [1, 2, 3]
+</code></pre>
+
+<h4 id="8"><code>average()</code></h4>
+
+<p>Alias for the <a href="#avg"><code>avg()</code></a> method</p>
+
+<h4 id="9"><code>avg()</code></h4>
+
+<p>The avg method returns the average of all items in the collection:</p>
+
+<pre class="prettyprint"><code>collect([1, 3, 3, 7]).avg();
+
+//=&gt; 3.5
+</code></pre>
+
+<p>If the collection contains nested arrays or objects, you should pass a key to use for determining which values to calculate the average:</p>
+
+<pre class="prettyprint"><code>const collection = collect([{
+  name: 'JavaScript: The Good Parts', pages: 176
+}, {
+  name: 'JavaScript: The Definitive Guide', pages: 1096
+}]);
+
+collection.avg('pages');
+
+//=&gt; 636
+</code></pre>
+
+<h4 id="10"><code>chunk()</code></h4>
+
+<p>The chunk method breaks the collection into multiple, smaller collections of a given size:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5, 6, 7]);
+
+const chunks = collection.chunk(4);
+
+chunks.all();
+
+//=&gt; [[1, 2, 3, 4], [5, 6, 7]]
+</code></pre>
+
+<h4 id="11"><code>collapse()</code></h4>
+
+<p>The collapse method collapses a collection of arrays into a single, flat collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([[1], [{}, 5, {}], ['xoxo']]);
+
+const collapsed = collection.collapse();
+
+collapsed.all();
+
+//=&gt; [1, {}, 5, {}, 'xoxo']
+
+
+
+const collection = collect([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+
+const collapsed = collection.collapse();
+
+collapsed.all();
+
+//=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre>
+
+<h4 id="12"><code>combine()</code></h4>
+
+<p>The combine method combines the keys of the collection with the values of another array or collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect(['name', 'number']);
+
+const combine = collection.combine(['Steven Gerrard', 8]);
+
+combine.all();
+
+//=&gt; {
+//=&gt;   name: 'Steven Gerrard',
+//=&gt;   number: 8
+//=&gt; }
+</code></pre>
+
+<h4 id="13"><code>contains()</code></h4>
+
+<p>The contains method determines whether the collection contains a given item:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  name: 'Steven Gerrard',
+  number: 8
+});
+
+collection.contains('name');
+//=&gt; true
+
+collection.contains('age');
+//=&gt; false
+</code></pre>
+
+<p>You may also work with arrays</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3]);
+
+collection.contains(3);
+//=&gt; true
+
+You may also pass a key / value pair to the contains method, which will determine if the given pair exists in the collection:
+
+const collection = collect({
+  name: 'Steven Gerrard',
+  number: 8
+});
+
+collection.contains('name', 'Steve Jobs');
+//=&gt; false
+</code></pre>
+
+<p>Finally, you may also pass a callback to the contains method to perform your own truth test:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+collection.contains(function (value, key) {
+  return value &gt; 5;
+});
+
+//=&gt; false
+</code></pre>
+
+<h4 id="14"><code>count()</code></h4>
+
+<p>The count method returns the total number of items in the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4]);
+
+collection.count();
+
+//=&gt; 4
+</code></pre>
+
+<h4 id="15"><code>diff()</code></h4>
+
+<p>The diff method compares the collection against another collection or a plain array based on its values. This method will return the values in the original collection that are not present in the given collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+const diff = collection.diff([1, 2, 3, 9]);
+
+diff.all();
+
+//=&gt; [4, 5]
+</code></pre>
+
+<h4 id="16"><code>diffKeys()</code></h4>
+
+<p>The diffKeys method compares the collection against another collection or a plain object based on its keys. This method will return the key / value pairs in the original collection that are not present in the given collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  a: 'a',
+  b: 'b',
+  c: 'c',
+  d: 'd'
+});
+
+const diff = collection.diffKeys({
+  b: 'b',
+  d: 'd'
+});
+
+diff.all();
+
+//=&gt; {a: 'a', c: 'c'}
+</code></pre>
+
+<h4 id="17"><code>each()</code></h4>
+
+<p>The each method iterates over the items in the collection and passes each item to a callback:</p>
+
+<pre class="prettyprint"><code>let sum = 0;
+
+const collection = collect([1, 3, 3, 7]);
+
+collection.each(function (item) {
+  sum += item;
+});
+
+//=&gt; console.log(sum);
+//=&gt; 14
+</code></pre>
+
+<p>If you would like to stop iterating through the items, you may return false from your callback:</p>
+
+<pre class="prettyprint"><code>let sum = 0;
+
+const collection = collect([1, 3, 3, 7]);
+
+collection.each(function (item) {
+  if (item &gt; 3) {
+    return false;
+  }
+
+  sum += item;
+});
+
+//=&gt; console.log(sum);
+//=&gt; 7
+</code></pre>
+
+<h4 id="18"><code>every()</code></h4>
+
+<p>The every method may be used to verify that all elements of a collection pass a given truth test:</p>
+
+<pre class="prettyprint"><code>collect([1, 2, 3, 4]).every(function (value, key) {
+  return value &gt; 2;
+});
+
+//=&gt; false
+</code></pre>
+
+<h4 id="19"><code>except()</code></h4>
+
+<p>The except method returns all items in the collection except for those with the specified keys:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  product_id: 1,
+  price: 100,
+  discount: false
+});
+
+const filtered = collection.except(['price', 'discount']);
+
+filtered.all();
+
+//=&gt; {product_id: 1}
+</code></pre>
+
+<blockquote>
+  <p>For the inverse of <code>except</code>, see the <code>only</code> method.</p>
+</blockquote>
+
+<h4 id="20"><code>filter()</code></h4>
+
+<p>The filter method filters the collection using the given callback, keeping only those items that pass a given truth test:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4]);
+
+const filtered = collection.filter(function (value, key) {
+    return value &gt; 2;
+});
+
+filtered.all();
+
+//=&gt; [3, 4]
+</code></pre>
+
+<p>If no callback is supplied, all entries of the collection that are equivalent to <code>false</code> will be removed:</p>
+
+<pre class="prettyprint"><code>const collection = collect([0, 1, 2, null, 3, 4, undefined, 5, 6, 7, [], 8, 9, {}, 10]);
+
+const filtered = collection.filter();
+
+filtered.all();
+
+//=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre>
+
+<blockquote>
+  <p>For the inverse of <code>filter</code>, see the <code>reject</code> method.</p>
+</blockquote>
+
+<h4 id="21"><code>first()</code></h4>
+
+<p>The first method returns the first element in the collection that passes a given truth test:</p>
+
+<pre class="prettyprint"><code>collect([1, 2, 3, 4]).first(function (item) {
+  return item &gt; 1;
+});
+
+//=&gt; 2
+</code></pre>
+
+<p>You may also call the first method with no arguments to get the first element in the collection. If the collection is empty, null is returned:</p>
+
+<pre class="prettyprint"><code>collect([1, 2, 3, 4]).first();
+
+//=&gt; 1
+</code></pre>
+
+<h4 id="22"><code>flatMap()</code></h4>
+
+<p>The flatMap method iterates through the collection and passes each value to the given callback. The callback is free to modify the item and return it, thus forming a new collection of modified items. Then, the array is flattened by a level:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  name: 'Robbie Fowler',
+  nickname: 'The God',
+  position: 'Striker'
+});
+
+const flatMapped = collection.flatMap(function (values) {
+  return values.map(function (value) {
+    return value.toUpperCase();
+  });
+});
+
+flatMapped.all();
+
+//=&gt; {
+//=&gt;   name: 'ROBBIE FOWLER',
+//=&gt;   nickname: 'THE GOD',
+//=&gt;   position: 'STRIKER'
+//=&gt; }
+</code></pre>
+
+<h4 id="23"><code>flatten()</code></h4>
+
+<p>The flatten method flattens a multi-dimensional collection into a single dimension:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  club: 'Liverpool',
+  players: ['Sturridge', 'Firmino', 'Coutinho']
+});
+
+const flattened = collection.flatten();
+
+flattened.all();
+
+//=&gt; ['Liverpool', 'Sturridge', 'Firmino', 'Coutinho'];
+</code></pre>
+
+<p>You may optionally pass the function a "depth" argument:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  Apple: [{
+    name: 'iPhone 6S',
+    brand: 'Apple'
+  }],
+  Samsung: [{
+    name: 'Galaxy S7',
+    brand: 'Samsung'
+  }]
+});
+
+const flattened = collection.flatten(1);
+
+flattened.all();
+
+//=&gt; [
+//=&gt;   {name: 'iPhone 6S', brand: 'Apple'},
+//=&gt;   {name: 'Galaxy S7', brand: 'Samsung'}
+//=&gt; ]
+</code></pre>
+
+<p>In this example, calling flatten without providing the depth would have also flattened the nested arrays, resulting in <code>['iPhone 6S', 'Apple', 'Galaxy S7', 'Samsung']</code>. Providing a depth allows you to restrict the levels of nested arrays that will be flattened.</p>
+
+<h4 id="24"><code>flip()</code></h4>
+
+<p>The flip method swaps the collection's keys with their corresponding values:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  name: 'Steven Gerrard',
+  number: 8
+});
+
+const flipped = collection.flip();
+
+flipped.all();
+
+//=&gt; {
+//=&gt;   'Steven Gerrard': 'name',
+//=&gt;   '8': 'number'
+//=&gt; }
+</code></pre>
+
+<h4 id="25"><code>forget()</code></h4>
+
+<p>The forget method removes an item from the collection by its key:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  name: 'Steven Gerrard',
+  number: 8
+});
+
+collection.forget('number');
+
+collection.all();
+
+//=&gt; {
+//=&gt;   name: 'Steven Gerrard'
+//=&gt; }
+</code></pre>
+
+<blockquote>
+  <p>Unlike most other collection methods, forget does not return a new modified collection; it modifies the collection it is called on.</p>
+</blockquote>
+
+<h4 id="26"><code>forPage()</code></h4>
+
+<p>The forPage method returns a new collection containing the items that would be present on a given page number. The method accepts the page number as its first argument and the number of items to show per page as its second argument:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+const forPage = collection.forPage(2, 3);
+
+forPage.all();
+
+//=&gt; [4, 5, 6]
+</code></pre>
+
+<h4 id="27"><code>get()</code></h4>
+
+<p>The get method returns the item at a given key. If the key does not exist, <code>null</code> is returned:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  firstname: 'Chuck',
+  lastname: 'Norris'
+});
+
+collection.get('lastname');
+
+//=&gt; Norris
+
+collection.get('middlename');
+//=&gt; null
+</code></pre>
+
+<p>You may optionally pass a default value as the second argument:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  firstname: 'Chuck',
+  lastname: 'Norris'
+});
+
+collection.get('middlename', 'default-value');
+//=&gt; default-value
+</code></pre>
+
+<p>You may even pass a callback as the default value. The result of the callback will be returned if the specified key does not exist:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  firstname: 'Chuck',
+  lastname: 'Norris'
+});
+
+collection.get('middlename', function () {
+  return 'default-value';
+});
+
+//=&gt; default-value
+</code></pre>
+
+<h4 id="28"><code>groupBy()</code></h4>
+
+<p>The groupBy method groups the collection's items by a given key:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {
+    product: 'Chair',
+    manufacturer: 'IKEA'
+  },
+  {
+    product: 'Desk',
+    manufacturer: 'IKEA'
+  },
+  {
+    product: 'Chair',
+    manufacturer: 'Herman Miller'
+  }
+]);
+
+const grouped = collection.groupBy('manufacturer');
+
+grouped.all();
+
+//=&gt; {
+//=&gt;   IKEA: [
+//=&gt;     {
+//=&gt;       id: 100,
+//=&gt;       product: 'Chair',
+//=&gt;       manufacturer: 'IKEA',
+//=&gt;       price: '1490 NOK'
+//=&gt;     },
+//=&gt;     {
+//=&gt;       id: 150,
+//=&gt;       product: 'Desk',
+//=&gt;       manufacturer: 'IKEA',
+//=&gt;       price: '900 NOK'
+//=&gt;     }
+//=&gt;   ],
+//=&gt;   'Herman Miller': [
+//=&gt;     {
+//=&gt;       id: 200,
+//=&gt;       product: 'Chair',
+//=&gt;       manufacturer: 'Herman Miller',
+//=&gt;       price: '9990 NOK'
+//=&gt;     }
+//=&gt;   ]
+//=&gt; }
+</code></pre>
+
+<p>In addition to passing a string key, you may also pass a callback. The callback should return the value you wish to key the group by:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {
+    product: 'Chair',
+    manufacturer: 'IKEA'
+  },
+  {
+    product: 'Desk',
+    manufacturer: 'IKEA'
+  },
+  {
+    product: 'Chair',
+    manufacturer: 'Herman Miller'
+  }
+]);
+
+const grouped = collection.groupBy(function (item, key) {
+  return item.manufacturer.substring(0, 3);
+});
+
+grouped.all();
+
+//=&gt; {
+//=&gt;   IKE: [
+//=&gt;     {
+//=&gt;       id: 100,
+//=&gt;       product: 'Chair',
+//=&gt;       manufacturer: 'IKEA',
+//=&gt;       price: '1490 NOK'
+//=&gt;     },
+//=&gt;     {
+//=&gt;       id: 150,
+//=&gt;       product: 'Desk',
+//=&gt;       manufacturer: 'IKEA',
+//=&gt;       price: '900 NOK'
+//=&gt;     }
+//=&gt;   ],
+//=&gt;   Her: [
+//=&gt;     {
+//=&gt;       id: 200,
+//=&gt;       product: 'Chair',
+//=&gt;       manufacturer: 'Herman Miller',
+//=&gt;       price: '9990 NOK'
+//=&gt;     }
+//=&gt;   ]
+//=&gt; }
+</code></pre>
+
+<h4 id="29"><code>has()</code></h4>
+
+<p>The has method determines if a given key exists in the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  animal: 'unicorn',
+  ability: 'magical'
+});
+
+collection.has('ability');
+
+//=&gt; true
+</code></pre>
+
+<p>An array of objects also works:</p>
+
+<pre class="prettyprint"><code>const collection = collect([{
+  animal: 'unicorn',
+  ability: 'magical'
+}, {
+  anmial: 'pig',
+  ability: 'filthy'
+}]);
+
+collection.has('ability');
+
+//=&gt; true
+</code></pre>
+
+<h4 id="30"><code>implode()</code></h4>
+
+<p>The implode method joins the items in a collection. Its arguments depend on the type of items in the collection. If the collection contains arrays or objects, you should pass the key of the attributes you wish to join, and the "glue" string you wish to place between the values:</p>
+
+<pre class="prettyprint"><code>const collection = collect([{
+    product: 'Chair',
+    manufacturer: 'IKEA',
+  }, {
+    product: 'Desk',
+    manufacturer: 'IKEA',
+  }, {
+    product: 'Chair',
+    manufacturer: 'Herman Miller',
+  }]);
+
+collection.implode('product', ',');
+
+//=&gt; Chair, Desk, Chair
+</code></pre>
+
+<p>If the collection contains simple strings or numeric values, simply pass the "glue" as the only argument to the method:</p>
+
+<pre class="prettyprint"><code>collect([1, 2, 3, 4, 5]).implode('-');
+
+//=&gt; 1-2-3-4-5
+</code></pre>
+
+<h4 id="31"><code>intersect()</code></h4>
+
+<p>The intersect method removes any values from the original collection that are not present in the given <code>array</code> or <code>collection</code>. The resulting collection will preserve the original collection's keys:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+intersect = collection.intersect([1, 2, 3, 9]);
+
+intersect.all();
+
+//=&gt; [1, 2, 3]
+
+
+
+const firstCollection = collect([1, 2, 3, 4, 5]);
+const secondCollection = collect([1, 2, 3, 9]);
+
+intersect = firstCollection.intersect(secondCollection);
+
+intersect.all();
+
+//=&gt; [1, 2, 3]
+</code></pre>
+
+<h4 id="32"><code>isEmpty()</code></h4>
+
+<p>The isEmpty method returns true if the collection is empty; otherwise, false is returned:</p>
+
+<pre class="prettyprint"><code>collect([]).isEmpty();
+
+//=&gt;  true
+
+
+#### ``isNotEmpty()``
+The isNotEmpty method returns true if the collection is not empty; otherwise, false is returned:
+
+collect([1, 2, 3]).isNotEmpty();
+
+//=&gt;  true
+</code></pre>
+
+<h4 id="33"><code>keyBy()</code></h4>
+
+<p>The keyBy method keys the collection by the given key. If multiple items have the same key, only the last one will appear in the new collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {
+    product: 'Chair',
+    manufacturer: 'IKEA'
+  }, {
+    product: 'Desk',
+    manufacturer: 'IKEA'
+  }, {
+    product: 'Chair',
+    manufacturer: 'Herman Miller'
+  }
+]);
+
+const keyed = collection.keyBy('manufacturer');
+
+keyed.all();
+
+//=&gt; {
+//=&gt;   IKEA: {
+//=&gt;     product: 'Desk',
+//=&gt;     manufacturer: 'IKEA'
+//=&gt;   },
+//=&gt;   'Herman Miller': {
+//=&gt;     product: 'Chair',
+//=&gt;     manufacturer: 'Herman Miller'
+//=&gt;   }
+//=&gt; }
+</code></pre>
+
+<p>You may also pass a callback to the method. The callback should return the value to key the collection by:</p>
+
+<pre class="prettyprint"><code>const keyedUpperCase = collection.keyBy(function (item) {
+  return item['manufacturer'].toUpperCase();
+});
+
+keyedUpperCase.all();
+
+//=&gt; {
+//=&gt;   IKEA: {
+//=&gt;     product: 'Desk',
+//=&gt;     manufacturer: 'IKEA'
+//=&gt;   },
+//=&gt;   'HERMAN MILLER': {
+//=&gt;     product: 'Chair',
+//=&gt;     manufacturer: 'Herman Miller'
+//=&gt;   }
+//=&gt; }
+</code></pre>
+
+<h4 id="34"><code>keys()</code></h4>
+
+<p>The keys method returns all of the collection's keys:</p>
+
+<pre class="prettyprint"><code>const collection = collect([{
+  name: 'Steven Gerrard',
+  number: 8
+}, {
+  club: 'Liverpool',
+  nickname: 'The Reds'
+}]);
+
+keys = collection.keys();
+
+//=&gt; ['name', 'number', 'club', 'nickname']
+</code></pre>
+
+<h4 id="35"><code>last()</code></h4>
+
+<p>The last method returns the last element in the collection that passes a given truth test:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3]);
+
+const last = collection.last(function (item) {
+  return item &gt; 1;
+});
+
+//=&gt; 3
+</code></pre>
+
+<p>You may also call the last method with no arguments to get the last element in the collection. If the collection is empty, null is returned:</p>
+
+<pre class="prettyprint"><code>collect([1, 2, 3, 4]).last();
+
+//=&gt; 4
+</code></pre>
+
+<h4 id="36"><code>macro()</code></h4>
+
+<p>The macro method lets you register custom methods</p>
+
+<pre class="prettyprint"><code>collect().macro('uppercase', function () {
+  return this.map(function (item) {
+    return item.toUpperCase();
+  });
+});
+
+const collection = collect(['a', 'b', 'c']);
+
+collection.uppercase();
+
+collection.all();
+
+//=&gt; ['A', 'B', 'C']
+</code></pre>
+
+<h4 id="37"><code>map()</code></h4>
+
+<p>The map method iterates through the collection and passes each value to the given callback. The callback is free to modify the item and return it, thus forming a new collection of modified items:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+const multiplied = collection.map(function (item) {
+  return item * 2;
+});
+
+multiplied.all();
+
+//=&gt; [2, 4, 6, 8, 10]
+</code></pre>
+
+<blockquote>
+  <p>Like most other collection methods, <code>map</code> returns a new collection instance; it does not modify the collection it is called on. If you want to transform the original collection, use the <code>transform</code> method.</p>
+</blockquote>
+
+<h4 id="38"><code>mapWithKeys()</code></h4>
+
+<p>The mapWithKeys method iterates through the collection and passes each value to the given callback. The callback should return an array where the first element represents the key and the second element represents the value pair:</p>
+
+<pre class="prettyprint"><code>const collection = collect([{
+    'name': 'John',
+    'department': 'Sales',
+    'email': 'john@example.com'
+  }, {
+    'name': 'Jane',
+    'department': 'Marketing',
+    'email': 'jane@example.com'
+  }]);
+
+const keyed = collection.mapWithKeys(function (item) {
+  return [item.email, item.name];
+});
+
+keyed.all();
+
+//=&gt; {
+//=&gt;   'john@example.com': 'John',
+//=&gt;   'jane@example.com': 'Jane',
+//=&gt; }
+</code></pre>
+
+<h4 id="39"><code>max()</code></h4>
+
+<p>The max method returns the maximum value of a given key:</p>
+
+<pre class="prettyprint"><code>const collection = collect([{
+  value: 10
+}, {
+  value: -13
+}, {
+  value: 12
+}, {
+  unicorn: false
+}]);
+
+const max = collection.max('value');
+
+//=&gt; 12
+
+
+collect([-1, -2345, 12, 11, 3]).max();
+
+//=&gt; 12
+</code></pre>
+
+<h4 id="40"><code>median()</code></h4>
+
+<p>The median method returns the median value of a given key:</p>
+
+<pre class="prettyprint"><code>collect([1, 3, 3, 6, 7, 8, 9]).median();
+
+//=&gt; 6
+
+
+
+collect([{
+  foo: 1
+}, {
+  foo: 1
+}, {
+  foo: 2
+}, {
+  foo: 4
+}]).median('foo');
+
+//=&gt; 1.5
+</code></pre>
+
+<h4 id="41"><code>merge()</code></h4>
+
+<p>The merge method merges the given object into the original collection. If a key in the given object matches a key in the original collection, the given objects value will overwrite the value in the original collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  id: 1,
+  price: 29
+});
+
+const merged = collection.merge({
+  price: 400,
+  discount: false
+});
+
+merged.all();
+
+//=&gt; {id: 1, price: 400, discount: false}
+</code></pre>
+
+<p>If our collection is an array, the values will be appended to the end of the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect(['Unicorn', 'Rainbow']);
+
+const merged = collection.merge(['Sunshine', 'Rainbow']);
+
+merged.all();
+
+//=&gt; ['Unicorn', 'Rainbow', 'Sunshine', 'Rainbow']
+</code></pre>
+
+<h4 id="42"><code>min()</code></h4>
+
+<p>The min method returns the minimum value of a given key:</p>
+
+<pre class="prettyprint"><code>const collection = collect[{
+  worth: 100
+}, {
+  worth: 900
+}, {
+  worth: 79
+}]);
+
+collection.min('worth');
+
+//=&gt; 79
+
+
+collect([1, 2, 3, 4, 5]).min();
+
+//=&gt; 1
+</code></pre>
+
+<h4 id="43"><code>mode()</code></h4>
+
+<p>The mode method returns the mode value of a given key:</p>
+
+<pre class="prettyprint"><code>collect([1, 3, 3, 6, 7, 8, 9]).mode();
+
+//=&gt; [3]
+
+
+
+collect([{
+  foo: 1
+}, {
+  foo: 1
+}, {
+  foo: 2
+}, {
+  foo: 4
+}]).mode('foo');
+
+//=&gt; [1]
+</code></pre>
+
+<h4 id="44"><code>nth()</code></h4>
+
+<p>The nth method creates a new collection consisting of every n-th element:</p>
+
+<pre class="prettyprint"><code>const collection = collect(['a', 'b', 'c', 'd', 'e', 'f']);
+
+const nth = collection.nth(4);
+
+nth.all();
+
+//=&gt; ['a', 'e']
+</code></pre>
+
+<h4 id="45"><code>only()</code></h4>
+
+<p>The only method returns the items in the collection with the specified keys:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  id: 12,
+  name: 'John Doe',
+  email: 'john@doe.com'
+  active: true
+});
+
+const filtered = collection.only(['name', 'email']);
+
+//=&gt; {name: 'John Doe', email: 'john@doe.com'}
+</code></pre>
+
+<blockquote>
+  <p>For the inverse of <code>only</code>, see the <code>except</code> method.</p>
+</blockquote>
+
+<h4 id="46"><code>partition()</code></h4>
+
+<p>The partition method may be combined with destructuring to separate elements that pass a given truth test from those that do not:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5, 6]);
+
+const [underThree, underThree] = collection.partition(function (i) {
+  return i &lt; 3;
+});
+</code></pre>
+
+<h4 id="47"><code>pipe()</code></h4>
+
+<p>The pipe method passes the collection to the given callback and returns the result:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3]);
+
+const piped = collection.pipe(function (collection) {
+  return collection.sum();
+});
+
+//=&gt; 6
+</code></pre>
+
+<h4 id="48"><code>pluck()</code></h4>
+
+<p>The pluck method retrieves all of the values for a given key:</p>
+
+<pre class="prettyprint"><code>const collection = collect([{
+  id: 78,
+  name: 'Aeron'
+}, {
+  id: 79,
+  name: 'Embody'
+}]);
+
+const plucked = collection.pluck('name');
+
+plucked.all();
+
+//=&gt; ['Aeron', 'Embody']
+</code></pre>
+
+<p>You may also specify how you wish the resulting collection to be keyed:</p>
+
+<pre class="prettyprint"><code>const collection = collect([{
+  id: 78,
+  name: 'Aeron'
+}, {
+  id: 79,
+  name: 'Embody'
+}]);
+
+const plucked = collection.pluck('name', 'id');
+
+plucked.all();
+
+//=&gt; {
+//=&gt;   78: 'Aeron',
+//=&gt;   79: 'Embody'
+//=&gt; }
+</code></pre>
+
+<h4 id="49"><code>pop()</code></h4>
+
+<p>The pop method removes and returns the last item from the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+collection.pop();
+
+//=&gt; 5
+
+collection.all();
+
+// =&gt; [1, 2, 3, 4]
+</code></pre>
+
+<h4 id="50"><code>prepend()</code></h4>
+
+<p>The prepend method adds an item to the beginning of the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+collection.prepend(0);
+
+collection.all();
+
+//=&gt; [0, 1, 2, 3, 4, 5]
+</code></pre>
+
+<p>You may also pass a second argument to set the key of the prepended item:</p>
+
+<blockquote>
+  <p>Pro tip: Order of properties in objects is not guaranteed in JavaScript; When calling prepend with a key, the Collection uses the underlying <code>put</code> method behind the scenes. This is only supported so that collect.js have the same api as Laravel Collections.</p>
+</blockquote>
+
+<pre class="prettyprint"><code>const collection = collect({
+  product: 'iPhone 6s'
+});
+
+collection.prepend('Apple', 'brand');
+
+collection.all():
+
+//=&gt; {
+//=&gt;   brand: 'Apple',
+//=&gt;   product: 'iPhone 6s'
+//=&gt; }
+</code></pre>
+
+<h4 id="51"><code>pull()</code></h4>
+
+<p>The pull method removes and returns an item from the collection by its key:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  firstname: 'Michael',
+  lastname: 'Cera'
+});
+
+collection.pull('lastname');
+
+//=&gt; Cera
+
+collection.all();
+
+//=&gt; {firstname: 'Michael'}
+</code></pre>
+
+<h4 id="52"><code>push()</code></h4>
+
+<p>The push method appends an item to the end of the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4]);
+
+collection.push(5);
+
+collection.all();
+
+//=&gt; [1, 2, 3, 4, 5]
+</code></pre>
+
+<h4 id="53"><code>put()</code></h4>
+
+<p>The put method sets the given key and value in the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect(['JavaScript', 'Python']);
+
+collection.put('Ruby');
+
+collection.all();
+
+//=&gt; ['JavaScript', 'Python', 'Ruby']
+</code></pre>
+
+<h4 id="54"><code>random()</code></h4>
+
+<p>The random method returns a random item from the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+collection.random();
+
+//=&gt; 4 (retrieved randomly)
+</code></pre>
+
+<p>You may optionally pass an integer to random to specify how many items you would like to randomly retrieve. If that integer is more than 1, a collection of items is returned:</p>
+
+<pre class="prettyprint"><code>const random = collection.random(3);
+
+//=&gt; [5, 3, 4] (retrieved randomly)
+</code></pre>
+
+<h4 id="55"><code>reduce()</code></h4>
+
+<p>The reduce method reduces the collection to a single value, passing the result of each iteration into the subsequent iteration:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3]);
+
+const total = collection.reduce(function (carry, item) {
+  return carry + item;
+});
+
+//=&gt; 6
+</code></pre>
+
+<p>The value for <code>carry</code> on the first iteration is null; however, you may specify its initial value by passing a second argument to reduce:</p>
+
+<pre class="prettyprint"><code>const total = collection.reduce(function (carry, item) {
+  return carry + item;
+}, 4);
+
+//=&gt; 10
+</code></pre>
+
+<h4 id="56"><code>reject()</code></h4>
+
+<p>The reject method filters the collection using the given callback. The callback should return true if the item should be removed from the resulting collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4]);
+
+const filtered = collection.reject(function (value) {
+  return value &gt; 2;
+});
+
+//=&gt; [1, 2]
+</code></pre>
+
+<blockquote>
+  <p>For the inverse of the <code>reject</code> method, see the <code>filter</code> method.</p>
+</blockquote>
+
+<h4 id="57"><code>reverse()</code></h4>
+
+<p>The reverse method reverses the order of the collection's items:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+const reversed = collection.reverse();
+
+reversed.all();
+
+//=&gt; [5, 4, 3, 2, 1]
+</code></pre>
+
+<h4 id="58"><code>search()</code></h4>
+
+<p>The search method searches the collection for the given value and returns its key if found. If the item is not found, false is returned.</p>
+
+<pre class="prettyprint"><code>const collection = collect([2, 4, 6, 8]);
+
+collection.search(4);
+
+//=&gt; 1
+</code></pre>
+
+<p>The search is done using a "loose" comparison, meaning a string with an integer value will be considered equal to an integer of the same value. To use strict comparison, pass true as the second argument to the method:</p>
+
+<pre class="prettyprint"><code>collection.search('4', true);
+
+//=&gt; false
+</code></pre>
+
+<p>Alternatively, you may pass in your own callback to search for the first item that passes your truth test:</p>
+
+<pre class="prettyprint"><code>collection.search(function (item, key) {
+  return item &gt; 5;
+});
+
+//=&gt; 2
+</code></pre>
+
+<h4 id="59"><code>shift()</code></h4>
+
+<p>The shift method removes and returns the first item from the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+collection.shift();
+
+//=&gt; 1
+
+collection.all();
+
+//=&gt; [2, 3, 4, 5]
+</code></pre>
+
+<h4 id="60"><code>shuffle()</code></h4>
+
+<p>The shuffle method randomly shuffles the items in the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+const shuffled = collection.shuffle();
+
+shuffled.all();
+
+//=&gt; [3, 5, 1, 2, 4] (generated randomly)
+</code></pre>
+
+<h4 id="61"><code>slice()</code></h4>
+
+<p>The slice method returns a slice of the collection starting at the given index:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+const slice = collection.slice(4);
+
+slice.all();
+
+//=&gt; [5, 6, 7, 8, 9, 10]
+</code></pre>
+
+<p>If you would like to limit the size of the returned slice, pass the desired size as the second argument to the method:</p>
+
+<pre class="prettyprint"><code>const slice = collection.slice(4, 2);
+
+slice.all();
+
+//=&gt; [5, 6]
+</code></pre>
+
+<h4 id="62"><code>sort()</code></h4>
+
+<p>The sort method sorts the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([5, 3, 1, 2, 4]);
+
+const sorted = collection.sort();
+
+sorted.all();
+
+//=&gt; [1, 2, 3, 4, 5]
+
+
+&gt; If your sorting needs are more advanced, you may pass a callback to sort with your own algorithm.
+
+
+const collection = collect([5, 3, 1, 2, 4]);
+
+const sorted = collection.sort(function (a, b) {
+  return b - a;
+});
+
+sorted.all();
+
+//=&gt; [5, 4, 3, 2, 1]
+</code></pre>
+
+<blockquote>
+  <p>If you need to sort a collection of nested arrays or objects, see the <code>sortBy</code> and <code>sortByDesc</code> methods.</p>
+</blockquote>
+
+<h4 id="63"><code>sortBy()</code></h4>
+
+<p>The sortBy method sorts the collection by the given key. The sorted collection keeps the original array keys, so in this example we'll use the values method to reset the keys to consecutively numbered indexes:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {name: 'Desk', price: 200},
+  {name: 'Chair', price: 100},
+  {name: 'Bookcase', price: 150},
+]);
+
+const sorted = collection.sortBy('price');
+
+sorted.all();
+
+//=&gt; [
+//=&gt;   {name: 'Chair', price: 100},
+//=&gt;   {name: 'Bookcase', price: 150},
+//=&gt;   {name: 'Desk', price: 200},
+//=&gt; ]
+</code></pre>
+
+<p>You can also pass your own callback to determine how to sort the collection values:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {name: 'Desk', colors: ['Black', 'Mahogany']},
+  {name: 'Chair', colors: ['Black']},
+  {name: 'Bookcase', colors: ['Red', 'Beige', 'Brown']},
+]);
+
+const sorted = collection.sortBy(function (product, key) {
+  return product['colors'].length;
+});
+
+sorted.all();
+
+//=&gt; [
+//=&gt;   {name: 'Chair', colors: ['Black']},
+//=&gt;   {name: 'Desk', colors: ['Black', 'Mahogany']},
+//=&gt;   {name: 'Bookcase', colors: ['Red', 'Beige', 'Brown']},
+//=&gt; ]
+</code></pre>
+
+<h4 id="64"><code>sortByDesc()</code></h4>
+
+<p>This method has the same signature as the <code>sortBy</code> method, but will sort the collection in the opposite order.</p>
+
+<h4 id="65"><code>splice()</code></h4>
+
+<p>The splice method removes and returns a slice of items starting at the specified index:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+const chunk = collection.splice(2);
+
+chunk.all();
+
+//=&gt; [3, 4, 5]
+
+collection.all();
+
+//=&gt; [1, 2]
+</code></pre>
+
+<p>You may pass a second argument to limit the size of the resulting chunk:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+const chunk = collection.splice(2, 1);
+
+chunk.all();
+
+//=&gt; [3]
+
+collection.all();
+
+//=&gt; [1, 2, 4, 5]
+</code></pre>
+
+<h4 id="66"><code>split()</code></h4>
+
+<p>The split method breaks a collection into the given number of groups:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+const groups = collection.split(3);
+
+//=&gt; [[1, 2], [3, 4], [5]]
+</code></pre>
+
+<p>In addition, you can pass a third argument containing the new items to replace the items removed from the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+const chunk = collection.splice(2, 1, [10, 11]);
+
+chunk.all()
+
+//=&gt; [3]
+
+collection.all();
+
+//=&gt; [1, 2, 10, 11, 4, 5]
+</code></pre>
+
+<h4 id="67"><code>sum()</code></h4>
+
+<p>The sum method returns the sum of all items in the collection:</p>
+
+<pre class="prettyprint"><code>collect([1, 2, 3]).sum();
+
+//=&gt; 6
+</code></pre>
+
+<p>If the collection contains nested arrays or objects, you should pass a key to use for determining which values to sum:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {name: 'JavaScript: The Good Parts', pages: 176},
+  {name: 'JavaScript: The Definitive Guide', pages: 1096},
+]);
+
+collection.sum('pages');
+
+//=&gt; 1272
+</code></pre>
+
+<p>In addition, you may pass your own callback to determine which values of the collection to sum:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {name: 'Desk', colors: ['Black', 'Mahogany']},
+  {name: 'Chair', colors: ['Black']},
+  {name: 'Bookcase', colors: ['Red', 'Beige', 'Brown']},
+]);
+
+const total = collection.sum(function (product) {
+  return product.colors.length;
+});
+
+//=&gt; 6
+</code></pre>
+
+<h4 id="68"><code>take()</code></h4>
+
+<p>The take method returns a new collection with the specified number of items:
+You may also pass a negative integer to take the specified amount of items from the end of the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([0, 1, 2, 3, 4, 5]);
+
+const chunk = collection.take(3);
+
+chunk.all();
+
+//=&gt; [0, 1, 2]
+</code></pre>
+
+<h4 id="69"><code>tap()</code></h4>
+
+<p>The tap method passes the collection to the given callback, allowing you to "tap" into the collection at a specific point and do something with the items while not affecting the collection itself:</p>
+
+<pre class="prettyprint"><code>const collect([2, 4, 3, 1, 5])
+  .sort()
+  .tap(function (collection) {
+    console.log(collection.all());
+
+    //=&gt; [1, 2, 3, 4, 5]
+  })
+  .shift();
+
+//=&gt; 1
+</code></pre>
+
+<h4 id="70"><code>times()</code></h4>
+
+<p>The times method creates a new collection by invoking the callback a given amount of times:</p>
+
+<pre class="prettyprint"><code>const collection = collect().times(10, function (number) {
+  return number * 9;
+});
+
+collection.all();
+
+//=&gt; [9, 18, 27, 36, 45, 54, 63, 72, 81, 90]
+</code></pre>
+
+<h4 id="71"><code>toArray()</code></h4>
+
+<p>The toArray method converts the collection into a plain array.
+If the collection is an object, an array containing the values will be returned.</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 'b', 'c']);
+
+collection.toArray();
+
+//=&gt; [1, 2, 3, 'b', 'c']
+
+
+
+const collection = collect({
+  name: 'Elon Musk',
+  companies: [
+    'Tesla',
+    'Space X',
+    'SolarCity'
+  ]
+});
+
+collection.toArray();
+
+//=&gt; ['Elon Musk', ['Tesla', 'Space X', 'SolarCity']]
+</code></pre>
+
+<h4 id="72"><code>toJson()</code></h4>
+
+<p>The toJson method converts the collection into JSON string:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  id: 384,
+  name: 'Rayquaza',
+  gender: 'NA'
+});
+
+const json = collection.toJson();
+
+//=&gt; {"id": 384, "name": "Rayquaza", "gender": "NA"}
+</code></pre>
+
+<h4 id="73"><code>transform()</code></h4>
+
+<p>The transform method iterates over the collection and calls the given callback with each item in the collection. The items in the collection will be replaced by the values returned by the callback:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3, 4, 5]);
+
+collection.transform(function (item, key) {
+  return item * 2;
+});
+
+collection.all();
+
+//=&gt; [2, 4, 6, 8, 10]
+</code></pre>
+
+<blockquote>
+  <p>Unlike most other collection methods, <code>transform</code> modifies the collection itself. If you wish to create a new collection instead, use the <code>map</code> method.</p>
+</blockquote>
+
+<h4 id="74"><code>union()</code></h4>
+
+<p>The union method adds the given array to the collection. If the given array contains keys that are already in the original collection, the original collection's values will be preferred:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  a: 'A',
+  b: 'B'
+});
+
+const union = collection.union({
+  a: 'AAA',
+  c: 'CCC',
+  b: 'BBB'
+});
+
+union.all();
+
+//=&gt; {
+//=&gt;   a: 'A',
+//=&gt;   b: 'B',
+//=&gt;   c: 'CCC'
+//=&gt; }
+</code></pre>
+
+<h4 id="75"><code>unique()</code></h4>
+
+<p>The unique method returns all of the unique items in the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 1, 1, 2, 3, 3]);
+
+const unique = collection.unique();
+
+unique.all();
+
+//=&gt; [1, 2, 3]
+</code></pre>
+
+<p>When dealing with an array of objects, you may specify the key used to determine uniqueness:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {name: 'iPhone 6', brand: 'Apple', type: 'phone'},
+  {name: 'iPhone 5', brand: 'Apple', type: 'phone'},
+  {name: 'Apple Watch', brand: 'Apple', type: 'watch'},
+  {name: 'Galaxy S6', brand: 'Samsung', type: 'phone'},
+  {name: 'Galaxy Gear', brand: 'Samsung', type: 'watch'}
+]);
+
+const unique = collection.unique('brand');
+
+unique.all();
+
+//=&gt; [
+//=&gt;   {name: 'iPhone 6', brand: 'Apple', type: 'phone'},
+//=&gt;   {name: 'Galaxy S6', brand: 'Samsung', type: 'phone'},
+//=&gt; ]
+</code></pre>
+
+<p>You may also pass your own callback to determine item uniqueness:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {name: 'iPhone 6', brand: 'Apple', type: 'phone'},
+  {name: 'iPhone 5', brand: 'Apple', type: 'phone'},
+  {name: 'Apple Watch', brand: 'Apple', type: 'watch'},
+  {name: 'Galaxy S6', brand: 'Samsung', type: 'phone'},
+  {name: 'Galaxy Gear', brand: 'Samsung', type: 'watch'}
+]);
+
+const unique = collection.unique(function (item) {
+  return item.brand + item.type;
+});
+
+unique.all();
+
+//=&gt; [
+//=&gt;   {name: 'iPhone 6', brand: 'Apple', type: 'phone'},
+//=&gt;   {name: 'Apple Watch', brand: 'Apple', type: 'watch'},
+//=&gt;   {name: 'Galaxy S6', brand: 'Samsung', type: 'phone'},
+//=&gt;   {name: 'Galaxy Gear', brand: 'Samsung', type: 'watch'},
+//=&gt; ]
+</code></pre>
+
+<h4 id="76"><code>values()</code></h4>
+
+<p>The values method returns a new collection with the keys reset to consecutive integers:</p>
+
+<pre class="prettyprint"><code>const collection = collect({a: 'xoxo', b: 'abab', 'c': '1337', 1337: 12});
+
+const values = collection.values();
+
+values.all();
+
+//=&gt; [12, 'xoxo', 'abab', '1337']
+</code></pre>
+
+<h4 id="77"><code>when()</code></h4>
+
+<p>The when method will execute the given callback when the first argument given to the method evaluates to true:</p>
+
+<pre class="prettyprint"><code>const collection = collect([1, 2, 3]);
+
+collection.when(true, function (collection) {
+  return collection.push(4);
+});
+
+collection.all();
+
+// [1, 2, 3, 4]
+</code></pre>
+
+<h4 id="78"><code>where()</code></h4>
+
+<p>The where method filters the collection by a given key / value pair:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {product: 'Desk', price: 200},
+  {product: 'Chair', price: 100},
+  {product: 'Bookcase', price: 150},
+  {product: 'Door', price: 100},
+]);
+
+const filtered = collection.where('price', 100);
+
+filtered.all();
+
+//=&gt; [
+//=&gt;   {product: 'Chair', price: 100},
+//=&gt;   {product: 'Door', price: 100}
+//=&gt; ]
+</code></pre>
+
+<p>The where method also allows for custom comparisons:
+<strong>Non-identity / strict inequality <code>(!==)</code></strong></p>
+
+<pre class="prettyprint"><code>const filtered = collection.where('price', '!==', 100);
+
+filtered.all();
+
+//=&gt; [
+//=&gt;   {product: 'Desk', price: 200},
+//=&gt;   {product: 'Bookcase', price: 150}
+//=&gt; ]
+</code></pre>
+
+<p><strong>Less than operator <code>(&lt;)</code></strong></p>
+
+<pre class="prettyprint"><code>const filtered = collection.where('price', '&lt;', 100);
+
+filtered.all();
+
+//=&gt; []
+</code></pre>
+
+<p><strong>Less than or equal operator <code>(&lt;=)</code></strong></p>
+
+<pre class="prettyprint"><code>const filtered = collection.where('price', '&lt;=', 100);
+
+filtered.all();
+
+//=&gt; [
+//=&gt;   {product: 'Chair', price: 100},
+//=&gt;   {product: 'Door', price: 100}
+//=&gt; ]
+</code></pre>
+
+<p><strong>Greater than operator <code>(&gt;)</code></strong></p>
+
+<pre class="prettyprint"><code>const filtered = collection.where('price', '&gt;', 100);
+
+filtered.all();
+
+//=&gt; [
+//=&gt;   {product: 'Desk', price: 200},
+//=&gt;   {product: 'Bookcase', price: 150}
+//=&gt; ]
+</code></pre>
+
+<p><strong>Greater than or equal operator <code>(&gt;=)</code></strong></p>
+
+<pre class="prettyprint"><code>const filtered = collection.where('price', '&gt;=', 150);
+
+filtered.all();
+
+//=&gt; [
+//=&gt;   {product: 'Desk', price: 200},
+//=&gt;   {product: 'Bookcase', price: 150}
+//=&gt; ]
+</code></pre>
+
+<h4 id="79"><code>whereIn()</code></h4>
+
+<p>The whereIn method filters the collection by a given key / value contained within the given array.</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {product: 'Desk', price: 200},
+  {product: 'Chair', price: 100},
+  {product: 'Bookcase', price: 150},
+  {product: 'Door', price: 100},
+]);
+
+const filtered = collection.whereIn('price', [100, 150]);
+
+filtered.all();
+
+//=&gt; [
+//=&gt;   {product: 'Chair', price: 100},
+//=&gt;   {product: 'Bookcase', price: 150},
+//=&gt;   {product: 'Door', price: 100},
+//=&gt; ]
+</code></pre>
+
+<h4 id="80"><code>whereNotIn()</code></h4>
+
+<p>The whereNotIn method filters the collection by a given key / value not contained within the given array:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  { product: 'Desk', price: 200 },
+  { product: 'Chair', price: 100 },
+  { product: 'Bookcase', price: 150 },
+  { product: 'Door', price: 100 }
+]);
+
+const filtered = collection.whereNotIn('price', [150, 200]);
+
+filtered.all();
+
+//=&gt; [
+//=&gt;   { product: 'Chair', price: 100 },
+//=&gt;   { product: 'Door', price: 100 }
+//=&gt; ]
+</code></pre>
+
+<h4 id="81"><code>zip()</code></h4>
+
+<p>The zip method merges together the values of the given array with the values of the original collection at the corresponding index:</p>
+
+<pre class="prettyprint"><code>const collection = collect(['Chair', 'Desk']);
+
+const zipped = collection.zip([100, 200]);
+
+zipped.all();
+
+//=&gt; [['Chair', 100], ['Desk', 200]]
+</code></pre>
+
+<h3 id="82">Contribute</h3>
+
+<p>PRs are welcomed to this project, and help is needed in order to keep up with the changes of Laravel Collections. If you want to improve the collection library, add functionality or improve the docs please feel free to submit a PR.</p>
+
+<h3 id="83">License</h3>
+
+<p>MIT © <a href="http://danieleckermann.com">Daniel Eckermann</a></p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1"><code>search()</code></a></li></ul></div><div class="span9"><h4 id="1"><code>search()</code></h4>
+
+<p>The search method searches the collection for the given value and returns its key if found. If the item is not found, false is returned.</p>
+
+<pre class="prettyprint"><code>const collection = collect([2, 4, 6, 8]);
+
+collection.search(4);
+
+//=&gt; 1
+</code></pre>
+
+<p>The search is done using a "loose" comparison, meaning a string with an integer value will be considered equal to an integer of the same value. To use strict comparison, pass true as the second argument to the method:</p>
+
+<pre class="prettyprint"><code>collection.search('4', true);
+
+//=&gt; false
+</code></pre>
+
+<p>Alternatively, you may pass in your own callback to search for the first item that passes your truth test:</p>
+
+<pre class="prettyprint"><code>collection.search(function (item, key) {
+  return item &gt; 5;
+});
+
+//=&gt; 2
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

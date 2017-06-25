@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1"><code>groupBy()</code></a></li></ul></div><div class="span9"><h4 id="1"><code>groupBy()</code></h4>
+
+<p>The groupBy method groups the collection's items by a given key:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {
+    product: 'Chair',
+    manufacturer: 'IKEA'
+  },
+  {
+    product: 'Desk',
+    manufacturer: 'IKEA'
+  },
+  {
+    product: 'Chair',
+    manufacturer: 'Herman Miller'
+  }
+]);
+
+const grouped = collection.groupBy('manufacturer');
+
+grouped.all();
+
+//=&gt; {
+//=&gt;   IKEA: [
+//=&gt;     {
+//=&gt;       id: 100,
+//=&gt;       product: 'Chair',
+//=&gt;       manufacturer: 'IKEA',
+//=&gt;       price: '1490 NOK'
+//=&gt;     },
+//=&gt;     {
+//=&gt;       id: 150,
+//=&gt;       product: 'Desk',
+//=&gt;       manufacturer: 'IKEA',
+//=&gt;       price: '900 NOK'
+//=&gt;     }
+//=&gt;   ],
+//=&gt;   'Herman Miller': [
+//=&gt;     {
+//=&gt;       id: 200,
+//=&gt;       product: 'Chair',
+//=&gt;       manufacturer: 'Herman Miller',
+//=&gt;       price: '9990 NOK'
+//=&gt;     }
+//=&gt;   ]
+//=&gt; }
+</code></pre>
+
+<p>In addition to passing a string key, you may also pass a callback. The callback should return the value you wish to key the group by:</p>
+
+<pre class="prettyprint"><code>const collection = collect([
+  {
+    product: 'Chair',
+    manufacturer: 'IKEA'
+  },
+  {
+    product: 'Desk',
+    manufacturer: 'IKEA'
+  },
+  {
+    product: 'Chair',
+    manufacturer: 'Herman Miller'
+  }
+]);
+
+const grouped = collection.groupBy(function (item, key) {
+  return item.manufacturer.substring(0, 3);
+});
+
+grouped.all();
+
+//=&gt; {
+//=&gt;   IKE: [
+//=&gt;     {
+//=&gt;       id: 100,
+//=&gt;       product: 'Chair',
+//=&gt;       manufacturer: 'IKEA',
+//=&gt;       price: '1490 NOK'
+//=&gt;     },
+//=&gt;     {
+//=&gt;       id: 150,
+//=&gt;       product: 'Desk',
+//=&gt;       manufacturer: 'IKEA',
+//=&gt;       price: '900 NOK'
+//=&gt;     }
+//=&gt;   ],
+//=&gt;   Her: [
+//=&gt;     {
+//=&gt;       id: 200,
+//=&gt;       product: 'Chair',
+//=&gt;       manufacturer: 'Herman Miller',
+//=&gt;       price: '9990 NOK'
+//=&gt;     }
+//=&gt;   ]
+//=&gt; }
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

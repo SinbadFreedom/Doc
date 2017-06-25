@@ -9,11 +9,12 @@
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="bootstrap/css/docs.css" rel="stylesheet">
     <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+	
 </head>
-<body>
-<h1>{{{title}}}</h1>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 
-<div>
+<div class="container">
+	<h1>{{{title}}}</h1>
     <ui>
         {{#each catalog}}
             <li><a href="{{{this.url}}}">{{this.chapter}}</a></li>
@@ -21,7 +22,7 @@
     </ui>
 </div>
 <div style="display:none;">
-	<script src="https://s13.cnzz.com/z_stat.php?id=1262306434&web_id=1262306434" language="JavaScript"></script>	
+	<script src="{{{cnzz}}}" language="JavaScript"></script>	
 <div>
 </body>
 </html>

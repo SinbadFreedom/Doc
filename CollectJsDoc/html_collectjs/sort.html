@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1"><code>sort()</code></a></li></ul></div><div class="span9"><h4 id="1"><code>sort()</code></h4>
+
+<p>The sort method sorts the collection:</p>
+
+<pre class="prettyprint"><code>const collection = collect([5, 3, 1, 2, 4]);
+
+const sorted = collection.sort();
+
+sorted.all();
+
+//=&gt; [1, 2, 3, 4, 5]
+
+
+&gt; If your sorting needs are more advanced, you may pass a callback to sort with your own algorithm.
+
+
+const collection = collect([5, 3, 1, 2, 4]);
+
+const sorted = collection.sort(function (a, b) {
+  return b - a;
+});
+
+sorted.all();
+
+//=&gt; [5, 4, 3, 2, 1]
+</code></pre>
+
+<blockquote>
+  <p>If you need to sort a collection of nested arrays or objects, see the <code>sortBy</code> and <code>sortByDesc</code> methods.</p>
+</blockquote>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

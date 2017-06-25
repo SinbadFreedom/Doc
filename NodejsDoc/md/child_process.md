@@ -1,4 +1,4 @@
-##创建异步进程
+
 [`child_process.spawn()`]、[`child_process.fork()`]、[`child_process.exec()`] 和 [`child_process.execFile()`] 方法都遵循与其他 Node.js API 一样的惯用的异步编程模式。
 
 每个方法都返回一个 [`ChildProcess`] 实例。
@@ -7,7 +7,9 @@
 [`child_process.exec()`] 和 [`child_process.execFile()`] 返回可以额外指定一个可选的 `callback` 函数，当子进程结束时会被调用。
 
 
-###child.connected
+<!-- YAML
+added: v0.7.2
+-->
 
 * {Boolean} 调用 `child.disconnect()` 后会被设为 `false`
 
@@ -15,7 +17,9 @@
 当 `child.connected` 为 `false` 时，则不能再发送或接收的消息。
 
 
-###child.disconnect()
+<!-- YAML
+added: v0.7.2
+-->
 
 关闭父进程与子进程之间的 IPC 通道，一旦没有其他的连接使其保持活跃，则允许子进程正常退出。
 调用该方法后，父进程和子进程上各自的 `child.connected` 和 `process.connected` 属性都会被设为 `false`，且进程之间不能再传递消息。
@@ -26,7 +30,9 @@
 注意，当子进程是一个 Node.js 实例时（例如通过 [`child_process.fork()`] 衍生的），可以在子进程内调用 `process.disconnect()` 方法来关闭 IPC 通道。
 
 
-###child.kill([signal])
+<!-- YAML
+added: v0.1.90
+-->
 
 * `signal` {String}
 
@@ -75,7 +81,9 @@
 	
 
 
-###child.pid
+<!-- YAML
+added: v0.1.90
+-->
 
 * {Number} 整数
 
@@ -92,7 +100,7 @@
 	
 
 
-#child_process (子进程)
+
 > 稳定性: 2 - 稳定的
 
 `child_process` 模块提供了衍生子进程的能力，它与 popen(3) 类似，但不完全相同。
@@ -137,7 +145,9 @@
 大多数情况下，同步的方法会显著地影响性能，因为它拖延了事件循环直到衍生进程完成。
 
 
-####hild_process.execFileSync(file[, args][, options])
+<!-- YAML
+added: v0.11.12
+-->
 
 * `file` {String} 要运行的可执行文件的名称或路径
 * `args` {Array} 字符串参数列表
@@ -165,7 +175,9 @@
 [`Error`] 对象会包含从 [`child_process.spawnSync()`] 返回的整个结果。
 
 
-###child_process.execFile(file[, args][, options][, callback])
+<!-- YAML
+added: v0.1.91
+-->
 
 * `file` {String} 要运行的可执行文件的名称或路径
 * `args` {Array} 字符串参数列表
@@ -207,7 +219,9 @@
 如果 `encoding` 是 `'buffer'`、或一个无法识别的字符编码，则传入 `Buffer` 对象到回调函数。
 
 
-####hild_process.execSync(command[, options])
+<!-- YAML
+added: v0.11.12
+-->
 
 * `command` {String} 要运行的命令
 * `options` {Object}
@@ -241,7 +255,9 @@
 任何包括 shell 元字符的输入都可被用于触发任何命令的执行。
 
 
-###child_process.exec(command[, options][, callback])
+<!-- YAML
+added: v0.1.90
+-->
 
 * `command` {String} 要运行的命令，用空格分隔参数
 * `options` {Object}
@@ -311,7 +327,9 @@
 注意：不像 POSIX 系统调用中的 exec(3)，`child_process.exec()` 不会替换现有的进程，且使用一个 shell 来执行命令。
 
 
-###child_process.fork(modulePath[, args][, options])
+<!-- YAML
+added: v0.5.0
+-->
 
 * `modulePath` {String} 要在子进程中运行的模块
 * `args` {Array} 字符串参数列表
@@ -349,7 +367,9 @@ fd 上的输入和输出期望被分割成一行一行的 JSON 对象。
 注意，不像 POSIX 系统回调中的 fork(2)，`child_process.fork()` 不会克隆当前进程。
 
 
-####child_process.spawnSync(command[, args][, options])
+<!-- YAML
+added: v0.11.12
+-->
 
 * `command` {String} 要运行的命令
 * `args` {Array} 字符串参数列表
@@ -388,7 +408,9 @@ fd 上的输入和输出期望被分割成一行一行的 JSON 对象。
 任何包括 shell 元字符的输入都可被用于触发任何命令的执行。
 
 
-###child_process.spawn(command[, args][, options])
+<!-- YAML
+added: v0.1.90
+-->
 
 * `command` {String} 要运行的命令
 * `args` {Array} 字符串参数列表
@@ -502,7 +524,9 @@ fd 上的输入和输出期望被分割成一行一行的 JSON 对象。
 注意，Node.js 一般会在启动时用 `process.execPath` 重写 `argv[0]`，所以 Node.js 子进程中的 `process.argv[0]` 不会匹配从父进程传给 `spawn` 的 `argv0` 参数，可以使用 `process.argv0` 属性获取它。
 
 
-###child.send(message[, sendHandle[, options]][, callback])
+<!-- YAML
+added: v0.5.9
+-->
 
 * `message` {Object}
 * `sendHandle` {Handle}
@@ -564,7 +588,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 `callback` 函数可用于实现流量控制。
 
 
-###child.stderr
+<!-- YAML
+added: v0.1.90
+-->
 
 * {stream.Readable}
 
@@ -576,7 +602,10 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 这两个属性指向相同的值。
 
 
-###child.stdin
+<!-- YAML
+added: v0.1.90
+-->
+
 * {stream.Writable}
 
 一个代表子进程的 `stdin` 的可写流。
@@ -589,7 +618,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 这两个属性指向相同的值。
 
 
-####child.stdio
+<!-- YAML
+added: v0.7.10
+-->
 
 * {Array}
 
@@ -622,7 +653,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 	
 
 
-####child.stdout
+<!-- YAML
+added: v0.1.90
+-->
 
 * {stream.Readable}
 
@@ -634,7 +667,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 这两个属性指向相同的值。
 
 
-##ChildProcess 类
+<!-- YAML
+added: v2.2.0
+-->
 
 `ChildProcess` 类的实例是 [`EventEmitter`]，代表衍生的子进程。
 
@@ -642,7 +677,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 而是，使用 [`child_process.spawn()`]、[`child_process.exec()`]、[`child_process.execFile()`] 或 [`child_process.fork()`] 方法创建 `ChildProcess` 实例。
 
 
-###'close' 事件
+<!-- YAML
+added: v0.7.7
+-->
 
 * `code` {Number} 如果子进程退出自身，则该值是退出码。
 * `signal` {String} 子进程被终止时的信号。
@@ -651,12 +688,15 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 这与 [`'exit'`] 事件不同，因为多个进程可能共享同一 stdio 流。
 
 
-###'disconnect' 事件
+<!-- YAML
+added: v0.7.2
+-->
+
 在父进程中调用 [`child.disconnect()`] 或在子进程中调用 [`process.disconnect()`] 后会触发 `'disconnect'` 事件。
 断开后就不能再发送或接收信息，且 [`child.connected`] 属性会被设为 `false`。
 
 
-###'error' 事件
+
 * `err` {Error} 错误对象。
 
 每当出现以下情况时触发 `'error'` 事件：
@@ -673,7 +713,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 详见 [`child.kill()`] 和 [`child.send()`]。
 
 
-###'exit' 事件
+<!-- YAML
+added: v0.1.90
+-->
 
 * `code` {Number} 如果子进程退出自身，则该值是退出码。
 * `signal` {String} 子进程被终止时的信号。
@@ -691,7 +733,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 详见 waitpid(2)。
 
 
-###'message' 事件
+<!-- YAML
+added: v0.5.9
+-->
 
 * `message` {Object} 一个已解析的 JSON 对象或原始值。
 * `sendHandle` {Handle} 一个 [`net.Socket`] 或 [`net.Server`] 对象 或 `undefined`。
@@ -699,7 +743,7 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 当一个子进程使用 [`process.send()`] 发送消息时会触发 `'message'` 事件。
 
 
-####例子：发送一个 server 对象
+
 `sendHandle` 参数可用于将一个 TCP server 对象句柄传给子进程，如下所示：
 
 	
@@ -733,7 +777,7 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 目前仅 UNIX 平台支持这一点。
 
 
-####例子：发送一个 socket 对象
+
 同样，`sendHandle` 参数可用于将一个 socket 句柄传给子进程。
 以下例子衍生了两个子进程，分别用于处理 "normal" 连接或优先处理 "special" 连接：
 
@@ -780,7 +824,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 例如，`console.log('中文测试')` 会发送 13 个 UTF-8 编码的字节到 `stdout`，尽管只有 4 个字符。
 
 
-####options.detached
+<!-- YAML
+added: v0.7.10
+-->
 
 在 Windows 上，设置 `options.detached` 为 `true` 可以使子进程在父进程退出后继续运行。
 子进程有自己的控制台窗口。
@@ -827,7 +873,9 @@ socket 上接收或缓冲的任何数据不会被发送给子进程。
 	
 
 
-####options.stdio
+<!-- YAML
+added: v0.7.10
+-->
 
 `options.stdio` 选项用于配置子进程与父进程之间建立的管道。
 默认情况下，子进程的 stdin、 stdout 和 stderr 会重定向到 [`ChildProcess`] 对象上相应的 [`child.stdin`]、 [`child.stdout`] 和 [`child.stderr`] 流。
@@ -884,7 +932,7 @@ fd 的 0、1 和 2 分别对应 stdin、stdout 和 stderr。
 详见 [`child_process.exec()`] 和 [`child_process.fork()`]。
 
 
-###在 Windows 上衍生 .bat 和 .cmd 文件
+
 [`child_process.exec()`] 和 [`child_process.execFile()`] 之间的重大区别会根据平台的不同而不同。
 在类 Unix 操作系统上（Unix、 Linux、 OSX），[`child_process.execFile()`] 效率更高，因为它不需要衍生一个 shell。
 但是在 Windows 上，`.bat` 和 `.cmd` 文件在没有终端的情况下是不可执行的，因此不能使用 [`child_process.execFile()`] 启动。
@@ -927,7 +975,7 @@ fd 的 0、1 和 2 分别对应 stdin、stdout 和 stderr。
 	
 
 
-##创建同步进程
+
 [`child_process.spawnSync()`]、[`child_process.execSync()`] 和 [`child_process.execFileSync()`] 方法是**同步的**且**会**阻塞 Node.js 的事件循环，暂停任何额外代码的执行直到衍生的进程退出。
 
 像这样的阻塞调用有利于简化普通用途的脚本任务，且启动时有利于简化应用配置的加载/处理。

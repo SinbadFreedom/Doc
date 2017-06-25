@@ -1,0 +1,1 @@
+MIT © [Daniel Eckermann](http://danieleckermann.com)

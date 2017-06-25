@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+  
+
+  <div class="container">
+
+  <div class="row">
+
+<div class="span3 bs-docs-sidebar"><ul class="nav nav-list bs-docs-sidenav" data-spy="affix"><li><a href="#1"><code>flatten()</code></a></li></ul></div><div class="span9"><h4 id="1"><code>flatten()</code></h4>
+
+<p>The flatten method flattens a multi-dimensional collection into a single dimension:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  club: 'Liverpool',
+  players: ['Sturridge', 'Firmino', 'Coutinho']
+});
+
+const flattened = collection.flatten();
+
+flattened.all();
+
+//=&gt; ['Liverpool', 'Sturridge', 'Firmino', 'Coutinho'];
+</code></pre>
+
+<p>You may optionally pass the function a "depth" argument:</p>
+
+<pre class="prettyprint"><code>const collection = collect({
+  Apple: [{
+    name: 'iPhone 6S',
+    brand: 'Apple'
+  }],
+  Samsung: [{
+    name: 'Galaxy S7',
+    brand: 'Samsung'
+  }]
+});
+
+const flattened = collection.flatten(1);
+
+flattened.all();
+
+//=&gt; [
+//=&gt;   {name: 'iPhone 6S', brand: 'Apple'},
+//=&gt;   {name: 'Galaxy S7', brand: 'Samsung'}
+//=&gt; ]
+</code></pre>
+
+<p>In this example, calling flatten without providing the depth would have also flattened the nested arrays, resulting in <code>['iPhone 6S', 'Apple', 'Galaxy S7', 'Samsung']</code>. Providing a depth allows you to restrict the levels of nested arrays that will be flattened.</p>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/google-code-prettify/prettify.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">prettyPrint();</script>
+
+  </body>
+</html>

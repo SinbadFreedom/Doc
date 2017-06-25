@@ -1,0 +1,21 @@
+#### ``union()``
+The union method adds the given array to the collection. If the given array contains keys that are already in the original collection, the original collection's values will be preferred:
+	
+	const collection = collect({
+	  a: 'A',
+	  b: 'B'
+	});
+	
+	const union = collection.union({
+	  a: 'AAA',
+	  c: 'CCC',
+	  b: 'BBB'
+	});
+	
+	union.all();
+	
+	//=> {
+	//=>   a: 'A',
+	//=>   b: 'B',
+	//=>   c: 'CCC'
+	//=> }

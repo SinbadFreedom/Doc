@@ -1,14 +1,15 @@
-#assert (断言)
+
 > 稳定性: 2 - 稳定的
 
 `assert` 模块提供了一组简单的断言测试集合，可被用于测试不变量。
 
 
-##assert.deepEqual(actual, expected[, message])
-
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 测试 `actual` 参数与 `expected` 参数是否深度相等。
 原始值使用相等运算符（`==`）比较。
@@ -64,10 +65,12 @@
 如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 
 
-## assert.deepStrictEqual(actual, expected[, message])
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}  
+<!-- YAML
+added: v1.2.0
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 大多数情况下与 `assert.deepEqual()` 一样，但有两个例外。
 首先，原始值使用全等运算符（`===`）比较。
@@ -88,10 +91,12 @@
 如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 
 
-##assert.doesNotThrow(block[, error][, message])
-* `block` {Function}   
-* `error` {RegExp|Function}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `block` {Function}
+* `error` {RegExp|Function}
+* `message` {any}
 
 断言 `block` 函数不会抛出错误。
 查看 [assert.throws()](#assert_assert_throws_block_error_message) 了解更多。
@@ -137,10 +142,12 @@
 	
 
 
-##assert.equal(actual, expected[, message])
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 使用相等运算符（`==`）测试 `actual` 参数与 `expected` 参数是否相等。
 
@@ -162,11 +169,13 @@
 如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 
 
-##assert.fail(actual, expected, message, operator)
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}   
-* `operator` {String}   
+<!-- YAML
+added: v0.1.21
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
+* `operator` {String}
 
 抛出 `AssertionError`。
 如果 `message` 不存在，则错误信息会被设为 `actual` 的值加分隔符 `operator` 再加 `expected` 的值。
@@ -183,8 +192,10 @@
 	
 
 
-##assert.ifError(value)
-* `value` {any}   
+<!-- YAML
+added: v0.1.97
+-->
+* `value` {any}
 
 如果 `value` 为真，则抛出 `value`。
 可用于测试回调函数的 `error` 参数。
@@ -203,10 +214,12 @@
 	
 
 
-##assert.notDeepEqual(actual, expected[, message])
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 测试是否不深度相等。
 与 [`assert.deepEqual()`] 相反。
@@ -248,10 +261,12 @@
 如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 
 
-##assert.notDeepStrictEqual(actual, expected[, message])
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}   
+<!-- YAML
+added: v1.2.0
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 测试是否不深度全等。
 与 [`assert.deepStrictEqual()`] 相反。
@@ -270,10 +285,12 @@
 如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 
 
-##assert.notEqual(actual, expected[, message])
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 使用不等运算符（`!=`）测试是否不相等。
 
@@ -294,10 +311,12 @@
 如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 
 
-##assert.notStrictEqual(actual, expected[, message])
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 使用不全等运算符（`!==`）测试是否不全等。
 
@@ -318,9 +337,11 @@
 如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 
 
-##assert.ok(value[, message])
-* `value` {any}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `value` {any}
+* `message` {any}
 
 测试 `value` 是否为真值。
 相当于 `assert.equal(!!value, true, message)`。
@@ -344,10 +365,12 @@
 	
 
 
-##assert.strictEqual(actual, expected[, message])
-* `actual` {any}   
-* `expected` {any}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `actual` {any}
+* `expected` {any}
+* `message` {any}
 
 使用全等运算符（`===`）测试是否全等。
 
@@ -368,10 +391,12 @@
 如果 `message` 参数为 `undefined`，则赋予默认的错误信息。
 
 
-##assert.throws(block[, error][, message])
-* `block` {Function}   
-* `error` {RegExp|Function}   
-* `message` {any}   
+<!-- YAML
+added: v0.1.21
+-->
+* `block` {Function}
+* `error` {RegExp|Function}
+* `message` {any}
 
 期望 `block` 函数抛出错误。
 
@@ -430,9 +455,11 @@
 	
 
 
-##assert(value[, message])
-* `value` {any}   
-* `message` {any}   
+<!-- YAML
+added: v0.5.9
+-->
+* `value` {any}
+* `message` {any}
 
 [`assert.ok()`] 的别名。
 
