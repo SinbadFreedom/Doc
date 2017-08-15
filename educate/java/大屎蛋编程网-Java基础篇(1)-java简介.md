@@ -26,7 +26,7 @@ java是一个经典的面向对象编程的语言。很适合作入门编程学�
 ##配置环境变量
 
 
-##HelloWorld
+**HelloWorld
 
 ```java
 public class HelloWorld {
