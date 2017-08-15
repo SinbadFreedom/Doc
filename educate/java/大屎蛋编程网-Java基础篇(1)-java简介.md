@@ -29,11 +29,11 @@ java是一个经典的面向对象编程的语言。很适合作入门编程学�
 ##HelloWorld
 
 ```java
-    public class HelloWorld {
-        public static void main(String args[]) {
-            System.out.println("Hello world!");
-        }
+public class HelloWorld {
+    public static void main(String args[]) {
+        System.out.println("Hello world!");
     }
+}
 ```
 
 #第一讲完成
