@@ -19,7 +19,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
+            <state relative-caret-position="1083">
               <caret line="57" column="43" lean-forward="false" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
               <folding>
                 <marker date="1502938092048" expanded="true" signature="514:680" ph="..." />
@@ -29,24 +29,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/java/primary/1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-226">
-              <caret line="77" column="40" lean-forward="true" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
+            <state relative-caret-position="874">
+              <caret line="46" column="17" lean-forward="false" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
               <folding>
-                <marker date="1502949578687" expanded="true" signature="804:970" ph="..." />
-                <marker date="1502949578687" expanded="true" signature="897:925" ph="..." />
+                <marker date="1502961809600" expanded="true" signature="804:970" ph="..." />
+                <marker date="1502961809600" expanded="true" signature="897:925" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Java基础篇1.java简介：java的演变进程及可以用来做什么.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Java基础篇1.java简介：java的演变进程及可以用来做什么.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/java/primary/Java基础篇1.java简介：java的演变进程及可以用来做什么.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="94" column="60" lean-forward="true" selection-start-line="94" selection-start-column="60" selection-end-line="94" selection-end-column="60" />
+            <state relative-caret-position="135">
+              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
                 <marker date="1502936850221" expanded="true" signature="567:733" ph="..." />
                 <marker date="1502936850221" expanded="true" signature="660:688" ph="..." />
@@ -58,7 +58,7 @@
       <file leaf-file-name="common.rnc" pinned="false" current-in-tab="false">
         <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/common.rnc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="3078">
               <caret line="162" column="18" lean-forward="false" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="18" />
               <folding />
             </state>
@@ -68,8 +68,8 @@
       <file leaf-file-name="run_prettify.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/run_prettify.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="48" column="116" lean-forward="true" selection-start-line="48" selection-start-column="116" selection-end-line="48" selection-end-column="116" />
+            <state relative-caret-position="912">
+              <caret line="48" column="116" lean-forward="false" selection-start-line="48" selection-start-column="116" selection-end-line="48" selection-end-column="116" />
               <folding />
             </state>
           </provider>
@@ -203,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -263,36 +262,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -302,6 +274,7 @@
     <property name="nodejs_interpreter_path" value="D:/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../dashidan/md2html" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -441,12 +414,22 @@
       <workItem from="1502889605633" duration="1032000" />
       <workItem from="1502936631581" duration="1805000" />
       <workItem from="1502941611449" duration="946000" />
-      <workItem from="1502948815537" duration="1138000" />
+      <workItem from="1502948815537" duration="1735000" />
+      <workItem from="1502951886851" duration="718000" />
+      <workItem from="1502953805179" duration="595000" />
+      <workItem from="1502956160183" duration="624000" />
+      <workItem from="1502961172522" duration="23000" />
+      <workItem from="1502961617688" duration="17000" />
+      <workItem from="1502961638815" duration="792000" />
+      <workItem from="1502963421747" duration="1535000" />
+      <workItem from="1502971279496" duration="1255000" />
+      <workItem from="1503025462539" duration="979000" />
+      <workItem from="1503043183418" duration="30000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34760000" />
+    <option name="totallyTimeSpent" value="41925000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -620,7 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -674,111 +656,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/prettify.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-apollo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-css.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-go.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-xq.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-tex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-sql.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-scala.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-proto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-n.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-ml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-lua.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-lisp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/prettify.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="87" lean-forward="true" selection-start-line="14" selection-start-column="87" selection-end-line="14" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-yaml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/prettify.css" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-apollo.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-css.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-go.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-xq.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-tex.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-sql.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-scala.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-proto.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-n.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-ml.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-lua.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-lisp.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/prettify.js" />
+    <entry file="file://$PROJECT_DIR$/js/google-code-prettify/lang-yaml.js" />
     <entry file="file://$PROJECT_DIR$/js/plugins.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -814,34 +706,23 @@
     <entry file="file://$PROJECT_DIR$/java/primary/test.html" />
     <entry file="file://$PROJECT_DIR$/js/run_prettify.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="48" column="116" lean-forward="true" selection-start-line="48" selection-start-column="116" selection-end-line="48" selection-end-column="116" />
+        <state relative-caret-position="912">
+          <caret line="48" column="116" lean-forward="false" selection-start-line="48" selection-start-column="116" selection-end-line="48" selection-end-column="116" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="3078">
           <caret line="162" column="18" lean-forward="false" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java/primary/Java基础篇1.java简介：java的演变进程及可以用来做什么.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="94" column="60" lean-forward="true" selection-start-line="94" selection-start-column="60" selection-end-line="94" selection-end-column="60" />
-          <folding>
-            <marker date="1502936850221" expanded="true" signature="567:733" ph="..." />
-            <marker date="1502936850221" expanded="true" signature="660:688" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
+        <state relative-caret-position="1083">
           <caret line="57" column="43" lean-forward="false" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
           <folding>
             <marker date="1502938092048" expanded="true" signature="514:680" ph="..." />
@@ -852,11 +733,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/java/primary/1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-226">
-          <caret line="77" column="40" lean-forward="true" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
+        <state relative-caret-position="874">
+          <caret line="46" column="17" lean-forward="false" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding>
-            <marker date="1502949578687" expanded="true" signature="804:970" ph="..." />
-            <marker date="1502949578687" expanded="true" signature="897:925" ph="..." />
+            <marker date="1502961809600" expanded="true" signature="804:970" ph="..." />
+            <marker date="1502961809600" expanded="true" signature="897:925" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/primary/Java基础篇1.java简介：java的演变进程及可以用来做什么.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding>
+            <marker date="1502936850221" expanded="true" signature="567:733" ph="..." />
+            <marker date="1502936850221" expanded="true" signature="660:688" ph="..." />
           </folding>
         </state>
       </provider>
