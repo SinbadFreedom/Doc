@@ -32,12 +32,15 @@ java和JDK的关系,就像鱼和水的关系.
 
 2.弹出窗口中点击->环境变量   
 
-如图2-3所示:   
+<span id="hjbl">Java环境变量配置如图2-3所示:</span>   
+
 ![图2-3](../../img/java/basic/2-3.png)  
 [图2-3]   
 
 3.配置`用户变量`classpath   
 在`用户变量`栏中点击->`新建按钮`   
+<span id="yhbl">Java用户变量classpath配置如图2-3所示:</span>   
+
 `变量名`输入:
 	
 	classpath
@@ -110,12 +113,11 @@ Java默认安装目录`C:\Program Files\Java\jdk1.8.0_144`.
 <p class="bg-danger">
 运行java命令提示'java'不是内部或外部命令,也不是可运行的程序或批处理文件
 </p>
-检查环境变量
+[检查环境变量配置](#hjbl)
 <p class="bg-danger">
 运行java命令提示'javac'不是内部或外部命令,也不是可运行的程序或批处理文件
 </p>
-检查用户变量配置
-	
+[检查用户变量配置](#yhbl)	
 ###本节完
 <p class="bg-success">	
 恭喜你!你的渔已经准备好,我们要开始捕鱼了！
