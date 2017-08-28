@@ -15,7 +15,8 @@ public class HelloWorld {
 
 ###程序入口main方法
 
-[HelloWorld.java代码下载链接](http://dashida.com).
+[示例代码下载链接](https://github.com/dashidan/educate/archive/master.zip).
+
 ###本讲完成
 
 看看这个hello word，享受一下第一次写代码的成就感.  
