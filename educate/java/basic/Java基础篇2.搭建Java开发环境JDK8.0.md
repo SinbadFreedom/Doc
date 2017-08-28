@@ -11,7 +11,7 @@ java和JDK的关系,就像鱼和水的关系.
 3.选择适合自己操作系统的版本点击链接下载.`windows x86`是32位版本,`windows x64`是64位版本.  
 
 注意:   
-[如何分辨windows系统是32位还是64位](http://dashidan.com/os/如何分辨windows系统是32位还是64位.html).   
+[windows基础篇1.如何分辨windows系统是32位还是64位](../../windows/basic/windows基础篇1.如何分辨windows系统是32位还是64位.html).   
 
 如图2-1所示:   
 ![图2-1](../../img/java/basic/2-1.png)   
