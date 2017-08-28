@@ -1,4 +1,4 @@
-如何分辨windows系统是32位还是64位
+windows基础篇1.如何分辨windows系统是32位还是64位
 ---
 
 ###以windows7为例   
