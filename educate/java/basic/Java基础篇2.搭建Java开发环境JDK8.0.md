@@ -120,6 +120,6 @@ Java默认安装目录`C:\Program Files\Java\jdk1.8.0_144`.
 [检查用户变量配置](#yhbl)	
 ###本节完
 <p class="bg-success">	
-恭喜你!你的渔已经准备好,我们要开始捕鱼了！
+恭喜你!狩猎开始！
 </p>
 <img src="还有点小期待呢">
