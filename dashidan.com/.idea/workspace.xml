@@ -16,15 +16,125 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Java基础篇1.本系列课程概述.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Java基础篇1.本系列课程概述.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇1.本系列课程概述.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
+            <state relative-caret-position="1007">
               <caret line="53" column="44" lean-forward="false" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
               <folding>
                 <element signature="e#4250#4256#1" expanded="true" />
                 <marker date="1503404533644" expanded="true" signature="693:859" ph="..." />
                 <marker date="1503404533644" expanded="true" signature="786:814" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Java基础篇2.搭建Java开发环境JDK8.0.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇2.搭建Java开发环境JDK8.0.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2983">
+              <caret line="157" column="20" lean-forward="false" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="20" />
+              <folding>
+                <element signature="e#3361#3365#0" expanded="true" />
+                <element signature="e#3369#3373#0" expanded="true" />
+                <element signature="e#3376#3380#0" expanded="true" />
+                <element signature="e#3532#3536#0" expanded="true" />
+                <element signature="e#3778#3782#0" expanded="true" />
+                <element signature="e#4387#4391#0" expanded="true" />
+                <element signature="e#5203#5207#0" expanded="true" />
+                <element signature="e#5212#5216#0" expanded="true" />
+                <element signature="e#5219#5223#0" expanded="true" />
+                <element signature="e#6412#6418#1" expanded="true" />
+                <element signature="e#6535#6541#1" expanded="true" />
+                <marker date="1503908655186" expanded="true" signature="693:859" ph="..." />
+                <marker date="1503908655186" expanded="true" signature="786:814" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/basic/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1235">
+              <caret line="65" column="71" lean-forward="false" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
+              <folding>
+                <marker date="1503913786411" expanded="true" signature="532:698" ph="..." />
+                <marker date="1503913786411" expanded="true" signature="625:653" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Java基础篇3.第一个程序：HelloWorld.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇3.第一个程序：HelloWorld.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1634">
+              <caret line="86" column="80" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <folding>
+                <element signature="e#3283#3289#1" expanded="true" />
+                <marker date="1503913449163" expanded="true" signature="693:859" ph="..." />
+                <marker date="1503913449163" expanded="true" signature="786:814" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Java基础篇4.编译运行：命令行执行javac与java.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇4.编译运行：命令行执行javac与java.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="20" column="65" lean-forward="false" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+              <folding>
+                <marker date="1503913503646" expanded="true" signature="693:859" ph="..." />
+                <marker date="1503913503646" expanded="true" signature="786:814" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="windows基础篇1.如何分辨windows系统是32位还是64位.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/windows/basic/windows基础篇1.如何分辨windows系统是32位还是64位.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="67" column="9" lean-forward="false" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+              <folding>
+                <element signature="e#2389#2393#0" expanded="true" />
+                <element signature="e#2407#2411#0" expanded="true" />
+                <marker date="1503991491995" expanded="true" signature="640:806" ph="..." />
+                <marker date="1503991491995" expanded="true" signature="733:761" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="windows基础篇2.如何打开windows命令提示符.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/windows/basic/windows基础篇2.如何打开windows命令提示符.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="78" column="16" lean-forward="false" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
+              <folding>
+                <element signature="e#2387#2391#0" expanded="true" />
+                <element signature="e#2669#2673#0" expanded="true" />
+                <element signature="e#2678#2682#0" expanded="true" />
+                <element signature="e#2685#2689#0" expanded="true" />
+                <element signature="e#3215#3221#1" expanded="true" />
+                <marker date="1503991571396" expanded="true" signature="628:794" ph="..." />
+                <marker date="1503991571396" expanded="true" signature="721:749" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/basic/template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="49" />
+              <folding>
+                <marker date="1503913304832" expanded="true" signature="693:859" ph="..." />
+                <marker date="1503913304832" expanded="true" signature="786:814" ph="..." />
               </folding>
             </state>
           </provider>
@@ -96,14 +206,14 @@
         <option value="$PROJECT_DIR$/windows/windows基础篇1.如何分辨windows系统是32位还是64位.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/windows/basic/index.html" />
-        <option value="$PROJECT_DIR$/windows/basic/windows基础篇1.如何分辨windows系统是32位还是64位.html" />
-        <option value="$PROJECT_DIR$/windows/basic/windows基础篇2.如何打开windows命令提示符.html" />
         <option value="$PROJECT_DIR$/java/basic/template.html" />
         <option value="$PROJECT_DIR$/java/basic/Java基础篇3.第一个程序：HelloWorld.html" />
         <option value="$PROJECT_DIR$/java/basic/Java基础篇4.编译运行：命令行执行javac与java.html" />
         <option value="$PROJECT_DIR$/java/basic/index.html" />
         <option value="$PROJECT_DIR$/java/index.html" />
         <option value="$PROJECT_DIR$/java/basic/Java基础篇2.搭建Java开发环境JDK8.0.html" />
+        <option value="$PROJECT_DIR$/windows/basic/windows基础篇1.如何分辨windows系统是32位还是64位.html" />
+        <option value="$PROJECT_DIR$/windows/basic/windows基础篇2.如何打开windows命令提示符.html" />
       </list>
     </option>
   </component>
@@ -156,71 +266,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="windows" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="basic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashidan.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="windows" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -240,8 +290,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,12 +436,14 @@
       <workItem from="1503562122271" duration="1558000" />
       <workItem from="1503563904538" duration="599000" />
       <workItem from="1503906921116" duration="1582000" />
-      <workItem from="1503913193738" duration="846000" />
+      <workItem from="1503913193738" duration="1176000" />
+      <workItem from="1503974744099" duration="1142000" />
+      <workItem from="1503991438272" duration="288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33774000" />
+    <option name="totallyTimeSpent" value="35534000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -509,10 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-          <folding>
-            <marker date="1503913875289" expanded="true" signature="523:689" ph="..." />
-            <marker date="1503913875289" expanded="true" signature="616:644" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -597,10 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1102">
           <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
-          <folding>
-            <marker date="1503913875289" expanded="true" signature="523:689" ph="..." />
-            <marker date="1503913875289" expanded="true" signature="616:644" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -656,10 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
-          <folding>
-            <marker date="1503913875289" expanded="true" signature="523:689" ph="..." />
-            <marker date="1503913875289" expanded="true" signature="616:644" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,22 +792,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/windows/windows基础篇1.如何分辨windows系统是32位还是64位.html" />
-    <entry file="file://$PROJECT_DIR$/windows/basic/windows基础篇2.如何打开windows命令提示符.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-          <folding>
-            <marker date="1503908541981" expanded="true" signature="628:794" ph="..." />
-            <marker date="1503908541981" expanded="true" signature="721:749" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.editorconfig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,18 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/windows/basic/windows基础篇1.如何分辨windows系统是32位还是64位.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="62" column="49" lean-forward="false" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
-          <folding>
-            <marker date="1503908538962" expanded="true" signature="640:806" ph="..." />
-            <marker date="1503908538962" expanded="true" signature="733:761" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,10 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
           <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-          <folding>
-            <marker date="1503908011771" expanded="true" signature="514:680" ph="..." />
-            <marker date="1503908011771" expanded="true" signature="607:635" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -805,17 +817,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1501">
           <caret line="79" column="16" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
-          <folding>
-            <marker date="1503913875289" expanded="true" signature="523:689" ph="..." />
-            <marker date="1503913875289" expanded="true" signature="616:644" ph="..." />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/windows/basic/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/java/basic/template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="475">
+          <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="49" />
           <folding>
             <marker date="1503913304832" expanded="true" signature="693:859" ph="..." />
             <marker date="1503913304832" expanded="true" signature="786:814" ph="..." />
@@ -823,21 +838,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇4.编译运行：命令行执行javac与java.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="63" column="46" lean-forward="true" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
-          <folding>
-            <marker date="1503913503646" expanded="true" signature="693:859" ph="..." />
-            <marker date="1503913503646" expanded="true" signature="786:814" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇3.第一个程序：HelloWorld.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="86" column="80" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state relative-caret-position="1634">
+          <caret line="86" column="80" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#3283#3289#1" expanded="true" />
             <marker date="1503913449163" expanded="true" signature="693:859" ph="..." />
@@ -846,32 +850,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java/basic/index.html">
+    <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇1.本系列课程概述.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="65" selection-end-column="103" />
+        <state relative-caret-position="1007">
+          <caret line="53" column="44" lean-forward="false" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
           <folding>
-            <marker date="1503913786411" expanded="true" signature="532:698" ph="..." />
-            <marker date="1503913786411" expanded="true" signature="625:653" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/windows/basic/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-          <folding>
-            <marker date="1503908272204" expanded="true" signature="533:699" ph="..." />
-            <marker date="1503908272204" expanded="true" signature="626:654" ph="..." />
+            <element signature="e#4250#4256#1" expanded="true" />
+            <marker date="1503404533644" expanded="true" signature="693:859" ph="..." />
+            <marker date="1503404533644" expanded="true" signature="786:814" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇2.搭建Java开发环境JDK8.0.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="157" column="20" lean-forward="true" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="20" />
+        <state relative-caret-position="2983">
+          <caret line="157" column="20" lean-forward="false" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="20" />
           <folding>
             <element signature="e#3361#3365#0" expanded="true" />
             <element signature="e#3369#3373#0" expanded="true" />
@@ -890,14 +884,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇1.本系列课程概述.html">
+    <entry file="file://$PROJECT_DIR$/java/basic/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="53" column="44" lean-forward="false" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+        <state relative-caret-position="1235">
+          <caret line="65" column="71" lean-forward="false" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
           <folding>
-            <element signature="e#4250#4256#1" expanded="true" />
-            <marker date="1503404533644" expanded="true" signature="693:859" ph="..." />
-            <marker date="1503404533644" expanded="true" signature="786:814" ph="..." />
+            <marker date="1503913786411" expanded="true" signature="532:698" ph="..." />
+            <marker date="1503913786411" expanded="true" signature="625:653" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/basic/Java基础篇4.编译运行：命令行执行javac与java.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="20" column="65" lean-forward="false" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+          <folding>
+            <marker date="1503913503646" expanded="true" signature="693:859" ph="..." />
+            <marker date="1503913503646" expanded="true" signature="786:814" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/windows/basic/windows基础篇1.如何分辨windows系统是32位还是64位.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="67" column="9" lean-forward="false" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+          <folding>
+            <element signature="e#2389#2393#0" expanded="true" />
+            <element signature="e#2407#2411#0" expanded="true" />
+            <marker date="1503991491995" expanded="true" signature="640:806" ph="..." />
+            <marker date="1503991491995" expanded="true" signature="733:761" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/windows/basic/windows基础篇2.如何打开windows命令提示符.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="78" column="16" lean-forward="false" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
+          <folding>
+            <element signature="e#2387#2391#0" expanded="true" />
+            <element signature="e#2669#2673#0" expanded="true" />
+            <element signature="e#2678#2682#0" expanded="true" />
+            <element signature="e#2685#2689#0" expanded="true" />
+            <element signature="e#3215#3221#1" expanded="true" />
+            <marker date="1503991571396" expanded="true" signature="628:794" ph="..." />
+            <marker date="1503991571396" expanded="true" signature="721:749" ph="..." />
           </folding>
         </state>
       </provider>
