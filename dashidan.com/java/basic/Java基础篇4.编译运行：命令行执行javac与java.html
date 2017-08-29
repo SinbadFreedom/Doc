@@ -10,9 +10,6 @@
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/bootstrap.css">
-
-    <!-- Le styles -->
-    <!--<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">-->
     <link href="../../css/docs.css" rel="stylesheet">
 </head>
 <body>
@@ -62,10 +59,37 @@
     <!--文档区-->
     <div id="content">
         <h2>Java基础篇4.编译运行：命令行执行javac与java</h2>
+        <h2>前言</h2>
+        <p>Java语言区分大小写,所以一定要注意字符的大小写.</p>
         <h2>windows打开命令行</h2>
-        <h2>命令行编译java程序-javac</h2>
-        <h2>命令行运行java程序-java</h2>
+        <p><a href="../../windows/basic/windows基础篇2.如何打开windows命令提示符.html">windows基础篇2.如何打开windows命令提示符</a>. </p>
+        <h2>找到HelloWorld.java文件</h2>
+        <p>在当前目录空白处,按住Shift,同时点击鼠标右键,选择“在此处打开命令窗口”</p>
+        <p>如图4-1所示:<br/>
+            <img src="../../img/java/basic/4-1.png" alt="图4-1"/><br/>
+            [图4-1]</p>
+        <h2>命令行编译java程序-<code>javac</code></h2>
+        <p>在命令行输入如下命令,并按回车:</p>
+        <pre><code>javac HelloWorld.java
+</code></pre>
+        <p>如图4-2所示:<br/>
+            <img src="../../img/java/basic/4-2.png" alt="图4-2"/><br/>
+            [图4-2]</p>
+        <p>编译成功会在当前目录生成一个<code>HelloWorld.class</code>文件.<br/>
+            这个文件由java虚拟机编译<code>HelloWorld.java</code>生成的二进制文件. </p>
+        <h2>命令行运行java程序-<code>java</code></h2>
+        <p>在命令行输入如下命令,并按回车:</p>
+        <pre><code>java HelloWorld
+</code></pre>
+        <p>如图4-3所示:<br/>
+            <img src="../../img/java/basic/4-3.png" alt="图4-3"/><br/>
+            [图4-3]</p>
         <h2>控制台输出</h2>
+        <pre><code>HelloWorld.
+</code></pre>
+        <p>如图4-4所示:<br/>
+            <img src="../../img/java/basic/4-4.png" alt="图4-4"/><br/>
+            [图4-4]</p>
         <h2>本讲完成</h2>
         <p>看看这个hello word，享受一下第一次写代码的成就感. </p>
     </div>
@@ -73,6 +97,8 @@
 <nav>
     <ul class="pager">
         <li><a href="Java基础篇3.第一个程序：HelloWorld.html"><span>&larr;</span>Java基础篇3.第一个程序：HelloWorld</a></li>
+        <li><a href="Java基础篇5.程序入口：main方法.html">Java基础篇5.程序入口：main方法<span>&rarr;</span></a></li>
+
     </ul>
 </nav>
 

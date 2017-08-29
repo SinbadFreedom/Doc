@@ -12,7 +12,6 @@ public class HelloWorld {
 	}
 }
 ```
-
 ###程序入口main方法
 
 [示例代码下载链接](https://github.com/dashidan/educate/archive/master.zip).
