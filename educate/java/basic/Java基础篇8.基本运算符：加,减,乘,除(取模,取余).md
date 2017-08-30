@@ -1,2 +1,61 @@
 Java基础篇8.基本运算符：加,减,乘,除(取模,取余)
 ---
+
+##加`+`
+```java
+int a = 1;
+int b = 2;
+int c = a + b;
+System.out.println(c);
+```
+
+##减`-`
+```java
+int a = 1;
+int b = 2;
+int c = a - b;
+System.out.println(c);
+```
+
+##乘`*`
+```java
+int a = 1;
+int b = 2;
+int c = a * b;
+System.out.println(c);
+```
+
+##除-取模`/`
+对整数取模运算,相当于取结果的整数,去掉余数.
+```java
+int a = 1;
+int b = 2;
+int c = a / b;
+System.out.println(c);
+```
+
+##除-取余`%`
+对整数取余运算,相当于取结果的余数.
+```java
+int a = 1;
+int b = 2;
+int c = a % b;
+System.out.println(c);
+```
+
+##运算结果类型转换规则
+当两个类型不同的数据类型运算时,结果自动转化为取值范围大的数据.
+
+	byte->short->int->long->float->double
+
+具体规则:
+1. 布尔型和其它基本数据类型之间不能相互转换. 
+2. byte型可以转换为short、int、、long、float和double. 
+3. short可转换为int、long、float和double. 
+4. char可转换为int、long、float和double. 
+5. int可转换为long、float和double. 
+6. long可转换为float和double. 
+7. float可转换为double. 
+
+
+
