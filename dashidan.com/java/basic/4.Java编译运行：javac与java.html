@@ -62,17 +62,15 @@
     <!--文档区-->
     <div id="content">
         <h2>4.Java编译运行：javac与java</h2>
-        <h2>前言</h2>
-        <p>Java语言区分大小写,所以一定要注意字符的大小写.</p>
-        <h2>windows打开命令行</h2>
-        <p><a href="../../windows/basic/windows基础篇2.如何打开windows命令提示符.html">windows基础篇2.如何打开windows命令提示符</a>. </p>
-        <h2>找到HelloWorld.java文件</h2>
-        <p>在当前目录空白处,按住Shift,同时点击鼠标右键,选择“在此处打开命令窗口”</p>
+        <p>编译,运行<code>HelloWorld.java</code>文件,<code>一定要在这个文件所在目录</code>,打开命令行.</p>
+        <h2>打开命令行方法</h2>
+        <p>在当前目录空白处,按住Shift,同时点击鼠标右键,选择“在此处打开命令窗口”.</p>
         <p>如图4-1所示:<br/>
             <img src="../../img/java/basic/4-1.png" alt="图4-1"/><br/>
             [图4-1]</p>
-        <h2>命令行编译java程序-<code>javac</code></h2>
-        <p>在命令行输入如下命令,并按回车:</p>
+        <h2><code>javac</code></h2>
+        <p>Java的编译命令,将<code>.java</code>文件编译成<code>.class</code>文件,供系统执行.
+            在命令行输入如下命令,并按回车:</p>
         <pre><code>javac HelloWorld.java
 </code></pre>
         <p>如图4-2所示:<br/>
@@ -80,27 +78,31 @@
             [图4-2]</p>
         <p>编译成功会在当前目录生成一个<code>HelloWorld.class</code>文件.<br/>
             这个文件由java虚拟机编译<code>HelloWorld.java</code>生成的二进制文件. </p>
-        <h2>命令行运行java程序-<code>java</code></h2>
-        <p>在命令行输入如下命令,并按回车:</p>
+        <h2>命令行-<code>java</code></h2>
+        <p>运行java程序,执行编译后的<code>.class</code>文件.<br/>
+            执行<code>java</code>命令的时候,<code>只写文件名,不带.class后缀</code>.<br/>
+            在命令行输入如下命令,并按回车:</p>
         <pre><code>java HelloWorld
 </code></pre>
         <p>如图4-3所示:<br/>
             <img src="../../img/java/basic/4-3.png" alt="图4-3"/><br/>
             [图4-3]</p>
         <h2>控制台输出</h2>
-        <pre><code>HelloWorld.
+        <pre><code>HelloWorld!
 </code></pre>
         <p>如图4-4所示:<br/>
             <img src="../../img/java/basic/4-4.png" alt="图4-4"/><br/>
             [图4-4]</p>
-        <h2>本讲完成</h2>
-        <p>看看这个hello word，享受一下第一次写代码的成就感. </p>
+        <h2>恭喜你成功了</h2>
+        <p>看看这个<code>HelloWorld!</code>享受一下第一次写代码的成就感. </p>
+        <h2>附</h2>
+        <p><a href="../../windows/basic/windows基础篇2.如何打开windows命令提示符.html">windows打开命令行的几种方式</a>. </p>
     </div>
 </div>
 <nav>
     <ul class="pager">
         <li><a href="3.第一个Java程序：HelloWorld.html"><span>&larr;</span>3.第一个Java程序</a></li>
-        <li><a href="5.Java程序入口：main方法.html">5.Java程序入口<span>&rarr;</span></a></li>
+        <li><a href="5.Java代码注释：单行注释,多行注释.html">5.Java代码注释<span>&rarr;</span></a></li>
     </ul>
 </nav>
 <footer class="navbar navbar-default">

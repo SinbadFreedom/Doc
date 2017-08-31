@@ -62,19 +62,54 @@
     <!--文档区-->
     <div id="content">
         <h2>3.第一个Java程序：HelloWorld</h2>
-        <h3>Hello World</h3>
-        <p>我们需要写一个最简单的Java程序.
-            新建一个文本文件<code>HelloWorld.java</code>，然后写入以下内容: </p>
+        <p>Java语言区分大小写,一定要注意字符的大小写.</p>
+        <h2>Hello World</h2>
+        <p>我们需要写一个最简单的Java程序.</p>
+        <ol>
+            <li>新建一个文本文件<code>HelloWorld.java</code>.</li>
+            <li>用记事本打开<code>HelloWorld.java</code>.</li>
+            <li>将以下代码复制,粘贴到<code>HelloWorld.java</code>.</li>
+        </ol>
         <pre class="prettyprint"><code class="java language-java">public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
 }
 </code></pre>
-        <h3>程序入口main方法</h3>
-        <p><a href="https://github.com/dashidan/educate/archive/master.zip">示例代码下载链接</a>.</p>
-        <h3>本讲完成</h3>
-        <p>看看这个hello word，享受一下第一次写代码的成就感. </p>
+        <h2>功能简介</h2>
+        <h3>public class HelloWorld</h3>
+        <p>这一部分是类的描述.</p>
+        <pre class="prettyprint"><code class="java language-java">public class HelloWorld {
+    ···
+}
+</code></pre>
+        <p>其中:<br/>
+            <code>public</code>:类修饰词,表示公开访问.<br/>
+            <code>class</code>:类标识符,表示这是一个类.<br/>
+            <code>HelloWorld</code>:类名,需要和文件名(HelloWorld)一致.<br/>
+            <code>类体</code>:以<code>{</code>标记方法体开始,以<code>}</code>标记结束. </p>
+        <h3>public static void main(String[] args)</h3>
+        <p>main方法是Java程序的入口.Java程序运行时,从这个方法开始执行.<br/>
+            main方法的组成:<br/>
+            <code>public</code>:修饰词,表示可以公开访问.<br/>
+            <code>static</code>:静态标识,表示是静态方法.<br/>
+            <code>void</code>:返回值类型,void表示不返回任何值.<br/>
+            <code>main</code>:方法名.<br/>
+            <code>String[] args</code>:方法参数,以<code>(</code>标记方法参数开始,以<code>)</code>标记结束.
+            <code>方法体</code>:以<code>{</code>标记方法体开始,以<code>}</code>标记结束. </p>
+        <pre class="prettyprint"><code class="java language-java">public static void main(String[] args) {
+    ···
+}
+</code></pre>
+        <h3>System.out.println();</h3>
+        <p>方法体中语句,以<code>;</code>结尾.<br/>
+            作用是在控制台输出字符串并换行.<br/>
+            其中:<br/>
+            <code>System</code>:系统类.<br/>
+            <code>out</code>:标准输出对象.<br/>
+            <code>println()</code>:输出字符串方法.<br/>
+            调用系统类<code>System</code>的标准输出对象<code>out</code>的方法<code>println()</code>,输出一行字符串.</p>
+        <h2><a href="https://github.com/dashidan/educate/archive/master.zip">示例代码下载链接</a>.</h2>
     </div>
     <!--配图-->
     <div>

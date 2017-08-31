@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Java编程基础篇</title>
-    <meta name="description" content="java编程教程">
+    <title>11.Java三目运算符：？：</title>
+    <meta name="description" content="11.Java三目运算符：？：">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -52,6 +52,7 @@
 </nav>
 
 <div class="container">
+    <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="../../index.html">首页</a></li>
         <li><a href="../index.html">Java教程</a></li>
@@ -65,45 +66,28 @@
     <!--文档区-->
     <div id="content">
         <!-- 替换这个区域-->
-        <h2>5.Java程序入口：main方法</h2>
-        <h2>程序入口是什么</h2>
-        <p>就像一个城堡的大门,程序运行时,从这个方法开始.<br/>
-            这个方法的写法是固定的,就像1+1=2,现在需要先记住这些.不要花时间纠结. </p>
-        <h2>HelloWorld为例:</h2>
-        <pre class="prettyprint"><code class="java language-java">public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("HelloWorld.");
-    }
-}
+        <h2>10.Java三目运算符：？：</h2>
+        <p>也叫<code>条件运算符</code>.<br/>
+            由两个符号组成<code>?</code>和<code>:</code>,要求有3个操作对象,所以也叫三目运算符. </p>
+        <h2>表达式:</h2>
+        <pre><code>a&lt;b?a:b;
 </code></pre>
-        <h2>类(class)的基本组成</h2>
-        <p>1.类修饰词public.<br/>
-            2.类标识符class.<br/>
-            3.类名HelloWorld.(首字母大写)<br/>
-            4.类体.以<code>{</code>标记方法体开始,以<code>}</code>标记结束. </p>
-        <pre class="prettyprint"><code class="java language-java">public class HelloWorld {
-    ···
-}
+        <h2>详细解读:</h2>
+        <pre><code>如果`?`前边的表达式(a&lt;b)为`true`,取`:`前边的值,即a值.
+如果`?`前边的表达式(a&lt;b)为`false`,取`:`后边的值,即b值.
 </code></pre>
-        <h2>main方法的组成</h2>
-        <p>1.修饰词<code>public</code>,表示可以公开访问.<br/>
-            2.静态标识<code>static</code>,表示是静态方法.<br/>
-            3.返回值<code>void</code>,表示不返回任何值.<br/>
-            4.方法名<code>main</code>.<br/>
-            5.参数<code>String[] args</code>.以<code>(</code>标记方法参数开始,以<code>)</code>标记结束.默认不用传递参数.<br/>
-            6.方法体.以<code>{</code>标记方法体开始,以<code>}</code>标记结束. </p>
-        <pre class="prettyprint"><code class="java language-java">public static void main(String[] args) {
-    ···
-}
+        <pre class="prettyprint"><code class="java language-java">int a = 1;
+int b = 2;
+int c = a &gt; b ? a : b;
+// a &gt; b 为false,所以取":"后边的值b赋值给c, 故c为2.
+System.out.println(c);
 </code></pre>
-        <h2>本讲完成</h2>
-        <p>这里只是粗略的讲解下main方法的组成, 修饰词的作用后续有详细介绍.</p>
     </div>
 </div>
 <nav>
     <ul class="pager">
-        <li><a href="4.Java编译运行：javac与java.html"><span>&larr;</span>4.Java编译运行</a></li>
-        <li><a href="6.Java代码注释：单行注释,多行注释.html">6.Java代码注释<span>&rarr;</span></a></li>
+        <li><a href="9.Java自增,自减运算符：++,--.html"><span>&larr;</span>9.Java自增,自减运算符</a></li>
+        <li><a href="11.Java运算符优先级.html">11.Java运算符优先级<span>&rarr;</span></a></li>
     </ul>
 </nav>
 

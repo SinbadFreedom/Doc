@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>10.Java自增,自减运算符：++,--</title>
-    <meta name="description" content="10.Java自增,自减运算符：++,--">
+    <title>Java编程基础篇</title>
+    <meta name="description" content="java编程教程">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -52,7 +52,6 @@
 </nav>
 
 <div class="container">
-    <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="../../index.html">首页</a></li>
         <li><a href="../index.html">Java教程</a></li>
@@ -65,45 +64,63 @@
     <hr>
     <!--文档区-->
     <div id="content">
-        <!-- 替换这个区域-->
-        <h2>10.Java自增,自减运算符：<code>++</code>,<code>--</code></h2>
-        <h2>自增运算符<code>++</code></h2>
-        <p>将变量的值加1.分前缀式(如<code>++i</code>)和后缀式(如<code>i++</code>).前缀式是先加1再使用,后缀式是先使用再加1.</p>
-        <h2>前缀,后缀单独执行结果一样</h2>
-        <pre class="prettyprint"><code class="java language-java">int i = 0;
-i++;
-System.out.println(i);
-int j = 0;
-++j;
-System.out.println(j);
+        <h2>7.Java赋值运算符：加,减,乘,除(取模,取余)</h2>
+        <p>Java赋值运算符从右往左赋值.即将等号右边的值,赋给等号左边的变量.</p>
+        <h2>加<code>+</code></h2>
+        <pre class="prettyprint"><code class="java language-java">int a = 1;
+int b = 2;
+int c = a + b;
+System.out.println(c);
 </code></pre>
-        <h2>前缀,后缀放在运算过程中结果不同</h2>
-        <h3>前缀式</h3>
-        <pre class="prettyprint"><code class="java language-java">int a = 0;
-int i = 0;
-a = i++;
-// i使用前是0,此时i为0不加1,a为0.
-System.out.println(a);
-// 使用后i加1,i为1
-System.out.println(i);
+        <h2>减<code>-</code></h2>
+        <pre class="prettyprint"><code class="java language-java">int a = 1;
+int b = 2;
+int c = a - b;
+System.out.println(c);
 </code></pre>
-        <h3>后缀式</h3>
-        <pre class="prettyprint"><code class="java language-java">int b = 0;
-int j = 0;
-b = ++j;
-// j使用前加1,此时j为1, 所以b为1
-System.out.println(b);
-// j已经加1了,使用后不变
-System.out.println(j);
+        <h2>乘<code>*</code></h2>
+        <pre class="prettyprint"><code class="java language-java">int a = 1;
+int b = 2;
+int c = a * b;
+System.out.println(c);
 </code></pre>
-        <h2>自增运算符<code>--</code></h2>
-        <p>道理同自增运算符,只是加1,变成了减1.</p>
+        <h2>除-取模<code>/</code></h2>
+        <p>对整数取模运算,相当于取结果的整数,去掉余数.</p>
+        <pre class="prettyprint"><code class="java language-java">int a = 1;
+int b = 2;
+int c = a / b;
+System.out.println(c);
+</code></pre>
+        <h2>除-取余<code>%</code></h2>
+        <p>对整数取余运算,相当于取结果的余数.</p>
+        <pre class="prettyprint"><code class="java language-java">int a = 1;
+int b = 2;
+int c = a % b;
+System.out.println(c);
+</code></pre>
+        <h2>运算结果类型转换规则</h2>
+        <p>当两个类型不同的数据类型运算时,结果自动转化为取值范围大的数据.</p>
+        <pre><code>byte-&gt;short-&gt;int-&gt;long-&gt;float-&gt;double
+</code></pre>
+        <p>具体规则:</p>
+        <ol>
+            <li>布尔型和其它基本数据类型之间不能相互转换.</li>
+            <li>byte型可以转换为short、int、、long、float和double.</li>
+            <li>short可转换为int、long、float和double.</li>
+            <li>char可转换为int、long、float和double.</li>
+            <li>int可转换为long、float和double.</li>
+            <li>long可转换为float和double.</li>
+            <li>float可转换为double.</li>
+        </ol>
     </div>
 </div>
+
 <nav>
     <ul class="pager">
-        <li><a href="9.Java复合运算符：+=,-=等.html"><span>&larr;</span>9.Java复合运算符</a></li>
-        <li><a href="11.Java三目运算符：？：.html">11.Java三目运算符<span>&rarr;</span></a></li>
+        <li><a
+            href="6.Java基础类型变量：byte,short,int,long,float,double,boolean,char.html"><span>&larr;</span>6.Java基础类型变量</a>
+        </li>
+        <li><a href="8.Java复合运算符：+=,-=等.html">8.Java复合运算符<span>&rarr;</span></a></li>
     </ul>
 </nav>
 
