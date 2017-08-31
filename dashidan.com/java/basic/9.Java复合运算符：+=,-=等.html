@@ -3,14 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>大屎蛋编程网</title>
-    <meta name="description" content="java编程教程">
+    <title>9.Java复合运算符：+=,-=等</title>
+    <meta name="description" content="9.Java复合运算符：+=,-=等>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/bootstrap.css">
+
+    <!-- Le styles -->
+    <!--<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">-->
+    <link href="../../css/docs.css" rel="stylesheet">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -32,8 +35,9 @@
             <a class="navbar-brand" href="#">
                 <img alt="Brand" src="../../img/dsd24.png">
             </a>
-            <a class="navbar-brand" href="index.html">大屎蛋编程网</a>
+            <a class="navbar-brand" href="../../index.html">大屎蛋编程网</a>
         </div>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -48,34 +52,64 @@
 </nav>
 
 <div class="container">
+    <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="../../index.html">首页</a></li>
         <li><a href="../index.html">Java教程</a></li>
         <li class="active"><a href="index.html">基础篇</a></li>
     </ol>
     <div>
-        <a href="index.html"><h3>Java编程基础篇</h3></a>
-        <hr>
-        <!--教程区-->
-        <div>
-            <a href="1.Java基础篇课程概述.html"><h4>1.Java基础篇课程概述</h4></a>
-            <a href="2.搭建Java开发环境：JDK8.0.html"><h4>2.搭建Java开发环境：JDK8.0</h4></a>
-            <a href="3.第一个Java程序：HelloWorld.html"><h4>3.第一个Java程序：HelloWorld</h4></a>
-            <a href="4.Java编译运行：javac与java.html"><h4>4.Java编译运行：javac与java</h4></a>
-            <a href="5.Java程序入口：main方法.html"><h4>5.Java程序入口：main方法</h4></a>
-            <a href="6.Java代码注释：单行注释,多行注释.html"><h4>6.Java代码注释：单行注释,多行注释</h4></a>
-            <a href="7.Java基础类型变量：byte,short,int,long,float,double,boolean,char.html"><h4>
-                7.Java基础类型变量：byte,short,int,long,float,double,boolean,char</h4></a>
-            <a href="8.Java基本运算符：加,减,乘,除(取模,取余).html"><h4>8.Java基本运算符：加,减,乘,除(取模,取余)</h4></a>
-            <a href="9.Java复合运算符：+=,-=等.html"><h4>9.Java复合运算符：+=,-=等</h4></a>
-            <a href="10.Java自增,自减运算符：++,--.html"><h4>10.Java自增,自减运算符：++,--</h4></a>
-            <a href="11.Java三目运算符：？：.html"><h4>11.Java三目运算符：？：</h4></a>
-            <a href="12.Java运算符优先级.html"><h4>12.Java运算符优先级</h4></a>
-        </div>
+        <!--视频区-->
+        <img class="center-block" src="../../img/dsd_500_309.png">
+    </div>
+    <hr>
+    <!--文档区-->
+    <div id="content">
+        <!-- 替换这个区域-->
+        <h2>9.Java复合运算符：+=,-=,*=,/=,%=</h2>
+        <p>复合运算符是一种简写.以<code>+=</code>为例,表示加一个值再赋值给本身.
+            常用的复合运算符
+            += 加法赋值
+            -= 减法赋值
+            *= 乘法赋值
+            /= 除法赋值
+            %= 模运算赋值</p>
+        <p>例:</p>
+        <pre class="prettyprint"><code class="java language-java">// += 加法赋值
+a += 1;
+// 等同于以下
+a = a + 1;
+
+//-= 减法赋值
+a -= 1;
+// 等同于以下
+a = a - 1;
+
+//*= 乘法赋值
+a *= 1;
+// 等同于以下
+a = a * 1;
+
+//*= 模运算赋值
+a /= 1;
+// 等同于以下
+a = a / 1;
+
+//%= 取余赋值
+a %= 1;
+// 等同于以下
+a = a % 1;
+</code></pre>
     </div>
 </div>
+<nav>
+    <ul class="pager">
+        <li><a href="8.Java基本运算符：加,减,乘,除(取模,取余).html"><span>&larr;</span>8.Java基本运算符</a></li>
+        <li><a href="10.Java自增,自减运算符：++,--.html">10.Java自增,自减运算符<span>&rarr;</span></a></li>
+    </ul>
+</nav>
 
-<footer class="navbar navbar-default navbar-fixed-bottom">
+<footer class="navbar navbar-default">
     <div class="container">
         <ul class="nav navbar-nav navbar-right">
             <li><a>©2017 dashidan.com 版权所有 ICP证:冀ICP备10008352号-3</a></li>
@@ -86,7 +120,7 @@
 <script src="../../js/jquery-3.2.1.min.js"></script>
 <script src="../../js/vendor/modernizr-custom.js"></script>
 <script src="../../js/bootstrap.js"></script>
-<script src="../../js/plugins.js"></script>
-<script src="../../js/main.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+
 </body>
 </html>
