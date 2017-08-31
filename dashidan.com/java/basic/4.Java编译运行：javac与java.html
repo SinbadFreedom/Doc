@@ -10,9 +10,6 @@
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/bootstrap.css">
-
-    <!-- Le styles -->
-    <!--<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">-->
     <link href="../../css/docs.css" rel="stylesheet">
 </head>
 <body>
@@ -64,45 +61,48 @@
     <hr>
     <!--文档区-->
     <div id="content">
-        <h2>Java基础篇6.代码注释：单行注释,多行注释</h2>
-        <h2>注释是什么</h2>
-        <p>注释也叫做注解.程序员写出的代码一方面是让计算机读懂并执行,另一方面是需要<code>人</code>能更好的理解和维护.
-            注释就是为了方便人的理解,给代码加上语言解释.这部分只需要人来读懂,而<code>计算机不执行</code>.
-            注释分为单行注释和多行注释.</p>
-        <h2>单行注释</h2>
-        <p>以<code>//</code>开头,表示这一行是注释.
-            例:</p>
-        <pre class="prettyprint"><code class="java language-java">    //这是一个简单的注释
+        <h2>4.Java编译运行：javac与java</h2>
+        <h2>前言</h2>
+        <p>Java语言区分大小写,所以一定要注意字符的大小写.</p>
+        <h2>windows打开命令行</h2>
+        <p><a href="../../windows/basic/windows基础篇2.如何打开windows命令提示符.html">windows基础篇2.如何打开windows命令提示符</a>. </p>
+        <h2>找到HelloWorld.java文件</h2>
+        <p>在当前目录空白处,按住Shift,同时点击鼠标右键,选择“在此处打开命令窗口”</p>
+        <p>如图4-1所示:<br/>
+            <img src="../../img/java/basic/4-1.png" alt="图4-1"/><br/>
+            [图4-1]</p>
+        <h2>命令行编译java程序-<code>javac</code></h2>
+        <p>在命令行输入如下命令,并按回车:</p>
+        <pre><code>javac HelloWorld.java
 </code></pre>
-        <h2>多行注释</h2>
-        <p>以<code>/**</code>开头,以<code>*/</code>结尾,表示这区间的代码是注释.</p>
-        <p>例1:</p>
-        <pre class="prettyprint"><code class="java language-java">    /**
-        这是一个
-        多行注释
-    */
+        <p>如图4-2所示:<br/>
+            <img src="../../img/java/basic/4-2.png" alt="图4-2"/><br/>
+            [图4-2]</p>
+        <p>编译成功会在当前目录生成一个<code>HelloWorld.class</code>文件.<br/>
+            这个文件由java虚拟机编译<code>HelloWorld.java</code>生成的二进制文件. </p>
+        <h2>命令行运行java程序-<code>java</code></h2>
+        <p>在命令行输入如下命令,并按回车:</p>
+        <pre><code>java HelloWorld
 </code></pre>
-        <p>例2:
-            比例1好看,标准格式.强烈推荐.</p>
-        <pre class="prettyprint"><code class="java language-java">    /**
-     *  这还是一个
-     *  多行注释
-     */
+        <p>如图4-3所示:<br/>
+            <img src="../../img/java/basic/4-3.png" alt="图4-3"/><br/>
+            [图4-3]</p>
+        <h2>控制台输出</h2>
+        <pre><code>HelloWorld.
 </code></pre>
-        <p>例3:</p>
-        <pre class="prettyprint"><code class="java language-java">    /** 这是一个单行区块注释 */
-</code></pre>
+        <p>如图4-4所示:<br/>
+            <img src="../../img/java/basic/4-4.png" alt="图4-4"/><br/>
+            [图4-4]</p>
+        <h2>本讲完成</h2>
+        <p>看看这个hello word，享受一下第一次写代码的成就感. </p>
     </div>
 </div>
-
 <nav>
     <ul class="pager">
-        <li><a href="Java基础篇5.程序入口：main方法.html"><span>&larr;</span>Java基础篇5.程序入口：main方法</a></li>
-        <li><a href="Java基础篇7.基础类型变量：byte,short,int,long,float,double,boolean,char.html">Java基础篇7.基础类型变量：byte,short,int,long,float,double,boolean,char<span>&rarr;</span></a>
-        </li>
+        <li><a href="3.第一个Java程序：HelloWorld.html"><span>&larr;</span>3.第一个Java程序</a></li>
+        <li><a href="5.Java程序入口：main方法.html">5.Java程序入口<span>&rarr;</span></a></li>
     </ul>
 </nav>
-
 <footer class="navbar navbar-default">
     <div class="container">
         <ul class="nav navbar-nav navbar-right">
@@ -114,7 +114,6 @@
 <script src="../../js/jquery-3.2.1.min.js"></script>
 <script src="../../js/vendor/modernizr-custom.js"></script>
 <script src="../../js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
 
 </body>
 </html>
