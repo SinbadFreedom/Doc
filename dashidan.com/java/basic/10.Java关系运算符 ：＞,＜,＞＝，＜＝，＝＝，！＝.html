@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Java编程基础篇</title>
-    <meta name="description" content="java编程教程">
+    <title>10.Java关系运算符 ：＞,＜,＞＝，＜＝，＝＝，！＝</title>
+    <meta name="description" content="10.Java关系运算符 ：＞,＜,＞＝，＜＝，＝＝，！＝">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -52,6 +52,7 @@
 </nav>
 
 <div class="container">
+    <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="../../index.html">首页</a></li>
         <li><a href="../index.html">Java教程</a></li>
@@ -64,63 +65,34 @@
     <hr>
     <!--文档区-->
     <div id="content">
-        <h2>7.Java赋值运算符：加,减,乘,除(取模,取余)</h2>
-        <p>Java赋值运算符从右往左赋值.即将等号右边的值,赋给等号左边的变量.</p>
-        <h2>加<code>+</code></h2>
-        <pre class="prettyprint"><code class="java language-java">int a = 1;
-int b = 2;
-int c = a + b;
+        <!-- 替换这个区域-->
+        <h2>10.Java关系运算符:&gt;,&lt;,?=,&lt;=,==,!=</h2>
+        <p>关系运算符用于比较两个数值之间的大小.<br/>
+            其运算结果为一个布尔值(<code>boolean</code>),只有<code>true</code>(真)和<code>false</code>(假)两个取值. </p>
+        <p>关系运算符有六个:
+            <code>&gt;</code>大于
+            <code>&lt;</code>小于
+            <code>&gt;=</code>大于或等于
+            <code>&lt;=</code>小于或等于
+            <code>==</code>等于
+            <code>!=</code>不等于</p>
+        <pre class="prettyprint"><code class="java language-java">int a = 0;
+int b = 0;
+boolean c = a &gt; b;
 System.out.println(c);
+boolean d = a &lt; b;
+System.out.println(d);
+boolean e = a == b;
+System.out.println(e);
+boolean f = a == b;
+System.out.println(f);
 </code></pre>
-        <h2>减<code>-</code></h2>
-        <pre class="prettyprint"><code class="java language-java">int a = 1;
-int b = 2;
-int c = a - b;
-System.out.println(c);
-</code></pre>
-        <h2>乘<code>*</code></h2>
-        <pre class="prettyprint"><code class="java language-java">int a = 1;
-int b = 2;
-int c = a * b;
-System.out.println(c);
-</code></pre>
-        <h2>除-取模<code>/</code></h2>
-        <p>对整数取模运算,相当于取结果的整数,去掉余数.</p>
-        <pre class="prettyprint"><code class="java language-java">int a = 1;
-int b = 2;
-int c = a / b;
-System.out.println(c);
-</code></pre>
-        <h2>除-取余<code>%</code></h2>
-        <p>对整数取余运算,相当于取结果的余数.</p>
-        <pre class="prettyprint"><code class="java language-java">int a = 1;
-int b = 2;
-int c = a % b;
-System.out.println(c);
-</code></pre>
-        <h2>运算结果类型转换规则</h2>
-        <p>当两个类型不同的数据类型运算时,结果自动转化为取值范围大的数据.</p>
-        <pre><code>byte-&gt;short-&gt;int-&gt;long-&gt;float-&gt;double
-</code></pre>
-        <p>具体规则:</p>
-        <ol>
-            <li>布尔型和其它基本数据类型之间不能相互转换.</li>
-            <li>byte型可以转换为short、int、、long、float和double.</li>
-            <li>short可转换为int、long、float和double.</li>
-            <li>char可转换为int、long、float和double.</li>
-            <li>int可转换为long、float和double.</li>
-            <li>long可转换为float和double.</li>
-            <li>float可转换为double.</li>
-        </ol>
     </div>
 </div>
-
 <nav>
     <ul class="pager">
-        <li><a
-            href="6.Java基础类型变量：byte,short,int,long,float,double,boolean,char.html"><span>&larr;</span>6.Java基础类型变量</a>
-        </li>
-        <li><a href="8.Java复合运算符：+=,-=等.html">8.Java复合运算符<span>&rarr;</span></a></li>
+        <li><a href="9.Java自增,自减运算符：++,--.html"><span>&larr;</span>9.Java自增,自减运算符</a></li>
+        <li><a href="11.Java逻辑运算符：&&，｜｜，！.html">11.Java逻辑运算符<span>&rarr;</span></a></li>
     </ul>
 </nav>
 
