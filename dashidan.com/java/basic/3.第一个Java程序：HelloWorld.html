@@ -64,30 +64,44 @@
         <h2>3.第一个Java程序：HelloWorld</h2>
         <p>Java语言区分大小写,一定要注意字符的大小写.</p>
         <h2>Hello World</h2>
-        <p>我们需要写一个最简单的Java程序.</p>
+        <p>我们需要写一个最简单的Java程序-HelloWorld.</p>
         <ol>
-            <li>新建一个文本文件<code>HelloWorld.java</code>.</li>
-            <li>用记事本打开<code>HelloWorld.java</code>.</li>
-            <li>将以下代码复制,粘贴到<code>HelloWorld.java</code>.</li>
+            <li>新建一个目录,取名<code>lession3</code>.</li>
+            <li>打开<code>lession3</code>目录,新建一个文本文件取名<code>HelloWorld.java</code>.</li>
+            <li>将以下代码复制,粘贴到<code>HelloWorld.java</code>中.</li>
         </ol>
-        <pre class="prettyprint"><code class="java language-java">public class HelloWorld {
+        <p>注:
+            第2步的时候,新建文本文件,需要<a href="dashidan.com">显示文件后缀名</a>.<br/>
+            如果隐藏后缀的话,新建一个<code>HelloWorld.java</code>文本文件,默认文件名为<code>HelloWorld.java.txt</code>,导致无法编译成功. </p>
+        <pre class="prettyprint"><code class="java language-java">package lession3;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 1.HelloWorld.
+ */
+public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        System.out.println("HelloWorld!");
     }
 }
 </code></pre>
         <h2>功能简介</h2>
+        <h3>package lession3;</h3>
+        <p>包名,可以暂时简单理解为目录名.
+            详细参考<a href="dashidan.com">Java命名空间</a>;</p>
+        <h3>/** */区域</h3>
+        <p>代码注释,方便程序员阅读,计算机忽略这区间的内容.
+            详细参考<a href="dashidan.com">Java代码注释</a>;</p>
         <h3>public class HelloWorld</h3>
-        <p>这一部分是类的描述.</p>
-        <pre class="prettyprint"><code class="java language-java">public class HelloWorld {
-    ···
-}
-</code></pre>
-        <p>其中:<br/>
-            <code>public</code>:类修饰词,表示公开访问.<br/>
+        <p><code>public</code>:类修饰词,表示公开访问.<br/>
             <code>class</code>:类标识符,表示这是一个类.<br/>
             <code>HelloWorld</code>:类名,需要和文件名(HelloWorld)一致.<br/>
             <code>类体</code>:以<code>{</code>标记方法体开始,以<code>}</code>标记结束. </p>
+        <pre class="prettyprint"><code class="java language-java">public class HelloWorld {
+    ...
+}
+</code></pre>
         <h3>public static void main(String[] args)</h3>
         <p>main方法是Java程序的入口.Java程序运行时,从这个方法开始执行.<br/>
             main方法的组成:<br/>
@@ -110,6 +124,7 @@
             <code>println()</code>:输出字符串方法.<br/>
             调用系统类<code>System</code>的标准输出对象<code>out</code>的方法<code>println()</code>,输出一行字符串.</p>
         <h2><a href="https://github.com/dashidan/educate/archive/master.zip">示例代码下载链接</a>.</h2>
+        <h2><a href="dashidan.com">示例代码使用方法</a>.</h2>
     </div>
     <!--配图-->
     <div>

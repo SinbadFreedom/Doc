@@ -71,24 +71,24 @@
             写代码时,根据数据类型和范围选择对应的数字.超过类型的最大值或者小于最小值的数据会出错. </p>
         <p><code>byte</code>:
             字节型变量,表示整数,取值范围(-128到127),不支持小数.</p>
-        <pre class="prettyprint"><code class="java language-java">byte a = 88;
-byte b = -10;
+        <pre class="prettyprint"><code class="java language-java">byte b0 = 88;
+byte b1 = -10;
 </code></pre>
         <p><code>short</code>:
             短整型变量,表示整数,取值范围(-32768到32767),不支持小数.</p>
-        <pre class="prettyprint"><code class="java language-java">short s = 99;
-short r = -1;
+        <pre class="prettyprint"><code class="java language-java">short s0 = 99;
+short s1 = -1;
 </code></pre>
         <p><code>int</code>:
             整型变量,表示整数,取值范围(-2,147,483,648到2,147,485,647),不支持小数.<br/>
             整形常量,范围可以粗略即为正负21亿之间,超过这个范围需要采用long类型.</p>
-        <pre class="prettyprint"><code class="java language-java">int a = 100000;
-int b = -2;
+        <pre class="prettyprint"><code class="java language-java">int i0 = 100000;
+int i1 = -2;
 </code></pre>
         <p><code>long</code>:
             长整型变量,表示整数,取值范围(-9,223,372,036,854,775,808到9,223,372,036,854,775,807),不支持小数. </p>
-        <pre class="prettyprint"><code class="java language-java">long a = 100000L;
-int b = -3L;
+        <pre class="prettyprint"><code class="java language-java">long l0 = 100000L;
+long l1 = -3L;
 </code></pre>
         <p><code>float</code>:
             浮点数类型,表示小数,取值范围(到).浮点数有舍入误差.<br/>
@@ -99,19 +99,59 @@ float f1 = 2.73F;
         <p><code>double</code>:
             浮点数类型,表示小数,取值范围(到).浮点数有舍入误差.<br/>
             定义变量时,需要在数字后边加个字符<code>d</code>或者<code>D</code>,表示该数字为double类型.</p>
-        <pre class="prettyprint"><code class="java language-java">double d1 = 123.4;
+        <pre class="prettyprint"><code class="java language-java">double d0 = 123.4d;
+double d1 = 1.4D;
 </code></pre>
         <p><code>boolean</code>:
             布尔类型,只有两个取值:<code>true</code>(是)和<code>false</code>(否).<br/>
             默认值<code>false</code>. </p>
-        <pre class="prettyprint"><code class="java language-java">boolean b0 = true;
-boolean b1 = false;
+        <pre class="prettyprint"><code class="java language-java">boolean bo0 = true;
+boolean bo1 = false;
 </code></pre>
         <p><code>char</code>:
             字符型,用英文单引号<code>'</code>定义.可以储存任何字符.也可以当整数来用,但一般情况不建议这么用. </p>
-        <p>例:</p>
-        <pre class="prettyprint"><code class="java language-java">public class TestChar {
+        <pre class="prettyprint"><code class="java language-java">char c0 = 'a';
+char c1 = '人';
+</code></pre>
+        <p>示例:</p>
+        <pre class="prettyprint"><code class="java language-java">package lession6;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 6.Java基础类型变量：byte,short,int,long,float,double,boolean,char
+ * Demo1: 基础switch case 示例
+ */
+public class Demo1 {
     public static void main(String[] args) {
+        byte b0 = 88;
+        byte b1 = -10;
+        System.out.println(b0);
+        System.out.println(b1);
+        short s0 = 99;
+        short s1 = -1;
+        System.out.println(s0);
+        System.out.println(s1);
+        int i0 = 100000;
+        int i1 = -2;
+        System.out.println(i0);
+        System.out.println(i1);
+        long l0 = 100000L;
+        long l1 = -3L;
+        System.out.println(l0);
+        System.out.println(l1);
+        float f0 = 3.14f;
+        float f1 = 2.73F;
+        System.out.println(f0);
+        System.out.println(f1);
+        double d0 = 123.4d;
+        double d1 = 1.4D;
+        System.out.println(d0);
+        System.out.println(d1);
+        boolean bo0 = true;
+        boolean bo1 = false;
+        System.out.println(bo0);
+        System.out.println(bo1);
         char c0 = 'a';
         char c1 = '人';
         System.out.println(c0);
@@ -121,7 +161,21 @@ boolean b1 = false;
 }
 </code></pre>
         <p>输出:</p>
-        <pre><code>a
+        <pre><code>88
+-10
+99
+-1
+100000
+-2
+100000
+-3
+3.14
+2.73
+123.4
+1.4
+true
+false
+a
 人
 20251
 </code></pre>
@@ -205,7 +259,7 @@ boolean b1 = false;
             </tbody>
         </table>
         <h2>问答</h2>
-        <h3>默认值是什么意思？</h3>
+        <h3>java默认值是什么意思？</h3>
         <p>在java里面定义一个变量,如果不主动给它赋值,系统会自动给它赋一个值,这个值叫做<code>默认值</code>. </p>
         <p>例:</p>
         <pre class="prettyprint"><code class="java language-java">int a; //默认值0
