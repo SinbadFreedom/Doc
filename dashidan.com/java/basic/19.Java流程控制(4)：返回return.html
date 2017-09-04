@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Java编程基础篇</title>
-    <meta name="description" content="java编程教程">
+    <title>19.Java流程控制(4)：返回return</title>
+    <meta name="description" content="19.Java流程控制(4)：返回return">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -64,12 +64,38 @@
     <!--文档区-->
     <div id="content">
         <!-- 替换这个区域-->
+        <h2>19.Java流程控制(4)：返回return</h2>
+        <p>return 语句可以使其从当前方法中退出，返回到调用该方法的语句处，继续程序的执行。返回语句有两种格式:无返回值和有返回值. </p>
+        <ul>
+            <li>return 返回值: 返回一个值给调用该方法的语句，返回值的数据类型必须与方法声明中的返回值类型一致.</li>
+            <li>return: 无返回值,当方法说明中用<code>void</code>声明无返回值时,不返回任何值.</li>
+        </ul>
+        <p>return语句通常用在一个方法体的最后,退出该方法并返回一个值.<br/>
+            单独的return语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到.<br/>
+            可以通过把return语句嵌入某些语句(如:<code>if…else</code>)来使程序在未执行完方法中的所有语句时退出. </p>
+        <h2>return无返回值</h2>
+        <p>例:</p>
+        <pre class="prettyprint"><code class="java language-java">public static void testReturn(int value){
+    if(value &lt; 0){
+        System.out.println("value &lt; 0");
+        return;
+    }
+    System.out.println("value: " + value);
+}
+</code></pre>
+        <h2>return有返回值</h2>
+        <p>例:</p>
+        <pre class="prettyprint"><code class="java language-java">public static int testReturnInt(int p0, int p1){
+    int value = p0 + p1;
+    return value;
+}
+</code></pre>
     </div>
 </div>
 <nav>
     <ul class="pager">
-        <li><a href="Java基础篇4.编译运行：命令行执行javac与java.html"><span>&larr;</span>Java基础篇4.编译运行：命令行执行javac与java</a></li>
-        <li><a href="Java基础篇6.代码注释：单行注释,多行注释.html">Java基础篇6.代码注释：单行注释,多行注释<span>&rarr;</span></a></li>
+        <li><a href="18.Java流程控制(3)：循环for,while,continue,break.html"><span>&larr;</span>18.Java流程控制(3)</a></li>
+        <!--<li><a href="Java基础篇6.代码注释：单行注释,多行注释.html">Java基础篇6.代码注释：单行注释,多行注释<span>&rarr;</span></a></li>-->
     </ul>
 </nav>
 
