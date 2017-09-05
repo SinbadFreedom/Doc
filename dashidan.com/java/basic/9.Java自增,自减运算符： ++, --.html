@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>11.Java逻辑运算符：&&，｜｜，！</title>
-    <meta name="description" content="11.Java逻辑运算符：&&，｜｜，！">
+    <title>9.Java自增,自减运算符： ++, --</title>
+    <meta name="description" content="9.Java自增,自减运算符： ++, --">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -66,54 +66,44 @@
     <!--文档区-->
     <div id="content">
         <!-- 替换这个区域-->
-        <h2>11.Java逻辑运算符:&amp;&amp;,||,!,^</h2>
-        <p>逻辑运算符主要用于进行条件真(<code>true</code>)假(<code>false</code>)运算.</p>
-        <h2><code>&amp;&amp;</code>逻辑与</h2>
-        <p>两目运算符,需要2个值参与运算.
-            符号两边的条件都为<code>true</code>,运算结果为<code>true</code>.如果任一条件为<code>false</code>,结果为<code>false</code>.</p>
-        <pre class="prettyprint"><code class="java language-java">boolean a = true;
-boolean b = false;
-boolean c = a &amp;&amp; b;
-// a和b里不同时为true,故`&amp;&amp;`运算的结果为false
-System.out.println(c);
+        <h2>9.Java自增,自减运算符： ++, --</h2>
+        <h2>自增运算符<code>++</code></h2>
+        <p>将变量的值加1.分前缀式(如<code>++i</code>)和后缀式(如<code>i++</code>).前缀式是先加1再使用,后缀式是先使用再加1.</p>
+        <h2>前缀,后缀单独执行结果一样</h2>
+        <pre class="prettyprint"><code class="java language-java">int i = 0;
+i++;
+System.out.println(i);
+int j = 0;
+++j;
+System.out.println(j);
 </code></pre>
-        <h2><code>||</code>逻辑或</h2>
-        <p>两目运算符,需要2个值参与运算.
-            符号两边的条如果任一条件为<code>true</code>,结果为<code>true</code>.如果都为<code>false</code>,结果为false.</p>
-        <pre class="prettyprint"><code class="java language-java">boolean a = true;
-boolean b = false;
-boolean c = a || b;
-// a和b里面,a为true,故`||`运算的结果为true
-System.out.println(c);
+        <h2>前缀,后缀放在运算过程中结果不同</h2>
+        <h3>前缀式</h3>
+        <pre class="prettyprint"><code class="java language-java">int a = 0;
+int i = 0;
+a = i++;
+// i使用前是0,此时i为0不加1,a为0.
+System.out.println(a);
+// 使用后i加1,i为1
+System.out.println(i);
 </code></pre>
-        <h2><code>!</code>逻辑非</h2>
-        <p>单目运算符,需要1个值参与运算.得到与原布尔值相反的值.
-            原值为<code>true</code>,经过<code>!</code>运算,得<code>false</code>.
-            原值为<code>false</code>,经过<code>!</code>运算,得<code>true</code>.</p>
-        <pre class="prettyprint"><code class="java language-java">boolean a = true;
-boolean c = !a;
-// c为 a的相反值,即为true
-System.out.println(c);
+        <h3>后缀式</h3>
+        <pre class="prettyprint"><code class="java language-java">int b = 0;
+int j = 0;
+b = ++j;
+// j使用前加1,此时j为1, 所以b为1
+System.out.println(b);
+// j已经加1了,使用后不变
+System.out.println(j);
 </code></pre>
-        <h2><code>^</code>逻辑异或</h2>
-        <p>两目运算符,需要2个值参与运算.
-            符号两边的布尔结果不同时,结果为true.如果相同(同时为<code>true</code>,或者同时为<code>false</code>),结果为<code>false</code>.</p>
-        <pre class="prettyprint"><code class="java language-java">boolean a = true;
-boolean b = false;
-boolean c = false;
-boolean d = a ^ b;
-boolean e = b ^ c;
-// a和b里不同,故`^`运算的结果为false,d为false
-System.out.println(d);
-// c和d里同时为false,故`^`运算的结果为true,e为true
-System.out.println(e);
-</code></pre>
+        <h2>自增运算符<code>--</code></h2>
+        <p>道理同自增运算符,只是加1,变成了减1.</p>
     </div>
 </div>
 <nav>
     <ul class="pager">
-        <li><a href="10.Java关系运算符 ：＞,＜,＞＝，＜＝，＝＝，！＝.html"><span>&larr;</span>10.Java关系运算符</a></li>
-        <li><a href="12.Java三目运算符：？：.html">12.Java三目运算符<span>&rarr;</span></a></li>
+        <li><a href="8.Java复合运算符： +=, -=等.html"><span>&larr;</span>8.Java复合运算符</a></li>
+        <li><a href="10.Java关系运算符 ： ＞, ＜, ＞＝， ＜＝， ＝＝， ！＝.html">10.Java三目运算符<span>&rarr;</span></a></li>
     </ul>
 </nav>
 

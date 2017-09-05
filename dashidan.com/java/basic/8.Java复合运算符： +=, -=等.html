@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>10.Java关系运算符 ：＞,＜,＞＝，＜＝，＝＝，！＝</title>
-    <meta name="description" content="10.Java关系运算符 ：＞,＜,＞＝，＜＝，＝＝，！＝">
+    <title>8.Java复合运算符：+=, -=等</title>
+    <meta name="description" content="8.Java复合运算符：+=, -=等">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -66,33 +66,47 @@
     <!--文档区-->
     <div id="content">
         <!-- 替换这个区域-->
-        <h2>10.Java关系运算符:&gt;,&lt;,?=,&lt;=,==,!=</h2>
-        <p>关系运算符用于比较两个数值之间的大小.<br/>
-            其运算结果为一个布尔值(<code>boolean</code>),只有<code>true</code>(真)和<code>false</code>(假)两个取值. </p>
-        <p>关系运算符有六个:
-            <code>&gt;</code>大于
-            <code>&lt;</code>小于
-            <code>&gt;=</code>大于或等于
-            <code>&lt;=</code>小于或等于
-            <code>==</code>等于
-            <code>!=</code>不等于</p>
-        <pre class="prettyprint"><code class="java language-java">int a = 0;
-int b = 0;
-boolean c = a &gt; b;
-System.out.println(c);
-boolean d = a &lt; b;
-System.out.println(d);
-boolean e = a == b;
-System.out.println(e);
-boolean f = a == b;
-System.out.println(f);
+        <h2>8.Java复合运算符：+=, -=等</h2>
+        <p>复合运算符是一种简写.以<code>+=</code>为例,表示加一个值再赋值给本身.
+            常用的复合运算符
+            += 加法赋值
+            -= 减法赋值
+            *= 乘法赋值
+            /= 除法赋值
+            %= 模运算赋值</p>
+        <p>例:</p>
+        <pre class="prettyprint"><code class="java language-java">// += 加法赋值
+a += 1;
+// 等同于以下
+a = a + 1;
+
+//-= 减法赋值
+a -= 1;
+// 等同于以下
+a = a - 1;
+
+//*= 乘法赋值
+a *= 1;
+// 等同于以下
+a = a * 1;
+
+//*= 模运算赋值
+a /= 1;
+// 等同于以下
+a = a / 1;
+
+//%= 取余赋值
+a %= 1;
+// 等同于以下
+a = a % 1;
 </code></pre>
     </div>
 </div>
+
 <nav>
     <ul class="pager">
-        <li><a href="9.Java自增,自减运算符：++,--.html"><span>&larr;</span>9.Java自增,自减运算符</a></li>
-        <li><a href="11.Java逻辑运算符：&&，｜｜，！.html">11.Java逻辑运算符<span>&rarr;</span></a></li>
+        <li><a href="7.Java算数运算符： 加, 减, 乘, 除(取模, 取余).html"><span>&larr;</span>7.Java算数运算符</a></li>
+        <li><a href="9.Java自增,自减运算符： ++, --.html">9.Java自增,自减运算符<span>&rarr;</span></a></li>
     </ul>
 </nav>
 
