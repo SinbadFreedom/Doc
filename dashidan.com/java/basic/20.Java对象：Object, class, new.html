@@ -91,7 +91,8 @@
             隔壁老王有只哈士奇,名字叫哈拆迁.</p>
         <p>每只狗相当于java中<code>对象</code>的概念,拥有<code>狗</code>的属性, 是个唯一的个体(<code>object</code>),拥有自己的属性:名字.
             你可以给它们起名,并且可以知道它们叫什么名.</p>
-        <p>这个用创建程序模型如下:</p>
+        <p>这个用创建程序模型如下:
+            <code>Dog</code>类:</p>
         <pre class="prettyprint"><code class="java language-java">public class Dog {
     String name;
 
@@ -104,6 +105,7 @@
     }
 }
 </code></pre>
+        <p><code>Demo1</code>类:</p>
         <pre class="prettyprint"><code class="java language-java">public class Demo1 {
     public static void main(String args[]){
         Dog dog0 = new Dog();
@@ -116,9 +118,9 @@
 }
 </code></pre>
         <h2>对象中的this</h2>
-        <p><code>this</code>表示当前对象的引用.当方法参数中传入的参数名(<code>局部变量名</code>)和成员变量名重复的时候,需要区别引用的是成员变量,还是局部变量.
+        <p><code>this</code>表示当前对象的引用.当方法参数中传入的参数名(<code>局部变量名</code>)和成员变量名重复的时候,需要区别引用的是成员变量,还是局部变量.<br/>
             <a href="dashidan.com">成员变量,局部变量</a>.
-            this.变量名,表示引用的是成员变量.默认也可以省略<code>this</code>.<br/>
+            <code>this.变量名</code>,表示引用的是<code>成员变量</code>.默认也可以省略<code>this</code>.<br/>
             例:</p>
         <pre class="prettyprint"><code class="java language-java">public String setName(String name){
     //将传入的`局部变量name`值赋给`成员变量name`.

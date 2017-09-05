@@ -69,71 +69,222 @@
     </div>
     <!--文档区-->
     <div>
-        <p>Java使用包(<code>package</code>)这种机制是为了防止命名冲突.<br/>
-            可以简单理解为文件目录,将一类功能的代码放在同一个目录中. </p>
-        <h2>package</h2>
-        <p>包声明应该在源文件的<code>第一行</code>,每个源文件只能有一个包声明,这个文件中的每个类型都应用于它.<br/>
-            如果一个源文件中没有使用包声明,那么其中的类,函数,枚举,注释等将被放在一个无名的包(unnamed package)中.<br/>
-            由于包创建了新的命名空间(namespace),所以不会跟其他包中的任何名字产生命名冲突.<br/>
-            使用包这种机制,更容易实现访问控制,并且让定位相关类更加简单.<br/>
-            比如本网站的教程代码,将课程编号定义为包名,很方便就将源码和课程对应上.</p>
-        <pre class="prettyprint"><code class="java language-java">package lession3;
-
-/**
- * 大屎蛋教程网-dashidan.com
- *
- * 教程: 1.HelloWorld.
- *
- * Created by Sinbad on 2017/9/1.
- */
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("HelloWorld!");
-    }
-}
-</code></pre>
-        <h2>import</h2>
-        <p>为了能够使用某一个包的成员,我们需要在Java程序中明确导入该包.<br/>
-            使用<code>import</code>语句可完成此功能.<br/>
-            在java源文件中<code>import</code>语句应位于<code>package</code>语句之后,所有类的定义之前,可以没有,也可以有多条,其语法格式为：</p>
-        <pre><code>import package1[.package2…].(classname|*);
-</code></pre>
-        <p>如果在一个包中,一个类使用本包中的另一个类,那么该包名可以省略.</p>
-        <pre class="prettyprint"><code class="java language-java">package lession23;
-
-import test.TestPackage;
-
-/**
- * 大屎蛋教程网-dashidan.com
- *
- * 教程: 23.Java命名空间:包package,import
- *
- * Created by Sinbad on 2017/9/4.
- */
-public class Demo1 {
-
-    public static void main(String[] args) {
-        TestPackage testPackage = new TestPackage();
-        testPackage.printInfo();
-    }
-}
-</code></pre>
-        <p><code>TestPackage</code>类:</p>
-        <pre class="prettyprint"><code class="java language-java">package test;
-
-/**
- * 大屎蛋教程网-dashidan.com
- *
- * 教程: 23.Java命名空间:包package,import
- *
- * Created by Sinbad on 2017/9/4.
- */
-public class TestPackage {
-    public void printInfo() {
-        System.out.println("printInfo in TestPackage.");
-    }
-}
-</code></pre>
+        <p>保留关键字(<code>reserved word</code>)指在高级语言中,系统已经定义过的<code>英文单词</code>.<br/>
+            <code>不能</code>再将这些字作为变量名或方法名使用. </p>
+        <h2>Java系统保留关键字列表</h2>
+        <table class="table table-bordered table-responsive">
+            <caption>Java系统保留关键字</caption>
+            <thead>
+            <tr>
+                <td>关键字</td>
+                <td>含义</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>abstract</td>
+                <td>表明类或者成员方法具有抽象属性</td>
+            </tr>
+            <tr>
+                <td>assert</td>
+                <td>用来进行程序调试</td>
+            </tr>
+            <tr>
+                <td>boolean</td>
+                <td>基本数据类型之一，布尔类型</td>
+            </tr>
+            <tr>
+                <td>break</td>
+                <td>提前跳出一个块</td>
+            </tr>
+            <tr>
+                <td>byte</td>
+                <td>基本数据类型之一，字节类型</td>
+            </tr>
+            <tr>
+                <td>case</td>
+                <td>用在switch语句之中，表示其中的一个分支</td>
+            </tr>
+            <tr>
+                <td>catch</td>
+                <td>用在异常处理中，用来捕捉异常</td>
+            </tr>
+            <tr>
+                <td>char</td>
+                <td>基本数据类型之一，字符类型</td>
+            </tr>
+            <tr>
+                <td>class</td>
+                <td>类</td>
+            </tr>
+            <tr>
+                <td>const</td>
+                <td>保留关键字，没有具体含义</td>
+            </tr>
+            <tr>
+                <td>continue</td>
+                <td>回到一个块的开始处</td>
+            </tr>
+            <tr>
+                <td>default</td>
+                <td>默认，例如，用在switch语句中，表明一个默认的分支</td>
+            </tr>
+            <tr>
+                <td>do</td>
+                <td>用在do-while循环结构中</td>
+            </tr>
+            <tr>
+                <td>double</td>
+                <td>基本数据类型之一，双精度浮点数类型</td>
+            </tr>
+            <tr>
+                <td>else</td>
+                <td>用在条件语句中，表明当条件不成立时的分支</td>
+            </tr>
+            <tr>
+                <td>enum</td>
+                <td>枚举</td>
+            </tr>
+            <tr>
+                <td>extends</td>
+                <td>表明一个类型是另一个类型的子类型，这里常见的类型有类和接口</td>
+            </tr>
+            <tr>
+                <td>final</td>
+                <td>用来说明最终属性，表明一个类不能派生出子类，或者成员方法不能被覆盖，或者成员域的值不能被改变，用来定义常量</td>
+            </tr>
+            <tr>
+                <td>finally</td>
+                <td>用于处理异常情况，用来声明一个基本肯定会被执行到的语句块</td>
+            </tr>
+            <tr>
+                <td>float</td>
+                <td>基本数据类型之一，单精度浮点数类型</td>
+            </tr>
+            <tr>
+                <td>for</td>
+                <td>一种循环结构的引导词</td>
+            </tr>
+            <tr>
+                <td>goto</td>
+                <td>保留关键字，没有具体含义</td>
+            </tr>
+            <tr>
+                <td>if</td>
+                <td>条件语句的引导词</td>
+            </tr>
+            <tr>
+                <td>implements</td>
+                <td>表明一个类实现了给定的接口</td>
+            </tr>
+            <tr>
+                <td>import</td>
+                <td>表明要访问指定的类或包</td>
+            </tr>
+            <tr>
+                <td>instanceof</td>
+                <td>用来测试一个对象是否是指定类型的实例对象</td>
+            </tr>
+            <tr>
+                <td>int</td>
+                <td>基本数据类型之一，整数类型</td>
+            </tr>
+            <tr>
+                <td>interface</td>
+                <td>接口</td>
+            </tr>
+            <tr>
+                <td>long</td>
+                <td>基本数据类型之一，长整数类型</td>
+            </tr>
+            <tr>
+                <td>native</td>
+                <td>用来声明一个方法是由与计算机相关的语言（如C/C++/FORTRAN语言）实现的</td>
+            </tr>
+            <tr>
+                <td>new</td>
+                <td>用来创建新实例对象</td>
+            </tr>
+            <tr>
+                <td>package</td>
+                <td>包</td>
+            </tr>
+            <tr>
+                <td>private</td>
+                <td>一种访问控制方式：私用模式</td>
+            </tr>
+            <tr>
+                <td>protected</td>
+                <td>一种访问控制方式：保护模式</td>
+            </tr>
+            <tr>
+                <td>public</td>
+                <td>一种访问控制方式：共用模式</td>
+            </tr>
+            <tr>
+                <td>return</td>
+                <td>从成员方法中返回数据</td>
+            </tr>
+            <tr>
+                <td>short</td>
+                <td>基本数据类型之一,短整数类型</td>
+            </tr>
+            <tr>
+                <td>static</td>
+                <td>表明具有静态属性</td>
+            </tr>
+            <tr>
+                <td>strictfp</td>
+                <td>用来声明FP_strict（单精度或双精度浮点数）表达式遵循IEEE
+                    754算术规范
+                </td>
+            </tr>
+            <tr>
+                <td>super</td>
+                <td>表明当前对象的父类型的引用或者父类型的构造方法</td>
+            </tr>
+            <tr>
+                <td>switch</td>
+                <td>分支语句结构的引导词</td>
+            </tr>
+            <tr>
+                <td>synchronized</td>
+                <td>表明一段代码需要同步执行</td>
+            </tr>
+            <tr>
+                <td>this</td>
+                <td>指向当前实例对象的引用</td>
+            </tr>
+            <tr>
+                <td>throw</td>
+                <td>抛出一个异常</td>
+            </tr>
+            <tr>
+                <td>throws</td>
+                <td>声明在当前定义的成员方法中所有需要抛出的异常</td>
+            </tr>
+            <tr>
+                <td>transient</td>
+                <td>声明不用序列化的成员域</td>
+            </tr>
+            <tr>
+                <td>try</td>
+                <td>尝试一个可能抛出异常的程序块</td>
+            </tr>
+            <tr>
+                <td>void</td>
+                <td>声明当前成员方法没有返回值</td>
+            </tr>
+            <tr>
+                <td>volatile</td>
+                <td>表明两个或者多个变量必须同步地发生变化</td>
+            </tr>
+            <tr>
+                <td>while</td>
+                <td>用在循环结构中</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <nav>
