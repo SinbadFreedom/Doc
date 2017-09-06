@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Git教程</title>
-    <meta name="description" content="Git教程">
+    <title>批处理命令中文乱码</title>
+    <meta name="description" content="批处理命令中文乱码">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img alt="Brand" src="../../img/dsd24.png">
+                <img src="../../img/dsd24.png">
             </a>
             <a class="navbar-brand" href="../../index.html">大屎蛋教程网</a>
         </div>
@@ -53,36 +53,52 @@
     <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="../../index.html">首页</a></li>
-        <li><a href="index.html">Git教程</a></li>
+        <li><a href="../index.html">Windows教程</a></li>
         <li class="active"><a href="index.html">基础篇</a></li>
     </ol>
     <hr>
-    <div>
-        <!--视频区-->
-        <img class="center-block img-responsive" src="../../img/dsd_500_309.png">
-    </div>
-    <hr>
+    <!--视频区-->
+    <!--<div>-->
+    <!--<img class="center-block img-responsive" src="../../img/dsd_500_309.png">-->
+    <!--</div>-->
+    <!--<hr>-->
     <!--标题区-->
     <div class="page-header">
-        <h1>这里输入标题</h1>
+        <h2>批处理命令中文乱码</h2>
     </div>
     <!--文档区-->
-    <div id="content">
+    <div>
         <!-- 替换这个区域-->
+        <p>关键词:
+            bat
+            批处理
+            中文乱码</p>
+        <p>批处理中的中文乱码,是因为批处理文件的编码格式采用了<code>utf-8</code>或者其他非<code>ANSI</code>格式的编码.<br/>
+            解决方法:</p>
+        <pre><code>将批处理文件转化为ANSI格式文件.
+</code></pre>
+        <p>步骤:</p>
+        <ol>
+            <li>用nodepad++打开批处理文件.</li>
+            <li>选择<code>菜单栏</code>-&gt;<code>编码</code>-&gt;<code>转为ANSI编码方式</code>-&gt;<code>保存</code>.</li>
+        </ol>
+        <p>如图[]()</p>
+        <p>运行测试下结果,OK.</p>
     </div>
     <hr>
+    <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="../../index.html">首页</a></li>
-        <li><a href="index.html">Git教程</a></li>
+        <li><a href="../index.html">Windows教程</a></li>
         <li class="active"><a href="index.html">基础篇</a></li>
     </ol>
     <hr>
     <nav>
         <ul class="pager">
-            <!--<li><a href="Java基础篇2.搭建Java开发环境JDK8.0.html">下一篇: Java基础篇2.搭建Java开发环境JDK8.0<span>&rarr;</span></a></li>-->
         </ul>
     </nav>
 </div>
+
 
 <script src="../../js/jquery-3.2.1.min.js"></script>
 <script src="../../js/vendor/modernizr-custom.js"></script>
