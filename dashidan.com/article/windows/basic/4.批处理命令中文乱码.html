@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Excel如何调整单元格根据文字自动适应大小</title>
-    <meta name="description" content="Excel如何调整单元格根据文字自动适应大小">
+    <title>4.批处理命令中文乱码</title>
+    <meta name="description" content="4.批处理命令中文乱码">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
@@ -52,35 +52,47 @@
     <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html">首页</a></li>
-        <li><a href="http://dashidan.com/article/excel/index.html">Excel教程</a></li>
-        <li class="active"><a href="http://dashidan.com/article/excel/basic/index.html">基础篇</a></li>
+        <li><a href="http://dashidan.com/article/windows/index.html">Windows教程</a></li>
+        <li class="active"><a href="http://dashidan.com/article/windows/basic/index.html">基础篇</a></li>
     </ol>
     <hr>
     <!--标题区-->
     <div class="page-header">
-        <h2>Excel如何调整单元格根据文字自动适应大小</h2>
+        <h2>4.批处理命令中文乱码</h2>
     </div>
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
+        <p>关键词:
+            bat
+            批处理
+            中文乱码</p>
+        <p>批处理中的中文乱码,是因为批处理文件的编码格式采用了<code>utf-8</code>或者其他非<code>ANSI</code>格式的编码.<br/>
+            解决方法:</p>
+        <pre><code>将批处理文件转化为ANSI格式文件.
+</code></pre>
+        <p>步骤:</p>
         <ol>
-            <li>选中需要调整字号的单元格区域.</li>
-            <li>单击excel菜单栏上的<code>开始</code>标签,-&gt;<code>单元格</code>-&gt;<code>格式</code>.</li>
-            <li>在<code>格式</code>下拉菜单中,点击<code>自动调整行高</code>和<code>自动调整列宽</code>.</li>
+            <li>用<code>nodepad++</code>打开批处理文件.</li>
+            <li>选择<code>菜单栏</code>-&gt;<code>编码</code>-&gt;<code>转为ANSI编码方式</code>-&gt;<code>保存</code>.</li>
         </ol>
-        <p>如图:<br/>
-            <img class="center-block img-responsive" src="http://dashidan.com/img/excel/basic/1-1.png" alt="图1-1"/></p>
+        <p>如图:
+            <img class="center-block img-responsive" src="http://dashidan.com/img/windows/basic/4-1.png" alt="图4-1"/>
+        </p>
+        <p>运行测试下结果,OK.</p>
     </div>
     <hr>
     <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html">首页</a></li>
-        <li><a href="http://dashidan.com/article/excel/index.html">Excel教程</a></li>
-        <li class="active"><a href="http://dashidan.com/article/excel/basic/index.html">基础篇</a></li>
+        <li><a href="http://dashidan.com/article/windows/index.html">Windows教程</a></li>
+        <li class="active"><a href="http://dashidan.com/article/windows/basic/index.html">基础篇</a></li>
     </ol>
     <hr>
     <nav>
         <ul class="pager">
+            <li><a href="http://dashidan.com/article/windows/basic/3.windows如何显示文件后缀名.html"><span>&larr;</span>上一篇</a>
+            </li>
         </ul>
     </nav>
 </div>
