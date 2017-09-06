@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/bootstrap.css">
 
-    <!-- Le styles -->
-    <!--<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">-->
     <link href="../../css/docs.css" rel="stylesheet">
 </head>
 <body>
@@ -33,7 +31,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img alt="Brand" src="../../img/dsd24.png">
+                <img src="../../img/dsd24.png">
             </a>
             <a class="navbar-brand" href="../../index.html">大屎蛋教程网</a>
         </div>
@@ -52,23 +50,25 @@
 </nav>
 
 <div class="container">
+    <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="../../index.html">首页</a></li>
         <li><a href="../index.html">Java教程</a></li>
         <li class="active"><a href="index.html">基础篇</a></li>
     </ol>
     <hr>
-    <div>
-        <!--视频区-->
-        <img class="center-block img-responsive" src="../../img/dsd_500_309.png">
-    </div>
-    <hr>
+    <!--视频区-->
+    <!--<div>-->
+    <!--<img class="center-block img-responsive" src="../../img/dsd_500_309.png">-->
+    <!--</div>-->
+    <!--<hr>-->
     <!--标题区-->
     <div class="page-header">
         <h2>6.Java基础类型变量：byte, short, int, long, float, double, boolean, char</h2>
     </div>
     <!--文档区-->
-    <div id="content">
+    <div>
+        <!-- 替换这个区域-->
         <h2>简介</h2>
         <p>Java有八种基本类型.其中六种数字类型(四个整数型,两个浮点型),一种字符类型,还有一种布尔型.
             浮点类型表示带有小数点的数字.<br/>
@@ -274,9 +274,8 @@ boolean b; //默认值false
         <p>计算机存储整形数据是以<a href="dashidan.com">二进制</a>方式存储,有符号数据类型(byte, short, int, long, float)最小值为<code>-2^n</code>,最大值为<code>2^-1</code>,<code>n</code>为占用字节数.无符号类型(char)最小值为0,最大值为2^16(65535).
             存储浮点类型数据表示范围太大,采用指数的方式存储,所以范围会整数型大很多.</p>
     </div>
-
-    <!-- 底部导航区-->
     <hr>
+    <!-- 文章导航条-->
     <ol class="breadcrumb">
         <li><a href="../../index.html">首页</a></li>
         <li><a href="../index.html">Java教程</a></li>
@@ -290,6 +289,7 @@ boolean b; //默认值false
         </ul>
     </nav>
 </div>
+
 
 <script src="../../js/jquery-3.2.1.min.js"></script>
 <script src="../../js/vendor/modernizr-custom.js"></script>
