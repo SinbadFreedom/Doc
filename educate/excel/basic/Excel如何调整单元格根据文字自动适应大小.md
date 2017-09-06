@@ -3,4 +3,4 @@
 3. 在`格式`下拉菜单中,点击`自动调整行高`和`自动调整列宽`.   
 
 如图所示:   
-![图1-1](../../img/excel/basic/1-1.png)   
+![图1-1](http://localhost/img/excel/basic/1-1.png)   

@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>21.Java静态变量：static</title>
+    <meta name="description" content="21.Java静态变量：static">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/main.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+
+    <link href="http://dashidan.com/css/docs.css" rel="stylesheet">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">登陆</a></li>
+                <li><a href="#">注册</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 文章导航条-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+    </ol>
+    <hr>
+    <!--标题区-->
+    <div class="page-header">
+        <h2>21.Java静态变量：static</h2>
+    </div>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <p><code>static</code>修饰的成员变量和成员方法习惯上称为静态变量和静态方法,可以直接通过类名来访问.<br/>
+            只要这个类被加载,Java虚拟机就能根据类名在运行时数据区的方法区内定找到他们.<br/>
+            因此<code>static</code>修饰的变量和方法,可以在它所属的对象创建之前访问,不用创建对象.<br/>
+            访问语法为: </p>
+        <pre><code>类名.静态方法名(参数列表...)
+类名.静态变量名
+</code></pre>
+        <ol>
+            <li>静态变量
+                按照是否静态的对类成员变量进行分类可分两种:<br/>
+                一种是被static修饰的变量,叫静态变量或类变量.<br/>
+                另一种是没有被static修饰的变量,叫实例变量.
+            </li>
+        </ol>
+        <p>静态变量与实例变量区别:
+            1.静态变量在内存中只有一个拷贝(节省内存),JVM只为静态分配一次内存.在加载类的过程中完成静态变量的内存分配.可用类名直接访问,当然也可以通过对象来访问(不推荐).
+            2.对于实例变量,每创建一个实例,就会为实例变量分配一次内存,实例变量可以在内存中有多个拷贝,互不影响,需要通过实例的引用来访问. </p>
+        <p>静态变量应用场景:</p>
+        <ul>
+            <li>在对象之间共享值时</li>
+            <li>方便访问变量时</li>
+        </ul>
+        <p>例:
+            <code>狗</code>都有4条腿,2只眼睛一张嘴.这3条属性是狗的通用属性,我们便可以把这三个属性设置为<code>static</code>静态变量.</p>
+        <pre class="prettyprint"><code class="java language-java">public class Dog {
+    public static int MOUSE_NUM = 1;
+    public static int EYE_NUM = 2;
+    public static int LEG_NUM = 4;
+
+    ...
+}
+</code></pre>
+        <p>注:
+            我们在定义静态变量时,通常将所有字母大写,与实例变量作区分.</p>
+        <ol>
+            <li>静态方法<br/>
+                静态方法可以直接通过类名调用,任何的实例也可以调用.<br/>
+                因此静态方法只能访问所属类的静态变量和静态方法,不能用<code>this</code>和<code>super</code>关键字.<br/>
+                不能直接访问所属类的实例变量和实例方法(没有static修饰的成员变量和成员方法).
+            </li>
+        </ol>
+        <p>例:</p>
+        <pre class="prettyprint"><code class="java language-java">public class Demo1{
+    public static void main(String args[]){
+        // 输出狗的基本属性
+        Dog.printDogInfo();
+    }
+}
+
+public class Dog {
+    public static int MOUSE_NUM = 1;
+    public static int EYE_NUM = 2;
+    public static int LEG_NUM = 4;
+
+    public static void printDogInfo(){
+        System.out.println("MOUSE_NUM: " + MOUSE_NUM);
+        System.out.println("EYE_NUM: " + EYE_NUM);
+        System.out.println("LEG_NUM: " + LEG_NUM);
+    }
+}
+</code></pre>
+    </div>
+    <hr>
+    <!-- 文章导航条-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li><a
+                href="http://dashidan.com/article/java/basic/20.Java对象：Object, class, new.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li><a
+                href="http://dashidan.com/article/java/basic/22.Java命名空间：包package, import.html">下一篇<span>&rarr;</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+
+</body>
+</html>

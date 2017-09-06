@@ -1,0 +1,150 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>20.Java对象：Object, class, new</title>
+    <meta name="description" content="20.Java对象：Object, class, new">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/main.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+
+    <link href="http://dashidan.com/css/docs.css" rel="stylesheet">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">登陆</a></li>
+                <li><a href="#">注册</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 文章导航条-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+    </ol>
+    <hr>
+    <!--标题区-->
+    <div class="page-header">
+        <h2>20.Java对象：Object, class, new</h2>
+    </div>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <p><code>class</code>是Java的一个关键字,用来标识这是一个<code>类</code>文件.这个类文件相当于是<code>对象模板</code>.<br/>
+            通过创建(<code>new</code>)对象模板(<code>class</code>)的方式创建一个对象(<code>Object</code>),这就是Java面向对象编程的基础.<br/>
+            <code>new</code>是Java在内存(<code>堆</code>)中<code>创建对象</code>的关键字.<br/>
+            <code>Object</code>是java中所有对象的基础类.每个对象是继承自Object类.默认系统会隐式设定这个关系. </p>
+        <p>例1:</p>
+        <pre class="prettyprint"><code class="java language-java">public class Demo1 {
+    ...
+}
+</code></pre>
+        <p>等同于</p>
+        <pre class="prettyprint"><code>public class Demo1 extends Object{
+    ...
+}
+</code></pre>
+        <h2>什么是对象?</h2>
+        <p>编程中对象相当于现实生活中的物体的概念.
+            狗:属于脊索动物门、脊椎动物亚门、哺乳纲、真兽亚纲、食肉目、裂脚亚目、犬科动物。
+            这个属于狗的属性描述,相当于Java中<code>class</code>文件的概念.</p>
+        <p>你家有一只泰迪犬,名字叫泰日天.
+            隔壁老王有只哈士奇,名字叫哈拆迁.</p>
+        <p>每只狗相当于java中<code>对象</code>的概念,拥有<code>狗</code>的属性, 是个唯一的个体(<code>object</code>),拥有自己的属性:名字.
+            你可以给它们起名,并且可以知道它们叫什么名.</p>
+        <p>这个用创建程序模型如下:
+            <code>Dog</code>类:</p>
+        <pre class="prettyprint"><code class="java language-java">public class Dog {
+    String name;
+
+    public String setName(String name){
+        return this.name = name;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+}
+</code></pre>
+        <p><code>Demo1</code>类:</p>
+        <pre class="prettyprint"><code class="java language-java">public class Demo1 {
+    public static void main(String args[]){
+        Dog dog0 = new Dog();
+        dog0.setName("泰日天");
+        Dog dog1 = new Dog();
+        dog1.setName("哈拆迁");
+        System.out.println(dog0.getName());
+        System.out.println(dog1.getName());
+    }
+}
+</code></pre>
+        <h2>对象中的this</h2>
+        <p><code>this</code>表示当前对象的引用.当方法参数中传入的参数名(<code>局部变量名</code>)和成员变量名重复的时候,需要区别引用的是成员变量,还是局部变量.<br/>
+            <a href="dashidan.com">成员变量,局部变量</a>.
+            <code>this.变量名</code>,表示引用的是<code>成员变量</code>.默认也可以省略<code>this</code>.<br/>
+            例:</p>
+        <pre class="prettyprint"><code class="java language-java">public String setName(String name){
+    //将传入的`局部变量name`值赋给`成员变量name`.
+    return this.name = name;
+}
+</code></pre>
+    </div>
+    <hr>
+    <!-- 文章导航条-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li><a href="http://dashidan.com/article/java/basic/19.Java流程控制(4)：返回return.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li><a href="http://dashidan.com/article/java/basic/21.Java静态变量：static.html">下一篇<span>&rarr;</span></a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+
+</body>
+</html>
