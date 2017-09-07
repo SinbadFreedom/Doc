@@ -1,0 +1,38 @@
+可以通过`css样式`来实现html文本超宽不换行显示省略号.
+css配置:
+
+```css
+/* 超过一行显示省略号*/
+.single_line {
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+```
+
+html中采用`single_line`样式.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 超过一行显示省略号*/
+        .single_line {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+<div class="single_line">
+    <a href="http://dashidan.com">大屎蛋教程网是最棒棒的编程教程网站.我是来凑字数的,缩小屏幕看效果.</a>
+</div>
+</body>
+</html>
+```
+
+将这个`html`复制下来看，缩小浏览器的宽度,可以看到效果.

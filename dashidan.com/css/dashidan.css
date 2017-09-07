@@ -1,0 +1,25 @@
+/*默认链接样式*/
+a {
+    color: #000000;
+    /*链接无下划线*/
+    text-decoration: none;
+}
+
+/*鼠标悬停链接样式*/
+a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+/*点击过的链接样式*/
+a:visited {
+    color: #3c763d;
+    text-decoration: none;
+}
+
+/* 超过一行显示省略号*/
+.single_line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
