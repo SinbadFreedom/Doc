@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
-
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
 </head>
 <body>
@@ -33,7 +32,6 @@
             </a>
             <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -41,8 +39,8 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
-                <li><a href="#">登陆</a></li>
-                <li><a href="#">注册</a></li>
+                <!--<li><a href="#">登陆</a></li>-->
+                <!--<li><a href="#">注册</a></li>-->
             </ul>
         </div>
     </div>
@@ -64,7 +62,7 @@
     <div>
         <!-- 替换这个区域-->
         <h2>简介:SDK是什么</h2>
-        <p>SDK全称(Standard Development Kit),标准开放工具包.<br/>
+        <p>SDK全称(Standard Development Kit),标准开发工具包.<br/>
             java和JDK的关系,就像鱼和水的关系. </p>
         <h2>下载Java SDK</h2>
         <ol>
@@ -73,25 +71,25 @@
             <li>选中<code>Java SE Development Kit 8u144</code>中的<code>Accept License Agreement</code>.</li>
             <li>选择适合自己操作系统的版本点击链接下载.<code>windows x86</code>是32位版本,<code>windows x64</code>是64位版本.</li>
         </ol>
-        <p>注意:<br/>
-            <a href="http://dashidan.com/article/windows/basic/1.如何分辨windows系统是32位还是64位.html">如何分辨windows系统是32位还是64位</a>.
-        </p>
+        <div class="bs-callout bs-callout-info">
+            <h4>windows系统位数</h4>
+            <p><a href=http://dashidan.com/article/windows/basic/1.如何分辨windows系统是32位还是64位.html target="_blank">如何分辨windows系统是32位还是64位</a>
+            </p>
+        </div>
         <p>如图:<br/>
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/2-1.png" alt="图2-1"/></p>
         <h2>安装</h2>
         <p>点击下一步直到完成,采用默认安装配置.</p>
         <h2>配置Java环境变量</h2>
         <h3>windows7配置Java环境变量</h3>
-        <p>1.计算机-&gt;点右键-&gt;属性-&gt;高级系统设置 </p>
+        <p>1.<code>计算机</code>-&gt;<code>点右键</code>-&gt;<code>属性</code>-&gt;<code>高级系统设置</code></p>
         <p>如图:<br/>
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/2-2.png" alt="图2-2"/></p>
-        <p>2.弹出窗口中点击-&gt;环境变量<br/>
-            Java环境变量配置<br/>
+        <p>2.<code>弹出窗口</code>中点击-&gt;<code>环境变量</code><br/>
             如图:<br/>
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/2-3.png" alt="图2-3"/></p>
-        <p>3.配置<code>用户变量</code>classpath<br/>
+        <p>3.新建<code>用户变量</code>-&gt;<code>classpath</code><br/>
             在<code>用户变量</code>栏中点击-&gt;<code>新建按钮</code><br/>
-            Java用户变量classpath配置<br/>
             如图:<br/>
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/2-3.png" alt="图2-3"/></p>
         <p><code>变量名</code>输入:</p>
@@ -101,50 +99,55 @@
         <pre><code>.;C:\Program Files\Java\jdk1.8.0_144\lib
 </code></pre>
         <p>注意:<br/>
-            <code>变量值</code>由<code>.;</code>加<code>JDK安装目录</code>加<code>lib</code>组成.
-            如图:<br/>
+            <code>变量值</code>由<code>.;</code>加<code>JDK安装目录</code>加<code>lib</code>组成.</p>
+        <p>Java用户变量classpath配置 </p>
+        <p>如图:<br/>
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/2-4.png" alt="图2-4"/></p>
         <p>4.配置<code>系统变量</code>Path<br/>
-            在系统变量栏中找到Path-&gt;点击编辑按钮增加</p>
+            在<code>系统变量</code>栏中找到<code>Path</code>-&gt;点击编辑按钮增加</p>
         <pre><code>;C:\Program Files\Java\jdk1.8.0_144\bin
 </code></pre>
-        <p>注意:<br/>
-            添加字符串由<code>;</code>加上<code>JDK安装目录</code>加<code>bin</code>目录组成.</p>
+        <div class="bs-callout bs-callout-warning">
+            <h4>系统变量路径</h4>
+            <p>添加字符串由<code>;</code>加上<code>JDK安装目录</code>加<code>bin</code>目录组成.</p>
+        </div>
         <p>如图:<br/>
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/2-5.png" alt="图2-5"/></p>
         <h3>配置完成重启电脑,使环境变量生效</h3>
-        <h3>windows8配置Java环境变量</h3>
+        <h2>windows8配置Java环境变量</h2>
         <p>参考以上配置步骤.</p>
-        <h3>windows10配置Java环境变量</h3>
+        <h2>windows10配置Java环境变量</h2>
         <p>参考以上配置步骤.</p>
-        <p>注意:<br/>
-            Java默认安装目录<code>C:\Program Files\Java\jdk1.8.0_144</code>.<br/>
-            在<code>jdk1.8.0_144</code>的同级目录有个文件夹<code>jre1.8.0_144</code>,是Java运行环境(Java Runtime
-            Environment),系统运行Java程序使用.</p>
+        <div class="bs-callout bs-callout-info">
+            <h4>JDK与JRE</h4>
+            <p>Java默认安装目录<code>C:\Program Files\Java\jdk1.8.0_144</code>. </p>
+            <p>在<code>jdk1.8.0_144</code>的同级目录有个文件夹<code>jre1.8.0_144</code>,是Java运行环境(Java Runtime
+                Environment),系统运行Java程序使用.</p>
+        </div>
         <h2>测试</h2>
-        <ol>
-            <li><p>打开命令提示符 </p>
-                <p>鼠标点击桌面左下角windows图标-&gt;所有程序-&gt;附件-&gt;命令提示符</p></li>
-            <li><p>测试环境变量<br/>
-                输入命令:</p>
-                <p>java -version</p></li>
-        </ol>
+        <p>1.打开<code>命令提示符</code><br/>
+            鼠标点击桌面左下角<code>windows图标</code>-&gt;<code>所有程序</code>-&gt;<code>附件</code>-&gt;<code>命令提示符</code><br/>
+            相关链接:<br/>
+            <a href="http://dashidan.com/article/windows/basic/2.如何打开windows命令提示符.html">如何打开windows命令提示符</a></p>
+        <p>2.测试环境变量<br/>
+            输入命令:</p>
+        <pre><code>java -version
+</code></pre>
         <p>输出java版本号信息说明配置正确. </p>
         <p>如图:
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/2-6.png" alt="图2-6"/></p>
-        <ol>
-            <li><p>测试用户变量<br/>
-                输入命令:</p>
-                <p>javac</p></li>
-        </ol>
+        <p>3.测试用户变量<br/>
+            输入命令:</p>
+        <pre><code>javac
+</code></pre>
         <p>输出javac命令行信息说明配置正确.<br/>
             如图:<br/>
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/2-7.png" alt="图2-7"/></p>
-        <p>注意:<br/>
-            如果执行java命令时在命令行窗口提示错误,表示环境变量配置有问题,需要从新配置.<br/>
-            <a href="#跳转id">检查环境变量配置</a><br/>
-            运行java命令提示'javac'不是内部或外部命令,也不是可运行的程序或批处理文件.<br/>
-            <a href="#跳转id">检查用户变量配置</a></p>
+        <div class="bs-callout bs-callout-danger">
+            <h4>执行java,javac错误提示</h4>
+            <p>如果执行java命令时在命令行窗口提示错误,表示环境变量配置有问题,需要<a href="#">检查Java环境变量配置</a>.</p>
+            <p>运行java命令提示'javac'不是内部或外部命令,也不是可运行的程序或批处理文件.<a href="#">检查Java用户变量配置</a></p>
+        </div>
     </div>
     <hr>
     <!-- 文章导航条-->
@@ -163,11 +166,9 @@
     </nav>
 </div>
 
-
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
 <script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="http://dashidan.com/js/bootstrap.js"></script>
 <script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-
 </body>
 </html>
