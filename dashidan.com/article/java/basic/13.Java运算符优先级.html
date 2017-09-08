@@ -68,22 +68,42 @@
         <pre class="prettyprint"><code class="java language-java">int a = 1;
 int b = 2;
 int c = 3;
-
 int d = a + b * c;
-// 乘号的优先级比加号高, 先算b*c再加a,故c为7
-System.out.println(c);
-</code></pre>
-        <h2>例2:加减乘除混合</h2>
-        <pre class="prettyprint"><code class="java language-java">int a = 1;
-int b = 2;
-int c = 3;
-int d = 4;
-int e = 5;
-
-int d = a + b * c / d - 5;
-// 乘号和除号的优先级比加号高, 先算乘除, 从左往右, b*c得6,d(值为4),`6/4`得`1.5`.取模运算省去小数,`b*c/d`得1
-// 加减法从左往右计算,a+1-5得-3,赋值给d.故d为-3.
+/** 乘号的优先级比加号高, 先算b*c再加a,故d为7*/
 System.out.println(d);
+</code></pre>
+        <h2>示例代码</h2>
+        <p>加减乘除混合</p>
+        <pre class="prettyprint"><code class="java language-java">package lession13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 13.Java运算符优先级
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+        int a = 1;
+        int b = 2;
+        int c = 3;
+        int d = a + b * c;
+        /** 乘号的优先级比加号高, 先算b*c再加a,故d为7*/
+        System.out.println(d);
+        /** 加减乘除混合*/
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        d = a + b * c / d - 5;
+        /** 乘号和除号的优先级比加号高, 先算乘除, 从左往右, b*c得6,d(值为4),`6/4`得`1.5`.取模运算省去小数,`b*c/d`得1*/
+        /** 加减法从左往右计算,a+1-5得-3,赋值给d.故d为-3.*/
+        System.out.println(d);
+    }
+}
+</code></pre>
+        <h2>输出</h2>
+        <pre><code>7
+-3
 </code></pre>
         <table class="table table-bordered table-responsive text-center">
             <caption>Java运算符优先级表</caption>
@@ -301,6 +321,8 @@ System.out.println(d);
             </tr>
             </tbody>
         </table>
+        <h2>附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 文章导航条-->

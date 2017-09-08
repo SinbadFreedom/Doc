@@ -65,34 +65,40 @@
         <p>类内部定义的变量叫做成员变量,如果没有设定初始值,系统会自动赋值为<a href="dashidan.com">默认值</a>.
             作用范围是整个类.<br/>
             成员变量在所在类被实例化后,存在<a href="dashidan.com">堆内存</a>中.</p>
-        <pre class="prettyprint"><code class="java language-java">public static Basic12_1 {
-    // a,b 是成员变量,整个方法都可以调用.
-    public static int a;
-    public static float b = 3.0f;
-
-    public static void main(String args[]){
-        //在方法中调用成员变量, a为默认值, b为设定值
-        System.out.println(a);
-        System.out.println(b);
-    }
-}
-</code></pre>
         <h2>局部变量</h2>
         <p>方法内定义的变量被称为局部变量,局部变量没有默认值,声明变量时<code>必须设定初始值</code>.<br/>
             作用范围从声明开始,直到包含它的块(对应的大括号<code>}</code>)结束.<br/>
             局部变量在所在方法调用时,存在<a href="dashidan.com">栈内存</a>中.<br/>
             方法参数是局部变量,范围涵盖整个方法. </p>
-        <pre class="prettyprint"><code class="java language-java">public static Basic12_1 {
+        <h2>示例代码</h2>
+        <pre class="prettyprint"><code class="java language-java">package lession15;
 
-    public static void main(String args[]){
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 15.Java变量作用域：成员变量, 局部变量
+ */
+public class Demo1 {
+    /**
+     * a,b 是成员变量,整个方法都可以调用.
+     */
+    public static int a;
+    public static float b = 3.0f;
+
+    public static void main(String args[]) {
+        /**  在方法中调用成员变量, a为默认值, b为设定值*/
+        System.out.println(a);
+        System.out.println(b);
+
         testVar();
-        // 这里输出变量m, n,编译代码时,会报错,提示没有定义变量`m`,`n`
+        /** 这里输出变量m, n,编译代码时,会报错,提示没有定义变量m,n*/
         //System.out.println(m);
         //System.out.println(n);
     }
 
-    public static void testVar(){
-        // m,n 是成员变量,必须初始化赋值.作用域是在这个方法中.
+
+    public static void testVar() {
+        /**m,n 是成员变量,必须初始化赋值.作用域是在这个方法中. */
         int m = 0;
         int n = 1;
         System.out.println(m);
@@ -100,6 +106,14 @@
     }
 }
 </code></pre>
+        <h2>输出</h2>
+        <pre><code>0
+3.0
+0
+1
+</code></pre>
+        <h2>附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 文章导航条-->

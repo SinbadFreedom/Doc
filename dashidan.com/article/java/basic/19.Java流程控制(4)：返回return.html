@@ -70,21 +70,38 @@
         <p><code>return</code>语句通常用在一个方法体的最后,退出该方法并返回一个值.<br/>
             单独的<code>return</code>语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到.<br/>
             可以通过把<code>return</code>语句嵌入某些语句(如:<code>if…else</code>)来使程序在未执行完方法中的所有语句时退出. </p>
-        <h2>return无返回值</h2>
-        <pre class="prettyprint"><code class="java language-java">public static void testReturn(int value){
-    if(value &lt; 0){
-        System.out.println("value &lt; 0");
-        return;
+        <h2>示例代码</h2>
+        <pre class="prettyprint"><code class="java language-java">package lession19;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 19.Java流程控制(4)：返回return
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+        /** 执行无返回值的方法*/
+        testReturn(1);
+        int b = testReturnInt(2, 3);
+        System.out.println("执行有返回值的方法: " + b);
+
     }
-    System.out.println("value: " + value);
+
+    public static void testReturn(int value) {
+        System.out.println("执行无返回值的方法: " + value);
+    }
+
+    public static int testReturnInt(int p0, int p1) {
+        return p0 + p1;
+    }
 }
 </code></pre>
-        <h2>return有返回值</h2>
-        <pre class="prettyprint"><code class="java language-java">public static int testReturnInt(int p0, int p1){
-    int value = p0 + p1;
-    return value;
-}
+        <h2>输出</h2>
+        <pre><code>执行无返回值的方法: 1
+执行有返回值的方法: 5
 </code></pre>
+        <h2>附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 文章导航条-->

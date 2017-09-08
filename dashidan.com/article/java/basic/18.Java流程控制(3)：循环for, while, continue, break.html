@@ -72,7 +72,7 @@
 }
 </code></pre>
         <p>例:</p>
-        <pre class="prettyprint"><code>for(int i=0; i&lt;3; i++){
+        <pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
     System.out.println("i: " + i);
 }
 </code></pre>
@@ -93,15 +93,10 @@
 </code></pre>
         <p>例:</p>
         <pre class="prettyprint"><code class="java language-java">int i = 0;
-while(i &lt; 3){
+while (i &lt; 3) {
     System.out.println("i: " + i);
     i++;
 }
-</code></pre>
-        <p>输出:</p>
-        <pre><code>i: 1
-i: 2
-i: 3
 </code></pre>
         <p>执行步骤:</p>
         <ol>
@@ -112,21 +107,16 @@ i: 3
         </ol>
         <h2>do...while循环基本表达方式</h2>
         <p>先执行循环体,再判断是否结束循环.</p>
-        <pre><code>do(){
+        <pre><code>do{
     //循环体
 } while(循环继续执行条件);
 </code></pre>
         <p>例:</p>
         <pre class="prettyprint"><code>int i = 0;
-do(){
+do {
     System.out.println("i: " + i);
     i++;
-}while(i &lt; 3);
-</code></pre>
-        <p>输出:</p>
-        <pre><code>i: 0
-i: 1
-i: 2
+} while (i &lt; 3);
 </code></pre>
         <p>执行步骤:</p>
         <ol>
@@ -138,30 +128,22 @@ i: 2
         <h2>continue</h2>
         <p>在循环体中的<code>continue</code>是跳过后续的逻辑,并且继续进入下一次循环.</p>
         <p>例1:</p>
-        <pre class="prettyprint"><code>for(int i=0; i&lt;3; i++){
-    if(i==1){
+        <pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
+    if (i == 1) {
         continue;
     }
     System.out.println("i: " + i);
 }
 </code></pre>
-        <p>输出:</p>
-        <pre><code>i: 0
-i: 2
-</code></pre>
         <p>例2:</p>
         <pre class="prettyprint"><code>int i = 0;
-while(i &lt; 3){
-    if(i == 1){
+while (i &lt; 3) {
+    if (i == 1) {
         continue;
     }
     System.out.println("i: " + i);
     i++;
 }
-</code></pre>
-        <p>输出:</p>
-        <pre><code>i: 0
-i: 2
 </code></pre>
         <p>解释:
             在<code>for</code>循环和<code>while</code>循环中,<code>continue</code>语句作用一样.
@@ -169,15 +151,12 @@ i: 2
         <h2>break</h2>
         <p>在循环体中的<code>break</code>结束当前的循环.</p>
         <p>例1:</p>
-        <pre class="prettyprint"><code>for(int i=0; i&lt;3; i++){
-    if(i==1){
+        <pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
+    if (i == 1) {
         break;
     }
     System.out.println("i: " + i);
 }
-</code></pre>
-        <p>输出:</p>
-        <pre><code>i: 0
 </code></pre>
         <p>例2:</p>
         <pre class="prettyprint"><code>int i = 0;
@@ -189,12 +168,136 @@ while(i &lt; 3){
     i++;
 }
 </code></pre>
-        <p>输出:</p>
-        <pre><code>i: 0
+        <h2>示例代码</h2>
+        <pre class="prettyprint"><code class="java language-java">package lession18;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 18.Java流程控制(3)：循环for, while, continue, break
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+        /** for循环基本表达方式*/
+        System.out.println("for循环基本表达方式");
+        for (int i = 0; i &lt; 3; i++) {
+            System.out.println("i: " + i);
+        }
+        System.out.println("while循环基本表达方式");
+        /** while循环基本表达方式*/
+        int i = 0;
+        while (i &lt; 3) {
+            System.out.println("i: " + i);
+            i++;
+        }
+        System.out.println("do...while循环基本表达方式");
+        /** do...while循环基本表达方式*/
+        i = 0;
+        do {
+            System.out.println("i: " + i);
+            i++;
+        } while (i &lt; 3);
+        System.out.println("continue 在for循环中");
+        /** continue 在for循环中*/
+        for (i = 0; i &lt; 3; i++) {
+            if (i == 1) {
+                continue;
+            }
+            System.out.println("i: " + i);
+        }
+
+        System.out.println("continue 在while循环中");
+        i = 0;
+        while (i &lt; 3) {
+            i++;
+            if (i == 1) {
+                continue;
+            }
+            System.out.println("i: " + i);
+        }
+
+        /**
+         * 在`for`循环和`while`循环中,`break`语句作用一样.
+         * 当`i==1`时,执行了`break`语句,结束了循环.所以只有`i: 0`的输出.
+         */
+        System.out.println("break在for循环中");
+        for (i = 0; i &lt; 3; i++) {
+            if (i == 1) {
+                break;
+            }
+            System.out.println("i: " + i);
+        }
+        System.out.println("break在while循环中");
+        i = 0;
+        while (i &lt; 3) {
+            if (i == 1) {
+                break;
+            }
+            System.out.println("i: " + i);
+            i++;
+        }
+    }
+}
 </code></pre>
-        <p>解释:
-            在<code>for</code>循环和<code>while</code>循环中,<code>break</code>语句作用一样.
-            当<code>i==1</code>时,执行了<code>break</code>语句,结束了循环.所以只有<code>i: 0</code>的输出.</p>
+        <h2>输出</h2>
+        <pre><code>for循环基本表达方式
+i: 0
+i: 1
+i: 2
+while循环基本表达方式
+i: 0
+i: 1
+i: 2
+do...while循环基本表达方式
+i: 0
+i: 1
+i: 2
+continue 在for循环中
+i: 0
+i: 2
+continue 在while循环中
+i: 2
+i: 3
+break在for循环中
+i: 0
+break在while循环中
+i: 0
+</code></pre>
+        <h2>死循环</h2>
+        <p>当程序进入循环中,如果符合继续执行循环的条件一直为true,程序就会无限执行这个循环体的代码,导致无法执行下一句语句,这种情况就叫<code>死循环</code>.开发过程中需要注意这点.
+            最简单的是循环的例子是
+            while(true){
+            ...
+            }</p>
+        <h2>示例代码</h2>
+        <pre class="prettyprint"><code class="java language-java">package lession18;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 18.Java流程控制(3)：循环for, while, continue, break
+ * Demo2: 死循环
+ */
+public class Demo2 {
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("死循环");
+        }
+    }
+}
+</code></pre>
+        <h2>输出</h2>
+        <pre><code>死循环
+死循环
+死循环
+死循环
+死循环
+死循环
+死循环
+...
+</code></pre>
+        <h2>附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 文章导航条-->

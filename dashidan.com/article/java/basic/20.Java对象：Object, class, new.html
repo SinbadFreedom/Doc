@@ -83,23 +83,38 @@
             隔壁老王有只哈士奇,名字叫哈拆迁.</p>
         <p>每只狗相当于java中<code>对象</code>的概念,拥有<code>狗</code>的属性, 是个唯一的个体(<code>object</code>),拥有自己的属性:名字.
             你可以给它们起名,并且可以知道它们叫什么名.</p>
-        <p>这个用创建程序模型如下:
-            <code>Dog</code>类:</p>
-        <pre class="prettyprint"><code class="java language-java">public class Dog {
+        <h2>示例代码</h2>
+        <p><code>Dog</code>类:</p>
+        <pre class="prettyprint"><code class="java language-java">package lession20;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 20.Java对象：Object, class, new
+ * Dog 类
+ */
+public class Dog {
     String name;
 
-    public String setName(String name){
+    public String setName(String name) {
         return this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 }
 </code></pre>
         <p><code>Demo1</code>类:</p>
-        <pre class="prettyprint"><code class="java language-java">public class Demo1 {
-    public static void main(String args[]){
+        <pre class="prettyprint"><code class="java language-java">package lession20;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 20.Java对象：Object, class, new
+ */
+public class Demo1 {
+    public static void main(String[] args) {
         Dog dog0 = new Dog();
         dog0.setName("泰日天");
         Dog dog1 = new Dog();
@@ -108,6 +123,10 @@
         System.out.println(dog1.getName());
     }
 }
+</code></pre>
+        <h2>输出</h2>
+        <pre><code>泰日天
+哈拆迁
 </code></pre>
         <h2>对象中的this</h2>
         <p><code>this</code>表示当前对象的引用.当方法参数中传入的参数名(<code>局部变量名</code>)和成员变量名重复的时候,需要区别引用的是成员变量,还是局部变量.<br/>
@@ -119,6 +138,8 @@
     return this.name = name;
 }
 </code></pre>
+        <h2>附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 文章导航条-->

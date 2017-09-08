@@ -84,15 +84,7 @@
             <li>方便访问变量时</li>
         </ul>
         <p>例:
-            <code>狗</code>都有4条腿,2只眼睛一张嘴.这3条属性是狗的通用属性,我们便可以把这三个属性设置为<code>static</code>静态变量.</p>
-        <pre class="prettyprint"><code class="java language-java">public class Dog {
-    public static int MOUSE_NUM = 1;
-    public static int EYE_NUM = 2;
-    public static int LEG_NUM = 4;
-
-    ...
-}
-</code></pre>
+            猫都有4条腿,2只眼睛一张嘴.这3条属性是猫的通用属性,我们便可以把这三个属性设置为<code>static</code>静态变量.</p>
         <p>注:
             我们在定义静态变量时,通常将所有字母大写,与实例变量作区分.</p>
         <ol>
@@ -102,26 +94,45 @@
                 不能直接访问所属类的实例变量和实例方法(没有static修饰的成员变量和成员方法).
             </li>
         </ol>
-        <p>例:</p>
-        <pre class="prettyprint"><code class="java language-java">public class Demo1{
-    public static void main(String args[]){
-        // 输出狗的基本属性
-        Dog.printDogInfo();
-    }
-}
+        <h2>示例代码:</h2>
+        <pre class="prettyprint"><code class="java language-java">package lession21;
 
-public class Dog {
-    public static int MOUSE_NUM = 1;
-    public static int EYE_NUM = 2;
-    public static int LEG_NUM = 4;
-
-    public static void printDogInfo(){
-        System.out.println("MOUSE_NUM: " + MOUSE_NUM);
-        System.out.println("EYE_NUM: " + EYE_NUM);
-        System.out.println("LEG_NUM: " + LEG_NUM);
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 21.Java静态变量：static
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+        /** 出处猫的静态属性*/
+        System.out.println("MOUSE_NUM: " + Cat.MOUSE_NUM);
+        System.out.println("EYE_NUM: " + Cat.EYE_NUM);
+        System.out.println("LEG_NUM: " + Cat.LEG_NUM);
     }
 }
 </code></pre>
+        <p>Cat类:</p>
+        <pre class="prettyprint"><code class="java language-java">package lession21;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * 教程: 21.Java静态变量：static
+ * Cat类
+ */
+public class Cat {
+    public static int MOUSE_NUM = 1;
+    public static int EYE_NUM = 2;
+    public static int LEG_NUM = 4;
+}
+</code></pre>
+        <h2>输出</h2>
+        <pre><code>MOUSE_NUM: 1
+EYE_NUM: 2
+LEG_NUM: 4
+</code></pre>
+        <h2>附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 文章导航条-->
