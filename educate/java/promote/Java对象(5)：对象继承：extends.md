@@ -1,2 +1,2 @@
-Java对象(5)：对象继承：extends
+Java瀵硅薄(5)锛氬璞＄户鎵匡細extends
 ===

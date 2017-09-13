@@ -1,2 +1,2 @@
-Java对象(6)：调用父类与子类：super, this
+Java瀵硅薄(6)锛氳皟鐢ㄧ埗绫讳笌瀛愮被锛歴uper, this
 ===

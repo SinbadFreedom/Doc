@@ -1,2 +1,2 @@
-Java对象(9)：接口implements，Interface
+Java瀵硅薄(9)锛氭帴鍙mplements锛孖nterface
 ===

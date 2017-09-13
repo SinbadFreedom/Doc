@@ -1,2 +1,2 @@
-Java对象(1)：对象简介：Object
+Java瀵硅薄(1)锛氬璞＄畝浠嬶細Object
 ===
