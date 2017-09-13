@@ -57,40 +57,58 @@
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <p>Java算数运算符从右往左赋值.即将等号右边的值,赋给等号左边的变量.</p>
-        <h2>加<code>+</code></h2>
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #7"><h2>7
+            Java算数运算符： 加, 减, 乘, 除(取模, 取余)</h2></a><a class="single_line list-group-item" href="#7.1">7.1 Java算数运算符</a><a
+            class="single_line list-group-item" href="#7.2">7.2 运算结果类型转换规则</a><a class="single_line list-group-item"
+                                                                                 href="#7.3">7.3 示例代码</a><a
+            class="single_line list-group-item" href="#7.4">7.4 附录</a></div>
+        <div class="jumbotron">
+            <p>Java算数运算符从右往左赋值.即将等号右边的值,赋给等号左边的变量.</p>
+        </div>
+        <h2 id="7.1" class="alert alert-success">7.1 Java算数运算符</h2>
+        <ul>
+            <li>加<code>+</code></li>
+        </ul>
         <pre class="prettyprint"><code class="java language-java">int a = 1;
 int b = 2;
 int c = a + b;
 System.out.println(c);
 </code></pre>
-        <h2>减<code>-</code></h2>
+        <ul>
+            <li>减<code>-</code></li>
+        </ul>
         <pre class="prettyprint"><code class="java language-java">int a = 1;
 int b = 2;
 int c = a - b;
 System.out.println(c);
 </code></pre>
-        <h2>乘<code>*</code></h2>
+        <ul>
+            <li>乘<code>*</code></li>
+        </ul>
         <pre class="prettyprint"><code class="java language-java">int a = 1;
 int b = 2;
 int c = a * b;
 System.out.println(c);
 </code></pre>
-        <h2>除-取模<code>/</code></h2>
+        <ul>
+            <li>除-取模<code>/</code></li>
+        </ul>
         <p>对整数取模运算,相当于取结果的整数,去掉余数.</p>
         <pre class="prettyprint"><code class="java language-java">int a = 1;
 int b = 2;
 int c = a / b;
 System.out.println(c);
 </code></pre>
-        <h2>除-取余<code>%</code></h2>
+        <ul>
+            <li>除-取余<code>%</code></li>
+        </ul>
         <p>对整数取余运算,相当于取结果的余数.</p>
         <pre class="prettyprint"><code class="java language-java">int a = 1;
 int b = 2;
 int c = a % b;
 System.out.println(c);
 </code></pre>
-        <h2>运算结果类型转换规则</h2>
+        <h2 id="7.2" class="alert alert-success">7.2 运算结果类型转换规则</h2>
         <p>当两个类型不同的数据类型运算时,结果自动转化为取值范围大的数据.</p>
         <pre><code>byte-&gt;short-&gt;int-&gt;long-&gt;float-&gt;double
 </code></pre>
@@ -104,7 +122,7 @@ System.out.println(c);
             <li>long可转换为float和double.</li>
             <li>float可转换为double.</li>
         </ol>
-        <h2>示例代码:</h2>
+        <h2 id="7.3" class="alert alert-success">7.3 示例代码</h2>
         <pre class="prettyprint"><code class="java language-java">package lession7;
 
 /**
@@ -142,14 +160,13 @@ public class Demo1 {
     }
 }
 </code></pre>
-        <h2>输出:</h2>
-        <pre><code>3
--1
-2
-0
-1
-</code></pre>
-        <h2>附录</h2>
+        <p>输出:
+            3
+            -1
+            2
+            0
+            1</p>
+        <h2 id="7.4" class="alert alert-success">7.4 附录</h2>
         <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>

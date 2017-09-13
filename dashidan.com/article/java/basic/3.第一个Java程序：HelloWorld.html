@@ -57,8 +57,14 @@
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <p>Java语言区分大小写,一定要注意字符的大小写.</p>
-        <h2>Hello World</h2>
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #3"><h2>3
+            第一个Java程序：HelloWorld</h2></a><a class="single_line list-group-item" href="#3.1">3.1 Hello World</a><a
+            class="single_line list-group-item" href="#3.2">3.2 代码简介</a><a class="single_line list-group-item"
+                                                                           href="#3.3">3.3 附录</a></div>
+        <div class="jumbotron">
+            <p>Java语言区分大小写,一定要注意字符的大小写.</p>
+        </div>
+        <h2 id="3.1" class="alert alert-success">3.1 Hello World</h2>
         <p>我们需要写一个最简单的Java程序-HelloWorld.</p>
         <ol>
             <li>新建一个目录,取名<code>lession3</code>.</li>
@@ -81,7 +87,7 @@ public class HelloWorld {
     }
 }
 </code></pre>
-        <h2>功能简介</h2>
+        <h2 id="3.2" class="alert alert-success">3.2 代码简介</h2>
         <h3>package lession3;</h3>
         <p>包名,可以暂时简单理解为目录名.
             详细参考<a href="dashidan.com">Java命名空间</a>;</p>
@@ -118,7 +124,7 @@ public class HelloWorld {
             <code>out</code>:标准输出对象.<br/>
             <code>println()</code>:输出字符串方法.<br/>
             调用系统类<code>System</code>的标准输出对象<code>out</code>的方法<code>println()</code>,输出一行字符串.</p>
-        <h2>附录</h2>
+        <h2 id="3.3" class="alert alert-success">3.3 附录</h2>
         <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>

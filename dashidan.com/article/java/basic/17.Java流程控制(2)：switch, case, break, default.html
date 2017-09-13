@@ -57,12 +57,19 @@
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <p>
-            <code>switch</code>根据一个传入的参数,从<code>case</code>后<code>:</code>的数据,找到和传入的参数相同的值.执行对应的<code>case</code>部分的代码,到<code>break</code>结束.结束<code>switch</code>语句.
-            如果没有满足的<code>case</code>情况.执行<code>default</code>对应的语句.结束<code>switch</code>语句.<br/>
-            <code>switch</code>是一种条件控制.网上很多教程说<code>switch</code>只支持整数型和字符(<code>char</code>)型.那是旧版本了.JDK8.0<code>switch
-            case</code>已经支持字符串类型了.</p>
-        <h2><code>switch</code>基本结构</h2>
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #17"><h2>17
+            Java流程控制(2)：switch, case, break, default</h2></a><a class="single_line list-group-item" href="#17.1">17.1
+            <code>switch</code>基本结构</a><a class="single_line list-group-item" href="#17.2">17.2 基本调用方式</a><a
+            class="single_line list-group-item" href="#17.3">17.3 case没有break会怎样</a><a
+            class="single_line list-group-item" href="#17.4">17.4 示例代码</a><a class="single_line list-group-item"
+                                                                             href="#17.5">17.5 附录</a></div>
+        <div class="jumbotron"><p>
+            `switch`根据一个传入的参数,从`case`后`:`的数据,找到和传入的参数相同的值.执行对应的`case`部分的代码,到`break`结束.结束`switch`语句.
+            如果没有满足的`case`情况.执行`default`对应的语句.结束`switch`语句. `switch`是一种条件控制.网上很多教程说`switch`只支持整数型和字符(`char`)型.那是旧版本了.
+            JDK8.0` switch case`已经支持字符串类型了.
+        </p>
+        </div>
+        <h2 id="17.1" class="alert alert-success">17.1 <code>switch</code>基本结构</h2>
         <p><code>switch</code>语句由<code>case</code>, <code>break</code>, <code>default</code>(可省略)组成.</p>
         <pre class="prettyprint"><code class="java language-java">switch (var) {
     case 1:
@@ -79,7 +86,7 @@
         break;
 }
 </code></pre>
-        <h2>基本调用方式</h2>
+        <h2 id="17.2" class="alert alert-success">17.2 基本调用方式</h2>
         <pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网-dashidan.com
  *
@@ -123,7 +130,7 @@ public class Demo1 {
         <pre><code>2
 switch over.
 </code></pre>
-        <h2>case没有break会怎样</h2>
+        <h2 id="17.3" class="alert alert-success">17.3 case没有break会怎样</h2>
         <p>case如果没有break就会继续往下执行,不中断switch语句,直到遇到<code>break</code>,或者switch结尾.</p>
         <pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网-dashidan.com
@@ -166,10 +173,11 @@ public class Demo2 {
 3
 switch over.
 </code></pre>
-        <p>注意:<br/>
-            switch case字符串
-            需要JDK8.0或者更高版本才能正确运行.</p>
-        <h2>示例代码</h2>
+        <div class="bs-callout bs-callout-warning">
+            <h4>switch case字符串</h4>
+            <p>需要JDK8.0或者更高版本才能正确运行.</p>
+        </div>
+        <h2 id="17.4" class="alert alert-success">17.4 示例代码</h2>
         <pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网-dashidan.com
  *
@@ -208,11 +216,11 @@ public class Demo3 {
     }
 }
 </code></pre>
-        <h2>输出:</h2>
+        <p>输出:</p>
         <pre><code>a
 switch over.
 </code></pre>
-        <h2>附录</h2>
+        <h2 id="17.5" class="alert alert-success">17.5 附录</h2>
         <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
