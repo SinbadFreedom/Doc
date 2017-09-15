@@ -11,11 +11,11 @@ a:hover {
     text-decoration: none;
 }
 
-/*点击过的链接样式*/
-a:visited {
-    color: #3c763d;
-    text-decoration: none;
-}
+/*!*点击过的链接样式*!*/
+/*a:visited {*/
+/*color: #3c763d;*/
+/*text-decoration: none;*/
+/*}*/
 
 /* 超过一行显示省略号*/
 .single_line {
