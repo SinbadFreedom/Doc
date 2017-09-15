@@ -1,9 +1,9 @@
 /*默认链接样式*/
-a {
-    color: #000000;
-    /*链接无下划线*/
-    text-decoration: none;
-}
+/*a {*/
+/*color: #000000;*/
+/*!*链接无下划线*!*/
+/*text-decoration: none;*/
+/*}*/
 
 /*鼠标悬停链接样式*/
 a:hover {
