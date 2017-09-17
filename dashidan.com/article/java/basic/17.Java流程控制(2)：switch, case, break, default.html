@@ -50,20 +50,29 @@
     <hr>
     <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
-                <li><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
-                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
-                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+        <li><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #17"><h2>17 Java流程控制(2)：switch, case, break, default</h2></a><a class="single_line list-group-item" href="#17.1">17.1 <code>switch</code>基本结构</a><a class="single_line list-group-item" href="#17.2">17.2 基本调用方式</a><a class="single_line list-group-item" href="#17.3">17.3 case没有break会怎样</a><a class="single_line list-group-item" href="#17.4">17.4 示例代码</a><a class="single_line list-group-item" href="#17.5">17.5 附录</a></div><div class="jumbotron">    <p>`switch`根据一个传入的参数,从`case`后`:`的数据,找到和传入的参数相同的值.执行对应的`case`部分的代码,到`break`结束.结束`switch`语句. 如果没有满足的`case`情况.执行`default`对应的语句.结束`switch`语句. `switch`是一种条件控制.网上很多教程说`switch`只支持整数型和字符(`char`)型.那是旧版本了. JDK8.0` switch case`已经支持字符串类型了.
-</p>
-</div>
-<h2 id="17.1" class="alert alert-success" >17.1 <code>switch</code>基本结构</h2>
-<p><code>switch</code>语句由<code>case</code>, <code>break</code>, <code>default</code>(可省略)组成.</p>
-<pre class="prettyprint"><code class="java language-java">switch (var) {
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #17"><h2>17
+            Java流程控制(2)：switch, case, break, default</h2></a><a class="single_line list-group-item" href="#17.1">17.1
+            <code>switch</code>基本结构</a><a class="single_line list-group-item" href="#17.2">17.2 基本调用方式</a><a
+            class="single_line list-group-item" href="#17.3">17.3 case没有break会怎样</a><a
+            class="single_line list-group-item" href="#17.4">17.4 示例代码</a><a class="single_line list-group-item"
+                                                                             href="#17.5">17.5 附录</a></div>
+        <div class="jumbotron"><p>
+            `switch`根据一个传入的参数,从`case`后`:`的数据,找到和传入的参数相同的值.执行对应的`case`部分的代码,到`break`结束.结束`switch`语句.
+            如果没有满足的`case`情况.执行`default`对应的语句.结束`switch`语句. `switch`是一种条件控制.网上很多教程说`switch`只支持整数型和字符(`char`)型.那是旧版本了.
+            JDK8.0` switch case`已经支持字符串类型了.
+        </p>
+        </div>
+        <h2 id="17.1" class="alert alert-success">17.1 <code>switch</code>基本结构</h2>
+        <p><code>switch</code>语句由<code>case</code>, <code>break</code>, <code>default</code>(可省略)组成.</p>
+        <pre class="prettyprint"><code class="java language-java">switch (var) {
     case 1:
         System.out.println(1);
         break;
@@ -78,8 +87,8 @@
         break;
 }
 </code></pre>
-<h2 id="17.2" class="alert alert-success" >17.2 基本调用方式</h2>
-<pre class="prettyprint"><code class="java language-java">/**
+        <h2 id="17.2" class="alert alert-success">17.2 基本调用方式</h2>
+        <pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网-dashidan.com
  *
  * 教程: 17.Java流程控制(2)：switch,case,break,default
@@ -118,13 +127,13 @@ public class Demo1 {
     }
 }
 </code></pre>
-<p>输出:</p>
-<pre><code>2
+        <p>输出:</p>
+        <pre><code>2
 switch over.
 </code></pre>
-<h2 id="17.3" class="alert alert-success" >17.3 case没有break会怎样</h2>
-<p>case如果没有break就会继续往下执行,不中断switch语句,直到遇到<code>break</code>,或者switch结尾.</p>
-<pre class="prettyprint"><code class="java language-java">/**
+        <h2 id="17.3" class="alert alert-success">17.3 case没有break会怎样</h2>
+        <p>case如果没有break就会继续往下执行,不中断switch语句,直到遇到<code>break</code>,或者switch结尾.</p>
+        <pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网-dashidan.com
  *
  * 教程: 17.Java流程控制(2)：switch,case,break,default
@@ -160,17 +169,17 @@ public class Demo2 {
     }
 }
 </code></pre>
-<p>输出:</p>
-<pre><code>2
+        <p>输出:</p>
+        <pre><code>2
 3
 switch over.
 </code></pre>
-<div class="bs-callout bs-callout-warning">
-    <h4>switch case字符串</h4>
-    <p>需要JDK8.0或者更高版本才能正确运行.</p>
-</div>
-<h2 id="17.4" class="alert alert-success" >17.4 示例代码</h2>
-<pre class="prettyprint"><code class="java language-java">/**
+        <div class="bs-callout bs-callout-warning">
+            <h4>switch case字符串</h4>
+            <p>需要JDK8.0或者更高版本才能正确运行.</p>
+        </div>
+        <h2 id="17.4" class="alert alert-success">17.4 示例代码</h2>
+        <pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网-dashidan.com
  *
  * 教程: 17.Java流程控制(2)：switch,case,break,default
@@ -208,12 +217,12 @@ public class Demo3 {
     }
 }
 </code></pre>
-<p>输出:</p>
-<pre><code>a
+        <p>输出:</p>
+        <pre><code>a
 switch over.
 </code></pre>
-<h2 id="17.5" class="alert alert-success" >17.5 附录</h2>
-<p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
+        <h2 id="17.5" class="alert alert-success">17.5 附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
@@ -224,12 +233,12 @@ switch over.
     <hr>
     <nav>
         <ul class="pager">
-                <li>
-                    <a href="http://dashidan.com/article/java/basic/16.Java流程控制(1)：if, else.html"><span>&larr;</span>上一篇</a>
-                </li>
-                <li>
-                    <a href="http://dashidan.com/article/java/basic/18.Java流程控制(3)：循环for, while, continue, break.html">下一篇<span>&rarr;</span></a>
-                </li>
+            <li>
+                <a href="http://dashidan.com/article/java/basic/16.Java流程控制(1)：if, else.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/basic/18.Java流程控制(3)：循环for, while, continue, break.html">下一篇<span>&rarr;</span></a>
+            </li>
         </ul>
     </nav>
 </div>
