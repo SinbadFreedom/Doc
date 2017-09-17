@@ -50,34 +50,28 @@
     <hr>
     <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
-        <li><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
-        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
-        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+                <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+                <li><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #19"><h2>19
-            Java流程控制(4)：返回return</h2></a><a class="single_line list-group-item" href="#19.1">19.1 return有返回值</a><a
-            class="single_line list-group-item" href="#19.2">19.2 return无返回值</a><a class="single_line list-group-item"
-                                                                                   href="#19.3">19.3 示例代码</a><a
-            class="single_line list-group-item" href="#19.4">19.4 附录</a></div>
-        <div class="jumbotron">
-            <p>`return`语句可以使其从当前方法中退出.返回到调用该方法的语句处.继续程序的执行.
-                返回语句有两种格式:无返回值和有返回值.</p>
-        </div>
-        <h2 id="19.1" class="alert alert-success">19.1 return有返回值</h2>
-        <p>返回一个值给调用该方法的语句.返回值的数据类型必须与方法声明中的返回值类型一致.</p>
-        <h2 id="19.2" class="alert alert-success">19.2 return无返回值</h2>
-        <p>当方法说明中用<code>void</code>声明无返回值时,不返回任何值.</p>
-        <div class="bs-callout bs-callout-info">
-            <h4>return返回值</h4>
-            <p>`return`语句通常用在一个方法体的最后,退出该方法并返回一个值. 单独的`return`语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到.
-                可以通过把`return`语句嵌入某些语句(如:`if…else`)来使程序在未执行完方法中的所有语句时退出.</p>
-        </div>
-        <h2 id="19.3" class="alert alert-success">19.3 示例代码</h2>
-        <pre class="prettyprint"><code class="java language-java">package lession19;
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #19"><h2>19 Java流程控制(4)：返回return</h2></a><a class="single_line list-group-item" href="#19.1">19.1 return有返回值</a><a class="single_line list-group-item" href="#19.2">19.2 return无返回值</a><a class="single_line list-group-item" href="#19.3">19.3 示例代码</a><a class="single_line list-group-item" href="#19.4">19.4 附录</a></div><div class="jumbotron">
+<p>`return`语句可以使其从当前方法中退出.返回到调用该方法的语句处.继续程序的执行.
+返回语句有两种格式:无返回值和有返回值.</p>
+</div>
+<h2 id="19.1" class="alert alert-success" >19.1 return有返回值</h2>
+<p>返回一个值给调用该方法的语句.返回值的数据类型必须与方法声明中的返回值类型一致.</p>
+<h2 id="19.2" class="alert alert-success" >19.2 return无返回值</h2>
+<p>当方法说明中用<code>void</code>声明无返回值时,不返回任何值.</p>
+<div class="bs-callout bs-callout-info">
+    <h4>return返回值</h4>
+    <p>`return`语句通常用在一个方法体的最后,退出该方法并返回一个值. 单独的`return`语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到. 可以通过把`return`语句嵌入某些语句(如:`if…else`)来使程序在未执行完方法中的所有语句时退出.</p>
+</div>
+<h2 id="19.3" class="alert alert-success" >19.3 示例代码</h2>
+<pre class="prettyprint"><code class="java language-java">package lession19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -102,12 +96,12 @@ public class Demo1 {
     }
 }
 </code></pre>
-        <p>输出</p>
-        <pre><code>执行无返回值的方法: 1
+<p>输出</p>
+<pre><code>执行无返回值的方法: 1
 执行有返回值的方法: 5
 </code></pre>
-        <h2 id="19.4" class="alert alert-success">19.4 附录</h2>
-        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
+<h2 id="19.4" class="alert alert-success" >19.4 附录</h2>
+<p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
@@ -118,12 +112,12 @@ public class Demo1 {
     <hr>
     <nav>
         <ul class="pager">
-            <li>
-                <a href="http://dashidan.com/article/java/basic/18.Java流程控制(3)：循环for, while, continue, break.html"><span>&larr;</span>上一篇</a>
-            </li>
-            <li>
-                <a href="http://dashidan.com/article/java/basic/20.Java对象：Object, class, new.html">下一篇<span>&rarr;</span></a>
-            </li>
+                <li>
+                    <a href="http://dashidan.com/article/java/basic/18.Java流程控制(3)：循环for, while, continue, break.html"><span>&larr;</span>上一篇</a>
+                </li>
+                <li>
+                    <a href="http://dashidan.com/article/java/basic/20.Java对象：Object, class, new.html">下一篇<span>&rarr;</span></a>
+                </li>
         </ul>
     </nav>
 </div>
