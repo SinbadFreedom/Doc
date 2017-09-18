@@ -59,7 +59,38 @@
     <div>
         <!-- 替换这个区域-->
         <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #2"><h2>2
-            Java对象(1)：对象简介：Object</h2></a></div>
+            Java对象(1)：对象简介：Object</h2></a><a class="single_line list-group-item" href="#2.1">2.1 Java中万事万物皆对象?</a><a
+            class="single_line list-group-item" href="#2.2">2.2 什么是面向对象编程</a><a class="single_line list-group-item"
+                                                                                href="#2.3">2.3 举个简单的例子</a></div>
+        <div class="jumbotron">
+            <p>Java是`OOP`(Object Oriented Programming)面向对象编程语言. 面向对象编程在Java语言中, 简言之是面向类`class`编程的语言.</p>
+        </div>
+        <div class="bs-callout bs-callout-warning">
+            <h4>面向对象编程概念</h4>
+            <p>接触到接口`interface`的概念后再做扩充.</p>
+        </div>
+        <h2 id="2.1" class="alert alert-success">2.1 Java中万事万物皆对象?</h2>
+        <p>这个说法的由来, 是因为java中所有的类默认都继承自<code>Object</code>类. 但这个说法是<code>不准确</code>的. 很多资料中这样说, 曾经给我带来过很大的困扰.<br/>
+            Java属于<code>强类型语言</code>, <code>方法</code>作为属性存在于对象中, 不作为独立的对象存在. 所以说在Java中万事万物皆对象的说法是不准确的,
+            方法和成员变量都不是对象的概念.<br/>
+            在一些弱类型语言比如<code>javascript</code>, 方法也可以作为<code>对象</code>的概念来使用, 作为参数传递, 这一点和java是有区别的. </p>
+        <h2 id="2.2" class="alert alert-success">2.2 什么是面向对象编程</h2>
+        <p>提到面向对象, 不得不提到面向过程编程. 以C语言为例, 每个方法作为一个<code>执行过程</code>存在, 面向过程编程是一种面向计算机思维, 从计算机执行的角度思考编写代码的编程方式.<br/>
+            从面向过程编程的基础上, 发展出来了一种新的编程思想, 面向对象编程, 来应对更复杂的应用场景. 面向对象编程是一种面向<code>人</code>的逻辑思维的编程方式, 将代码中的通用性抽象出来,
+            模拟现实世界的归类, 建立程序模型, 编写代码的过程. 对于程序员更加友好, 对于复杂度更高的程序更易于控制.</p>
+        <h2 id="2.3" class="alert alert-success">2.3 举个简单的例子</h2>
+        <p>在生物分类学中, 分为<code>界门纲目科属种</code>, 按照生物的种群和等级划分.<br/>
+            猫:</p>
+        <pre><code>动物界-&gt;脊索动物门-&gt;哺乳纲-&gt;哺乳纲-&gt;食肉目-&gt;猫科-&gt;猫属-&gt;猫种
+</code></pre>
+        <p>虎: </p>
+        <pre><code>动物界-&gt;脊索动物门-&gt;哺乳纲-&gt;哺乳纲-&gt;食肉目-&gt;猫科-&gt;豹属-&gt;虎种
+</code></pre>
+        <p><code>猫</code>和<code>虎</code>同处于<code>猫科</code>, 是猫科子类中的一种, 具有猫科的全部属性. 用Java面向对象的思想来编程可以这样表达:<br/>
+            <code>猫科</code>作为<code>父类</code>, <code>猫</code>和<code>虎</code>作为<code>子类</code>,
+            继承自<code>猫科</code>拥有父类<code>猫科</code>的全部属性, 独有的属性写在<code>子类</code>(猫类或虎类)中. </p>
+        <p>面向对象编程思想与人类的逻辑思维很接近.<br/>
+            接下来一步一步看如何实现. </p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
