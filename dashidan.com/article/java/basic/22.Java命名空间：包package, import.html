@@ -64,28 +64,18 @@
                                                                                href="#22.3">22.3 示例代码</a><a
             class="single_line list-group-item" href="#22.4">22.4 附录</a></div>
         <div class="jumbotron">
-            <p>Java使用包(`package`)这种机制是为了防止命名冲突. 可以简单理解为文件目录, 将一类功能的代码放在同一个目录中.</p>
+            <p>Java使用包(`package`)这种机制是为了防止命名冲突. 可以简单理解为文件目录, 将一类功能的代码放在同一个目录中. 为了确保同样名字的源码文件不冲突, 用包名来控制命名空间. 为了确保包名的唯一性,
+                一般用网站域名的倒叙作为包名. 包名中的`.`表示目录的层级.
+            </p>
         </div>
         <h2 id="22.1" class="alert alert-success">22.1 package</h2>
         <p>包声明应该在源文件的<code>第一行</code>,每个源文件只能有一个包声明,这个文件中的每个类型都应用于它.<br/>
             如果一个源文件中没有使用包声明,那么其中的类,函数,枚举,注释等将被放在一个无名的包(unnamed package)中.<br/>
             由于包创建了新的命名空间(namespace),所以不会跟其他包中的任何名字产生命名冲突.<br/>
             使用包这种机制,更容易实现访问控制,并且让定位相关类更加简单.<br/>
-            比如本网站的教程代码,将课程编号定义为包名,很方便就将源码和课程对应上.</p>
-        <pre class="prettyprint"><code class="java language-java">package lession3;
-
-/**
- * 大屎蛋教程网-dashidan.com
- *
- * 教程: 1.HelloWorld.
- *
- * Created by Sinbad on 2017/9/1.
- */
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("HelloWorld!");
-    }
-}
+            比如本网站的教程代码,将课程域名倒叙+课程编号定义为包名,很方便就将源码和课程对应上.</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession22;
+...
 </code></pre>
         <h2 id="22.2" class="alert alert-success">22.2 import</h2>
         <p>为了能够使用某一个包的成员,我们需要在Java程序中明确导入该包.<br/>
@@ -100,14 +90,15 @@ public class HelloWorld {
         </div>
         <h2 id="22.3" class="alert alert-success">22.3 示例代码</h2>
         <p><code>Demo1</code>类:</p>
-        <pre class="prettyprint"><code class="java language-java">package lession22;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession22;
 
-import test.TestPackage;
+
+import com.dashidan.basic.test.TestPackage;
 
 /**
  * 大屎蛋教程网-dashidan.com
  *
- * 教程: 22.Java命名空间：包package, import
+ * Java教程基础篇: 22.Java命名空间：包package, import
  */
 public class Demo1 {
     public static void main(String[] args) {
@@ -117,12 +108,12 @@ public class Demo1 {
 }
 </code></pre>
         <p>TestPackage类:</p>
-        <pre class="prettyprint"><code class="java language-java">package test;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.test;
 
 /**
  * 大屎蛋教程网-dashidan.com
  *
- * 教程: 22.Java命名空间：包package, import
+ * Java教程基础篇: 22.Java命名空间：包package, import
  */
 public class TestPackage {
     public void printInfo() {

@@ -61,7 +61,8 @@
         <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #9"><h2>9
             Java自增,自减运算符： ++, --</h2></a><a class="single_line list-group-item" href="#9.1">9.1 单独执行自增自减</a><a
             class="single_line list-group-item" href="#9.2">9.2 放在运算过程中执行</a><a class="single_line list-group-item"
-                                                                                href="#9.3">9.3 附录</a></div>
+                                                                                href="#9.3">9.3 示例代码: </a><a
+            class="single_line list-group-item" href="#9.4">9.4 附录</a></div>
         <div class="jumbotron">
             <p>分前缀式(如`++i`)和后缀式(如`i++`). 以自增运算符(++)为例: 前缀式是先加1再使用,后缀式是先使用再加1.</p>
         </div>
@@ -76,14 +77,24 @@ int j = 0;
 System.out.println(j);
 </code></pre>
         <h2 id="9.2" class="alert alert-success">9.2 放在运算过程中执行</h2>
-        <p>前缀,后缀放在运算过程中结果不同.<br/>
-            示例代码: </p>
-        <pre class="prettyprint"><code class="java language-java">package lession9;
+        <p>前缀,后缀放在运算过程中结果不同. </p>
+        <pre class="prettyprint"><code class="java language-java">/** 后缀式*/
+/** 初始化a和i*/
+a = 0;
+i = 0;
+a = i++;
+/** i使用前是0,此时i为0不加1,a为0. */
+System.out.println(a);
+/** 使用后i加1,i为1*/
+System.out.println(i);
+</code></pre>
+        <h2 id="9.3" class="alert alert-success">9.3 示例代码: </h2>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession9;
 
 /**
  * 大屎蛋教程网-dashidan.com
  *
- * 教程: 9.Java自增,自减运算符： ++, --
+ * Java教程基础篇: 9.Java自增,自减运算符： ++, --
  */
 public class Demo1 {
     public static void main(String[] args) {
@@ -127,7 +138,7 @@ public class Demo1 {
         <div class="bs-callout bs-callout-warning">
             <p>倒数第二个输出是`0`,这个就是后缀式的使用后计算导致的结果.</p>
         </div>
-        <h2 id="9.3" class="alert alert-success">9.3 附录</h2>
+        <h2 id="9.4" class="alert alert-success">9.4 附录</h2>
         <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
