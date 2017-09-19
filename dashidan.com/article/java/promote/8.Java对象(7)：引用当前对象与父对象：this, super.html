@@ -1,0 +1,204 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>8.Java对象(7)：引用当前对象与父对象：this, super</title>
+    <meta name="description" content="8.Java对象(7)：引用当前对象与父对象：this, super">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #8"><h2>8
+            Java对象(7)：引用当前对象与父对象：this, super</h2></a><a class="single_line list-group-item" href="#8.1">8.1 this</a><a
+            class="single_line list-group-item" href="#8.2">8.2 super</a><a class="single_line list-group-item"
+                                                                            href="#8.3">8.3 this与super在构造函数中的使用</a><a
+            class="single_line list-group-item" href="#8.4">8.4 附录</a></div>
+        <div class="jumbotron">
+            <p>java中使用用this来引用当前对象, super引用当前对象的父对象.</p>
+        </div>
+        <h2 id="8.1" class="alert alert-success">8.1 this</h2>
+        <p>使用<code>this</code>获取当前对象的索引.</p>
+        <div class="bs-callout bs-callout-warning">
+            <p>如果省略this. 系统会默认自动添加加上`this.`来指向当前对象. </p>
+        </div>
+        <p>注意以下代码中的<code>setName</code>方法, 该方法中的传入的参数<code>name</code>与成员变量<code>name</code>重名,
+            这时需要用<code>this.name</code>来表明引用成员变量. </p>
+        <p>代码示例:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession8;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 8.Java对象(7)：引用当前对象与父对象：this, super
+ * Pet类
+ */
+public class Pet {
+    /**
+     * 私有成员变量name
+     */
+    private String name;
+
+    public String getName() {
+        /** 默认可以省略this. 系统会自动加上this.*/
+        return name;
+    }
+
+    public void setName(String name) {
+        /** this.name 通过this来表明引用当前对象成员变量name*/
+        this.name = name;
+    }
+}
+</code></pre>
+        <h2 id="8.2" class="alert alert-success">8.2 super</h2>
+        <p><code>super</code>引用当前对象的<code>父对象</code>. 需要访问父类方法或者变量的时候, 可以使用<code>super.</code>来访问.</p>
+        <p>示例代码:<br/>
+            <code>Pet</code>类:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession8;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 8.Java对象(7)：引用当前对象与父对象：this, super
+ * Pet类
+ */
+public class Pet {
+
+    public void eat() {
+        System.out.println("Pet eat.");
+    }
+}
+</code></pre>
+        <p><code>cat</code>类:
+            在调用<code>Cat</code>类的<code>eat()</code>方法时, 方法体中通过<code>super.eat()</code>调用了父类的<code>eat()</code>方法.
+            故父类的eat()方法被执行, <code>Pet eat.</code>输出到控制台.</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession8;
+
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 8.Java对象(7)：引用当前对象与父对象：this, super
+ * Cat 继承自 Pet类
+ */
+public class Cat extends Pet {
+    public void eat() {
+        /** 调用父类对象的eat方法*/
+        super.eat();
+        System.out.println("Cat eat.");
+    }
+}
+</code></pre>
+        <p>入口程序:<br/>
+            <code>Demo1</code>类:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession8;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 8.Java对象(7)：引用当前对象与父对象：this, super
+ */
+public class Demo1 {
+
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        cat.eat();
+    }
+}
+</code></pre>
+        <p>输出:<br/>
+            Pet eat.
+            Cat eat.</p>
+        <h2 id="8.3" class="alert alert-success">8.3 this与super在构造函数中的使用</h2>
+        <ul>
+            <li><p><code>super</code>和<code>this</code>均需放在构造方法内第一行. 否则编译不通过.<br/>
+                每个子类构造方法的第一条语句, 都是隐式调用<code>super()</code>, 如果父类没有这种形式的构造函数, 那么在编译的时候就会报错. </p></li>
+            <li><p><code>this</code>和<code>super</code>不能同时出现在一个构造函数里面.<br/>
+                因为<code>this</code>必然会调用其它的构造函数, 其它的构造函数必然也会有<code>super</code>语句的存在. 所以在同一个构造函数里面有相同的语句, 就失去了语句的意义,
+                编译器也不通过. </p></li>
+        </ul>
+        <div class="bs-callout bs-callout-warning">
+            <h4>`static`环境不能使用`this`, `super`</h4>
+            <p>this和super都指的是对象, 是动态绑定, 所以都不能在`static`环境中使用(静态绑定)包括: static变量, static方法, static语句块.p>
+        </div>
+        <h2 id="8.4" class="alert alert-success">8.4 附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="http://dashidan.com/article/java/promote/7.Java对象(6)：多态：静态绑定与动态绑定.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/9.Java对象(8)：抽象方法与抽象类：abstract.html">下一篇<span>&rarr;</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>
