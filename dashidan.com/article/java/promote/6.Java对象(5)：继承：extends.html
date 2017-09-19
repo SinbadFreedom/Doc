@@ -1,0 +1,180 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>6.Java对象(5)：继承：extends</title>
+    <meta name="description" content="6.Java对象(5)：继承：extends">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success"
+                                   href=" #6.Java对象(5)：继承：extends"><h2>6.Java对象(5)：继承：extends</h2></a><a
+            class="single_line list-group-item" href="#6.1">6.1 继承方式</a><a class="single_line list-group-item"
+                                                                           href="#6.2">6.2 java单根继承</a><a
+            class="single_line list-group-item" href="#6.3">6.3 示例代码</a><a class="single_line list-group-item"
+                                                                           href="#6.4">6.4 附录</a></div>
+        <div class="jumbotron">
+            <p>Java继承的本质是子类继承父类, 拥有父类的属性和方法, 是代码复用基础. 子类可以有自己的方法和属性. </p>
+        </div>
+        <h2 id="6.1" class="alert alert-success">6.1 继承方式</h2>
+        <p>通过关键字extends.
+            我们以猫和狗继承是宠物, 宠物都有<code>吃</code>的行为. 猫有<code>吃鱼</code>的行为, 狗有吃骨头的行为为例, 实现这个继承关系.</p>
+        <p>父类<code>Pet</code>:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession6;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 6.Java对象(5)：继承：extends
+ * Pet类
+ */
+public class Pet {
+    public void eat() {
+        System.out.println("Animal eat");
+    }
+}
+</code></pre>
+        <p>子类<code>Cat</code>:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession6;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 6.Java对象(5)：继承：extends
+ * Cat 继承自 Pet类
+ */
+public class Cat extends Pet {
+    public void eatFish() {
+        System.out.println("Cat eatFish.");
+    }
+}
+</code></pre>
+        <p>子类<code>Dog</code>:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession6;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 6.Java对象(5)：继承：extends
+ * Dog 继承自 Pet类
+ */
+public class Dog extends Pet {
+    public void eatBone() {
+        System.out.println("Dog eatBone.");
+    }
+}
+</code></pre>
+        <h2 id="6.2" class="alert alert-success">6.2 java单根继承</h2>
+        <p>java单根继承是指单个类只能继承一个父类, 在c++中是多根继承, 一个类可以同时继承多个父类.</p>
+        <h2 id="6.3" class="alert alert-success">6.3 示例代码</h2>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession6;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 6.Java对象(5)：继承：extends
+ */
+public class Demo1 {
+
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        Dog dog = new Dog();
+        /** 调用父类的方法*/
+        cat.eat();
+        dog.eat();
+        /** 调用子类的方法*/
+        cat.eatFish();
+        dog.eatBone();
+    }
+
+}
+</code></pre>
+        <p>输出:</p>
+        <pre><code>Animal eat
+Animal eat
+Cat eatFish.
+Dog eatBone.
+</code></pre>
+        <h2 id="6.4" class="alert alert-success">6.4 附录</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="http://dashidan.com/article/java/promote/5.Java对象(4)：封装.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/7.Java对象(6)：多态.html">下一篇<span>&rarr;</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>
