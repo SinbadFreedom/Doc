@@ -3,14 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>大屎蛋教程网</title>
-    <meta name="description" content="java教程">
+    <title>java中@Override标签作用</title>
+    <meta name="description" content="java中@Override标签作用">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
-
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -50,19 +48,27 @@
         <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
     </ol>
     <hr>
+    <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
         <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
         <li><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
         <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
         <li class="active"><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
-    <!--教程区-->
-    <div class="list-group">
-        <a class="single_line list-group-item list-group-item-info"
-           href="http://dashidan.com/article/java/addenda/index.html"><h3>附录</h3></a>
-        <a class="single_line list-group-item" href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a>
-        <a class="single_line list-group-item"
-           href="http://dashidan.com/article/java/addenda/java中@Override标签作用.html">java中@Override标签作用</a>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success"
+                                   href=" #java中@Override标签作用"><h2>java中@Override标签作用</h2></a><a
+            class="single_line list-group-item" href="#@Override标签作用">@Override标签作用</a></div>
+        <div class="jumbotron">
+            <p><code>@Override</code>是伪代码, 表示覆写父类方法.</p>
+        </div>
+        <h2 id="@Override标签作用" class="alert alert-success">@Override标签作用</h2>
+        <ol>
+            <li>可以当注释用, 方便阅读.</li>
+            <li>编译器检查覆写方法的正确性, 验证`@Override下面的方法名是否存在父类中. 如果没有则报错.</li>
+        </ol>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
@@ -71,14 +77,19 @@
         <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
     </ol>
     <hr>
+    <nav>
+        <ul class="pager">
+        </ul>
+    </nav>
 </div>
+
 <div style="display:none;">
     <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
 </div>
+
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
 <script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/plugins.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
 </body>
 </html>
