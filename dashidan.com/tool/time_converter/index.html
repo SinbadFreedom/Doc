@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>时间戳转换</title>
+    <meta name="description" content="时间戳转换">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body onload="init();">
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container" id="apeContainer">
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/tool/index.html">在线工具</a></li>
+    </ol>
+    <hr>
+    <h3 class="text-center">时间戳转换</h3>
+    <div id="config">
+        <div class="form-inline">
+            <label for="lang">语言(ISO 639-1):</label>
+            <select class="form-control" id="lang" name="lang" size="1" onchange="changeDemo()">
+                <optgroup label="autodetected">
+                    <option>
+                        <script>document.write((navigator.language) ? navigator.language : navigator.userLanguage);</script>
+                    </option>
+                </optgroup>
+                <optgroup label="supported">
+                    <option>zh-CN</option>
+                    <option>en</option>
+                    <option>ru</option>
+                    <option>de</option>
+                    <option>it</option>
+                    <option>es</option>
+                    <option>fr</option>
+                    <option>pt</option>
+                    <option>nl</option>
+                    <option>int</option>
+                </optgroup>
+            </select>
+            <label for="detail">详细信息:</label>
+            <select class="form-control" id="detail" name="detail" size="1" onchange="changeDemo()">
+                <option>on</option>
+                <option>off</option>
+            </select>
+        </div>
+
+
+    </div>
+    <div id="examples">
+        <p>当前时间戳:
+            <script>document.write(new Date().valueOf());</script>
+        </p>
+        <p>请输入时间戳</p>
+        <input class="form-control" id="inputTime" type="text" value="" oninput="changeDemo()"/>
+        <label for="convertDate">日期</label>
+        <p id="convertDate"></p>
+        <label for="convertTime">时间差</label>
+        <p id="convertTime"></p>
+        <label>请输入日期</label>
+        <input class="form-control" id="inputDate" type="text" value="" oninput="convertDateToTimeStamp()"/>
+        <label for="convertTimeStamp">时间戳</label>
+        <p id="convertTimeStamp"></p>
+    </div>
+    <hr>
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/tool/index.html">在线工具</a></li>
+    </ol>
+    <hr>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/plugins.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>

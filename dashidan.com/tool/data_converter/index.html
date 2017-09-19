@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>JSON格式转换</title>
+    <meta name="description" content="JSON格式转换">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="apeContainer">
+
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/tool/index.html">在线工具</a></li>
+    </ol>
+    <hr>
+
+    <h3 class="text-center">EXCEL数据转化为HTML,JSON,PHP,XML</h3>
+
+    <p><span><a href="#" id="insertSample">EXCEL示例</a></span></p>
+    <textarea class="form-control" rows="20" id="dataInput" placeholder="粘贴EXCEL或CSV表格数据,首行作为键值"></textarea>
+
+    <div class="form-inline">
+        <label for="dataSelector">选择格式:</label>
+        <select class="form-control" name="Data Types" id="dataSelector">
+            <option value="as">Actionscript</option>
+            <option value="asp">ASP/VBScript</option>
+            <option value="html">HTML</option>
+            <option value="json" selected="selected">JSON - Properties</option>
+            <option value="jsonArrayCols">JSON - Column Arrays</option>
+            <option value="jsonArrayRows">JSON - Row Arrays</option>
+            <option value="jsonDict">JSON - Dictionary</option>
+            <option value="mysql">MySQL</option>
+            <option value="php">PHP</option>
+            <option value="python">Python - Dict</option>
+            <option value="ruby">Ruby</option>
+            <option value="xmlProperties">XML - Properties</option>
+            <option value="xml">XML - Nodes</option>
+            <option value="xmlIllustrator">XML - Illustrator</option>
+        </select>
+    </div>
+    <span id="outputNotes"></span>
+    <textarea class="form-control" rows="20" id="dataOutput"></textarea>
+
+    <hr>
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/tool/index.html">在线工具</a></li>
+    </ol>
+    <hr>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/plugins.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>
