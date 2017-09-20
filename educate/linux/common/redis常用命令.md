@@ -12,7 +12,7 @@ redis常用命令
 	keys *
 
 <div class="bs-callout bs-callout-warning">
-	<p>keys命令后边没有分号, 中间有空格</p
+	<p>keys命令后边没有分号, 中间有空格</p>
 </div>
 
 3. 查看key的类型
