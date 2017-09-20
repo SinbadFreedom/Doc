@@ -43,18 +43,18 @@
     </div>
 </nav>
 
-<div class="container" id="apeContainer">
-
+<div class="container">
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html">首页</a></li>
         <li class="active"><a href="http://dashidan.com/tool/index.html">在线工具</a></li>
     </ol>
     <hr>
 
-    <h3 class="text-center">EXCEL数据转化为HTML,JSON,PHP,XML</h3>
+    <div class="list-group"><a class="single_line list-group-item list-group-item-success"><h2>
+        EXCEL数据转化为HTML,JSON,PHP,XML</h2></a></div>
 
     <p><span><a href="#" id="insertSample">EXCEL示例</a></span></p>
-    <textarea class="form-control" rows="20" id="dataInput" placeholder="粘贴EXCEL或CSV表格数据,首行作为键值"></textarea>
+    <textarea class="form-control" rows="10" id="dataInput" placeholder="粘贴EXCEL或CSV表格数据,首行作为键值"></textarea>
 
     <div class="form-inline">
         <label for="dataSelector">选择格式:</label>
@@ -76,7 +76,7 @@
         </select>
     </div>
     <span id="outputNotes"></span>
-    <textarea class="form-control" rows="20" id="dataOutput"></textarea>
+    <textarea class="form-control" rows="10" id="dataOutput"></textarea>
 
     <hr>
     <ol class="breadcrumb">
@@ -86,10 +86,19 @@
     <hr>
 </div>
 
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
 <script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="http://dashidan.com/js/bootstrap.js"></script>
 <script src="http://dashidan.com/js/plugins.js"></script>
 <script src="http://dashidan.com/js/main.js"></script>
+
+<script src="js/CSVParser.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/DataGridRenderer.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/converter.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/Controller.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

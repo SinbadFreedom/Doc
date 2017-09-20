@@ -43,13 +43,13 @@
     </div>
 </nav>
 
-<div class="container" id="apeContainer">
+<div class="container">
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html">首页</a></li>
         <li class="active"><a href="http://dashidan.com/tool/index.html">在线工具</a></li>
     </ol>
     <hr>
-    <h3 class="text-center">二维码转换</h3>
+    <div class="list-group"><a class="single_line list-group-item list-group-item-success"><h2>网址转化二维码</h2></a></div>
     <form name="qrForm">
         <div class="form-inline">
             <div class="form-group">
@@ -71,7 +71,7 @@
                 </select>
             </div>
         </div>
-        <textarea class="form-control" rows="1" name="msg" placeholder="请输入需要转化的网址或字符串..."></textarea>
+        <textarea class="form-control" rows="5" name="msg" placeholder="请输入需要转化的网址或字符串..."></textarea>
     </form>
     <input class="btn btn-primary" type="button" value="转化" onclick="update_qrcode()"/>
 
@@ -84,10 +84,16 @@
     <hr>
 </div>
 
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
 <script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="http://dashidan.com/js/bootstrap.js"></script>
 <script src="http://dashidan.com/js/plugins.js"></script>
 <script src="http://dashidan.com/js/main.js"></script>
+<script src="qrcode.js"></script>
+<script src="sample.js"></script>
 </body>
 </html>

@@ -44,14 +44,16 @@
 </nav>
 
 
-<div class="container" id="apeContainer">
+<div class="container">
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html">首页</a></li>
         <li class="active"><a href="http://dashidan.com/tool/index.html">在线工具</a></li>
     </ol>
     <hr>
-    <h3 class="text-center">网页HEAD信息查看</h3>
-    <textarea class="form-control" rows="1" id="string_input" spellcheck="false" placeholder="请粘贴网址..."
+
+    <div class="list-group"><a class="single_line list-group-item list-group-item-success"><h2>网页HEAD信息查看</h2></a></div>
+
+    <textarea class="form-control" rows="10" id="string_input" spellcheck="false" placeholder="请粘贴网址..."
               oninput="outputHeader()"></textarea>
     <label for="string_output">网页HEAD信息:</label>
     <textarea class="form-control" rows="10" id="string_output" spellcheck="false"></textarea>
@@ -63,10 +65,17 @@
     <hr>
 </div>
 
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
 <script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="http://dashidan.com/js/bootstrap.js"></script>
 <script src="http://dashidan.com/js/plugins.js"></script>
 <script src="http://dashidan.com/js/main.js"></script>
+
+<script src="webUtil.js"></script>
+
 </body>
 </html>
