@@ -15,7 +15,7 @@ ubuntu安装配置redis及常用命令
 	apt-get install php5-redis
 	
 <div class="bs-callout bs-callout-warning">
-	<p>这一步不是必须, 根据自己的需要安装.</p
+	<p>这一步不是必须, 根据自己的需要安装.</p>
 </div>	
 	
 3 启动和停止
@@ -26,5 +26,5 @@ ubuntu安装配置redis及常用命令
 
 4 相关文章
 ---
-centos安装配置redis
-redis常用命令
+
+[redis常用命令](http://localhost/article/linux/common/redis常用命令.html)   

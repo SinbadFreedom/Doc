@@ -67,7 +67,7 @@ MongoDB数据库备份命令:
 	sudo mongodump -h 127.0.0.1:27017 -d dbdata -o /home/mongodump/
         
 4 MongoDB数据库恢复
---- 
+---
 MongoDB数据库恢复命令:
 
 	mongorestore -h dbhost -d dbname --dir dbdirectory
@@ -80,4 +80,11 @@ MongoDB数据库恢复命令:
 	--drop: 恢复的时候,先删除当前数据,然后恢复备份的数据.就是说,恢复后,备份后添加修改的数据都会被删除,慎用！
 	
 例:   
+
 	mongorestore -h 127.0.0.1:27017 -d dbdata_restore --dir /home/mongodump/dbdata/
+	
+5 相关文章
+---
+
+[mongodb配置及常用命令](http://localhost/article/linux/common/mongodb配置及常用命令.html)   
+[ubuntu安装配置mongodb及常用命令](http://localhost/article/linux/common/ubuntu安装配置mongodb及常用命令.html)
