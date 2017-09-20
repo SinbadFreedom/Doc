@@ -1,0 +1,174 @@
+java编码规范
+===
+
+为了保证写出高效,优雅的代码制定本规范. 逻辑像流水一样的流出.   
+对于优雅的定义：效率高,结构合理,逻辑清晰,易读,易维护.
+
+1 编码格式
+---
+
+采用UTF-8,避免出现中文乱码.
+
+2 命名规范
+---
+
+命名应尽量采用完整的英文描述,使阅读者一目了然,含义明确. 避免过长,超过15个字母,需要简化,并写好注释.
+
+a、 类名,首字母大写(驼峰)：   
+	
+    public class Book
+
+b、 抽象类命名以"Abstract"开头:
+
+    public abstract class AbstractBook implements Runnable
+
+c、 接口以"I"开头：
+
+	public interface IBook
+
+d、 成员变量首字母小写,驼峰式命名:
+
+	private BookPojo bookPojo;
+
+e、 常量名大写,以"_"分隔单词
+
+	public static final int BOOK_TYPE_NULL = 0;
+
+f、	函数命名首字母小写,驼峰式:   
+刷新数据类的方法采用"update"开头.
+
+	 public void updateBookState()
+
+设置变量相关的采用"set"开头
+
+	public void setState(int state)
+		
+获取变量相关的采用"get"开头
+	
+	public ArrayList<Integer> getAllBooks()
+
+往集合类中添加对象采用"add"开头
+	
+    public void addToBookList(int bookId)
+	
+g、	简单数据类型类以“pojo”结尾,放在对应目录中
+
+	public class BookPojo
+
+
+3 函数排序
+---
+
+a、具有相同含义的函数需要临近排列.   
+b、后续加的函数放在后边.
+
+	    public void start() {
+        	this.init();
+			...
+    	}
+
+		public void init() {
+			...
+		}
+
+
+4 作用域
+---
+
+a、成员变量采用"private",修饰,根据需要生成set 和get 方法.
+
+b、父类中的成员变量,子类通用时,采用protect修饰.
+
+	 protected int bookNumber = 1;
+
+c、常量定义采用"public static final"修饰.
+
+	public static final int BOOK_TYPE_NULL = 0;
+
+6 注释
+---
+
+注释可以给阅读者带来便利,且在开发周期越长的情况下越有助于代码的记忆以及解读,方便工程扩展维护。
+采用/** */ 多行注释的形式,这样在IDE中会显示为绿色,比较醒目,易看。
+
+a、类注释
+写明作者和类的作用
+
+	/**
+	 * Created by 大屎蛋.
+	 * 使用技能时返回的数据对象
+	 */
+
+b、函数注释
+写明函数作用,参数和返回值意义   
+
+	/**
+     * 获取书的数量
+     * @param bookId 书ID
+     * @return 书的数量,没有该书,返回0
+     */
+    public int getBookNum(int bookId)
+
+c、变量注释
+
+    /**
+     * 是否已经读完
+     */
+    private AtomicBoolean readOver = new AtomicBoolean();	
+
+d、方法中功能处理说明
+尽量详细的说明方法的作用.
+
+       if (time - this.readStartTime.get() > BookImpl.MAX_READ_TIME_OUT) {
+            /**
+             * 操作超时或者无可用技能时结束回合
+             */
+            this.readyForReadOver();
+        }
+f、 静态变量   
+说明每个常量值的意义
+
+	/**
+     * 书籍类型
+     * BOOK_TYPE 书籍类型 0：默认；1：程序；2: 文学
+     */
+    public static final int BOOK_TYPE_0 = 0;
+
+g、 TODO   
+未完成,或者需要继续完善的部分,加上 //TODO   
+
+    //TODO 1000改为需要的值
+    int randomRank = new Random().nextInt(1000)
+
+7 文件目录
+---
+	-conf 服务器配置
+	-lib 第三方库
+	-log 日志目录
+	-publish 产品发布目录	
+	-src 源码目录	
+
+8 多线程
+---
+
+在处理多线程相关的数据时,尽量采用Concurrent包中提供的原子类和集合类。   
+
+9 格式化
+---
+
+每次提交代码前都需要格式化代码.   
+a、导入统一的setting.jar.   
+b、IDEA中的格式化设置,选中:  
+
+	Include Subdirectory
+	Optimize import
+	Rearrange entries
+
+10 文件对比
+---
+
+每次提交代码前都需要通过文件对比工具全部比较一下,确认自己提交的代码.
+
+PS：
+---
+*写些好代码,只有程序员才能拯救程序员.*
