@@ -15,4 +15,5 @@ ubuntu安装配置mongodb及常用命令
 ---
 
 [mongodb配置及常用命令](http://localhost/article/linux/common/mongodb配置及常用命令.html)   
-[mongodb的导入导出及备份恢复](http://localhost/article/linux/common/mongodb的导入导出及备份恢复.html)    
+[mongodb的导入导出及备份恢复](http://localhost/article/linux/common/mongodb的导入导出及备份恢复.html)   
+[ubuntu安装配置mongodb及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html)
