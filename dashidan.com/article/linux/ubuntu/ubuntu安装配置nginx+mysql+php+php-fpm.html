@@ -1,0 +1,140 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ubuntu安装配置nginx+mysql+php+php-fpm</title>
+    <meta name="description" content="ubuntu安装配置nginx+mysql+php+php-fpm">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">linux配置及命令</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li><a href="http://dashidan.com/article/linux/common/index.html">linux通用</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/ubuntu/index.html">ubuntu</a></li>
+        <li><a href="http://dashidan.com/article/linux/centos/index.html">centos</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success"
+                                   href=" #ubuntu安装配置nginx+mysql+php+php-fpm"><h2>ubuntu安装配置nginx+mysql+php+php-fpm</h2>
+        </a><a class="single_line list-group-item" href="#1">1 安装nginx, php, mysql, php-fpm服务</a><a
+            class="single_line list-group-item" href="#2">2 创建web目录</a><a class="single_line list-group-item" href="#3">3
+            修改nginx root路径</a><a class="single_line list-group-item" href="#4">4 nginx开启php解析功能</a><a
+            class="single_line list-group-item" href="#5">5 重启nginx,php-fpm</a><a class="single_line list-group-item"
+                                                                                  href="#6">6 测试nginx, php-fpm是否配置成功</a><a
+            class="single_line list-group-item" href="#7">7 测试php, mysql连接</a></div>
+        <h2 id="1" class="alert alert-success">1 安装nginx, php, mysql, php-fpm服务</h2>
+        <p>输入以下命令:</p>
+        <pre><code>apt-get update
+apt-get install nginx
+apt-get install php5-cli php5-cgi mysql-server php5-mysql
+apt-get install php5-fpm
+</code></pre>
+        <h2 id="2" class="alert alert-success">2 创建web目录</h2>
+        <p>输入以下命令:</p>
+        <pre><code>mkdir -p /workplace/plateform/web
+</code></pre>
+        <h2 id="3" class="alert alert-success">3 修改nginx root路径</h2>
+        <p>输入以下命令:</p>
+        <pre><code>vim /etc/nginx/sites-enabled/default
+</code></pre>
+        <p><code>index</code> 字段后边加入<code>index.php</code>, 开启默认支持查找<code>index.php</code>入口.</p>
+        <h2 id="4" class="alert alert-success">4 nginx开启php解析功能</h2>
+        <p>打开注释掉php解析的部分.<br/>
+            查找<code>php-fpm.sock</code>文件的路径:</p>
+        <pre><code>find / -name php5-fpm.sock
+</code></pre>
+        <p>不同版本的linux操作系统和php的版本不一样, 有的有该文件, 有的没有.<br/>
+            如果有<code>php5-fpm.sock</code>文件, 将这个路径设置到php-fpm区域. </p>
+        <p>如果没有<code>php5-fpm.sock</code>文件, 采用<code>php-cgi</code>的9000端口配置. </p>
+        <h2 id="5" class="alert alert-success">5 重启nginx,php-fpm</h2>
+        <pre><code>service nginx restart
+service php5-fpm restart
+</code></pre>
+        <h2 id="6" class="alert alert-success">6 测试nginx, php-fpm是否配置成功</h2>
+        <p>通过<code>phpinfo()</code>查看php是否配置成功.
+            将以下代码复制, 保存为<code>index.php</code>, 放入web根目录.
+            使用浏览器打开ip地址, 查看是否有php配置信息, 有的话说明成功.</p>
+        <pre class="prettyprint"><code class="php language-php">&lt;?php
+    phpinfo();
+?&gt;
+</code></pre>
+        <p>注:
+            <code>phpinfo()</code>显示了php支持的所有木块, 如果其中有<code>Mysql</code>标签信息, 说明<code>php-mysql</code>扩展安装成功, 如果没有,
+            需要重新安装<code>php-mysql</code>模块.</p>
+        <h2 id="7" class="alert alert-success">7 测试php, mysql连接</h2>
+        <p>注:
+            这里的用户名和密码改为安装<code>mysql</code>时自己设定的密码.</p>
+        <pre class="prettyprint"><code class="php language-php">&lt;?php
+    $link=mysql_connect("dashidan.com","root","123");
+    if(!$link) echo "FAILD!连接错误, 请检查php用户名密码不对";
+    else echo "OK!可以连接";
+?&gt;
+</code></pre>
+        <p>ubuntu nginx+mysql+php+php-fpm配置成功.</p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">linux配置及命令</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

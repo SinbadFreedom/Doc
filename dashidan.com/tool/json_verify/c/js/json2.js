@@ -224,7 +224,7 @@ if (!this.JSON) {
                 }
 
 // If the space parameter is a string, it will be used as the indent string.
-            
+                
             } else if (typeof space === 'string') {
                 indent = space;
             }

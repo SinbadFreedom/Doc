@@ -1,11 +1,6 @@
 ubuntu安装配置apollo及常用命令
-=============
+===
 
-***author 李建华 LiJianHua	***   
-***date	2017.4.8		  	***   
-***version	1.0  			***   
-
---------------------------------------------------------------------------------------
 1. 下载
 ---   
 
@@ -30,16 +25,11 @@ ubuntu安装配置apollo及常用命令
 
     http://127.0.0.1:61680
 
-
-6. 启动zookeeper
+6. 默认用户名和密码    
 ---
 
-	 ./zkServer.sh start
-
-7. 默认用户名和密码    
----
-
-	The default login id and password is admin and password.
+	默认用户名: admin
+	默认密码:	password	
 
 
 

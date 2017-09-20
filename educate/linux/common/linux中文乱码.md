@@ -1,6 +1,10 @@
 linux中文乱码
 ===
 
+<div class="jumbotron">
+<p>linux部分系统默认语言设置为英文, 会导致中文显示乱码.</p>  
+</div>
+
 1 查看系统编码   
 ---
 	echo $LANG
@@ -18,7 +22,7 @@ linux中文乱码
 	LANG="zh_CN:zh:en_US:en"
 	LANGUAGE="zh_CN:zh:en_US:en"
 
-4 linux运行java程序,控制台显示乱码
+4 linux运行java程序,控制台中文乱码
 ---
 启动时加入参数:
 

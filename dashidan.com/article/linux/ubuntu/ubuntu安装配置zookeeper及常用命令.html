@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ubuntu安装配置zookeeper及常用命令</title>
+    <meta name="description" content="ubuntu安装配置zookeeper及常用命令">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">linux配置及命令</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li><a href="http://dashidan.com/article/linux/common/index.html">linux通用</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/ubuntu/index.html">ubuntu</a></li>
+        <li><a href="http://dashidan.com/article/linux/centos/index.html">centos</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success"
+                                   href=" #ubuntu安装配置zookeeper及常用命令"><h2>ubuntu安装配置zookeeper及常用命令</h2></a><a
+            class="single_line list-group-item" href="#1.">1. 下载</a><a class="single_line list-group-item" href="#2.">2.
+            解压缩</a><a class="single_line list-group-item" href="#3.">3. 打开conf目录</a><a
+            class="single_line list-group-item" href="#4.">4. 拷贝zoo_samle.cfg 为zoo.cfg </a><a
+            class="single_line list-group-item" href="#5.">5. 设置环境变量 </a><a class="single_line list-group-item"
+                                                                            href="#6.">6. 启动zookeeper</a><a
+            class="single_line list-group-item" href="#7.">7. 测试 </a></div>
+        <h2 id="1." class="alert alert-success">1. 下载</h2>
+        <pre><code> wget http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.5.2-alpha/zookeeper-3.5.2-alpha.tar.gz
+</code></pre>
+        <h2 id="2." class="alert alert-success">2. 解压缩</h2>
+        <pre><code> tar -zxvf zookeeper-3.5.2-xxxx.tar.gz
+</code></pre>
+        <h2 id="3." class="alert alert-success">3. 打开conf目录</h2>
+        <pre><code>cd /zookeeper-3.5.2-alpha/conf
+</code></pre>
+        <h2 id="4." class="alert alert-success">4. 拷贝zoo_samle.cfg 为zoo.cfg </h2>
+        <pre><code>cp zoo_samle.cfg zoo.cfg
+</code></pre>
+        <h2 id="5." class="alert alert-success">5. 设置环境变量 </h2>
+        <pre><code>vim /etc/profile
+export PATH=/download/zookeeper-3.5.2-alpha:$PATH
+source /etc/profile
+</code></pre>
+        <h2 id="6." class="alert alert-success">6. 启动zookeeper</h2>
+        <pre><code> ./zkServer.sh start
+</code></pre>
+        <h2 id="7." class="alert alert-success">7. 测试 </h2>
+        <pre><code>telnet 203.195.161.167 2181
+</code></pre>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">linux配置及命令</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

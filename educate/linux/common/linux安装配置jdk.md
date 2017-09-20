@@ -1,34 +1,68 @@
 linux安装配置jdk
 ===
 
-1 将jdk压缩文件上传到指定目录下
+<div class="jumbotron">
+<p>由于jdk需要有验证才能下载, linux里面直接从官网下载链接下载不是很方便, 可以先从本地下载, 然后再传到linux服务器中.</p>  
+</div>
+
+1 下载Java sdk
 ---
 
+1. <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html". target="_blank">JDK官网下载链接</a>  
+2. 选中`Java SE Development Kit 8u144`中的`Accept License Agreement`.   
+3. 选择适合自己操作系统的版本点击链接下载.
+
+2 将jkd上传至linux服务器
+---
+
+通过`rz`命令
+
 	rz
-2 解压jdk安装包
+	
+如果没有rz命令, 安装
+
+ubuntu安装rz命令:
+
+	apt-get install lrzsz
+	
+centos安装rz命令:
+
+	yum install lrzsz
+
+3 解压jdk安装包
 ---
 	tar -zxvf 压缩文件 (将安装包解压到本目录下)
 	tar -zxvf 压缩文件 -C 指定目录路径 （将安装包解压到指定目录）
-
-3 安装
----
-  apt-get install 解压后文件
 
 4 编辑环境变量配置文件
 ---
 	vi /etc/profile
 
-5 在文件末尾添加三个环境变量
----
-	export JAVA_HOME=/bo/jdk1.8.0_111（jdk解压后文件所在目录）
+在文件末尾添加三个环境变量
+
+	export JAVA_HOME=/java/jdk1.8.0_111(改为jdk解压后文件所在目录)
 	export PATH=$JAVA_HOME/bin:$PATH
 	export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
-6 使环境变量生效
+5 使环境变量生效
 ---
+
 	source /etc/profile
 
-7 查看jdk是否安装成功
+6 测试jdk是否安装成功
 ---
+
+查看jdk版本号
+
 	java -version
+	
+测试`javac`命令
+
 	javac
+
+显示javac命令参数列表, 说明配置成功.
+
+7 相关文章
+---
+
+[windows搭建Java开发环境：JDK8.0](http://localhost/article/java/base/2.搭建Java开发环境：JDK8.0)

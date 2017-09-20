@@ -1,0 +1,154 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>linux定时任务crontab</title>
+    <meta name="description" content="linux定时任务crontab">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">linux配置及命令</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://dashidan.com/article/linux/common/index.html">linux通用</a></li>
+        <li><a href="http://dashidan.com/article/linux/ubuntu/index.html">ubuntu</a></li>
+        <li><a href="http://dashidan.com/article/linux/centos/index.html">centos</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success"
+                                   href=" #linux��ʱ����crontab"><h2>linux��ʱ����crontab</h2></a><a
+            class="single_line list-group-item" href="#1">1 ������ʽ</a><a class="single_line list-group-item" href="#2">2
+            ʹ�÷�ʽ</a><a class="single_line list-group-item" href="#3">3 ��ʱ����ĸ�ʽ</a><a
+            class="single_line list-group-item" href="#4">4 crontab����ʾ�� </a></div>
+        <div class="jumbotron">
+            <p>linux��crontab�����Ƕ�ʱ����, ������ʹ�����ڹ̶�ʱ���̶����ִ�г���.</p>
+        </div>
+        <h2 id="1" class="alert alert-success">1 ������ʽ</h2>
+        <pre><code>�֡� ʱ     ��   �¡� �ܡ� ����
+*����*����*����*����*����command
+</code></pre>
+        <p>��1�б�ʾ����1��59 ÿ������*���� */1��ʾ
+            ��2�б�ʾСʱ1��23(0��ʾ0��)
+            ��3�б�ʾ����1��31
+            ��4�б�ʾ�·�1��12
+            ��5�б�ʶ������0��6(0��ʾ������)
+            ��6��Ҫ���е����� </p>
+        <ul>
+            <li>����Ϊ<code>*</code>ʱ��ʾÿ��Ӧ��λ�õĵ�λ��Ҫִ�ж�Ӧ����</li>
+            <li>����Ϊ<code>a-b</code>ʱ��ʾ�ӵ�<code>a</code>���ӵ���<code>b</code>��ʱ�������ʱ����Ҫִ��</li>
+            <li>����Ϊ<code>*/n</code>ʱ��ʾÿ<code>n</code>��ʱ����ִ��һ��</li>
+            <li>����Ϊ<code>a, b, c,...</code>ʱ, ��ʾ�� a, b, c,... ��ʱ����Ҫִ��</li>
+        </ul>
+        <h2 id="2" class="alert alert-success">2 ʹ�÷�ʽ</h2>
+        <p>crontab file [-u user]-��ָ�����ļ����Ŀǰ��crontab.
+            crontab-[-u user]-�ñ�׼�������Ŀǰ��crontab.
+            crontab-1[user]-�г��û�Ŀǰ��crontab.
+            crontab-e[user]-�༭�û�Ŀǰ��crontab.
+            crontab-d[user]-ɾ���û�Ŀǰ��crontab.
+            crontab-c dir- ָ��crontab��Ŀ¼.
+            crontab�ļ��ĸ�ʽ��M H D m d cmd.
+            M: ����(0-59).
+            H��Сʱ(0-23).
+            D����(1-31).
+            m: ��(1-12).
+            d: һ�����ڵ���(0~6,0Ϊ������).
+            cmdҪ���еĳ���,��������shִ��,���shellֻ��USER,HOME,SHELL�������������� </p>
+        <div class="bs-callout bs-callout-info">
+            <h4>crontab -u user</h4>
+            <p>crontab -u user��ָ�趨ָ��user �Ķ�ʱ����,���ǰ���������Ҫ����Ȩ��(����˵��root)���ܹ�ָ�����˵Ķ�ʱ����. �����ʹ��`-u
+                user` �Ļ�, ��ʾ�趨�Լ��Ķ�ʱ����.</p>
+        </div>
+        <h2 id="3" class="alert alert-success">3 ��ʱ����ĸ�ʽ</h2>
+        <pre><code>f1 f2 f3 f4 f5 program
+</code></pre>
+        <h2 id="4" class="alert alert-success">4 crontab����ʾ�� </h2>
+        <h3>ÿ���21:30����nginx</h3>
+        <pre><code>30 21 * * * service nginx restart
+</code></pre>
+        <h3>ÿ��1��10��22�յ�4 : 45����nginx</h3>
+        <pre><code>45 4 1,10,22 * * service nginx restart
+</code></pre>
+        <h3>���������յ�1 : 10����nginx</h3>
+        <pre><code>10 1 * * 6,0 service nginx restart
+</code></pre>
+        <h3>ÿ��18 : 00��23 : 00֮��ÿ��30��������nginx</h3>
+        <pre><code>0,30 18-23 * * * service nginx restart
+</code></pre>
+        <h3>ÿ��������11 : 00 pm����nginx.</h3>
+        <pre><code>0 23 * * 6 service nginx restart
+</code></pre>
+        <h3>ÿһСʱ����nginx</h3>
+        <pre><code>0 */1 * * * service nginx restart
+</code></pre>
+        <h3>����11�㵽����7��֮��,ÿ��һСʱ����nginx</h3>
+        <pre><code>0 11 4 * mon-wed service nginx restart
+</code></pre>
+        <h3>ÿ�µ�4����ÿ��һ��������11������nginx</h3>
+        <pre><code>0 4 1 jan * service nginx restart
+</code></pre>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">linux配置及命令</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

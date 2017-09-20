@@ -1,0 +1,26 @@
+windows向linux传文件
+===
+
+<div class="jumbotron">
+<p>通过`rz`命令能够很方便的从windows向linux服务器传送文件.  </p>  
+</div>
+
+1 安装rz命令
+---
+
+Ubuntu安装rz命令:
+
+	apt-get install lrzsz
+	
+Centos安装rz命令:
+	
+	yum install lrzsz
+	
+2 使用rz命令
+---
+
+使用ssh工具连接linux服务器后, 输入命令:
+
+	rz
+	
+会弹出提示框, 选择本地目录和文件, 点击确定上传.

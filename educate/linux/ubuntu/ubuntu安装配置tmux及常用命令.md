@@ -23,5 +23,5 @@ ubuntu安装配置tmux及常用命令
 3 相关文章
 ---
 
-tmux常用命令
-centos安装tmux及常用命令
+[tmux常用命令](http://localhost/article/linux/common/tmux常用命令及快捷键.html)   
+[centos安装tmux及常用命令](http://localhost/article/linux/centos/centos安装tmux及常用命令.html)    

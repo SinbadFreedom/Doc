@@ -10,14 +10,19 @@ ubuntu安装配置redis及常用命令
 	
 2 ubuntu安装php对redis的支持
 ---
+
 执行以下脚本
 	apt-get install php5-redis
 	
-注:
-	这一步不是必须, 根据自己的需要安装.
+<div class="bs-callout bs-callout-warning">
+	<p>这一步不是必须, 根据自己的需要安装.</p
+</div>	
 	
 3 启动和停止
 ---
+
+	service redis start
+	service redis stop
 
 4 相关文章
 ---

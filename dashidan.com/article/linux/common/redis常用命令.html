@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>redis常用命令</title>
+    <meta name="description" content="redis常用命令">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">linux配置及命令</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://dashidan.com/article/linux/common/index.html">linux通用</a></li>
+        <li><a href="http://dashidan.com/article/linux/ubuntu/index.html">ubuntu</a></li>
+        <li><a href="http://dashidan.com/article/linux/centos/index.html">centos</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #redis常用命令"><h2>
+            redis常用命令</h2></a><a class="single_line list-group-item" href="#1.">1. 命令行连接Redis</a><a
+            class="single_line list-group-item" href="#2.">2. 查看所有的key</a><a class="single_line list-group-item"
+                                                                             href="#3.">3. 查看key的类型</a><a
+            class="single_line list-group-item" href="#4.">4. 获取一个key</a><a class="single_line list-group-item"
+                                                                            href="#5.">5. 删除key</a><a
+            class="single_line list-group-item" href="#6.">6. 返回满足给定patterm的所有key</a><a
+            class="single_line list-group-item" href="#7.">7. 确认一个key是否存在</a><a class="single_line list-group-item"
+                                                                                href="#8.">8. 设置一个key的过期时间</a><a
+            class="single_line list-group-item" href="#9.">9. 获取hash类型的全部数据</a><a class="single_line list-group-item"
+                                                                                  href="#10.">10. 获取hash类型的一个数据</a><a
+            class="single_line list-group-item" href="#11.">11. 将当前数据库中的key转移到其他数据库中</a><a
+            class="single_line list-group-item" href="#12.">12. 移除给定key的过期时间</a><a class="single_line list-group-item"
+                                                                                   href="#13.">13. 实时传储收到的请求</a><a
+            class="single_line list-group-item" href="#14.">14. 选择一个数据库</a><a class="single_line list-group-item"
+                                                                              href="#15.">15. 测试是否联通</a><a
+            class="single_line list-group-item" href="#16.">16. 退出连接</a><a class="single_line list-group-item"
+                                                                           href="#17.">17. 返回当前数据库中key的数量</a><a
+            class="single_line list-group-item" href="#18.">18. 获取服务器信息</a><a class="single_line list-group-item"
+                                                                              href="#19.">19. 删除当前选择的数据库中的key</a><a
+            class="single_line list-group-item" href="#20.">20. 删除所有数据库中的所有key</a><a class="single_line list-group-item"
+                                                                                     href="#21.">21. 设置密码</a></div>
+        <h2 id="1." class="alert alert-success">1. 命令行连接Redis</h2>
+        <pre><code>redis-cli
+</code></pre>
+        <h2 id="2." class="alert alert-success">2. 查看所有的key</h2>
+        <pre><code>keys *
+</code></pre>
+        <div class="bs-callout bs-callout-warning">
+            <p>keys命令后边没有分号, 中间有空格</p
+        </div>
+        <h2 id="3." class="alert alert-success">3. 查看key的类型</h2>
+        <pre><code>type BO:Server
+</code></pre>
+        <h2 id="4." class="alert alert-success">4. 获取一个key</h2>
+        <pre><code>get key
+</code></pre>
+        <h2 id="5." class="alert alert-success">5. 删除key</h2>
+        <p>删除单个key</p>
+        <pre><code>del key
+</code></pre>
+        <p>删除多个key</p>
+        <pre><code>redis-cli -a pass(密码) keys "WX_ACT_USER_KEY_*" | xargs redis-cli -a pass(密码) del
+</code></pre>
+        <h2 id="6." class="alert alert-success">6. 返回满足给定patterm的所有key</h2>
+        <pre><code>keys    #(*)取出所有的key
+        (my*)取出和关键字相关的
+</code></pre>
+        <h2 id="7." class="alert alert-success">7. 确认一个key是否存在</h2>
+        <pre><code>exists
+</code></pre>
+        <h2 id="8." class="alert alert-success">8. 设置一个key的过期时间</h2>
+        <pre><code>expire
+</code></pre>
+        <h2 id="9." class="alert alert-success">9. 获取hash类型的全部数据</h2>
+        <pre><code>hgetall key
+</code></pre>
+        <h2 id="10." class="alert alert-success">10. 获取hash类型的一个数据</h2>
+        <pre><code>hget key key1
+</code></pre>
+        <h2 id="11." class="alert alert-success">11. 将当前数据库中的key转移到其他数据库中</h2>
+        <pre><code>move            #0-15数据库
+</code></pre>
+        <h2 id="12." class="alert alert-success">12. 移除给定key的过期时间</h2>
+        <pre><code>persist                    #取消定时
+</code></pre>
+        <h2 id="13." class="alert alert-success">13. 实时传储收到的请求</h2>
+        <pre><code>config get dir/*
+</code></pre>
+        <h2 id="14." class="alert alert-success">14. 选择一个数据库</h2>
+        <pre><code>select 0
+</code></pre>
+        <p><code>0</code>为数据库ID</p>
+        <h2 id="15." class="alert alert-success">15. 测试是否联通</h2>
+        <pre><code>ping
+</code></pre>
+        <h2 id="16." class="alert alert-success">16. 退出连接</h2>
+        <pre><code>quit
+</code></pre>
+        <h2 id="17." class="alert alert-success">17. 返回当前数据库中key的数量</h2>
+        <pre><code>dbsize
+</code></pre>
+        <h2 id="18." class="alert alert-success">18. 获取服务器信息</h2>
+        <pre><code>info
+</code></pre>
+        <h2 id="19." class="alert alert-success">19. 删除当前选择的数据库中的key</h2>
+        <pre><code>flushdb
+</code></pre>
+        <h2 id="20." class="alert alert-success">20. 删除所有数据库中的所有key</h2>
+        <pre><code>flushall
+</code></pre>
+        <h2 id="21." class="alert alert-success">21. 设置密码</h2>
+        <pre><code>vi /etc/redis.conf
+requirepass pp123456
+pkill redis     #杀死进程
+service  redis start
+auth        pp123456
+</code></pre>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">linux配置及命令</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>
