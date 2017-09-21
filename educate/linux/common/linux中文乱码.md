@@ -31,4 +31,4 @@ linux中文乱码
 5. 相关文章
 ---
 
-[linux通用命令及配置](http://localhost/article/linux/common/index.html) 
+[linux通用命令及配置](http://localhost/article/linux/common/index.html)   
