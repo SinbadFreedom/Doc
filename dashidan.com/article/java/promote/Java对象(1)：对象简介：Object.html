@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Java对象(1)：对象简介：Object</title>
+    <meta name="description" content="Java对象(1)：对象简介：Object">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+                <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+                <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #2"><h2>2 Java对象(1)：对象简介：Object</h2></a><a class="single_line list-group-item" href="#2.1">2.1 Java中万事万物皆对象?</a><a class="single_line list-group-item" href="#2.2">2.2 什么是面向对象编程</a><a class="single_line list-group-item" href="#2.3">2.3 举个简单的例子</a><a class="single_line list-group-item" href="#2.4">2.4 相关文章</a></div><div class="jumbotron">
+    <p>Java是`OOP`(Object Oriented Programming)面向对象编程语言. java面向对象的三大特点: 封装, 继承和多态.</p>
+</div>
+<div class="bs-callout bs-callout-warning">
+    <h4>面向对象编程概念</h4>
+    <p>接触到接口`interface`的概念后再做扩充.</p>
+</div>
+<h2 id="2.1" class="alert alert-success" >2.1 Java中万事万物皆对象?</h2>
+<p>这个说法的由来, 是因为java中所有的类默认都继承自<code>Object</code>类. 但这个说法是<code>不准确</code>的. 很多资料中这样说, 曾经给我带来过很大的困扰.<br />
+Java属于<code>强类型语言</code>, <code>方法</code>作为属性存在于对象中, 不作为独立的对象存在. 所以说在Java中万事万物皆对象的说法是不准确的, 方法和成员变量都不是对象的概念.<br />
+在一些弱类型语言比如<code>javascript</code>, 方法也可以作为<code>对象</code>的概念来使用, 作为参数传递, 这一点和java是有区别的.  </p>
+<h2 id="2.2" class="alert alert-success" >2.2 什么是面向对象编程</h2>
+<p>提到面向对象, 不得不提到面向过程编程. 以C语言为例, 每个方法作为一个<code>执行过程</code>存在, 面向过程编程是一种面向计算机思维, 从计算机执行的角度思考编写代码的编程方式.<br />
+从面向过程编程的基础上, 发展出来了一种新的编程思想, 面向对象编程, 来应对更复杂的应用场景. 面向对象编程是一种面向<code>人</code>的逻辑思维的编程方式, 将代码中的通用性抽象出来, 模拟现实世界的归类, 建立程序模型, 编写代码的过程. 对于程序员更加友好, 对于复杂度更高的程序更易于控制.</p>
+<h2 id="2.3" class="alert alert-success" >2.3 举个简单的例子</h2>
+<p>在生物分类学中, 分为<code>界门纲目科属种</code>, 按照生物的种群和等级划分.<br />
+猫:</p>
+<pre><code>动物界-&gt;脊索动物门-&gt;哺乳纲-&gt;哺乳纲-&gt;食肉目-&gt;猫科-&gt;猫属-&gt;猫种
+</code></pre>
+<p>虎:   </p>
+<pre><code>动物界-&gt;脊索动物门-&gt;哺乳纲-&gt;哺乳纲-&gt;食肉目-&gt;猫科-&gt;豹属-&gt;虎种
+</code></pre>
+<p><code>猫</code>和<code>虎</code>同处于<code>猫科</code>, 是猫科子类中的一种, 具有猫科的全部属性. 用Java面向对象的思想来编程可以这样表达:<br />
+<code>猫科</code>作为<code>父类</code>, <code>猫</code>和<code>虎</code>作为<code>子类</code>, 继承自<code>猫科</code>拥有父类<code>猫科</code>的全部属性,  独有的属性写在<code>子类</code>(猫类或虎类)中. </p>
+<p>面向对象编程思想与人类的逻辑思维很接近.   </p>
+<h2 id="2.4" class="alert alert-success" >2.4 相关文章</h2>
+<p><a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a>   </p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+                <li>
+                    <a href="http://dashidan.com/article/java/promote/Java进阶篇课程概述.html"><span>&larr;</span>上一篇</a>
+                </li>
+                <li>
+                    <a href="http://dashidan.com/article/java/promote/Java对象(2)：对象初始化：构造函数.html">下一篇<span>&rarr;</span></a>
+                </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

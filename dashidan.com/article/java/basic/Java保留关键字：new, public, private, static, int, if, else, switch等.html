@@ -1,0 +1,310 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Java保留关键字：new, public, private, static, int, if, else, switch等</title>
+    <meta name="description" content="Java保留关键字：new, public, private, static, int, if, else, switch等">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+                <li><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #27."><h2>27. Java保留关键字：new, public, private, static, int, if, else, switch等</h2></a><a class="single_line list-group-item" href="#27.1">27.1 Java系统保留关键字列表</a><a class="single_line list-group-item" href="#27.2">27.2 相关文章</a></div><div class="jumbotron">
+<p>保留关键字(`reserved word`)指在高级语言中, 系统已经定义过的`英文单词`.
+`不能`再将这些字作为变量名或方法名使用.</p>
+</div>
+<h2 id="27.1" class="alert alert-success" >27.1 Java系统保留关键字列表</h2>
+<table class="table table-bordered table-responsive">
+    <caption>Java系统保留关键字</caption>
+    <thead>
+        <tr class="success">
+            <td>关键字</td>
+            <td>含义</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="active">
+            <td>abstract</td>
+            <td>表明类或者成员方法具有抽象属性</td>
+        </tr>
+        <tr>
+            <td>assert</td>
+            <td>用来进行程序调试</td>
+        </tr>
+        <tr class="active">
+            <td>boolean</td>
+            <td>基本数据类型之一，布尔类型</td>
+        </tr>
+        <tr>
+            <td>break</td>
+            <td>提前跳出一个块</td>
+        </tr>
+        <tr class="active">
+            <td>byte</td>
+            <td>基本数据类型之一，字节类型</td>
+        </tr>
+        <tr>
+            <td>case</td>
+            <td>用在switch语句之中，表示其中的一个分支</td>
+        </tr>
+        <tr class="active">
+            <td>catch</td>
+            <td>用在异常处理中，用来捕捉异常</td>
+        </tr>
+        <tr>
+            <td>char</td>
+            <td>基本数据类型之一，字符类型</td>
+        </tr>
+        <trclass="active">
+            <td>class</td>
+            <td>类</td>
+        </tr>
+        <tr>
+            <td>const</td>
+            <td>保留关键字，没有具体含义</td>
+        </tr>
+        <tr class="active">
+            <td>continue</td>
+            <td>回到一个块的开始处</td>
+        </tr>
+        <tr>
+            <td>default</td>
+            <td>默认，例如，用在switch语句中，表明一个默认的分支</td>
+        </tr>
+        <tr class="active">
+            <td>do</td>
+            <td>用在do-while循环结构中</td>
+        </tr>
+        <tr>
+            <td>double</td>
+            <td>基本数据类型之一，双精度浮点数类型</td>
+        </tr>
+        <tr class="active">
+            <td>else</td>
+            <td>用在条件语句中，表明当条件不成立时的分支</td>
+        </tr>
+        <tr>
+            <td>enum</td>
+            <td>枚举</td>
+        </tr>
+        <tr class="active">
+            <td>extends</td>
+            <td>表明一个类型是另一个类型的子类型，这里常见的类型有类和接口</td>
+        </tr>
+        <tr>
+            <td>final</td>
+            <td>用来说明最终属性，表明一个类不能派生出子类，或者成员方法不能被覆盖，或者成员域的值不能被改变，用来定义常量</td>
+        </tr>
+        <tr class="active">
+            <td>finally</td>
+            <td>用于处理异常情况，用来声明一个基本肯定会被执行到的语句块</td>
+        </tr>
+        <tr>
+            <td>float</td>
+            <td>基本数据类型之一，单精度浮点数类型</td>
+        </tr>
+        <tr class="active">
+            <td>for</td>
+            <td>一种循环结构的引导词</td>
+        </tr>
+        <tr>
+            <td>goto</td>
+            <td>保留关键字，没有具体含义</td>
+        </tr>
+        <tr class="active">
+            <td>if</td>
+            <td>条件语句的引导词</td>
+        </tr>
+        <tr>
+            <td>implements</td>
+            <td>表明一个类实现了给定的接口</td>
+        </tr>
+        <tr class="active">
+            <td>import</td>
+            <td>表明要访问指定的类或包</td>
+        </tr>
+        <tr>
+            <td>instanceof</td>
+            <td>用来测试一个对象是否是指定类型的实例对象</td>
+        </tr>
+        <tr class="active">
+            <td>int</td>
+            <td>基本数据类型之一，整数类型</td>
+        </tr>
+        <tr>
+            <td>interface</td>
+            <td>接口</td>
+        </tr>
+        <tr class="active">
+            <td>long</td>
+            <td>基本数据类型之一，长整数类型</td>
+        </tr>
+        <tr>
+            <td>native</td>
+            <td>用来声明一个方法是由与计算机相关的语言（如C/C++/FORTRAN语言）实现的</td>
+        </tr>
+        <tr class="active">
+            <td>new</td>
+            <td>用来创建新实例对象</td>
+        </tr>
+        <tr>
+            <td>package</td>
+            <td>包</td>
+        </tr>
+        <tr class="active">
+            <td>private</td>
+            <td>一种访问控制方式：私用模式</td>
+        </tr>
+        <tr>
+            <td>protected</td>
+            <td>一种访问控制方式：保护模式</td>
+        </tr>
+        <tr class="active">
+            <td>public</td>
+            <td>一种访问控制方式：共用模式</td>
+        </tr>
+        <tr>
+            <td>return</td>
+            <td>从成员方法中返回数据</td>
+        </tr>
+        <tr class="active">
+            <td>short</td>
+            <td>基本数据类型之一,短整数类型</td>
+        </tr>
+        <tr>
+            <td>static</td>
+            <td>表明具有静态属性</td>
+        </tr>
+        <tr class="active">
+            <td>strictfp</td>
+            <td>用来声明FP_strict（单精度或双精度浮点数）表达式遵循IEEE
+                754算术规范
+            </td>
+        </tr>
+        <tr>
+            <td>super</td>
+            <td>表明当前对象的父类型的引用或者父类型的构造方法</td>
+        </tr>
+        <tr class="active">
+            <td>switch</td>
+            <td>分支语句结构的引导词</td>
+        </tr>
+        <tr>
+            <td>synchronized</td>
+            <td>表明一段代码需要同步执行</td>
+        </tr>
+        <tr class="active">
+            <td>this</td>
+            <td>指向当前实例对象的引用</td>
+        </tr>
+        <tr>
+            <td>throw</td>
+            <td>抛出一个异常</td>
+        </tr>
+        <tr class="active">
+            <td>throws</td>
+            <td>声明在当前定义的成员方法中所有需要抛出的异常</td>
+        </tr>
+        <tr>
+            <td>transient</td>
+            <td>声明不用序列化的成员域</td>
+        </tr>
+        <tr class="active">
+            <td>try</td>
+            <td>尝试一个可能抛出异常的程序块</td>
+        </tr>
+        <tr>
+            <td>void</td>
+            <td>声明当前成员方法没有返回值</td>
+        </tr>
+        <tr class="active">
+            <td>volatile</td>
+            <td>表明两个或者多个变量必须同步地发生变化</td>
+        </tr>
+        <tr>
+            <td>while</td>
+            <td>用在循环结构中</td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="27.2" class="alert alert-success" >27.2 相关文章</h2>
+<p><a href="http://dashidan.com/article/java/basic/index.html">Java教程基础篇</a>   </p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+                <li>
+                    <a href="http://dashidan.com/article/java/basic/Java常量：final.html"><span>&larr;</span>上一篇</a>
+                </li>
+                <li>
+                    <a href="http://dashidan.com/article/java/basic/Java基础篇课程总结.html">下一篇<span>&rarr;</span></a>
+                </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

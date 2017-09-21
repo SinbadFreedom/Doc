@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Java常量：final</title>
+    <meta name="description" content="Java常量：final">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+                <li><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #26."><h2>26. Java常量：final</h2></a><a class="single_line list-group-item" href="#26.1">26.1 final关键字的含义</a><a class="single_line list-group-item" href="#26.2">26.2 final变量</a><a class="single_line list-group-item" href="#26.3">26.3 final方法</a><a class="single_line list-group-item" href="#26.5">26.5 final关键字要点</a><a class="single_line list-group-item" href="#26.6">26.6 相关文章</a></div><div class="jumbotron">
+    <p>final是Java的一个保留关键字, 可以声明成员变量、方法、类以及局部变量.</p>
+</div>
+<h2 id="26.1" class="alert alert-success" >26.1 final关键字的含义</h2>
+<p>被声明final的变量, 一但赋值便不能再次修改.<br />
+编译器会检查代码,如果你试图将变量再次初始化的话,编译器会报编译错误.   </p>
+<h2 id="26.2" class="alert alert-success" >26.2 final变量</h2>
+<p><code>final</code>变量经常和<code>static</code>关键字一起使用作为<code>常量</code>.</p>
+<p>例:</p>
+<pre class="prettyprint"><code class="java language-java">public static final WEB_NAME = "大屎蛋教程网."
+public static final WEB_URL = "http://dashidan.com"
+</code></pre>
+<h2 id="26.3" class="alert alert-success" >26.3 final方法</h2>
+<p>方法前面加上final关键字,代表这个方法不可以被子类的方法重写.</p>
+<p>26.4 final类
+类名前面加上final关键字,代表这个方法不可以被继承.</p>
+<h2 id="26.5" class="alert alert-success" >26.5 final关键字要点</h2>
+<ul>
+<li>final关键字可以用于成员变量、局部变量、方法以及类.</li>
+<li>final成员变量必须在声明的时候初始化或者在构造器中初始化, 否则就会报编译错误.</li>
+<li>不能对final变量再次赋值. </li>
+<li>fina局部变量必须在声明时赋值.</li>
+<li>在匿名类中所有变量都必须是final变量.</li>
+<li>final方法不能被重写.</li>
+<li>final类不能被继承.</li>
+<li>接口中声明的所有变量本身是final的.</li>
+<li>final和abstract这两个关键字是反相关的, final类就不可能是abstract的.</li>
+<li>final方法在编译阶段绑定, 称为静态绑定(static binding). </li>
+<li>没有在声明时初始化final变量的称为<code>空白final变量</code>(blank final variable),  必须在构造器中初始化, 或者调用this()初始化. 否则编译器会报错.</li>
+<li>将类、方法、变量声明为final能够提高性能, 这样JVM就有机会进行估计,然后优化.</li>
+<li>按照Java代码惯例,final变量就是常量, 而且通常常量名要大写</li>
+<li>对于集合对象声明为final指的是引用不能被更改, 但可以向其中增加, 删除或者改变内容.</li>
+</ul>
+<div class="bs-callout bs-callout-warning">
+    <p>final关键字涉及到了很多类的继承相关的概念, 可以参考Java教程进阶篇Java对象相关的文章后, 再回头看这些知识就很好理解了.
+    <p>
+</div>
+<h2 id="26.6" class="alert alert-success" >26.6 相关文章</h2>
+<p><a href="http://dashidan.com/article/java/basic/index.html">Java教程基础篇</a><br />
+<a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a>     </p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+                <li>
+                    <a href="http://dashidan.com/article/java/basic/Java变量(3)：引用类型变量.html"><span>&larr;</span>上一篇</a>
+                </li>
+                <li>
+                    <a href="http://dashidan.com/article/java/basic/Java保留关键字：new, public, private, static, int, if, else, switch等.html">下一篇<span>&rarr;</span></a>
+                </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

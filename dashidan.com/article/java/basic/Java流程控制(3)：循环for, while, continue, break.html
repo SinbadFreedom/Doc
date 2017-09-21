@@ -1,0 +1,323 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Java流程控制(3)：循环for, while, continue, break</title>
+    <meta name="description" content="Java流程控制(3)：循环for, while, continue, break">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+                <li><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #18"><h2>18 Java流程控制(3)：循环for, while, continue, break</h2></a><a class="single_line list-group-item" href="#18.1">18.1 for循环基本表达方式</a><a class="single_line list-group-item" href="#18.2">18.2 while循环基本表达方式</a><a class="single_line list-group-item" href="#18.3">18.3 do...while循环基本表达方式</a><a class="single_line list-group-item" href="#18.4">18.4 continue</a><a class="single_line list-group-item" href="#18.5">18.5 break</a><a class="single_line list-group-item" href="#18.6">18.6 示例代码</a><a class="single_line list-group-item" href="#18.7">18.7 死循环</a><a class="single_line list-group-item" href="#18.8">18.8 附录</a></div><div class="jumbotron">
+<p>循环就是同样的规则重复执行. Java基本循环控制有3种: for, while, do...while</p>
+</div>
+<h2 id="18.1" class="alert alert-success" >18.1 for循环基本表达方式</h2>
+<pre><code>for(定义变量及初始值; 循环继续执行条件; 循环每执行一次变量的变化){
+    //循环体
+}
+</code></pre>
+<p>例:</p>
+<pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
+    System.out.println("i: " + i);
+}
+</code></pre>
+<p>执行步骤:</p>
+<ol>
+<li>第一步设定一个整型变量<code>i</code>,并设定初始值<code>i = 0</code>.</li>
+<li>第二步判断<code>循环继续执行条件</code>i&lt;3<code>,是否为</code>true<code>,如果为</code>true<code>,继续第三步，如果为</code>false`则结束循环.</li>
+<li>第二步满足<code>i&lt;3</code>(true)时,执行循环体(打印出变量i的值).</li>
+<li>第三步执行完循环体后,执行<code>循环每执行一次变量的变化</code>,为(i++),这时<code>i</code>的值加1,从0变为1.</li>
+<li>开始循环执行第二步的判断,直到循环结束.</li>
+</ol>
+<h2 id="18.2" class="alert alert-success" >18.2 while循环基本表达方式</h2>
+<p>先判断是否结束循环,再执行循环体.</p>
+<pre><code>while(循环继续执行条件){
+    //循环体
+}
+</code></pre>
+<p>例:</p>
+<pre class="prettyprint"><code class="java language-java">int i = 0;
+while (i &lt; 3) {
+    System.out.println("i: " + i);
+    i++;
+}
+</code></pre>
+<p>执行步骤:</p>
+<ol>
+<li>第一步判断<code>循环继续执行条件</code>i&lt;3<code>,是否为</code>true<code>,如果为</code>true<code>,继续第二步，如果为</code>false`则结束循环.</li>
+<li>第二步执行循环体(打印出变量i的值, i值加1).</li>
+<li>开始循环执行第二步的判断,直到循环结束.</li>
+</ol>
+<h2 id="18.3" class="alert alert-success" >18.3 do...while循环基本表达方式</h2>
+<p>先执行循环体,再判断是否结束循环.</p>
+<pre><code>do{
+    //循环体
+} while(循环继续执行条件);
+</code></pre>
+<p>例:</p>
+<pre class="prettyprint"><code>int i = 0;
+do {
+    System.out.println("i: " + i);
+    i++;
+} while (i &lt; 3);
+</code></pre>
+<p>执行步骤:</p>
+<ol>
+<li>第一步执行循环体(打印出变量i的值, i值加1).</li>
+<li>第二步判断<code>循环继续执行条件</code>i&lt;3<code>,是否为</code>true<code>,如果为</code>true<code>,继续第二步，如果为</code>false`则结束循环.</li>
+<li>开始循环执行第一步的语句,直到循环结束.</li>
+</ol>
+<h2 id="18.4" class="alert alert-success" >18.4 continue</h2>
+<p>在循环体中的<code>continue</code>是从continue处停止当前的逻辑执行, 并且继续进入下一次循环.</p>
+<p>例1:</p>
+<pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
+    if (i == 1) {
+        continue;
+    }
+    System.out.println("i: " + i);
+}
+</code></pre>
+<p>例2:</p>
+<pre class="prettyprint"><code>int i = 0;
+while (i &lt; 3) {
+    if (i == 1) {
+        continue;
+    }
+    System.out.println("i: " + i);
+    i++;
+}
+</code></pre>
+<p>解释:
+在<code>for</code>循环和<code>while</code>循环中,<code>continue</code>语句作用一样.
+当<code>i==1</code>时,执行了<code>continue</code>语句,跳过了后续的语句,所以没有输出<code>i: 1</code>.</p>
+<h2 id="18.5" class="alert alert-success" >18.5 break</h2>
+<p>在循环体中的<code>break</code>结束当前的循环.</p>
+<p>例1:</p>
+<pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
+    if (i == 1) {
+        break;
+    }
+    System.out.println("i: " + i);
+}
+</code></pre>
+<p>例2:</p>
+<pre class="prettyprint"><code>int i = 0;
+while(i &lt; 3){
+    if(i == 1){
+        break;
+    }
+    System.out.println("i: " + i);
+    i++;
+}
+</code></pre>
+<h2 id="18.6" class="alert alert-success" >18.6 示例代码</h2>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession18;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程基础篇: 18.Java流程控制(3)：循环for, while, continue, break
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+        /** for循环基本表达方式*/
+        System.out.println("for循环基本表达方式");
+        for (int i = 0; i &lt; 3; i++) {
+            System.out.println("i: " + i);
+        }
+        System.out.println("while循环基本表达方式");
+        /** while循环基本表达方式*/
+        int i = 0;
+        while (i &lt; 3) {
+            System.out.println("i: " + i);
+            i++;
+        }
+        System.out.println("do...while循环基本表达方式");
+        /** do...while循环基本表达方式*/
+        i = 0;
+        do {
+            System.out.println("i: " + i);
+            i++;
+        } while (i &lt; 3);
+        System.out.println("continue 在for循环中");
+        /** continue 在for循环中*/
+        for (i = 0; i &lt; 3; i++) {
+            if (i == 1) {
+                continue;
+            }
+            System.out.println("i: " + i);
+        }
+
+        System.out.println("continue 在while循环中");
+        i = 0;
+        while (i &lt; 3) {
+            i++;
+            if (i == 1) {
+                continue;
+            }
+            System.out.println("i: " + i);
+        }
+
+        /**
+         * 在`for`循环和`while`循环中,`break`语句作用一样.
+         * 当`i==1`时,执行了`break`语句,结束了循环.所以只有`i: 0`的输出.
+         */
+        System.out.println("break在for循环中");
+        for (i = 0; i &lt; 3; i++) {
+            if (i == 1) {
+                break;
+            }
+            System.out.println("i: " + i);
+        }
+        System.out.println("break在while循环中");
+        i = 0;
+        while (i &lt; 3) {
+            if (i == 1) {
+                break;
+            }
+            System.out.println("i: " + i);
+            i++;
+        }
+    }
+}
+</code></pre>
+<p>输出</p>
+<pre><code>for循环基本表达方式
+i: 0
+i: 1
+i: 2
+while循环基本表达方式
+i: 0
+i: 1
+i: 2
+do...while循环基本表达方式
+i: 0
+i: 1
+i: 2
+continue 在for循环中
+i: 0
+i: 2
+continue 在while循环中
+i: 2
+i: 3
+break在for循环中
+i: 0
+break在while循环中
+i: 0
+</code></pre>
+<h2 id="18.7" class="alert alert-success" >18.7 死循环</h2>
+<p>当程序进入循环中,如果符合继续执行循环的条件一直为true,程序就会无限执行这个循环体的代码,导致无法执行下一句语句,这种情况就叫<code>死循环</code>.开发过程中需要注意这点.
+最简单的是循环的例子是
+    while(true){
+        ...
+    }</p>
+<p>示例代码</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession18;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程基础篇: 18.Java流程控制(3)：循环for, while, continue, break
+ * Demo2: 死循环
+ */
+public class Demo2 {
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("死循环");
+        }
+    }
+}
+</code></pre>
+<p>输出</p>
+<pre><code>死循环
+死循环
+死循环
+死循环
+死循环
+死循环
+死循环
+...
+</code></pre>
+<h2 id="18.8" class="alert alert-success" >18.8 附录</h2>
+<p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br />
+<a href="http://dashidan.com/article/java/basic/index.html">Java教程基础篇</a>   </p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+                <li>
+                    <a href="http://dashidan.com/article/java/basic/Java流程控制(2)：switch, case, break, default.html"><span>&larr;</span>上一篇</a>
+                </li>
+                <li>
+                    <a href="http://dashidan.com/article/java/basic/Java流程控制(4)：返回return.html">下一篇<span>&rarr;</span></a>
+                </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>
