@@ -50,36 +50,43 @@
     <hr>
     <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
-                <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
-                <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
-                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
-                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+        <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #10.Java对象(9)：接口implements，interface"><h2>10.Java对象(9)：接口implements，interface</h2></a><a class="single_line list-group-item" href="#10.1">10.1 接口的声明</a><a class="single_line list-group-item" href="#10.2">10.2 接口的实现</a><a class="single_line list-group-item" href="#10.3">10.3 示例代码</a><a class="single_line list-group-item" href="#10.4">10.4 抽象类和接口的区别</a><a class="single_line list-group-item" href="#10.5">10.5 相关文章</a></div><div class="jumbotron">
-    <p>接口<code>interface</code>在软件工程中, 泛指供其他人调用的方法或者函数. 从这里可以体会到Java语言设计者的初衷-对行为的抽象</p>
-</div>
-<h2 id="10.1" class="alert alert-success" >10.1 接口的声明</h2>
-<p>用<code>interface</code>关键字声明接口.<br />
-接口中可以含有变量和方法.<br />
-但是要注意, 接口中的变量会被隐式地指定为<code>public static final</code>变量.<br />
-接口中的方法<code>必须都是抽象方法</code>.   </p>
-<pre class="prettyprint"><code class="java language-java">public interface Pet{
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success"
+                                   href=" #10.Java对象(9)：接口implements，interface"><h2>
+            10.Java对象(9)：接口implements，interface</h2></a><a class="single_line list-group-item" href="#10.1">10.1
+            接口的声明</a><a class="single_line list-group-item" href="#10.2">10.2 接口的实现</a><a
+            class="single_line list-group-item" href="#10.3">10.3 示例代码</a><a class="single_line list-group-item"
+                                                                             href="#10.4">10.4 抽象类和接口的区别</a><a
+            class="single_line list-group-item" href="#10.5">10.5 相关文章</a></div>
+        <div class="jumbotron">
+            <p>接口<code>interface</code>在软件工程中, 泛指供其他人调用的方法或者函数. 从这里可以体会到Java语言设计者的初衷-对行为的抽象</p>
+        </div>
+        <h2 id="10.1" class="alert alert-success">10.1 接口的声明</h2>
+        <p>用<code>interface</code>关键字声明接口.<br/>
+            接口中可以含有变量和方法.<br/>
+            但是要注意, 接口中的变量会被隐式地指定为<code>public static final</code>变量.<br/>
+            接口中的方法<code>必须都是抽象方法</code>. </p>
+        <pre class="prettyprint"><code class="java language-java">public interface Pet{
 ...
 }
 </code></pre>
-<h2 id="10.2" class="alert alert-success" >10.2 接口的实现</h2>
-<p>一个类实现特定的接口需要使用<code>implements</code>关键字.<br />
-需要实现该接口中定义的方法, 如果没有全部实现, 需要将该类声明为<code>abstract</code>.   </p>
-<pre class="prettyprint"><code class="java language-java">public class Cat implements Pet {
+        <h2 id="10.2" class="alert alert-success">10.2 接口的实现</h2>
+        <p>一个类实现特定的接口需要使用<code>implements</code>关键字.<br/>
+            需要实现该接口中定义的方法, 如果没有全部实现, 需要将该类声明为<code>abstract</code>. </p>
+        <pre class="prettyprint"><code class="java language-java">public class Cat implements Pet {
 ...
 }
 </code></pre>
-<h2 id="10.3" class="alert alert-success" >10.3 示例代码</h2>
-<p><code>Pet</code>接口:</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession10;
+        <h2 id="10.3" class="alert alert-success">10.3 示例代码</h2>
+        <p><code>Pet</code>接口:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession10;
 
 
 /**
@@ -95,8 +102,8 @@ public interface Pet {
     public void eat();
 }
 </code></pre>
-<p><code>Cat</code>类:</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession10;
+        <p><code>Cat</code>类:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession10;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -112,8 +119,8 @@ public class Cat implements Pet {
     }
 }
 </code></pre>
-<p>入口类<code>Demo1</code>:</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession10;
+        <p>入口类<code>Demo1</code>:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession10;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -129,26 +136,26 @@ public class Demo1 {
     }
 }
 </code></pre>
-<p>输出:   </p>
-<pre><code>Cat eat.
+        <p>输出: </p>
+        <pre><code>Cat eat.
 4
 </code></pre>
-<h2 id="10.4" class="alert alert-success" >10.4 抽象类和接口的区别</h2>
-<p>语法层区别:   </p>
-<ul>
-<li>抽象类可以提供成员方法的实现细节, 而接口中只能存在<code>public abstract</code>方法.</li>
-<li>抽象类中的成员变量可以是各种类型, 而接口中的成员变量只能是<code>public static final</code>类型.</li>
-<li>接口中不能含有静态代码块以及静态方法, 而抽象类可以有静态代码块和静态方法.</li>
-<li>一个类只能继承一个抽象类, 而一个类却可以实现多个接口.</li>
-</ul>
-<p>设计层区别:   </p>
-<ul>
-<li>抽象类作为很多子类的父类, 它是一种模板式设计, 而接口是一种行为规范.</li>
-<li>抽象类和接口所反映的设计理念是不同的, 抽象类所代表的是<code>is-a</code>的关系, 而接口所代表的是<code>like-a</code>的关系.</li>
-</ul>
-<h2 id="10.5" class="alert alert-success" >10.5 相关文章</h2>
-<p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br />
-<a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a>   </p>
+        <h2 id="10.4" class="alert alert-success">10.4 抽象类和接口的区别</h2>
+        <p>语法层区别: </p>
+        <ul>
+            <li>抽象类可以提供成员方法的实现细节, 而接口中只能存在<code>public abstract</code>方法.</li>
+            <li>抽象类中的成员变量可以是各种类型, 而接口中的成员变量只能是<code>public static final</code>类型.</li>
+            <li>接口中不能含有静态代码块以及静态方法, 而抽象类可以有静态代码块和静态方法.</li>
+            <li>一个类只能继承一个抽象类, 而一个类却可以实现多个接口.</li>
+        </ul>
+        <p>设计层区别: </p>
+        <ul>
+            <li>抽象类作为很多子类的父类, 它是一种模板式设计, 而接口是一种行为规范.</li>
+            <li>抽象类和接口所反映的设计理念是不同的, 抽象类所代表的是<code>is-a</code>的关系, 而接口所代表的是<code>like-a</code>的关系.</li>
+        </ul>
+        <h2 id="10.5" class="alert alert-success">10.5 相关文章</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br/>
+            <a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
@@ -159,12 +166,12 @@ public class Demo1 {
     <hr>
     <nav>
         <ul class="pager">
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(8)：抽象方法与抽象类：abstract.html"><span>&larr;</span>上一篇</a>
-                </li>
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(10)：对象实例类型判断：instanceof.html">下一篇<span>&rarr;</span></a>
-                </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(8)：抽象方法与抽象类：abstract.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(10)：对象实例类型判断：instanceof.html">下一篇<span>&rarr;</span></a>
+            </li>
         </ul>
     </nav>
 </div>

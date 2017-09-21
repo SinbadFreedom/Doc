@@ -50,27 +50,33 @@
     <hr>
     <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
-                <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
-                <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
-                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
-                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+        <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #9"><h2>9 Java对象(8)：抽象方法与抽象类：abstract</h2></a><a class="single_line list-group-item" href="#9.1">9.1 抽象方法</a><a class="single_line list-group-item" href="#9.2">9.2 抽象类</a><a class="single_line list-group-item" href="#9.3">9.3 抽象类特点</a><a class="single_line list-group-item" href="#9.4">9.4 抽象类创建对象</a><a class="single_line list-group-item" href="#9.5">9.5 相关文章</a></div><div class="jumbotron">
-    <p>对于面向对象编程来说, 抽象是重要特征之一. </p>
-</div>
-<h2 id="9.1" class="alert alert-success" >9.1 抽象方法</h2>
-<p>抽象方法是一种特殊的方法, 只有声明, 而没有具体的实现. 抽象方法必须用<code>abstract</code>关键字进行修饰. 抽象方法的声明格式为:</p>
-<pre class="prettyprint"><code class="java language-java">public abstract void eat();
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #9"><h2>9
+            Java对象(8)：抽象方法与抽象类：abstract</h2></a><a class="single_line list-group-item" href="#9.1">9.1 抽象方法</a><a
+            class="single_line list-group-item" href="#9.2">9.2 抽象类</a><a class="single_line list-group-item"
+                                                                          href="#9.3">9.3 抽象类特点</a><a
+            class="single_line list-group-item" href="#9.4">9.4 抽象类创建对象</a><a class="single_line list-group-item"
+                                                                              href="#9.5">9.5 相关文章</a></div>
+        <div class="jumbotron">
+            <p>对于面向对象编程来说, 抽象是重要特征之一. </p>
+        </div>
+        <h2 id="9.1" class="alert alert-success">9.1 抽象方法</h2>
+        <p>抽象方法是一种特殊的方法, 只有声明, 而没有具体的实现. 抽象方法必须用<code>abstract</code>关键字进行修饰. 抽象方法的声明格式为:</p>
+        <pre class="prettyprint"><code class="java language-java">public abstract void eat();
 </code></pre>
-<h2 id="9.2" class="alert alert-success" >9.2 抽象类</h2>
-<p>如果一个类含有抽象方法，则称这个类为抽象类，抽象类必须在类前用<code>abstract</code>关键字修饰.</p>
-<div class="bs-callout bs-callout-warning">
-    <p>只要包含抽象方法, 必须命名为抽象类. 抽象类也可以包含普通方法.</p>
-</div>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession9;
+        <h2 id="9.2" class="alert alert-success">9.2 抽象类</h2>
+        <p>如果一个类含有抽象方法，则称这个类为抽象类，抽象类必须在类前用<code>abstract</code>关键字修饰.</p>
+        <div class="bs-callout bs-callout-warning">
+            <p>只要包含抽象方法, 必须命名为抽象类. 抽象类也可以包含普通方法.</p>
+        </div>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession9;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -82,18 +88,19 @@ public abstract class Pet {
     public abstract void eat();
 }
 </code></pre>
-<h2 id="9.3" class="alert alert-success" >9.3 抽象类特点</h2>
-<p>抽象类与普通类的区别:</p>
-<ol>
-<li>抽象方法必须为<code>public</code>或<code>protected</code>(<code>private</code>不能被子类继承,子类无法实现该方法), 缺省情况下默认为<code>public</code>.</li>
-<li>如果一个类继承于一个抽象类, 则子类必须实现父类的抽象方法. 如果子类没有实现父类的抽象方法, 则必须将子类也定义为为<code>abstract</code>类.</li>
-</ol>
-<h2 id="9.4" class="alert alert-success" >9.4 抽象类创建对象</h2>
-<p>网上好多教程中提到<code>抽象类不能用来创建对象</code>是真的吗?<br />
-答案是<code>假</code>的.   </p>
-<p>抽象类可以被用<code>new</code>的方式创建. 通过<code>匿名内部类</code>方式.<br />
-附带真相的代码:   </p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession9;
+        <h2 id="9.3" class="alert alert-success">9.3 抽象类特点</h2>
+        <p>抽象类与普通类的区别:</p>
+        <ol>
+            <li>抽象方法必须为<code>public</code>或<code>protected</code>(<code>private</code>不能被子类继承,子类无法实现该方法), 缺省情况下默认为<code>public</code>.
+            </li>
+            <li>如果一个类继承于一个抽象类, 则子类必须实现父类的抽象方法. 如果子类没有实现父类的抽象方法, 则必须将子类也定义为为<code>abstract</code>类.</li>
+        </ol>
+        <h2 id="9.4" class="alert alert-success">9.4 抽象类创建对象</h2>
+        <p>网上好多教程中提到<code>抽象类不能用来创建对象</code>是真的吗?<br/>
+            答案是<code>假</code>的. </p>
+        <p>抽象类可以被用<code>new</code>的方式创建. 通过<code>匿名内部类</code>方式.<br/>
+            附带真相的代码: </p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession9;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -116,19 +123,19 @@ public class Demo2 {
     }
 }
 </code></pre>
-<p>输出:   </p>
-<pre><code>Demo2 Pet eat.
+        <p>输出: </p>
+        <pre><code>Demo2 Pet eat.
 </code></pre>
-<div class="bs-callout bs-callout-warning">
-    <p>虽然可以用<code>new</code>的方式创建抽象类, 但不建议这么用, 这样做失去了抽象的意义.</p>
-</div>
-<div class="bs-callout bs-callout-info">
-    <p>示例代码中出现了`@Override`标签.`@Override`标签作用参考附件中链接.</p>
-</div>
-<h2 id="9.5" class="alert alert-success" >9.5 相关文章</h2>
-<p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br />
-<a href="http://dashidan.com/article/java/addenda/java中@Override标签作用.html">java中@Override标签作用</a><br />
-<a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a>   </p>
+        <div class="bs-callout bs-callout-warning">
+            <p>虽然可以用<code>new</code>的方式创建抽象类, 但不建议这么用, 这样做失去了抽象的意义.</p>
+        </div>
+        <div class="bs-callout bs-callout-info">
+            <p>示例代码中出现了`@Override`标签.`@Override`标签作用参考附件中链接.</p>
+        </div>
+        <h2 id="9.5" class="alert alert-success">9.5 相关文章</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br/>
+            <a href="http://dashidan.com/article/java/addenda/java中@Override标签作用.html">java中@Override标签作用</a><br/>
+            <a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
@@ -139,12 +146,12 @@ public class Demo2 {
     <hr>
     <nav>
         <ul class="pager">
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(7)：引用当前对象与父对象：this, super.html"><span>&larr;</span>上一篇</a>
-                </li>
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(9)：接口implements,interface.html">下一篇<span>&rarr;</span></a>
-                </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(7)：引用当前对象与父对象：this, super.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(9)：接口implements,interface.html">下一篇<span>&rarr;</span></a>
+            </li>
         </ul>
     </nav>
 </div>

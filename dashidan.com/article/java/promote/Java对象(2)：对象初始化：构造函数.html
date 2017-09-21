@@ -50,48 +50,55 @@
     <hr>
     <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
-                <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
-                <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
-                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
-                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+        <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #3"><h2>3 Java对象(2)：对象初始化：构造函数</h2></a><a class="single_line list-group-item" href="#3.1">3.1 构造函数的作用</a><a class="single_line list-group-item" href="#3.2">3.2 默认构造函数</a><a class="single_line list-group-item" href="#3.3">3.3 构造函数的特点</a><a class="single_line list-group-item" href="#3.4">3.4 通过构造函数初始化成员变量</a><a class="single_line list-group-item" href="#3.5">3.5 构造函数的执行</a><a class="single_line list-group-item" href="#3.6">3.6 相关文章</a></div><div class="jumbotron">
-<p>构造函数是一种特殊的函数. 构造函数与类名相同, 可以有参数也可以无参数, 在对象被创建时自动执行.</p>
-</div>
-<h2 id="3.1" class="alert alert-success" >3.1 构造函数的作用</h2>
-<ul>
-<li>在创建对象时完成完成对象数据成员的初始化</li>
-<li>为对象数据成员开辟内存空间</li>
-<li>为对象创建标识符</li>
-</ul>
-<h2 id="3.2" class="alert alert-success" >3.2 默认构造函数</h2>
-<p>当用户没有显式的定义构造函数时, 编译器会为类生成一个默认的构造函数, 称为<code>默认构造函数</code>.
-默认构造函数名与类名相同, 没有参数. </p>
-<div class="bs-callout bs-callout-warning">
-    <h4>默认构造函数</h4>
-    <p>默认构造函数在代码中看不到, 在编译时自动生成.</p>
-</div>
-<p>例:</p>
-<pre class="prettyprint"><code class="java language-java">public class Demo1 {
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #3"><h2>3
+            Java对象(2)：对象初始化：构造函数</h2></a><a class="single_line list-group-item" href="#3.1">3.1 构造函数的作用</a><a
+            class="single_line list-group-item" href="#3.2">3.2 默认构造函数</a><a class="single_line list-group-item"
+                                                                             href="#3.3">3.3 构造函数的特点</a><a
+            class="single_line list-group-item" href="#3.4">3.4 通过构造函数初始化成员变量</a><a class="single_line list-group-item"
+                                                                                    href="#3.5">3.5 构造函数的执行</a><a
+            class="single_line list-group-item" href="#3.6">3.6 相关文章</a></div>
+        <div class="jumbotron">
+            <p>构造函数是一种特殊的函数. 构造函数与类名相同, 可以有参数也可以无参数, 在对象被创建时自动执行.</p>
+        </div>
+        <h2 id="3.1" class="alert alert-success">3.1 构造函数的作用</h2>
+        <ul>
+            <li>在创建对象时完成完成对象数据成员的初始化</li>
+            <li>为对象数据成员开辟内存空间</li>
+            <li>为对象创建标识符</li>
+        </ul>
+        <h2 id="3.2" class="alert alert-success">3.2 默认构造函数</h2>
+        <p>当用户没有显式的定义构造函数时, 编译器会为类生成一个默认的构造函数, 称为<code>默认构造函数</code>.
+            默认构造函数名与类名相同, 没有参数. </p>
+        <div class="bs-callout bs-callout-warning">
+            <h4>默认构造函数</h4>
+            <p>默认构造函数在代码中看不到, 在编译时自动生成.</p>
+        </div>
+        <p>例:</p>
+        <pre class="prettyprint"><code class="java language-java">public class Demo1 {
     // 默认构造函数
     public Demo1(){
     }
 }
 </code></pre>
-<h2 id="3.3" class="alert alert-success" >3.3 构造函数的特点</h2>
-<p>无论是用户自定义的构造函数还是默认构造函数都主要有以下特点:</p>
-<ul>
-<li>在对象被创建时自动执行.</li>
-<li>构造函数的函数名与类名相同.</li>
-<li>没有返回值类型、也没有返回值.</li>
-<li>构造函数不能被显式调用.</li>
-</ul>
-<h2 id="3.4" class="alert alert-success" >3.4 通过构造函数初始化成员变量</h2>
-<p>例:</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession3;
+        <h2 id="3.3" class="alert alert-success">3.3 构造函数的特点</h2>
+        <p>无论是用户自定义的构造函数还是默认构造函数都主要有以下特点:</p>
+        <ul>
+            <li>在对象被创建时自动执行.</li>
+            <li>构造函数的函数名与类名相同.</li>
+            <li>没有返回值类型、也没有返回值.</li>
+            <li>构造函数不能被显式调用.</li>
+        </ul>
+        <h2 id="3.4" class="alert alert-success">3.4 通过构造函数初始化成员变量</h2>
+        <p>例:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession3;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -128,9 +135,9 @@ public class Demo2 {
     }
 }
 </code></pre>
-<h2 id="3.5" class="alert alert-success" >3.5 构造函数的执行</h2>
-<p>通常是通过<code>new</code>关键字创建对象时执行.</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession3;
+        <h2 id="3.5" class="alert alert-success">3.5 构造函数的执行</h2>
+        <p>通常是通过<code>new</code>关键字创建对象时执行.</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession3;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -150,21 +157,21 @@ public class Demo1 {
     }
 }
 </code></pre>
-<p>输出:   </p>
-<pre><code>Demo1运行开始
+        <p>输出: </p>
+        <pre><code>Demo1运行开始
 执行Demo2构造函数
 id 1 name 大屎蛋教程网 url dashidan.com
 Demo1: id 1 url dashidan.com name 大屎蛋教程网
 Demo1运行完毕
 </code></pre>
-<div class="bs-callout bs-callout-warning">
-    <h4>析构函数</h4>
-    <p>c++除了`构造函数`,还有`析构函数`的概念. 析构函数也是一种特殊的成员函数.  它执行与构造函数相反的操作,通常用于撤消对象时的一些清理任务,如释放分配给对象的内存空间等.
-Java中只有构造函数,而没有析构函数.</p>
-</div>
-<h2 id="3.6" class="alert alert-success" >3.6 相关文章</h2>
-<p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br />
-<a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a>   </p>
+        <div class="bs-callout bs-callout-warning">
+            <h4>析构函数</h4>
+            <p>c++除了`构造函数`,还有`析构函数`的概念. 析构函数也是一种特殊的成员函数. 它执行与构造函数相反的操作,通常用于撤消对象时的一些清理任务,如释放分配给对象的内存空间等.
+                Java中只有构造函数,而没有析构函数.</p>
+        </div>
+        <h2 id="3.6" class="alert alert-success">3.6 相关文章</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br/>
+            <a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
@@ -175,12 +182,12 @@ Java中只有构造函数,而没有析构函数.</p>
     <hr>
     <nav>
         <ul class="pager">
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(1)：对象简介：Object.html"><span>&larr;</span>上一篇</a>
-                </li>
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(3)：参数的值传递与引用传递.html">下一篇<span>&rarr;</span></a>
-                </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(1)：对象简介：Object.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(3)：参数的值传递与引用传递.html">下一篇<span>&rarr;</span></a>
+            </li>
         </ul>
     </nav>
 </div>

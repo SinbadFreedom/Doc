@@ -50,23 +50,27 @@
     <hr>
     <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
-                <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
-                <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
-                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
-                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+        <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #4"><h2>4 Java对象(3)：参数的值传递与引用传递：</h2></a><a class="single_line list-group-item" href="#4.1">4.1 值传递</a><a class="single_line list-group-item" href="#4.2">4.2 引用传递</a><a class="single_line list-group-item" href="#4.3">4.3 相关文章</a></div><div class="jumbotron">
-    <p>Java中方法中给变量赋值有2种方式: 值传递和引用传递. 传递基本类型,String参数时是值传递. 传递引用类型(Object对象, 集合类)参数时, 是引用传递.
-    </p>
-</div>
-<h2 id="4.1" class="alert alert-success" >4.1 值传递</h2>
-<p>传递的是值的拷贝. 也就是说传递参数时, 将值拷贝了一份, 与原有变量不再有关系.
-<code>基本类型</code>和<code>字符串</code>传递采用的是值传递.</p>
-<p>示例代码:</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession4;
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #4"><h2>4
+            Java对象(3)：参数的值传递与引用传递：</h2></a><a class="single_line list-group-item" href="#4.1">4.1 值传递</a><a
+            class="single_line list-group-item" href="#4.2">4.2 引用传递</a><a class="single_line list-group-item"
+                                                                           href="#4.3">4.3 相关文章</a></div>
+        <div class="jumbotron">
+            <p>Java中方法中给变量赋值有2种方式: 值传递和引用传递. 传递基本类型,String参数时是值传递. 传递引用类型(Object对象, 集合类)参数时, 是引用传递.
+            </p>
+        </div>
+        <h2 id="4.1" class="alert alert-success">4.1 值传递</h2>
+        <p>传递的是值的拷贝. 也就是说传递参数时, 将值拷贝了一份, 与原有变量不再有关系.
+            <code>基本类型</code>和<code>字符串</code>传递采用的是值传递.</p>
+        <p>示例代码:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession4;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -95,16 +99,16 @@ public class Demo1 {
     }
 }
 </code></pre>
-<p>输出:</p>
-<pre><code>changeValue num : 2
+        <p>输出:</p>
+        <pre><code>changeValue num : 2
 changeValue str : 大屎蛋dashidan.com
 原值 a : 1
 原值 name : 大屎蛋
 </code></pre>
-<h2 id="4.2" class="alert alert-success" >4.2 引用传递</h2>
-<p>引用传递是指给索引对象赋值时, 是将对象内存的地址作为参数传递. 新的对象与原有指向同一份数据. 当修改对象的变量时, 原有指向改数据的对象都<code>发生改变</code>.</p>
-<p>代码示例:</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession4;
+        <h2 id="4.2" class="alert alert-success">4.2 引用传递</h2>
+        <p>引用传递是指给索引对象赋值时, 是将对象内存的地址作为参数传递. 新的对象与原有指向同一份数据. 当修改对象的变量时, 原有指向改数据的对象都<code>发生改变</code>.</p>
+        <p>代码示例:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession4;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -127,8 +131,8 @@ public class Demo2 {
     }
 }
 </code></pre>
-<p><code>TestObject</code>类:</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession4;
+        <p><code>TestObject</code>类:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession4;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -148,15 +152,15 @@ public class TestObject {
     }
 }
 </code></pre>
-<p>输出:   </p>
-<pre><code>修改前 testObject1 name 大屎蛋教程网
+        <p>输出: </p>
+        <pre><code>修改前 testObject1 name 大屎蛋教程网
 修改前 testObject2 name 大屎蛋教程网
 修改后 testObject1 name dashidan.com
 修改后 testObject2 name dashidan.com
 </code></pre>
-<h2 id="4.3" class="alert alert-success" >4.3 相关文章</h2>
-<p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br />
-<a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a>   </p>
+        <h2 id="4.3" class="alert alert-success">4.3 相关文章</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br/>
+            <a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
@@ -167,12 +171,12 @@ public class TestObject {
     <hr>
     <nav>
         <ul class="pager">
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(2)：对象初始化：构造函数.html"><span>&larr;</span>上一篇</a>
-                </li>
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(4)：封装.html">下一篇<span>&rarr;</span></a>
-                </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(2)：对象初始化：构造函数.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(4)：封装.html">下一篇<span>&rarr;</span></a>
+            </li>
         </ul>
     </nav>
 </div>

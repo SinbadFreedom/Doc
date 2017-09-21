@@ -50,19 +50,24 @@
     <hr>
     <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
-                <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
-                <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
-                <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
-                <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+        <li><a href="http://dashidan.com/article/java/basic/index.html">基础篇</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/promote/index.html">进阶篇</a></li>
+        <li><a href="http://dashidan.com/article/java/advance/index.html">高级篇</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #5"><h2>5 Java对象(4)：封装</h2></a><a class="single_line list-group-item" href="#5.1">5.1 隐藏数据-private</a><a class="single_line list-group-item" href="#5.2">5.2 公开数据访问接口-public</a><a class="single_line list-group-item" href="#5.4">5.4 示例代码</a><a class="single_line list-group-item" href="#5.5">5.5 相关文章</a></div><p>封装是把过程和数据隐藏起来,对数据的访问只能通过已定义的接口. 面向对象计算始于这个基本概念.</p>
-<h2 id="5.1" class="alert alert-success" >5.1 隐藏数据-private</h2>
-<p>通过<code>private</code>关键字可以将变量或者方法设置为只有本类可以访问, 其他类无法访问该数据, 这样便实现了数据的隐藏.</p>
-<p>比如, 你有一只宠物, 宠物的名字你不希望别人随便改, 可以将宠物的名字设置为私有<code>private</code>.</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession5;
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #5"><h2>5
+            Java对象(4)：封装</h2></a><a class="single_line list-group-item" href="#5.1">5.1 隐藏数据-private</a><a
+            class="single_line list-group-item" href="#5.2">5.2 公开数据访问接口-public</a><a
+            class="single_line list-group-item" href="#5.4">5.4 示例代码</a><a class="single_line list-group-item"
+                                                                           href="#5.5">5.5 相关文章</a></div>
+        <p>封装是把过程和数据隐藏起来,对数据的访问只能通过已定义的接口. 面向对象计算始于这个基本概念.</p>
+        <h2 id="5.1" class="alert alert-success">5.1 隐藏数据-private</h2>
+        <p>通过<code>private</code>关键字可以将变量或者方法设置为只有本类可以访问, 其他类无法访问该数据, 这样便实现了数据的隐藏.</p>
+        <p>比如, 你有一只宠物, 宠物的名字你不希望别人随便改, 可以将宠物的名字设置为私有<code>private</code>.</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession5;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -74,10 +79,10 @@ public class Pet {
     private String name;
 }
 </code></pre>
-<h2 id="5.2" class="alert alert-success" >5.2 公开数据访问接口-public</h2>
-<p>你这只宠物的名字编程私有之后, 你希望给他改个名字, 可以将改名的方法设置为公开方法. 这样就能通过统一的开放接口来设置宠物的名字. 并且可以开放一个获取名字的接口, 来获得这个私有的属性值.
-例:</p>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession5;
+        <h2 id="5.2" class="alert alert-success">5.2 公开数据访问接口-public</h2>
+        <p>你这只宠物的名字编程私有之后, 你希望给他改个名字, 可以将改名的方法设置为公开方法. 这样就能通过统一的开放接口来设置宠物的名字. 并且可以开放一个获取名字的接口, 来获得这个私有的属性值.
+            例:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession5;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -105,8 +110,8 @@ public class Pet {
     }
 }
 </code></pre>
-<h2 id="5.4" class="alert alert-success" >5.4 示例代码</h2>
-<pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession5;
+        <h2 id="5.4" class="alert alert-success">5.4 示例代码</h2>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.promote.lession5;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -122,12 +127,12 @@ public class Demo1 {
     }
 }
 </code></pre>
-<p>输出:</p>
-<pre><code>哈拆迁
+        <p>输出:</p>
+        <pre><code>哈拆迁
 </code></pre>
-<h2 id="5.5" class="alert alert-success" >5.5 相关文章</h2>
-<p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br />
-<a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a>   </p>
+        <h2 id="5.5" class="alert alert-success">5.5 相关文章</h2>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br/>
+            <a href="http://dashidan.com/article/java/promote/index.html">Java教程进阶篇</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
@@ -138,12 +143,12 @@ public class Demo1 {
     <hr>
     <nav>
         <ul class="pager">
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(3)：参数的值传递与引用传递.html"><span>&larr;</span>上一篇</a>
-                </li>
-                <li>
-                    <a href="http://dashidan.com/article/java/promote/Java对象(5)：继承：extends.html">下一篇<span>&rarr;</span></a>
-                </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(3)：参数的值传递与引用传递.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/promote/Java对象(5)：继承：extends.html">下一篇<span>&rarr;</span></a>
+            </li>
         </ul>
     </nav>
 </div>
