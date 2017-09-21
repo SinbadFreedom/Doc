@@ -39,13 +39,13 @@ Intellij IDEA可以说是目前最好的java开发工具了.
 6 项目目录结构
 ---
 
-以java项目为例
-`src`为源码目录
-`com.dashidan`以网站域名倒叙作为包名
-`base`目录对应基础篇源码
-`advance`目录对应进阶篇源码
-`master`目录对应高级篇源码
-`addenda`目录对应附件源码
+以java项目为例   
+`src`为源码目录   
+`com.dashidan`以网站域名倒叙作为包名   
+`base`目录对应基础篇源码   
+`advance`目录对应进阶篇源码   
+`master`目录对应高级篇源码   
+`addenda`目录对应附件源码   
 
 每个目录中有子目录:   
 
@@ -63,7 +63,7 @@ Intellij IDEA可以说是目前最好的java开发工具了.
                     -lession6 6.Java基础类型变量 对应的源码
                     ...
                 -promote 进阶篇对应源码
-                    -lession3 3.HelloWorld 对应的源码
+                    -lession3 3.Java对象(2)：对象初始化：构造函数 对应的源码
                     ...
                     
 		
@@ -71,12 +71,12 @@ Intellij IDEA可以说是目前最好的java开发工具了.
 ---
 
 在想运行的源码上点击右键(例如:`HelloWorld`)->`Run 'HelloWrold.main()'`.   
-下方的控制会输出运行结果.   
+  
 
 如图:
 ![图f1-1](http://localhost/img/java/addenda/f1-1.png)
 
-8 查看代码运行输出
+8 查看控制台输出
 ---
 
 在IDE(代码编辑器)的下方是控制台区, 会显示程序输出

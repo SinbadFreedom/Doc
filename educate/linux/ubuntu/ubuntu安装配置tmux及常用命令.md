@@ -24,4 +24,12 @@ ubuntu安装配置tmux及常用命令
 ---
 
 [tmux常用命令](http://localhost/article/linux/common/tmux常用命令及快捷键.html)   
-[centos安装tmux及常用命令](http://localhost/article/linux/centos/centos安装tmux及常用命令.html)    
+[centos安装tmux及常用命令](http://localhost/article/linux/centos/centos安装tmux及常用命令.html) 
+
+[ubuntu安装配置nginx+mysql+php+php-fpm](http://localhost/article/linux/ubuntu/ubuntu安装配置nginx+mysql+php+php-fpm.html)    
+[ubuntu安装配置mongodb及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html)   
+[ubuntu安装配置redis及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置redis及常用命令.html)    
+[ubuntu安装配置svn及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置svn及常用命令.html)    
+[ubuntu安装配置redis及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置tmux及常用命令.html)    
+[ubuntu安装配置zookeeper及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置redis及常用命令.html)    
+[ubuntu安装配置apollo及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置apollo及常用命令.html)      

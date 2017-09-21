@@ -27,13 +27,37 @@ mongodb配置及常用命令
 4. 常用命令
 ---
 
-　　show dbs: 查看所有数据库
-　　show collections: 查看当前数据库下所有集合
-　　help: 查看帮助文档
-　　db.help(): 在数据库级别查看帮助信息
-　　db.users.help(): 在集合级别查看帮助信息
-　　db.users.drop(): 删除集合
-　　db.dropDatabase(): 删除数据库
+###查看所有数据库
+
+	show dbs;
+
+###选择数据库
+
+	use db_name;
+
+###查看当前数据库下所有集合
+
+	show collections;
+
+###查看帮助文档
+
+	help;
+
+###在数据库级别查看帮助信息
+
+	db.help();
+
+###在集合级别查看帮助信息
+
+	db.collection_name.help();
+
+###删除集合
+
+	db.collection_name.drop();
+
+###删除数据库
+
+	db.dropDatabase();
 
 5. 数据库备份
 ---
@@ -86,31 +110,10 @@ mongodb配置及常用命令
 	-headerline: 批明不导入第一行,因为第一行是列名
 	-file: 指明要导入的文件路径
 
-
-9. 其他导入与导出操作
----
-1.
-	mongoimport -d my_mongodb -c user user.dat
-	
-参数说明:
-
-	-d 指明使用的库, 本例中为”my_mongodb”
-	-c 指明要导出的表, 本例中为”user”
-	可以看到导入数据的时候会隐式创建表结构
-	
-2.
-
-	mongoexport -d my_mongodb -c user -o user.dat	
-	
-参数说明:	
-
-	-d 指明使用的库, 本例中为”my_mongodb”	
-	-c 指明要导出的表, 本例中为”user”	
-	-o 指明要导出的文件名, 本例中为”user.dat”
-	
-10. 相关文章
+9. 相关文章
 ---
 
 [mongodb配置及常用命令](http://localhost/article/linux/common/mongodb配置及常用命令.html)   
 [mongodb的导入导出及备份恢复](http://localhost/article/linux/common/mongodb的导入导出及备份恢复.html)   
-[ubuntu安装配置mongodb及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html)
+[ubuntu安装配置mongodb及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html)   
+[linux通用命令及配置](http://localhost/article/linux/common/index.html)   

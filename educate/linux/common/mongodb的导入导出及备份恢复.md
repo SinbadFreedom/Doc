@@ -5,7 +5,7 @@ mongodb的导入导出及备份恢复
 <p>mongodb是高效的NoSQL类型数据库.</p>  
 </div>
 
-1 mongodb导出
+1. mongodb导出
 ---
 
 `mongoDB`中的`mongoexport`工具可以把一个`collection`导出成`JSON`格式或`CSV`格式的文件.可以通过参数指定导出的数据项,也可以根据指定的条件导出数据.  
@@ -27,7 +27,7 @@ mongodb导出命令:
 
 	sudo mongoexport -d mongotest -c users -q "{'username' : 'test'}" -o /home/python/Desktop/mongoDB/users.json --type json -f  "_id,user_id,user_name,age,status" 
  
-2 mongodb数据导入
+2. mongodb数据导入
 ---
 
 mongodb数据导入命令:
@@ -48,7 +48,7 @@ mongodb数据导入命令:
 	sudo mongoimport -d mongotest -c users --file /home/mongodump/articles.json --type json
  
 
-3 MongoDB数据库备份
+3. MongoDB数据库备份
 ---
 MongoDB数据库备份命令:
 
@@ -66,7 +66,7 @@ MongoDB数据库备份命令:
 	sudo mkdir -p /home/momgodump
 	sudo mongodump -h 127.0.0.1:27017 -d dbdata -o /home/mongodump/
         
-4 MongoDB数据库恢复
+4. MongoDB数据库恢复
 ---
 MongoDB数据库恢复命令:
 
@@ -83,10 +83,10 @@ MongoDB数据库恢复命令:
 
 	mongorestore -h 127.0.0.1:27017 -d dbdata_restore --dir /home/mongodump/dbdata/
 	
-5 相关文章
+5. 相关文章
 ---
-
 
 [mongodb配置及常用命令](http://localhost/article/linux/common/mongodb配置及常用命令.html)   
 [mongodb的导入导出及备份恢复](http://localhost/article/linux/common/mongodb的导入导出及备份恢复.html)   
-[ubuntu安装配置mongodb及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html)
+[ubuntu安装配置mongodb及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html)   
+[linux通用命令及配置](http://localhost/article/linux/common/index.html)    

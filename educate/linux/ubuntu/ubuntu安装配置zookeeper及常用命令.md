@@ -36,6 +36,16 @@ ubuntu安装配置zookeeper及常用命令
 
 	telnet 203.195.161.167 2181
 
+8. 相关文章
+---
+
+[ubuntu安装配置nginx+mysql+php+php-fpm](http://localhost/article/linux/ubuntu/ubuntu安装配置nginx+mysql+php+php-fpm.html)    
+[ubuntu安装配置mongodb及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html)   
+[ubuntu安装配置redis及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置redis及常用命令.html)    
+[ubuntu安装配置svn及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置svn及常用命令.html)    
+[ubuntu安装配置redis及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置tmux及常用命令.html)    
+[ubuntu安装配置zookeeper及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置redis及常用命令.html)    
+[ubuntu安装配置apollo及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置apollo及常用命令.html)   
 
 
 

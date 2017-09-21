@@ -1,7 +1,7 @@
 tmux常用命令及快捷键
 ===
 
-1 tmux常用命令
+1. tmux常用命令
 ---
 
 ###显示已有tmux会话
@@ -25,7 +25,7 @@ tmux常用命令及快捷键
 
     Ctrl + b 再按 d
     
-2 tmux快捷键
+2. tmux快捷键
 ---
 
 tmux 快捷键通过`Ctrl + b`来调用.
@@ -54,8 +54,9 @@ Ctrl + b [ 复制(空格开始)
 Ctrl + b ] 粘贴（回车结束）   
 Ctrl + b ,　给当前窗口改名   
 
-3 相关链接
+3. 相关文章
 ---
 
 [ubuntu安装tmux及常用命令](http://localhost/article/linux/ubuntu/ubuntu安装配置tmux及常用命令.html)   
 [centos安装tmux及常用命令](http://localhost/article/linux/centos/centos安装tmux及常用命令.html)   
+[linux通用命令及配置](http://localhost/article/linux/common/index.html)   
