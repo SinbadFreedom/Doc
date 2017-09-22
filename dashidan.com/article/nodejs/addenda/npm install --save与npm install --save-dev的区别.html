@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>npm install --save与npm install --save-dev的区别</title>
+    <meta name="description" content="npm install --save与npm install --save-dev的区别">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/nodejs/index.html">Nodejs教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://dashidan.com/article/nodejs/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #npm"><h2>npm
+            install --save与npm install --save-dev的区别</h2></a><a class="single_line list-group-item" href="#1.">1. npm
+            install不带--save和--save-dev参数</a><a class="single_line list-group-item" href="#2.">2. npm install
+            --save</a><a class="single_line list-group-item" href="#3.">3. npm install --save-dev</a><a
+            class="single_line list-group-item" href="#4.">4. 使用原则</a></div>
+        <h2 id="1." class="alert alert-success">1. npm install不带--save和--save-dev参数</h2>
+        <ul>
+            <li>把模块安装到当前目录<code>node_modules</code>目录中.</li>
+            <li>不修改<code>package.json</code>.</li>
+            <li>之后运行<code>npm install</code>命令时,不会自动安装这个模块.</li>
+        </ul>
+        <h2 id="2." class="alert alert-success">2. npm install --save</h2>
+        <ul>
+            <li>把模块安装到node_modules目录中.</li>
+            <li>在<code>package.json</code>的<code>dependencies</code>属性下添加这个模块.</li>
+            <li>之后运行<code>npm install</code>命令时,会自动安装这个模块到<code>node_modules</code>目录中.</li>
+            <li>之后运行<code>npm install --production</code> 或者注明<code>NODE_ENV</code>变量值为<code>production</code>时,
+                会自动安装这个模块到<code>node_modules</code>目录中.
+            </li>
+        </ul>
+        <h2 id="3." class="alert alert-success">3. npm install --save-dev</h2>
+        <ul>
+            <li>把msbuild包安装到node_modules目录中.</li>
+            <li>在package.json的<code>devDependencies</code>属性下添加这个模块.</li>
+            <li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
+            <li>之后运行<code>npm install --production</code>或者注明NODE_ENV变量值为production时,
+                不会自动安装这个模块到<code>node_modules</code>目录中.
+            </li>
+        </ul>
+        <h2 id="4." class="alert alert-success">4. 使用原则</h2>
+        <p>运行时需要用到的包使用<code>--save</code>,否则使用<code>--save-dev</code>.</p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/nodejs/index.html">Nodejs教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="http://dashidan.com/article/nodejs/addenda/npm install -g与--save参数.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/nodejs/addenda/linux安装nodejs5.0以上版本及版本切换.html">下一篇<span>&rarr;</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

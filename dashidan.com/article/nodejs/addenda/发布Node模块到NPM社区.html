@@ -1,0 +1,148 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>发布Node模块到NPM社区</title>
+    <meta name="description" content="发布Node模块到NPM社区">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/nodejs/index.html">Nodejs教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://dashidan.com/article/nodejs/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #发布node模块到npm社区">
+            <h2>发布node模块到npm社区</h2></a><a class="single_line list-group-item" href="#1.">1. 安装nrm方便切换npm源</a><a
+            class="single_line list-group-item" href="#2.">2. 查看可用源</a><a class="single_line list-group-item"
+                                                                          href="#3.">3. 发布前需要切换到npm的默认源</a><a
+            class="single_line list-group-item" href="#4.">4. 如果使用grunt需要重新打包,没有使用跳过</a><a
+            class="single_line list-group-item" href="#5.">5. 修改版本号</a><a class="single_line list-group-item"
+                                                                          href="#6.">6. 注册npmjs.com的账号, 已有账号跳过.</a><a
+            class="single_line list-group-item" href="#7.">7. 添加npm账号</a><a class="single_line list-group-item"
+                                                                            href="#8.">8. 发布</a><a
+            class="single_line list-group-item" href="#9.">9. 切换回国内源更新</a></div>
+        <div class="jumbotron">
+            <p>nodejs项目中`node_moudle`目录中的代码是从npm源中下载下来. 发布到npm社区后, 可以在`package.json`文件中添加依赖, 执行`npm install`自动下载.
+                非常方便.</p>
+        </div>
+        <h2 id="1." class="alert alert-success">1. 安装nrm方便切换npm源</h2>
+        <pre><code>npm install nrm
+</code></pre>
+        <h2 id="2." class="alert alert-success">2. 查看可用源</h2>
+        <pre><code>nrm ls
+</code></pre>
+        <div class="bs-callout bs-callout-success">
+            <p>当前使用的源前边有`*`标识</p>
+        </div>
+        <h2 id="3." class="alert alert-success">3. 发布前需要切换到npm的默认源</h2>
+        <pre><code>nrm use npm
+</code></pre>
+        <h2 id="4." class="alert alert-success">4. 如果使用grunt需要重新打包,没有使用跳过</h2>
+        <pre><code>grunt build --force
+</code></pre>
+        <h2 id="5." class="alert alert-success">5. 修改版本号</h2>
+        <p>第一次提交默认版本号1.0.0, 采用默认即可. 后续修改,需要比原版本号高.
+            例:</p>
+        <pre><code>1.0.0
+</code></pre>
+        <p>改为:</p>
+        <pre><code>1.0.1
+</code></pre>
+        <h2 id="6." class="alert alert-success">6. 注册npmjs.com的账号, 已有账号跳过.</h2>
+        <p>注册地址: <a href="http://npmjs.com">npmjs.com</a></p>
+        <div class="bs-callout bs-callout-warning">
+            <p>这个是npmjs.com的账号,不是github的账号, 账号名都为小写.</p>
+        </div>
+        <h2 id="7." class="alert alert-success">7. 添加npm账号</h2>
+        <pre><code>npm adduser
+</code></pre>
+        <p>按照提示, 输入上一步注册的账号, 邮箱和密码. </p>
+        <div class="bs-callout bs-callout-warning">
+            <p>有时提示需要验证邮件. 如果没有收到验证邮件, 可以登陆npmjs.com, 上方有个提示`重新发送验证邮件`. 点击重新发送即可收到.
+            </p>
+        </div>
+        <h2 id="8." class="alert alert-success">8. 发布</h2>
+        <pre><code>npm publish
+</code></pre>
+        <h2 id="9." class="alert alert-success">9. 切换回国内源更新</h2>
+        <pre><code>nrm use taobao
+</code></pre>
+        <div class="bs-callout bs-callout-warning">
+            <p>由于网络问题如果不切换到国内的源下载会很慢.
+            </p>
+        </div>
+        <p>好了, npm世界尽在掌控之中.</p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/nodejs/index.html">Nodejs教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="http://dashidan.com/article/nodejs/addenda/npm切换源.html"><span>&larr;</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/nodejs/addenda/npm install -g与--save参数.html">下一篇<span>&rarr;</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>
