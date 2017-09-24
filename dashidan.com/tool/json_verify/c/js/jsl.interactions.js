@@ -45,9 +45,9 @@ jsl.interactions = (function () {
     var reformatParam,
         reformat,
         compress;
-    
+
     /******* UTILITY METHODS *******/
-    
+
     /**
      * Get the Nth position of a character in a string
      * @searchStr the string to search through
@@ -59,24 +59,24 @@ jsl.interactions = (function () {
     function getNthPos(searchStr, char, pos) {
         var i,
             charCount = 0,
-            strArr = searchStr.split(char);
-        
+            strArr    = searchStr.split(char);
+
         if (pos === 0) {
             return 0;
         }
-        
+
         for (i = 0; i < pos; i++) {
             if (i >= strArr.length) {
                 return -1;
             }
-            
+
             // +1 because we split out some characters
             charCount += strArr[i].length + char.length;
         }
-        
+
         return charCount;
     }
-    
+
     /**
      * Get a URL parameter from the current windows URL.
      * Courtesy Paul Oppenheim: http://stackoverflow.com/questions/1403888/get-url-parameter-with-jquery
@@ -91,9 +91,9 @@ jsl.interactions = (function () {
             return null;
         }
     }
-    
+
     /******* INTERACTION METHODS *******/
-    
+
     /**
      * Validate the JSON we've been given, displaying an error or success message.
      * @return void
@@ -105,21 +105,21 @@ jsl.interactions = (function () {
             lineEnd,
             jsonVal,
             result;
-        
+
         jsonVal = $('#json_input').val();
-        
+
         try {
             result = jsl.parser.parse(jsonVal);
-            
+
             if (result) {
                 $('#results').removeClass('error').addClass('success');
                 $('#json_input').removeClass('redBorder').addClass('greenBorder');
                 $('#results').text('正确的JSON格式');
-                
+
                 if (reformat) {
                     $('#json_input').val(JSON.stringify(JSON.parse(jsonVal), null, "    "));
                 }
-                
+
                 if (compress) {
                     $('#json_input').val(JSON.stringify(JSON.parse(jsonVal), null, ""));
                 }
@@ -127,7 +127,7 @@ jsl.interactions = (function () {
                 alert("An unknown error occurred. Please contact Arc90.");
             }
         } catch (parseException) {
-            
+
             /**
              * If we failed to validate, run our manual formatter and then re-validate so that we
              * can get a better line number. On a successful validate, we don't want to run our
@@ -142,34 +142,34 @@ jsl.interactions = (function () {
             } catch (e) {
                 parseException = e;
             }
-            
+
             lineMatches = parseException.message.match(/line ([0-9]*)/);
             if (lineMatches && typeof lineMatches === "object" && lineMatches.length > 1) {
                 lineNum = parseInt(lineMatches[1], 10);
-                
+
                 if (lineNum === 1) {
                     lineStart = 0;
                 } else {
                     lineStart = getNthPos(jsonVal, "\n", lineNum - 1);
                 }
-                
+
                 lineEnd = jsonVal.indexOf("\n", lineStart);
                 if (lineEnd < 0) {
                     lineEnd = jsonVal.length;
                 }
-                
+
                 $('#json_input').focus().caret(lineStart, lineEnd);
             }
-            
+
             $('#results').text(parseException.message);
-            
+
             $('#results').removeClass('success').addClass('error');
             $('#json_input').removeClass('greenBorder').addClass('redBorder');
         }
-        
+
         $('#loadSpinner').hide();
     }
-    
+
     /**
      * Initialize variables, add event listeners, etc.
      *
@@ -180,44 +180,44 @@ jsl.interactions = (function () {
         reformat = reformatParam !== '0' && reformatParam !== 'no';
         compress = reformatParam === 'compress',
             jsonParam = getURLParameter('json');
-        
+
         if (compress) {
             $('#headerText').html('JSONLint<span class="light">Compressor</span>');
         }
-        
+
         if (!reformat) {
             $('#headerText').html('JSONLint<span class="light">Lite</span>');
         }
-        
+
         $('#validate').click(function () {
             $('#results_header, #loadSpinner').show();
-            
+
             $.trim($('#json_input').val());
             validate();
-            
+
             return false;
         });
-        
+
         $('#json_input').keyup(function () {
             $('#json_input').removeClass('greenBorder').removeClass('redBorder');
         }).linedtextarea({
-            selectedClass: 'lineselect'
-        }).focus();
-        
+                             selectedClass: 'lineselect'
+                         }).focus();
+
         $('#reset').click(function () {
             $('#json_input').val('').focus();
         });
-        
+
         $('#faqButton').click(function () {
             $('#faq').slideToggle();
         });
-        
+
         if (jsonParam) {
             $('#json_input').val(jsonParam);
             $('#validate').click();
         }
     }
-    
+
     return {
         'init': init
     };

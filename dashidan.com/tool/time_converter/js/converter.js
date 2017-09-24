@@ -10,19 +10,20 @@ function random(min, max) {
 
 function generateExamples(config) {
     "use strict";
-    var time = new Date(),
+    var time            = new Date(),
         examplesElement = document.getElementById('examples'),
-        examples = '',
+        examples        = '',
         timestamp;
-    
+
     timestamp = parseInt(time.getTime() / 1000 - i * (100 + random(0, 42)), 10);
     examples += '<p class="distime" data-time="' + timestamp + '">' + timestamp + '</p>';
     examplesElement.innerHTML +=
-        '<p class="distime" data-time="' + parseInt(time.getTime() / 1000 - parseInt(eval(config.time), 10), 10) + '">' + parseInt(time.getTime()
-            / 1000
-            - parseInt(eval(config.time),
-                10),
-            10) + '</p>'
+        '<p class="distime" data-time="' + parseInt(time.getTime() / 1000 - parseInt(eval(config.time), 10), 10) + '">'
+        + parseInt(time.getTime()
+                   / 1000
+                   - parseInt(eval(config.time),
+                              10),
+                   10) + '</p>'
         + examples;
 }
 
@@ -32,7 +33,7 @@ function init() {
         hash,
         i,
         userLang = navigator.language || navigator.userLanguage;
-    
+
     config = {'lang': userLang, 'time': '60*60*24', 'detail': 1};
     hash = window.location.hash.replace('#', '').split('&');
     for (i = 0; i < hash.length; i += 1) {

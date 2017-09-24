@@ -149,7 +149,8 @@
         function newCanvas() {
             //define and resize canvas
             $("#content").height($(window).height() - 90);
-            var canvas = '<canvas id="canvas" width="' + $(window).width() + '" height="' + ($(window).height() - 90) + '"></canvas>';
+            var canvas = '<canvas id="canvas" width="' + $(window).width() + '" height="' + ($(window).height() - 90)
+                         + '"></canvas>';
             $("#content").html(canvas);
 
             // setup canvas
@@ -257,8 +258,8 @@
             // for debug purpose to print out accelerometer values
             var element = document.getElementById('debug');
             element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
-                'Acceleration Y: ' + acceleration.y + '<br />' +
-                'Acceleration Z: ' + acceleration.z;
+                                'Acceleration Y: ' + acceleration.y + '<br />' +
+                                'Acceleration Z: ' + acceleration.z;
 
             // hide the accelerometer aka etch on/off button
             $("#etch").show();

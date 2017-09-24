@@ -6,23 +6,23 @@ var jsl = typeof jsl === 'undefined' ? {} : jsl;
  *
  **/
 jsl.format = (function () {
-    
+
     function repeat(s, count) {
         return new Array(count + 1).join(s);
     }
-    
+
     function formatJson(json) {
-        var i = 0,
-            il = 0,
-            tab = "    ",
-            newJson = "",
+        var i           = 0,
+            il          = 0,
+            tab         = "    ",
+            newJson     = "",
             indentLevel = 0,
-            inString = false,
+            inString    = false,
             currentChar = null;
-        
+
         for (i = 0, il = json.length; i < il; i += 1) {
             currentChar = json.charAt(i);
-            
+
             switch (currentChar) {
                 case '{':
                 case '[':
@@ -74,10 +74,10 @@ jsl.format = (function () {
                     break;
             }
         }
-        
+
         return newJson;
     }
-    
+
     return {"formatJson": formatJson};
-    
+
 }());
