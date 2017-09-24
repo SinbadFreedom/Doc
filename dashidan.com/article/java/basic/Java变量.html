@@ -291,8 +291,26 @@ a
 20251
 </code></pre>
         <h3>2. 字符串类型变量</h3>
-        <p>字符串类型是对象类型, 不属于基础类型. 赋值的时候属于值传递.
-            字符串赋值常用有2中方式: 直接通过<code>=</code>赋值, 和通过<code>new String()</code> 的方式创建字符串对象赋值.</p>
+        <p>字符串类型是对象类型, 不属于基础类型. 赋值的时候属于值传递.<br/>
+            String是所有语言中最常用的一个类.在Java中,String是不可变的、final的.Java在运行时也保存了一个字符串池(String pool),这使得String成为了一个特别的类.</p>
+        <div class="bs-callout bs-callout-warning">
+            <h4>java中字符串为什么是不可变的?</h4>
+            <p>只有当字符串是不可变的,字符串池才有可能实现.字符串池的实现可以在运行时节约很多heap空间,因为不同的字符串变量都指向池中的同一个字符串.
+                但如果字符串是可变的,那么`String interning`将不能实现(译者注：String
+                interning是指对不同的字符串仅仅只保存一个,即不会保存多个相同的字符串.),因为这样的话,如果变量改变了它的值,那么其它指向这个值的变量的值也会一起改变.
+                如果字符串是可变的,那么会引起很严重的安全问题.譬如,数据库的用户名、密码都是以字符串的形式传入来获得数据库的连接,或者在socket编程中,主机名和端口都是以字符串的形式传入, 这个值如果被修改,
+                将会带来很严重的安全隐患.
+            <p>
+        </div>
+        <div class="bs-callout bs-callout-success">
+            <h4>java中字符串不可变有什么优点?</h4>
+            <p>* 由于字符串的值是不可变的, 无改变字符串指向的对象的值,避免安全漏洞. </p>
+            <p>* 多线程安全, 同一个字符串实例可以被多个线程共享.这样便不用因为线程安全问题而使用同步.字符串自己便是线程安全的.</p>
+            <p>*
+                类加载器要用到字符串,不可变性提供了安全性,以便正确的类被加载.譬如你想加载java.sql.Connection类,而这个值被改成了myhacked.Connection,那么会对你的数据库造成不可知的破坏.</p>
+            <p>* 在它创建的时候hashcode就被缓存了,不需要重新计算.这就使得字符串很适合作为Map中的键,字符串的处理速度要快过其它的键对象.这就是HashMap中的键往往都使用字符串.</p>
+        </div>
+        <p>字符串赋值常用有2种方式: 直接通过<code>=</code>赋值, 和通过<code>new String()</code> 的方式创建字符串对象赋值.</p>
         <pre class="prettyprint"><code class="java language-java">String s1 = "test0";
 String s2 = new String("test1");
 String s3 = new String(s2);
@@ -313,7 +331,7 @@ String s2 = s0 + s1;
         <div class="bs-callout bs-callout-warning">
             <h4>字符串比较==</h4>
             <p>Java的虚拟机处理字符串相同的时候很神奇. 通常`==`对于引用类型的变量来说是判断内存地址是否相同.
-                但字符串这里虚拟机进行了优化, 会自动判断上下文中是否有相同的字符串, 如果有相同的字符串, 则直接把原有的字符串对象拿来使用, 不重新创建字符串对象.
+                但字符串这里虚拟机进行了优化, 会通过Java独有的"字符串池"技术, 自动判断上下文中是否有相同的字符串, 如果有相同的字符串, 则直接把原有的字符串对象拿来使用, 不重新创建字符串对象.
                 如果字符串发生改变则自动创建一个新的字符串对象.</p>
         </div>
         <p>示例代码:</p>
@@ -337,11 +355,11 @@ public class Demo2 {
         System.out.println("2 equals isSame : " + isSame);
         isSame = s0.equals(s2);
         System.out.println("3 equals isSame : " + isSame);
-        /** s2 是通过new的方式从新创建的字符串对象，s0 s2 指向不同的内存地址*/
+        /** s2 是通过new的方式从新创建的字符串对象,s0 s2 指向不同的内存地址*/
         isSame = (s0 == s2);
         System.out.println("4 == isSame : " + isSame);
         isSame = (s0 == s1);
-        /** 这里里的赋值，java虚拟机做了处理，自动指向了同一个字符串*/
+        /** 这里里的赋值,java虚拟机做了处理,自动指向了同一个字符串*/
         System.out.println("5 == isSame : " + isSame);
         /** 改变字符串 s0*/
         s0 += "aaa";
@@ -349,7 +367,7 @@ public class Demo2 {
         System.out.println("s0 " + s0);
         /** s1 没有发生变化*/
         System.out.println("s1 " + s1);
-        /** 字符串s0 发生改变，虚拟机自动新建了一个字符串对象，s0 s1不再指向同一个字符串*/
+        /** 字符串s0 发生改变,虚拟机自动新建了一个字符串对象,s0 s1不再指向同一个字符串*/
         isSame = (s0 == s1);
         System.out.println("6 == isSame : " + isSame);
     }
