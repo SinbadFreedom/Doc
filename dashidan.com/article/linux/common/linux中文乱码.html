@@ -9,6 +9,7 @@
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -65,24 +66,24 @@
         <div class="jumbotron">
             <p>linux部分系统默认语言设置为英文, 会导致中文显示乱码.</p>
         </div>
-        <h4 id="1." class="alert alert-success">1. 查看系统编码 </h4>
+        <a href="#top" id="1."><b>1. 查看系统编码 🔝</b></a>
         <pre><code>echo $LANG
 </code></pre>
-        <h4 id="2." class="alert alert-success">2. 修改编码</h4>
+        <a href="#top" id="2."><b>2. 修改编码🔝</b></a>
         <pre><code>export LANG=zh_CN.UTF-8
 </code></pre>
-        <h4 id="3." class="alert alert-success">3. 修改/etc/environment</h4>
+        <a href="#top" id="3."><b>3. 修改/etc/environment🔝</b></a>
         <pre><code>vim /etc/environment
 </code></pre>
         <p>文件末尾加入:</p>
         <pre><code>LANG="zh_CN:zh:en_US:en"
 LANGUAGE="zh_CN:zh:en_US:en"
 </code></pre>
-        <h4 id="4." class="alert alert-success">4. linux运行java程序,控制台中文乱码</h4>
+        <a href="#top" id="4."><b>4. linux运行java程序,控制台中文乱码🔝</b></a>
         <p>启动时加入参数:</p>
         <pre><code>java -Dfile.encoding="UTF-8" -jar xxx.jar
 </code></pre>
-        <h4 id="5." class="alert alert-success">5. 相关文章</h4>
+        <a href="#top" id="5."><b>5. 相关文章🔝</b></a>
         <p><a href="http://dashidan.com/article/linux/common/index.html">linux通用命令及配置</a></p>
     </div>
     <hr>

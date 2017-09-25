@@ -9,6 +9,7 @@
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -67,23 +68,23 @@
                                                                                                 href="#6."> ▶ 6.
             测试nginx, php-fpm是否配置成功</a><a class="list-group-item" href="#7."> ▶ 7. 测试php, mysql连接</a><a
             class="list-group-item" href="#8."> ▶ 8. 相关文章</a></div>
-        <h4 id="1." class="alert alert-success">1. 安装nginx, php, mysql, php-fpm服务</h4>
+        <a href="#top" id="1."><b>1. 安装nginx, php, mysql, php-fpm服务🔝</b></a>
         <p>输入以下命令:</p>
         <pre><code>apt-get update
 apt-get install nginx
 apt-get install php5-cli php5-cgi mysql-server php5-mysql
 apt-get install php5-fpm
 </code></pre>
-        <h4 id="2." class="alert alert-success">2. 创建web目录</h4>
+        <a href="#top" id="2."><b>2. 创建web目录🔝</b></a>
         <p>输入以下命令:</p>
         <pre><code>mkdir -p /workplace/plateform/web
 </code></pre>
-        <h4 id="3." class="alert alert-success">3. 修改nginx root路径</h4>
+        <a href="#top" id="3."><b>3. 修改nginx root路径🔝</b></a>
         <p>输入以下命令:</p>
         <pre><code>vim /etc/nginx/sites-enabled/default
 </code></pre>
         <p><code>index</code> 字段后边加入<code>index.php</code>, 开启默认支持查找<code>index.php</code>入口.</p>
-        <h4 id="4." class="alert alert-success">4. nginx开启php解析功能</h4>
+        <a href="#top" id="4."><b>4. nginx开启php解析功能🔝</b></a>
         <p>打开注释掉php解析的部分.<br/>
             查找<code>php-fpm.sock</code>文件的路径:</p>
         <pre><code>find / -name php5-fpm.sock
@@ -91,11 +92,11 @@ apt-get install php5-fpm
         <p>不同版本的linux操作系统和php的版本不一样, 有的有该文件, 有的没有.<br/>
             如果有<code>php5-fpm.sock</code>文件, 将这个路径设置到php-fpm区域. </p>
         <p>如果没有<code>php5-fpm.sock</code>文件, 采用<code>php-cgi</code>的9000端口配置. </p>
-        <h4 id="5." class="alert alert-success">5. 重启nginx,php-fpm</h4>
+        <a href="#top" id="5."><b>5. 重启nginx,php-fpm🔝</b></a>
         <pre><code>service nginx restart
 service php5-fpm restart
 </code></pre>
-        <h4 id="6." class="alert alert-success">6. 测试nginx, php-fpm是否配置成功</h4>
+        <a href="#top" id="6."><b>6. 测试nginx, php-fpm是否配置成功🔝</b></a>
         <p>通过<code>phpinfo()</code>查看php是否配置成功.
             将以下代码复制, 保存为<code>index.php</code>, 放入web根目录.
             使用浏览器打开ip地址, 查看是否有php配置信息, 有的话说明成功.</p>
@@ -106,7 +107,7 @@ service php5-fpm restart
         <p>注:
             <code>phpinfo()</code>显示了php支持的所有木块, 如果其中有<code>Mysql</code>标签信息, 说明<code>php-mysql</code>扩展安装成功, 如果没有,
             需要重新安装<code>php-mysql</code>模块.</p>
-        <h4 id="7." class="alert alert-success">7. 测试php, mysql连接</h4>
+        <a href="#top" id="7."><b>7. 测试php, mysql连接🔝</b></a>
         <div class="bs-callout bs-callout-warning">
             <p>这里的用户名和密码改为安装`mysql`时自己设定的密码.
             <p>
@@ -118,7 +119,7 @@ service php5-fpm restart
 ?&gt;
 </code></pre>
         <p>ubuntu nginx+mysql+php+php-fpm配置成功.</p>
-        <h4 id="8." class="alert alert-success">8. 相关文章</h4>
+        <a href="#top" id="8."><b>8. 相关文章🔝</b></a>
         <p><a href="http://dashidan.com/article/linux/ubuntu/ubuntu安装配置nginx+mysql+php+php-fpm.html">ubuntu安装配置nginx+mysql+php+php-fpm</a><br/>
             <a href="http://dashidan.com/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html">ubuntu安装配置mongodb及常用命令</a><br/>
             <a href="http://dashidan.com/article/linux/ubuntu/ubuntu安装配置redis及常用命令.html">ubuntu安装配置redis及常用命令</a><br/>

@@ -1,21 +1,12 @@
-/*默认链接样式*/
-/*a {*/
-/*color: #000000;*/
-/*!*链接无下划线*!*/
-/*text-decoration: none;*/
-/*}*/
-
-/*鼠标悬停链接样式*/
-a:hover {
-    color: #f0ad4e;
+/** 链接去掉下划线*/
+a, a:hover, a:visited, a:link {
     text-decoration: none;
 }
 
-/*!*点击过的链接样式*!*/
-/*a:visited {*/
-/*color: #3c763d;*/
-/*text-decoration: none;*/
-/*}*/
+a:hover {
+    /*鼠标悬停链接颜色*/
+    color: #f0ad4e;
+}
 
 /* 超过一行显示省略号*/
 .single_line {

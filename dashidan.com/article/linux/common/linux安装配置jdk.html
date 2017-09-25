@@ -9,6 +9,7 @@
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -67,14 +68,14 @@
         <div class="jumbotron">
             <p>由于jdk需要有验证才能下载, linux里面直接从官网下载链接下载不是很方便, 可以先从本地下载, 然后再传到linux服务器中.</p>
         </div>
-        <h4 id="1." class="alert alert-success">1. 下载Java sdk</h4>
+        <a href="#top" id="1."><b>1. 下载Java sdk🔝</b></a>
         <ol>
             <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" .
                    target="_blank">JDK官网下载链接</a></li>
             <li>选中<code>Java SE Development Kit 8u144</code>中的<code>Accept License Agreement</code>.</li>
             <li>选择适合自己操作系统的版本点击链接下载.</li>
         </ol>
-        <h4 id="2." class="alert alert-success">2. 将jkd上传至linux服务器</h4>
+        <a href="#top" id="2."><b>2. 将jkd上传至linux服务器🔝</b></a>
         <p>通过<code>rz</code>命令</p>
         <pre><code>rz
 </code></pre>
@@ -85,11 +86,11 @@
         <p>centos安装rz命令:</p>
         <pre><code>yum install lrzsz
 </code></pre>
-        <h4 id="3." class="alert alert-success">3. 解压jdk安装包</h4>
+        <a href="#top" id="3."><b>3. 解压jdk安装包🔝</b></a>
         <pre><code>tar -zxvf 压缩文件 (将安装包解压到本目录下)
 tar -zxvf 压缩文件 -C 指定目录路径 （将安装包解压到指定目录）
 </code></pre>
-        <h4 id="4." class="alert alert-success">4. 编辑环境变量配置文件</h4>
+        <a href="#top" id="4."><b>4. 编辑环境变量配置文件🔝</b></a>
         <pre><code>vi /etc/profile
 </code></pre>
         <p>在文件末尾添加三个环境变量</p>
@@ -97,10 +98,10 @@ tar -zxvf 压缩文件 -C 指定目录路径 （将安装包解压到指定目�
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 </code></pre>
-        <h4 id="5." class="alert alert-success">5. 使环境变量生效</h4>
+        <a href="#top" id="5."><b>5. 使环境变量生效🔝</b></a>
         <pre><code>source /etc/profile
 </code></pre>
-        <h4 id="6." class="alert alert-success">6. 测试jdk是否安装成功</h4>
+        <a href="#top" id="6."><b>6. 测试jdk是否安装成功🔝</b></a>
         <p>查看jdk版本号</p>
         <pre><code>java -version
 </code></pre>
@@ -108,7 +109,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
         <pre><code>javac
 </code></pre>
         <p>显示javac命令参数列表, 说明配置成功.</p>
-        <h4 id="7." class="alert alert-success">7. 相关文章</h4>
+        <a href="#top" id="7."><b>7. 相关文章🔝</b></a>
         <p><a href="http://dashidan.com/article/java/basic/搭建Java开发环境：JDK8.0.html">windows搭建Java开发环境：JDK8.0</a><br/>
             <a href="http://dashidan.com/article/linux/common/index.html">linux通用命令及配置</a></p>
     </div>

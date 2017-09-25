@@ -9,6 +9,7 @@
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -67,18 +68,18 @@
                 比较麻烦. 在安全性要求不要的环境中, 直接使用root登陆会很方便.
             </p>
         </div>
-        <h4 id="1." class="alert alert-success">1. ubuntu允许root用户登录修改方法</h4>
+        <a href="#top" id="1."><b>1. ubuntu允许root用户登录修改方法🔝</b></a>
         <p>修改ssh配置</p>
         <pre><code>sudo vim /etc/ssh/sshd_config
 </code></pre>
-        <h4 id="2." class="alert alert-success">2. 找到<code>PermitRootLogin</code>将其改为<code>yes</code></h4>
+        <a href="#top" id="2."><b>2. 找到<code>PermitRootLogin</code>将其改为<code>yes</code>🔝</b></a>
         <pre><code>PermitRootLogin yes
 </code></pre>
-        <h4 id="3." class="alert alert-success">3. 保存退出</h4>
+        <a href="#top" id="3."><b>3. 保存退出🔝</b></a>
         <p>输入:</p>
         <pre><code>:wq
 </code></pre>
-        <h4 id="4." class="alert alert-success">4. 重启ssh服务</h4>
+        <a href="#top" id="4."><b>4. 重启ssh服务🔝</b></a>
         <pre><code>sudo service ssh  restart
 </code></pre>
         <p>现在你的ubuntu允许root用户登录了.</p>

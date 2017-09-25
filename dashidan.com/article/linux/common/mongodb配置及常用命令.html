@@ -9,6 +9,7 @@
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -65,12 +66,12 @@
             单个collection备份:</a><a class="list-group-item" href="#8."> ▶ 8. 单个collection恢复:</a><a class="list-group-item"
                                                                                                  href="#9."> ▶ 9.
             相关文章</a></div>
-        <h4 id="1." class="alert alert-success">1. 修改mongodb的绑定IP和端口</h4>
+        <a href="#top" id="1."><b>1. 修改mongodb的绑定IP和端口🔝</b></a>
         <pre><code>net:
   port: 37017
   bindIp: 127.0.0.1  # Listen to local interface only, comment to listen on all interfaces.
 </code></pre>
-        <h4 id="2." class="alert alert-success">2. 修改启动报错</h4>
+        <a href="#top" id="2."><b>2. 修改启动报错🔝</b></a>
         <pre><code>** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
 **        We suggest setting it to 'never'
 ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
@@ -79,10 +80,10 @@
 sudo echo "never" &gt; /sys/kernel/mm/transparent_hugepage/enabled
 sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 </code></pre>
-        <h4 id="3." class="alert alert-success">3. 连接mongodb</h4>
+        <a href="#top" id="3."><b>3. 连接mongodb🔝</b></a>
         <pre><code>mongo 127.0.0.1:37017
 </code></pre>
-        <h4 id="4." class="alert alert-success">4. 常用命令</h4>
+        <a href="#top" id="4."><b>4. 常用命令🔝</b></a>
         <h3>查看所有数据库</h3>
         <pre><code>show dbs;
 </code></pre>
@@ -107,7 +108,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
         <h3>删除数据库</h3>
         <pre><code>db.dropDatabase();
 </code></pre>
-        <h4 id="5." class="alert alert-success">5. 数据库备份</h4>
+        <a href="#top" id="5."><b>5. 数据库备份🔝</b></a>
         <p>命令:</p>
         <pre><code>mongodump -h dbhost -d dbname -o dbdirectory
 </code></pre>
@@ -115,7 +116,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
         <pre><code>-h:MongDB所在服务器地址,例如:127.0.0.1,当然也可以指定端口号:127.0.0.1:27017
 -d:需要备份的数据库实例,例如:test   -o:备份的数据存放位置,例如:c:\data\dump,当然该目录需要提前建立,在备份完成后,统自动在dump目录下建立一个test目录,这个目录里面存放该数据库实例的备份数据
 </code></pre>
-        <h4 id="6." class="alert alert-success">6. 整库恢复</h4>
+        <a href="#top" id="6."><b>6. 整库恢复🔝</b></a>
         <p>命令:</p>
         <pre><code>mongorestore -h dbhost -d dbname –directoryperdb dbdirectory
 </code></pre>
@@ -125,7 +126,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 –directoryperdb:备份数据所在位置,例如:c:\data\dump\test,这里为什么要多加一个test,而不是备份时候的dump
 –drop:恢复的时候,先删除当前数据,然后恢复备份的数据。就是说,恢复后,备份后添加修改的数据都会被删除,慎用哦！
 </code></pre>
-        <h4 id="7." class="alert alert-success">7. 单个collection备份:</h4>
+        <a href="#top" id="7."><b>7. 单个collection备份:🔝</b></a>
         <p>命令:</p>
         <pre><code>mongoexport -h dbhost -d dbname -c collectionname -f collectionKey -o dbdirectory
 </code></pre>
@@ -136,7 +137,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 -f: 需要导出的字段(省略为所有字段)
 -o: 表示导出的文件名
 </code></pre>
-        <h4 id="8." class="alert alert-success">8. 单个collection恢复:</h4>
+        <a href="#top" id="8."><b>8. 单个collection恢复:🔝</b></a>
         <p>命令:</p>
         <pre><code>mongoimport -d dbhost -c collectionname –type csv –headerline –file
 </code></pre>
@@ -145,7 +146,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 -headerline: 批明不导入第一行,因为第一行是列名
 -file: 指明要导入的文件路径
 </code></pre>
-        <h4 id="9." class="alert alert-success">9. 相关文章</h4>
+        <a href="#top" id="9."><b>9. 相关文章🔝</b></a>
         <p><a href="http://dashidan.com/article/linux/common/mongodb配置及常用命令.html">mongodb配置及常用命令</a><br/>
             <a href="http://dashidan.com/article/linux/common/mongodb的导入导出及备份恢复.html">mongodb的导入导出及备份恢复</a><br/>
             <a href="http://dashidan.com/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html">ubuntu安装配置mongodb及常用命令</a><br/>

@@ -9,6 +9,7 @@
 
     <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -68,16 +69,16 @@
             <p>nodejs项目中`node_moudle`目录中的代码是从npm源中下载下来. 发布到npm社区后, 可以在`package.json`文件中添加依赖, 执行`npm install`自动下载.
                 非常方便.</p>
         </div>
-        <h4 id="1." class="alert alert-success">1. 安装nrm方便切换npm源</h4>
+        <a href="#top" id="1."><b>1. 安装nrm方便切换npm源🔝</b></a>
         <pre><code>npm install nrm
 </code></pre>
-        <h4 id="2." class="alert alert-success">2. 查看可用源</h4>
+        <a href="#top" id="2."><b>2. 查看可用源🔝</b></a>
         <pre><code>nrm ls
 </code></pre>
         <div class="bs-callout bs-callout-success">
             <p>当前使用的源前边有`*`标识</p>
         </div>
-        <h4 id="3." class="alert alert-success">3. 发布前需要切换到npm的默认源</h4>
+        <a href="#top" id="3."><b>3. 发布前需要切换到npm的默认源🔝</b></a>
         <div class="bs-callout bs-callout-warning">
             <p>我们可能换成了国内淘宝的镜像：http://registry.npm.taobao.org. 淘宝镜像没有开放上传的权限,上传会报以下的错误:</p>
             <p>npm ERR! publish Failed PUT 403</p>
@@ -87,10 +88,10 @@
         <p>切换为默认源才可以上传, 切换命令:</p>
         <pre><code>nrm use npm
 </code></pre>
-        <h4 id="4." class="alert alert-success">4. 如果使用<code>grunt</code>需要重新打包,没有使用跳过</h4>
+        <a href="#top" id="4."><b>4. 如果使用<code>grunt</code>需要重新打包,没有使用跳过🔝</b></a>
         <pre><code>grunt build --force
 </code></pre>
-        <h4 id="5." class="alert alert-success">5. 修改版本号</h4>
+        <a href="#top" id="5."><b>5. 修改版本号🔝</b></a>
         <p>第一次提交默认版本号1.0.0, 采用默认即可. 后续修改,需要比原版本号高.
             例:</p>
         <pre><code>1.0.0
@@ -98,12 +99,12 @@
         <p>改为:</p>
         <pre><code>1.0.1
 </code></pre>
-        <h4 id="6." class="alert alert-success">6. 注册npmjs.com的账号, 已有账号跳过.</h4>
+        <a href="#top" id="6."><b>6. 注册npmjs.com的账号, 已有账号跳过.🔝</b></a>
         <p>注册地址: <a href="http://npmjs.com">npmjs.com</a></p>
         <div class="bs-callout bs-callout-warning">
             <p>这个是npmjs.com的账号,不是github的账号, 账号名都为小写.</p>
         </div>
-        <h4 id="7." class="alert alert-success">7. 添加npm账号</h4>
+        <a href="#top" id="7."><b>7. 添加npm账号🔝</b></a>
         <pre><code>npm adduser
 </code></pre>
         <p>按照提示, 输入上一步注册的账号, 邮箱和密码. </p>
@@ -111,17 +112,17 @@
             <p>有时提示需要验证邮件. 如果没有收到验证邮件, 可以登陆npmjs.com, 上方有个提示`重新发送验证邮件`. 点击重新发送即可收到.
             </p>
         </div>
-        <h4 id="8." class="alert alert-success">8. 发布</h4>
+        <a href="#top" id="8."><b>8. 发布🔝</b></a>
         <pre><code>npm publish
 </code></pre>
-        <h4 id="9." class="alert alert-success">9. 切换回国内源更新</h4>
+        <a href="#top" id="9."><b>9. 切换回国内源更新🔝</b></a>
         <pre><code>nrm use taobao
 </code></pre>
         <div class="bs-callout bs-callout-warning">
             <p>发布成功后,会有几分钟的延迟才能更新到最新版.</p>
             <p>国内taobao源是每10分钟与npm服务器同步一次.</p>
         </div>
-        <h4 id="10." class="alert alert-success">10. 更新依赖包版本</h4>
+        <a href="#top" id="10."><b>10. 更新依赖包版本🔝</b></a>
         <p>修改package.json中对应的包的版本号.
             删除<code>package.json.lock</code>文件.
             执行初始化包命令：</p>
