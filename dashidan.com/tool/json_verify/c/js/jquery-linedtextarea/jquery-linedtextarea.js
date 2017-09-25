@@ -32,10 +32,10 @@
  */
 (function ($) {
     $.fn.linedtextarea = function (options) {
-
+        
         // Get the Options
         var opts = $.extend({}, $.fn.linedtextarea.defaults, options);
-
+        
         /*
          * Helper function to make sure the line numbers are always
          * kept up to the current system
@@ -47,12 +47,12 @@
                 } else {
                     codeLines.append("<div class='lineno'>" + lineNo + "</div>");
                 }
-
+                
                 lineNo++;
             }
             return lineNo;
         };
-
+        
         var lineNo = 1;
         var textarea = $(this);
         textarea.scroll(function (tn) {
@@ -62,13 +62,13 @@
             codeLinesDiv.css({'margin-top': (-1 * scrollTop) + "px"});
             lineNo = fillOutLines(codeLinesDiv, scrollTop + clientHeight, lineNo);
         });
-
+        
         /* Should the textarea get resized outside of our control */
         textarea.resize(function (tn) {
             var domTextArea = $(this)[0];
             linesDiv.height(domTextArea.clientHeight + 6);
         });
-
+        
         window.setInterval(function (tn) {
             linesDiv.height(textarea.height());
             var scrollTop = textarea[0].scrollTop;
@@ -77,7 +77,7 @@
             lineNo = fillOutLines(codeLinesDiv, scrollTop + clientHeight, lineNo);
         }, 10);
     };
-
+    
     // default options
     $.fn.linedtextarea.defaults = {
         selectedLine: -1,

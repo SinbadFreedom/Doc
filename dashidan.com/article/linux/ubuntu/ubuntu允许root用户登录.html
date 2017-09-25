@@ -68,18 +68,18 @@
                 比较麻烦. 在安全性要求不要的环境中, 直接使用root登陆会很方便.
             </p>
         </div>
-        <h2 id="1." class="alert alert-success">1. ubuntu允许root用户登录修改方法</h2>
+        <h3 id="1." class="alert alert-success">1. ubuntu允许root用户登录修改方法</h3>
         <p>修改ssh配置</p>
         <pre><code>sudo vim /etc/ssh/sshd_config
 </code></pre>
-        <h2 id="2." class="alert alert-success">2. 找到<code>PermitRootLogin</code>将其改为<code>yes</code></h2>
+        <h3 id="2." class="alert alert-success">2. 找到<code>PermitRootLogin</code>将其改为<code>yes</code></h3>
         <pre><code>PermitRootLogin yes
 </code></pre>
-        <h2 id="3." class="alert alert-success">3. 保存退出</h2>
+        <h3 id="3." class="alert alert-success">3. 保存退出</h3>
         <p>输入:</p>
         <pre><code>:wq
 </code></pre>
-        <h2 id="4." class="alert alert-success">4. 重启ssh服务</h2>
+        <h3 id="4." class="alert alert-success">4. 重启ssh服务</h3>
         <pre><code>sudo service ssh  restart
 </code></pre>
         <p>现在你的ubuntu允许root用户登录了.</p>

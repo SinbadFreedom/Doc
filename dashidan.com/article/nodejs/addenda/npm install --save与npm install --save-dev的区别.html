@@ -60,13 +60,13 @@
             install不带--save和--save-dev参数</a><a class="single_line list-group-item" href="#2.">2. npm install
             --save</a><a class="single_line list-group-item" href="#3.">3. npm install --save-dev</a><a
             class="single_line list-group-item" href="#4.">4. 使用原则</a></div>
-        <h2 id="1." class="alert alert-success">1. npm install不带--save和--save-dev参数</h2>
+        <h3 id="1." class="alert alert-success">1. npm install不带--save和--save-dev参数</h3>
         <ul>
             <li>把模块安装到当前目录<code>node_modules</code>目录中.</li>
             <li>不修改<code>package.json</code>.</li>
             <li>之后运行<code>npm install</code>命令时,不会自动安装这个模块.</li>
         </ul>
-        <h2 id="2." class="alert alert-success">2. npm install --save</h2>
+        <h3 id="2." class="alert alert-success">2. npm install --save</h3>
         <ul>
             <li>把模块安装到node_modules目录中.</li>
             <li>在<code>package.json</code>的<code>dependencies</code>属性下添加这个模块.</li>
@@ -75,7 +75,7 @@
                 会自动安装这个模块到<code>node_modules</code>目录中.
             </li>
         </ul>
-        <h2 id="3." class="alert alert-success">3. npm install --save-dev</h2>
+        <h3 id="3." class="alert alert-success">3. npm install --save-dev</h3>
         <ul>
             <li>把msbuild包安装到node_modules目录中.</li>
             <li>在package.json的<code>devDependencies</code>属性下添加这个模块.</li>
@@ -84,7 +84,7 @@
                 不会自动安装这个模块到<code>node_modules</code>目录中.
             </li>
         </ul>
-        <h2 id="4." class="alert alert-success">4. 使用原则</h2>
+        <h3 id="4." class="alert alert-success">4. 使用原则</h3>
         <p>运行时需要用到的包使用<code>--save</code>,否则使用<code>--save-dev</code>.</p>
     </div>
     <hr>
