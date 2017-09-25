@@ -57,17 +57,16 @@
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success"
-                                   href=" #mongodb的导入导出及备份恢复"><h2>mongodb的导入导出及备份恢复</h2></a><a
-            class="single_line list-group-item" href="#1.">1. mongodb导出</a><a class="single_line list-group-item"
-                                                                              href="#2.">2. mongodb数据导入</a><a
-            class="single_line list-group-item" href="#3.">3. MongoDB数据库备份</a><a class="single_line list-group-item"
-                                                                                 href="#4.">4. MongoDB数据库恢复</a><a
-            class="single_line list-group-item" href="#5.">5. 相关文章</a></div>
+        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#mongodb的导入导出及备份恢复"><h3>
+            mongodb的导入导出及备份恢复</h3></a><a class="list-group-item" href="#1.">1. mongodb导出</a><a class="list-group-item"
+                                                                                               href="#2.">2.
+            mongodb数据导入</a><a class="list-group-item" href="#3.">3. MongoDB数据库备份</a><a class="list-group-item"
+                                                                                       href="#4.">4. MongoDB数据库恢复</a><a
+            class="list-group-item" href="#5.">5. 相关文章</a></div>
         <div class="jumbotron">
             <p>mongodb是高效的NoSQL类型数据库.</p>
         </div>
-        <h3 id="1." class="alert alert-success">1. mongodb导出</h3>
+        <h4 id="1." class="alert alert-success">1. mongodb导出</h4>
         <p>
             <code>mongoDB</code>中的<code>mongoexport</code>工具可以把一个<code>collection</code>导出成<code>JSON</code>格式或<code>CSV</code>格式的文件.可以通过参数指定导出的数据项,也可以根据指定的条件导出数据.
         </p>
@@ -85,7 +84,7 @@
         <p>示例: </p>
         <pre><code>sudo mongoexport -d mongotest -c users -q "{'username' : 'test'}" -o /home/python/Desktop/mongoDB/users.json --type json -f  "_id,user_id,user_name,age,status"
 </code></pre>
-        <h3 id="2." class="alert alert-success">2. mongodb数据导入</h3>
+        <h4 id="2." class="alert alert-success">2. mongodb数据导入</h4>
         <p>mongodb数据导入命令:</p>
         <pre><code>mongoimport -d dbname -c collectionname --file filename --headerline --type json/csv -f field
 </code></pre>
@@ -100,7 +99,7 @@
         <p>示例: </p>
         <pre><code>sudo mongoimport -d mongotest -c users --file /home/mongodump/articles.json --type json
 </code></pre>
-        <h3 id="3." class="alert alert-success">3. MongoDB数据库备份</h3>
+        <h4 id="3." class="alert alert-success">3. MongoDB数据库备份</h4>
         <p>MongoDB数据库备份命令:</p>
         <pre><code>mongodump -h dbhost -d dbname -o dbdirectory
 </code></pre>
@@ -114,7 +113,7 @@
 sudo mkdir -p /home/momgodump
 sudo mongodump -h 127.0.0.1:27017 -d dbdata -o /home/mongodump/
 </code></pre>
-        <h3 id="4." class="alert alert-success">4. MongoDB数据库恢复</h3>
+        <h4 id="4." class="alert alert-success">4. MongoDB数据库恢复</h4>
         <p>MongoDB数据库恢复命令:</p>
         <pre><code>mongorestore -h dbhost -d dbname --dir dbdirectory
 </code></pre>
@@ -127,7 +126,7 @@ sudo mongodump -h 127.0.0.1:27017 -d dbdata -o /home/mongodump/
         <p>例: </p>
         <pre><code>mongorestore -h 127.0.0.1:27017 -d dbdata_restore --dir /home/mongodump/dbdata/
 </code></pre>
-        <h3 id="5." class="alert alert-success">5. 相关文章</h3>
+        <h4 id="5." class="alert alert-success">5. 相关文章</h4>
         <p><a href="http://dashidan.com/article/linux/common/mongodb配置及常用命令.html">mongodb配置及常用命令</a><br/>
             <a href="http://dashidan.com/article/linux/common/mongodb的导入导出及备份恢复.html">mongodb的导入导出及备份恢复</a><br/>
             <a href="http://dashidan.com/article/linux/ubuntu/ubuntu安装配置mongodb及常用命令.html">ubuntu安装配置mongodb及常用命令</a><br/>
@@ -143,10 +142,10 @@ sudo mongodump -h 127.0.0.1:27017 -d dbdata -o /home/mongodump/
     <nav>
         <ul class="pager">
             <li>
-                <a href="http://dashidan.com/article/linux/common/linux中文乱码.html"><span>&larr;</span>上一篇</a>
+                <a href="http://dashidan.com/article/linux/common/linux中文乱码.html"><span>◀</span>上一篇</a>
             </li>
             <li>
-                <a href="http://dashidan.com/article/linux/common/mongodb配置及常用命令.html">下一篇<span>&rarr;</span></a>
+                <a href="http://dashidan.com/article/linux/common/mongodb配置及常用命令.html">下一篇<span>▶</span></a>
             </li>
         </ul>
     </nav>

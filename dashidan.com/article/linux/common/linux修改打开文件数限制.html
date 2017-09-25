@@ -57,13 +57,14 @@
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #linux修改打开文件数限制">
-            <h2>linux修改打开文件数限制</h2></a><a class="single_line list-group-item" href="#1.">1. linux修改打开文件数上限</a><a
-            class="single_line list-group-item" href="#2.">2. 相关文章</a></div>
+        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#linux修改打开文件数限制"><h3>
+            linux修改打开文件数限制</h3></a><a class="list-group-item" href="#1.">1. linux修改打开文件数上限</a><a class="list-group-item"
+                                                                                                 href="#2.">2. 相关文章</a>
+        </div>
         <div class="jumbotron">
             <p>linux默认打开的文件socket连接数量上限是1024, 高并发的时候如果超过这个数量限制会报错<code>open too many files</code>.</p>
         </div>
-        <h3 id="1." class="alert alert-success">1. linux修改打开文件数上限</h3>
+        <h4 id="1." class="alert alert-success">1. linux修改打开文件数上限</h4>
         <p>输入命令:</p>
         <pre><code>ulimit -f unlimited
 ulimit -t unlimited
@@ -72,7 +73,7 @@ ulimit -n 64000
 ulimit -m unlimited
 ulimit -u 64000
 </code></pre>
-        <h3 id="2." class="alert alert-success">2. 相关文章</h3>
+        <h4 id="2." class="alert alert-success">2. 相关文章</h4>
         <p><a href="http://dashidan.com/article/linux/common/index.html">linux通用命令及配置</a></p>
     </div>
     <hr>
@@ -85,10 +86,10 @@ ulimit -u 64000
     <nav>
         <ul class="pager">
             <li>
-                <a href="http://dashidan.com/article/linux/common/linux修改root密码.html"><span>&larr;</span>上一篇</a>
+                <a href="http://dashidan.com/article/linux/common/linux修改root密码.html"><span>◀</span>上一篇</a>
             </li>
             <li>
-                <a href="http://dashidan.com/article/linux/common/linux中文乱码.html">下一篇<span>&rarr;</span></a>
+                <a href="http://dashidan.com/article/linux/common/linux中文乱码.html">下一篇<span>▶</span></a>
             </li>
         </ul>
     </nav>

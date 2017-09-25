@@ -56,19 +56,19 @@
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #6."><h2>6.
-            Java运算符</h2></a><a class="single_line list-group-item" href="#6.1">6.1 Java算数运算符</a><a
-            class="single_line list-group-item" href="#6.2">6.2 Java复合运算符</a><a class="single_line list-group-item"
-                                                                                href="#6.3">6.3 Java自增,自减运算符</a><a
-            class="single_line list-group-item" href="#6.4">6.4 Java关系运算符</a><a class="single_line list-group-item"
-                                                                                href="#6.5">6.5 Java逻辑运算符</a><a
-            class="single_line list-group-item" href="#6.6">6.6 Java三目运算符</a><a class="single_line list-group-item"
-                                                                                href="#6.7">6.7 Java运算符优先级</a><a
-            class="single_line list-group-item" href="#6.8">6.8 相关文章</a></div>
+        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#6."><h3>6. Java运算符</h3></a><a
+            class="list-group-item" href="#6.1"> ▶ 6.1 Java算数运算符</a><a class="list-group-item" href="#6.2"> ▶ 6.2
+            Java复合运算符</a><a class="list-group-item" href="#6.3"> ▶ 6.3 Java自增,自减运算符</a><a class="list-group-item"
+                                                                                          href="#6.4"> ▶ 6.4
+            Java关系运算符</a><a class="list-group-item" href="#6.5"> ▶ 6.5 Java逻辑运算符</a><a class="list-group-item"
+                                                                                       href="#6.6"> ▶ 6.6
+            Java三目运算符</a><a class="list-group-item" href="#6.7"> ▶ 6.7 Java运算符优先级</a><a class="list-group-item"
+                                                                                        href="#6.8"> ▶ 6.8 相关文章</a>
+        </div>
         <div class="jumbotron">
             <p>Java运算符分为, 算术运算符, 符合运算符, 关系运算符, 三目运算符.</p>
         </div>
-        <h3 id="6.1" class="alert alert-success">6.1 Java算数运算符</h3>
+        <h4 id="6.1" class="alert alert-success">6.1 Java算数运算符</h4>
         <p>Java算数运算符： 加, 减, 乘, 除(取模, 取余), 算数运算符从右往左赋值.即将等号右边的值,赋给等号左边的变量.</p>
         <ul>
             <li>加<code>+</code></li>
@@ -171,7 +171,7 @@ public class Demo1 {
 0
 1
 </code></pre>
-        <h3 id="6.2" class="alert alert-success">6.2 Java复合运算符</h3>
+        <h4 id="6.2" class="alert alert-success">6.2 Java复合运算符</h4>
         <p>复合运算符是一种简写. 以<code>+=</code>为例,表示加一个值再赋值给本身.常用的复合运算符:</p>
         <ul>
             <li><code>+=</code>加法赋值</li>
@@ -249,7 +249,7 @@ public class Demo2 {
 1
 2
 </code></pre>
-        <h3 id="6.3" class="alert alert-success">6.3 Java自增,自减运算符</h3>
+        <h4 id="6.3" class="alert alert-success">6.3 Java自增,自减运算符</h4>
         <p>分前缀式(如<code>++i</code>)和后缀式(如<code>i++</code>). 以自增运算符(++)为例: 前缀式是先加1再使用,后缀式是先使用再加1.
             单独执行自增自减时前缀式,后缀式单独执行结果一样.道理同自增运算符,只是加1,变成了减1. </p>
         <pre class="prettyprint"><code class="java language-java">int i = 0;
@@ -322,7 +322,7 @@ public class Demo3 {
         <div class="bs-callout bs-callout-warning">
             <p>倒数第二个输出是`0`,这个就是后缀式的使用后计算导致的结果.</p>
         </div>
-        <h3 id="6.4" class="alert alert-success">6.4 Java关系运算符</h3>
+        <h4 id="6.4" class="alert alert-success">6.4 Java关系运算符</h4>
         <p>关系运算符用于比较两个数值之间的大小. 其运算结果为一个布尔值(<code>boolean</code>),只有<code>true</code>(真)和<code>false</code>(假)两个取值.<br/>
             基本数据类型的关系运算符:</p>
         <ul>
@@ -363,7 +363,7 @@ false
 true
 true
 </code></pre>
-        <h3 id="6.5" class="alert alert-success">6.5 Java逻辑运算符</h3>
+        <h4 id="6.5" class="alert alert-success">6.5 Java逻辑运算符</h4>
         <p>逻辑运算符主要用于进行条件真(<code>true</code>)假(<code>false</code>)运算.包括<code>&amp;&amp;</code>(且),
             <code>||</code>(或),<code>!</code>(异或) , <code>^</code>(非), <code>instanceof</code>(判断对象实例类型).</p>
         <ul>
@@ -458,7 +458,7 @@ false
 true
 false
 </code></pre>
-        <h3 id="6.6" class="alert alert-success">6.6 Java三目运算符</h3>
+        <h4 id="6.6" class="alert alert-success">6.6 Java三目运算符</h4>
         <p>也叫<code>条件运算符</code>. 由两个符号组成<code>?</code>和<code>:</code>,要求有3个操作对象,所以也叫三目运算符. </p>
         <pre><code>a&lt;b?a:b;
 </code></pre>
@@ -486,7 +486,7 @@ public class Demo6 {
         <p>输出:</p>
         <pre><code>2
 </code></pre>
-        <h3 id="6.7" class="alert alert-success">6.7 Java运算符优先级</h3>
+        <h4 id="6.7" class="alert alert-success">6.7 Java运算符优先级</h4>
         <p>基本的原则是有括号先算括号里的,然后先乘除后加减. 乘除都有时,从左往右依次计算. 加减从左往右依次计算.</p>
         <p>加法和乘法结合, 示例代码:</p>
         <pre class="prettyprint"><code class="java language-java">int a = 1;
@@ -745,7 +745,7 @@ public class Demo7 {
             </tr>
             </tbody>
         </table>
-        <h3 id="6.8" class="alert alert-success">6.8 相关文章</h3>
+        <h4 id="6.8" class="alert alert-success">6.8 相关文章</h4>
         <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
@@ -758,10 +758,10 @@ public class Demo7 {
     <nav>
         <ul class="pager">
             <li>
-                <a href="http://dashidan.com/article/java/basic/Java变量.html"><span>&larr;</span>上一篇</a>
+                <a href="http://dashidan.com/article/java/basic/Java变量.html"><span>◀</span>上一篇</a>
             </li>
             <li>
-                <a href="http://dashidan.com/article/java/basic/Java方法.html">下一篇<span>&rarr;</span></a>
+                <a href="http://dashidan.com/article/java/basic/Java方法.html">下一篇<span>▶</span></a>
             </li>
         </ul>
     </nav>

@@ -56,10 +56,9 @@
     <!--文档区-->
     <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="single_line list-group-item list-group-item-success" href=" #11."><h2>11.
-            Java静态变量与常量</h2></a><a class="single_line list-group-item" href="#11.1">11.1 静态变量</a><a
-            class="single_line list-group-item" href="#11.2">11.2 Java常量</a><a class="single_line list-group-item"
-                                                                               href="#11.3">11.3 相关文章</a></div>
+        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#11."><h3>11. Java静态变量与常量</h3>
+        </a><a class="list-group-item" href="#11.1"> ▶ 11.1 静态变量</a><a class="list-group-item" href="#11.2"> ▶ 11.2
+            Java常量</a><a class="list-group-item" href="#11.3"> ▶ 11.3 相关文章</a></div>
         <div class="jumbotron">
             <p>`static`修饰的成员变量和成员方法习惯上称为静态变量和静态方法,可以直接通过类名来访问.
                 只要这个类被加载,Java虚拟机就能根据类名在运行时数据区的方法区内定找到他们.
@@ -68,7 +67,7 @@
                 类名.静态方法名(参数列表...)
                 类名.静态变量名</p>
         </div>
-        <h3 id="11.1" class="alert alert-success">11.1 静态变量</h3>
+        <h4 id="11.1" class="alert alert-success">11.1 静态变量</h4>
         <p>按照是否静态的对类成员变量进行分类可分两种:<br/>
             一种是被static修饰的变量,叫静态变量或类变量.<br/>
             另一种是没有被static修饰的变量,叫实例变量. </p>
@@ -128,7 +127,7 @@ public class Cat {
 EYE_NUM: 2
 LEG_NUM: 4
 </code></pre>
-        <h3 id="11.2" class="alert alert-success">11.2 Java常量</h3>
+        <h4 id="11.2" class="alert alert-success">11.2 Java常量</h4>
         <p><code>final</code>是Java的一个保留关键字, 可以声明成员变量、方法、类以及局部变量. 被声明final的变量, 一但赋值便不能再次修改.<br/>
             编译器会检查代码,如果你试图将变量再次初始化的话,编译器会报编译错误.<br/>
             <code>final</code>变量经常和<code>static</code>关键字一起使用作为<code>常量</code>. </p>
@@ -160,7 +159,7 @@ public static final WEB_URL = "http://dashidan.com"
             <p>final关键字涉及到了很多类的继承相关的概念, 可以参考Java教程进阶篇Java对象相关的文章后, 再回头看这些知识就很好理解了.
             <p>
         </div>
-        <h3 id="11.3" class="alert alert-success">11.3 相关文章</h3>
+        <h4 id="11.3" class="alert alert-success">11.3 相关文章</h4>
         <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
@@ -173,10 +172,10 @@ public static final WEB_URL = "http://dashidan.com"
     <nav>
         <ul class="pager">
             <li>
-                <a href="http://dashidan.com/article/java/basic/java数组.html"><span>&larr;</span>上一篇</a>
+                <a href="http://dashidan.com/article/java/basic/java数组.html"><span>◀</span>上一篇</a>
             </li>
             <li>
-                <a href="http://dashidan.com/article/java/basic/java对象.html">下一篇<span>&rarr;</span></a>
+                <a href="http://dashidan.com/article/java/basic/java对象.html">下一篇<span>▶</span></a>
             </li>
         </ul>
     </nav>
