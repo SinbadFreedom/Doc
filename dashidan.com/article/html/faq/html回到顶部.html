@@ -1,0 +1,110 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>html回到顶部</title>
+    <meta name="description" content="html回到顶部">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/html/index.html">Html教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://dashidan.com/article/html/faq/index.html">FAQ</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#2."><h3>2. html回到页面顶部的方式</h3>
+        </a><a class="list-group-item" href="#1."> ▶ 1. 链接标签中加上<code>href="#top"</code>属性</a></div>
+        <a href="#top" id="1."><b>1. 链接标签中加上<code>href="#top"</code>属性🔝</b></a>
+        <p>这样点击这个标签时会返回顶部.</p>
+        <pre class="prettyprint"><code class="html language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;html回到页面顶部&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div style="width: 600px; height: 1500px; background-color: #4cae4c"&gt;
+    &lt;p&gt;
+        大屎蛋教程网-dashidan.com
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;a href="#top"&gt;点击回顶部&lt;/a&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/html/index.html">Html教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="http://dashidan.com/article/html/faq/html链接样式设置.html"><span>◀</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/html/faq/html文本超宽不换行显示省略号.html">下一篇<span>▶</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>html链接样式设置</title>
+    <meta name="description" content="html链接样式设置">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/html/index.html">Html教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://dashidan.com/article/html/faq/index.html">FAQ</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#1."><h3>1. html链接样式设置</h3></a><a
+            class="list-group-item" href="#1."> ▶ 1. 点击连接后颜色变化</a><a class="list-group-item" href="#2."> ▶ 2.
+            点击连接后颜色不变</a><a class="list-group-item" href="#2."> ▶ 2. 链接去掉下划线</a></div>
+        <p>设置<code>a</code>标签的属性,可以控制链接颜色和下划线.<br/>
+            <code>a</code>标签有3种状态: </p>
+        <pre><code>a:link      未访问的连接
+a:hover     鼠标悬停的连接
+a:visited   访问过的连接
+</code></pre>
+        <a href="#top" id="1."><b>1. 点击连接后颜色变化🔝</b></a>
+        <p>设置<code>link</code>, <code>hover</code>和<code>visited</code>的颜色一样, 点击链接后颜色不变; 设置不一样, 点击链接后颜色有变化. </p>
+        <p>例:</p>
+        <pre class="prettyprint"><code class="css language-css">/*默认链接样式*/
+a {
+    color: #000000;
+}
+/*鼠标悬停链接样式*/
+a:hover {
+    color: red;
+}
+
+/*点击过的链接样式*/
+a:visited {
+    color: #3c763d;
+}
+</code></pre>
+        <a href="#top" id="2."><b>2. 点击连接后颜色不变🔝</b></a>
+        <p>将<code>a:link</code>,<code>a:hover</code>, <code>a:visited</code>设置同样的颜色, 点击连接后不变色.<br/>
+            例: </p>
+        <pre class="prettyprint"><code class="css language-css">a,
+a:link,
+a:hover,
+a:visited {
+    color: red;
+}
+</code></pre>
+        <p>示例代码:</p>
+        <pre class="prettyprint"><code class="html language-html">&lt;body&gt;
+&lt;style&gt;
+a,
+a:link,
+a:hover,
+a:visited {
+    color: red;
+}
+&lt;/style&gt;
+&lt;a href=""&gt;点击链接后颜色不变&lt;/a&gt;
+&lt;/body&gt;
+</code></pre>
+        <a href="#top" id="2."><b>2. 链接去掉下划线🔝</b></a>
+        <p>通过设置<code>text-decoration: none;</code>去掉链接下划线.</p>
+        <pre class="prettyprint"><code class="css language-css">text-decoration: none;
+</code></pre>
+        <p>示例代码:</p>
+        <pre class="prettyprint"><code class="html language-html">&lt;body&gt;
+&lt;style&gt;
+a,
+a:link,
+a:hover,
+a:visited {
+    text-decoration: none;
+}
+&lt;/style&gt;
+&lt;a href=""&gt;链接去掉下划线&lt;/a&gt;
+&lt;/body&gt;
+</code></pre>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/html/index.html">Html教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="http://dashidan.com/article/html/faq/html回到顶部.html">下一篇<span>▶</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>

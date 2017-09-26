@@ -1,0 +1,122 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>html文本超宽不换行显示省略号</title>
+    <meta name="description" content="html文本超宽不换行显示省略号">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/html/index.html">Html教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://dashidan.com/article/html/faq/index.html">FAQ</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#3."><h3>3.
+            html文本超宽不换行显示省略号</h3></a><a class="list-group-item" href="#1."> ▶ 1. css配置</a></div>
+        <p>可以通过<code>css样式</code>来实现html文本超宽不换行显示省略号</p>
+        <a href="#top" id="1."><b>1. css配置🔝</b></a>
+        <pre class="prettyprint"><code class="css language-css">/* 超过一行显示省略号*/
+.single_line {
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</code></pre>
+        <p>html中采用<code>single_line</code>样式.</p>
+        <pre class="prettyprint"><code class="html language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        /* 超过一行显示省略号*/
+        .single_line {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="single_line"&gt;
+    &lt;a href="http://dashidan.com"&gt;大屎蛋教程网是最棒棒的编程教程网站.我是来凑字数的,缩小屏幕看效果.&lt;/a&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        <p>将这个<code>html</code>复制下来看，缩小浏览器的宽度,可以看到效果.</p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/html/index.html">Html教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="http://dashidan.com/article/html/faq/html回到顶部.html"><span>◀</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/html/faq/html的meta标签作用.html">下一篇<span>▶</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>
