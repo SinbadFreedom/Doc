@@ -102,7 +102,7 @@ Map
         <p><code>Set</code>是一种不包含重复的元素的<code>Collection</code>,即任意的两个元素<code>e1</code>和<code>e2</code>都有<code>e1.equals(e2)=false</code>.<br/>
             <code>Set</code>的构造函数有一个约束条件,传入的<code>Collection</code>参数不能包含重复的元素.<code>Set</code>最多有一个<code>null</code>元素.
         </p>
-        <div class="bs-callout bs-callout-error">
+        <div class="bs-callout bs-callout-danger">
             <h4>必须小心操作可变对象(Mutable Object). 如果一个`Set`中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题.
             </h4>
         </div>
@@ -334,7 +334,7 @@ while (it1.hasNext()) {
         </p>
         <p>但是<code>HashSet</code>增删的高效率是通过花费大量的空间换来的:<br/>
             因为空间越大,取余数相同的情况就越小.<code>HashSet</code>这种算法会建立许多无用的空间.</p>
-        <div class="bs-callout bs-callout-error">
+        <div class="bs-callout bs-callout-danger">
             <h4>使用HashSet类时如果发生冲突,就会出现遍历整个数组的情况,这样就使得效率非常的低.
             </h4>
         </div>
