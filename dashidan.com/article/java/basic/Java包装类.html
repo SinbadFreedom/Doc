@@ -1,0 +1,247 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Java包装类</title>
+    <meta name="description" content="Java包装类">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="http://dashidan.com/apple-touch-icon.png">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <!-- 顶部标签页-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">Java教程</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
+    </ul>
+    <!--文档区-->
+    <div>
+        <!-- 替换这个区域-->
+        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#13."><h3>13. Java包装类</h3>
+        </a><a class="list-group-item" href="#1."> ▶ 1. 包装类对应表</a><a class="list-group-item" href="#2."> ▶ 2. 包装类的使用</a><a
+            class="list-group-item" href="#2."> ▶ 2. 自动装包/拆包</a><a class="list-group-item" href="#3."> ▶ 3. 代码示例</a><a
+            class="list-group-item" href="#4."> ▶ 4. 相关文章</a></div>
+        <div class="jumbotron">
+            <p>Java语言是一个面向对象的语言,但Java中的基本数据类型却是不面向对象的. 这在实际使用时存在很多的不便, 为了解决这个不足(例如:集合类中只能存放对象, 不能存放基本类型数据),
+                在设计类时为每个基本数据类型设计了一个对应的类进行代表, 这样八个和基本数据类型对应的类统称为包装类(Wrapper Class), 也翻译为外覆类或数据类型类.
+            </p>
+        </div>
+        <a href="#top" id="1."><b>1. 包装类对应表🔝</b></a>
+        <table class="table table-bordered table-responsive">
+            <caption>包装类对应表</caption>
+            <thead>
+            <tr class="success">
+                <td>基本数据类型</td>
+                <td>包装类</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="active">
+                <td>byte</td>
+                <td>Byte</td>
+            </tr>
+            <tr>
+                <td>boolean</td>
+                <td>Boolean</td>
+            </tr>
+            <tr class="active">
+                <td>boolean</td>
+                <td>Boolean</td>
+            </tr>
+            <tr>
+                <td>short</td>
+                <td>Short</td>
+            </tr>
+            <tr class="active">
+                <td>char</td>
+                <td>Character</td>
+            </tr>
+            <tr>
+                <td>int</td>
+                <td>Integer</td>
+            </tr>
+            <tr class="active">
+                <td>long</td>
+                <td>Long</td>
+            </tr>
+            <tr>
+                <td>float</td>
+                <td>Float</td>
+            </tr>
+            <tr class="active">
+                <td>double</td>
+                <td>Double</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="bs-callout bs-callout-info">
+            <p>在这八个类名中,除了Integer和Character类, 其它六个类的类名和基本数据类型相比, 只是类名的第一个字母大写.
+            </p>
+        </div>
+        <a href="#top" id="2."><b>2. 包装类的使用🔝</b></a>
+        <p>对于包装类说,这些类的用途主要包含两种:</p>
+        <ul>
+            <li>作为和基本数据类型对应的类类型存在,方便涉及到对象的操作.</li>
+            <li>包含每种基本数据类型的相关属性如最大值、最小值等,以及相关的操作方法.</li>
+        </ul>
+        <p>由于八个包装类的使用比较类似,以最常用的<code>Integer</code>类为例, 介绍包装类的应用: </p>
+        <h3>1.实现int和Integer类之间的转换</h3>
+        <p>使用<code>Integer</code>类的构造方法和<code>intValue()</code>方法实现这些基本类型和包装类之间的相互转换
+            代码示例:</p>
+        <pre class="prettyprint"><code class="java language-java">/** 将int类型转换为Integer类型*/
+int intNum = 10;
+Integer integer = new Integer(intNum);
+/** 将Integer类型转换为int类型*/
+int intValue = integer.intValue();
+</code></pre>
+        <h3>2.<code>Integer</code>类常用方法</h3>
+        <ul>
+            <li>parseInt方法
+                该方法的作用是将字符串转换为对应的数值.<br/>
+                代码示例:
+            </li>
+        </ul>
+        <pre class="prettyprint"><code class="java language-java">String s = "123";
+int n = Integer.parseInt(s);
+//将字符串"120"按照十进制转换为int,则结果为120
+int n = Integer.parseInt("120",10);
+//将字符串"12"按照十六进制转换为int,则结果为18
+int n = Integer.parseInt("12",16);
+//将字符串"ff"按照十六进制转换为int,则结果为255
+int n = Integer.parseInt("ff",16);
+</code></pre>
+        <div class="bs-callout bs-callout-danger">
+            <p>如果字符串都包含的不是都是数字字符,则程序执行将出现异常报错.
+            </p>
+        </div>
+        <ul>
+            <li>toString方法
+                该方法的作用是将int类型转换为对应的String类型.
+            </li>
+        </ul>
+        <p>代码示例:</p>
+        <pre class="prettyprint"><code class="java language-java">int m = 1000;
+String s = Integer.toString(m);
+//将int值转换为特定进制的字符串:
+</code></pre>
+        <a href="#top" id="2."><b>2. 自动装包/拆包🔝</b></a>
+        <p>JDK自1.5(5.0)版本引入了自动拆装箱(Autoboxing/unboxing)的语法, 也就是在进行基本数据类型和对应的包装类转换时, 系统将自动进行,大大方便了代码的书写.</p>
+        <pre class="prettyprint"><code class="java language-java">/** int类型会自动转换为Integer类型*/
+int n = 12;
+/** Integer类型会自动转换为int类型*/
+Integer m = n;
+</code></pre>
+        <a href="#top" id="3."><b>3. 代码示例🔝</b></a>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13. Java包装类
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+        /** 将int类型转换为Integer类型*/
+        int intNum = 10;
+        Integer integer = new Integer(intNum);
+        /** 将Integer类型转换为int类型*/
+        int intValue = integer.intValue();
+        System.out.println(" intNum " + intNum + " intValue " + intValue);
+
+        /** 将字符串"666"按照十进制转换为int,则结果为666*/
+        int n0 = Integer.parseInt("666");
+        int n1 = Integer.parseInt("666", 10);
+        /** 将字符串"12"按照十六进制转换为int,则结果为18*/
+        int n2 = Integer.parseInt("12", 16);
+        /** 将字符串"FF"按照十六进制转换为int,则结果为255*/
+        int n3 = Integer.parseInt("FF", 16);
+        System.out.println("n0 : " + n0 + " n1: " + n1 + " n2: " + n2 + " n3: " + n3);
+
+
+        /** int类型会自动转换为Integer类型*/
+        int n = 12;
+        /** Integer类型会自动转换为int类型*/
+        Integer m = n;
+        if (m == n) {
+            System.out.println(m == n);
+        }
+    }
+}
+</code></pre>
+        <p>输出:</p>
+        <pre><code> intNum 10 intValue 10
+n0 : 666 n1: 666 n2: 18 n3: 255
+true
+</code></pre>
+        <a href="#top" id="4."><b>4. 相关文章🔝</b></a>
+        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
+    </div>
+    <hr>
+    <!-- 底部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java教程</a></li>
+    </ol>
+    <hr>
+    <nav>
+        <ul class="pager">
+            <li>
+                <a href="http://dashidan.com/article/java/basic/java对象.html"><span>◀</span>上一篇</a>
+            </li>
+            <li>
+                <a href="http://dashidan.com/article/java/basic/Java集合类.html">下一篇<span>▶</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+</body>
+</html>
