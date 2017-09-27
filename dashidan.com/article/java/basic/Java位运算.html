@@ -47,7 +47,8 @@
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+        <li class="active"><a
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
     <!-- 顶部标签页-->
@@ -69,15 +70,15 @@
             </p>
         </div>
         <a href="#top" id="1."><b>1. Java进位方式🔝</b></a>
-        <p>在Java语言中, 二进制数使用补码表示, 最高位为符号位, 正数的符号位为0, 负数为1.<br/>
-            补码的表示规则:</p>
+        <p>在Java语言中, 二进制数使用补码表示, 最高位为符号位, 正数的符号位为0, 负数为1.</p>
+        <p>补码的表示规则:</p>
         <ul>
             <li>正数的最高位为0,其余各位代表数值本身(二进制数).</li>
             <li>对于负数,通过对该数绝对值的补码按位取反,再对整个数加1.</li>
         </ul>
         <h3>1.2进制</h3>
-        <p>2进制即为<code>满2进1</code>. 第n位表示<code>2^(n-1)</code>(2的n-1次幂). 数据在计算机内存中以二进制的形式存储.
-            以<code>int</code>类型举例, 占4个字节共32位(1个字节占8位). </p>
+        <p>2进制即为<code>满2进1</code>. 第n位表示<code>2^(n-1)</code>(2的n-1次幂). 数据在计算机内存中以二进制的形式存储.</p>
+        <p>以<code>int</code>类型举例, 占4个字节共32位(1个字节占8位). </p>
         <p>数字100, <code>int</code>类型的二进制数:</p>
         <pre><code>0000 0000 0000 0000 0110 0100
 </code></pre>
@@ -86,8 +87,8 @@
             </h4>
         </div>
         <h3>2.8进制</h3>
-        <p>8进制即为<code>满8进1</code>. 第n位表示<code>8^(n-1)</code>(8的n-1次幂). 一个数如果采用八进制, 必须在它前面加上一个数字<code>0</code>.
-            例:</p>
+        <p>8进制即为<code>满8进1</code>. 第n位表示<code>8^(n-1)</code>(8的n-1次幂). 一个数如果采用八进制, 必须在它前面加上一个数字<code>0</code>.</p>
+        <p>例:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession16;
 
 /**
@@ -113,8 +114,7 @@ public class Demo1 {
             <h4>但用<code>转义字符</code>表达时,不能加0.</h4>
         </div>
         <h3>3.16进制</h3>
-        <p>16进制即为<code>满16进1</code>. 第n位表示<code>16^(n-1)</code>(16的n-1次幂).<br/>
-            10-15的数字分别以字母a到f表示, 不区分大小小.<br/>
+        <p>16进制即为<code>满16进1</code>. 第n位表示<code>16^(n-1)</code>(16的n-1次幂). 10-15的数字分别以字母a到f表示, 不区分大小小.
             16进制数必须以<code>0x</code>开头.<code>x</code>不区分大小写. </p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession16;
 
@@ -169,10 +169,11 @@ public class Demo1 {
         <a href="#top" id="2."><b>2. 位运算逻辑运算符🔝</b></a>
         <p>位运算逻辑运算符包括: 与(&amp;),非(~),或(|),异或(^).</p>
         <ul>
-            <li><p>&amp;: 与. 当两边操作数的位同时为1时, 结果为1, 否则为0.
-                如:</p>
-                <p>1100&amp;1010=1000　</p></li>
+            <li>&amp;: 与. 当两边操作数的位同时为1时, 结果为1, 否则为0.</li>
         </ul>
+        <p>例:</p>
+        <pre><code>1100&amp;1010=1000　
+</code></pre>
         <p>位运算判断奇偶, 偶数的最低位是0,奇数的最低位是1.通过这个原理, 我们可以根据整数二进制最后一位与1比较, 判断奇偶.</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession16;
 
@@ -204,21 +205,25 @@ public class Demo2 {
         <pre><code>1100|1010=1110
 </code></pre>
         <ul>
-            <li><p>~: 按位取反. 0变1,1变0.
-                负数在内存中的表现是, 按位取反再加1.</p></li>
-            <li><p>^: 按位异或. 参与运算的两个值,如果两个相应位相同,则结果为0,否则为1.
-                0异或任何数等于任何数, 1异或任何数等于任何数取反, 任何数异或自己等于把自己置0</p></li>
+            <li>~: 按位取反. 0变1,1变0.</li>
         </ul>
+        <p>负数在内存中的表现是, 按位取反再加1.</p>
+        <ul>
+            <li>^: 按位异或. 参与运算的两个值,如果两个相应位相同,则结果为0,否则为1.</li>
+        </ul>
+        <p>0异或任何数等于任何数, 1异或任何数等于任何数取反, 任何数异或自己等于把自己置0</p>
         <p>即:</p>
         <pre><code>0^0=0
 1^0=1
 0^1=1
 1^1=0
 </code></pre>
-        <p>不用临时变量交换两个数<br/>
-            通过按位异或运算,可以实现两个值的交换,而不必使用临时变量. 这个很酷.</p>
-        <p>例:<br/>
-            交换两个整数a,b的值,可通过下列语句实现:</p>
+        <div class="bs-callout bs-callout-success">
+            <h4>不用临时变量交换两个数</h4>
+            <h4>通过按位异或运算,可以实现两个值的交换,而不必使用临时变量. 这个很酷.</h4>
+        </div>
+        <p>例:</p>
+        <p>交换两个整数a,b的值,可通过下列语句实现:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession16;
 
 /**
@@ -256,9 +261,8 @@ public class Demo3 {
             <li><code>&gt;&gt;&gt;</code>:无符号右移</li>
         </ul>
         <h3>1.左移位运算符(&lt;&lt;)</h3>
-        <p>使指定值的所有位都向左移规定的次数, 丢弃最高位, 在低位补0.
-            在数字没有溢出的前提下,对于正数和负数, 左移一位都相当于乘以2的1次方, 左移n位就相当于乘以2的n次方
-            如果位数超过了该类型的最大位数, 该值将变为负值.</p>
+        <p>使指定值的所有位都向左移规定的次数, 丢弃最高位, 在低位补0. 在数字没有溢出的前提下,对于正数和负数, 左移一位都相当于乘以2的1次方, 左移n位就相当于乘以2的n次方. </p>
+        <p>如果位数超过了该类型的最大位数, 该值将变为负值.</p>
         <p>格式:</p>
         <pre><code>value &lt;&lt; num
 </code></pre>
@@ -294,9 +298,8 @@ public class Demo4 {
         <pre><code>a: 4 b: 16
 </code></pre>
         <h3>2.有符号右移位运算符&gt;&gt;</h3>
-        <p>使指定值的所有位都向右移规定的次数.正数在高位插入0,负数则在高位插入1.
-            右移一位相当于除2, 右移n位相当于除以2的n次方.
-            格式如下:</p>
+        <p>使指定值的所有位都向右移规定的次数.正数在高位插入0,负数则在高位插入1. 右移一位相当于除2, 右移n位相当于除以2的n次方.</p>
+        <p>格式如下:</p>
         <pre><code>value &gt;&gt; num
 </code></pre>
         <p>num 指定要移位值value 移动的位数. </p>
@@ -324,8 +327,8 @@ public class Demo4 {
         <pre><code>c: 1000 d: 250
 </code></pre>
         <h3>3."无符号"右移位运算符(&gt;&gt;&gt;).</h3>
-        <p>忽略了符号位扩展,无论正负,都在高位插入0.
-            格式如下:</p>
+        <p>忽略了符号位扩展,无论正负,都在高位插入0.</p>
+        <p>格式如下:</p>
         <pre><code>value &gt;&gt;&gt; num
 </code></pre>
         <p><code>num</code>指定要移位值<code>value</code>移动的位数. </p>
@@ -360,7 +363,7 @@ public class Demo4 {
             </h4>
             <h4>对于long也是同样道理(6个低位).这样可防止我们在一个int数里移动不切实际的位数. </h4>
         </div>
-        <p>在进行位运算时,需要注意以下几点. </p>
+        <p>在进行位运算时,需要注意以下几点:</p>
         <ul>
             <li>&gt;&gt;&gt;和&gt;&gt;的区别:在执行运算时,&gt;&gt;&gt;运算符的操作数高位补0, 而&gt;&gt;运算符的操作数高位移入原来高位的值. 　</li>
             <li>右移一位相当于除以2,左移一位(在不溢出的情况下)相当于乘以2.</li>
@@ -374,27 +377,30 @@ public class Demo4 {
         <a href="#top" id="4．位运算符的优先级"><b>4．位运算符的优先级🔝</b></a>
         <p>~的优先级最高,其次是<<,>&gt;和&gt;&gt;&gt;,再次是&amp;,然后是^,优先级最低的是|. </p>
         <a href="#top" id="5."><b>5. 相关文章🔝</b></a>
-        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a><br/>
-            <a href="http://dashidan.com/article/java/basic/Java运算符.html">Java运算符</a></p>
+        <ul>
+            <li><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></li>
+            <li><a href="http://dashidan.com/article/java/basic/Java运算符.html">Java运算符</a></li>
+        </ul>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+        <li class="active"><a
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
-    <nav>
-        <ul class="pager">
-            <li>
-                <a href="http://dashidan.com/article/java/basic/Java异常.html"><span>◀</span>上一篇</a>
-            </li>
-            <li>
-                <a href="http://dashidan.com/article/java/basic/Java转义字符.html">下一篇<span>▶</span></a>
-            </li>
-        </ul>
-    </nav>
+    <!--<nav>-->
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/java/basic/Java异常.html">🔺 上一篇: Java异常</a>
+        </div>
+        <div>
+            <a href="http://dashidan.com/article/java/basic/Java转义字符.html">🔻 下一篇: Java转义字符</a>
+        </div>
+    </div>
+    <!--</nav>-->
 </div>
 
 <div style="display:none;">

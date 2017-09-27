@@ -47,7 +47,8 @@
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+        <li class="active"><a
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
     <!-- 顶部标签页-->
@@ -84,35 +85,37 @@ Map
         <h3>1.<code>Collection</code>接口</h3>
         <p>
             <code>Collection</code>是最基本的集合接口,一个<code>Collection</code>代表一组Object,即<code>Collection</code>的元素(Elements).由<code>Collection</code>接口派生的两个接口是<code>List</code>和<code>Set</code>.<code>List</code>允许有相同元素,
-            <code>Set</code>不允许有相同元素.<br/>
-            实现Collection接口的类都必须提供两个标准的构造函数: </p>
+            <code>Set</code>不允许有相同元素.</p>
+        <p>实现Collection接口的类都必须提供两个标准的构造函数: </p>
         <ul>
             <li>无参数的构造函数用于创建一个空的Collection.</li>
             <li>有一个参数的构造函数用于创建一个新的<code>Collection</code>对象,这个对象传入的<code>Collection</code>有相同的元素. 允许用户复制一个<code>Collection</code>.
             </li>
         </ul>
         <h3>2.<code>List</code>接口</h3>
-        <p><code>List</code>是<code>有序</code>的<code>Collection</code>. 使用此接口能够精确的控制每个元素插入的位置.
-            能够使用索引(元素在List中的位置,类似于数组下标)来访问List中的元素,这类似于Java的数组.
-            除了具有<code>Collection</code>接口必备的<code>iterator()</code>方法外,
-            <code>List</code>还提供一个<code>listIterator()</code>方法,
+        <p><code>List</code>是<code>有序</code>的<code>Collection</code>.
+            使用此接口能够精确的控制每个元素插入的位置.能够使用索引(元素在List中的位置,类似于数组下标)来访问List中的元素,这类似于Java的数组.</p>
+        <p>除了具有<code>Collection</code>接口必备的<code>iterator()</code>方法外, <code>List</code>还提供一个<code>listIterator()</code>方法,
             返回一个<code>ListIterator</code>接口,和标准的<code>Iterator</code>接口相比,<code>ListIterator</code>多了一些<code>add()</code>之类的方法,允许添加,删除,设定元素,还能向前或向后遍历.
-            实现List接口的常用类有<code>LinkedList</code>,<code>ArrayList</code>,<code>Vector</code>和<code>Stack</code>.
+        </p>
+        <p>实现List接口的常用类有<code>LinkedList</code>,<code>ArrayList</code>,<code>Vector</code>和<code>Stack</code>.
             和<code>Set</code>不同, <code>List</code>允许有相同的元素. </p>
         <h3>3.<code>Set</code>接口</h3>
-        <p><code>Set</code>是一种不包含重复的元素的<code>Collection</code>,即任意的两个元素<code>e1</code>和<code>e2</code>都有<code>e1.equals(e2)=false</code>.<br/>
-            <code>Set</code>的构造函数有一个约束条件,传入的<code>Collection</code>参数不能包含重复的元素.<code>Set</code>最多有一个<code>null</code>元素.
+        <p><code>Set</code>是一种不包含重复的元素的<code>Collection</code>,即任意的两个元素<code>e1</code>和<code>e2</code>都有<code>e1.equals(e2)=false</code>.
+        </p>
+        <p><code>Set</code>的构造函数有一个约束条件,传入的<code>Collection</code>参数不能包含重复的元素.<code>Set</code>最多有一个<code>null</code>元素.
         </p>
         <div class="bs-callout bs-callout-danger">
             <h4>必须小心操作可变对象(Mutable Object). 如果一个`Set`中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题.
             </h4>
         </div>
         <h3>4.<code>Queue</code>接口</h3>
-        <p>可以实现先进先出的队列.<code>LinkedList</code>同样实现了Queue接口.<br/>
-            <code>PriorityQueue</code>用来创建自然排序的优先级队列. </p>
+        <p>可以实现先进先出的队列.<code>LinkedList</code>同样实现了Queue接口. </p>
+        <p><code>PriorityQueue</code>用来创建自然排序的优先级队列. </p>
         <h3>5.<code>Map</code>接口</h3>
-        <p><code>Map</code>提供<code>key</code>到<code>value</code>的映射. 一个<code>Map</code>中不能包含相同的<code>key</code>,每个<code>key</code>只能映射一个<code>value</code>.<br/>
-            <code>Map</code>的内容可以被当作一组<code>key</code>集合,一组<code>value</code>集合,或者一组<code>key-value</code>映射.</p>
+        <p><code>Map</code>提供<code>key</code>到<code>value</code>的映射. 一个<code>Map</code>中不能包含相同的<code>key</code>,每个<code>key</code>只能映射一个<code>value</code>.
+        </p>
+        <p><code>Map</code>的内容可以被当作一组<code>key</code>集合,一组<code>value</code>集合,或者一组<code>key-value</code>映射.</p>
         <div class="bs-callout bs-callout-info">
             <h4>`Map`没有继承`Collection`接口.
             </h4>
@@ -129,9 +132,9 @@ Map
             <h4>List list = Collections.synchronizedList(new LinkedList(...));.</h4>
         </div>
         <h3>2.<code>ArrayList</code>类</h3>
-        <p><code>ArrayList</code>实现了变长数组.它允许所有元素,包括null.<br/>
-            每个<code>ArrayList</code>实例都有一个容量(<code>Capacity</code>), 即用于存储元素的数组的大小. 这个容量可随着不断添加新元素而自动增加,但是增长算法并没有定义.
-            当需要插入大量元素时,在插入前可以调用<code>ensureCapacity</code>方法来增加<code>ArrayList</code>的容量以提高插入效率.<br/>
+        <p><code>ArrayList</code>实现了变长数组.它允许所有元素,包括null.每个<code>ArrayList</code>实例都有一个容量(<code>Capacity</code>),
+            即用于存储元素的数组的大小.这个容量可随着不断添加新元素而自动增加,但是增长算法并没有定义.</p>
+        <p>当需要插入大量元素时,在插入前可以调用<code>ensureCapacity</code>方法来增加<code>ArrayList</code>的容量以提高插入效率.<br/>
             和LinkedList一样,ArrayList也是非同步的(unsynchronized). </p>
         <p><code>ArrayList</code>添加删除对象:</p>
         <pre class="prettyprint"><code class="java language-java">/** ArrayList添加对象*/
@@ -236,16 +239,15 @@ for (Integer anIntList : stack) {
             </h4>
         </div>
         <h3>5.HashMap类</h3>
-        <p>
-            <code>HashMap</code>是最常用的<code>Map</code>,不是线程安全的.它根据键的<code>HashCode</code>值存储数据,根据键可以直接获取它的值,具有很快的访问速度.<br/>
-            遍历时,取得数据的顺序是<code>完全随机</code>的.<br/>
-            由于键对象不可以重复, 所以<code>HashMap</code>最多只允许一条记录的键为空(null),允许多条记录的值为空(null).<br/>
-            由于作为key的对象将通过计算其<code>散列函数</code>来确定与之对应的<code>value</code>的位置,
+        <p><code>HashMap</code>是最常用的<code>Map</code>,不是线程安全的.它根据键的<code>HashCode</code>值存储数据,根据键可以直接获取它的值,具有很快的访问速度.遍历时,取得数据的顺序是<code>完全随机</code>的.
+        </p>
+        <p>由于键对象不可以重复, 所以<code>HashMap</code>最多只允许一条记录的键为空(null),允许多条记录的值为空(null).</p>
+        <p>由于作为key的对象将通过计算其<code>散列函数</code>来确定与之对应的<code>value</code>的位置,
             因此任何作为<code>key</code>的对象都必须实现<code>hashCode</code>和<code>equals</code>方法.</p>
         <div class="bs-callout bs-callout-success">
             <h4>`hashCode`和`equals`方法继承自根类`Object`.</h4>
         </div>
-        <div class="bs-callout bs-callout-warning">
+        <div class="bs-callout bs-callout-success">
             <h4>用自定义的类当作key</h4>
             <h4>
                 按照`散列函数`的定义,如果两个对象相同,即`obj1.equals(obj2)=true`,则它们的`hashCode`必须相同,但如果两个对象不同,则它们的`hashCode``不一定不同`.<br>
@@ -323,18 +325,16 @@ while (it1.hasNext()) {
             <h4>如果需要线程同步的map, 建议使用线程同步的ConcurrentHashMap类. 不建议使用这个类, 并没有示例代码.</h4>
         </div>
         <h3>7.<code>WeakHashMap</code>类</h3>
-        <p><code>WeakHashMap</code>是一种改进的<code>HashMap</code>.<br/>
-            它对<code>key</code>实行<code>弱引用</code>,如果一个<code>key</code>不再被外部所引用,那么该<code>key</code>可以被Java的<code>垃圾回收器</code>(GC)回收.
+        <p><code>WeakHashMap</code>是一种改进的<code>HashMap</code>. 它对<code>key</code>实行<code>弱引用</code>,如果一个<code>key</code>不再被外部所引用,那么该<code>key</code>可以被Java的<code>垃圾回收器</code>(GC)回收.
         </p>
         <div class="bs-callout bs-callout-success">
             <h4>使用方式同`HashMap`.</h4>
         </div>
         <h3>8. <code>HashSet</code>类</h3>
-        <p><code>HashSet</code>中元素是无序的(这个无序指的是数据的添加顺序和后来的排列顺序不同),而且元素不可重复.<br/>
-            <code>HashSet</code>的底层是数组,在增加和删除的时候由于运用的<code>hashCode</code>的比较来确定添加元素的位置,不存在元素的偏移, 因此查询和删除和增加元素的效率都非常高.
+        <p><code>HashSet</code>中元素是无序的(这个无序指的是数据的添加顺序和后来的排列顺序不同),而且元素不可重复.</p>
+        <p><code>HashSet</code>的底层是数组,在增加和删除的时候由于运用的<code>hashCode</code>的比较来确定添加元素的位置,不存在元素的偏移, 因此查询和删除和增加元素的效率都非常高.
         </p>
-        <p>但是<code>HashSet</code>增删的高效率是通过花费大量的空间换来的:<br/>
-            因为空间越大,取余数相同的情况就越小.<code>HashSet</code>这种算法会建立许多无用的空间.</p>
+        <p>但是<code>HashSet</code>增删的高效率是通过花费大量的空间换来的, 因为空间越大,取余数相同的情况就越小.<code>HashSet</code>这种算法会建立许多无用的空间.</p>
         <div class="bs-callout bs-callout-danger">
             <h4>使用HashSet类时如果发生冲突,就会出现遍历整个数组的情况,这样就使得效率非常的低.
             </h4>
@@ -357,9 +357,8 @@ for (Integer intNum : hashSet) {
             <h4>HashSet的遍历方式同ArrayList，参考ArrayList的遍历.</h4>
         </div>
         <h3>8.<code>ConcurrentHashMap</code>类</h3>
-        <p>线程同步的<code>HashMap</code>,线程安全并且锁分离.<br/>
-            <code>ConcurrentHashMap</code>内部使用段(<code>Segment</code>)来表示这些不同的部分,每个段其实就是一个小的<code>hash table</code>,它们有自己的锁.
-            只要多个修改操作发生在不同的段上,它们就可以并发进行.</p>
+        <p>线程同步的<code>HashMap</code>,线程安全并且锁分离. <code>ConcurrentHashMap</code>内部使用段(<code>Segment</code>)来表示这些不同的部分,每个段其实就是一个小的<code>hash
+            table</code>,它们有自己的锁. 只要多个修改操作发生在不同的段上,它们就可以并发进行.</p>
         <div class="bs-callout bs-callout-success">
             <h4>使用方式同`HashMap`.</h4>
         </div>
@@ -370,9 +369,9 @@ for (Integer intNum : hashSet) {
             <h4>使用方式同`HashMap`.</h4>
         </div>
         <h3>10.<code>TreeMap</code>类</h3>
-        <p><code>TreeMap</code>实现<code>SortMap</code>接口,能够把它保存的记录根据键排序,默认是按键值的升序排序(自然顺序),也可以指定排序的比较器.<br/>
-            当用<code>Iterator</code>遍历<code>TreeMap</code>时, 得到的记录是排过序的.<br/>
-            <code>TreeMap</code>不允许<code>key</code>值<code>为空</code>,非线程同步. </p>
+        <p><code>TreeMap</code>实现<code>SortMap</code>接口,能够把它保存的记录根据键排序,默认是按键值的升序排序(自然顺序),也可以指定排序的比较器.
+            当用<code>Iterator</code>遍历<code>TreeMap</code>时, 得到的记录是排过序的.</p>
+        <p><code>TreeMap</code>不允许<code>key</code>值<code>为空</code>,非线程同步. </p>
         <div class="bs-callout bs-callout-success">
             <h4>使用方式同`HashMap`.</h4>
         </div>
@@ -741,26 +740,29 @@ HashSet 长度: 5
             </li>
         </ul>
         <a href="#top" id="7."><b>7. 相关文章🔝</b></a>
-        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
+        <ul>
+            <li><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></li>
+        </ul>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+        <li class="active"><a
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
-    <nav>
-        <ul class="pager">
-            <li>
-                <a href="http://dashidan.com/article/java/basic/Java包装类.html"><span>◀</span>上一篇</a>
-            </li>
-            <li>
-                <a href="http://dashidan.com/article/java/basic/Java异常.html">下一篇<span>▶</span></a>
-            </li>
-        </ul>
-    </nav>
+    <!--<nav>-->
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/java/basic/Java包装类.html">🔺 上一篇: Java包装类</a>
+        </div>
+        <div>
+            <a href="http://dashidan.com/article/java/basic/Java异常.html">🔻 下一篇: Java异常</a>
+        </div>
+    </div>
+    <!--</nav>-->
 </div>
 
 <div style="display:none;">

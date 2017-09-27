@@ -47,7 +47,8 @@
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+        <li class="active"><a
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
     <!-- 顶部标签页-->
@@ -60,8 +61,8 @@
         <!-- 替换这个区域-->
         <div class="list-group"><a class="list-group-item list-group-item-warning" href="#8."><h3>8. Java流程控制</h3></a><a
             class="list-group-item" href="#8.1"> ▶ 8.1 分支语句</a><a class="list-group-item" href="#8.2"> ▶ 8.2 跳转语句</a><a
-            class="list-group-item" href="#8.3"> ▶ 8.3 循环语句</a><a class="list-group-item" href="#8.4"> ▶ 8.4 相关文章</a>
-        </div>
+            class="list-group-item" href="#8.3"> ▶ 8.3 循环语句</a><a class="list-group-item" href="#8.4"> ▶ 8.4 示例代码</a><a
+            class="list-group-item" href="#8.5"> ▶ 8.5 相关文章</a></div>
         <div class="jumbotron">
             <p>流程控制语句是编程语言中的核心之一,可以分为`分支语句`(if, else),`跳转语句`(switch)和`循环语句`(for, while).
             </p>
@@ -70,8 +71,8 @@
         <p><code>if</code>, <code>else</code>属于分支语句,意思是根据条件执行语句. if-else 流程控制中,只会执行<code>判断条件为真</code>方法体的代码,不满足条件的不执行.
         </p>
         <h3>1.最简单的流程控制if, else</h3>
-        <p>如果<code>if</code>括号中的条件为真(<code>true</code>),则执行<code>if</code>对应大括号内的语句.<br/>
-            如果<code>if</code>括号中的条件为假(<code>false</code>),则执行<code>else</code>对应大括号内的语句. </p>
+        <p>如果<code>if</code>括号中的条件为真(<code>true</code>),则执行<code>if</code>对应大括号内的语句. 如果<code>if</code>括号中的条件为假(<code>false</code>),则执行<code>else</code>对应大括号内的语句.
+        </p>
         <pre class="prettyprint"><code class="java language-java">int a = 0;
 int b = 1;
 if(a &gt; b){
@@ -81,10 +82,12 @@ if(a &gt; b){
 }
 </code></pre>
         <h3>2.if-else if-else</h3>
-        <p>如果<code>if</code>括号中的条件为真(<code>true</code>),则执行<code>if</code>对应大括号内的语句.<br/>
-            如果<code>if</code>括号中的条件为假(<code>false</code>),则顺次往下判断<code>else if</code>对应大括号内的条件是否为真.<br/>
-            如果条件为真,则执行大括号对应的语句.
-            如果条件为假,则继续向下判断. </p>
+        <ul>
+            <li>如果<code>if</code>括号中的条件为真(<code>true</code>),则执行<code>if</code>对应大括号内的语句.</li>
+            <li>如果<code>if</code>括号中的条件为假(<code>false</code>),则顺次往下判断<code>else if</code>对应大括号内的条件是否为真.</li>
+            <li>如果条件为真,则执行大括号对应的语句.</li>
+            <li>如果条件为假,则继续向下判断.</li>
+        </ul>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
 
 /**
@@ -110,14 +113,10 @@ public class Demo1 {
         <pre><code>a &lt; b
 </code></pre>
         <a href="#top" id="8.2"><b>8.2 跳转语句🔝</b></a>
+        <p><code>switch</code>是一种条件控制语句, 由<code>case</code>, <code>break</code>, <code>default</code>(可省略)组成.</p>
         <p>
             <code>switch</code>根据一个传入的参数,从<code>case</code>后<code>:</code>的数据,找到和传入的参数相同的值.执行对应的<code>case</code>部分的代码,到<code>break</code>结束.结束<code>switch</code>语句.
-            如果没有满足的<code>case</code>情况.执行<code>default</code>对应的语句.结束<code>switch</code>语句. <code>switch</code>是一种条件控制.
-        </p>
-        <div class="bs-callout bs-callout-danger">
-            <h4>网上很多文章说`switch`只支持整数型和字符(`char`)型.那是旧版本了. JDK8.0` switch case`已经支持字符串类型了.</h4>
-        </div>
-        <p><code>switch</code>语句由<code>case</code>, <code>break</code>, <code>default</code>(可省略)组成.</p>
+            如果没有满足的<code>case</code>情况.执行<code>default</code>对应的语句.结束<code>switch</code>语句. </p>
         <p>代码示例:</p>
         <pre class="prettyprint"><code class="java language-java">switch (var) {
     case 1:
@@ -225,11 +224,11 @@ public class Demo3 {
 3
 switch over.
 </code></pre>
-        <div class="bs-callout bs-callout-success">
-            <h4>switch case字符串</h4>
-            <h4>需要JDK8.0或者更高版本才能正确运行.</h4>
+        <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/truth.jpg" alt="真相只有1个"/></p>
+        <div class="bs-callout bs-callout-danger">
+            <h4>网上很多文章说`switch`只支持整数型和字符(`char`)型. 那是以前了. JDK7.0开始`switch case`已经支持字符串类型了.</h4>
         </div>
-        <p>示例代码:</p>
+        <p>附带真相的代码:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
 
 /**
@@ -334,18 +333,22 @@ do {
             </li>
             <li>开始循环执行第一步的语句,直到循环结束.</li>
         </ol>
-        <h3>4.<code>continue</code>关键字:</h3>
+        <h3>4.<code>continue</code>关键字</h3>
         <p>在循环体中的<code>continue</code>是从continue处停止当前的逻辑执行, 并且继续进入下一次循环.</p>
-        <p>示例代码:</p>
-        <pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
+        <ul>
+            <li>for循环continue示例代码:</li>
+        </ul>
+        <pre class="prettyprint"><code class="java language-java">for (int i = 0; i &lt; 3; i++) {
     if (i == 1) {
         continue;
     }
     System.out.println("i: " + i);
 }
 </code></pre>
-        <p>示例代码:</p>
-        <pre class="prettyprint"><code>int i = 0;
+        <ul>
+            <li>while循环continue示例代码:</li>
+        </ul>
+        <pre class="prettyprint"><code class="java language-java">int i = 0;
 while (i &lt; 3) {
     if (i == 1) {
         continue;
@@ -354,20 +357,24 @@ while (i &lt; 3) {
     i++;
 }
 </code></pre>
-        <p>解释:
-            在<code>for</code>循环和<code>while</code>循环中,<code>continue</code>语句作用一样.
-            当<code>i==1</code>时,执行了<code>continue</code>语句,跳过了后续的语句,所以没有输出<code>i: 1</code>.</p>
+        <div class="bs-callout bs-callout-success"><h4>在`for`循环和`while`循环中,`continue`语句作用一样.
+            当`i==1`时,执行了`continue`语句,跳过了后续的语句,所以没有输出`i: 1`.</h4>
+        </div>
         <h3>5.<code>break</code>关键字</h3>
-        <p>在循环体中的<code>break</code>结束当前的循环. </p>
-        <p>示例代码:</p>
-        <pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
+        <p>在循环体中的<code>break</code>结束当前的循环.</p>
+        <ul>
+            <li>for循环示例代码:</li>
+        </ul>
+        <pre class="prettyprint"><code class="java language-java">for (int i = 0; i &lt; 3; i++) {
     if (i == 1) {
         break;
     }
     System.out.println("i: " + i);
 }
 </code></pre>
-        <p>示例代码:</p>
+        <ul>
+            <li>while循环示例代码:</li>
+        </ul>
         <pre class="prettyprint"><code>int i = 0;
 while(i &lt; 3){
     if(i == 1){
@@ -377,7 +384,83 @@ while(i &lt; 3){
     i++;
 }
 </code></pre>
+        <h3>6.<code>return</code>关键字</h3>
+        <p><code>return</code>语句可以使其从当前方法中退出.返回到调用该方法的语句处.继续程序的执行. 返回语句有两种格式:无返回值和有返回值.</p>
+        <ul>
+            <li>return有返回值, 返回一个值给调用该方法的语句.返回值的数据类型必须与方法声明中的返回值类型一致.</li>
+            <li>return无返回值, 当方法说明中用<code>void</code>声明无返回值时,不返回任何值.</li>
+        </ul>
+        <div class="bs-callout bs-callout-success">
+            <h4>return返回值</h4>
+            <h4>`return`语句通常用在一个方法体的最后,退出该方法并返回一个值. 单独的`return`语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到.
+                可以通过把`return`语句嵌入某些语句(如:`if…else`)来使程序在未执行完方法中的所有语句时退出.</h4>
+        </div>
         <p>示例代码:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇:8. Java流程控制
+ * return 语句
+ */
+public class Demo6 {
+    public static void main(String[] args) {
+        /** 执行无返回值的方法*/
+        testReturn(1);
+        int b = testReturnInt(2, 3);
+        System.out.println("执行有返回值的方法: " + b);
+
+    }
+
+    public static void testReturn(int value) {
+        System.out.println("执行无返回值的方法: " + value);
+    }
+
+    public static int testReturnInt(int p0, int p1) {
+        return p0 + p1;
+    }
+}
+</code></pre>
+        <p>输出:</p>
+        <pre><code>执行无返回值的方法: 1
+执行有返回值的方法: 5
+</code></pre>
+        <h3>7. 死循环</h3>
+        <p>当程序进入循环中,如果符合继续执行循环的条件一直为true, 程序就会无限执行这个循环体的代码, 导致无法执行下一句语句,这种情况就叫<code>死循环</code>. 开发过程中需要注意这点. 最简单的是循环的例子是
+        </p>
+        <pre><code>while(true){
+    ...
+}
+</code></pre>
+        <p>示例代码</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇:8. Java流程控制
+ * 死循环
+ */
+public class Demo7 {
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("死循环");
+        }
+    }
+}
+</code></pre>
+        <p>输出</p>
+        <pre><code>死循环
+死循环
+死循环
+死循环
+死循环
+死循环
+死循环
+...
+</code></pre>
+        <a href="#top" id="8.4"><b>8.4 示例代码🔝</b></a>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
 
 /**
@@ -473,107 +556,30 @@ i: 0
 break在while循环中
 i: 0
 </code></pre>
-        <h3>6.<code>return</code>关键字:</h3>
-        <p><code>return</code>语句可以使其从当前方法中退出.返回到调用该方法的语句处.继续程序的执行. 返回语句有两种格式:无返回值和有返回值. </p>
+        <a href="#top" id="8.5"><b>8.5 相关文章🔝</b></a>
         <ul>
-            <li>return有返回值:<br/>
-                返回一个值给调用该方法的语句.返回值的数据类型必须与方法声明中的返回值类型一致.
-            </li>
-            <li>return无返回值:<br/>
-                当方法说明中用<code>void</code>声明无返回值时,不返回任何值.
-            </li>
+            <li><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></li>
         </ul>
-        <div class="bs-callout bs-callout-success">
-            <h4>return返回值</h4>
-            <h4>`return`语句通常用在一个方法体的最后,退出该方法并返回一个值. 单独的`return`语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到.
-                可以通过把`return`语句嵌入某些语句(如:`if…else`)来使程序在未执行完方法中的所有语句时退出.</h4>
-        </div>
-        <p>示例代码:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
-
-/**
- * 大屎蛋教程网-dashidan.com
- * &lt;p&gt;
- * Java教程基础篇:8. Java流程控制
- * return 语句
- */
-public class Demo6 {
-    public static void main(String[] args) {
-        /** 执行无返回值的方法*/
-        testReturn(1);
-        int b = testReturnInt(2, 3);
-        System.out.println("执行有返回值的方法: " + b);
-
-    }
-
-    public static void testReturn(int value) {
-        System.out.println("执行无返回值的方法: " + value);
-    }
-
-    public static int testReturnInt(int p0, int p1) {
-        return p0 + p1;
-    }
-}
-</code></pre>
-        <p>输出:</p>
-        <pre><code>执行无返回值的方法: 1
-执行有返回值的方法: 5
-</code></pre>
-        <h3>7. 死循环</h3>
-        <p>当程序进入循环中,如果符合继续执行循环的条件一直为true,程序就会无限执行这个循环体的代码,导致无法执行下一句语句,这种情况就叫<code>死循环</code>.开发过程中需要注意这点.
-            最简单的是循环的例子是 </p>
-        <pre><code>while(true){
-    ...
-}
-</code></pre>
-        <p>示例代码:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
-
-/**
- * 大屎蛋教程网-dashidan.com
- * &lt;p&gt;
- * Java教程基础篇:8. Java流程控制
- * 死循环
- */
-public class Demo7 {
-    public static void main(String[] args) {
-        while (true) {
-            System.out.println("死循环");
-        }
-    }
-}
-</code></pre>
-        <p>输出</p>
-        <pre><code>死循环
-死循环
-死循环
-死循环
-死循环
-死循环
-死循环
-...
-</code></pre>
-        <a href="#top" id="8.4"><b>8.4 相关文章🔝</b></a>
-        <p><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+        <li class="active"><a
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
-    <nav>
-        <ul class="pager">
-            <li>
-                <a href="http://dashidan.com/article/java/basic/Java方法.html"><span>◀</span>上一篇</a>
-            </li>
-            <li>
-                <a href="http://dashidan.com/article/java/basic/Java对象与命名空间.html">下一篇<span>▶</span></a>
-            </li>
-        </ul>
-    </nav>
+    <!--<nav>-->
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/java/basic/Java方法.html">🔺 上一篇: Java方法</a>
+        </div>
+        <div>
+            <a href="http://dashidan.com/article/java/basic/Java对象与命名空间.html">🔻 下一篇: Java对象与命名空间</a>
+        </div>
+    </div>
+    <!--</nav>-->
 </div>
 
 <div style="display:none;">

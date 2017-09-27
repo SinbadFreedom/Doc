@@ -47,7 +47,8 @@
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+        <li class="active"><a
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
     <!-- 顶部标签页-->
@@ -63,8 +64,9 @@
             class="list-group-item" href="#2."> ▶ 2. 自动装包/拆包</a><a class="list-group-item" href="#3."> ▶ 3. 代码示例</a><a
             class="list-group-item" href="#4."> ▶ 4. 相关文章</a></div>
         <div class="jumbotron">
-            <p>Java语言是一个面向对象的语言,但Java中的基本数据类型却是不面向对象的. 这在实际使用时存在很多的不便, 为了解决这个不足(例如:集合类中只能存放对象, 不能存放基本类型数据),
-                在设计类时为每个基本数据类型设计了一个对应的类进行代表, 这样八个和基本数据类型对应的类统称为包装类(Wrapper Class), 也翻译为外覆类或数据类型类.
+            <p>Java语言是一个面向对象的语言,但Java中的基本数据类型却是不面向对象的. 这在实际使用时存在很多的不便.</p>
+            <p>为了解决这个不足(例如:集合类中只能存放对象, 不能存放基本类型数据), 在设计类时为每个基本数据类型设计了一个对应的类进行代表, 这样八个和基本数据类型对应的类统称为包装类(Wrapper Class),
+                也翻译为外覆类或数据类型类.
             </p>
         </div>
         <a href="#top" id="1."><b>1. 包装类对应表🔝</b></a>
@@ -125,10 +127,12 @@
             <li>作为和基本数据类型对应的类类型存在,方便涉及到对象的操作.</li>
             <li>包含每种基本数据类型的相关属性如最大值、最小值等,以及相关的操作方法.</li>
         </ul>
-        <p>由于八个包装类的使用比较类似,以最常用的<code>Integer</code>类为例, 介绍包装类的应用: </p>
+        <div class="bs-callout bs-callout-success">
+            <h4>由于八个包装类的使用比较类似,以最常用的`Integer`类为例, 介绍包装类的应用.</h4>
+        </div>
         <h3>1.实现int和Integer类之间的转换</h3>
-        <p>使用<code>Integer</code>类的构造方法和<code>intValue()</code>方法实现这些基本类型和包装类之间的相互转换
-            代码示例:</p>
+        <p>使用<code>Integer</code>类的构造方法和<code>intValue()</code>方法实现这些基本类型和包装类之间的相互转换.</p>
+        <p>代码示例:</p>
         <pre class="prettyprint"><code class="java language-java">/** 将int类型转换为Integer类型*/
 int intNum = 10;
 Integer integer = new Integer(intNum);
@@ -222,19 +226,20 @@ true
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+        <li class="active"><a
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
-    <nav>
-        <ul class="pager">
-            <li>
-                <a href="http://dashidan.com/article/java/basic/java对象.html"><span>◀</span>上一篇</a>
-            </li>
-            <li>
-                <a href="http://dashidan.com/article/java/basic/Java集合类.html">下一篇<span>▶</span></a>
-            </li>
-        </ul>
-    </nav>
+    <!--<nav>-->
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/java/basic/Java对象.html">🔺 上一篇: Java对象</a>
+        </div>
+        <div>
+            <a href="http://dashidan.com/article/java/basic/Java集合类.html">🔻 下一篇: Java集合类</a>
+        </div>
+    </div>
+    <!--</nav>-->
 </div>
 
 <div style="display:none;">
