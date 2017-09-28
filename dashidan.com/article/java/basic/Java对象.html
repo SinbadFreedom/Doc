@@ -126,7 +126,7 @@
         </ul>
         <h3>4.构造函数的执行</h3>
         <p>通常是通过<code>new</code>关键字创建对象时执行.</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -197,7 +197,7 @@ id 1 url dashidan.com name 大屎蛋教程网
         <h3>1.值传递</h3>
         <p>传递的是值的拷贝. 也就是说传递参数时, 将值拷贝了一份, 与原有变量不再有关系. <code>基本类型</code>和<code>字符串</code>传递采用的是值传递.</p>
         <p>示例代码:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -236,7 +236,7 @@ changeValue str : 大屎蛋dashidan.com
         <h3>2.引用传递</h3>
         <p>引用传递是指给索引对象赋值时, 是将对象内存的地址作为参数传递. 新的对象与原有指向同一份数据. 当修改对象的变量时, 原有指向改数据的对象都<code>发生改变</code>. </p>
         <p>代码示例: </p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -286,7 +286,7 @@ class TestObject {
             这样便实现了数据的隐藏. </p>
         <p>举个栗子:</p>
         <p>你有一只宠物, 宠物的名字你不希望别人随便改, 可以将宠物的名字设置为私有<code>private</code>.</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession5;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson5;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -301,7 +301,7 @@ public class Pet {
         <h3>2.公开数据访问接口</h3>
         <p>你这只宠物的名字编程私有之后, 你希望给他改个名字, 可以将改名的方法设置为公开方法. 这样就能通过统一的开放接口来设置宠物的名字, 并且可以开放一个获取名字的接口, 来获得这个私有的属性值. </p>
         <p>示例代码:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -347,7 +347,7 @@ class TestObject {
         <h3>1.继承方式</h3>
         <p>通过关键字extends.我们以猫和狗继承是宠物, 宠物都有<code>走</code>的行为. 猫有<code>吃鱼</code>的行为, 狗有<code>吃骨头</code>的行为为例实现这个继承关系.</p>
         <p>父类<code>Pet</code>:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -368,7 +368,7 @@ public class Pet {
 }
 </code></pre>
         <p>子类<code>Cat</code>:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -389,7 +389,7 @@ public class Cat extends Pet {
 }
 </code></pre>
         <p>子类<code>Dog</code>:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -410,7 +410,7 @@ public class Dog extends Pet {
 }
 </code></pre>
         <p>执行类</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -468,7 +468,7 @@ Dog eatBone.
         <p>举个栗子: </p>
         <p>猫和狗都继承自宠物类, 宠物有吃的行为. 猫吃鱼狗吃骨头, 他们吃的行为不一样. 我们可以采用多态的方式来实现. </p>
         <p>代码示例:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -504,7 +504,7 @@ Dog eat
         <p>以下代码中的<code>setName</code>方法, 该方法中的传入的参数<code>name</code>与成员变量<code>name</code>重名,
             这时需要用<code>this.name</code>来表明引用成员变量. </p>
         <p>代码示例:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession8;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson8;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -534,7 +534,7 @@ public class Pet {
         <p><code>cat</code>类:</p>
         <p>在调用<code>Cat</code>类的<code>eat()</code>方法时, 方法体中通过<code>super.eat()</code>调用了父类的<code>eat()</code>方法.
             故父类的eat()方法被执行, <code>Pet eat.</code>输出到控制台.</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -562,7 +562,7 @@ public class Cat extends Pet {
 }
 </code></pre>
         <p>运行程序:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession8;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson8;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -602,7 +602,7 @@ public class Demo1 {
 </code></pre>
         <h3>2.抽象类</h3>
         <p>如果一个类含有抽象方法，则称这个类为抽象类，抽象类必须在类前用<code>abstract</code>关键字修饰.只要包含抽象方法, 必须命名为抽象类. 抽象类也可以包含普通方法.</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -616,7 +616,7 @@ public abstract class AbstractPet {
 }
 </code></pre>
         <p><code>Fish</code>类作为子类:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -636,7 +636,7 @@ public class Fish extends AbstractPet {
 }
 </code></pre>
         <p>运行类</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -667,7 +667,7 @@ public class Demo9 {
             <p>答案是:抽象类可以被用`new`的方式创建. 通过`匿名内部类`方式.</p>
         </div>
         <p>附带真相的代码: </p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -714,7 +714,7 @@ public class Demo10 {
 </code></pre>
         <p>示例代码:</p>
         <p><code>IPet</code>接口:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -728,7 +728,7 @@ public interface IPet {
 }
 </code></pre>
         <p><code>Bird</code>类:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -745,7 +745,7 @@ public class Bird implements IPet {
 }
 </code></pre>
         <p>运行类:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -779,7 +779,7 @@ public class Demo11 {
         <pre><code>boolean result = object instanceof class
 </code></pre>
         <p>示例代码:</p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -813,7 +813,7 @@ cat instanceof Pet: true
             <h4>示例类型与转型类型需要一致, 不一致会报错.</h4>
         </div>
         <p>示例代码: </p>
-        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lession12;
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson12;
 
 /**
  * 大屎蛋教程网-dashidan.com
