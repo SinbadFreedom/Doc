@@ -6118,12 +6118,12 @@ a.badge:focus {
         padding-bottom: 48px;
     }
 
-    .container .jumbotron,
-    .container .jumbotron {
-        padding-right: 60px;
-        padding-left: 60px;
-    }
-
+    /** edit by Sinbad 20170928*/
+    /*.container .jumbotron,*/
+    /*.container .jumbotron {*/
+    /*padding-right: 60px;*/
+    /*padding-left: 60px;*/
+    /*}*/
     .jumbotron h1,
     .jumbotron .h1 {
         font-size: 63px;
@@ -8209,8 +8209,9 @@ button.close {
 
 /* bootstrap callout add by sinbad 20170908*/
 .bs-callout {
+    margin-left: 2em;
     padding: 20px;
-    margin: 20px 0;
+    /*margin: 20px 0;*/
     border: 1px solid #eee;
     border-left-width: 5px;
     border-radius: 3px;

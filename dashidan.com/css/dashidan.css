@@ -19,3 +19,15 @@ a:hover {
 p {
     text-indent: 2em;
 }
+
+pre {
+    margin-left: 3em;
+    /*padding-left: 2em;*/
+}
+
+table {
+    margin-left: 2em;
+    /*padding-left: 2em;*/
+}
+
+

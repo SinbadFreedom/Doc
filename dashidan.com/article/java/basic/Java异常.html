@@ -79,8 +79,9 @@
             <li>finally finally语句块总是会被执行. 主要用于回收在<code>try</code>块里打开的物理资源(如文件, 网络连接, 数据库连接等).</li>
         </ul>
         <div class="bs-callout bs-callout-warning">
-            <h4>只有finally块执行完成之后,才会执行try或者catch块中的return或者throw语句. 如果finally中使用了return或者throw等终止方法的语句,则就不会跳回执行,直接停止.
-            </h4>
+            <h4>finally语句中return</h4>
+            <p>只有finally块执行完成之后,才会执行try或者catch块中的return或者throw语句. 如果finally中使用了return或者throw等终止方法的语句,则就不会跳回执行,直接停止.
+            </p>
         </div>
         <ul>
             <li>throw 用于抛出异常.</li>
@@ -96,9 +97,8 @@
         <p>Java异常框架继承关系如图:
             <img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/15-1.jpg" alt="图15-1"/></p>
         <h3>1.Throwable</h3>
-        <p><code>Throwable</code>是<code>Java</code>语言中所有错误或异常的超类, 包含两个子类:<code>Error</code>和<code>Exception</code>.它们通常用于指示发生了异常情况.
+        <p><code>Throwable</code>是<code>Java</code>语言中所有错误或异常的超类, 包含两个子类:<code>Error</code>和<code>Exception</code>.它们通常用于指示发生了异常情况.<code>Throwable</code>包含了其线程创建时线程执行堆栈的快照,提供了<code>printStackTrace()</code>等接口用于获取堆栈跟踪数据等信息.
         </p>
-        <p><code>Throwable</code>包含了其线程创建时线程执行堆栈的快照,提供了<code>printStackTrace()</code>等接口用于获取堆栈跟踪数据等信息.</p>
         <h3>2.运行时异常RuntimeException</h3>
         <p><code>RuntimeException</code>是那些可能在<code>Java</code>虚拟机正常运行期间抛出的异常的超类, 简称<code>运行时异常</code>.
             RuntimeException及其子类都被称为运行时异常.</p>

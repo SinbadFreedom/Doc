@@ -76,9 +76,9 @@
         <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/truth.jpg" alt="真相只有一个"/></p>
         <div class="bs-callout bs-callout-danger">
             <h4>Java中万事万物皆对象?</h4>
-            <h4>这个说法的由来, 是因为java中所有的类默认都继承自`Object`类. 但这个说法是`不准确`的. 很多资料中这样说, 曾经给我带来过很大的困扰.</h4>
-            <h4>Java属于`强类型语言`, `方法`作为属性存在于对象中, 不作为独立的对象存在. 所以说在Java中万事万物皆对象的说法是不准确的, 方法和基本类型变量都不是对象的概念.</h4>
-            <h4>在一些弱类型语言比如`javascript`, 方法也可以作为`对象`的概念来使用, 作为参数传递, 这一点和java是有区别的.</h4>
+            <p>这个说法的由来, 是因为java中所有的类默认都继承自`Object`类. 但这个说法是`不准确`的. 很多资料中这样说, 曾经给我带来过很大的困扰.</p>
+            <p>Java属于`强类型语言`, `方法`作为属性存在于对象中, 不作为独立的对象存在. 所以说在Java中万事万物皆对象的说法是不准确的, 方法和基本类型变量都不是对象的概念.</p>
+            <p>在一些弱类型语言比如`javascript`, 方法也可以作为`对象`的概念来使用, 作为参数传递, 这一点和java是有区别的.</p>
         </div>
         <a href="#top" id="12.2"><b>12.2 面向对象编程思想🔝</b></a>
         <p>提到面向对象, 不得不提到面向过程编程. 以C语言为例, 每个方法作为一个<code>执行过程</code>存在, 面向过程编程是一种面向计算机思维, 从计算机执行的角度思考编写代码的编程方式. </p>
@@ -105,18 +105,17 @@
             <li>为对象创建标识符</li>
         </ul>
         <h3>2.默认构造函数</h3>
-        <p>当用户没有显式的定义构造函数时, 编译器会为类生成一个默认的构造函数, 称为<code>默认构造函数</code>. 默认构造函数名与类名相同, 没有参数. </p>
-        <div class="bs-callout bs-callout-success">
-            <h4>默认构造函数</h4>
-            <h4>默认构造函数在代码中看不到, 在编译时自动生成.</h4>
-        </div>
-        <p>例:</p>
+        <p>当用户没有显式的定义构造函数时, 编译器会为类生成一个默认的构造函数, 称为<code>默认构造函数</code>. 默认构造函数名与类名相同, 没有参数.例:</p>
         <pre class="prettyprint"><code class="java language-java">public class Demo1 {
     // 默认构造函数
     public Demo1(){
     }
 }
 </code></pre>
+        <div class="bs-callout bs-callout-success">
+            <h4>默认构造函数</h4>
+            <p>默认构造函数在代码中看不到, 在编译时自动生成.</p>
+        </div>
         <h3>3.构造函数的特点</h3>
         <p>无论是用户自定义的构造函数还是默认构造函数都主要有以下特点: </p>
         <ul>
@@ -190,8 +189,8 @@ id 1 url dashidan.com name 大屎蛋教程网
 </code></pre>
         <div class="bs-callout bs-callout-info">
             <h4>析构函数</h4>
-            <h4>c++除了`构造函数`,还有`析构函数`的概念. 析构函数也是一种特殊的成员函数. 它执行与构造函数相反的操作,通常用于撤消对象时的一些清理任务,如释放分配给对象的内存空间等.
-                Java中只有构造函数,而没有析构函数.</h4>
+            <p>c++除了`构造函数`,还有`析构函数`的概念. 析构函数也是一种特殊的成员函数. 它执行与构造函数相反的操作,通常用于撤消对象时的一些清理任务,如释放分配给对象的内存空间等.
+                Java中只有构造函数,而没有析构函数.</p>
         </div>
         <a href="#top" id="12.4"><b>12.4 参数的值传递与引用传递🔝</b></a>
         <p>Java中方法中给变量赋值有2种方式: 值传递和引用传递.传递基本类型,String参数时是值传递. 传递引用类型参数时, 是引用传递.</p>
@@ -442,26 +441,30 @@ Dog eatBone.
 </code></pre>
         <div class="bs-callout bs-callout-success">
             <h4>java单根继承</h4>
-            <h4>java单根继承是指单个类只能继承一个父类, 在c++中是多根继承, 一个类可以同时继承多个父类.</h4>
+            <p>java单根继承是指单个类只能继承一个父类, 在c++中是多根继承, 一个类可以同时继承多个父类.</p>
         </div>
         <h3>3.对象静态绑定与动态绑定</h3>
         <p>绑定指的是一个方法的调用与方法所在的类(方法主体)关联起来. java绑定分为静态绑定和动态绑定.</p>
-        <p>1.静态绑定</p>
+        <ul>
+            <li>静态绑定</li>
+        </ul>
         <p>静态绑定也称作前期绑定. java中的方法只有<code>final</code>, <code>static</code>, <code>private</code>和<code>构造方法</code>是<code>静态绑定</code>.
             静态绑定发生在<code>编译</code>时, 静态绑定用<code>类</code>信息来完成.</p>
-        <p>2.动态绑定
-            动态绑定(dynamic binding)也称作后期绑定. java程序运行时根据具体对象的类型进行绑定. 动态绑定发生在<code>运行</code>时. 动态绑定则需要用<code>对象</code>信息来完成.
+        <ul>
+            <li>动态绑定</li>
+        </ul>
+        <p>动态绑定(dynamic binding)也称作后期绑定. java程序运行时根据具体对象的类型进行绑定. 动态绑定发生在<code>运行</code>时. 动态绑定则需要用<code>对象</code>信息来完成.
         </p>
         <a href="#top" id="12.7"><b>12.7 对象的多态🔝</b></a>
         <h3>1.多态的前提</h3>
         <p>当子类和父类存在同一个方法, 子类覆写了父类的方法, 程序在运行时调用父类的方法还是子类覆写的方法呢?
             Java的多态解决了整个问题. 运行时根据对象类型来判断执行对应对象的方法.</p>
-        <p>多态的前提条件: </p>
-        <ol>
-            <li>有继承关系.</li>
-            <li>子类重写父类的方法.</li>
-            <li>父类引用指向子类.</li>
-        </ol>
+        <div class="bs-callout bs-callout-success">
+            <h4>多态的前提条件</h4>
+            <p>1. 有继承关系.</p>
+            <p>2. 子类重写父类的方法.</p>
+            <p>3. 父类引用指向子类.</p>
+        </div>
         <p>举个栗子: </p>
         <p>猫和狗都继承自宠物类, 宠物有吃的行为. 猫吃鱼狗吃骨头, 他们吃的行为不一样. 我们可以采用多态的方式来实现. </p>
         <p>代码示例:</p>
@@ -495,7 +498,8 @@ Dog eat
         <h3>1.this</h3>
         <p>使用<code>this</code>获取当前对象的索引.</p>
         <div class="bs-callout bs-callout-success">
-            <h4>如果省略this. 系统会默认自动添加加上`this.`来指向当前对象. </h4>
+            <h4>省略this</h4>
+            <p>如果省略this. 系统会默认自动添加加上`this.`来指向当前对象.</p>
         </div>
         <p>以下代码中的<code>setName</code>方法, 该方法中的传入的参数<code>name</code>与成员变量<code>name</code>重名,
             这时需要用<code>this.name</code>来表明引用成员变量. </p>
@@ -526,8 +530,7 @@ public class Pet {
 }
 </code></pre>
         <h3>2.super</h3>
-        <p><code>super</code>引用当前对象的<code>父对象</code>. 需要访问父类方法或者变量的时候, 可以使用<code>super.</code>来访问.</p>
-        <p>示例代码:</p>
+        <p><code>super</code>引用当前对象的<code>父对象</code>. 需要访问父类方法或者变量的时候, 可以使用<code>super.</code>来访问.示例代码:</p>
         <p><code>cat</code>类:</p>
         <p>在调用<code>Cat</code>类的<code>eat()</code>方法时, 方法体中通过<code>super.eat()</code>调用了父类的<code>eat()</code>方法.
             故父类的eat()方法被执行, <code>Pet eat.</code>输出到控制台.</p>
@@ -589,8 +592,8 @@ public class Demo1 {
         </p>
         <div class="bs-callout bs-callout-warning">
             <h4>`static`环境不能使用`this`, `super`</h4>
-            <h4>this和super都指的是对象, 是动态绑定, 所以都不能在`static`环境中使用(静态绑定)包括: static变量, static方法, static语句块.
-            </h4>
+            <p>this和super都指的是对象, 是动态绑定, 所以都不能在`static`环境中使用(静态绑定)包括: static变量, static方法, static语句块.
+            </p>
         </div>
         <a href="#top" id="12.9"><b>12.9 抽象方法与抽象类🔝</b></a>
         <h3>1.抽象方法</h3>
@@ -598,10 +601,7 @@ public class Demo1 {
         <pre class="prettyprint"><code class="java language-java">public abstract void eat();
 </code></pre>
         <h3>2.抽象类</h3>
-        <p>如果一个类含有抽象方法，则称这个类为抽象类，抽象类必须在类前用<code>abstract</code>关键字修饰.</p>
-        <div class="bs-callout bs-callout-success">
-            <h4>只要包含抽象方法, 必须命名为抽象类. 抽象类也可以包含普通方法.</h4>
-        </div>
+        <p>如果一个类含有抽象方法，则称这个类为抽象类，抽象类必须在类前用<code>abstract</code>关键字修饰.只要包含抽象方法, 必须命名为抽象类. 抽象类也可以包含普通方法.</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession12;
 
 /**
@@ -664,7 +664,7 @@ public class Demo9 {
         <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/truth.jpg" alt="真相只有一个"/></p>
         <div class="bs-callout bs-callout-danger">
             <h4>抽象类不能用来创建对象吗?</h4>
-            <h4>答案是抽象类可以被用`new`的方式创建. 通过`匿名内部类`方式.</h4>
+            <p>答案是:抽象类可以被用`new`的方式创建. 通过`匿名内部类`方式.</p>
         </div>
         <p>附带真相的代码: </p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession12;
@@ -774,14 +774,10 @@ public class Demo11 {
             <li>抽象类和接口所反映的设计理念是不同的, 抽象类所代表的是<code>is-a</code>的关系, 而接口所代表的是<code>like-a</code>的关系.</li>
         </ul>
         <a href="#top" id="12.11"><b>12.11 对象实例类型判断🔝</b></a>
-        <p>Java中的instanceof运算符是用来在运行时判断对象是否是指定类的实例.</p>
-        <h3>1.instanceof用法</h3>
-        <p><code>instanceof</code>是二目运算符, 返回一个布尔值, 表示该对象是否是指定类的实例.</p>
+        <p>Java中的instanceof运算符是用来在运行时判断对象是否是指定类的实例.子类实例<code>instanceof</code>父类, 返回ture. 因为继承关系, 子类的实例也是父类的实例.<code>instanceof</code>是二目运算符,
+            返回一个布尔值, 表示该对象是否是指定类的实例.用法:</p>
         <pre><code>boolean result = object instanceof class
 </code></pre>
-        <div class="bs-callout bs-callout-success">
-            <h4>子类实例<code>instanceof</code>父类, 返回ture. 因为继承关系, 子类的实例也是父类的实例.</h4>
-        </div>
         <p>示例代码:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession12;
 

@@ -179,7 +179,7 @@ switch over.
 </code></pre>
         <div class="bs-callout bs-callout-success">
             <h4>`case`没有`break`会怎样?</h4>
-            <h4>case如果没有break就会继续往下执行,不中断switch语句,直到遇到`break`,或者switch结尾.</h4>
+            <p>case如果没有break就会继续往下执行,不中断switch语句,直到遇到`break`,或者switch结尾.</p>
         </div>
         <p>示例代码:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
@@ -226,7 +226,8 @@ switch over.
 </code></pre>
         <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/truth.jpg" alt="真相只有1个"/></p>
         <div class="bs-callout bs-callout-danger">
-            <h4>网上很多文章说`switch`只支持整数型和字符(`char`)型. 那是以前了. JDK7.0开始`switch case`已经支持字符串类型了.</h4>
+            <h4>网上很多文章说`switch`只支持整数型和字符(`char`)型.</h4>
+            <p>那是以前了. JDK7.0开始`switch case`已经支持字符串类型了.</p>
         </div>
         <p>附带真相的代码:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
@@ -357,8 +358,8 @@ while (i &lt; 3) {
     i++;
 }
 </code></pre>
-        <div class="bs-callout bs-callout-success"><h4>在`for`循环和`while`循环中,`continue`语句作用一样.
-            当`i==1`时,执行了`continue`语句,跳过了后续的语句,所以没有输出`i: 1`.</h4>
+        <div class="bs-callout">
+            <h4>在`for`循环和`while`循环中,`continue`语句作用一样.当`i==1`时,执行了`continue`语句,跳过了后续的语句,所以没有输出`i: 1`.</h4>
         </div>
         <h3>5.<code>break</code>关键字</h3>
         <p>在循环体中的<code>break</code>结束当前的循环.</p>
@@ -392,8 +393,8 @@ while(i &lt; 3){
         </ul>
         <div class="bs-callout bs-callout-success">
             <h4>return返回值</h4>
-            <h4>`return`语句通常用在一个方法体的最后,退出该方法并返回一个值. 单独的`return`语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到.
-                可以通过把`return`语句嵌入某些语句(如:`if…else`)来使程序在未执行完方法中的所有语句时退出.</h4>
+            <p>`return`语句通常用在一个方法体的最后,退出该方法并返回一个值. 单独的`return`语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到.
+                可以通过把`return`语句嵌入某些语句(如:`if…else`)来使程序在未执行完方法中的所有语句时退出.</p>
         </div>
         <p>示例代码:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession8;
