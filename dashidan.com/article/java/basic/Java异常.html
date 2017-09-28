@@ -102,17 +102,14 @@
         <h3>2.运行时异常RuntimeException</h3>
         <p><code>RuntimeException</code>是那些可能在<code>Java</code>虚拟机正常运行期间抛出的异常的超类, 简称<code>运行时异常</code>.
             RuntimeException及其子类都被称为运行时异常.</p>
-        <p>Java编译器不会检查运行时异常.当程序中可能出现这类异常时,倘若既"没有通过throws声明抛出它",也"没有用try-catch语句捕获它",还是会编译通过. </p>
+        <p>Java编译器不会检查运行时异常.当程序中可能出现这类异常时,倘若既"没有通过throws声明抛出它",也"没有用try-catch语句捕获它",还是会编译通过.</p>
+        <p>虽然Java编译器不会检查运行时异常, 但是我们也可以通过throws进行声明抛出, 也可以通过try-catch对它进行捕获处理. 如果产生运行时异常,则需要通过修改代码来进行避免.</p>
         <p>例如： </p>
         <ul>
             <li>除数为零时产生的ArithmeticException异常</li>
             <li>数组越界时产生的IndexOutOfBoundsException异常</li>
             <li>fail-fail机制产生的ConcurrentModificationException异常等,都属于运行时异常.</li>
         </ul>
-        <div class="bs-callout bs-callout-warning">
-            <h4>虽然Java编译器不会检查运行时异常, 但是我们也可以通过throws进行声明抛出, 也可以通过try-catch对它进行捕获处理. 如果产生运行时异常,则需要通过修改代码来进行避免.
-            </h4>
-        </div>
         <table class="table table-bordered table-responsive">
             <caption>部分常用运行时异常说明</caption>
             <thead>
@@ -201,14 +198,14 @@
         <ul>
             <li>VirtualMachineError就属于错误.</li>
         </ul>
-        <div class="bs-callout bs-callout-warning">
+        <div class="bs-callout bs-callout-error">
             <h4>按照Java惯例, 不应该实现任何新的Error子类, 需要自定义异常可以采用Exception类.
             </h4>
         </div>
         <div class="bs-callout bs-callout-success">
             <h4>到底该哪一种异常?</h4>
-            <h4>对于可以恢复的条件使用被检查异常,对于程序错误使用运行时异常.虚拟机及系统错误采用Error.
-            </h4>
+            <p>对于可以恢复的条件使用被检查异常,对于程序错误使用运行时异常.虚拟机及系统错误采用Error.
+            </p>
         </div>
         <a href="#top" id="3."><b>3. 捕获异常🔝</b></a>
         <p>使用<code>try</code>和<code>catch</code>关键字可以捕获异常.<code>try/catch</code>代码块放在异常可能发生的地方. </p>
@@ -266,7 +263,7 @@
 </code></pre>
         <div class="bs-callout bs-callout-warning">
             <h4>finally 块并非强制添加.</h4>
-            <h4>try 代码后不能既没 catch 块也没 finally 块.</h4>
+            <p>try 代码后不能既没 catch 块也没 finally 块.</p>
         </div>
         <p>示例代码:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.basic.lession15;
