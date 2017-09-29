@@ -169,6 +169,49 @@ int n = Integer.parseInt("ff",16);
 String s = Integer.toString(m);
 //将int值转换为特定进制的字符串:
 </code></pre>
+        <ul>
+            <li>整数转化为字符串
+                有2种方式:<code>Integer.toString()</code>方法和<code>整数 + ""</code>方式, 应该用那种呢?
+                先放结论: 用<code>整数 + ""</code>方式实现.
+            </li>
+        </ul>
+        <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/truth.jpg" alt="真相只有1个"/></p>
+        <p>附带真像的代码:</p>
+        <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13. Java包装类
+ * 整数转化为字符串
+ */
+public class Demo2 {
+    public static void main(String[] args) {
+        int count = 100000;
+        long t1 = System.currentTimeMillis();
+        System.out.println("");
+        for (int i = 0; i &lt; count; i++) {
+            Integer in = new Integer(100);
+            String s1 = in.toString();
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(" t2 - t1 " + (t2 - t1));
+        for (int i = 0; i &lt; count; i++) {
+            String s2 = 100 + "";
+        }
+        long t3 = System.currentTimeMillis();
+
+        System.out.println(" t3 - t2 " + (t3 - t2));
+    }
+}
+</code></pre>
+        <p>输出:</p>
+        <pre><code>t2 - t1 12
+t3 - t2 1
+</code></pre>
+        <div class="bs-callout">
+            <h4>`整数 + ""`方式比Integer.toString()的方式快了10倍左右.</h4>
+        </div>
         <a href="#top" id="2."><b>2. 自动装包/拆包🔝</b></a>
         <p>JDK自1.5(5.0)版本引入了自动拆装箱(Autoboxing/unboxing)的语法, 也就是在进行基本数据类型和对应的包装类转换时, 系统将自动进行,大大方便了代码的书写.</p>
         <pre class="prettyprint"><code class="java language-java">/** int类型会自动转换为Integer类型*/
