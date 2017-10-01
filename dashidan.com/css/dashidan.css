@@ -30,4 +30,9 @@ table {
     /*padding-left: 2em;*/
 }
 
+/** 图片设置为圆角*/
+img {
+    border-radius: 16px;
+}
+
 
