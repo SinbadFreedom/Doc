@@ -106,20 +106,23 @@
         <ul>
             <li><code>public</code>:可以公开访问,类似公共财产.所有类都可以访问.</li>
             <li><code>private</code>:私有的,类似个人资产.只有本类可以访问.</li>
-            <li><code>protect</code>:私有的,类似家族资产.有继承关系的类可以访问.</li>
+            <li><code>protect</code>:保护的,类似家族资产.有继承关系的类可以访问.</li>
             <li><code>default</code>:默认,类似家族资产.同一个包中的类可以访问.</li>
         </ul>
         <div class="dsd_title"><a href="#top" id="③">③ 静态<code>static</code>🔝</a></div>
-        <p><code>static</code>:表示该方法是静态方法,属于类本身,在类的内部可以直接调用.没有<code>staic</code>修饰的方法表名该方法属于<code>对象</code>.要先创建对象才可以调用.<a
+        <p><code>static</code>:表示该方法是静态方法,属于类本身,不用创建对象, 可以类名加<code>.</code>调用, 本类中<code>static</code>方法可以直接调用本类其他的<code>static</code>方法.
+        </p>
+        <p>没有<code>staic</code>修饰的方法表名该方法属于<code>对象</code>.要先创建对象才可以调用.<a
             href="http://dashidan.com/article/java/basic/Java对象.html">Java对象</a></p>
         <div class="dsd_title"><a href="#top" id="④">④ 返回值类型🔝</a></div>
-        <p>方法返回值的数据类型,如:<code>int</code>表示返回整数.<code>void</code>表示不返回任何数据. <code>void</code>修饰的方法,<code>不能有</code>return语句.
-        </p>
+        <p>方法返回值的数据类型,如:<code>int</code>表示返回整数, 定义了返回类型的方法, 最后必须有<code>return</code>语句, 返回定义的类型.</p>
+        <p><code>void</code>表示不返回任何数据. <code>void</code>修饰的方法,<code>不能通过</code>return语句返回值. 可以没有<code>return</code>语句,
+            或者通过<code>return</code>结束方法.</p>
         <pre class="prettyprint"><code class="java language-java">public void testVoid(){
     System.out.println("void");
 }
 </code></pre>
-        <p><code>其他数据类型</code>修饰的方法<code>必须有</code>return语句,return后边的数据类型和修饰词需保持一致.</p>
+        <p><code>其他数据类型</code>修饰的方法<code>必须有</code>return语句, return后边的数据类型和修饰词需保持一致.</p>
         <pre class="prettyprint"><code class="java language-java">public int testReturnInt(){
     System.out.println("return int.");
     return 100;
@@ -138,7 +141,7 @@
 }
 </code></pre>
         <p>有参数的方法:</p>
-        <pre class="prettyprint"><code class="java language-java">// 返回2个数相加的值,调用该方法是,需要传入2个整型参数,a和b.
+        <pre class="prettyprint"><code class="java language-java">// 返回2个数相加的值,调用该方法时,需要传入2个整型参数,a和b.
 public static int addInt(int a, int b){
     return a + b;
 }
