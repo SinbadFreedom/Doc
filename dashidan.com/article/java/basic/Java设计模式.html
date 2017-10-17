@@ -160,6 +160,7 @@ class Singleton4 {
 </code></pre>
         <a href="#top" id="3."><b>3. 工厂模式🔝</b></a>
         <p>工厂模式本质是通过条件语句,根据不同的条件创建不同的对象.通常情况下, 产生的对象继承自同一个父类, 工厂类提供的方法返回的类型为父类对象类型.达到对象封装的作用.</p>
+        <p>代码示例:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
@@ -234,6 +235,7 @@ class Product2 extends Product {
             <li>不同的观察者对象通常继承同一个观察者接口, 通过接口方法统一处理</li>
         </ul>
         <p>通常用在一对多或者多对多的场景中, 一个对象数据变化了, 需要通知其他对象的场景. 比如<code>ActionScript3</code>语言底层的事件冒泡机制, 就是采用观察者模式设计.</p>
+        <p>代码示例:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 
