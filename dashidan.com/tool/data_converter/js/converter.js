@@ -45,7 +45,7 @@ DataConverter.prototype.convert = function () {
     this.outputText = "";
     //make sure there is input data before converting...
     if (this.inputText.length > 0) {
-
+        
         if (this.includeWhiteSpace) {
             this.newLine = "\n";
         } else {
@@ -54,7 +54,7 @@ DataConverter.prototype.convert = function () {
         }
         CSVParser.resetLog();
         var parseOutput = CSVParser.parse(this.inputText, this.headersProvided, this.delimiter, this.downcaseHeaders,
-                                          this.upcaseHeaders);
+            this.upcaseHeaders);
         var dataGrid = parseOutput.dataGrid;
         var headerNames = parseOutput.headerNames;
         var headerTypes = parseOutput.headerTypes;
