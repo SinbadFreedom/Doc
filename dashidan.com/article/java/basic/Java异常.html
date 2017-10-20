@@ -65,27 +65,25 @@
         <!-- 替换这个区域-->
         <div>
             <div class="dsd_title"><h1>15. Java异常</h1></div>
-            <div class="dsd_catalog"><a href="#1.">1. Java异常机制相关关键字</a>
+            <div class="dsd_catalog"><a href="#①">① Java异常机制相关关键字</a>
                 <hr>
-                <a href="#2.">2. Java异常框架</a>
+                <a href="#②">② Java异常框架</a>
                 <hr>
-                <a href="#3.">3. 捕获异常</a>
+                <a href="#③">③ 捕获异常</a>
                 <hr>
-                <a href="#4.">4. 抛出异常</a>
+                <a href="#④">④ 抛出异常</a>
                 <hr>
-                <a href="#5.">5. finally关键字</a>
+                <a href="#⑤">⑤ finally关键字</a>
                 <hr>
-                <a href="#6.">6. 自定义异常</a>
+                <a href="#⑥">⑥ 自定义异常</a>
                 <hr>
-                <a href="#7.">7. 示例代码</a>
-                <hr>
-                <a href="#8.">8. 相关文章</a></div>
+                <a href="#⑦">⑦ 相关文章</a></div>
         </div>
         <div class="jumbotron">
             <p>Java异常是Java提供的一种识别及响应错误的一致性机制.
             </p>
         </div>
-        <div class="dsd_title"><a href="#top" id="1.">1. Java异常机制相关关键字🔝</a></div>
+        <div class="dsd_title"><a href="#top" id="①">① Java异常机制相关关键字🔝</a></div>
         <p>Java异常机制相关关键字有:
             <code>try</code>、<code>catch</code>、<code>finally</code>、<code>throw</code>、<code>throws</code>.
             关键字解释: </p>
@@ -103,7 +101,7 @@
             <li>throw 用于抛出异常.</li>
             <li>throws 用在方法签名中,用于声明该方法可能抛出的异常.</li>
         </ul>
-        <div class="dsd_title"><a href="#top" id="2.">2. Java异常框架🔝</a></div>
+        <div class="dsd_title"><a href="#top" id="②">② Java异常框架🔝</a></div>
         <p>Java将可抛出(Throwable)的结构分为三种类型：</p>
         <ul>
             <li>编译异常(Checked Exception)</li>
@@ -223,7 +221,7 @@
             <p>对于可以恢复的条件使用被检查异常,对于程序错误使用运行时异常.虚拟机及系统错误采用Error.
             </p>
         </div>
-        <div class="dsd_title"><a href="#top" id="3.">3. 捕获异常🔝</a></div>
+        <div class="dsd_title"><a href="#top" id="③">③ 捕获异常🔝</a></div>
         <p>使用<code>try</code>和<code>catch</code>关键字可以捕获异常.<code>try/catch</code>代码块放在异常可能发生的地方. </p>
         <p>语法如下：</p>
         <pre class="prettyprint"><code class="java language-java">try {
@@ -244,7 +242,7 @@
     /** 异常处理*/
 }
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="4.">4. 抛出异常🔝</a></div>
+        <div class="dsd_title"><a href="#top" id="④">④ 抛出异常🔝</a></div>
         <p>可以使用<code>throw</code>关键字抛出一个异常.</p>
         <pre class="prettyprint"><code class="java language-java">public static void testThrow() {
     /** 方法体*/
@@ -264,7 +262,7 @@
     /** 方法体*/
 }
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="5.">5. finally关键字🔝</a></div>
+        <div class="dsd_title"><a href="#top" id="⑤">⑤ finally关键字🔝</a></div>
         <p><code>finally</code>关键字用来创建在<code>try</code>代码块后面执行的代码块. 无论是否发生异常,<code>finally</code>代码块中的代码总会被执行. 在<code>finally</code>代码块中,可以运关闭链接,
             释放系统资源等必须要执行的语句. </p>
         <p><code>finally</code>代码块出现在<code>catch</code>代码块最后. </p>
@@ -335,7 +333,7 @@ java.lang.NullPointerException
     at java.lang.reflect.Method.invoke(Method.java:497)
     at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="6.">6. 自定义异常🔝</a></div>
+        <div class="dsd_title"><a href="#top" id="⑥">⑥ 自定义异常🔝</a></div>
         <p>在<code>Java</code>中自定义异常需要注意:</p>
         <ul>
             <li>所有异常都必须是 Throwable 的子类.</li>
@@ -353,7 +351,7 @@ java.lang.NullPointerException
 public class SelfException extends Exception {
 }
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="7.">7. 示例代码🔝</a></div>
+        <p>示例代码:</p>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson15;
 
 /**
@@ -403,10 +401,8 @@ at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 run catch NullPointerException.
 run finally.
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="8.">8. 相关文章🔝</a></div>
-        <ul>
-            <li><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></li>
-        </ul>
+        <div class="dsd_title"><a href="#top" id="⑦">⑦ 相关文章🔝</a></div>
+        <p>📖 <a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
