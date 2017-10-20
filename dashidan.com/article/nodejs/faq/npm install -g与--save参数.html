@@ -55,27 +55,33 @@
     <ul class="nav nav-tabs" role="tablist">
         <li class="active"><a href="http://dashidan.com/article/nodejs/faq/index.html">FAQ</a></li>
     </ul>
-    <div class="text-center">
-        <span>转载请保留出处:<a href="http://dashidan.com/article/nodejs/faq/npm install -g与--save参数.html">原文链接</a></span>
-    </div>
     <!--文档区-->
     <div>
+        👯转载请保留出处.原文链接👉:<a href="http://dashidan.com/article/nodejs/faq/npm install -g与--save参数.html">http://dashidan.com/article/nodejs/faq/npm
+        install -g与--save参数.html</a>
+    </div>
+
+    <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#npm"><h3>npm install
-            -g与--save参数</h3></a><a class="list-group-item" href="#1."> ▶ 1. 本地安装</a><a class="list-group-item"
-                                                                                       href="#2."> ▶ 2. 全局安装</a><a
-            class="list-group-item" href="#3."> ▶ 3. --save参数</a></div>
+        <div>
+            <div class="dsd_title"><h1>npm install -g与--save参数</h1></div>
+            <div class="dsd_catalog"><a href="#1.">1. 本地安装</a>
+                <hr>
+                <a href="#2.">2. 全局安装</a>
+                <hr>
+                <a href="#3.">3. --save参数</a></div>
+        </div>
         <div class="jumbotron">
             <p>npm的包安装分为本地安装(local)、全局安装(global)两种, -g表示全局安装.
                 --save表示是否加入`package.json`的`dependencies`中.</p>
         </div>
-        <a href="#top" id="1."><b>1. 本地安装🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="1.">1. 本地安装🔝</a></div>
         <p><code>npm install</code>不加<code>-g</code>参数, 为本地安装.<br/>
             将安装包放在<code>./node_modules</code>下(运行npm时所在的目录).</p>
-        <a href="#top" id="2."><b>2. 全局安装🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="2.">2. 全局安装🔝</a></div>
         <p><code>npm install -g</code>为全局安装.<br/>
             安装nodejs的模板作为全局模块, 下载到系统默认的<code>node_mudule</code>目录中, 而不是项目中的<code>node_mudole</code>目录.</p>
-        <a href="#top" id="3."><b>3. --save参数🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="3.">3. --save参数🔝</a></div>
         <p>使用npm install的<code>--save</code>参数, 将安装的包加入<code>package.json</code>的<code>dependencies</code>中.<br/>
             以后在使用<code>npm install</code>会自动下载<code>dependencies</code>中的包.</p>
     </div>

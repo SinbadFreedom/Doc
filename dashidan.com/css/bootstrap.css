@@ -1641,7 +1641,8 @@ h6,
 }
 
 p {
-    margin: 0 0 10px;
+    /*margin: 0 0 10px;*/
+    margin: 0 0 0px;
 }
 
 .lead {
@@ -4944,7 +4945,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .nav-tabs {
-    border-bottom: 1px solid #ddd;
+    /*border-bottom: 1px solid #ddd;*/
+    border-bottom: 1px solid #449d44;
 }
 
 .nav-tabs > li {
@@ -4969,7 +4971,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     color: #555;
     cursor: default;
     background-color: #fff;
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
+    border: 1px solid #449d44;
     border-bottom-color: transparent;
 }
 
@@ -6079,11 +6082,14 @@ a.badge:focus {
 }
 
 .jumbotron {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+    /*padding-top: 30px;*/
+    /*padding-bottom: 30px;*/
+    /*margin-bottom: 30px;*/
     color: inherit;
     background-color: #eee;
+    margin-top: 5px;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 .jumbotron h1,
@@ -6091,22 +6097,22 @@ a.badge:focus {
     color: inherit;
 }
 
-.jumbotron p {
-    margin-bottom: 15px;
-    font-size: 21px;
-    font-weight: 200;
-}
+/*.jumbotron p {*/
+/*margin-bottom: 15px;*/
+/*font-size: 21px;*/
+/*font-weight: 200;*/
+/*}*/
 
 .jumbotron > hr {
     border-top-color: #d5d5d5;
 }
 
-.container .jumbotron,
-.container .jumbotron {
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 6px;
-}
+/*.container .jumbotron,*/
+/*.container .jumbotron {*/
+/*padding-right: 15px;*/
+/*padding-left: 15px;*/
+/*border-radius: 6px;*/
+/*}*/
 
 .jumbotron .container {
     max-width: 100%;
@@ -6114,8 +6120,8 @@ a.badge:focus {
 
 @media screen and (min-width: 768px) {
     .jumbotron {
-        padding-top: 48px;
-        padding-bottom: 48px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     /** edit by Sinbad 20170928*/

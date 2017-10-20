@@ -56,22 +56,33 @@
         <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">教程列表</a></li>
         <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
-    <div class="text-center">
-        <span>转载请保留出处:<a href="http://dashidan.com/article/java/basic/Java集合类.html">原文链接</a></span>
-    </div>
     <!--文档区-->
     <div>
+        👯转载请保留出处.原文链接👉:<a href="http://dashidan.com/article/java/basic/Java集合类.html">http://dashidan.com/article/java/basic/Java集合类.html</a>
+    </div>
+
+    <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#13."><h3>13. Java集合类</h3>
-        </a><a class="list-group-item" href="#1."> ▶ 1. 常用集合类接口</a><a class="list-group-item" href="#2."> ▶ 2. 常用集合类</a><a
-            class="list-group-item" href="#2."> ▶ 2. 常用遍历集合方式</a><a class="list-group-item" href="#5."> ▶ 5. 示例代码</a><a
-            class="list-group-item" href="#6."> ▶ 6. FAQ</a><a class="list-group-item" href="#7."> ▶ 7. 相关文章</a></div>
+        <div>
+            <div class="dsd_title"><h1>13. Java集合类</h1></div>
+            <div class="dsd_catalog"><a href="#1.">1. 常用集合类接口</a>
+                <hr>
+                <a href="#2.">2. 常用集合类</a>
+                <hr>
+                <a href="#2.">2. 常用遍历集合方式</a>
+                <hr>
+                <a href="#5.">5. 示例代码</a>
+                <hr>
+                <a href="#6.">6. FAQ</a>
+                <hr>
+                <a href="#7.">7. 相关文章</a></div>
+        </div>
         <div class="jumbotron">
             <p>
                 Java集合类是java提供的工具包,包含了常用的数据结构:集合、链表、队列、栈、映射等.Java集合类主要可以划分为4个部分:List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections).
             </p>
         </div>
-        <a href="#top" id="1."><b>1. 常用集合类接口🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="1.">1. 常用集合类接口🔝</a></div>
         <p>常用集合类继承关系如下所示: </p>
         <pre><code>Collection
     |-List
@@ -121,7 +132,7 @@ Map
             <h4>`Map`没有继承`Collection`接口.
             </h4>
         </div>
-        <a href="#top" id="2."><b>2. 常用集合类🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="2.">2. 常用集合类🔝</a></div>
         <h3>1.<code>LinkedList</code>类</h3>
         <p>
             <code>LinkedList</code>实现了<code>List</code>接口,允许null元素.提供额外的<code>get</code>,<code>remove</code>,<code>insert</code>方法在<code>LinkedList</code>的首部或尾部.这些操作使<code>LinkedList</code>可被用作<code>栈</code>(stack),<code>队列</code>(queue)或<code>双向队列</code>(deque).
@@ -381,7 +392,7 @@ for (Integer intNum : hashSet) {
                 代码接口不用改变.扩展性强.
             </li>
         </ul>
-        <a href="#top" id="2."><b>2. 常用遍历集合方式🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="2.">2. 常用遍历集合方式🔝</a></div>
         <h3>1. 迭代器<code>Iterator</code></h3>
         <p>
             不论<code>Collection</code>的实际类型如何,它都支持一个<code>iterator()</code>的方法,该方法返回一个迭代器,使用该迭代器即可逐一访问<code>Collection</code>中每一个元素.典型的用法如下:
@@ -397,7 +408,7 @@ while(it.hasNext()) {
         <p>增强for循环, JDK1.5之后提供的新功能, 可以输出数组或集合.</p>
         <h3>3. for循环</h3>
         <p>普通for循环遍历</p>
-        <a href="#top" id="5."><b>5. 示例代码🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="5.">5. 示例代码🔝</a></div>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
 
 import java.util.*;
@@ -661,7 +672,7 @@ HashSet 长度: 5
 3
 4
 </code></pre>
-        <a href="#top" id="6."><b>6. FAQ🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="6.">6. FAQ🔝</a></div>
         <p>集合类相关常见问题</p>
         <h3>1.集合类和数组的区别</h3>
         <ul>
@@ -735,7 +746,7 @@ HashSet 长度: 5
                 这个<code>TreeMap</code>没有调优选项, 因为该树总处于平衡状态.
             </li>
         </ul>
-        <a href="#top" id="7."><b>7. 相关文章🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="7.">7. 相关文章🔝</a></div>
         <ul>
             <li><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></li>
         </ul>

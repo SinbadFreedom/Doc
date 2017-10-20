@@ -56,29 +56,40 @@
         <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">教程列表</a></li>
         <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
-    <div class="text-center">
-        <span>转载请保留出处:<a href="http://dashidan.com/article/java/basic/Java数组.html">原文链接</a></span>
-    </div>
     <!--文档区-->
     <div>
+        👯转载请保留出处.原文链接👉:<a href="http://dashidan.com/article/java/basic/Java数组.html">http://dashidan.com/article/java/basic/Java数组.html</a>
+    </div>
+
+    <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#10."><h3>10. Java数组</h3></a><a
-            class="list-group-item" href="#10.1"> ▶ 10.1 数组的定义</a><a class="list-group-item" href="#10.2"> ▶ 10.2
-            数组的特点</a><a class="list-group-item" href="#10.3"> ▶ 10.3 数组初始化</a><a class="list-group-item" href="#10.4"> ▶
-            10.4 数组默认值</a><a class="list-group-item" href="#10.5"> ▶ 10.5 数组遍历方式</a><a class="list-group-item"
-                                                                                       href="#10.6"> ▶ 10.6 示例代码</a><a
-            class="list-group-item" href="#10.7"> ▶ 10.7 相关文章</a></div>
+        <div>
+            <div class="dsd_title"><h1>10. Java数组</h1></div>
+            <div class="dsd_catalog"><a href="#10.1">10.1 数组的定义</a>
+                <hr>
+                <a href="#10.2">10.2 数组的特点</a>
+                <hr>
+                <a href="#10.3">10.3 数组初始化</a>
+                <hr>
+                <a href="#10.4">10.4 数组默认值</a>
+                <hr>
+                <a href="#10.5">10.5 数组遍历方式</a>
+                <hr>
+                <a href="#10.6">10.6 示例代码</a>
+                <hr>
+                <a href="#10.7">10.7 相关文章</a></div>
+        </div>
         <div class="jumbotron">
             <p>数组是同一种类型数据,固定长度的集合.</p>
         </div>
-        <a href="#top" id="10.1"><b>10.1 数组的定义🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="10.1">10.1 数组的定义🔝</a></div>
         <p>数组的定义格式:</p>
         <pre><code>元素类型[] 数组名 = new 元素类型[元素个数或数组长度];
 </code></pre>
         <p>例: </p>
         <pre><code>int[] arr = new int[5];
 </code></pre>
-        <a href="#top" id="10.2"><b>10.2 数组的特点🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="10.2">10.2 数组的特点🔝</a></div>
         <ul>
             <li>数组只能存储定义好的数据类型, 也就是数组一旦定义，那么里边存储的数据类型也就确定了.</li>
         </ul>
@@ -94,7 +105,7 @@
             <li>数组索引从<code>0</code>开始</li>
         </ul>
         <p>数组索引是指数组中每个元素在数组中的位置. 也叫数组下标志, 从0开始, 顺次增长. 最大值为数组长度减1.</p>
-        <a href="#top" id="10.3"><b>10.3 数组初始化🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="10.3">10.3 数组初始化🔝</a></div>
         <ul>
             <li>初始化方式1:定义数组时初始化</li>
         </ul>
@@ -109,12 +120,12 @@ intArray[0]=1;
 intArray[1]=5;
 intArray[2]=6;
 </code></pre>
-        <a href="#top" id="10.4"><b>10.4 数组默认值🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="10.4">10.4 数组默认值🔝</a></div>
         <p>如果定义完数组没有自定义初始化, 数组中存储的是对应数据类型的默认值.例:</p>
         <pre><code>如果定义了一个int型数组, 默认里面的所有值都是0.
 如果定义了一个String型数组, 默认里面的所有值都是null.
 </code></pre>
-        <a href="#top" id="10.5"><b>10.5 数组遍历方式🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="10.5">10.5 数组遍历方式🔝</a></div>
         <p>最简单和常用的方式是采用<code>for</code>循环遍历数组.</p>
         <h3>1. 基本的便利方式</h3>
         <pre class="prettyprint"><code class="java language-java">/** 定义整型数组*/
@@ -136,7 +147,7 @@ for (int i = 0; i &lt; intArray.length; i++) {
             <h4>for-each循环的缺点</h4>
             <p>丢掉了索引信息.当遍历集合或数组时, 如果需要访问集合或数组的下标, 最好使用基本方式来实现循环或遍历, 而不要使用增强的for循环，因为它丢失了下标信息.</p>
         </div>
-        <a href="#top" id="10.6"><b>10.6 示例代码🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="10.6">10.6 示例代码🔝</a></div>
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson10;
 
 /**
@@ -175,7 +186,7 @@ public class Demo1 {
 1
 2
 </code></pre>
-        <a href="#top" id="10.7"><b>10.7 相关文章🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="10.7">10.7 相关文章🔝</a></div>
         <ul>
             <li><a href="http://dashidan.com/article/java/addenda/Java示例代码使用方法.html">Java示例代码使用方法</a></li>
         </ul>

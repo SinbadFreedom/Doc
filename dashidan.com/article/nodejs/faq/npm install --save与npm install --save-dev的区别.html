@@ -55,25 +55,32 @@
     <ul class="nav nav-tabs" role="tablist">
         <li class="active"><a href="http://dashidan.com/article/nodejs/faq/index.html">FAQ</a></li>
     </ul>
-    <div class="text-center">
-        <span>转载请保留出处:<a
-            href="http://dashidan.com/article/nodejs/faq/npm install --save与npm install --save-dev的区别.html">原文链接</a></span>
-    </div>
     <!--文档区-->
     <div>
+        👯转载请保留出处.原文链接👉:<a
+        href="http://dashidan.com/article/nodejs/faq/npm install --save与npm install --save-dev的区别.html">http://dashidan.com/article/nodejs/faq/npm
+        install --save与npm install --save-dev的区别.html</a>
+    </div>
+
+    <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#npm"><h3>npm install
-            --save与npm install --save-dev的区别</h3></a><a class="list-group-item" href="#1."> ▶ 1. npm
-            install不带--save和--save-dev参数</a><a class="list-group-item" href="#2."> ▶ 2. npm install --save</a><a
-            class="list-group-item" href="#3."> ▶ 3. npm install --save-dev</a><a class="list-group-item" href="#4."> ▶
-            4. 使用原则</a></div>
-        <a href="#top" id="1."><b>1. npm install不带--save和--save-dev参数🔝</b></a>
+        <div>
+            <div class="dsd_title"><h1>npm install --save与npm install --save-dev的区别</h1></div>
+            <div class="dsd_catalog"><a href="#1.">1. npm install不带--save和--save-dev参数</a>
+                <hr>
+                <a href="#2.">2. npm install --save</a>
+                <hr>
+                <a href="#3.">3. npm install --save-dev</a>
+                <hr>
+                <a href="#4.">4. 使用原则</a></div>
+        </div>
+        <div class="dsd_title"><a href="#top" id="1.">1. npm install不带--save和--save-dev参数🔝</a></div>
         <ul>
             <li>把模块安装到当前目录<code>node_modules</code>目录中.</li>
             <li>不修改<code>package.json</code>.</li>
             <li>之后运行<code>npm install</code>命令时,不会自动安装这个模块.</li>
         </ul>
-        <a href="#top" id="2."><b>2. npm install --save🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="2.">2. npm install --save🔝</a></div>
         <ul>
             <li>把模块安装到node_modules目录中.</li>
             <li>在<code>package.json</code>的<code>dependencies</code>属性下添加这个模块.</li>
@@ -82,7 +89,7 @@
                 会自动安装这个模块到<code>node_modules</code>目录中.
             </li>
         </ul>
-        <a href="#top" id="3."><b>3. npm install --save-dev🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="3.">3. npm install --save-dev🔝</a></div>
         <ul>
             <li>把msbuild包安装到node_modules目录中.</li>
             <li>在package.json的<code>devDependencies</code>属性下添加这个模块.</li>
@@ -91,7 +98,7 @@
                 不会自动安装这个模块到<code>node_modules</code>目录中.
             </li>
         </ul>
-        <a href="#top" id="4."><b>4. 使用原则🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="4.">4. 使用原则🔝</a></div>
         <p>运行时需要用到的包使用<code>--save</code>,否则使用<code>--save-dev</code>.</p>
     </div>
     <hr>

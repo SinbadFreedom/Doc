@@ -1,0 +1,24 @@
+瓦肯举手礼
+
+又称“火神答复敬礼”源自电影《星际迷航》中瓦肯人的见面礼，其功能类似于Hello。手势是中指与食指并拢，无名指与小指并拢，最后将大拇指尽可能的张开。
+
+美国电影导演，史波克的扮演者伦纳德·尼莫伊在他的的自传《我不是斯波克》中曾介绍了瓦肯举手礼的由来。尼莫伊幼时曾被祖父带去参加一个犹太教的祈福仪式“kohane　blessing”，并在仪式上见到了一种中指与食指并拢，无名指与小指并拢，最后将大拇指尽可能的张开的手势。这种手势的代表了希伯来文中的字母“ש”，代表希伯来语“Shaddai”此字母的寓意则为“上帝”，这种祈福手势给他留下了极为深刻的印象。在《星际迷航》拍摄过程中，剧组决定为瓦肯人设计一个手礼，在设计瓦肯人问候手势的时候，尼莫伊一下就想到了这个手势。
+
+瓦肯人使用此手礼时还会说著名的瓦肯祝词，即“生生不息，繁荣昌盛”（Live long and prosper）。如今该手势已经变成一种文化符号，表示“来自另一星球”。
+
+瓦肯举手礼 emoji
+Raised Hand With Part Between Middle and Ring Fingers
+https://emojipedia.org/raised-hand-with-part-between-middle-and-ring-fingers/
+
+http://technews.cn/2015/04/07/apple-live-long-and-prosper-emoji/
+
+
+
+
+MOYAI
+
+HUNDRED POINTS SYMBLE 100分  话不多少, 拿走.
+
+NO ONE UNDER EIGHTEEN SYMBLE 18禁
+
+期待有理想有能力的你们，能够创作出富有中国文化的表情，将中华文化传播到世界各地。

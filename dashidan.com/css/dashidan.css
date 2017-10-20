@@ -35,4 +35,18 @@ img {
     border-radius: 16px;
 }
 
+.dsd_catalog {
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #0f0f0f;
+}
 
+.dsd_title {
+    border: 1px solid #eee;
+    border-left-color: #337ab7;
+    border-left-width: 5px;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}

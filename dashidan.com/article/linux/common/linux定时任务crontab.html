@@ -57,22 +57,27 @@
         <li><a href="http://dashidan.com/article/linux/ubuntu/index.html">ubuntu</a></li>
         <li><a href="http://dashidan.com/article/linux/centos/index.html">centos</a></li>
     </ul>
-    <div class="text-center">
-        <span>转载请保留出处:<a href="http://dashidan.com/article/linux/common/linux定时任务crontab.html">原文链接</a></span>
-    </div>
     <!--文档区-->
     <div>
+        👯转载请保留出处.原文链接👉:<a href="http://dashidan.com/article/linux/common/linux定时任务crontab.html">http://dashidan.com/article/linux/common/linux定时任务crontab.html</a>
+    </div>
+
+    <div>
         <!-- 替换这个区域-->
-        <div class="list-group"><a class="list-group-item list-group-item-warning" href="#linux定时任务crontab"><h3>
-            linux定时任务crontab</h3></a><a class="list-group-item" href="#1."> ▶ 1. 基本格式</a><a class="list-group-item"
-                                                                                            href="#2."> ▶ 2.
-            crontab命令参数</a><a class="list-group-item" href="#3."> ▶ 3. crontab配置示例 </a><a class="list-group-item"
-                                                                                          href="#4."> ▶ 4. 相关文章</a>
+        <div>
+            <div class="dsd_title"><h1>linux定时任务crontab</h1></div>
+            <div class="dsd_catalog"><a href="#1.">1. 基本格式</a>
+                <hr>
+                <a href="#2.">2. crontab命令参数</a>
+                <hr>
+                <a href="#3.">3. crontab配置示例 </a>
+                <hr>
+                <a href="#4.">4. 相关文章</a></div>
         </div>
         <div class="jumbotron">
             <p>linux的crontab命令是定时任务, 用来让使用者在固定时间或固定间隔执行程序.</p>
         </div>
-        <a href="#top" id="1."><b>1. 基本格式🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="1.">1. 基本格式🔝</a></div>
         <pre><code>分   时   日   月   周   命令
 M   H   D   m   d   command.
 </code></pre>
@@ -88,7 +93,7 @@ M   H   D   m   d   command.
             <li>参数为<code>*/n</code>时表示每<code>n</code>个时间间隔执行一次</li>
             <li>参数为<code>a, b, c,...</code>时, 表示第 a, b, c,... 个时间间隔要执行</li>
         </ul>
-        <a href="#top" id="2."><b>2. crontab命令参数🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="2.">2. crontab命令参数🔝</a></div>
         <p>crontab file [-u user]-用指定的文件替代目前的crontab.<br/>
             crontab-[-u user]-用标准输入替代目前的crontab.<br/>
             crontab-1[user]-列出用户目前的crontab.<br/>
@@ -99,7 +104,7 @@ M   H   D   m   d   command.
             <h4>crontab -u user</h4>
             <p>crontab -u user是指设定指定user 的定时任务,这个前提是你必须要有其权限(比如说是root)才能够指定他人的定时任务. 如果不使用`-u user` 的话, 表示设定自己的定时任务.</p>
         </div>
-        <a href="#top" id="3."><b>3. crontab配置示例 🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="3.">3. crontab配置示例 🔝</a></div>
         <h3>每晚的21:30重启nginx</h3>
         <pre><code>30 21 * * * service nginx restart
 </code></pre>
@@ -124,7 +129,7 @@ M   H   D   m   d   command.
         <h3>每月的4号与每周一到周三的11点重启nginx</h3>
         <pre><code>0 4 1 jan * service nginx restart
 </code></pre>
-        <a href="#top" id="4."><b>4. 相关文章🔝</b></a>
+        <div class="dsd_title"><a href="#top" id="4.">4. 相关文章🔝</a></div>
         <p><a href="http://dashidan.com/article/linux/common/index.html">linux通用命令及配置</a></p>
     </div>
     <hr>
