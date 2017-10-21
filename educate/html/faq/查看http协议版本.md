@@ -18,3 +18,8 @@ Etag 文件标识符
 Content-Encoding传送启用了GZIP压缩 gzip
 Content-Length 内容长度
 Content-Type 内容类型
+
+
+查看网页头信息
+
+修复自己网站中的工具.
