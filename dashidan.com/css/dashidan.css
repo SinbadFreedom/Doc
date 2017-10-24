@@ -56,8 +56,8 @@ img {
 }
 
 #sx_index_button {
-    width: 20px;
-    padding: 0px;
+    width: 30px;
+    /*padding: 0px;*/
     cursor: pointer;
 }
 
