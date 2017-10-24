@@ -227,12 +227,12 @@
                 <div class="dsd_title"><a href="#top" id="④">④ Java中线程的实现🔝</a></div>
                 <p>在Java中想实现多线程有两种手段,一种是集成Thread类,另一种就是实现Runnable接口.</p>
                 <h3>1.继承自Thread类</h3>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * 继承自Thread类
  */
 public class MyThread1 extends Thread {
@@ -245,12 +245,12 @@ public class MyThread1 extends Thread {
 </code></pre>
                 <h3>2.实现Runnable接口</h3>
                 <p>首先定义一个线程类继承自Runnable接口,如: </p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * 实现Runnable接口
  */
 public class MyThread2 implements Runnable {
@@ -261,12 +261,12 @@ public class MyThread2 implements Runnable {
 }
 </code></pre>
                 <p>入口类,实例化线程类的对象,发动启动线程的命令</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  */
 public class Demo1 {
     public static void main(String[] args) {
@@ -340,12 +340,12 @@ MyThread1 run.
                     如果在没有控制权的线程里执行对象的以上三种方法，就会报java.lang.IllegalMonitorStateException异常.</p>
                 <p>执行时wait(), sleep()时会抛出InterruptedException, 需要放在try-catch语句中执行.</p>
                 <p>报错示例:</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * 线程阻塞状态-wait()
  */
 public class WaitThread extends Thread {
@@ -363,12 +363,12 @@ public class WaitThread extends Thread {
 }
 </code></pre>
                 <p>入口类:</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * 线程阻塞状态 wait()
  */
 public class Demo2 {
@@ -384,7 +384,7 @@ WaitThread before wait.
 Exception in thread "Thread-0" java.lang.IllegalMonitorStateException
     at java.lang.Object.wait(Native Method)
     at java.lang.Object.wait(Object.java:502)
-    at com.dashidan.lesson18.WaitThread.run(WaitThread.java:15)
+    at com.dashidan.lesson19.WaitThread.run(WaitThread.java:15)
 </code></pre>
                 <p>线程取得控制权的方法有三种:</p>
                 <ul>
@@ -396,12 +396,12 @@ Exception in thread "Thread-0" java.lang.IllegalMonitorStateException
                     如果对象调用了notify方法就会通知某个正在等待这个对象的控制权的线程可以继续运行, 由Java虚拟机来决定哪个线程继续运行.
                     如果对象调用了notifyAll方法就会通知所有等待这个对象控制权的线程继续运行
                     可以通过synchronize关键字来获取同步锁, 然后再调用wait(), notify(), notifyAll().</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * 线程阻塞状态 wait() , 获得同步锁
  */
 public class Demo3 {
@@ -459,12 +459,12 @@ WaitThread after lock Thread-0
                     <li>同步阻塞</li>
                 </ul>
                 <p>线程在获取synchronized同步锁失败(因为锁被其它线程所占用),它会进入同步阻塞状态. 当锁被释放后, 其他获得该锁的线程继续执行.</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * 线程阻塞状态 同步阻塞
  */
 public class Demo5 {
@@ -519,12 +519,12 @@ t1 after sleep.
                 </ul>
                 <p>通过调用线程的sleep()或join()或发出了I/O请求时,线程会进入到阻塞状态.当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时,线程重新转入就绪状态.</p>
                 <p>sleep示例:</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * 线程阻塞状态 sleep()
  */
 public class Demo4 {
@@ -559,13 +559,13 @@ after sleep.
                 <p>如果一个线程的run方法执行结束或者调用stop方法后,该线程就会死亡结束生命周期.对于已经死亡的线程,无法再使用start方法令其进入就绪.</p>
                 <div class="dsd_title"><a href="#top" id="⑦">⑦ 线程死锁🔝</a></div>
                 <p>线程死锁是指2个线程都在同步阻塞状态, 等待对象的锁, 在对方的线程中无法释放. 这样会导致这两个线程卡死, 无法继续执行. 开发时应极力避免.</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * 线程死锁
  */
 public class Demo6 {
@@ -648,12 +648,12 @@ t1等待对象锁 LOCK-B ...
                 <p>synchronized关键字的本质是<code>锁对象</code>. 用在对象类型上, 即为锁定目标对象. 用在方法和代码块中, 表示锁定当前对象.对象一旦被锁定,
                     所有的synchonized关键字修饰的区域都需要等待锁释放后才能执行.</p>
                 <p>前边几个例子都是synchronized锁对象的方式.下面来看看用锁方法和锁代码块.</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * synchronized锁方法和区块
  */
 public class Demo7 {
@@ -763,7 +763,7 @@ t2运行testSyncCode结束.
 }
 </code></pre>
                 <p>一个简单的读写锁例子</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
+                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -773,7 +773,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
- * Java教程基础篇:  18.Java线程
+ * Java教程基础篇:  19.Java线程
  * Lock对象
  */
 public class Demo8 {

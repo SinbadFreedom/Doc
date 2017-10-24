@@ -205,7 +205,7 @@
                     <h4>不同的厂家的SDK有不同的配置, 我们以sun公司出品的官方JDK为例介绍下JVM参数.</h4>
                 </div>
                 <div class="dsd_title"><a href="#top" id="①">① 标准配置选项🔝</a></div>
-                <pre><code>-d32          使用 32 位数据模型 (如果可用)
+                <pre class="prettyprint"><code>-d32          使用 32 位数据模型 (如果可用)
 -d64          使用 64 位数据模型 (如果可用)
 -server       选择 "server" VM
               默认 VM 是 server.
@@ -251,7 +251,7 @@
               使用指定的图像显示启动屏幕
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="②">② 非标准配置选项🔝</a></div>
-                <pre><code>-Xmixed           混合模式执行 (默认)
+                <pre class="prettyprint"><code>-Xmixed           混合模式执行 (默认)
 -Xint             仅解释模式执行
 -Xbootclasspath:&lt;用 ; 分隔的目录和 zip/jar 文件&gt;
                   设置搜索路径以引导类和资源
@@ -296,15 +296,15 @@
                     </li>
                 </ul>
                 <div class="dsd_title"><a href="#top" id="④">④ 著名中间件jvm参数配置🔝</a></div>
-                <h3>1.<code>zookeeper</code>JVM参数设置:</h3>
-                <pre><code>-XX:+HeapDumpOnOutOfMemoryError
+                <h3>1.<code>zookeeper</code>JVM参数设置</h3>
+                <pre class="prettyprint"><code>-XX:+HeapDumpOnOutOfMemoryError
 -XX:OnOutOfMemoryError=kill -9 %p
 -Xmx1000m
 -Dcom.sun.management.jmxremote
 -Dcom.sun.management.jmxremote.local.only=false
 </code></pre>
-                <h3>2.<code>apollo</code>JVM参数设置:</h3>
-                <pre><code>-ea
+                <h3>2.<code>apollo</code>JVM参数设置</h3>
+                <pre class="prettyprint"><code>-ea
 -server
 -Xmx1G
 -XX:+HeapDumpOnOutOfMemoryError
@@ -312,7 +312,7 @@
 -Dcom.sun.management.jmxremote
 </code></pre>
                 <h3>3.参数说明:</h3>
-                <pre><code>-XX:+HeapDumpOnOutOfMemoryError参数表示当JVM发生内存溢出时,自动生成信息文件.
+                <pre class="prettyprint"><code>-XX:+HeapDumpOnOutOfMemoryError参数表示当JVM发生内存溢出时,自动生成信息文件.
 -XX:HeapDumpPath=${path} 生成信息文件的路径.也可以指定文件名称.例如:
     -XX:HeapDumpPath=${path}/java_heapdump.hprof. 如果不指定文件名,默认名为:java_&lt;pid&gt;_&lt;date&gt;_&lt;time&gt;_heapDump.hprof.
 -Dcom.sun.management.jmxremote
@@ -320,7 +320,7 @@
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="⑤">⑤ 建议配置🔝</a></div>
                 <p>以下是个人建议, 不一定使用全部场景.根据自己的应用场景配置.</p>
-                <pre><code>-d64
+                <pre class="prettyprint"><code class="     language-    ">-d64
 -Xms4g
 -Xmx4g
 -XX:+HeapDumpOnOutOfMemoryError
