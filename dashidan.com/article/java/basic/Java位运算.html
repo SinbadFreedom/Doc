@@ -480,14 +480,14 @@ public class Demo4 {
                 <pre><code>e: -1 f: 1073741823
 </code></pre>
                 <div class="bs-callout bs-callout-success">
-                    <h4>无符号右移运算符>>></h4>
+                    <h4>无符号右移运算符<code>>>></code></h4>
                     <p>只是对32位和64位的值有意义.这一运算符是C或C++没有的. </p>
                 </div>
                 <div class="bs-callout bs-callout-success">
                     <h4>char,byte或者short移位</h4>
                     <p>在移位前,它们会自动转换成一个int. 移位操作符右端的那个数(转化成二进制)的5个低位才会用到, 即x<
                         <y
-                            ,是指y的低5位才有用,即不能大于32. 对于long也是同样道理(6个低位).这样可防止我们在一个int数里移动不切实际的位数.
+                        ,是指y的低5位才有用,即不能大于32. 对于long也是同样道理(6个低位).这样可防止我们在一个int数里移动不切实际的位数.
                     </p>
                 </div>
                 <p>在进行位运算时,需要注意以下几点:</p>
