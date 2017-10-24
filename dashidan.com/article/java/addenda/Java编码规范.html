@@ -49,86 +49,199 @@
     <!-- 顶部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
-        <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a
-            href="http://dashidan.com/article/java/addenda/index.html"><b>附录</b></a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
     </ol>
     <hr>
-    <!-- 顶部标签页-->
-    <ul class="nav nav-tabs" role="tablist">
-        <li><a href="http://dashidan.com/article/java/basic/index.html">教程列表</a></li>
-        <li class="active"><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
-    </ul>
-    <!--文档区-->
-    <div>
-        👯转载请保留原文链接👉:<a href="http://dashidan.com/article/java/addenda/Java编码规范.html">http://dashidan.com/article/java/addenda/Java编码规范.html</a>
-    </div>
-
-    <div>
-        <!-- 替换这个区域-->
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!-- 索引-->
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
         <div>
-            <div class="dsd_title"><h1>Java编码规范</h1></div>
-            <div class="dsd_catalog"><a href="#①">① 编码格式</a>
+            <div class="dsd_title">
+                <h2>教程列表</h2>
+            </div>
+            <div class="dsd_catalog">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java教程概述.html">📖 1.Java教程概述</a>
+                </div>
                 <hr>
-                <a href="#②">② 命名规范</a>
-                <hr>
-                <a href="#③">③ 函数排序</a>
-                <hr>
-                <a href="#④">④ 作用域</a>
-                <hr>
-                <a href="#⑤">⑤ 注释</a>
-                <hr>
-                <a href="#⑥">⑥ 文件目录</a>
-                <hr>
-                <a href="#⑦">⑦ 多线程</a>
-                <hr>
-                <a href="#⑧">⑧ 格式化</a>
-                <hr>
-                <a href="#⑨">⑨ 文件对比</a></div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/搭建Java开发环境.html">📖 2.搭建Java开发环境</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/第一个Java程序.html">📖 3.第一个Java程序</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java代码注释.html">📖 4.Java代码注释</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java变量.html">📖 5.Java变量</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java集成开发环境.html">📖 6.Java集成开发环境</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java运算符.html">📖 7.Java运算符</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java方法.html">📖 8.Java方法</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java流程控制.html">📖 9.Java流程控制</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java命名空间.html">📖 10.Java命名空间</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java数组.html">📖 11.Java数组</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java静态变量与常量.html">📖 12.Java静态变量与常量</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java对象.html">📖 13.Java对象</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java包装类.html">📖 14.Java包装类</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java集合类.html">📖 15.Java集合类</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java异常.html">📖 16.Java异常</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java位运算.html">📖 17.Java位运算</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java转义字符.html">📖 18.Java转义字符</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java线程.html">📖 19.Java线程</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java设计模式.html">📖 20.Java设计模式</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/Java编码优化.html">📖 21.Java编码优化</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/basic/jvm参数优化.html">📖 22.jvm参数优化</a>
+                </div>
+            </div>
+            <div class="dsd_title">
+                <h2>附录</h2>
+            </div>
+            <div class="dsd_catalog">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/addenda/Java中@Override标签作用.html">📖 Java中@Override标签作用</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/addenda/Java编码规范.html">📖 Java编码规范</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/addenda/Java保留关键字.html">📖 Java保留关键字</a>
+                </div>
+            </div>
         </div>
-        <div class="jumbotron">
-            <p>引为了保证写出高效,优雅的代码制定本规范. 逻辑像流水一样的流出.
-                对于优雅的定义：效率高,结构合理,逻辑清晰,易读,易维护.</p>
+    </div>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
         </div>
-        <div class="dsd_title"><a href="#top" id="①">① 编码格式🔝</a></div>
-        <p>采用UTF-8,避免出现中文乱码.</p>
-        <div class="dsd_title"><a href="#top" id="②">② 命名规范🔝</a></div>
-        <p>命名应尽量采用完整的英文描述,使阅读者一目了然,含义明确. 避免过长,超过15个字母,需要简化,并写好注释.</p>
-        <p>a、 类名,首字母大写(驼峰)： </p>
-        <pre><code>public class Book
+    </div>
+    <div id="xs_content">
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <!-- 文章内容-->
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_title"><h1>Java编码规范</h1></div>
+                    <div class="dsd_catalog"><a href="#①">① 编码格式</a>
+                        <hr>
+                        <a href="#②">② 命名规范</a>
+                        <hr>
+                        <a href="#③">③ 函数排序</a>
+                        <hr>
+                        <a href="#④">④ 作用域</a>
+                        <hr>
+                        <a href="#⑤">⑤ 注释</a>
+                        <hr>
+                        <a href="#⑥">⑥ 文件目录</a>
+                        <hr>
+                        <a href="#⑦">⑦ 多线程</a>
+                        <hr>
+                        <a href="#⑧">⑧ 格式化</a>
+                        <hr>
+                        <a href="#⑨">⑨ 文件对比</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>引为了保证写出高效,优雅的代码制定本规范. 逻辑像流水一样的流出.
+                        对于优雅的定义：效率高,结构合理,逻辑清晰,易读,易维护.</p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="①">① 编码格式🔝</a></div>
+                <p>采用UTF-8,避免出现中文乱码.</p>
+                <div class="dsd_title"><a href="#top" id="②">② 命名规范🔝</a></div>
+                <p>命名应尽量采用完整的英文描述,使阅读者一目了然,含义明确. 避免过长,超过15个字母,需要简化,并写好注释.</p>
+                <p>a、 类名,首字母大写(驼峰)： </p>
+                <pre><code>public class Book
 </code></pre>
-        <p>b、 抽象类命名以"Abstract"开头:</p>
-        <pre><code>public abstract class AbstractBook implements Runnable
+                <p>b、 抽象类命名以"Abstract"开头:</p>
+                <pre><code>public abstract class AbstractBook implements Runnable
 </code></pre>
-        <p>c、 接口以"I"开头：</p>
-        <pre><code>public interface IBook
+                <p>c、 接口以"I"开头：</p>
+                <pre><code>public interface IBook
 </code></pre>
-        <p>d、 成员变量首字母小写,驼峰式命名:</p>
-        <pre><code>private BookPojo bookPojo;
+                <p>d、 成员变量首字母小写,驼峰式命名:</p>
+                <pre><code>private BookPojo bookPojo;
 </code></pre>
-        <p>e、 常量名大写,以"_"分隔单词</p>
-        <pre><code>public static final int BOOK_TYPE_NULL = 0;
+                <p>e、 常量名大写,以"_"分隔单词</p>
+                <pre><code>public static final int BOOK_TYPE_NULL = 0;
 </code></pre>
-        <p>f、 函数命名首字母小写,驼峰式:<br/>
-            刷新数据类的方法采用"update"开头.</p>
-        <pre><code> public void updateBookState()
+                <p>f、 函数命名首字母小写,驼峰式:<br/>
+                    刷新数据类的方法采用"update"开头.</p>
+                <pre><code> public void updateBookState()
 </code></pre>
-        <p>设置变量相关的采用"set"开头</p>
-        <pre><code>public void setState(int state)
+                <p>设置变量相关的采用"set"开头</p>
+                <pre><code>public void setState(int state)
 </code></pre>
-        <p>获取变量相关的采用"get"开头</p>
-        <pre><code>public ArrayList&lt;Integer&gt; getAllBooks()
+                <p>获取变量相关的采用"get"开头</p>
+                <pre><code>public ArrayList&lt;Integer&gt; getAllBooks()
 </code></pre>
-        <p>往集合类中添加对象采用"add"开头</p>
-        <pre><code>public void addToBookList(int bookId)
+                <p>往集合类中添加对象采用"add"开头</p>
+                <pre><code>public void addToBookList(int bookId)
 </code></pre>
-        <p>g、 简单数据类型类以“pojo”结尾,放在对应目录中</p>
-        <pre><code>public class BookPojo
+                <p>g、 简单数据类型类以“pojo”结尾,放在对应目录中</p>
+                <pre><code>public class BookPojo
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="③">③ 函数排序🔝</a></div>
-        <p>a、具有相同含义的函数需要临近排列.<br/>
-            b、后续加的函数放在后边.</p>
-        <pre><code>    public void start() {
+                <div class="dsd_title"><a href="#top" id="③">③ 函数排序🔝</a></div>
+                <p>a、具有相同含义的函数需要临近排列.<br/>
+                    b、后续加的函数放在后边.</p>
+                <pre><code>    public void start() {
         this.init();
         ...
     }
@@ -137,100 +250,103 @@
         ...
     }
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="④">④ 作用域🔝</a></div>
-        <p>a、成员变量采用"private",修饰,根据需要生成set 和get 方法.</p>
-        <p>b、父类中的成员变量,子类通用时,采用protect修饰.</p>
-        <pre><code> protected int bookNumber = 1;
+                <div class="dsd_title"><a href="#top" id="④">④ 作用域🔝</a></div>
+                <p>a、成员变量采用"private",修饰,根据需要生成set 和get 方法.</p>
+                <p>b、父类中的成员变量,子类通用时,采用protect修饰.</p>
+                <pre><code> protected int bookNumber = 1;
 </code></pre>
-        <p>c、常量定义采用"public static final"修饰.</p>
-        <pre><code>public static final int BOOK_TYPE_NULL = 0;
+                <p>c、常量定义采用"public static final"修饰.</p>
+                <pre><code>public static final int BOOK_TYPE_NULL = 0;
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="⑤">⑤ 注释🔝</a></div>
-        <p>注释可以给阅读者带来便利,且在开发周期越长的情况下越有助于代码的记忆以及解读,方便工程扩展维护。
-            采用/** */ 多行注释的形式,这样在IDE中会显示为绿色,比较醒目,易看。</p>
-        <p>a、类注释
-            写明作者和类的作用</p>
-        <pre><code>/**
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 注释🔝</a></div>
+                <p>注释可以给阅读者带来便利,且在开发周期越长的情况下越有助于代码的记忆以及解读,方便工程扩展维护。
+                    采用/** */ 多行注释的形式,这样在IDE中会显示为绿色,比较醒目,易看。</p>
+                <p>a、类注释
+                    写明作者和类的作用</p>
+                <pre><code>/**
  * Created by http://dashidan.com.
  * 使用技能时返回的数据对象
  */
 </code></pre>
-        <p>b、函数注释
-            写明函数作用,参数和返回值意义 </p>
-        <pre><code>/**
+                <p>b、函数注释
+                    写明函数作用,参数和返回值意义 </p>
+                <pre><code>/**
  * 获取书的数量
  * @param bookId 书ID
  * @return 书的数量,没有该书,返回0
  */
 public int getBookNum(int bookId)
 </code></pre>
-        <p>c、变量注释</p>
-        <pre><code>/**
+                <p>c、变量注释</p>
+                <pre><code>/**
  * 是否开发
  */
 private AtomicBoolean isStart = new AtomicBoolean();
 </code></pre>
-        <p>d、方法中功能处理说明
-            尽量详细的说明方法的作用.</p>
-        <pre><code>   if (time - this.readStartTime.get() &gt; BookImpl.MAX_READ_TIME_OUT) {
+                <p>d、方法中功能处理说明
+                    尽量详细的说明方法的作用.</p>
+                <pre><code>   if (time - this.readStartTime.get() &gt; BookImpl.MAX_READ_TIME_OUT) {
         /**
          * 操作超时或者无可用技能时结束回合
          */
         this.readyForReadOver();
     }
 </code></pre>
-        <p>f、 静态变量<br/>
-            说明每个常量值的意义</p>
-        <pre><code>/**
+                <p>f、 静态变量<br/>
+                    说明每个常量值的意义</p>
+                <pre><code>/**
  * 书籍类型
  * BOOK_TYPE 书籍类型 0：默认；1：程序；2: 文学
  */
 public static final int BOOK_TYPE_0 = 0;
 </code></pre>
-        <p>g、 TODO<br/>
-            未完成,或者需要继续完善的部分,加上 //TODO </p>
-        <pre><code>//TODO 1000改为需要的值
+                <p>g、 TODO<br/>
+                    未完成,或者需要继续完善的部分,加上 //TODO </p>
+                <pre><code>//TODO 1000改为需要的值
 int randomRank = new Random().nextInt(1000)
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="⑥">⑥ 文件目录🔝</a></div>
-        <pre><code>-conf 服务器配置
+                <div class="dsd_title"><a href="#top" id="⑥">⑥ 文件目录🔝</a></div>
+                <pre><code>-conf 服务器配置
 -lib 第三方库
 -log 日志目录
 -publish 产品发布目录
 -src 源码目录
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="⑦">⑦ 多线程🔝</a></div>
-        <p>在处理多线程相关的数据时,尽量采用Concurrent包中提供的原子类和集合类。 </p>
-        <div class="dsd_title"><a href="#top" id="⑧">⑧ 格式化🔝</a></div>
-        <p>每次提交代码前都需要格式化代码.<br/>
-            a、导入统一的setting.jar.<br/>
-            b、IDEA中的格式化设置,选中: </p>
-        <pre><code>Include Subdirectory
+                <div class="dsd_title"><a href="#top" id="⑦">⑦ 多线程🔝</a></div>
+                <p>在处理多线程相关的数据时,尽量采用Concurrent包中提供的原子类和集合类。 </p>
+                <div class="dsd_title"><a href="#top" id="⑧">⑧ 格式化🔝</a></div>
+                <p>每次提交代码前都需要格式化代码.<br/>
+                    a、导入统一的setting.jar.<br/>
+                    b、IDEA中的格式化设置,选中: </p>
+                <pre><code>Include Subdirectory
 Optimize import
 Rearrange entries
 </code></pre>
-        <div class="dsd_title"><a href="#top" id="⑨">⑨ 文件对比🔝</a></div>
-        <p>每次提交代码前都需要通过文件对比工具全部比较一下, 二次确认需要提交的代码.</p>
+                <div class="dsd_title"><a href="#top" id="⑨">⑨ 文件对比🔝</a></div>
+                <p>每次提交代码前都需要通过文件对比工具全部比较一下, 二次确认需要提交的代码.</p>
+                <span>最新内容会在源站更新,转载请保留原文链接👉: <a
+                    href="http://dashidan.com/article/java/addenda/Java编码规范.html">http://dashidan.com/article/java
+                    /addenda/Java编码规范.html</a>
+                </span>
+            </div>
+        </div>
     </div>
-    <hr>
     <!-- 底部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
-        <li class="active"><a
-            href="http://dashidan.com/article/java/addenda/index.html"><b>附录</b></a></li>
     </ol>
     <hr>
-    <!--<nav>-->
     <div class="text-center">
         <div>
-            <a href="http://dashidan.com/article/java/addenda/Java中@Override标签作用.html">🔺 上一篇: Java中@Override标签作用</a>
+            <a href="http://dashidan.com/article/java/addenda/Java中@Override标签作用.html">🔺
+                上一篇: Java中@Override标签作用</a>
         </div>
         <div>
-            <a href="http://dashidan.com/article/java/addenda/Java保留关键字.html">🔻 下一篇: Java保留关键字</a>
+            <a href="http://dashidan.com/article/java/addenda/Java保留关键字.html">🔻
+                下一篇: Java保留关键字</a>
         </div>
     </div>
-    <!--</nav>-->
 </div>
 
 <div style="display:none;">
@@ -241,5 +357,6 @@ Rearrange entries
 <script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="http://dashidan.com/js/bootstrap.js"></script>
 <script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
 </body>
 </html>

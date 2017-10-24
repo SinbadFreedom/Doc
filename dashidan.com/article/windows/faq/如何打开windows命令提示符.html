@@ -49,78 +49,105 @@
     <!-- 顶部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
-        <li><a href="http://dashidan.com/article/windows/index.html"><b>Windows教程</b></a></li>
-        <li class="active"><a
-            href="http://dashidan.com/article/windows/faq/index.html"><b>FAQ</b></a></li>
+        <li class="active"><a href="http://dashidan.com/article/windows/index.html"><b>Windows教程</b></a></li>
     </ol>
     <hr>
-    <!-- 顶部标签页-->
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="http://dashidan.com/article/windows/faq/index.html">FAQ</a></li>
-    </ul>
-    <!--文档区-->
-    <div>
-        👯转载请保留原文链接👉:<a href="http://dashidan.com/article/windows/faq/如何打开windows命令提示符.html">http://dashidan.com/article/windows/faq/如何打开windows命令提示符.html</a>
-    </div>
-
-    <div>
-        <!-- 替换这个区域-->
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!-- 索引-->
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
         <div>
-            <div class="dsd_title"><h1>2 如何打开windows命令提示符 </h1></div>
-            <div class="dsd_catalog"><a href="#2.1">2.1 方法1:通过快捷键 </a>
-                <hr>
-                <a href="#2.2">2.2 方法2:通过开始菜单</a>
-                <hr>
-                <a href="#2.3">2.3 方法3:通过<code>shift</code>键和<code>鼠标右键</code>:</a></div>
-        </div>
-        <div class="jumbotron">
-            <p>命令提示符是windows操作系统执行bat文件, 批处理程序, dos命令的窗口.<br>
-            </p>
-        </div>
-        <div class="dsd_title"><a href="#top" id="2.1">2.1 方法1:通过快捷键 🔝</a></div>
-        <p>1.按下键盘<code>windows键</code>同时按下<code>R</code>键-&gt;显示<code>运行</code>窗口.<br/>
-            2.在<code>打开</code>输入框中,输入: </p>
-        <pre><code>cmd
-</code></pre>
-        <p>如图:<br/>
-            <img class="center-block img-responsive" src="http://dashidan.com/img/windows/basic/2-1.png" alt="图2-1"/>
-        </p>
-        <p>3.按<code>回车</code>,显示命令提示符. </p>
-        <div class="dsd_title"><a href="#top" id="2.2">2.2 方法2:通过开始菜单🔝</a></div>
-        <p>点击桌面左下角<code>开始菜单</code>-&gt;<code>所有程序</code>-&gt;<code>附件</code>-&gt;<code>命令提示符</code>
-            如图:<br/>
-            <img class="center-block img-responsive" src="http://dashidan.com/img/windows/basic/2-2.png" alt="图2-2"/>
-        </p>
-        <div class="dsd_title"><a href="#top" id="2.3">2.3 方法3:通过<code>shift</code>键和<code>鼠标右键</code>:🔝</a></div>
-        <p>按住键盘<code>Shift</code>键,同时在桌面空白处点击<code>鼠标右键</code>,在弹出菜单中选择<code>在此处打开命令窗口</code>.
-            如图:<br/>
-            <img class="center-block img-responsive" src="http://dashidan.com/img/windows/basic/2-3.png" alt="图2-3"/>
-        </p>
-        <div class="bs-callout bs-callout-success">
-            <h4>推荐第3种</h4>
-            <p>用<code>在此处打开命令窗口</code>方式打开命令提示符,默认执行命令的目录是当前目录,省去了切换到目标目录的操作.</p>
+            <div class="dsd_title">
+                <h2>教程列表</h2>
+            </div>
+            <div class="dsd_catalog">
+                <!--标题区-->
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/windows/faq/如何分辨windows系统是32位还是64位.html">📖
+                        如何分辨windows系统是32位还是64位</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/windows/faq/如何打开windows命令提示符.html">📖 如何打开windows命令提示符</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/windows/faq/windows如何显示文件后缀名.html">📖 windows如何显示文件后缀名</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/windows/faq/批处理命令中文乱码.html">📖 批处理命令中文乱码</a>
+                </div>
+            </div>
         </div>
     </div>
-    <hr>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div id="xs_content">
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <!-- 文章内容-->
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_title"><h1>2 如何打开windows命令提示符 </h1></div>
+                    <div class="dsd_catalog"><a href="#①">① 方法1:通过快捷键 </a>
+                        <hr>
+                        <a href="#②">② 方法2:通过开始菜单</a>
+                        <hr>
+                        <a href="#③">③ 方法3:通过<code>shift</code>键和<code>鼠标右键</code>:</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>命令提示符是windows操作系统执行bat文件, 批处理程序, dos命令的窗口.<br>
+                    </p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="①">① 方法1:通过快捷键 🔝</a></div>
+                <p>1.按下键盘<code>windows键</code>同时按下<code>R</code>键-&gt;显示<code>运行</code>窗口.<br/>
+                    2.在<code>打开</code>输入框中,输入: </p>
+                <pre><code>cmd
+</code></pre>
+                <p>如图:<br/>
+                    <img class="center-block img-responsive" src="http://dashidan.com/img/windows/basic/2-1.png"
+                         alt="图2-1"/></p>
+                <p>3.按<code>回车</code>,显示命令提示符. </p>
+                <div class="dsd_title"><a href="#top" id="②">② 方法2:通过开始菜单🔝</a></div>
+                <p>点击桌面左下角<code>开始菜单</code>-&gt;<code>所有程序</code>-&gt;<code>附件</code>-&gt;<code>命令提示符</code>
+                    如图:<br/>
+                    <img class="center-block img-responsive" src="http://dashidan.com/img/windows/basic/2-2.png"
+                         alt="图2-2"/></p>
+                <div class="dsd_title"><a href="#top" id="③">③ 方法3:通过<code>shift</code>键和<code>鼠标右键</code>:🔝</a></div>
+                <p>按住键盘<code>Shift</code>键,同时在桌面空白处点击<code>鼠标右键</code>,在弹出菜单中选择<code>在此处打开命令窗口</code>.
+                    如图:<br/>
+                    <img class="center-block img-responsive" src="http://dashidan.com/img/windows/basic/2-3.png"
+                         alt="图2-3"/></p>
+                <div class="bs-callout bs-callout-success">
+                    <h4>推荐第3种</h4>
+                    <p>用<code>在此处打开命令窗口</code>方式打开命令提示符,默认执行命令的目录是当前目录,省去了切换到目标目录的操作.</p>
+                </div>
+                <span>最新内容会在源站更新,转载请保留原文链接👉: <a
+                    href="http://dashidan.com/article/windows/faq/如何打开windows命令提示符.html">http://dashidan.com/article/windows
+                    /faq/如何打开windows命令提示符.html</a>
+                </span>
+            </div>
+        </div>
+    </div>
     <!-- 底部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
         <li><a href="http://dashidan.com/article/windows/index.html"><b>Windows教程</b></a></li>
-        <li class="active"><a
-            href="http://dashidan.com/article/windows/faq/index.html"><b>FAQ</b></a></li>
     </ol>
     <hr>
-    <!--<nav>-->
     <div class="text-center">
         <div>
-            <a href="http://dashidan.com/article/windows/faq/如何分辨windows系统是32位还是64位.html">🔺 上一篇:
-                如何分辨windows系统是32位还是64位</a>
+            <a href="http://dashidan.com/article/windows/faq/如何分辨windows系统是32位还是64位.html">🔺
+                上一篇: 如何分辨windows系统是32位还是64位</a>
         </div>
         <div>
-            <a href="http://dashidan.com/article/windows/faq/windows如何显示文件后缀名.html">🔻 下一篇: windows如何显示文件后缀名</a>
+            <a href="http://dashidan.com/article/windows/faq/windows如何显示文件后缀名.html">🔻
+                下一篇: windows如何显示文件后缀名</a>
         </div>
     </div>
-    <!--</nav>-->
 </div>
 
 <div style="display:none;">
@@ -131,5 +158,6 @@
 <script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="http://dashidan.com/js/bootstrap.js"></script>
 <script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
 </body>
 </html>

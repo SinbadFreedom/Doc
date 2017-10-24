@@ -25,11 +25,6 @@ pre {
     /*padding-left: 2em;*/
 }
 
-table {
-    /*margin-left: 2em;*/
-    /*padding-left: 2em;*/
-}
-
 /** 图片设置为圆角*/
 img {
     border-radius: 16px;
@@ -49,4 +44,38 @@ img {
     padding: 10px;
     margin-bottom: 4px;
     margin-top: 4px;
+}
+
+#xs_index {
+    padding: 5px;
+}
+
+#xs_index_close {
+    cursor: pointer;
+    color: #337ab7;
+}
+
+#sx_index_button {
+    width: 20px;
+    padding: 0px;
+    cursor: pointer;
+}
+
+#sx_index_button_text {
+    position: fixed;
+    top: 100px;
+    width: 24px;
+    background-color: #337ab7;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    z-index: 999999
+}
+
+#xs_content {
+    padding-left: 25px;
+}
+
+#xs_content_border {
+    border-left: 2px solid #eee;
+    padding-left: 5px
 }
