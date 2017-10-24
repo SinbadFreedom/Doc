@@ -61,7 +61,7 @@
     </ul>
     <!--文档区-->
     <div>
-        👯转载请保留原文链接👉:<a href="http://dashidan.com/article/java/basic/Java集合类.html">http://dashidan.com/article/java/basic/Java集合类.html</a>
+        👯转载请保留原文链接👉: <a href="http://dashidan.com/article/java/basic/Java集合类.html">http://dashidan.com/article/java/basic/Java集合类.html</a>
     </div>
 
     <div>
@@ -363,19 +363,19 @@ for (Integer intNum : hashSet) {
 }
 </code></pre>
         <p>由于HashSet去重功能, 第二次循环插入重复数据时, HashSet中并没有加入新的数据, 长度依然是5. HashSet的遍历方式同ArrayList，参考ArrayList的遍历.</p>
-        <h3>8.<code>ConcurrentHashMap</code>类</h3>
+        <h3>9.<code>ConcurrentHashMap</code>类</h3>
         <p>线程同步的<code>HashMap</code>,线程安全并且锁分离. <code>ConcurrentHashMap</code>内部使用段(<code>Segment</code>)来表示这些不同的部分,每个段其实就是一个小的<code>hash
             table</code>,它们有自己的锁. 只要多个修改操作发生在不同的段上,它们就可以并发进行.</p>
         <div class="bs-callout bs-callout-success">
             <h4>使用方式同`HashMap`.</h4>
         </div>
-        <h3>9.<code>LinkedHashMap</code>类</h3>
+        <h3>10.<code>LinkedHashMap</code>类</h3>
         <p>有序的<code>HashMap</code>, 非线程安全. <code>LinkedHashMap</code>保存了记录的插入顺序,在用<code>Iteraor</code>遍历<code>LinkedHashMap</code>时,先得到的记录肯定是先插入的,在遍历的时候会比<code>HashMap</code>慢,有HashMap的全部特性.
         </p>
         <div class="bs-callout bs-callout-success">
             <h4>使用方式同`HashMap`.</h4>
         </div>
-        <h3>10.<code>TreeMap</code>类</h3>
+        <h3>11.<code>TreeMap</code>类</h3>
         <p><code>TreeMap</code>实现<code>SortMap</code>接口,能够把它保存的记录根据键排序,默认是按键值的升序排序(自然顺序),也可以指定排序的比较器.
             当用<code>Iterator</code>遍历<code>TreeMap</code>时, 得到的记录是排过序的.</p>
         <p><code>TreeMap</code>不允许<code>key</code>值<code>为空</code>,非线程同步. </p>
