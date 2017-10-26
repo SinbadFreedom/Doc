@@ -11,8 +11,8 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashiidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashiidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -32,14 +32,14 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img src="http://dashiidan.com/img/dsd24.png">
+                <img src="http://dashidan.com/img/dsd24.png">
             </a>
-            <a class="navbar-brand" href="http://dashiidan.com/index.html">大屎蛋教程网</a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://dashiidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
             </ul>
         </div>
     </div>
@@ -48,20 +48,20 @@
 <div class="container">
     <!-- 顶部面包屑导航-->
     <ol class="breadcrumb">
-        <li><a href="http://dashiidan.com/index.html"><b>首页</b></a></li>
-        <li><a href="http://dashiidan.com/article/java/index.html"><b>Java教程</b></a></li>
+        <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
+        <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
         <li class="active"><a
-            href="http://dashiidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
     <!-- 顶部标签页-->
     <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="http://dashiidan.com/article/java/basic/index.html">教程列表</a></li>
-        <li><a href="http://dashiidan.com/article/java/addenda/index.html">附录</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/basic/index.html">教程列表</a></li>
+        <li><a href="http://dashidan.com/article/java/addenda/index.html">附录</a></li>
     </ul>
     <!--文档区-->
     <div>
-        👯转载请保留原文链接👉: <a href="http://dashiidan.com/article/java/basic/Java线程.html">http://dashiidan.com/article/java/basic/Java线程.html</a>
+        👯转载请保留原文链接👉: <a href="http://dashidan.com/article/java/basic/Java线程.html">http://dashidan.com/article/java/basic/Java线程.html</a>
     </div>
 
     <div>
@@ -100,7 +100,7 @@
         <p>线程和进程一样分为五个阶段:创建、就绪、运行、阻塞、终止.</p>
         <p>多进程是指操作系统能同时运行多个任务(程序).</p>
         <p>多线程是指在同一程序中,有多个顺序流在执行.</p>
-        <p><img class="center-block img-responsive" src="http://dashiidan.com/img/java/basic/18-1.jpg" alt="线程"/></p>
+        <p><img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/18-1.jpg" alt="线程"/></p>
         <div class="dsd_title"><a href="#top" id="②">② 线程的实现🔝</a></div>
         <p>线程是比进程更轻量级的调度执行单位,线程的引入,可以把一个进程的资源分配和执行调度分开,各个线程既可以共享进程资源(内存地址、文件I/O等),又可以独立调度(线程是CPU调度的基本单位).</p>
         <p>主流的操作系统都提供了线程实现,Java语言则提供了在不同硬件和操作系统平台下对线程操作的统一处理.</p>
@@ -115,7 +115,7 @@
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * 继承自Thread类
@@ -133,7 +133,7 @@ public class MyThread1 extends Thread {
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * 实现Runnable接口
@@ -149,7 +149,7 @@ public class MyThread2 implements Runnable {
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  */
@@ -224,7 +224,7 @@ MyThread1 run.
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * 线程阻塞状态-wait()
@@ -247,7 +247,7 @@ public class WaitThread extends Thread {
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * 线程阻塞状态 wait()
@@ -280,7 +280,7 @@ Exception in thread "Thread-0" java.lang.IllegalMonitorStateException
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * 线程阻塞状态 wait() , 获得同步锁
@@ -343,7 +343,7 @@ WaitThread after lock Thread-0
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * 线程阻塞状态 同步阻塞
@@ -403,7 +403,7 @@ t1 after sleep.
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * 线程阻塞状态 sleep()
@@ -444,7 +444,7 @@ after sleep.
 
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * 线程死锁
@@ -524,7 +524,7 @@ t1等待对象锁 LOCK-B ...
             <p>是因为两个线程进入了线程死锁状态, 互相等待对方释放锁. 编码过程中要极力避免嵌套调用锁的情况出现..</p>
         </div>
         <p>线程死锁如何检测?
-            限于篇幅问题, 新建一篇来说明.<a href="http://dashiidan.com">Java线程死锁检测</a>.</p>
+            限于篇幅问题, 新建一篇来说明.<a href="http://dashidan.com">Java线程死锁检测</a>.</p>
         <div class="dsd_title"><a href="#top" id="⑧">⑧ synchronized用在对象, 方法, 代码块的区别🔝</a></div>
         <p>synchronized关键字的本质是<code>锁对象</code>. 用在对象类型上, 即为锁定目标对象. 用在方法和代码块中, 表示锁定当前对象.对象一旦被锁定,
             所有的synchonized关键字修饰的区域都需要等待锁释放后才能执行.</p>
@@ -532,7 +532,7 @@ t1等待对象锁 LOCK-B ...
         <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson18;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * synchronized锁方法和区块
@@ -652,7 +652,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 大屎蛋教程网-dashiidan.com
+ * 大屎蛋教程网-dashidan.com
  * &lt;p&gt;
  * Java教程基础篇:  18.Java线程
  * Lock对象
@@ -803,28 +803,28 @@ class ReadThread extends Thread {
         </ul>
         <p>
             在单核CPU的电脑上,实际上一次只能运行一个线程,CPU分时处理,看上去向同步运行一样.多核CPU的电脑同时可以运行多个线程.Java虚拟机决定实际运行哪个线程.有多个可运行线程时,其中的某一个会被Java虚拟机选为当前线程.默认情况下不能保证线程运行的先后顺序.量子理论的上帝掷骰子.</p>
-        <p><img class="center-block img-responsive" src="http://dashiidan.com/img/common/aiyinsitan.jpg" alt="爱因斯坦"/>
+        <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/aiyinsitan.jpg" alt="爱因斯坦"/>
         </p>
         <div class="dsd_title"><a href="#top" id="⑪">⑪ 相关文章🔝</a></div>
-        <p>📖 <a href="http://dashiidan.com/article/java/basic/index.html">Java从入门到精通目录</a></p>
-        <p>📖 <a href="http://dashiidan.com/article/java/basic/Java集成开发环境.html">Java集成开发环境</a></p>
+        <p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通目录</a></p>
+        <p>📖 <a href="http://dashidan.com/article/java/basic/Java集成开发环境.html">Java集成开发环境</a></p>
     </div>
     <hr>
     <!-- 底部面包屑导航-->
     <ol class="breadcrumb">
-        <li><a href="http://dashiidan.com/index.html"><b>首页</b></a></li>
-        <li><a href="http://dashiidan.com/article/java/index.html"><b>Java教程</b></a></li>
+        <li><a href="http://dashidan.com/index.html"><b>首页</b></a></li>
+        <li><a href="http://dashidan.com/article/java/index.html"><b>Java教程</b></a></li>
         <li class="active"><a
-            href="http://dashiidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
+            href="http://dashidan.com/article/java/basic/index.html"><b>教程列表</b></a></li>
     </ol>
     <hr>
     <!--<nav>-->
     <div class="text-center">
         <div>
-            <a href="http://dashiidan.com/article/java/basic/Java转义字符.html">🔺 上一篇: Java转义字符</a>
+            <a href="http://dashidan.com/article/java/basic/Java转义字符.html">🔺 上一篇: Java转义字符</a>
         </div>
         <div>
-            <a href="http://dashiidan.com/article/java/basic/Java设计模式.html">🔻 下一篇: Java设计模式</a>
+            <a href="http://dashidan.com/article/java/basic/Java设计模式.html">🔻 下一篇: Java设计模式</a>
         </div>
     </div>
     <!--</nav>-->
@@ -834,9 +834,9 @@ class ReadThread extends Thread {
     <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
 </div>
 
-<script src="http://dashiidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashiidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashiidan.com/js/bootstrap.js"></script>
-<script src="http://dashiidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
 </body>
 </html>
