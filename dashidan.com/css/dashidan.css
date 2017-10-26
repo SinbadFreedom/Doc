@@ -77,5 +77,6 @@ img {
 
 #xs_content_border {
     border-left: 2px solid #eee;
-    padding-left: 5px
+    padding-left: 5px;
+    padding-right: 5px;
 }
