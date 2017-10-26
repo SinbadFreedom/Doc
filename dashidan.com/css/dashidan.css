@@ -26,7 +26,7 @@ pre {
 }
 
 table {
-    margin-left: 2em;
+    /*margin-left: 2em;*/
     /*padding-left: 2em;*/
 }
 
@@ -38,7 +38,7 @@ img {
 .dsd_catalog {
     border-radius: 8px;
     padding: 10px;
-    border: 1px solid #0f0f0f;
+    border: 1px solid #999999;
 }
 
 .dsd_title {
