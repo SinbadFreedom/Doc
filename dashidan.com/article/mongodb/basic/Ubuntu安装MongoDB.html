@@ -124,44 +124,47 @@
                         <a href="#⑨">⑨ 参考文章</a></div>
                 </div>
                 <div class="dsd_title"><a href="#top" id="①">① 通过安装包管理系统导入公钥🔝</a></div>
-                <pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+                <pre class="prettyprint"><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="②">② 创建/etc/apt/sources.list.d/mongodb-enterprise.list文件🔝</a>
                 </div>
                 <ul>
-                    <li><p>Ubuntu 12.04</p>
-                        <p>echo "deb [ arch=amd64 ] http://repo.mongodb.com/apt/ubuntu precise/mongodb-enterprise/3.4
-                            multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise.list</p></li>
-                    <li><p>Ubuntu 14.04</p>
-                        <p>echo "deb [ arch=amd64 ] http://repo.mongodb.com/apt/ubuntu trusty/mongodb-enterprise/3.4
-                            multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise.list</p></li>
-                    <li><p>Ubuntu 16.04 </p>
-                        <p>echo "deb [ arch=amd64,arm64,ppc64el,s390x ] http://repo.mongodb.com/apt/ubuntu
-                            xenial/mongodb-enterprise/3.4 multiverse" | sudo tee
-                            /etc/apt/sources.list.d/mongodb-enterprise.list</p></li>
+                    <li>Ubuntu 12.04</li>
                 </ul>
+                <pre class="prettyprint"><code>echo "deb [ arch=amd64 ] http://repo.mongodb.com/apt/ubuntu precise/mongodb-enterprise/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise.list
+</code></pre>
+                <ul>
+                    <li>Ubuntu 14.04</li>
+                </ul>
+                <pre class="prettyprint"><code class="     language-    ">echo "deb [ arch=amd64 ] http://repo.mongodb.com/apt/ubuntu trusty/mongodb-enterprise/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise.list
+</code></pre>
+                <ul>
+                    <li>Ubuntu 16.04</li>
+                </ul>
+                <pre class="prettyprint"><code>echo "deb [ arch=amd64,arm64,ppc64el,s390x ] http://repo.mongodb.com/apt/ubuntu xenial/mongodb-enterprise/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise.list
+</code></pre>
                 <p>如果想安装指定版本, 修改配置文件名加上版本号, 例安装Mongodb企业版2.6版本:</p>
-                <pre><code>echo "deb http://repo.mongodb.com/apt/ubuntu "$(lsb_release -sc)"/mongodb-enterprise/2.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise-2.6.list
+                <pre class="prettyprint"><code>echo "deb http://repo.mongodb.com/apt/ubuntu "$(lsb_release -sc)"/mongodb-enterprise/2.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise-2.6.list
 </code></pre>
                 <div class="bs-callout bs-callout-warning">
                     <h4>mongoDB提供64位长期维护版(LTS)ubuntu包.例如:12.04 LTS, 14.04LTS, 16.04LTS. 这些包在其他ubuntu版本中也可能可以运行, 但不提供帮助.
                     </h4>
                 </div>
                 <div class="dsd_title"><a href="#top" id="③">③ 更新本地安装库🔝</a></div>
-                <pre><code>sudo apt-get update
+                <pre class="prettyprint"><code>sudo apt-get update
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="④">④ 安装mongodb企业版🔝</a></div>
                 <p>安装mongodb企业版最新稳定版</p>
-                <pre><code>sudo apt-get install -y mongodb-enterprise
+                <pre class="prettyprint"><code>sudo apt-get install -y mongodb-enterprise
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="⑤">⑤ 开启mongodb🔝</a></div>
-                <pre><code>sudo service mongod start
+                <pre class="prettyprint"><code>sudo service mongod start
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="⑥">⑥ 关闭mongodb🔝</a></div>
-                <pre><code>sudo service mongod stop
+                <pre class="prettyprint"><code>sudo service mongod stop
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="⑦">⑦ 重启mongodb🔝</a></div>
-                <pre><code>sudo service mongod restart
+                <pre class="prettyprint"><code>sudo service mongod restart
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="⑧">⑧ 卸载mongodb🔝</a></div>
                 <p>卸载mongodb需要移除程序, 删除配置文件, 删除数据和log.</p>
@@ -170,13 +173,13 @@
                     以下步骤会彻底删除MongoDB及配置和全部数据库. 这个过程无法还原,所以开始前一定要确保所有的数据已经备份好.
                 </div>
                 <h3>1.停止mongodb</h3>
-                <pre><code>sudo service mongod stop
+                <pre class="prettyprint"><code class="     language-    ">sudo service mongod stop
 </code></pre>
                 <h3>2.删除安装程序</h3>
-                <pre><code>sudo apt-get purge mongodb-enterprise*
+                <pre class="prettyprint"><code>sudo apt-get purge mongodb-enterprise*
 </code></pre>
                 <h3>3.删除数据目录和log</h3>
-                <pre><code>sudo rm -r /var/log/mongodb
+                <pre class="prettyprint"><code>sudo rm -r /var/log/mongodb
 sudo rm -r /var/lib/mongodb
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="⑨">⑨ 参考文章🔝</a></div>

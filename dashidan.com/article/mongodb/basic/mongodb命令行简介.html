@@ -146,17 +146,19 @@
                     MongoDB默认绑定IP为127.0.0.1, 端口为 27017. 如果没有修改mongo默认配置.执行mongo命令会连127.0.0.1:27017.
                 </div>
                 <div class="dsd_title"><a href="#top" id="③">③ mongo显示所有数据库🔝</a></div>
-                <pre><code>show dbs;
+                <pre class="prettyprint"><code>show dbs;
+</code></pre>
+                <pre><code>
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="④">④ mongo使用或创建数据库🔝</a></div>
                 <p>如果指定数据库不存在, 则创建一个数据库.</p>
-                <pre><code>use dashdan_com
+                <pre class="prettyprint"><code>use dashdan_com
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="⑤">⑤ mongo显示当前使用数据库🔝</a></div>
-                <pre><code>db
+                <pre class="prettyprint"><code>db
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="⑥">⑥ mongo插入数据🔝</a></div>
-                <pre><code>use dashdan_com
+                <pre class="prettyprint"><code>use dashdan_com
 db.myCollection.insertOne( { x: 1 } );
 </code></pre>
                 <p>说明:</p>
@@ -165,17 +167,19 @@ db.myCollection.insertOne( { x: 1 } );
                     <li>myCollection 数据集的名字.这个可以自定义.</li>
                 </ul>
                 <div class="dsd_title"><a href="#top" id="⑦">⑦ mongo查找数据🔝</a></div>
-                <pre><code>db.myCollection.find();
+                <pre class="prettyprint"><code>db.myCollection.find();
 </code></pre>
                 <div class="bs-callout bs-callout-success">
                     <h4>如果数据集的名字中有空格或者特殊字符可以采用db.getCollection()的方式获取.</h4>
                 </div>
                 <p>例:</p>
-                <pre><code>db.getCollection("myCollection").find();
+                <pre class="prettyprint"><code>db.getCollection("myCollection").find();
+</code></pre>
+                <pre><code>
 </code></pre>
                 <p>mongo命令行每行最多接收4095个字符数量, 超过这个限制mongo命令会将它缩短.</p>
                 <div class="dsd_title"><a href="#top" id="⑧">⑧ mongo命令输出结果格式化🔝</a></div>
-                <pre><code>db.myCollection.find().pretty()
+                <pre class="prettyprint"><code>db.myCollection.find().pretty()
 </code></pre>
                 <p>还可以通过以下方式设置mongo命令显示结果：</p>
                 <ul>
