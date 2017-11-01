@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MongoDb遍历结果cursor</title>
-    <meta name="description" content="MongoDb遍历结果cursor">
+    <title>MongoDB修改数据</title>
+    <meta name="description" content="MongoDB修改数据">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -164,123 +164,129 @@
             <!-- 文章内容-->
             <div id="xs_content_border">
                 <div>
-                    <div class="dsd_title"><h1>16.MongoDb遍历结果cursor</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① 手动遍历查询结果cursor</a>
+                    <div class="dsd_title"><h1>17.MongoDB修改数据</h1></div>
+                    <div class="dsd_catalog"><a href="#①">① MongoDB修改操作</a>
                         <hr>
-                        <a href="#②">② 遍历索引</a>
+                        <a href="#②">② 初始化数据</a>
                         <hr>
-                        <a href="#③">③ Cursor行为</a>
+                        <a href="#③">③ MongoDB修改数据格式</a>
                         <hr>
-                        <a href="#④">④ Cursor信息</a>
+                        <a href="#④">④ MongoDB修改集合中的一条数据</a>
                         <hr>
-                        <a href="#⑤">⑤ 参考文章</a>
+                        <a href="#⑤">⑤ 修改多条文档</a>
                         <hr>
-                        <a href="#⑥">⑥ 相关文章</a></div>
+                        <a href="#⑥">⑥ MongoDB替换数据</a>
+                        <hr>
+                        <a href="#⑦">⑦ 修改行为</a>
+                        <hr>
+                        <a href="#⑧">⑧ 插入操作</a>
+                        <hr>
+                        <a href="#⑨">⑨ 写回执</a>
+                        <hr>
+                        <a href="#⑩">⑩ 参考文章</a>
+                        <hr>
+                        <a href="#⑪">⑪ 相关文章</a></div>
                 </div>
-                <p><code>db.collection.find()</code>方法返回一个结果指针. 访问结果数据需要对指针进行迭代查询. 在mongo命令中, 查询结果<code>cursor</code>默认返回20条数据,
-                    默认对<code>cursor</code>进行迭代20次. 可以通过修改<code>DBQuery.shellBatchSize</code>值来改变结果显示数量.</p>
-                <div class="dsd_title"><a href="#top" id="①">① 手动遍历查询结果cursor🔝</a></div>
-                <p>可以通过以下语句, 打印前20条数据</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-
-myCursor
+                <div class="dsd_title"><a href="#top" id="①">① MongoDB修改操作🔝</a></div>
+                <pre class="prettyprint"><code>db.collection.updateOne(&lt;filter&gt;, &lt;update&gt;, &lt;options&gt;)
+db.collection.updateMany(&lt;filter&gt;, &lt;update&gt;, &lt;options&gt;)
+db.collection.replaceOne(&lt;filter&gt;, &lt;replacement&gt;, &lt;options&gt;)
 </code></pre>
-                <p>你可以通过<code>next()</code>方法遍历访问文档数据</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-
-while (myCursor.hasNext()) {
-   print(tojson(myCursor.next()));
-}
-</code></pre>
-                <p>另外,也可以通过<code>printjson()</code>方法来替代<code>print(tojson())</code>方法.</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-
-while (myCursor.hasNext()) {
-   printjson(myCursor.next());
-}
-</code></pre>
-                <p>可以使用<code>cursor</code>提供的<code>forEach()</code>方法来遍历结果集.</p>
-                <pre class="prettyprint"><code>var myCursor =  db.users.find( { type: 2 } );
-
-myCursor.forEach(printjson);
-</code></pre>
-                <p>cursor相关的其他方法:
-                    <a href="https://docs.mongodb.com/manual/reference/method/#js-query-cursor-methods">JavaScript
-                        cursor methods</a></p>
-                <div class="dsd_title"><a href="#top" id="②">② 遍历索引🔝</a></div>
-                <p>在mongo命令中可以通过<code>toArray()</code>方法遍历结果集, 并将结果集放在一个数组中返回.</p>
-                <pre class="prettyprint"><code>var myCursor = db.inventory.find( { type: 2 } );
-var documentArray = myCursor.toArray();
-var myDocument = documentArray[3];
-</code></pre>
-                <p><code>toArray()</code>方法将全部结果数据放在内存中.<code>toArray()</code>遍历完全部指针数据.</p>
-                <p>有部分Mongodb数据库驱动提供根据cursor索引位置获取文档数据的方法.(例如:<code>cursor[index]</code>). 这是先调用<code>toArray()</code>方法再用索引获取数组中元素的简写.
-                </p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-var myDocument = myCursor[1];
-</code></pre>
-                <p><code>myCursor[1]</code>等同于以下:</p>
-                <pre class="prettyprint"><code>myCursor.toArray() [1];
-</code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ Cursor行为🔝</a></div>
-                <h3>1.关闭不活动的Cursor</h3>
-                <p>默认情况下, 一个Cursor停止使用超过10分钟或者客户端使用完毕, 服务器会自动关闭这个Cursor. 在mongo命令中,
-                    可以通过<code>cursor.noCursorTimeout()</code>方法, 改变这个行为.</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find().noCursorTimeout();
-</code></pre>
-                <p>设定<code>noCursorTimeout</code>这个选项后,你必须通过<code>cursor.close()</code>方法手动关闭, 或者用尽cursor的结果集.</p>
-                <h3>2.Cursor分离</h3>
-                <p>一个Cursor返回的数据文档, 其他的操作可能交错执行. <a href="https://docs.mongodb.com/manual/core/mmapv1/">MMMPv1</a>存储引擎中,
-                    交错执行写操作, 可能导致返回的cursor中包含多次同样的一条数据. 处理这种情况, 参考<a
-                        href="https://docs.mongodb.com/manual/core/read-isolation-consistency-recency/#faq-developers-isolate-cursors">snapshot
-                        mode</a>.</p>
-                <h3>3.Cursor批处理</h3>
-                <p>MongoDB服务器将结果打包返回. 数据包的大小不能超过默认BOSN文档大小(16M)<a
-                    href="https://docs.mongodb.com/manual/reference/limits/#limit-bson-document-size">maximum BSON
-                    document size</a>. 可以通过<code>batchSize()</code>和<code>limit()</code>来修改返回结果集.</p>
-                <p>3.4版本新特性
-                    <code>find()</code>, <code>aggregate()</code>, <code>listIndexes</code>,
-                    和<code>listCollections</code>每批返回最大16M的数据.<code>batchSize()</code>可以设置一个更小的限制, 而不是最大的限制.</p>
-                <p><code>find()</code>和<code>aggregate()</code>默认初始集合文档数量是<code>101</code>.</p>
-                <p>3.2版本以后的<code>getMore</code>操作,没有默认集合文档数量限制, 只是有16M最大字节数限制.</p>
-                <p>注:
-                    查询<code>没有索引</code>的数据, 通过<code>sort</code>排序时, 返回结果前, 服务器必须将全部数据加载进内存中来实现排序.</p>
-                <p>遍历结果集到达返回数据的末尾时, 如果有更多的数据, <code>cursor.next()</code>方法会执行<code>getMore operation</code>操作来得到下一批数据.
-                    可以通过<code>objsLeftInBatch()</code>方法来查看在当前数据还有多少数据没有遍历.</p>
-                <pre class="prettyprint"><code>var myCursor = db.inventory.find();
-
-var myFirstDocument = myCursor.hasNext() ? myCursor.next() : null;
-
-myCursor.objsLeftInBatch();
-</code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ Cursor信息🔝</a></div>
-                <p><code>db.serverStatus()</code>方法返回一个文档，其中包括了<code>metrics</code>字段.<a
-                    href="https://docs.mongodb.com/manual/reference/command/serverStatus/#serverstatus.metrics">metrics</a>字段中有个额<a
-                    href="https://docs.mongodb.com/manual/reference/command/serverStatus/#serverstatus.metrics.cursor">metrics.cursor</a>字段中的信息:
-                </p>
-                <ul>
-                    <li>最后一次服务器重启以来超时cursor数量</li>
-                    <li>由于设置<code>DBQuery.Option.noTimeout</code>来防止超时,打开的cursor数量.</li>
-                    <li><code>pinned</code> open cursor 数量.</li>
-                    <li>打开的cursor全部数量.</li>
-                </ul>
-                <p>使用示例:</p>
-                <pre class="prettyprint"><code>db.serverStatus().metrics.cursor
-</code></pre>
-                <p>显示结果:</p>
+                <div class="dsd_title"><a href="#top" id="②">② 初始化数据🔝</a></div>
+                <p>db.inventory.insertMany( [
+                    { item: "canvas", qty: 100, size: { h: 28, w: 35.5, uom: "cm" }, status: "A" },
+                    { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+                    { item: "mat", qty: 85, size: { h: 27.9, w: 35.5, uom: "cm" }, status: "A" },
+                    { item: "mousepad", qty: 25, size: { h: 19, w: 22.85, uom: "cm" }, status: "P" },
+                    { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" },
+                    { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+                    { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+                    { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" },
+                    { item: "sketchbook", qty: 80, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+                    { item: "sketch pad", qty: 95, size: { h: 22.85, w: 30.5, uom: "cm" }, status: "A" }
+                    ]);</p>
+                <p>你可以在以下窗口输入命令测试:</p>
+                <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
+                        height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
+                <div class="dsd_title"><a href="#top" id="③">③ MongoDB修改数据格式🔝</a></div>
+                <p>MongoDB中可以通过<a href="https://docs.mongodb.com/manual/reference/operator/update">update operters</a>,
+                    例如: <code>$set</code>等, 来修改数据.</p>
+                <p>MongoDB的<code>update</code>修改格式:</p>
                 <pre class="prettyprint"><code>{
-   "timedOut" : &lt;number&gt;
-   "open" : {
-      "noTimeout" : &lt;number&gt;,
-      "pinned" : &lt;number&gt;,
-      "total" : &lt;number&gt;
-   }
+  &lt;update operator&gt;: { &lt;field1&gt;: &lt;value1&gt;, ... },
+  &lt;update operator&gt;: { &lt;field2&gt;: &lt;value2&gt;, ... },
+  ...
 }
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 参考文章🔝</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/">https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/</a>
+                <div class="dsd_title"><a href="#top" id="④">④ MongoDB修改集合中的一条数据🔝</a></div>
+                <p>
+                    以下例子通过<code>db.collection.updateOne()</code>方法来修改<code>inventory</code>集合中第一条满足<code>item</code>值等于<code>paper</code>的数据.
                 </p>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 相关文章🔝</a></div>
+                <pre class="prettyprint"><code>db.inventory.updateOne(
+   { item: "paper" },
+   {
+     $set: { "size.uom": "cm", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
+</code></pre>
+                <p><code>update</code>操作介绍:</p>
+                <ul>
+                    <li><code>$set</code>操作符来修改<code>size.uom</code>字段为<code>cm</code>,
+                        并且将<code>status</code>改为<code>P</code>.
+                    </li>
+                    <li><code>$currentDate</code>操作符修改<code>lastModified</code>字段值为当前时间. 如果<code>lastModified</code>字段不存在,
+                        将会自动创建一个.
+                    </li>
+                </ul>
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 修改多条文档🔝</a></div>
+                <p>3.2版本新特性</p>
+                <p>
+                    以下示例使用<code>db.collection.updateMany()</code>方法来修改<code>inventory</code>集合中<code>qty</code>小于<code>50</code>的全部文档.
+                </p>
+                <pre class="prettyprint"><code>db.inventory.updateMany(
+   { "qty": { $lt: 50 } },
+   {
+     $set: { "size.uom": "in", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="⑥">⑥ MongoDB替换数据🔝</a></div>
+                <p>通过<code>db.collection.replaceOne()</code>方法来替换除<code>_id</code>字段外其余的值. 第二个参数为新的文档数据.</p>
+                <p>执行替换操作时, 需要替换的文档数据中只能包括键值对, 不能包含修改操作符.</p>
+                <p>替换文档数据数据格式可以和以前不一样. 可以省略<code>_id</code>字段，因为这个字段值是不可修改的. 如果包含这个值需要和以前的值一样.</p>
+                <p>替换代码示例:</p>
+                <pre class="prettyprint"><code>db.inventory.replaceOne(
+   { item: "paper" },
+   { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 40 } ] }
+)
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="⑦">⑦ 修改行为🔝</a></div>
+                <h3>1.MongoDB修改的原子性</h3>
+                <p>MongoDB中所有写的操作都是文档级的原子性.</p>
+                <h3>2.MongoDBz的_id字段</h3>
+                <p><code>_id</code>字段一旦设定无法修改, 也不能通过替换方法修改.</p>
+                <h3>3.文档数据大小</h3>
+                <p>当执行<code>update</code>操作时文档数据大小超过给那个分配的大小时, 会将这个文档重新定位到硬盘中.</p>
+                <h3>4.字段顺序</h3>
+                <p>MongoDB执行写的操作时保留文档中的字段顺序, 除了以下例外:</p>
+                <ul>
+                    <li><code>_id</code>字段始终是第一个</li>
+                    <li>更新已有字段数据, 会导致字段重新排序</li>
+                </ul>
+                <p>MonogoDB2.6修改.
+                    Mongodb2.6之前不能主动保持字段在文档数据中的数据.</p>
+                <div class="dsd_title"><a href="#top" id="⑧">⑧ 插入操作🔝</a></div>
+                <p><code>updateOne()</code>, <code>updateMany()</code>, 和<code>replaceOne()</code>这几个操作如果包含了<code>upsert
+                    : true</code>时, 如果没有满足指定条件的文档存在, 则自动插入新的数据.</p>
+                <div class="dsd_title"><a href="#top" id="⑨">⑨ 写回执🔝</a></div>
+                <p>你可以自定义Mongodb写操作的回执等级. 详情查阅<a href="https://docs.mongodb.com/manual/reference/write-concern/">Write
+                    Concern</a>.</p>
+                <div class="dsd_title"><a href="#top" id="⑩">⑩ 参考文章🔝</a></div>
+                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/update-documents/">https://docs.mongodb.com/manual/tutorial/update-documents/</a>
+                </p>
+                <div class="dsd_title"><a href="#top" id="⑪">⑪ 相关文章🔝</a></div>
                 <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
                 <span>🌟最新内容会在源站更新.转载请保留原文链接🌟: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>
@@ -295,8 +301,8 @@ myCursor.objsLeftInBatch();
     <hr>
     <div class="text-center">
         <div>
-            <a href="http://dashidan.com/article/mongodb/basic/MongoDB修改数据.html">📖
-                下一篇: MongoDB修改数据</a>
+            <a href="http://dashidan.com/article/mongodb/basic/MongoDB删除操作.html">📖
+                下一篇: MongoDB删除操作</a>
         </div>
     </div>
 </div>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MongoDb遍历结果cursor</title>
-    <meta name="description" content="MongoDb遍历结果cursor">
+    <title>MongoDB删除操作</title>
+    <meta name="description" content="MongoDB删除操作">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -164,123 +164,89 @@
             <!-- 文章内容-->
             <div id="xs_content_border">
                 <div>
-                    <div class="dsd_title"><h1>16.MongoDb遍历结果cursor</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① 手动遍历查询结果cursor</a>
+                    <div class="dsd_title"><h1>18.MongoDB删除操作</h1></div>
+                    <div class="dsd_catalog"><a href="#①">① MongoDB删除操作命令</a>
                         <hr>
-                        <a href="#②">② 遍历索引</a>
+                        <a href="#②">② 初始化测试数据</a>
                         <hr>
-                        <a href="#③">③ Cursor行为</a>
+                        <a href="#③">③ 删除全部数据</a>
                         <hr>
-                        <a href="#④">④ Cursor信息</a>
+                        <a href="#④">④ 删除匹配条件的全部数据</a>
                         <hr>
-                        <a href="#⑤">⑤ 参考文章</a>
+                        <a href="#⑤">⑤ 删除匹配条件的一条数据</a>
                         <hr>
-                        <a href="#⑥">⑥ 相关文章</a></div>
+                        <a href="#⑥">⑥ MongoDB删除行为</a>
+                        <hr>
+                        <a href="#⑦">⑦ MongoDB删除数据方法</a>
+                        <hr>
+                        <a href="#⑧">⑧ 参考文章</a>
+                        <hr>
+                        <a href="#⑨">⑨ 相关文章</a></div>
                 </div>
-                <p><code>db.collection.find()</code>方法返回一个结果指针. 访问结果数据需要对指针进行迭代查询. 在mongo命令中, 查询结果<code>cursor</code>默认返回20条数据,
-                    默认对<code>cursor</code>进行迭代20次. 可以通过修改<code>DBQuery.shellBatchSize</code>值来改变结果显示数量.</p>
-                <div class="dsd_title"><a href="#top" id="①">① 手动遍历查询结果cursor🔝</a></div>
-                <p>可以通过以下语句, 打印前20条数据</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-
-myCursor
+                <div class="dsd_title"><a href="#top" id="①">① MongoDB删除操作命令🔝</a></div>
+                <pre class="prettyprint"><code>db.collection.deleteMany()
+db.collection.deleteOne()
 </code></pre>
-                <p>你可以通过<code>next()</code>方法遍历访问文档数据</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-
-while (myCursor.hasNext()) {
-   print(tojson(myCursor.next()));
-}
+                <div class="dsd_title"><a href="#top" id="②">② 初始化测试数据🔝</a></div>
+                <pre class="prettyprint"><code>db.inventory.insertMany( [
+   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" },
+   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" },
+]);
 </code></pre>
-                <p>另外,也可以通过<code>printjson()</code>方法来替代<code>print(tojson())</code>方法.</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-
-while (myCursor.hasNext()) {
-   printjson(myCursor.next());
-}
+                <p>你可以在以下窗口输入命令测试:</p>
+                <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
+                        height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
+                <div class="dsd_title"><a href="#top" id="③">③ 删除全部数据🔝</a></div>
+                <p>通过<code>db.collection.deleteMany()</code>命令插入一个空的过滤条件<code>{}</code>.</p>
+                <p>以下操作可以删除<code>inventory</code>集合中的全部数据:</p>
+                <pre class="prettyprint"><code>db.inventory.deleteMany({})
 </code></pre>
-                <p>可以使用<code>cursor</code>提供的<code>forEach()</code>方法来遍历结果集.</p>
-                <pre class="prettyprint"><code>var myCursor =  db.users.find( { type: 2 } );
-
-myCursor.forEach(printjson);
+                <div class="dsd_title"><a href="#top" id="④">④ 删除匹配条件的全部数据🔝</a></div>
+                <p>以下操作可以删除<code>inventory</code>集合中符合<code>status</code>值为<code>A</code>的全部数据:</p>
+                <pre class="prettyprint"><code>db.inventory.deleteMany({ status : "A" })
 </code></pre>
-                <p>cursor相关的其他方法:
-                    <a href="https://docs.mongodb.com/manual/reference/method/#js-query-cursor-methods">JavaScript
-                        cursor methods</a></p>
-                <div class="dsd_title"><a href="#top" id="②">② 遍历索引🔝</a></div>
-                <p>在mongo命令中可以通过<code>toArray()</code>方法遍历结果集, 并将结果集放在一个数组中返回.</p>
-                <pre class="prettyprint"><code>var myCursor = db.inventory.find( { type: 2 } );
-var documentArray = myCursor.toArray();
-var myDocument = documentArray[3];
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 删除匹配条件的一条数据🔝</a></div>
+                <p>以下操作可以删除<code>inventory</code>集合中第一条, <code>status</code>值为<code>A</code>的全部数据:</p>
+                <pre class="prettyprint"><code>db.inventory.deleteOne( { status: "D" } )
 </code></pre>
-                <p><code>toArray()</code>方法将全部结果数据放在内存中.<code>toArray()</code>遍历完全部指针数据.</p>
-                <p>有部分Mongodb数据库驱动提供根据cursor索引位置获取文档数据的方法.(例如:<code>cursor[index]</code>). 这是先调用<code>toArray()</code>方法再用索引获取数组中元素的简写.
+                <div class="dsd_title"><a href="#top" id="⑥">⑥ MongoDB删除行为🔝</a></div>
+                <h3>1.索引</h3>
+                <p>删除操作不删除索引, 即使删除集合中的全部数据也不行.</p>
+                <h3>2.原子性</h3>
+                <p>删除操作是文档级的原子操作.</p>
+                <h3>3.写回执</h3>
+                <p>你可以自定义Mongodb写操作的回执等级. 详情查阅<a href="https://docs.mongodb.com/manual/reference/write-concern/">Write
+                    Concern</a>.</p>
+                <div class="dsd_title"><a href="#top" id="⑦">⑦ MongoDB删除数据方法🔝</a></div>
+                <table class="table table-bordered table-responsive text-center">
+                    <thead>
+                    <tr class="info">
+                        <td>方法名</td>
+                        <td>说明</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>db.collection.deleteOne()</td>
+                        <td>删除一条数据.MongoDB3.2新特性.</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.deleteMany()</td>
+                        <td>删除多条数据.MongoDB3.2新特性.</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.remove()</td>
+                        <td>删除一条或者全部匹配条件的数据</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="dsd_title"><a href="#top" id="⑧">⑧ 参考文章🔝</a></div>
+                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/remove-documents/">https://docs.mongodb.com/manual/tutorial/remove-documents/</a>
                 </p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-var myDocument = myCursor[1];
-</code></pre>
-                <p><code>myCursor[1]</code>等同于以下:</p>
-                <pre class="prettyprint"><code>myCursor.toArray() [1];
-</code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ Cursor行为🔝</a></div>
-                <h3>1.关闭不活动的Cursor</h3>
-                <p>默认情况下, 一个Cursor停止使用超过10分钟或者客户端使用完毕, 服务器会自动关闭这个Cursor. 在mongo命令中,
-                    可以通过<code>cursor.noCursorTimeout()</code>方法, 改变这个行为.</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find().noCursorTimeout();
-</code></pre>
-                <p>设定<code>noCursorTimeout</code>这个选项后,你必须通过<code>cursor.close()</code>方法手动关闭, 或者用尽cursor的结果集.</p>
-                <h3>2.Cursor分离</h3>
-                <p>一个Cursor返回的数据文档, 其他的操作可能交错执行. <a href="https://docs.mongodb.com/manual/core/mmapv1/">MMMPv1</a>存储引擎中,
-                    交错执行写操作, 可能导致返回的cursor中包含多次同样的一条数据. 处理这种情况, 参考<a
-                        href="https://docs.mongodb.com/manual/core/read-isolation-consistency-recency/#faq-developers-isolate-cursors">snapshot
-                        mode</a>.</p>
-                <h3>3.Cursor批处理</h3>
-                <p>MongoDB服务器将结果打包返回. 数据包的大小不能超过默认BOSN文档大小(16M)<a
-                    href="https://docs.mongodb.com/manual/reference/limits/#limit-bson-document-size">maximum BSON
-                    document size</a>. 可以通过<code>batchSize()</code>和<code>limit()</code>来修改返回结果集.</p>
-                <p>3.4版本新特性
-                    <code>find()</code>, <code>aggregate()</code>, <code>listIndexes</code>,
-                    和<code>listCollections</code>每批返回最大16M的数据.<code>batchSize()</code>可以设置一个更小的限制, 而不是最大的限制.</p>
-                <p><code>find()</code>和<code>aggregate()</code>默认初始集合文档数量是<code>101</code>.</p>
-                <p>3.2版本以后的<code>getMore</code>操作,没有默认集合文档数量限制, 只是有16M最大字节数限制.</p>
-                <p>注:
-                    查询<code>没有索引</code>的数据, 通过<code>sort</code>排序时, 返回结果前, 服务器必须将全部数据加载进内存中来实现排序.</p>
-                <p>遍历结果集到达返回数据的末尾时, 如果有更多的数据, <code>cursor.next()</code>方法会执行<code>getMore operation</code>操作来得到下一批数据.
-                    可以通过<code>objsLeftInBatch()</code>方法来查看在当前数据还有多少数据没有遍历.</p>
-                <pre class="prettyprint"><code>var myCursor = db.inventory.find();
-
-var myFirstDocument = myCursor.hasNext() ? myCursor.next() : null;
-
-myCursor.objsLeftInBatch();
-</code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ Cursor信息🔝</a></div>
-                <p><code>db.serverStatus()</code>方法返回一个文档，其中包括了<code>metrics</code>字段.<a
-                    href="https://docs.mongodb.com/manual/reference/command/serverStatus/#serverstatus.metrics">metrics</a>字段中有个额<a
-                    href="https://docs.mongodb.com/manual/reference/command/serverStatus/#serverstatus.metrics.cursor">metrics.cursor</a>字段中的信息:
-                </p>
-                <ul>
-                    <li>最后一次服务器重启以来超时cursor数量</li>
-                    <li>由于设置<code>DBQuery.Option.noTimeout</code>来防止超时,打开的cursor数量.</li>
-                    <li><code>pinned</code> open cursor 数量.</li>
-                    <li>打开的cursor全部数量.</li>
-                </ul>
-                <p>使用示例:</p>
-                <pre class="prettyprint"><code>db.serverStatus().metrics.cursor
-</code></pre>
-                <p>显示结果:</p>
-                <pre class="prettyprint"><code>{
-   "timedOut" : &lt;number&gt;
-   "open" : {
-      "noTimeout" : &lt;number&gt;,
-      "pinned" : &lt;number&gt;,
-      "total" : &lt;number&gt;
-   }
-}
-</code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 参考文章🔝</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/">https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/</a>
-                </p>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 相关文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑨">⑨ 相关文章🔝</a></div>
                 <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
                 <span>🌟最新内容会在源站更新.转载请保留原文链接🌟: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>
@@ -295,8 +261,8 @@ myCursor.objsLeftInBatch();
     <hr>
     <div class="text-center">
         <div>
-            <a href="http://dashidan.com/article/mongodb/basic/MongoDB修改数据.html">📖
-                下一篇: MongoDB修改数据</a>
+            <a href="http://dashidan.com/article/mongodb/basic/MongoDB块写入操作.html">📖
+                下一篇: MongoDB块写入操作</a>
         </div>
     </div>
 </div>
