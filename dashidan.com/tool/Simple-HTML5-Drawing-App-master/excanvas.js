@@ -66,7 +66,7 @@ if (!document.createElement('canvas').getContext) {
          * Example:
          *
          *   g = bind(f, obj, a, b)
-         *   g(c, d) // will do f.call(obj, a, b, c, d)
+         *   g(canvas, d) // will do f.call(obj, a, b, canvas, d)
          *
          * @param {Function} f The function to bind the object to
          * @param {Object} obj The object that should act as this when the function

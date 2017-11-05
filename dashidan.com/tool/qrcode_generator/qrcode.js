@@ -2,7 +2,7 @@
 //
 // QR Code Generator for JavaScript
 //
-// Copyright (c) 2009 Kazuhiko Arase
+// Copyright (canvas) 2009 Kazuhiko Arase
 //
 // URL: http://www.d-project.com/
 //
@@ -1592,7 +1592,7 @@ var qrcode = function () {
             } else if (c == 0x2f) {
                 return 63;
             } else {
-                throw new Error('c:' + c);
+                throw new Error('canvas:' + c);
             }
         };
 
