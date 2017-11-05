@@ -15,7 +15,7 @@ const DOG_ROAD = 3;
 /** 狗数量*/
 const DOG_NUM = 8;
 /** 倒计时*/
-let countDown = 1;
+let countDown = 3;
 /** 拯救数量*/
 let saveCount = 0;
 /** 总数量*/
@@ -112,13 +112,11 @@ function renderText() {
     console.log("-----renderText--------");
 
     let textArr = [];
-    // textArr.push("一年一度的光棍节又到了!");
-    // textArr.push("单身狗表示受到一万点伤害");
-    // textArr.push("所以要为单身狗做点什么");
-    // textArr.push("拯救单身狗!");
-    // textArr.push("恩爱狗群中救出单身狗!");
-
-    textArr.push("开始!");
+    textArr.push("一年一度的光棍节又到了!");
+    textArr.push("单身狗表示受到一万点伤害");
+    textArr.push("所以要为单身狗做点什么");
+    textArr.push("拯救单身狗!");
+    textArr.push("恩爱狗群中救出单身狗!");
 
     if (gameStep % 5 == 1) {
         if (textArr[textArrayIndex]) {
