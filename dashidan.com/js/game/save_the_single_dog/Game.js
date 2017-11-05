@@ -20,13 +20,13 @@ let countDown = 3;
 let saveCount = 0;
 /** 总数量*/
 let totalCount = 0;
-
-const SPRITE_WIDTH = 100;
-
-let splashImg = new Image();
 let textArrayIndex = 0;
 let textIndex = 0;
+const SPRITE_WIDTH = 100;
+let gameFrame = 0;
+let isDrawSplash = false;
 
+let splashImg = new Image();
 let logoImg = new Image();
 let dogImg = new Image();
 
@@ -52,10 +52,10 @@ let gameState = 1;
 const GAME_STATE_SPLASH = 1;
 /** 背景叙述状态*/
 const GAME_STATE_INFO = 2;
-/** 倒计时*/
-const GAME_STATE_COUNT_DOWN = 3;
 /** 游戏中*/
-const GAME_STATE_GAMING = 4;
+const GAME_STATE_GAMING = 3;
+/** 倒计时*/
+const GAME_STATE_COUNT_DOWN = 4;
 /** 游戏结束*/
 const GAME_STATE_GAME_OVER = 5;
 
@@ -83,11 +83,8 @@ function render() {
     }
 
     ctx.drawImage(logoImg, 0, 546);
-    gameStep++;
+    gameFrame++;
 }
-
-let gameStep = 0;
-let isDrawSplash = false;
 
 function renderSlash() {
     console.log("-----renderSlash--------");
@@ -100,14 +97,14 @@ function renderSlash() {
         isDrawSplash = true;
     }
 
-    if (gameStep > 100) {
+    if (gameFrame > 100) {
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
         if (ctx.globalAlpha > 0) {
             ctx.globalAlpha -= 0.01;
         }
         ctx.drawImage(splashImg, 0, 0);
-        if (gameStep > 200) {
+        if (gameFrame > 200) {
             updateGameState(GAME_STATE_INFO)
         }
     }
@@ -123,7 +120,7 @@ function renderText() {
     textArr.push("拯救单身狗!");
     textArr.push("恩爱狗群中救出单身狗!");
 
-    if (gameStep % 5 == 1) {
+    if (gameFrame % 5 == 1) {
         if (textArr[textArrayIndex]) {
             if (textIndex >= textArr[textArrayIndex].length) {
                 textArrayIndex++;
@@ -143,7 +140,7 @@ function renderText() {
 
 function renderCountDown() {
     console.log("-----renderCountDown--------");
-    if (gameStep % 30 == 1) {
+    if (gameFrame % 30 == 1) {
         if (countDown > 0) {
             ctx.fillStyle = "#666666";
             ctx.fillRect(0, 0, WIDTH, HEIGHT);
@@ -158,7 +155,7 @@ function renderCountDown() {
 }
 
 function renderGame() {
-    if (gameStep % FRAME_INTERVAL * 3 == 0) {
+    if (gameFrame % FRAME_INTERVAL * 3 == 0) {
         let dogIndex = parseInt(Math.random() * DOG_NUM);
         let roadIndex = parseInt(Math.random() * DOG_ROAD);
         dogOnTheRoad.push(new DogInfo(dogIndex, roadIndex, 0, 0));
@@ -204,7 +201,7 @@ function renderGameOver() {
 function updateGameState(state) {
     ctx.globalAlpha = 1;
 
-    gameStep = 0;
+    gameFrame = 0;
     gameState = state;
 }
 
