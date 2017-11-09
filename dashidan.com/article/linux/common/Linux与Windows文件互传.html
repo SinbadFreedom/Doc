@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Linux修改打开文件数限制</title>
-    <meta name="description" content="Linux修改打开文件数限制">
+    <title>Linux与Windows文件互传</title>
+    <meta name="description" content="Linux与Windows文件互传">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -152,24 +152,29 @@
             <!-- 文章内容-->
             <div id="xs_content_border">
                 <div>
-                    <div class="dsd_title"><h1>Linux修改打开文件数限制</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① linux修改打开文件数上限</a>
+                    <div class="dsd_title"><h1>Linux与Windows文件互传</h1></div>
+                    <div class="dsd_catalog"><a href="#①">① 安装rz命令</a>
                         <hr>
-                        <a href="#②">② 相关文章</a></div>
+                        <a href="#②">② 使用rz命令</a>
+                        <hr>
+                        <a href="#③">③ 相关文章</a></div>
                 </div>
                 <div class="jumbotron">
-                    <p>linux默认打开的文件socket连接数量上限是1024, 高并发的时候如果超过这个数量限制会报错<code>open too many files</code>.</p>
+                    <p>通过`rz`命令能够很方便的从windows向linux服务器传送文件. </p>
                 </div>
-                <div class="dsd_title"><a href="#top" id="①">① linux修改打开文件数上限🔝</a></div>
-                <p>输入命令:</p>
-                <pre class="prettyprint"><code>ulimit -f unlimited
-ulimit -t unlimited
-ulimit -v unlimited
-ulimit -n 64000
-ulimit -m unlimited
-ulimit -u 64000
+                <div class="dsd_title"><a href="#top" id="①">① 安装rz命令🔝</a></div>
+                <p>Ubuntu安装rz命令:</p>
+                <pre class="prettyprint"><code>apt-get install lrzsz
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="②">② 相关文章🔝</a></div>
+                <p>Centos安装rz命令:</p>
+                <pre class="prettyprint"><code>yum install lrzsz
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="②">② 使用rz命令🔝</a></div>
+                <p>使用ssh工具连接linux服务器后, 输入命令:</p>
+                <pre class="prettyprint"><code>rz
+</code></pre>
+                <p>会弹出提示框, 选择本地目录和文件, 点击确定上传.</p>
+                <div class="dsd_title"><a href="#top" id="③">③ 相关文章🔝</a></div>
                 <p>📖 <a href="http://dashidan.com/article/linux/index.html">linux常用操作</a></p>
                 <span>🌟最新内容会在源站更新.转载请保留原文链接🌟: <a href="http://dashidan.com/article/linux/index.html">http://dashidan.com/article/linux/index.html</a>
                 </span>
@@ -183,10 +188,6 @@ ulimit -u 64000
     </ol>
     <hr>
     <div class="text-center">
-        <div>
-            <a href="http://dashidan.com/article/linux/common/Linux中文乱码.html">📖
-                下一篇: Linux中文乱码</a>
-        </div>
     </div>
 </div>
 

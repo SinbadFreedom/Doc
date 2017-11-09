@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ubuntu允许root用户登录</title>
-    <meta name="description" content="ubuntu允许root用户登录">
+    <title>Ubuntu允许root用户登录</title>
+    <meta name="description" content="Ubuntu允许root用户登录">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -22,7 +22,6 @@
 
 <nav class="navbar navbar-default">
     <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -36,10 +35,10 @@
             </a>
             <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
             </ul>
         </div>
     </div>
@@ -49,72 +48,157 @@
     <!-- 顶部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html">首页</a></li>
-        <li><a href="http://dashidan.com/article/linux/index.html"><b>linux配置及命令</b></a></li>
-        <li class="active"><a
-            href="http://dashidan.com/article/linux/ubuntu/index.html"><b>ubuntu</b></a></li>
+        <li class="active"><a href="http://dashidan.com/article/linux/index.html">Linux</a></li>
     </ol>
     <hr>
-    <!-- 顶部标签页-->
-    <ul class="nav nav-tabs" role="tablist">
-        <li><a href="http://dashidan.com/article/linux/common/index.html">linux通用</a></li>
-        <li class="active"><a href="http://dashidan.com/article/linux/ubuntu/index.html">ubuntu</a></li>
-        <li><a href="http://dashidan.com/article/linux/centos/index.html">centos</a></li>
-    </ul>
-    <!--文档区-->
-    <div>
-        👯转载请保留原文链接👉:<a href="http://dashidan.com/article/linux/ubuntu/ubuntu允许root用户登录.html">http://dashidan.com/article/linux/ubuntu/ubuntu允许root用户登录.html</a>
-    </div>
-
-    <div>
-        <!-- 替换这个区域-->
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!-- 索引-->
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
         <div>
-            <div class="dsd_title"><h1>ubuntu允许root用户登录</h1></div>
-            <div class="dsd_catalog"><a href="#1.">1. ubuntu允许root用户登录修改方法</a>
-                <hr>
-                <a href="#2.">2. 找到<code>PermitRootLogin</code>将其改为<code>yes</code></a>
-                <hr>
-                <a href="#3.">3. 保存退出</a>
-                <hr>
-                <a href="#4.">4. 重启ssh服务</a></div>
+            <div class="dsd_title">
+                <h2>Linux常用操作</h2>
+            </div>
+            <div class="dsd_catalog">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/common/Linux常用命令.html">📖 1.Linux常用命令</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/common/Linux定时任务crontab.html">📖 2.Linux定时任务crontab</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/common/Linux通过SSH建立代理.html">📖 3.Linux通过SSH建立代理</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/common/Linux修改root密码.html">📖 4.Linux修改root密码</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/common/Linux修改打开文件数限制.html">📖 5.Linux修改打开文件数限制</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/common/Linux中文乱码.html">📖 6.Linux中文乱码</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/common/Linux与Windows文件互传.html">📖 7.Linux与Windows文件互传</a>
+                    <hr>
+                </div>
+            </div>
+            <div class="dsd_title">
+                <h2>Ubuntu</h2>
+            </div>
+            <div class="dsd_catalog">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/ubuntu/Ubuntu搭建nginx+mysql+php+php-fpm.html">📖
+                        1.Ubuntu搭建nginx+mysql+php+php-fpm</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/ubuntu/Ubuntu安装配置SVN及常用命令.html">📖
+                        2.Ubuntu安装配置SVN及常用命令</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/ubuntu/Ubuntu安装配置Apollo及常用命令.html">📖
+                        3.Ubuntu安装配置Apollo及常用命令</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/ubuntu/Ubuntu安装配置Zookeeper及常用命令.html">📖
+                        4.Ubuntu安装配置Zookeeper及常用命令</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/ubuntu/Ubuntu允许root用户登录.html">📖 5.Ubuntu允许root用户登录</a>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="dsd_title">
+                <h2>tmux</h2>
+            </div>
+            <div class="dsd_catalog">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/tmux/Centos安装tmux及常用命令.html">📖 1.Centos安装tmux及常用命令</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/tmux/Ubuntu安装配置tmux及常用命令.html">📖
+                        2.Ubuntu安装配置tmux及常用命令</a>
+                    <hr>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/linux/tmux/tmux常用命令及快捷键.html">📖 3.tmux常用命令及快捷键</a>
+                    <hr>
+                </div>
+            </div>
         </div>
-        <div class="jumbotron">
-            <p>部分ubuntu系统默认不允许root用户登录, 这样做的目的是提高安全性, 这样很多操作都需要sodu来执行.
-                比较麻烦. 在安全性要求不要的环境中, 直接使用root登陆会很方便.
-            </p>
-        </div>
-        <div class="dsd_title"><a href="#top" id="1.">1. ubuntu允许root用户登录修改方法🔝</a></div>
-        <p>修改ssh配置</p>
-        <pre><code>sudo vim /etc/ssh/sshd_config
-</code></pre>
-        <div class="dsd_title"><a href="#top" id="2.">2. 找到<code>PermitRootLogin</code>将其改为<code>yes</code>🔝</a></div>
-        <pre><code>PermitRootLogin yes
-</code></pre>
-        <div class="dsd_title"><a href="#top" id="3.">3. 保存退出🔝</a></div>
-        <p>输入:</p>
-        <pre><code>:wq
-</code></pre>
-        <div class="dsd_title"><a href="#top" id="4.">4. 重启ssh服务🔝</a></div>
-        <pre><code>sudo service ssh  restart
-</code></pre>
-        <p>现在你的ubuntu允许root用户登录了.</p>
     </div>
-    <hr>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div id="xs_content">
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <!-- 文章内容-->
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_title"><h1>Ubuntu允许root用户登录</h1></div>
+                    <div class="dsd_catalog"><a href="#①">① ubuntu允许root用户登录修改方法</a>
+                        <hr>
+                        <a href="#②">② 找到<code>PermitRootLogin</code>将其改为<code>yes</code></a>
+                        <hr>
+                        <a href="#③">③ 保存退出</a>
+                        <hr>
+                        <a href="#④">④ 重启ssh服务</a>
+                        <hr>
+                        <a href="#⑤">⑤ 相关文章</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>部分ubuntu系统默认不允许root用户登录, 这样做的目的是提高安全性, 这样很多操作都需要sodu来执行.
+                        比较麻烦. 在安全性要求不要的环境中, 直接使用root登陆会很方便.
+                    </p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="①">① ubuntu允许root用户登录修改方法🔝</a></div>
+                <p>修改ssh配置</p>
+                <pre><code>sudo vim /etc/ssh/sshd_config
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="②">② 找到<code>PermitRootLogin</code>将其改为<code>yes</code>🔝</a>
+                </div>
+                <pre><code>PermitRootLogin yes
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="③">③ 保存退出🔝</a></div>
+                <p>输入:</p>
+                <pre><code>:wq
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="④">④ 重启ssh服务🔝</a></div>
+                <pre><code>sudo service ssh  restart
+</code></pre>
+                <p>现在你的ubuntu允许root用户登录了.</p>
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 相关文章🔝</a></div>
+                <p>📖 <a href="http://dashidan.com/article/linux/index.html">linux常用操作</a></p>
+                <span>🌟最新内容会在源站更新.转载请保留原文链接🌟: <a href="http://dashidan.com/article/linux/index.html">http://dashidan.com/article/linux/index.html</a>
+                </span>
+            </div>
+        </div>
+    </div>
     <!-- 底部面包屑导航-->
     <ol class="breadcrumb">
         <li><a href="http://dashidan.com/index.html">首页</a></li>
-        <li><a href="http://dashidan.com/article/linux/index.html"><b>linux配置及命令</b></a></li>
-        <li class="active"><a
-            href="http://dashidan.com/article/linux/ubuntu/index.html"><b>ubuntu</b></a></li>
+        <li><a href="http://dashidan.com/article/linux/index.html">Linux</a></li>
     </ol>
     <hr>
-    <!--<nav>-->
     <div class="text-center">
-        <div>
-            <a href="http://dashidan.com/article/linux/ubuntu/ubuntu安装配置zookeeper及常用命令.html">🔺 上一篇:
-                ubuntu安装配置zookeeper及常用命令</a>
-        </div>
     </div>
-    <!--</nav>-->
 </div>
 
 <div style="display:none;">
@@ -125,5 +209,6 @@
 <script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="http://dashidan.com/js/bootstrap.js"></script>
 <script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
 </body>
 </html>
