@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MongoDb遍历结果cursor</title>
-    <meta name="description" content="MongoDb遍历结果cursor">
+    <title>Mongodb配置及常用命令</title>
+    <meta name="description" content="Mongodb配置及常用命令">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -173,124 +173,103 @@
             <!-- 文章内容-->
             <div id="xs_content_border">
                 <div>
-                    <div class="dsd_title"><h1>16.MongoDb遍历结果cursor</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① 手动遍历查询结果cursor</a>
+                    <div class="dsd_title"><h1>3.mongodb配置及常用命令</h1></div>
+                    <div class="dsd_catalog"><a href="#1.">1. 修改mongodb的绑定IP和端口</a>
                         <hr>
-                        <a href="#②">② 遍历索引</a>
+                        <a href="#2.">2. 修改启动报错</a>
                         <hr>
-                        <a href="#③">③ Cursor行为</a>
+                        <a href="#3.">3. 连接mongodb</a>
                         <hr>
-                        <a href="#④">④ Cursor信息</a>
+                        <a href="#4.">4. 常用命令</a>
                         <hr>
-                        <a href="#⑤">⑤ 参考文章</a>
+                        <a href="#5.">5. 数据库备份</a>
                         <hr>
-                        <a href="#⑥">⑥ 相关文章</a></div>
+                        <a href="#6.">6. 整库恢复</a>
+                        <hr>
+                        <a href="#7.">7. 单个collection备份:</a>
+                        <hr>
+                        <a href="#8.">8. 单个collection恢复:</a></div>
                 </div>
-                <p><code>db.collection.find()</code>方法返回一个结果指针. 访问结果数据需要对指针进行迭代查询. 在mongo命令中, 查询结果<code>cursor</code>默认返回20条数据,
-                    默认对<code>cursor</code>进行迭代20次. 可以通过修改<code>DBQuery.shellBatchSize</code>值来改变结果显示数量.</p>
-                <div class="dsd_title"><a href="#top" id="①">① 手动遍历查询结果cursor🔝</a></div>
-                <p>可以通过以下语句, 打印前20条数据</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
+                <div class="dsd_title"><a href="#top" id="1.">1. 修改mongodb的绑定IP和端口🔝</a></div>
+                <pre><code>net:
+  port: 37017
+  bindIp: 127.0.0.1  # Listen to local interface only, comment to listen on all interfaces.
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="2.">2. 修改启动报错🔝</a></div>
+                <pre><code>** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+**        We suggest setting it to 'never'
+** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+**        We suggest setting it to 'never'
 
-myCursor
+sudo echo "never" &gt; /sys/kernel/mm/transparent_hugepage/enabled
+sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 </code></pre>
-                <p>你可以通过<code>next()</code>方法遍历访问文档数据</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-
-while (myCursor.hasNext()) {
-   print(tojson(myCursor.next()));
-}
+                <div class="dsd_title"><a href="#top" id="3.">3. 连接mongodb🔝</a></div>
+                <pre><code>mongo 127.0.0.1:37017
 </code></pre>
-                <p>另外,也可以通过<code>printjson()</code>方法来替代<code>print(tojson())</code>方法.</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-
-while (myCursor.hasNext()) {
-   printjson(myCursor.next());
-}
+                <div class="dsd_title"><a href="#top" id="4.">4. 常用命令🔝</a></div>
+                <h3>查看所有数据库</h3>
+                <pre><code>show dbs;
 </code></pre>
-                <p>可以使用<code>cursor</code>提供的<code>forEach()</code>方法来遍历结果集.</p>
-                <pre class="prettyprint"><code>var myCursor =  db.users.find( { type: 2 } );
-
-myCursor.forEach(printjson);
+                <h3>选择数据库</h3>
+                <pre><code>use db_name;
 </code></pre>
-                <p>cursor相关的其他方法:
-                    <a href="https://docs.mongodb.com/manual/reference/method/#js-query-cursor-methods">JavaScript
-                        cursor methods</a></p>
-                <div class="dsd_title"><a href="#top" id="②">② 遍历索引🔝</a></div>
-                <p>在mongo命令中可以通过<code>toArray()</code>方法遍历结果集, 并将结果集放在一个数组中返回.</p>
-                <pre class="prettyprint"><code>var myCursor = db.inventory.find( { type: 2 } );
-var documentArray = myCursor.toArray();
-var myDocument = documentArray[3];
+                <h3>查看当前数据库下所有集合</h3>
+                <pre><code>show collections;
 </code></pre>
-                <p><code>toArray()</code>方法将全部结果数据放在内存中.<code>toArray()</code>遍历完全部指针数据.</p>
-                <p>有部分Mongodb数据库驱动提供根据cursor索引位置获取文档数据的方法.(例如:<code>cursor[index]</code>). 这是先调用<code>toArray()</code>方法再用索引获取数组中元素的简写.
-                </p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find( { type: 2 } );
-var myDocument = myCursor[1];
+                <h3>查看帮助文档</h3>
+                <pre><code>help;
 </code></pre>
-                <p><code>myCursor[1]</code>等同于以下:</p>
-                <pre class="prettyprint"><code>myCursor.toArray() [1];
+                <h3>在数据库级别查看帮助信息</h3>
+                <pre><code>db.help();
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ Cursor行为🔝</a></div>
-                <h3>1.关闭不活动的Cursor</h3>
-                <p>默认情况下, 一个Cursor停止使用超过10分钟或者客户端使用完毕, 服务器会自动关闭这个Cursor. 在mongo命令中,
-                    可以通过<code>cursor.noCursorTimeout()</code>方法, 改变这个行为.</p>
-                <pre class="prettyprint"><code>var myCursor = db.users.find().noCursorTimeout();
+                <h3>在集合级别查看帮助信息</h3>
+                <pre><code>db.collection_name.help();
 </code></pre>
-                <p>设定<code>noCursorTimeout</code>这个选项后,你必须通过<code>cursor.close()</code>方法手动关闭, 或者用尽cursor的结果集.</p>
-                <h3>2.Cursor分离</h3>
-                <p>一个Cursor返回的数据文档, 其他的操作可能交错执行. <a href="https://docs.mongodb.com/manual/core/mmapv1/">MMMPv1</a>存储引擎中,
-                    交错执行写操作, 可能导致返回的cursor中包含多次同样的一条数据. 处理这种情况, 参考<a
-                        href="https://docs.mongodb.com/manual/core/read-isolation-consistency-recency/#faq-developers-isolate-cursors">snapshot
-                        mode</a>.</p>
-                <h3>3.Cursor批处理</h3>
-                <p>MongoDB服务器将结果打包返回. 数据包的大小不能超过默认BOSN文档大小(16M)<a
-                    href="https://docs.mongodb.com/manual/reference/limits/#limit-bson-document-size">maximum BSON
-                    document size</a>. 可以通过<code>batchSize()</code>和<code>limit()</code>来修改返回结果集.</p>
-                <p>3.4版本新特性
-                    <code>find()</code>, <code>aggregate()</code>, <code>listIndexes</code>,
-                    和<code>listCollections</code>每批返回最大16M的数据.<code>batchSize()</code>可以设置一个更小的限制, 而不是最大的限制.</p>
-                <p><code>find()</code>和<code>aggregate()</code>默认初始集合文档数量是<code>101</code>.</p>
-                <p>3.2版本以后的<code>getMore</code>操作,没有默认集合文档数量限制, 只是有16M最大字节数限制.</p>
-                <p>注:
-                    查询<code>没有索引</code>的数据, 通过<code>sort</code>排序时, 返回结果前, 服务器必须将全部数据加载进内存中来实现排序.</p>
-                <p>遍历结果集到达返回数据的末尾时, 如果有更多的数据, <code>cursor.next()</code>方法会执行<code>getMore operation</code>操作来得到下一批数据.
-                    可以通过<code>objsLeftInBatch()</code>方法来查看在当前数据还有多少数据没有遍历.</p>
-                <pre class="prettyprint"><code>var myCursor = db.inventory.find();
-
-var myFirstDocument = myCursor.hasNext() ? myCursor.next() : null;
-
-myCursor.objsLeftInBatch();
+                <h3>删除集合</h3>
+                <pre><code>db.collection_name.drop();
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ Cursor信息🔝</a></div>
-                <p><code>db.serverStatus()</code>方法返回一个文档，其中包括了<code>metrics</code>字段.<a
-                    href="https://docs.mongodb.com/manual/reference/command/serverStatus/#serverstatus.metrics">metrics</a>字段中有个额<a
-                    href="https://docs.mongodb.com/manual/reference/command/serverStatus/#serverstatus.metrics.cursor">metrics.cursor</a>字段中的信息:
-                </p>
-                <ul>
-                    <li>最后一次服务器重启以来超时cursor数量</li>
-                    <li>由于设置<code>DBQuery.Option.noTimeout</code>来防止超时,打开的cursor数量.</li>
-                    <li><code>pinned</code> open cursor 数量.</li>
-                    <li>打开的cursor全部数量.</li>
-                </ul>
-                <p>使用示例:</p>
-                <pre class="prettyprint"><code>db.serverStatus().metrics.cursor
+                <h3>删除数据库</h3>
+                <pre><code>db.dropDatabase();
 </code></pre>
-                <p>显示结果:</p>
-                <pre class="prettyprint"><code>{
-   "timedOut" : &lt;number&gt;
-   "open" : {
-      "noTimeout" : &lt;number&gt;,
-      "pinned" : &lt;number&gt;,
-      "total" : &lt;number&gt;
-   }
-}
+                <div class="dsd_title"><a href="#top" id="5.">5. 数据库备份🔝</a></div>
+                <p>命令:</p>
+                <pre><code>mongodump -h dbhost -d dbname -o dbdirectory
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 参考文章🔝</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/">https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/</a>
-                </p>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 相关文章🔝</a></div>
-                <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+                <p>参数说明:</p>
+                <pre><code>-h:MongDB所在服务器地址,例如:127.0.0.1,当然也可以指定端口号:127.0.0.1:27017
+-d:需要备份的数据库实例,例如:test   -o:备份的数据存放位置,例如:c:\data\dump,当然该目录需要提前建立,在备份完成后,统自动在dump目录下建立一个test目录,这个目录里面存放该数据库实例的备份数据
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="6.">6. 整库恢复🔝</a></div>
+                <p>命令:</p>
+                <pre><code>mongorestore -h dbhost -d dbname –directoryperdb dbdirectory
+</code></pre>
+                <p>参数说明:</p>
+                <pre><code>-h:MongoDB所在服务器地址
+-d:需要恢复的数据库实例,例如:test,当然这个名称也可以和备份时候的不一样,比如test2
+–directoryperdb:备份数据所在位置,例如:c:\data\dump\test,这里为什么要多加一个test,而不是备份时候的dump
+–drop:恢复的时候,先删除当前数据,然后恢复备份的数据。就是说,恢复后,备份后添加修改的数据都会被删除,慎用哦！
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="7.">7. 单个collection备份:🔝</a></div>
+                <p>命令:</p>
+                <pre><code>mongoexport -h dbhost -d dbname -c collectionname -f collectionKey -o dbdirectory
+</code></pre>
+                <p>参数说明:</p>
+                <pre><code>-h: MongoDB所在服务器地址
+-d: 需要恢复的数据库实例
+-c: 需要恢复的集合
+-f: 需要导出的字段(省略为所有字段)
+-o: 表示导出的文件名
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="8.">8. 单个collection恢复:🔝</a></div>
+                <p>命令:</p>
+                <pre><code>mongoimport -d dbhost -c collectionname –type csv –headerline –file
+</code></pre>
+                <p>参数说明:</p>
+                <pre><code>-type: 指明要导入的文件格式
+-headerline: 批明不导入第一行,因为第一行是列名
+-file: 指明要导入的文件路径
+</code></pre>
                 <span>🌟最新内容会在源站更新.转载请保留原文链接🌟: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>
             </div>
@@ -303,10 +282,6 @@ myCursor.objsLeftInBatch();
     </ol>
     <hr>
     <div class="text-center">
-        <div>
-            <a href="http://dashidan.com/article/mongodb/basic/MongoDB修改数据.html">📖
-                下一篇: MongoDB修改数据</a>
-        </div>
     </div>
 </div>
 
