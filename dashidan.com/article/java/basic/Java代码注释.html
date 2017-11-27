@@ -58,10 +58,11 @@
             <hr>
         </div>
         <div>
-            <div class="dsd_title">
-                <h2>Java从入门到精通</h2>
+            <div class="dsd_title" onclick="clickTitle('basic')">
+                <h2><span id="basic_title">+ Java入门到精通</span></h2>
             </div>
-            <div class="dsd_catalog">
+
+            <div id="basic" class="dsd_catalog_left_hide">
                 <div class="single_line">
                     <a href="http://dashidan.com/article/java/basic/Java教程概述.html">1.Java教程概述</a>
                 </div>
@@ -130,10 +131,10 @@
                 </div>
             </div>
 
-            <div class="dsd_title">
-                <h2>JDK8新特性</h2>
+            <div class="dsd_title" onclick="clickTitle('jdk8')">
+                <h2 id="jdk8_title">+ JDK8新特性</h2>
             </div>
-            <div class="dsd_catalog">
+            <div id="jdk8" class="dsd_catalog_left_hide">
                 <div class="single_line">
                     <a href="http://dashidan.com/article/java/jdk8/JDK8新增语法特性简介.html">1.JDK8新增语法特性简介</a>
                 </div>
@@ -157,11 +158,10 @@
                 </div>
             </div>
 
-
-            <div class="dsd_title">
-                <h2>附录</h2>
+            <div class="btn-block dsd_title" onclick="clickTitle('addenda')">
+                <h2 id="addenda_title">+ 附录</h2>
             </div>
-            <div class="dsd_catalog">
+            <div id="addenda" class="dsd_catalog_left_hide">
                 <div class="single_line">
                     <a href="http://dashidan.com/article/java/addenda/Java中@Override标签作用.html">Java中@Override标签作用</a>
                 </div>
@@ -172,6 +172,7 @@
                     <a href="http://dashidan.com/article/java/addenda/Java保留关键字.html">Java保留关键字</a>
                 </div>
             </div>
+
         </div>
     </div>
     <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
@@ -243,7 +244,7 @@ public class Demo1 {
                 <pre><code>区块注释示例
 </code></pre>
                 <div class="dsd_title"><a href="#top" id="③">③ 相关文章🔝</a></div>
-                <p>📖 <a href="http://dashidan.com/article/java/index.html">Java从入门到精通目录</a></p>
+                <p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通目录</a></p>
                 <p>📖 <a href="http://dashidan.com/article/java/basic/Java集成开发环境.html">Java集成开发环境</a></p>
                 <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>
                 </span>

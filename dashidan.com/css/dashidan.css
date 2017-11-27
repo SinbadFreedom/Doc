@@ -36,6 +36,18 @@ img {
     border: 1px solid #999999;
 }
 
+/** 默认隐藏左边的内容导航*/
+.dsd_catalog_left_hide {
+    display: none;
+}
+
+/** 显示左边的内容导航*/
+.dsd_catalog_left_show {
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #999999;
+}
+
 .dsd_title {
     border: 1px solid #eee;
     border-left-color: #337ab7;
@@ -44,6 +56,7 @@ img {
     padding: 10px;
     margin-bottom: 4px;
     margin-top: 4px;
+    cursor: pointer;
 }
 
 #xs_index {
@@ -79,4 +92,16 @@ img {
     border-left: 2px solid #eee;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.dsd_callout {
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #5cb85c;
+}
+
+/** 始终显示竖滚动条*/
+html {
+    overflow-y: scroll;
 }
