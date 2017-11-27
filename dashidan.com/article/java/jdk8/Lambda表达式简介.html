@@ -205,8 +205,13 @@
                 <p>编程中提到的lambda表达式,通常是在需要一个函数,但是又不想费神去命名一个函数的场合下使用,也就是指匿名函数.</p>
                 <p>如果接口只有一个方法, 这时使用匿名内部类时代码看上去不清晰也不简洁. 在这种情况下, 你会希望将函数(functionality)作为参数传递进去, 来让代码看起来更加简洁.
                     Lambda表达式可以实现这种需求, 将函数作为方法参数, 者将代码作为数据. 可以将单方法(single-method)接口更加简洁.</p>
-                <p>举个栗子:</p>
-                <p>处理按钮点击事件时.</p>
+                <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/example.jpg"
+                        alt="举个栗子"/></p>
+                <p>Comparable接口中只有一个方法compareTo.</p>
+                <pre class="prettyprint"><code class="java language-java">public interface Comparable&lt;T&gt; {
+    public int compareTo(T o);
+}
+</code></pre>
                 <div class="bs-callout bs-callout-warning">
                     在Java lambda的设计过程中,有一段时间是说所有的SAM(Single Abstract
                     Method)类型(包括只有一个抽象方法的接口以及只有一个抽象方法的抽象类)都可以当作lambda表达式的目标类型,但后面真正的规范把设计收紧了,只支持单抽象方法的接口才算数.
