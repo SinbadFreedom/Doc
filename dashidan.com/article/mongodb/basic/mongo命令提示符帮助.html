@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
                 <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
             </ul>
         </div>
     </div>
@@ -148,23 +149,16 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>6.mongo命令提示符帮助</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① mongo命令行参数帮助</a>
-                        <hr>
-                        <a href="#②">② mongo指令帮助</a>
-                        <hr>
-                        <a href="#③">③ 数据库帮助</a>
-                        <hr>
-                        <a href="#④">④ 集合帮助</a>
-                        <hr>
-                        <a href="#⑤">⑤ cursor帮助</a>
-                        <hr>
-                        <a href="#⑥">⑥ 包装对象帮助</a>
-                        <hr>
-                        <a href="#⑦">⑦ 参考文章</a>
-                        <hr>
-                        <a href="#⑧">⑧ 相关文章</a></div>
+                    <div class="dsd_catalog"><p><a href="#①">① mongo命令行参数帮助</a></p>
+                        <p><a href="#②">② mongo指令帮助</a></p>
+                        <p><a href="#③">③ 数据库帮助</a></p>
+                        <p><a href="#④">④ 集合帮助</a></p>
+                        <p><a href="#⑤">⑤ cursor帮助</a></p>
+                        <p><a href="#⑥">⑥ 包装对象帮助</a></p>
+                        <p><a href="#⑦">⑦ 参考文章</a></p>
+                        <p><a href="#⑧">⑧ 相关文章</a></p></div>
                 </div>
-                <div class="dsd_title"><a href="#top" id="①">① mongo命令行参数帮助🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="①">① mongo命令行参数帮助</a></div>
                 <p>通过<code>--help</code>参数显示命令行帮助信息</p>
                 <pre class="prettyprint"><code>mongo --help
 </code></pre>
@@ -191,7 +185,7 @@ options:
   --verbose             increase verbosity
   --ipv6                开启IPv6支持(默认关闭)
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="②">② mongo指令帮助🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="②">② mongo指令帮助</a></div>
                 <p>通过命令提示符连上mongo数据库后,可以输入<code>help</code>来显示命令提示符帮助.</p>
                 <pre class="prettyprint"><code>help
 </code></pre>
@@ -218,7 +212,7 @@ it                           输入it, 继续迭代显示结果, 输出更多结
 DBQuery.shellBatchSize = x   设置显示结果条数
 exit                         退出命令行
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ 数据库帮助🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="③">③ 数据库帮助</a></div>
                 <h3>1.显示全部数据库</h3>
                 <pre class="prettyprint"><code>show dbs
 </code></pre>
@@ -233,7 +227,7 @@ exit                         退出命令行
                 <p>显示:</p>
                 <pre class="prettyprint"><code>test.updateUser
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ 集合帮助🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="④">④ 集合帮助</a></div>
                 <h3>1.显示全部集合</h3>
                 <pre class="prettyprint"><code>show collections
 </code></pre>
@@ -296,7 +290,7 @@ db.collection.getShardDistribution() - prints statistics about data distribution
     }
 }
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ cursor帮助🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ cursor帮助</a></div>
                 <p>当你在mongo命令行使用<code>find()</code>方法时, 可以使用很多<code>cursor</code>方法来修改<code>find()</code>行为和结果.</p>
                 <ul>
                     <li><p>显示find()方法可用的修改器和<code>cursor</code>处理方法</p>
@@ -351,7 +345,7 @@ function () {
                                 <function>只有1参数, 迭代器中指向的对象.
                     </li>
                 </ul>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 包装对象帮助🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑥">⑥ 包装对象帮助</a></div>
                 <p>可以通过输入<code>help misc</code>来获取对象包装类.</p>
                 <pre class="prettyprint"><code>help misc
 </code></pre>
@@ -374,10 +368,10 @@ function () {
     o.toString()
     o.equals(otherid)
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ 参考文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑦">⑦ 参考文章</a></div>
                 <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/access-mongo-shell-help/">https://docs.mongodb.com/manual/tutorial/access-mongo-shell-help/</a>
                 </p>
-                <div class="dsd_title"><a href="#top" id="⑧">⑧ 相关文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑧">⑧ 相关文章</a></div>
                 <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
                 <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>

@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
                 <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
             </ul>
         </div>
     </div>
@@ -148,18 +149,15 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>2.mongodb的导入导出及备份恢复</h1></div>
-                    <div class="dsd_catalog"><a href="#1.">1. mongodb导出</a>
-                        <hr>
-                        <a href="#2.">2. mongodb数据导入</a>
-                        <hr>
-                        <a href="#3.">3. MongoDB数据库备份</a>
-                        <hr>
-                        <a href="#4.">4. MongoDB数据库恢复</a></div>
+                    <div class="dsd_catalog"><p><a href="#1.">1. mongodb导出</a></p>
+                        <p><a href="#2.">2. mongodb数据导入</a></p>
+                        <p><a href="#3.">3. MongoDB数据库备份</a></p>
+                        <p><a href="#4.">4. MongoDB数据库恢复</a></p></div>
                 </div>
                 <div class="jumbotron">
                     <p>mongodb是高效的NoSQL类型数据库.</p>
                 </div>
-                <div class="dsd_title"><a href="#top" id="1.">1. mongodb导出🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="1.">1. mongodb导出</a></div>
                 <p>
                     <code>mongoDB</code>中的<code>mongoexport</code>工具可以把一个<code>collection</code>导出成<code>JSON</code>格式或<code>CSV</code>格式的文件.可以通过参数指定导出的数据项,也可以根据指定的条件导出数据.
                 </p>
@@ -177,7 +175,7 @@
                 <p>示例: </p>
                 <pre><code>sudo mongoexport -d mongotest -c users -q "{'username' : 'test'}" -o /home/python/Desktop/mongoDB/users.json --type json -f  "_id,user_id,user_name,age,status"
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="2.">2. mongodb数据导入🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="2.">2. mongodb数据导入</a></div>
                 <p>mongodb数据导入命令:</p>
                 <pre><code>mongoimport -d dbname -c collectionname --file filename --headerline --type json/csv -f field
 </code></pre>
@@ -192,7 +190,7 @@
                 <p>示例: </p>
                 <pre><code>sudo mongoimport -d mongotest -c users --file /home/mongodump/articles.json --type json
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="3.">3. MongoDB数据库备份🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="3.">3. MongoDB数据库备份</a></div>
                 <p>MongoDB数据库备份命令:</p>
                 <pre><code>mongodump -h dbhost -d dbname -o dbdirectory
 </code></pre>
@@ -206,7 +204,7 @@
 sudo mkdir -p /home/momgodump
 sudo mongodump -h 127.0.0.1:27017 -d dbdata -o /home/mongodump/
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="4.">4. MongoDB数据库恢复🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="4.">4. MongoDB数据库恢复</a></div>
                 <p>MongoDB数据库恢复命令:</p>
                 <pre><code>mongorestore -h dbhost -d dbname --dir dbdirectory
 </code></pre>

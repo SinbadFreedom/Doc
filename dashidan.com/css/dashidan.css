@@ -31,9 +31,9 @@ img {
 }
 
 .dsd_catalog {
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     padding: 10px;
-    border: 1px solid #999999;
+    /*border: 1px solid #999999;*/
 }
 
 /** 默认隐藏左边的内容导航*/
@@ -43,9 +43,9 @@ img {
 
 /** 显示左边的内容导航*/
 .dsd_catalog_left_show {
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     padding: 10px;
-    border: 1px solid #999999;
+    /*border: 1px solid #999999;*/
 }
 
 .dsd_title {

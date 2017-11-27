@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
                 <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
             </ul>
         </div>
     </div>
@@ -148,13 +149,10 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>13.MongoDB查询绑定或嵌套的方法</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① 匹配一个绑定或嵌套的文档</a>
-                        <hr>
-                        <a href="#②">② 查询一个嵌套数据字段</a>
-                        <hr>
-                        <a href="#③">③ 参考文章</a>
-                        <hr>
-                        <a href="#④">④ 相关文章</a></div>
+                    <div class="dsd_catalog"><p><a href="#①">① 匹配一个绑定或嵌套的文档</a></p>
+                        <p><a href="#②">② 查询一个嵌套数据字段</a></p>
+                        <p><a href="#③">③ 参考文章</a></p>
+                        <p><a href="#④">④ 相关文章</a></p></div>
                 </div>
                 <p>通过<code>db.collection.find()</code>方法可以查询绑定或内嵌条件条件的文档.</p>
                 <p>插入数据:</p>
@@ -169,12 +167,12 @@
                 <p>你可以在以下窗口输入命令测试:</p>
                 <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
                         height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
-                <div class="dsd_title"><a href="#top" id="①">① 匹配一个绑定或嵌套的文档🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="①">① 匹配一个绑定或嵌套的文档</a></div>
                 <p>举个栗子.</p>
                 <p>查询<code>size</code>数组满足条件<code>{ h: 14, w: 21, uom: "cm" }</code>的数据.</p>
                 <pre class="prettyprint"><code>db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="②">② 查询一个嵌套数据字段🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="②">② 查询一个嵌套数据字段</a></div>
                 <p>查询绑定或者嵌套的数据字段, 采用<code>.</code>字符("field.nestedField").</p>
                 <ul>
                     <li>通过字段值相等判断</li>
@@ -191,10 +189,10 @@
                 </ul>
                 <pre class="prettyprint"><code>db.inventory.find( { "size.h": { $lt: 15 }, "size.uom": "in", status: "D" } )
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ 参考文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="③">③ 参考文章</a></div>
                 <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/query-embedded-documents/">https://docs.mongodb.com/manual/tutorial/query-embedded-documents/</a>
                 </p>
-                <div class="dsd_title"><a href="#top" id="④">④ 相关文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="④">④ 相关文章</a></div>
                 <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
                 <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>

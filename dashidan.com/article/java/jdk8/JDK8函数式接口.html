@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
                 <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
             </ul>
         </div>
     </div>
@@ -187,27 +188,19 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>JDK8函数式接口</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① 什么是函数式接口(Functional Interface)</a>
-                        <hr>
-                        <a href="#②">② 函数式接口用途</a>
-                        <hr>
-                        <a href="#③">③ 关于@FunctionalInterface注解</a>
-                        <hr>
-                        <a href="#④">④ 函数式接口里允许定义默认方法</a>
-                        <hr>
-                        <a href="#⑤">⑤ 函数式接口里允许定义静态方法</a>
-                        <hr>
-                        <a href="#⑥">⑥ 函数式接口里允许定义java.lang.Object里的public方法</a>
-                        <hr>
-                        <a href="#⑦">⑦ JDK中的函数式接口举例</a>
-                        <hr>
-                        <a href="#⑧">⑧ 相关文章</a>
-                        <hr>
-                        <a href="#⑨">⑨ 参考文章</a></div>
+                    <div class="dsd_catalog"><p><a href="#①">① 什么是函数式接口(Functional Interface)</a></p>
+                        <p><a href="#②">② 函数式接口用途</a></p>
+                        <p><a href="#③">③ 关于@FunctionalInterface注解</a></p>
+                        <p><a href="#④">④ 函数式接口里允许定义默认方法</a></p>
+                        <p><a href="#⑤">⑤ 函数式接口里允许定义静态方法</a></p>
+                        <p><a href="#⑥">⑥ 函数式接口里允许定义java.lang.Object里的public方法</a></p>
+                        <p><a href="#⑦">⑦ JDK中的函数式接口举例</a></p>
+                        <p><a href="#⑧">⑧ 相关文章</a></p>
+                        <p><a href="#⑨">⑨ 参考文章</a></p></div>
                 </div>
-                <div class="dsd_title"><a href="#top" id="①">① 什么是函数式接口(Functional Interface)🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="①">① 什么是函数式接口(Functional Interface)</a></div>
                 <p>其实之前在讲Lambda表达式的时候提到过，所谓的函数式接口，只有一个抽象方法的接口.这种类型的接口也称为SAM接口(Single Abstract Method interfaces).</p>
-                <div class="dsd_title"><a href="#top" id="②">② 函数式接口用途🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="②">② 函数式接口用途</a></div>
                 <p>它们主要用在Lambda表达式和方法引用(实际上也可认为是Lambda表达式)上.</p>
                 <p>如定义了一个函数式接口如下:</p>
                 <pre class="prettyprint"><code class="java language-java">@FunctionalInterface
@@ -219,7 +212,7 @@ interface GreetingService
                 <p>那么就可以使用Lambda表达式来表示该接口的一个实现(注:JAVA 8 之前一般是用匿名类实现的):</p>
                 <pre class="prettyprint"><code class="java language-java">GreetingService greetService1 = message -&gt; System.out.println("Hello " + message);
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ 关于@FunctionalInterface注解🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="③">③ 关于@FunctionalInterface注解</a></div>
                 <p>Java 8为函数式接口引入了一个新注解@FunctionalInterface，主要用于编译级错误检查，加上该注解，当你写的接口不符合函数式接口定义的时候，编译器会报错.</p>
                 <p>正确例子，没有报错:</p>
                 <pre class="prettyprint"><code class="java language-java">@FunctionalInterface
@@ -231,7 +224,7 @@ interface GreetingService
                 <p>错误例子，接口中包含了两个抽象方法，违反了函数式接口的定义，Eclipse报错提示其不是函数式接口.</p>
                 <p>Java 8 函数式接口 - Functional Interface</p>
                 <p>提醒:加不加@FunctionalInterface对于接口是不是函数式接口没有影响，该注解知识提醒编译器去检查该接口是否仅包含一个抽象方法</p>
-                <div class="dsd_title"><a href="#top" id="④">④ 函数式接口里允许定义默认方法🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="④">④ 函数式接口里允许定义默认方法</a></div>
                 <p>函数式接口里是可以包含默认方法，因为默认方法不是抽象方法，其有一个默认实现，所以是符合函数式接口的定义的；</p>
                 <p>如下代码不会报错:</p>
                 <pre class="prettyprint"><code class="java language-java">@FunctionalInterface
@@ -250,7 +243,7 @@ interface GreetingService
     }
 }
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 函数式接口里允许定义静态方法🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 函数式接口里允许定义静态方法</a></div>
                 <p>函数式接口里是可以包含静态方法，因为静态方法不能是抽象方法，是一个已经实现了的方法，所以是符合函数式接口的定义的；</p>
                 <p>如下代码不会报错:</p>
                 <pre class="prettyprint"><code class="java language-java">@FunctionalInterface
@@ -262,7 +255,7 @@ interface GreetingService
     }
 }
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 函数式接口里允许定义java.lang.Object里的public方法🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑥">⑥ 函数式接口里允许定义java.lang.Object里的public方法</a></div>
                 <p>
                     函数式接口里是可以包含Object里的public方法，这些方法对于函数式接口来说，不被当成是抽象方法(虽然它们是抽象方法)；因为任何一个函数式接口的实现，默认都继承了Object类，包含了来自java.lang.Object里对这些抽象方法的实现；</p>
                 <p>如下代码不会报错:</p>
@@ -275,7 +268,7 @@ interface GreetingService
     boolean equals(Object obj);
 }
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ JDK中的函数式接口举例🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑦">⑦ JDK中的函数式接口举例</a></div>
                 <pre class="prettyprint"><code class="java language-java">java.lang.Runnable,
 
 java.awt.event.ActionListener,
@@ -286,9 +279,9 @@ java.util.concurrent.Callable
 
 java.util.function包下的接口，如Consumer、Predicate、Supplier等
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑧">⑧ 相关文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑧">⑧ 相关文章</a></div>
                 <p>📖 <a href="http://dashidan.com/article/java/index.html">Java从入门到精通索引</a></p>
-                <div class="dsd_title"><a href="#top" id="⑨">⑨ 参考文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑨">⑨ 参考文章</a></div>
                 <p>📖 <a href="http://www.linuxidc.com/Linux/2016-09/135437.htm">http://www.linuxidc.com/Linux/2016-09/135437.htm</a>
                 </p>
                 <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>

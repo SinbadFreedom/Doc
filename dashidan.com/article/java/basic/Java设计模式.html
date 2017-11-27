@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
                 <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
             </ul>
         </div>
     </div>
@@ -187,15 +188,11 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>20.Java设计模式</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① 设计模式简介</a>
-                        <hr>
-                        <a href="#②">② 单例模式</a>
-                        <hr>
-                        <a href="#③">③ 工厂模式</a>
-                        <hr>
-                        <a href="#④">④ 观察者模式</a>
-                        <hr>
-                        <a href="#⑤">⑤ 相关文章</a></div>
+                    <div class="dsd_catalog"><p><a href="#①">① 设计模式简介</a></p>
+                        <p><a href="#②">② 单例模式</a></p>
+                        <p><a href="#③">③ 工厂模式</a></p>
+                        <p><a href="#④">④ 观察者模式</a></p>
+                        <p><a href="#⑤">⑤ 相关文章</a></p></div>
                 </div>
                 <div class="jumbotron">
                     <p>软件设计领域的四位世界级大师Gang Of Four (GoF):Erich Gamma, Richard Helm, Ralph Johnson,John
@@ -205,14 +202,14 @@
                 </div>
                 <p><img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/19-1.jpg"
                         alt="图19-1"/></p>
-                <div class="dsd_title"><a href="#top" id="①">① 设计模式简介🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="①">① 设计模式简介</a></div>
                 <p>总体来说设计模式分为三大类:
                     创建型模式,共五种:工厂模式、抽象工厂模式、单例模式、建造者模式、原型模式.
                     结构型模式,共七种:适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式.
                     行为型模式,共十一种:策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式.</p>
                 <p>有些设计模式我个人认为,不是很具象, 就像星座一样抽象概念居多,导致应用场景不明确. 所以不希望他们占用我过多的脑容量和时间.只挑选几个含金量高, 模型具象, 应用场景广泛的模式来介绍.
                     以下这几个都是非常值得花时间去熟悉的模式.</p>
-                <div class="dsd_title"><a href="#top" id="②">② 单例模式🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="②">② 单例模式</a></div>
                 <p>单例模式即是只产生一个对象的模式.在Java中，每次使用<code>new</code>关键字, 就会产生一个新的对象. 有时我们需要只有一个对象产生, 比如一些管理类, 全局管理其它模块时,
                     这个管理类适合采用单例模式.</p>
                 <p>普通的单例模式分为2种, 懒汉式和饿汉式.懒汉式比较懒, 用到的时候才创建对象, 饿汉式不讲理, 你用不用我都创建好放着. </p>
@@ -297,7 +294,7 @@ class Singleton4 {
     }
 }
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ 工厂模式🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="③">③ 工厂模式</a></div>
                 <p>工厂模式本质是通过条件语句,根据不同的条件创建不同的对象.通常情况下, 产生的对象继承自同一个父类, 工厂类提供的方法返回的类型为父类对象类型.达到对象封装的作用.</p>
                 <p>代码示例:</p>
                 <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
@@ -364,7 +361,7 @@ class Product2 extends Product {
                 <p>输出:</p>
                 <pre><code>Product1 info.
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ 观察者模式🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="④">④ 观察者模式</a></div>
                 <p>观察者模式(也称为发布(publish)-订阅(Subscribe)模式、模型-视图(View)模式、源-收听者(Listener)模式或从属者模式).是一个非常棒的降低代码耦合度的方式.</p>
                 <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/secret.jpg"
                         alt="降龙十八掌秘籍"/></p>
@@ -465,7 +462,7 @@ Observer1 action.
 通知观察者
 Observer2 action.
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 相关文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 相关文章</a></div>
                 <p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通目录</a></p>
                 <p>📖 <a href="http://dashidan.com/article/java/basic/Java集成开发环境.html">Java集成开发环境</a></p>
                 <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>

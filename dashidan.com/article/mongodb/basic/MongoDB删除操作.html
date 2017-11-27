@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
                 <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
             </ul>
         </div>
     </div>
@@ -148,29 +149,21 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>18.MongoDB删除操作</h1></div>
-                    <div class="dsd_catalog"><a href="#①">① MongoDB删除操作命令</a>
-                        <hr>
-                        <a href="#②">② 初始化测试数据</a>
-                        <hr>
-                        <a href="#③">③ 删除全部数据</a>
-                        <hr>
-                        <a href="#④">④ 删除匹配条件的全部数据</a>
-                        <hr>
-                        <a href="#⑤">⑤ 删除匹配条件的一条数据</a>
-                        <hr>
-                        <a href="#⑥">⑥ MongoDB删除行为</a>
-                        <hr>
-                        <a href="#⑦">⑦ MongoDB删除数据方法</a>
-                        <hr>
-                        <a href="#⑧">⑧ 参考文章</a>
-                        <hr>
-                        <a href="#⑨">⑨ 相关文章</a></div>
+                    <div class="dsd_catalog"><p><a href="#①">① MongoDB删除操作命令</a></p>
+                        <p><a href="#②">② 初始化测试数据</a></p>
+                        <p><a href="#③">③ 删除全部数据</a></p>
+                        <p><a href="#④">④ 删除匹配条件的全部数据</a></p>
+                        <p><a href="#⑤">⑤ 删除匹配条件的一条数据</a></p>
+                        <p><a href="#⑥">⑥ MongoDB删除行为</a></p>
+                        <p><a href="#⑦">⑦ MongoDB删除数据方法</a></p>
+                        <p><a href="#⑧">⑧ 参考文章</a></p>
+                        <p><a href="#⑨">⑨ 相关文章</a></p></div>
                 </div>
-                <div class="dsd_title"><a href="#top" id="①">① MongoDB删除操作命令🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="①">① MongoDB删除操作命令</a></div>
                 <pre class="prettyprint"><code>db.collection.deleteMany()
 db.collection.deleteOne()
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="②">② 初始化测试数据🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="②">② 初始化测试数据</a></div>
                 <pre class="prettyprint"><code>db.inventory.insertMany( [
    { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
    { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" },
@@ -182,20 +175,20 @@ db.collection.deleteOne()
                 <p>你可以在以下窗口输入命令测试:</p>
                 <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
                         height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
-                <div class="dsd_title"><a href="#top" id="③">③ 删除全部数据🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="③">③ 删除全部数据</a></div>
                 <p>通过<code>db.collection.deleteMany()</code>命令插入一个空的过滤条件<code>{}</code>.</p>
                 <p>以下操作可以删除<code>inventory</code>集合中的全部数据:</p>
                 <pre class="prettyprint"><code>db.inventory.deleteMany({})
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ 删除匹配条件的全部数据🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="④">④ 删除匹配条件的全部数据</a></div>
                 <p>以下操作可以删除<code>inventory</code>集合中符合<code>status</code>值为<code>A</code>的全部数据:</p>
                 <pre class="prettyprint"><code>db.inventory.deleteMany({ status : "A" })
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 删除匹配条件的一条数据🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 删除匹配条件的一条数据</a></div>
                 <p>以下操作可以删除<code>inventory</code>集合中第一条, <code>status</code>值为<code>A</code>的全部数据:</p>
                 <pre class="prettyprint"><code>db.inventory.deleteOne( { status: "D" } )
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ MongoDB删除行为🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑥">⑥ MongoDB删除行为</a></div>
                 <h3>1.索引</h3>
                 <p>删除操作不删除索引, 即使删除集合中的全部数据也不行.</p>
                 <h3>2.原子性</h3>
@@ -203,7 +196,7 @@ db.collection.deleteOne()
                 <h3>3.写回执</h3>
                 <p>你可以自定义Mongodb写操作的回执等级. 详情查阅<a href="https://docs.mongodb.com/manual/reference/write-concern/">Write
                     Concern</a>.</p>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ MongoDB删除数据方法🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑦">⑦ MongoDB删除数据方法</a></div>
                 <table class="table table-bordered table-responsive text-center">
                     <thead>
                     <tr class="info">
@@ -226,10 +219,10 @@ db.collection.deleteOne()
                     </tr>
                     </tbody>
                 </table>
-                <div class="dsd_title"><a href="#top" id="⑧">⑧ 参考文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑧">⑧ 参考文章</a></div>
                 <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/remove-documents/">https://docs.mongodb.com/manual/tutorial/remove-documents/</a>
                 </p>
-                <div class="dsd_title"><a href="#top" id="⑨">⑨ 相关文章🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="⑨">⑨ 相关文章</a></div>
                 <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
                 <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>

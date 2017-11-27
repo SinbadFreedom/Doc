@@ -39,6 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://dashidan.com/about.html">关于</a></li>
                 <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
             </ul>
         </div>
     </div>
@@ -148,28 +149,21 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>3.mongodb配置及常用命令</h1></div>
-                    <div class="dsd_catalog"><a href="#1.">1. 修改mongodb的绑定IP和端口</a>
-                        <hr>
-                        <a href="#2.">2. 修改启动报错</a>
-                        <hr>
-                        <a href="#3.">3. 连接mongodb</a>
-                        <hr>
-                        <a href="#4.">4. 常用命令</a>
-                        <hr>
-                        <a href="#5.">5. 数据库备份</a>
-                        <hr>
-                        <a href="#6.">6. 整库恢复</a>
-                        <hr>
-                        <a href="#7.">7. 单个collection备份:</a>
-                        <hr>
-                        <a href="#8.">8. 单个collection恢复:</a></div>
+                    <div class="dsd_catalog"><p><a href="#1.">1. 修改mongodb的绑定IP和端口</a></p>
+                        <p><a href="#2.">2. 修改启动报错</a></p>
+                        <p><a href="#3.">3. 连接mongodb</a></p>
+                        <p><a href="#4.">4. 常用命令</a></p>
+                        <p><a href="#5.">5. 数据库备份</a></p>
+                        <p><a href="#6.">6. 整库恢复</a></p>
+                        <p><a href="#7.">7. 单个collection备份:</a></p>
+                        <p><a href="#8.">8. 单个collection恢复:</a></p></div>
                 </div>
-                <div class="dsd_title"><a href="#top" id="1.">1. 修改mongodb的绑定IP和端口🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="1.">1. 修改mongodb的绑定IP和端口</a></div>
                 <pre><code>net:
   port: 37017
   bindIp: 127.0.0.1  # Listen to local interface only, comment to listen on all interfaces.
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="2.">2. 修改启动报错🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="2.">2. 修改启动报错</a></div>
                 <pre><code>** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
 **        We suggest setting it to 'never'
 ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
@@ -178,10 +172,10 @@
 sudo echo "never" &gt; /sys/kernel/mm/transparent_hugepage/enabled
 sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="3.">3. 连接mongodb🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="3.">3. 连接mongodb</a></div>
                 <pre><code>mongo 127.0.0.1:37017
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="4.">4. 常用命令🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="4.">4. 常用命令</a></div>
                 <h3>查看所有数据库</h3>
                 <pre><code>show dbs;
 </code></pre>
@@ -206,7 +200,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
                 <h3>删除数据库</h3>
                 <pre><code>db.dropDatabase();
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="5.">5. 数据库备份🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="5.">5. 数据库备份</a></div>
                 <p>命令:</p>
                 <pre><code>mongodump -h dbhost -d dbname -o dbdirectory
 </code></pre>
@@ -214,7 +208,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
                 <pre><code>-h:MongDB所在服务器地址,例如:127.0.0.1,当然也可以指定端口号:127.0.0.1:27017
 -d:需要备份的数据库实例,例如:test   -o:备份的数据存放位置,例如:c:\data\dump,当然该目录需要提前建立,在备份完成后,统自动在dump目录下建立一个test目录,这个目录里面存放该数据库实例的备份数据
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="6.">6. 整库恢复🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="6.">6. 整库恢复</a></div>
                 <p>命令:</p>
                 <pre><code>mongorestore -h dbhost -d dbname –directoryperdb dbdirectory
 </code></pre>
@@ -224,7 +218,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 –directoryperdb:备份数据所在位置,例如:c:\data\dump\test,这里为什么要多加一个test,而不是备份时候的dump
 –drop:恢复的时候,先删除当前数据,然后恢复备份的数据。就是说,恢复后,备份后添加修改的数据都会被删除,慎用哦！
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="7.">7. 单个collection备份:🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="7.">7. 单个collection备份:</a></div>
                 <p>命令:</p>
                 <pre><code>mongoexport -h dbhost -d dbname -c collectionname -f collectionKey -o dbdirectory
 </code></pre>
@@ -235,7 +229,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 -f: 需要导出的字段(省略为所有字段)
 -o: 表示导出的文件名
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="8.">8. 单个collection恢复:🔝</a></div>
+                <div class="dsd_title"><a href="#top" id="8.">8. 单个collection恢复:</a></div>
                 <p>命令:</p>
                 <pre><code>mongoimport -d dbhost -c collectionname –type csv –headerline –file
 </code></pre>
