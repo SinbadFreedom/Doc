@@ -140,13 +140,13 @@
                     <a href="http://dashidan.com/article/java/jdk8/JDK8新增语法特性简介.html">1.JDK8新增语法特性简介</a>
                 </div>
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/java/jdk8/Lambda表达式简介.html">2.Lambda表达式简介</a>
+                    <a href="http://dashidan.com/article/java/jdk8/JDK8函数式接口.html">2.JDK8函数式接口</a>
                 </div>
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/java/jdk8/Lamdba表达式在Java中的实战应用.html">3.Lamdba表达式在Java中的实战应用</a>
+                    <a href="http://dashidan.com/article/java/jdk8/Java中Lambda表达式由来.html">3.Java中Lambda表达式由来</a>
                 </div>
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/java/jdk8/JDK8函数式接口.html">4.JDK8函数式接口</a>
+                    <a href="http://dashidan.com/article/java/jdk8/Lamdba表达式在Java中的实战应用.html">4.Lamdba表达式在Java中的实战应用</a>
                 </div>
                 <div class="single_line">
                     <a href="http://dashidan.com/article/java/jdk8/JDK8的default方法.html">5.JDK8的default方法</a>
@@ -159,7 +159,7 @@
                 </div>
             </div>
 
-            <div class="btn-block dsd_title" onclick="clickTitle('addenda')">
+            <div class="dsd_title" onclick="clickTitle('addenda')">
                 <h2 id="addenda_title">+ 附录</h2>
             </div>
             <div id="addenda" class="dsd_catalog_left_hide">
@@ -188,17 +188,21 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>5.Java变量</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① 基础类型变量</a></p>
-                        <p><a href="#②">② 字符串类型变量</a></p>
-                        <p><a href="#③">③ 引用类型变量</a></p>
-                        <p><a href="#④">④ 变量作用域</a></p>
-                        <p><a href="#⑤">⑤ 相关文章</a></p></div>
+                    <div class="dsd_catalog"><a href="#①">① 基础类型变量</a>
+                        <hr>
+                        <a href="#②">② 字符串类型变量</a>
+                        <hr>
+                        <a href="#③">③ 引用类型变量</a>
+                        <hr>
+                        <a href="#④">④ 变量作用域</a>
+                        <hr>
+                        <a href="#⑤">⑤ 相关文章</a></div>
                 </div>
                 <div class="jumbotron">
                     <p>所有的程序都使用变量临时存储各种数据, 在Java语言中变量必须在程序中被定义(或声明)后才能使用, 必须为每个变量确定一个具体类型.Java中变量分为基础类型变量和引用类型变量.
                     </p>
                 </div>
-                <div class="dsd_title"><a href="#top" id="①">① 基础类型变量</a></div>
+                <div class="dsd_title"><a href="#top" id="①">① 基础类型变量🔝</a></div>
                 <p>Java有八种基础类型变量. 分为数字类型(四个整数型,两个浮点型), 布尔型和字符类型.</p>
                 <h3>1. 数字类型变量</h3>
                 <ul>
@@ -433,7 +437,7 @@ a
 人
 20251
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="②">② 字符串类型变量</a></div>
+                <div class="dsd_title"><a href="#top" id="②">② 字符串类型变量🔝</a></div>
                 <p>字符串类型是对象类型,不属于基础类型. 赋值的时候属于值传递. 在Java中,<code>String</code>是不可变(final)的.Java在运行时保存了一个字符串池(String
                     pool),这使<code>String</code>成为了一个特别的类.</p>
                 <div class="bs-callout bs-callout-success">
@@ -528,7 +532,7 @@ s0 大屎蛋教程网aaa
 s1 大屎蛋教程网
 6 == isSame : false
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ 引用类型变量</a></div>
+                <div class="dsd_title"><a href="#top" id="③">③ 引用类型变量🔝</a></div>
                 <p>引用类型(reference type)指向对象在内存空间的地址.</p>
                 <h3>1. 什么是引用</h3>
                 <p>把<code>对象数据</code>比喻为一座房子,引用就是门牌号. 一个对象在内存中会请求一块内存空间来保存数据,根据对象的大小, 需要占用的空间大小也不等. 访问对象数据时,
@@ -563,7 +567,7 @@ String b=a;
                 <h3>4.引用传递</h3>
                 <p>引用传递也称为传地址.方法调用时,实际参数的引用(地址)被传递给方法中相对应的形参和实参内容相同,指向同一块内存地址,方法执行中对引用的操作将会影响到实际对象. 详情参考:<a
                     href="http://dashidan.com/article/java/basic/Java对象.html#12.4">参数的值传递与引用传递</a>.</p>
-                <div class="dsd_title"><a href="#top" id="④">④ 变量作用域</a></div>
+                <div class="dsd_title"><a href="#top" id="④">④ 变量作用域🔝</a></div>
                 <p>Java变量从影响范围划分, 分为<code>成员变量</code>和<code>局部变量</code>.</p>
                 <h3>1. 成员变量</h3>
                 <p>类内部定义的变量叫做成员变量,如果没有设定初始值,系统会自动赋值为默认值. 作用范围是整个类. 成员变量在所在类被实例化后,存在堆内存中.</p>
@@ -613,7 +617,7 @@ public class Demo3 {
 0
 1
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 相关文章</a></div>
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 相关文章🔝</a></div>
                 <p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通目录</a></p>
                 <p>📖 <a href="http://dashidan.com/article/java/basic/Java集成开发环境.html">Java集成开发环境</a></p>
                 <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>

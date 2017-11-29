@@ -140,13 +140,13 @@
                     <a href="http://dashidan.com/article/java/jdk8/JDK8新增语法特性简介.html">1.JDK8新增语法特性简介</a>
                 </div>
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/java/jdk8/Lambda表达式简介.html">2.Lambda表达式简介</a>
+                    <a href="http://dashidan.com/article/java/jdk8/JDK8函数式接口.html">2.JDK8函数式接口</a>
                 </div>
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/java/jdk8/Lamdba表达式在Java中的实战应用.html">3.Lamdba表达式在Java中的实战应用</a>
+                    <a href="http://dashidan.com/article/java/jdk8/Java中Lambda表达式由来.html">3.Java中Lambda表达式由来</a>
                 </div>
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/java/jdk8/JDK8函数式接口.html">4.JDK8函数式接口</a>
+                    <a href="http://dashidan.com/article/java/jdk8/Lamdba表达式在Java中的实战应用.html">4.Lamdba表达式在Java中的实战应用</a>
                 </div>
                 <div class="single_line">
                     <a href="http://dashidan.com/article/java/jdk8/JDK8的default方法.html">5.JDK8的default方法</a>
@@ -159,7 +159,7 @@
                 </div>
             </div>
 
-            <div class="btn-block dsd_title" onclick="clickTitle('addenda')">
+            <div class="dsd_title" onclick="clickTitle('addenda')">
                 <h2 id="addenda_title">+ 附录</h2>
             </div>
             <div id="addenda" class="dsd_catalog_left_hide">
@@ -188,14 +188,17 @@
             <div id="xs_content_border">
                 <div>
                     <div class="dsd_title"><h1>JDK8方法引用(method referrance)</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① 方法引用的概念</a></p>
-                        <p><a href="#②">② 方法引用的种类</a></p>
-                        <p><a href="#③">③ 相关文章</a></p>
-                        <p><a href="#④">④ 参考文章</a></p></div>
+                    <div class="dsd_catalog"><a href="#①">① 方法引用的概念</a>
+                        <hr>
+                        <a href="#②">② 方法引用的种类</a>
+                        <hr>
+                        <a href="#③">③ 相关文章</a>
+                        <hr>
+                        <a href="#④">④ 参考文章</a></div>
                 </div>
-                <div class="dsd_title"><a href="#top" id="①">① 方法引用的概念</a></div>
-                <p>某些lambda表达式里面仅仅是执行一个方法调用. 在这种情况下,不用lambda表达式,直接通过方法名称引用方法的形式可读性更高一些,这种形式就是方法引用. 方法引用是一种更简洁易懂的lambda
-                    表达式.</p>
+                <div class="dsd_title"><a href="#top" id="①">① 方法引用的概念🔝</a></div>
+                <p>某些lambda表达式里面仅仅是执行一个方法调用. 在这种情况下,不用lambda表达式,直接通过方法名称引用方法的形式可读性更高一些,这种形式就是方法引用.
+                    方法引用是一种更简洁易懂的lambda表达式.</p>
                 <p>看下面这个Person类:</p>
                 <pre class="prettyprint"><code class="java language-java">public class Person {
        public enum Sex {
@@ -251,7 +254,7 @@ Arrays.sort(rosterAsArray, new PersonAgeComparator());
                 <p>两者有如下的共同点:</p>
                 <p>1.形参相同.都是(Person, Person).
                     2.调用方法Person.compareByAge.</p>
-                <div class="dsd_title"><a href="#top" id="②">② 方法引用的种类</a></div>
+                <div class="dsd_title"><a href="#top" id="②">② 方法引用的种类🔝</a></div>
                 <table class="table table-bordered table-responsive text-center">
                     <thead>
                     <tr class="info">
@@ -325,9 +328,9 @@ Arrays.sort(stringArray, String::compareToIgnoreCase);
                 <p>Java编译器推断出你想创建一个HashSet集合,其中包含Person类型的元素.当然,你也可以像下面这样显式的指定集合元素的类型为Person</p>
                 <pre class="prettyprint"><code class="java language-java">Set&lt;Person&gt;rosterSet = transferElements(roster,HashSet&lt;Person&gt;::new);
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ 相关文章</a></div>
+                <div class="dsd_title"><a href="#top" id="③">③ 相关文章🔝</a></div>
                 <p>📖 <a href="http://dashidan.com/article/java/index.html">Java从入门到精通索引</a></p>
-                <div class="dsd_title"><a href="#top" id="④">④ 参考文章</a></div>
+                <div class="dsd_title"><a href="#top" id="④">④ 参考文章🔝</a></div>
                 <p>📖 <a href="http://blog.csdn.net/wwwsssaaaddd/article/details/37573517">http://blog.csdn.net/wwwsssaaaddd/article/details/37573517</a>
                 </p>
                 <p>📖 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html</a>
