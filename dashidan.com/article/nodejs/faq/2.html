@@ -1,0 +1,201 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>发布Node模块到NPM社区</title>
+    <meta name="description" content="发布Node模块到NPM社区">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/nodejs/index.html">NodeJs</a></li>
+    </ol>
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!-- 索引-->
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
+        <div>
+            <div class="dsd_title" onclick="clickTitle('faq')">
+                <h3><span id="faq_title">➕ NodeJs常见问题</span></h3>
+            </div>
+            <div id="faq" class="dsd_catalog_left_hide">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/nodejs/faq/1.html">1.npm切换源</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与npm install
+                        --save-dev的区别</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs5.0以上版本及版本切换</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div id="xs_content">
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <!-- 文章内容-->
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_title"><h1>发布node模块到npm社区</h1></div>
+                    <div class="dsd_catalog"><p><a href="#1.">1. 安装nrm方便切换npm源</a></p>
+                        <p><a href="#2.">2. 查看可用源</a></p>
+                        <p><a href="#3.">3. 发布前需要切换到npm的默认源</a></p>
+                        <p><a href="#4.">4. 如果使用<code>grunt</code>需要重新打包,没有使用跳过</a></p>
+                        <p><a href="#5.">5. 修改版本号</a></p>
+                        <p><a href="#6.">6. 注册npmjs.com的账号, 已有账号跳过.</a></p>
+                        <p><a href="#7.">7. 添加npm账号</a></p>
+                        <p><a href="#8.">8. 发布</a></p>
+                        <p><a href="#9.">9. 切换回国内源更新</a></p>
+                        <p><a href="#10.">10. 更新依赖包版本</a></p></div>
+                </div>
+                <div class="jumbotron">
+                    <p>nodejs项目中`node_moudle`目录中的代码是从npm源中下载下来. 发布到npm社区后, 可以在`package.json`文件中添加依赖, 执行`npm
+                        install`自动下载. 非常方便.</p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="1.">1. 安装nrm方便切换npm源</a></div>
+                <pre><code>npm install nrm
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="2.">2. 查看可用源</a></div>
+                <pre><code>nrm ls
+</code></pre>
+                <div class="bs-callout bs-callout-success">
+                    <p>当前使用的源前边有`*`标识</p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="3.">3. 发布前需要切换到npm的默认源</a></div>
+                <div class="bs-callout bs-callout-warning">
+                    <p>我们可能换成了国内淘宝的镜像：http://registry.npm.taobao.org. 淘宝镜像没有开放上传的权限,上传会报以下的错误:</p>
+                    <p>npm ERR! publish Failed PUT 403</p>
+                    <p>npm ERR! Error: no_perms Private modeenable, only admin can publish this module:</p>
+                    <p>nodebb-plugin-route-cms</p>
+                </div>
+                <p>切换为默认源才可以上传, 切换命令:</p>
+                <pre><code>nrm use npm
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="4.">4. 如果使用<code>grunt</code>需要重新打包,没有使用跳过</a></div>
+                <pre><code>grunt build --force
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="5.">5. 修改版本号</a></div>
+                <p>第一次提交默认版本号1.0.0, 采用默认即可. 后续修改,需要比原版本号高.
+                    例:</p>
+                <pre><code>1.0.0
+</code></pre>
+                <p>改为:</p>
+                <pre><code>1.0.1
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="6.">6. 注册npmjs.com的账号, 已有账号跳过.</a></div>
+                <p>注册地址: <a href="http://npmjs.com">npmjs.com</a></p>
+                <div class="bs-callout bs-callout-warning">
+                    <p>这个是npmjs.com的账号,不是github的账号, 账号名都为小写.</p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="7.">7. 添加npm账号</a></div>
+                <pre><code>npm adduser
+</code></pre>
+                <p>按照提示, 输入上一步注册的账号, 邮箱和密码. </p>
+                <div class="bs-callout bs-callout-warning">
+                    <p>有时提示需要验证邮件. 如果没有收到验证邮件, 可以登陆npmjs.com, 上方有个提示`重新发送验证邮件`. 点击重新发送即可收到.
+                    </p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="8.">8. 发布</a></div>
+                <pre><code>npm publish
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="9.">9. 切换回国内源更新</a></div>
+                <pre><code>nrm use taobao
+</code></pre>
+                <div class="bs-callout bs-callout-warning">
+                    <p>发布成功后,会有几分钟的延迟才能更新到最新版.</p>
+                    <p>国内taobao源是每10分钟与npm服务器同步一次.</p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="10.">10. 更新依赖包版本</a></div>
+                <p>修改package.json中对应的包的版本号.
+                    删除<code>package.json.lock</code>文件.
+                    执行初始化包命令：</p>
+                <pre><code>npm install
+</code></pre>
+                <div class="bs-callout bs-callout-warning">
+                    <p>package-lock.json是当 node_modules 或 package.json
+                        发生变化时自动生成的文件.这个文件主要功能是确定当前安装的包的依赖,以便后续重新安装的时候生成相同的依赖,而忽略项目开发过程中有些依赖已经发生的更新.</p>
+                    <p>如果不删除package.json.lock, 会导致采用已有的版本, 不更新新版本模块.</p>
+                </div>
+                <p>好了, npm世界尽在掌控之中.</p>
+                <span>转载请保留原文链接: <a href="http://dashidan.com/article/nodejs/index.html">http://dashidan.com/article/nodejs/index.html</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/nodejs/faq/3.html">📖
+                下一篇: npm install -g与--save参数</a>
+        </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>拯救单身狗</title>
+    <meta name="description" content="拯救单身狗">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/h5game/index.html">H5Game</a></li>
+    </ol>
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!-- 索引-->
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
+        <div>
+            <div class="dsd_title" onclick="clickTitle('h5game')">
+                <h3><span id="h5game_title">➕ HTML5小游戏</span></h3>
+            </div>
+            <div id="h5game" class="dsd_catalog_left_hide">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/h5game/basic/1.html">📖 1.拯救单身狗</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/h5game/g1/1.html">🎮 拯救单身狗</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div id="xs_content">
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <!-- 文章内容-->
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_title"><h1>1.拯救单身狗</h1></div>
+                    <div class="dsd_catalog"><p><a href="#①">① 游戏设计</a></p>
+                        <p><a href="#②">② 准备工作</a></p>
+                        <p><a href="#③">③ HTML编码</a></p>
+                        <p><a href="#④">④ JavaScript编码</a></p>
+                        <p><a href="#⑤">⑤ 知识点整理</a></p></div>
+                </div>
+                <div class="jumbotron">
+                    <p>一年一度的光棍节又到了!单身狗表示受到一万点伤害,所以要为单身狗做点什么.拯救单身狗!恩爱狗群中救出单身狗!</p>
+                </div>
+                <div class="dsd_title"><a href="#top" id="①">① 游戏设计</a></div>
+                <p>html5小游戏, 从屏幕上随机出现单身狗,或者情侣狗.</p>
+                <p>然后从众多的狗中, 选择单身狗, 将单身狗解救出来.</p>
+                <p>选中一个加一分, 点错游戏结束.</p>
+                <p>就这样, 很简单吧.</p>
+                <p>🎮 <a href="http://dashidan.com/article/h5game/g1/拯救单身狗.html">拯救单身狗小游戏</a></p>
+                <div class="dsd_title"><a href="#top" id="②">② 准备工作</a></div>
+                <ul>
+                    <li>资源图片: 4只单身狗, 4双情侣狗, 游戏闪屏页面</li>
+                </ul>
+                <p>游戏闪屏页面:</p>
+                <p><img class="center-block img-responsive" src="http://dashidan.com/img/h5game/g1/splash.jpg" alt="1"/>
+                </p>
+                <p>八骏图:</p>
+                <p><img class="center-block img-responsive" src="http://dashidan.com/img/h5game/g1/dog.jpg" alt="2"/>
+                </p>
+                <ul>
+                    <li>勤劳的双手, 说的就是你啦.</li>
+                    <li>灵活的大脑, 还是你.</li>
+                    <li>了解JavaScript, html的基础语法即可.</li>
+                </ul>
+                <div class="dsd_title"><a href="#top" id="③">③ HTML编码</a></div>
+                <p>html5新增加了<code>canvas</code>标签, 这个是我们做这个游戏的基础.</p>
+                <p>网页中嵌入<code>canvas</code>标签:</p>
+                <pre class="prettyprint"><code class="html language-html">&lt;div class="text-center"&gt;
+    &lt;canvas id="myCanvas" width="360" height="640"&gt;Your browser does not support the canvas element.&lt;/canvas&gt;
+&lt;/div&gt;
+</code></pre>
+                <p>我们将<code>JavaScript</code>脚本新建一个, 在html页面中导入</p>
+                <pre class="prettyprint"><code class="html language-html">&lt;script src="Game.js"&gt;&lt;/script&gt;
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="④">④ JavaScript编码</a></div>
+                <p>逻辑写在<code>Game.js</code>文件中.</p>
+                <h3>1.获取绘制对象</h3>
+                <pre class="prettyprint"><code class="javascript language-javascript">const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+</code></pre>
+                <h3>2.定义游戏变量</h3>
+                <pre class="prettyprint"><code class="javascript language-javascript">/** 游戏区域*/
+const WIDTH = 360;
+const HEIGHT = 640;
+/** 帧率*/
+const FRAME_INTERVAL = 33;
+/** 单身狗速度*/
+const DOG_SPEED_SINGLE = 4;
+/** 单身狗路, 哇塞单身狗有3条路走*/
+const DOG_ROAD = 3;
+/** 狗数量*/
+const DOG_NUM = 8;
+/** 倒计时*/
+let countDown = 3;
+/** 拯救数量*/
+let saveCount = 0;
+/** 总数量*/
+let totalCount = 0;
+
+const SPRITE_WIDTH = 100;
+</code></pre>
+                <h3>3.初始化图像</h3>
+                <pre class="prettyprint"><code class="javascript language-javascript">let splashImg = new Image();
+let logoImg = new Image();
+let dogImg = new Image();
+
+logoImg.src = "dashidan_log.jpg";
+let loadFinish = false;
+logoImg.onload = function () {
+    dogImg.src = "dog.jpg";
+    dogImg.onload = function () {
+        loadFinish = true;
+    };
+};
+</code></pre>
+                <h3>4.初始化图像</h3>
+                <p>设定游戏状态, 本游戏的游戏状态分为: 闪屏状态, 背景叙述状态, 倒计时, 游戏中, 游戏结束. 这几个状态.</p>
+                <pre class="prettyprint"><code class="js language-js">/** 闪屏状态*/
+const GAME_STATE_SPLASH = 1;
+/** 背景叙述状态*/
+const GAME_STATE_INFO = 2;
+/** 倒计时*/
+const GAME_STATE_COUNT_DOWN = 3;
+/** 游戏中*/
+const GAME_STATE_GAMING = 4;
+/** 游戏结束*/
+const GAME_STATE_GAME_OVER = 5;
+</code></pre>
+                <h3>4.设定游戏状态机</h3>
+                <p>游戏状态机来进行游戏状态管理和切换的功能.</p>
+                <pre class="prettyprint"><code class="js language-js">function render() {
+    if (!loadFinish) {
+        return;
+    }
+
+    switch (gameState) {
+        case GAME_STATE_SPLASH:
+            renderSlash();
+            break;
+        case GAME_STATE_INFO:
+            renderText();
+            break;
+        case GAME_STATE_GAMING:
+            renderGame();
+            break;
+        case GAME_STATE_COUNT_DOWN:
+            renderCountDown();
+            break;
+        case GAME_STATE_GAME_OVER:
+            renderGameOver();
+            break;
+    }
+}
+</code></pre>
+                <h3>5.绘制闪屏状态</h3>
+                <pre class="prettyprint"><code class="js language-js">function renderSlash() {
+    console.log("-----renderSlash--------");
+    if (!isDrawSplash) {
+        splashImg = new Image();
+        splashImg.src = "http://dashidan.com/img/h5game/g1/splash.jpg";
+        splashImg.onload = function () {
+            ctx.drawImage(splashImg, 0, 0);
+        };
+        isDrawSplash = true;
+    }
+
+    if (gameStep &gt; 100) {
+        ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+        if (ctx.globalAlpha &gt; 0) {
+            ctx.globalAlpha -= 0.01;
+        }
+        ctx.drawImage(splashImg, 0, 0);
+        if (gameStep &gt; 200) {
+            updateGameState(GAME_STATE_INFO)
+        }
+    }
+}
+</code></pre>
+                <h3>5.绘制背景叙述状态</h3>
+                <pre class="prettyprint"><code class="js language-js">function renderText() {
+    console.log("-----renderText--------");
+
+    let textArr = [];
+    textArr.push("一年一度的光棍节又到了!");
+    textArr.push("单身狗表示受到一万点伤害");
+    textArr.push("所以要为单身狗做点什么");
+    textArr.push("拯救单身狗!");
+    textArr.push("恩爱狗群中救出单身狗!");
+
+    if (gameStep % 5 == 1) {
+        if (textArr[textArrayIndex]) {
+            if (textIndex &gt;= textArr[textArrayIndex].length) {
+                textArrayIndex++;
+                textIndex = 0;
+            } else {
+                ctx.fillStyle = "#000000";
+                ctx.font = "20px 微软雅黑";
+                ctx.fillText(textArr[textArrayIndex].substr(textIndex, 1), 30 * textIndex,
+                             100 + textArrayIndex * 30 + 100);
+                textIndex++;
+            }
+        } else {
+            updateGameState(GAME_STATE_COUNT_DOWN)
+        }
+    }
+}
+</code></pre>
+                <h3>6.绘制倒计时</h3>
+                <pre class="prettyprint"><code class="js language-js">function renderCountDown() {
+    console.log("-----renderCountDown--------");
+    if (gameStep % 30 == 1) {
+        if (countDown &gt; 0) {
+            ctx.fillStyle = "#666666";
+            ctx.fillRect(0, 0, WIDTH, HEIGHT);
+            ctx.fillStyle = "#000000";
+            ctx.font = "100px 微软雅黑";
+            ctx.fillText(countDown + "", 160, 300);
+            countDown--;
+        } else {
+            updateGameState(GAME_STATE_GAMING)
+        }
+    }
+}
+</code></pre>
+                <h3>7.定义单身狗的信息</h3>
+                <pre class="prettyprint"><code class="js language-js">class DogInfo {
+
+    constructor(dogIndex, roadIndex, posX, posY) {
+        this._dogIndex = dogIndex;
+        this._roadIndex = roadIndex;
+        this._posX = posX;
+        this._posY = posY;
+    }
+
+    get dogIndex() {
+        return this._dogIndex;
+    }
+
+    get roadIndex() {
+        return this._roadIndex;
+    }
+
+    set posX(value) {
+        this._posX = value;
+    }
+
+    get posX() {
+        return this._posX;
+    }
+
+    get posY() {
+        return this._posY;
+    }
+
+    set posY(value) {
+        this._posY = value;
+    }
+}
+</code></pre>
+                <h3>8.绘制游戏过程</h3>
+                <pre class="prettyprint"><code class="js language-js">function renderGame() {
+    if (gameStep % FRAME_INTERVAL * 3 == 0) {
+        let dogIndex = parseInt(Math.random() * DOG_NUM);
+        let roadIndex = parseInt(Math.random() * DOG_ROAD);
+        dogOnTheRoad.push(new DogInfo(dogIndex, roadIndex, 0, 0));
+        totalCount++;
+    }
+
+    ctx.fillStyle = "#666666";
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    for (let i = 0; i &lt; dogOnTheRoad.length; i++) {
+        dogOnTheRoad[i].posX = 20 + dogOnTheRoad[i].roadIndex * 110;
+        let addY = (DOG_SPEED_SINGLE + parseInt(totalCount / 10));
+        dogOnTheRoad[i].posY += addY;
+        console.log("addY : " + addY + " dogOnTheRoad[i].posY " + dogOnTheRoad[i].posY);
+        ctx.drawImage(dogImg, dogOnTheRoad[i].dogIndex * SPRITE_WIDTH, 0, SPRITE_WIDTH, SPRITE_WIDTH,
+                      dogOnTheRoad[i].posX, dogOnTheRoad[i].posY, SPRITE_WIDTH, SPRITE_WIDTH);
+    }
+
+    ctx.fillStyle = "#008ace";
+    ctx.fillRect(0, 0, WIDTH, 30);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "20px 微软雅黑";
+    ctx.fillText("拯救单身狗数量: ", 90, 20);
+    ctx.fillStyle = "#00ff00";
+    ctx.font = "20px 微软雅黑";
+    ctx.fillText(saveCount + "", 240, 20);
+}
+</code></pre>
+                <h3>9.绘制游戏结束</h3>
+                <pre class="prettyprint"><code>function renderGameOver() {
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "40px 微软雅黑";
+    ctx.fillText("共拯救单身狗", 60, 260);
+    ctx.fillStyle = "#00ff00";
+    ctx.font = "40px 微软雅黑";
+    ctx.fillText(saveCount + "", 160, 300);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "40px 微软雅黑";
+    ctx.fillText("只!", 160, 340);
+}
+</code></pre>
+                <h3>10.循环渲染</h3>
+                <p><code>JavaScript</code>中通过<code>setInterval</code>方法来间隔一段时间循环执行.</p>
+                <pre class="prettyprint"><code class="js language-js">window.setInterval(render, FRAME_INTERVAL);
+</code></pre>
+                <h3>11.处理鼠标点击事件</h3>
+                <pre class="prettyprint"><code class="js language-js">canvas.addEventListener('click', function (event) {
+    if (gameState != GAME_STATE_GAMING) {
+        return;
+    }
+
+    console.log("ev " + event);
+    let x, y;
+    if (event.layerX || event.layerX == 0) {
+        x = event.layerX;
+        y = event.layerY;
+    } else if (event.offsetX || event.offsetX == 0) { // Opera
+        x = event.offsetX;
+        y = event.offsetY;
+    }
+    console.log("ev " + event + " x " + x + " y " + y);
+
+    for (let i = 0; i &lt; dogOnTheRoad.length; i++) {
+        if (dogOnTheRoad[i].dogIndex &lt; 4) {
+            if (x &gt;= dogOnTheRoad[i].posX
+                &amp;&amp; x &lt;= dogOnTheRoad[i].posX + 100
+                &amp;&amp; y &gt;= dogOnTheRoad[i].posY
+                &amp;&amp; y &lt;= dogOnTheRoad[i].posY + 100) {
+                saveCount++;
+                /** 移除单身狗*/
+                dogOnTheRoad.splice(i, 1);
+                return;
+            }
+        } else {
+            /** 点中恩爱狗*/
+        }
+    }
+
+    updateGameState(GAME_STATE_GAME_OVER)
+});
+</code></pre>
+                <div class="dsd_title"><a href="#top" id="⑤">⑤ 知识点整理</a></div>
+                <p>这个小游戏主要涉及到了以下知识点.</p>
+                <ul>
+                    <li><code>h5</code>的<code>canvas</code>标签</li>
+                    <li><code>html</code>加载外部<code>JavaScript</code>文件</li>
+                    <li>获取<code>canvas</code>的平面绘制对象<code>getContext(2d)</code></li>
+                    <li><code>JavaScript</code>中常量定义<code>const</code></li>
+                    <li><code>JavaScript</code>中局部变量定义<code>let</code></li>
+                    <li><code>JavaScript</code>回调函数的使用</li>
+                    <li><code>JavaScript</code>的<code>Image</code>对象</li>
+                    <li><code>JavaScript</code>的<code>switch</code>条件控制语句</li>
+                    <li><code>canvas</code>绘制图像</li>
+                    <li><code>canvas</code>图像渐隐</li>
+                    <li><code>canvas</code>绘制字体</li>
+                    <li><code>JavaScript</code>的<code>class</code>对象使用</li>
+                    <li><code>JavaScript</code>的间隔一定时间, 多次执行</li>
+                    <li><code>canvas</code>动态绘制图像</li>
+                    <li><code>canvas</code>鼠标点击事件处理</li>
+                </ul>
+                <p>希望通过这个小游戏, 能感到一点编程带来的快乐, 并能掌握对应的知识点.</p>
+                <span>转载请保留原文链接: <a href="http://dashidan.com/article/h5game/index.html">http://dashidan.com/article/h5game/index.html</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+    </div>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>
