@@ -1,0 +1,995 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Java对象</title>
+    <meta name="description" content="Java对象">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+				<li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/java/index.html">Java</a></li>
+    </ol>
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!-- 索引-->
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
+        <div>
+            <div class="dsd_title" onclick="clickTitle('basic')">
+    <h3><span id="basic_title">➕ Java入门到精通</span></h3>
+</div>
+
+<div id="basic" class="dsd_catalog_left_hide">
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/16.html">16.Java异常</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/19.html">19.Java线程</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
+    </div>
+</div>
+
+<div class="dsd_title" onclick="clickTitle('jdk8')">
+    <h3 id="jdk8_title">➕ JDK8新特性</h3>
+</div>
+<div id="jdk8" class="dsd_catalog_left_hide">
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/jdk8/3.html">3.Java中Lambda表达式由来</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/jdk8/4.html">4.Lamdba表达式在Java中的实战应用</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
+    </div>
+</div>
+
+<div class="dsd_title" onclick="clickTitle('addenda')">
+    <h3 id="addenda_title">➕ 附录</h3>
+</div>
+<div id="addenda" class="dsd_catalog_left_hide">
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div id="xs_content">
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <!-- 文章内容-->
+            <div id="xs_content_border">
+                <div><div class="dsd_title"><h1>13.Java对象</h1></div><div class="dsd_catalog"><p><a href="#①">① Java中万事万物皆对象？</a></p><p><a href="#②">② 面向对象编程思想</a></p><p><a href="#③">③ 构造函数</a></p><p><a href="#④">④ 参数的值传递与引用传递</a></p><p><a href="#⑤">⑤ 对象的封装</a></p><p><a href="#⑥">⑥ 对象的继承</a></p><p><a href="#⑦">⑦ 对象的多态</a></p><p><a href="#⑧">⑧ 引用当前对象与父对象</a></p><p><a href="#⑨">⑨ 抽象方法与抽象类</a></p><p><a href="#⑩">⑩ 接口</a></p><p><a href="#⑪">⑪ 对象实例类型判断</a></p><p><a href="#⑫">⑫ 对象向上转型和向下转型</a></p><p><a href="#⑬">⑬ 相关文章</a></p></div></div><div class="jumbotron">
+    <p>Java是`OOP`(Object Oriented Programming)面向对象编程语言. java面向对象的三大特点: 封装, 继承和多态.</p>
+</div>
+<div class="dsd_title"><a href="#top"  id="①">① Java中万事万物皆对象？</a></div>
+<p><img class="center-block img-responsive" src="http://dashidan.com/img/common/truth.jpg" alt="真相只有一个" /></p>
+<div class="bs-callout bs-callout-danger">
+    <h4>Java中万事万物皆对象?</h4>
+    <p>这个说法的由来, 是因为java中所有的类默认都继承自`Object`类. 但这个说法是`不准确`的. 很多资料中这样说, 曾经给我带来过很大的困扰.</p>
+    <p>Java属于`强类型语言`, `方法`作为属性存在于对象中, 不作为独立的对象存在. 所以说在Java中万事万物皆对象的说法是不准确的, 方法和基本类型变量都不是对象的概念.</p>
+    <p>在一些弱类型语言比如`javascript`, 方法也可以作为`对象`的概念来使用, 作为参数传递, 这一点和java是有区别的.</p>
+</div>
+<div class="dsd_title"><a href="#top"  id="②">② 面向对象编程思想</a></div>
+<p>提到面向对象, 不得不提到面向过程编程. 以C语言为例, 每个方法作为一个<code>执行过程</code>存在, 面向过程编程是一种面向计算机思维, 从计算机执行的角度思考编写代码的编程方式. </p>
+<p>从面向过程编程的基础上, 发展出来了一种新的编程思想, 面向对象编程, 来应对更复杂的应用场景.面向对象编程是一种面向<code>人</code>的逻辑思维的编程方式, 将代码中的通用性抽象出来, 模拟现实世界的归类, 建立程序模型, 编写代码的过程. 对于程序员更加友好, 对于复杂度更高的程序更易于控制.</p>
+<p><img class="center-block img-responsive" src="http://dashidan.com/img/common/example.jpg" alt="举个栗子" />  </p>
+<p>在生物分类学中, 分为<code>界门纲目科属种</code>, 按照生物的种群和等级划分.   </p>
+<p>猫:</p>
+<pre><code>动物界-&gt;脊索动物门-&gt;哺乳纲-&gt;哺乳纲-&gt;食肉目-&gt;猫科-&gt;猫属-&gt;猫种
+</code></pre>
+<p>虎:   </p>
+<pre><code>动物界-&gt;脊索动物门-&gt;哺乳纲-&gt;哺乳纲-&gt;食肉目-&gt;猫科-&gt;豹属-&gt;虎种
+</code></pre>
+<p><code>猫</code>和<code>虎</code>同处于<code>猫科</code>, 是猫科子类中的一种, 具有猫科的全部属性. 用Java面向对象的思想来编程可以这样表达:<br />
+<code>猫科</code>作为<code>父类</code>, <code>猫</code>和<code>虎</code>作为<code>子类</code>, 继承自<code>猫科</code>拥有父类<code>猫科</code>的全部属性, 独有的属性写在<code>子类</code>(猫类或虎类)中. </p>
+<p>面向对象编程思想与人类的逻辑思维很接近.</p>
+<div class="dsd_title"><a href="#top"  id="③">③ 构造函数</a></div>
+<p>构造函数是一种特殊的函数. 构造函数与类名相同, 可以有参数也可以无参数, 在对象被创建时自动执行.   </p>
+<h3>1.构造函数的作用:</h3>
+<ul>
+<li>在创建对象时完成完成对象数据成员的初始化</li>
+<li>为对象数据成员开辟内存空间</li>
+<li>为对象创建标识符</li>
+</ul>
+<h3>2.默认构造函数</h3>
+<p>当用户没有显式的定义构造函数时, 编译器会为类生成一个默认的构造函数, 称为<code>默认构造函数</code>. 默认构造函数名与类名相同, 没有参数.例:</p>
+<pre class="prettyprint"><code class="java language-java">public class Demo1 {
+    // 默认构造函数
+    public Demo1(){
+    }
+}
+</code></pre>
+<div class="bs-callout bs-callout-success">
+    <h4>默认构造函数</h4>
+    <p>默认构造函数在代码中看不到, 在编译时自动生成.</p>
+</div>
+<h3>3.构造函数的特点</h3>
+<p>无论是用户自定义的构造函数还是默认构造函数都主要有以下特点:   </p>
+<ul>
+<li>在对象被创建时自动执行.</li>
+<li>构造函数的函数名与类名相同.</li>
+<li>没有返回值类型、也没有返回值.</li>
+<li>构造函数不能被显式调用.</li>
+</ul>
+<h3>4.构造函数的执行</h3>
+<p>通常是通过<code>new</code>关键字创建对象时执行.</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 构造函数的执行
+ */
+public class Demo1 {
+
+    public static void main(String args[]) {
+        System.out.println("Demo1运行开始");
+        TestStructure testStructure = new TestStructure(1, "大屎蛋教程网", "dashidan.com");
+        int id = testStructure.getId();
+        String url = testStructure.getUrl();
+        String name = testStructure.getName();
+        System.out.println("id " + id + " url " + url + " name " + name);
+        System.out.println("运行完毕");
+    }
+}
+
+/**
+ * 测试构造方法类
+ */
+class TestStructure {
+    private int id;
+    private String name;
+    private String url;
+
+    /**
+     * 构造函数
+     */
+    public TestStructure(int id, String name, String url) {
+        /** 构造函数初始化成员变量*/
+        System.out.println("执行TestStructure构造函数");
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        System.out.println("id " + id + " name " + name + " url " + url);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+}
+</code></pre>
+<p>输出:   </p>
+<pre><code>Demo1运行开始
+执行TestStructure构造函数
+id 1 name 大屎蛋教程网 url dashidan.com
+id 1 url dashidan.com name 大屎蛋教程网
+运行完毕
+</code></pre>
+<div class="bs-callout bs-callout-info">
+    <h4>析构函数</h4>
+    <p>c++除了`构造函数`,还有`析构函数`的概念. 析构函数也是一种特殊的成员函数. 它执行与构造函数相反的操作,通常用于撤消对象时的一些清理任务,如释放分配给对象的内存空间等. Java中只有构造函数,而没有析构函数.</p>
+</div>
+<div class="dsd_title"><a href="#top"  id="④">④ 参数的值传递与引用传递</a></div>
+<p>Java中方法中给变量赋值有2种方式: 值传递和引用传递.传递基本类型,String参数时是值传递. 传递引用类型参数时, 是引用传递.</p>
+<h3>1.值传递</h3>
+<p>传递的是值的拷贝. 也就是说传递参数时, 将值拷贝了一份, 与原有变量不再有关系. <code>基本类型</code>和<code>字符串</code>传递采用的是值传递.</p>
+<p>示例代码:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 值传递
+ */
+public class Demo2 {
+
+    public static void main(String[] args) {
+        int a = 1;
+        String name = "大屎蛋";
+        changeValue(a, name);
+        /** 原值不变*/
+        System.out.println("原值 a : " + a);
+        /** 原字符串不变*/
+        System.out.println("原值 name : " + name);
+    }
+
+    public static void changeValue(int num, String str) {
+        num++;
+        /** 输出改变的值, 改变了参数的值, 原值不变*/
+        System.out.println("changeValue num : " + num);
+        /** 添加字符串, 改变了作为参数传进来的字符串的值, 原字符串不变*/
+        str += "dashidan.com";
+        System.out.println("changeValue str : " + str);
+    }
+}
+</code></pre>
+<p>输出:</p>
+<pre><code>changeValue num : 2
+changeValue str : 大屎蛋dashidan.com
+原值 a : 1
+原值 name : 大屎蛋
+</code></pre>
+<h3>2.引用传递</h3>
+<p>引用传递是指给索引对象赋值时, 是将对象内存的地址作为参数传递. 新的对象与原有指向同一份数据. 当修改对象的变量时, 原有指向改数据的对象都<code>发生改变</code>.   </p>
+<p>代码示例:   </p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 引用传递
+ */
+public class Demo3 {
+    public static void main(String[] args) {
+        TestObject testObject1 = new TestObject();
+        testObject1.setName("大屎蛋教程网");
+        /** 对象赋值，这里是引用传递，testObject1 将对象地址赋值给 testObject2, 他们指向同一个对象*/
+        TestObject testObject2 = testObject1;
+        System.out.println("修改前 testObject1 name " + testObject1.getName());
+        System.out.println("修改前 testObject2 name " + testObject2.getName());
+        /** 改变 testObject2 的name，testObject1的name也发生变化，因为他们指向同一个数据*/
+        testObject2.setName("dashidan.com");
+        System.out.println("修改后 testObject1 name " + testObject1.getName());
+        System.out.println("修改后 testObject2 name " + testObject2.getName());
+    }
+}
+
+/**
+ * 引用传递测试对象
+ */
+class TestObject {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</code></pre>
+<p>输出:   </p>
+<pre><code>修改前 testObject1 name 大屎蛋教程网
+修改前 testObject2 name 大屎蛋教程网
+修改后 testObject1 name dashidan.com
+修改后 testObject2 name dashidan.com
+</code></pre>
+<div class="dsd_title"><a href="#top"  id="⑤">⑤ 对象的封装</a></div>
+<h3>1.隐藏实现过程</h3>
+<p>封装是把过程和数据隐藏起来,对数据的访问只能通过已定义的接口. 面向对象计算始于这个基本概念. 通过<code>private</code>关键字可以将变量或者方法设置为只有本类可以访问, 其他类无法访问该数据, 这样便实现了数据的隐藏.   </p>
+<p><img class="center-block img-responsive" src="http://dashidan.com/img/common/example.jpg" alt="举个栗子" /></p>
+<p>你有一只宠物, 宠物的名字你不希望别人随便改, 可以将宠物的名字设置为私有<code>private</code>.</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson6;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 5.Java对象(4)：封装
+ */
+public class Pet {
+    /** 私有属性名字*/
+    private String name;
+}
+</code></pre>
+<h3>2.公开数据访问接口</h3>
+<p>你这只宠物的名字编程私有之后, 你希望给他改个名字, 可以将改名的方法设置为公开方法. 这样就能通过统一的开放接口来设置宠物的名字, 并且可以开放一个获取名字的接口, 来获得这个私有的属性值.   </p>
+<p>示例代码:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 引用传递
+ */
+public class Demo3 {
+    public static void main(String[] args) {
+        TestObject testObject1 = new TestObject();
+        testObject1.setName("大屎蛋教程网");
+        /** 对象赋值，这里是引用传递，testObject1 将对象地址赋值给 testObject2, 他们指向同一个对象*/
+        TestObject testObject2 = testObject1;
+        System.out.println("修改前 testObject1 name " + testObject1.getName());
+        System.out.println("修改前 testObject2 name " + testObject2.getName());
+        /** 改变 testObject2 的name，testObject1的name也发生变化，因为他们指向同一个数据*/
+        testObject2.setName("dashidan.com");
+        System.out.println("修改后 testObject1 name " + testObject1.getName());
+        System.out.println("修改后 testObject2 name " + testObject2.getName());
+    }
+}
+
+/**
+ * 引用传递测试对象
+ */
+class TestObject {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</code></pre>
+<p>输出:</p>
+<pre><code>哈拆迁
+</code></pre>
+<div class="dsd_title"><a href="#top"  id="⑥">⑥ 对象的继承</a></div>
+<p>Java继承的本质是子类继承父类, 拥有父类的属性和方法, 是代码复用基础. 子类可以有自己的方法和属性.</p>
+<h3>1.继承方式</h3>
+<p>通过关键字extends.我们以猫和狗继承是宠物, 宠物都有<code>走</code>的行为. 猫有<code>吃鱼</code>的行为, 狗有<code>吃骨头</code>的行为为例实现这个继承关系.</p>
+<p>父类<code>Pet</code>:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象的继承
+ * Pet类 作为 父类
+ */
+public class Pet {
+
+    public void walk() {
+        System.out.println("Pet walk");
+    }
+
+    public void eat() {
+        System.out.println("Pet eat");
+    }
+}
+</code></pre>
+<p>子类<code>Cat</code>:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象的继承
+ * Cat 继承自 Pet类
+ */
+public class Cat extends Pet {
+    public void eatFish() {
+        System.out.println("Cat eatFish.");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("Cat eat");
+    }
+}
+</code></pre>
+<p>子类<code>Dog</code>:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象的继承
+ * Dog 继承自 Pet类
+ */
+public class Dog extends Pet {
+    public void eatBone() {
+        System.out.println("Dog eatBone.");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("Dog eat");
+    }
+}
+</code></pre>
+<p>执行类</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象的继承
+ */
+public class Demo5 {
+
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        Dog dog = new Dog();
+        /** 调用父类的方法*/
+        cat.walk();
+        dog.walk();
+        /** 调用子类的方法*/
+        cat.eatFish();
+        dog.eatBone();
+    }
+
+}
+</code></pre>
+<p>输出:</p>
+<pre><code>Pet walk
+Pet walk
+Cat eatFish.
+Dog eatBone.
+</code></pre>
+<div class="bs-callout bs-callout-success">
+    <h4>java单根继承</h4>
+    <p>java单根继承是指单个类只能继承一个父类, 在c++中是多根继承, 一个类可以同时继承多个父类.</p>
+</div>
+<h3>3.对象静态绑定与动态绑定</h3>
+<p>绑定指的是一个方法的调用与方法所在的类(方法主体)关联起来. java绑定分为静态绑定和动态绑定.</p>
+<ul>
+<li>静态绑定</li>
+</ul>
+<p>静态绑定也称作前期绑定. java中的方法只有<code>final</code>, <code>static</code>, <code>private</code>和<code>构造方法</code>是<code>静态绑定</code>. 静态绑定发生在<code>编译</code>时, 静态绑定用<code>类</code>信息来完成.</p>
+<ul>
+<li>动态绑定</li>
+</ul>
+<p>动态绑定(dynamic binding)也称作后期绑定. java程序运行时根据具体对象的类型进行绑定. 动态绑定发生在<code>运行</code>时. 动态绑定则需要用<code>对象</code>信息来完成.</p>
+<div class="dsd_title"><a href="#top"  id="⑦">⑦ 对象的多态</a></div>
+<h3>1.多态的前提</h3>
+<p>当子类和父类存在同一个方法, 子类覆写了父类的方法, 程序在运行时调用父类的方法还是子类覆写的方法呢?
+Java的多态解决了整个问题. 运行时根据对象类型来判断执行对应对象的方法.</p>
+<div class="bs-callout bs-callout-success">
+    <h4>多态的前提条件</h4>
+    <p>1. 有继承关系.</p>
+    <p>2. 子类重写父类的方法.</p>
+    <p>3. 父类引用指向子类.</p>
+</div>
+<p><img class="center-block img-responsive" src="http://dashidan.com/img/common/example.jpg" alt="举个栗子" /></p>
+<p>猫和狗都继承自宠物类, 宠物有吃的行为. 猫吃鱼狗吃骨头, 他们吃的行为不一样. 我们可以采用多态的方式来实现.   </p>
+<p>代码示例:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程进阶篇: 7.Java对象(6)：静态绑定动态绑定与多态
+ */
+public class Demo6 {
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        Dog dog = new Dog();
+        /**
+         * cat 和 dog 覆写了 父类的方法 eat 调用eat方法 时动态判断对象类型
+         * cat 对象 执行了 Cat中的 eat方法
+         * dog 对象 执行了 Dog中的 eat方法
+         */
+        cat.eat();
+        dog.eat();
+    }
+}
+</code></pre>
+<p>输出:   </p>
+<pre><code>Cat eat
+Dog eat
+</code></pre>
+<div class="dsd_title"><a href="#top"  id="⑧">⑧ 引用当前对象与父对象</a></div>
+<p>java中使用用this来引用当前对象, super引用当前对象的父对象.</p>
+<h3>1.this</h3>
+<p>使用<code>this</code>获取当前对象的索引.</p>
+<div class="bs-callout bs-callout-success">
+    <h4>省略this</h4>
+    <p>如果省略this. 系统会默认自动添加加上`this.`来指向当前对象.</p>
+</div>
+<p>以下代码中的<code>setName</code>方法, 该方法中的传入的参数<code>name</code>与成员变量<code>name</code>重名, 这时需要用<code>this.name</code>来表明引用成员变量.   </p>
+<p>代码示例:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 8.Java对象(7)：引用当前对象与父对象：this, super
+ * Pet类
+ */
+public class Pet {
+    /**
+     * 私有成员变量name
+     */
+    private String name;
+
+    public String getName() {
+        /** 默认可以省略this. 系统会自动加上this.*/
+        return name;
+    }
+
+    public void setName(String name) {
+        /** this.name 通过this来表明引用当前对象成员变量name*/
+        this.name = name;
+    }
+}
+</code></pre>
+<h3>2.super</h3>
+<p><code>super</code>引用当前对象的<code>父对象</code>. 需要访问父类方法或者变量的时候, 可以使用<code>super.</code>来访问.示例代码:</p>
+<p><code>cat</code>类:</p>
+<p>在调用<code>Cat</code>类的<code>eat()</code>方法时, 方法体中通过<code>super.eat()</code>调用了父类的<code>eat()</code>方法. 故父类的eat()方法被执行, <code>Pet eat.</code>输出到控制台.</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象的继承
+ * Cat 继承自 Pet类
+ */
+public class Cat extends Pet {
+    public void eatFish() {
+        System.out.println("Cat eatFish.");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("Cat eat");
+    }
+
+    /**
+     *调用父类方法
+     */
+    public void petEat() {
+        super.eat();
+    }
+}
+</code></pre>
+<p>运行程序:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ *
+ * Java教程进阶篇: 8.Java对象(7)：引用当前对象与父对象：this, super
+ */
+public class Demo1 {
+
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        cat.eat();
+    }
+}
+</code></pre>
+<p>输出:   </p>
+<pre><code>Pet eat.
+</code></pre>
+<h3>3.this与super在构造函数中的使用</h3>
+<ul>
+<li><code>super</code>和<code>this</code>均需放在构造方法内第一行. 否则编译不通过. </li>
+</ul>
+<p>每个子类构造方法的第一条语句, 都是隐式调用<code>super()</code>, 如果父类没有这种形式的构造函数, 那么在编译的时候就会报错. </p>
+<ul>
+<li><code>this</code>和<code>super</code>不能同时出现在一个构造函数里面.   </li>
+</ul>
+<p>因为<code>this</code>必然会调用其它的构造函数, 其它的构造函数必然也会有<code>super</code>语句的存在. 所以在同一个构造函数里面有相同的语句, 就失去了语句的意义, 编译器也不通过.   </p>
+<div class="bs-callout bs-callout-warning">
+    <h4>`static`环境不能使用`this`, `super`</h4>
+    <p>this和super都指的是对象, 是动态绑定, 所以都不能在`static`环境中使用(静态绑定)包括: static变量, static方法, static语句块.
+    </p>
+</div>
+<div class="dsd_title"><a href="#top"  id="⑨">⑨ 抽象方法与抽象类</a></div>
+<h3>1.抽象方法</h3>
+<p>抽象方法是一种特殊的方法, 只有声明, 而没有具体的实现. 抽象方法必须用<code>abstract</code>关键字进行修饰. 抽象方法的声明格式为:   </p>
+<pre class="prettyprint"><code class="java language-java">public abstract void eat();
+</code></pre>
+<h3>2.抽象类</h3>
+<p>如果一个类含有抽象方法，则称这个类为抽象类，抽象类必须在类前用<code>abstract</code>关键字修饰.只要包含抽象方法, 必须命名为抽象类. 抽象类也可以包含普通方法.</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 抽象方法与抽象类
+ * AbstractPet类 作为 父类 抽象类
+ */
+public abstract class AbstractPet {
+    public abstract void sleep();
+}
+</code></pre>
+<p><code>Fish</code>类作为子类:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 抽象方法与抽象类
+ * Fish 类 继承自 AbstractPet类
+ */
+public class Fish extends AbstractPet {
+    /**
+     *实现抽象方法 sleep
+     */
+    @Override
+    public void sleep() {
+        System.out.println("Never sleep.");
+    }
+}
+</code></pre>
+<p>运行类</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 抽象方法与抽象类
+ */
+public class Demo9 {
+    public static void main(String[] args) {
+        Fish fish = new Fish();
+        fish.sleep();
+    }
+}
+</code></pre>
+<p>输出:</p>
+<pre><code>Never sleep.
+</code></pre>
+<p>抽象类与普通类的区别:   </p>
+<ol>
+<li>抽象方法必须为<code>public</code>或<code>protected</code>(<code>private</code>不能被子类继承,子类无法实现该方法), 缺省情况下默认为<code>public</code>.   </li>
+<li>如果一个类继承于一个抽象类, 则子类必须实现父类的抽象方法. 如果子类没有实现父类的抽象方法, 则必须将子类也定义为为<code>abstract</code>类.   </li>
+</ol>
+<h3>3.抽象类创建对象</h3>
+<p><img class="center-block img-responsive" src="http://dashidan.com/img/common/truth.jpg" alt="真相只有一个" /></p>
+<div class="bs-callout bs-callout-danger">
+    <h4>抽象类不能用来创建对象吗?</h4>
+    <p>答案是:抽象类可以被用`new`的方式创建. 通过`匿名内部类`方式.</p>
+</div>
+<p>附带真相的代码:   </p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 抽象类创建对象
+ */
+public class Demo10 {
+    public static void main(String[] args) {
+        AbstractPet abstractPet = new AbstractPet() {
+            @Override
+            public void sleep() {
+                System.out.println("AbstractPet sleep");
+            }
+        };
+        abstractPet.sleep();
+    }
+}
+</code></pre>
+<p>输出:   </p>
+<pre><code>AbstractPet sleep.
+</code></pre>
+<div class="bs-callout bs-callout-warning">
+    <h4>虽然可以用<code>new</code>的方式创建抽象类, 但不建议这么用, 这样做失去了抽象的意义.</h4>
+</div>
+<div class="bs-callout bs-callout-info">
+    <h4>示例代码中出现了`@Override`标签.</h4>
+    <h4><a href="http://dashidan.com/article/java/addenda/Java中@Override标签作用.html">Java中@Override标签作用</a></h4>
+</div>
+<div class="dsd_title"><a href="#top"  id="⑩">⑩ 接口</a></div>
+<p>接口<code>interface</code>在软件工程中, 泛指供其他人调用的方法或者函数. 从这里可以体会到Java语言设计者的初衷-对行为的抽象.   </p>
+<h3>1.接口的声明</h3>
+<p>用<code>interface</code>关键字声明接口.接口中可以含有变量和方法. 但是要注意, 接口中的变量会被隐式地指定为<code>public static final</code>变量. 接口中的方法<code>必须都是抽象方法</code>.   </p>
+<pre class="prettyprint"><code class="java language-java">public interface Pet{
+...
+}
+</code></pre>
+<h3>2.接口的实现</h3>
+<p>一个类实现特定的接口需要使用<code>implements</code>关键字. 需要实现该接口中定义的方法, 如果没有全部实现, 需要将该类声明为<code>abstract</code>.   </p>
+<pre class="prettyprint"><code class="java language-java">public class Bird implements IPet {
+...
+}
+</code></pre>
+<p>示例代码:</p>
+<p><code>IPet</code>接口:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象的继承
+ * 接口 IPet
+ */
+public interface IPet {
+    void eat();
+}
+</code></pre>
+<p><code>Bird</code>类:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象的继承
+ * 接口
+ */
+public class Bird implements IPet {
+    @Override
+    public void eat() {
+        System.out.println("Bird eat.");
+    }
+}
+</code></pre>
+<p>运行类:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象的继承
+ * 接口
+ */
+public class Demo11 {
+    public static void main(String[] args) {
+        Bird bird = new Bird();
+        bird.eat();
+    }
+}
+</code></pre>
+<p>输出:   </p>
+<pre><code>Bird eat.
+</code></pre>
+<h3>4.抽象类和接口的区别</h3>
+<ul>
+<li>抽象类可以提供成员方法的实现细节, 而接口中只能存在<code>public abstract</code>方法.</li>
+<li>抽象类中的成员变量可以是各种类型, 而接口中的成员变量只能是<code>public static final</code>类型.</li>
+<li>接口中不能含有静态代码块以及静态方法, 而抽象类可以有静态代码块和静态方法.</li>
+<li>一个类只能继承一个抽象类, 而一个类却可以实现多个接口.</li>
+<li>抽象类作为很多子类的父类, 它是一种模板式设计, 而接口是一种行为规范.</li>
+<li>抽象类和接口所反映的设计理念是不同的, 抽象类所代表的是<code>is-a</code>的关系, 而接口所代表的是<code>like-a</code>的关系.</li>
+</ul>
+<div class="dsd_title"><a href="#top"  id="⑪">⑪ 对象实例类型判断</a></div>
+<p>Java中的instanceof运算符是用来在运行时判断对象是否是指定类的实例.子类实例<code>instanceof</code>父类, 返回ture. 因为继承关系, 子类的实例也是父类的实例.<code>instanceof</code>是二目运算符, 返回一个布尔值, 表示该对象是否是指定类的实例.用法:</p>
+<pre><code>boolean result = object instanceof class
+</code></pre>
+<p>示例代码:</p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象实例类型判断
+ */
+public class Demo12 {
+    public static void main(String[] args) {
+        Pet pet = new Pet();
+        boolean isInstance = pet instanceof Pet;
+        System.out.println("pet instanceof Pet: " + isInstance);
+        Cat cat = new Cat();
+        /** 子类也属于父类的一个实例*/
+        isInstance = cat instanceof Pet;
+        System.out.println("cat instanceof Pet: " + isInstance);
+    }
+}
+</code></pre>
+<p>输出:   </p>
+<pre><code>pet instanceof Pet: true
+cat instanceof Pet: true
+</code></pre>
+<div class="dsd_title"><a href="#top"  id="⑫">⑫ 对象向上转型和向下转型</a></div>
+<p>java中子类对象转为父类对象称为向上转型, 反之称为向下转型.</p>
+<h3>1.向上转型</h3>
+<p>向上转型时, 子类独有的方法会遗失, 只保留父类拥有的方法. 如果子类覆写了父类的方法则调用子类的这个方法. 向上转型不用强制转型.  </p>
+<h3>2.向下转型</h3>
+<p>父类引用的对象转换为子类类型称为向下转型. 向下转型需要强制转型。</p>
+<div class="bs-callout bs-callout-danger">
+    <h4>示例类型与转型类型需要一致, 不一致会报错.</h4>
+</div>
+<p>示例代码:   </p>
+<pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson13;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * &lt;p&gt;
+ * Java教程基础篇: 13.Java对象
+ * 对象向上转型和向下转型
+ */
+public class Demo13 {
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        /**
+         * testUpcasting 需要传入父类Pet实例，这里传入的是子类cat实例的引用
+         * 自动向上转型
+         * 由于子类Cat覆写了父类的cat()方法，执行子类的eat()方法
+         */
+        testUpCasting(cat);
+
+
+        /** 父类对象的引用，指向子类实例*/
+        Pet pet = new Cat();
+        /**
+         * testUpcasting 需要传入父类Pet实例，这里传入的是父类Pet的引用
+         * 强制向下转型
+         * 由于子类Cat覆写了父类的cat()方法，执行子类的eat()方法
+         */
+        testDownCasting((Cat) pet);
+    }
+
+    /**
+     * 测试向上转型
+     */
+    public static void testUpCasting(Pet pet) {
+        pet.eat();
+    }
+
+    /**
+     * 测试向下转型
+     */
+    public static void testDownCasting(Cat pet) {
+        pet.eat();
+    }
+}
+</code></pre>
+<p>输出:   </p>
+<pre><code>Cat eat.
+Cat eat.
+</code></pre>
+<div class="dsd_title"><a href="#top"  id="⑬">⑬ 相关文章</a></div>
+<p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通目录</a>   </p>
+<p>📖 <a href="http://dashidan.com/article/java/basic/Java集成开发环境.html">Java集成开发环境</a>   </p>
+                <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+            <div>
+                <a href="http://dashidan.com/article/java/basic/14.html">📖
+                    下一篇: Java包装类</a>
+            </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>

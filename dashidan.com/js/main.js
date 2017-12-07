@@ -31,21 +31,21 @@ function clickTitle(name) {
         /** 隐藏状态切换到显示*/
         $("#" + name).removeClass("dsd_catalog_left_hide");
         $("#" + name).addClass("dsd_catalog_left_show");
-        if (titleName.startsWith("+")) {
+        if (titleName.startsWith("➕")) {
             titleName = titleName.substring(1);
         }
-        titleName = "-" + titleName;
+        titleName = "➖" + titleName;
     } else {
         /** 显示状态切换到隐藏*/
         $("#" + name).removeClass("dsd_catalog_left_show");
         $("#" + name).addClass("dsd_catalog_left_hide");
-        if (titleName.startsWith("-")) {
+        if (titleName.startsWith("➖")) {
             titleName = titleName.substring(1);
         }
-        titleName = "+" + titleName;
+        titleName = "➕" + titleName;
     }
 
-    /** 修改标题内容 + 改为 - */
+    /** 修改标题内容 ➕ 改为 ➖ */
     $(titleId).text(titleName);
 }
 
@@ -73,9 +73,11 @@ function showLeftHighlight() {
             $(this).addClass("dsd_callout");
         }
     });
+
+    /** 去掉 id=""显示*/
+    $("#" + idName).removeClass("dsd_catalog_left_hide")
 }
 
 /** 加载后立即执行, 通过文章URL显示打开左侧边栏*/
 showLeftHighlight();
-
 

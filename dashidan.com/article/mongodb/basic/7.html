@@ -1,0 +1,282 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>mongo命令行运行JavaScript脚本</title>
+    <meta name="description" content="mongo命令行运行JavaScript脚本">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+				<li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/mongodb/index.html">MongoDB</a></li>
+    </ol>
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!-- 索引-->
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
+        <div>
+            <div class="dsd_title" onclick="clickTitle('basic')">
+    <h2><span id="basic_title">➕ MongoDB中文手册</span></h2>
+</div>
+
+<div id="basic" class="dsd_catalog_left_hide">
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/1.html">1.MongoDB简介</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/2.html">2.Windows安装MongoDB</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/3.html">3.Ubuntu安装MongoDB</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/4.html">4.MongoDB命令行简介</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/5.html">5.配置mongo命令行参数</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/6.html">6.mongo命令提示符帮助</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/7.html">7.mongo命令行运行JavaScript脚本</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/8.html">8.mongo命令行中的数据类型</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/9.html">9.mongo常用命令</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/10.html">10.MongoDB增删改查操作简介</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/11.html">11.MongoDB插入命令详解</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/12.html">12.MongoDb查询基本操作详解</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/13.html">13.MongoDB查询绑定或嵌套的方法</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/14.html">14.MongoDB查询返回指定字段</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/15.html">15.MongoDB查询Null或者空字段</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/16.html">16.MongoDb遍历结果cursor</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/17.html">17.MongoDB修改数据</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/18.html">18.MongoDB删除操作</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/19.html">19.MongoDB块写入操作</a>
+    </div>
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/basic/20.html">20.SQL与MongoDB对应表</a>
+    </div>
+</div>
+
+<div class="dsd_title" onclick="clickTitle('addenda')">
+    <h2 id="addenda_title">➕ MongoDB附录</h2>
+</div>
+<div id="addenda" class="dsd_catalog_left_hide">
+    <div class="single_line">
+        <a href="http://dashidan.com/article/mongodb/appenda/1.html">1.MongoDb在线测试工具</a>
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div id="xs_content">
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <!-- 文章内容-->
+            <div id="xs_content_border">
+                <div><div class="dsd_title"><h1>7.mongo命令行运行JavaScript脚本</h1></div><div class="dsd_catalog"><p><a href="#①">① 打开新的连接</a></p><p><a href="#②">② 命令输入和通过mongo脚本操作的区别</a></p><p><a href="#③">③ 写脚本</a></p><p><a href="#④">④ 参考文章</a></p><p><a href="#⑤">⑤ 相关文章</a></p></div></div><p>你可以通过在命令行写JavaScript脚本来处理数据及管理mongodb.更多信息请查看如何使用mongo脚本中的[Running .js files via a mongo shell Instance on the Server]()部分.</p>
+<p>本文介绍了如何通过mongo命令行中写JavaScript脚本来连接MongoDB.</p>
+<div class="dsd_title"><a href="#top"  id="①">① 打开新的连接</a></div>
+<p>在mongo命令行或者JavaScript文件中, 你可以通过<code>Mongo()</code>构造函数来创建一个数据库实例.</p>
+<pre class="prettyprint"><code>new Mongo()
+new Mongo(&lt;host&gt;)
+new Mongo(&lt;host:port&gt;)
+</code></pre>
+<p>以下示例是以MongoDB在<code>dashidan.com</code>默认端口运行, 并且将全局数据库变量设置为myDatabase,可以通过getDB()方法获取一个新的连接实例:</p>
+<pre class="prettyprint"><code>conn = new Mongo();
+db = conn.getDB("myDatabase");
+</code></pre>
+<p>如果Mongodb连接实例设置了访问控制, 你可以通过使用<code>db.auth()</code>方法来认证.</p>
+<p>另外, 你可以通过<code>connect()</code>方法链接MongoDB实例. 以下为连接到MongoDB绑定<code>dashidan.com</code>非默认端口<code>27020</code>的示例：</p>
+<pre class="prettyprint"><code>db = connect("dashidan.com:27020/myDatabase");
+</code></pre>
+<div class="dsd_title"><a href="#top"  id="②">② 命令输入和通过mongo脚本操作的区别</a></div>
+<p>当你写mongo脚本的时候, 你需要考虑以下几点:</p>
+<ul>
+<li>设置全局<code>db</code>变量, 可以通过<code>getDB()</code>方法或者<code>connect()</code>方法, 你可以将这个数据库引用设置给其他变量.</li>
+<li>Write operations in the mongo shell use a write concern of { w: 1 } by default. If performing bulk operations, use the Bulk() methods. See Write Method Acknowledgements for more information.
+Changed in version 2.6: Before MongoDB 2.6, call db.getLastError() explicitly to wait for the result of write operations.</li>
+<li>你无法在JavaScript文件中使用任何命令行帮助,(例如: use <dbname>, show dbs, etc.)因为JavaScript中不支持.以下为常用命令行帮助有JavaScript对照表:</li>
+</ul>
+<table class="table table-bordered table-responsive text-center">
+    <thead>
+        <tr class="info">
+            <td>命令行帮助</td>
+            <td>JavaScript</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>show?dbs,?show?databases</td>
+        <td>db.adminCommand('listDatabases')</td>
+    </tr>
+    <tr>
+        <td>use?<db></td>
+        <td>db = db.getSiblingDB('<db>')</td>
+    </tr>
+    <tr>
+        <td>show?collections</td>
+        <td>db.getCollectionNames()</td>
+    </tr>
+    <tr>
+        <td>show?users</td>
+        <td>db.getUsers()</td>
+    </tr>
+    <tr>
+        <td>show?roles</td>
+        <td>db.getRoles({showBuiltinRoles: true})</td>
+    </tr>
+    <tr>
+        <td>show?log?<logname></td>
+        <td>db.adminCommand({ 'getLog' : '<logname>' })</td>
+    </tr>
+    <tr>
+        <td>show?logs</td>
+        <td>db.adminCommand({ 'getLog' : '*' })</td>
+    </tr>
+    <tr>
+        <td>it</td>
+        <td>cursor = db.collection.find()
+if ( cursor.hasNext() ){
+   cursor.next();
+}
+</td>
+    </tr>
+    </tbody>
+</table>
+<ul>
+<li>在命令行交互模式中 mongo将所有的结果打印出来. 在JavaScript脚本中使用<code>print()</code>或者<code>printjson()</code>方法来返回JSON格式.
+例: 在JavaScript中打印全部结果:</li>
+</ul>
+<pre class="prettyprint"><code>cursor = db.collection.find();
+while ( cursor.hasNext() ) {
+   printjson( cursor.next() );
+}
+</code></pre>
+<div class="dsd_title"><a href="#top"  id="③">③ 写脚本</a></div>
+<p>在系统命令行中, 使用<code>mongo</code>来使用JavaScript.</p>
+<h3>1.--eval选项</h3>
+<p>使用<code>--eval</code>选项来传入JavaScript脚本:</p>
+<pre class="prettyprint"><code>mongo test --eval "printjson(db.getCollectionNames())"
+</code></pre>
+<p>这个命令连接运行在<code>dashidan.com</code>,绑定27017端口的mongo实例, 并将<code>db.getCollectionNames()</code>方法的输出返回.</p>
+<h3>2.执行JavaScript文件</h3>
+<p>你可以直指定定一个以<code>.js</code>为后缀的JavaScript文件, mongo可以直接执行.例如:</p>
+<pre class="prettyprint"><code>mongo dashidan.com:27017/test myjsfile.js
+</code></pre>
+<p>这个命令连接运行在<code>dashidan.com</code>,绑定27017端口的mongo实例, 并将<code>myjsfile.js</code>的运行结果返回.</p>
+<p>另外, 你可以在JavaScript文件中通过<code>Mongo()</code>构造函数来执行mongodb连接参数.参考[Opening New Connections]() 查看更多信息.</p>
+<p>在mongo命令行中你可以通过<code>load()</code>方法运行<code>.js</code>文件, 例如:</p>
+<pre class="prettyprint"><code>load("myjstest.js")
+</code></pre>
+<p>这个方法加载并执行<code>myjstest.js</code>文件.</p>
+<p><code>load()</code>方法接受相对路径和绝对路径，默认为相对路径.
+使用绝对路径的例子:</p>
+<pre class="prettyprint"><code>load("scripts/myjstest.js")
+load("/data/db/scripts/myjstest.js")
+</code></pre>
+<div class="bs-callout bs-callout-warning">
+    <h4>`load()`方法中路径没有自动查找功能</h4>
+    如果当前路径和绝对路径都找不到文件, 则改脚本不会执行.
+</div>
+<div class="dsd_title"><a href="#top"  id="④">④ 参考文章</a></div>
+<p>📖 <a href="https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/">https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/</a></p>
+<div class="dsd_title"><a href="#top"  id="⑤">⑤ 相关文章</a></div>
+<p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+                <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+            <div>
+                <a href="http://dashidan.com/article/mongodb/basic/8.html">📖
+                    下一篇: mongo命令行中的数据类型</a>
+            </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>

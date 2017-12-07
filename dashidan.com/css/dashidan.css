@@ -44,23 +44,25 @@ img {
 /** 显示左边的内容导航*/
 .dsd_catalog_left_show {
     /*border-radius: 8px;*/
-    padding: 10px;
+    padding-left: 10px;
     /*border: 1px solid #999999;*/
 }
 
 .dsd_title {
     border: 1px solid #eee;
     border-left-color: #337ab7;
-    border-left-width: 5px;
-    border-radius: 8px;
+    border-left-width: 3px;
+    border-radius: 3px;
     padding: 10px;
     margin-bottom: 4px;
     margin-top: 4px;
     cursor: pointer;
+    /*padding-left: 5px;*/
 }
 
 #xs_index {
-    padding: 5px;
+    /*padding: 5px;*/
+    /*padding-right: 3px;*/
 }
 
 #xs_index_close {
@@ -85,20 +87,21 @@ img {
 }
 
 #xs_content {
-    padding-left: 25px;
+    /*padding-left: 25px;*/
 }
 
 #xs_content_border {
-    border-left: 2px solid #eee;
-    padding-left: 5px;
-    padding-right: 5px;
+    /*border-left: 2px solid #eee;*/
+    padding-left: 3px;
+    /*padding-right: 5px;*/
 }
 
 .dsd_callout {
     border: 1px solid #eee;
-    border-left-width: 5px;
+    border-left-width: 3px;
     border-radius: 3px;
     border-left-color: #5cb85c;
+    padding-left: 5px;
 }
 
 /** 始终显示竖滚动条*/
