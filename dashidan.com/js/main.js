@@ -1,5 +1,3 @@
-"use strict";
-
 /** 新窗口打开*/
 function openInNewWindow(url) {
     window.open(url);
@@ -26,8 +24,8 @@ function hideIndex() {
 
 /** 点击左边导航标题*/
 function clickTitle(name) {
-    let titleId = "#" + name + "_title";
-    let titleName = $(titleId).text();
+    var titleId = "#" + name + "_title";
+    var titleName = $(titleId).text();
 
     if ($("#" + name).hasClass("dsd_catalog_left_hide")) {
         /** 隐藏状态切换到显示*/
@@ -60,16 +58,16 @@ function showLeftHighlight() {
      * main.js:59 basic
      * main.js:59 %E6%90%AD%E5%BB%BAJava%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html
      */
-    let idName = window.location.pathname.split("/")[3];
+    var idName = window.location.pathname.split("/")[3];
     /** 取？ 前边的完整链接*/
-    let url = window.location.href.split("?")[0];
+    var url = window.location.href.split("?")[0];
 
     /** 打开对应的左侧索引*/
     clickTitle(idName);
     /** 对应条目高亮*/
     $("#" + idName).children().each(function (index, element) {
-        let html = $(element).html();
-        let html1 = $(html).attr('href');
+        var html = $(element).html();
+        var html1 = $(html).attr('href');
         if (url == encodeURI(html1)) {
             /** 高亮*/
             $(this).addClass("dsd_callout");
