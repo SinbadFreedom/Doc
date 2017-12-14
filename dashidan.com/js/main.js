@@ -1,3 +1,5 @@
+"use strict";
+
 /** 新窗口打开*/
 function openInNewWindow(url) {
     window.open(url);
