@@ -6689,8 +6689,8 @@ button.list-group-item-danger.active:focus {
     /* edit by sinbad 20170908*/
     margin: 5px;
     background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 6px;
+    /*border: 1px solid transparent;*/
+    /*border-radius: 6px;*/
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
@@ -6703,8 +6703,9 @@ button.list-group-item-danger.active:focus {
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
     /* edit by sinbad 20170908*/
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    /*border-top-left-radius: 10px;*/
+    /*border-top-right-radius: 10px;*/
+    border-radius: 5px;
 }
 
 .panel-heading > .dropdown .dropdown-toggle {
