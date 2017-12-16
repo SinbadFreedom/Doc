@@ -205,7 +205,6 @@ var Stemmer = function () {
     }
 }
 
-
 /**
  * Simple result scoring code.
  */
@@ -237,7 +236,6 @@ var Scorer = {
     // query found in terms
     term: 5
 };
-
 
 var splitChars = (function () {
     var result = {};
@@ -332,7 +330,6 @@ function splitQuery(query) {
     }
     return result;
 }
-
 
 /**
  * Search Module
