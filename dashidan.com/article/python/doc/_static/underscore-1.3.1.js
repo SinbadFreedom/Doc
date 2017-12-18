@@ -341,8 +341,8 @@
     _.groupBy = function (obj, val) {
         var result = {};
         var iterator = _.isFunction(val) ? val : function (obj) {
-            return obj[val];
-        };
+                                             return obj[val];
+                                         };
         each(obj, function (value, index) {
             var key = iterator(value, index);
             (result[key] || (result[key] = [])).push(value);
