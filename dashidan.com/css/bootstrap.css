@@ -1950,8 +1950,9 @@ samp {
 code {
     padding: 2px 4px;
     font-size: 90%;
-    color: #c7254e;
-    background-color: #f9f2f4;
+    /*color: #c7254e;*/
+    /*background-color: #f9f2f4;*/
+    background-color: #eee;
     border-radius: 6px;
 }
 

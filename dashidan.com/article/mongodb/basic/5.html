@@ -132,7 +132,7 @@
             </div>
             <div id="addenda" class="dsd_catalog_left_hide">
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/mongodb/appenda/1.html">1.MongoDb在线测试工具</a>
+                    <a href="http://dashidan.com/article/mongodb/addenda/1.html">1.MongoDb在线测试工具</a>
                 </div>
             </div>
 
@@ -144,117 +144,113 @@
             <span style="color: white">🔖目录</span>
         </div>
     </div>
-    <div id="xs_content">
-        <div class="col-sm-9 col-md-9 col-lg-9">
-            <!-- 文章内容-->
-            <div id="xs_content_border">
-                <div>
-                    <div class="dsd_title"><h1>5.配置mongo命令行</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① .mongorc.js文件</a></p>
-                        <p><a href="#②">② 自定义显示行数</a></p>
-                        <p><a href="#③">③ mongo命令行显示数据名字和主机名</a></p>
-                        <p><a href="#④">④ mongo命令行自定义显示运行时间和文档数量</a></p>
-                        <p><a href="#⑤">⑤ 使用外部编辑器</a></p>
-                        <p><a href="#⑥">⑥ 修改mongo命令提示符显示行数</a></p>
-                        <p><a href="#⑦">⑦ 参考文章</a></p>
-                        <p><a href="#⑧">⑧ 相关文章</a></p></div>
-                </div>
-                <div class="dsd_title"><a href="#top" id="①">① .mongorc.js文件</a></div>
-                <p>MongoDB启动的时候, mongo会检查用户的<code>HOME</code>目录, 查找一个名为<code>.mongorc.js</code>的<code>JavaScript</code>文件.
-                    如果找到该文件
-                    mongo在第一次运行命令提示符前, 会解释<code>.mongorc.js</code>文件内容.</p>
-                <p>When starting, mongo checks the user’s HOME directory for a JavaScript file named .mongorc.js. If
-                    found, mongo interprets the content of .mongorc.js before displaying the prompt for the first
-                    time. </p>
-                <p>当你在mongo命令行中通过<code>--eval</code>参数或者指定一个<code>.js</code>文件执行一个<code>JavaScript</code>文件或者表达式时,
-                    mongo在执行完命令后, 会读取<code>.mongorc.js</code>文件.</p>
-                <p>你可以通过<code>--norc</code>参数来禁止读取<code>.mongorc.js</code>文件.</p>
-                <div class="bs-callout bs-callout-success">
-                    <h4>这个文件默认并没有, 需要自己创建一个.</h4>
-                </div>
-                <div class="dsd_title"><a href="#top" id="②">② 自定义显示行数</a></div>
-                <p>可以在mongo命令行中输入以下代码，来显示代码行数:</p>
-                <pre class="prettyprint"><code class="javascript language-javascript">cmdCount = 1;
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>配置mongo命令行参数</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><p><a href="#5.配置mongo命令行">5.配置mongo命令行</a></p><a href="#①">① .mongorc.js文件</a><br><a
+                    href="#②">② 自定义显示行数</a><br><a href="#③">③ mongo命令行显示数据名字和主机名</a><br><a href="#④">④
+                    mongo命令行自定义显示运行时间和文档数量</a><br><a href="#⑤">⑤ 使用外部编辑器</a><br><a href="#⑥">⑥
+                    修改mongo命令提示符显示行数</a><br><a href="#⑦">⑦ 参考文章</a><br><a href="#⑧">⑧ 相关文章</a><br></div>
+            </div>
+            <div class="dsd_title_1"><a href="#top" id="5.配置mongo命令行"><h2>5.配置mongo命令行</h2></a></div>
+            <div class="dsd_title_2"><a href="#top" id="①">① .mongorc.js文件</a></div>
+            <p>MongoDB启动的时候, mongo会检查用户的<code>HOME</code>目录, 查找一个名为<code>.mongorc.js</code>的<code>JavaScript</code>文件.
+                如果找到该文件
+                mongo在第一次运行命令提示符前, 会解释<code>.mongorc.js</code>文件内容.</p>
+            <p>When starting, mongo checks the user’s HOME directory for a JavaScript file named .mongorc.js. If found,
+                mongo interprets the content of .mongorc.js before displaying the prompt for the first time. </p>
+            <p>当你在mongo命令行中通过<code>--eval</code>参数或者指定一个<code>.js</code>文件执行一个<code>JavaScript</code>文件或者表达式时,
+                mongo在执行完命令后, 会读取<code>.mongorc.js</code>文件.</p>
+            <p>你可以通过<code>--norc</code>参数来禁止读取<code>.mongorc.js</code>文件.</p>
+            <div class="bs-callout bs-callout-success">
+                <h4>这个文件默认并没有, 需要自己创建一个.</h4>
+            </div>
+            <div class="dsd_title_2"><a href="#top" id="②">② 自定义显示行数</a></div>
+            <p>可以在mongo命令行中输入以下代码，来显示代码行数:</p>
+            <pre class="prettyprint"><code class="javascript language-javascript">cmdCount = 1;
 prompt = function() {
              return (cmdCount++) + "&gt; ";
          }
 </code></pre>
-                <p>命令行显示的样子:</p>
-                <pre class="prettyprint"><code>1&gt;
+            <p>命令行显示的样子:</p>
+            <pre class="prettyprint"><code>1&gt;
 2&gt;
 3&gt;
 </code></pre>
-                <div class="bs-callout bs-callout-success">
-                    <h4>`prompt`这个变量名不能改变.改变无效.</h4>
-                </div>
-                <div class="dsd_title"><a href="#top" id="③">③ mongo命令行显示数据名字和主机名</a></div>
-                <pre class="prettyprint"><code class="javascript language-javascript">host = db.serverStatus().host;
+            <div class="bs-callout bs-callout-success">
+                <h4>`prompt`这个变量名不能改变.改变无效.</h4>
+            </div>
+            <div class="dsd_title_2"><a href="#top" id="③">③ mongo命令行显示数据名字和主机名</a></div>
+            <pre class="prettyprint"><code class="javascript language-javascript">host = db.serverStatus().host;
 
 prompt = function() {
              return db+"@"+host+"$ ";
          }
 </code></pre>
-                <p>命令提示符显示:</p>
-                <pre class="prettyprint"><code>test@myHost1$
+            <p>命令提示符显示:</p>
+            <pre class="prettyprint"><code>test@myHost1$
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ mongo命令行自定义显示运行时间和文档数量</a></div>
-                <pre class="prettyprint"><code>prompt = function() {
+            <div class="dsd_title_2"><a href="#top" id="④">④ mongo命令行自定义显示运行时间和文档数量</a></div>
+            <pre class="prettyprint"><code>prompt = function() {
            return "Uptime:"+db.serverStatus().uptime+" Documents:"+db.stats().objects+" &gt; ";
          }
 </code></pre>
-                <div class="bs-callout bs-callout-info">
-                    <h4>运行时间单位为秒.</h4>
-                    可能会修改代码内容.这个是由JavaScript编译器决定.比如,可能将`1+1`转化成`2`或者删除注释等.
-                </div>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 使用外部编辑器</a></div>
-                <p>我试了下,在linux中管用, windows中无效.</p>
-                <div class="bs-callout bs-callout-danger">
-                    <h4>mongo命令提示符解释外部编辑器编辑的代码</h4>
-                    可能会修改代码内容.这个是由JavaScript编译器决定.比如,可能将`1+1`转化成`2`或者删除注释等.
-                </div>
-                <pre class="prettyprint"><code>export EDITOR=vim
+            <div class="bs-callout bs-callout-info">
+                <h4>运行时间单位为秒.</h4>
+                可能会修改代码内容.这个是由JavaScript编译器决定.比如,可能将`1+1`转化成`2`或者删除注释等.
+            </div>
+            <div class="dsd_title_2"><a href="#top" id="⑤">⑤ 使用外部编辑器</a></div>
+            <p>我试了下,在linux中管用, windows中无效.</p>
+            <div class="bs-callout bs-callout-danger">
+                <h4>mongo命令提示符解释外部编辑器编辑的代码</h4>
+                可能会修改代码内容.这个是由JavaScript编译器决定.比如,可能将`1+1`转化成`2`或者删除注释等.
+            </div>
+            <pre class="prettyprint"><code>export EDITOR=vim
 mongo
 </code></pre>
-                <p>在mongo命令行中, 你可以通过输入<code>edit &lt;variable&gt;</code>或者<code>edit &lt;function&gt;</code>,来激活外部编辑器.
-                </p>
-                <h3>1.定义方法</h3>
-                <pre class="prettyprint"><code>function myFunction () { }
+            <p>在mongo命令行中, 你可以通过输入<code>edit &lt;variable&gt;</code>或者<code>edit &lt;function&gt;</code>,来激活外部编辑器.</p>
+            <h3>1.定义方法</h3>
+            <pre class="prettyprint"><code>function myFunction () { }
 </code></pre>
-                <h3>2.激活外部编辑器来编辑方法</h3>
-                <pre class="prettyprint"><code>edit myFunction
+            <h3>2.激活外部编辑器来编辑方法</h3>
+            <pre class="prettyprint"><code>edit myFunction
 </code></pre>
-                <p>在linux系统中会激活<code>vim</code>编辑器.编辑完成后,保存并退出<code>vim</code>.</p>
-                <h3>3.在mongo命令行中查看方法</h3>
-                <pre class="prettyprint"><code>myFunction
+            <p>在linux系统中会激活<code>vim</code>编辑器.编辑完成后,保存并退出<code>vim</code>.</p>
+            <h3>3.在mongo命令行中查看方法</h3>
+            <pre class="prettyprint"><code>myFunction
 </code></pre>
-                <p>会显示</p>
-                <pre class="prettyprint"><code>function myFunction() {
+            <p>会显示</p>
+            <pre class="prettyprint"><code>function myFunction() {
     print("This was edited");
 }
 </code></pre>
-                <div class="bs-callout bs-callout-danger">
-                    <h4>mongo命令提示符解释外部编辑器编辑的代码</h4>
-                    可能会修改代码内容.这个是由JavaScript编译器决定.比如,可能将`1+1`转化成`2`或者删除注释等.
-                </div>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 修改mongo命令提示符显示行数</a></div>
-                <p><code>db.collection.find()</code>方法返回一个结果指针.这个方法默认会返回前20条数据.输入<code>it</code>或继续显示20条.</p>
-                <p>可以通过设置<code>DBQuery.shellBatchSize</code>来修改文档数量.</p>
-                <p>例如: 改为一次显示10行.</p>
-                <pre class="prettyprint"><code>DBQuery.shellBatchSize = 10;
-</code></pre>
-                <div class="bs-callout bs-callout-danger">
-                    <h4>在mongo命令提示行中修改, 只影响当前窗口显示.</h4>
-                </div>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ 参考文章</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/configure-mongo-shell/">https://docs.mongodb.com/manual/tutorial/configure-mongo-shell/</a>
-                </p>
-                <div class="dsd_title"><a href="#top" id="⑧">⑧ 相关文章</a></div>
-                <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
-                <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
-                </span>
+            <div class="bs-callout bs-callout-danger">
+                <h4>mongo命令提示符解释外部编辑器编辑的代码</h4>
+                可能会修改代码内容.这个是由JavaScript编译器决定.比如,可能将`1+1`转化成`2`或者删除注释等.
             </div>
+            <div class="dsd_title_2"><a href="#top" id="⑥">⑥ 修改mongo命令提示符显示行数</a></div>
+            <p><code>db.collection.find()</code>方法返回一个结果指针.这个方法默认会返回前20条数据.输入<code>it</code>或继续显示20条.</p>
+            <p>可以通过设置<code>DBQuery.shellBatchSize</code>来修改文档数量.</p>
+            <p>例如: 改为一次显示10行.</p>
+            <pre class="prettyprint"><code>DBQuery.shellBatchSize = 10;
+</code></pre>
+            <div class="bs-callout bs-callout-danger">
+                <h4>在mongo命令提示行中修改, 只影响当前窗口显示.</h4>
+            </div>
+            <div class="dsd_title_2"><a href="#top" id="⑦">⑦ 参考文章</a></div>
+            <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/configure-mongo-shell/">https://docs.mongodb.com/manual/tutorial/configure-mongo-shell/</a>
+            </p>
+            <div class="dsd_title_2"><a href="#top" id="⑧">⑧ 相关文章</a></div>
+            <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
+                </span>
         </div>
     </div>
+
+    <div id="xs_content"></div>
     <div class="text-center">
         <div>
             <a href="http://dashidan.com/article/mongodb/basic/6.html">📖

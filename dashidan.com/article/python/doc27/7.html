@@ -1,0 +1,442 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>输入和输出</title>
+    <meta name="description" content="输入和输出">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/python/index.html">Python</a></li>
+    </ol>
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!--
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
+		-->
+        <div>
+            <div class="dsd_title" onclick="clickTitle('doc27')">
+                <h3><span id="doc_title">➕ Python中文文档2.7</span></h3>
+            </div>
+            <div id="doc27" class="dsd_catalog_left_hide">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/1.html">1.前言</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/2.html">2.解释器</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/3.html">3.简介</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/6.html">6.模块</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/8.html">8.错误</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/9.html">9.类</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/12.html">12.接下来</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/15.html">15.附录</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>输入和输出</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><a href="#1">1 格式化输出</a><br>
+                    <p><a href="#1.1">1.1 旧式的字符串格式化</a></p><a href="#2">2 文件读写</a><br>
+                    <p><a href="#2.1">2.1 文件对象方法</a></p>
+                    <p><a href="#2.2">2.2 使用json存储结构化数据 </a></p></div>
+            </div>
+            <p>﻿一个程序可以有几种输出方式：以人类可读的方式打印数据，或者写入一个文件供以后使用。本章将讨论几种可能性。</p>
+            <div class="dsd_title_1"><a href="#top" id="1"><h2>1 格式化输出</h2></a></div>
+            <p>我们有两种大相径庭的输出值方法：表达式语句和 <code>print
+                &lt;https://docs.python.org/2.7/reference/simple_stmts.html#print&gt;</code>_ 语句。(第三种方法是使用文件对象的
+                :meth:<code>write</code> 方法，标准文件输出可以参考 <code>sys.stdout</code>，详细内容参见库参考手册。)</p>
+            <p>通常，你想要对输出做更多的格式控制，而不是简单的打印使用空格分隔的值。有两种方法可以格式化你的输出：第一种方法是由你自己处理整个字符串，通过使用字符串切割和连接操作可以创建任何你想要的输出形式。string
+                类型包含一些将字符串填充到指定列宽度的有用操作，随后就会讨论这些。第二种方法是使用 <code>str.format() &lt;https://docs.python.org/2.7/library/stdtypes.html#str.format&gt;</code>_
+                方法。</p>
+            <p>标准模块 <code>string &lt;https://docs.python.org/2.7/library/string.html#module-string&gt;</code>_
+                包括了一些操作，将字符串填充入给定列时，这些操作很有用。随后我们会讨论这部分内容。第二种方法是使用 <code>Template &lt;https://docs.python.org/2.7/library/string.html#string.Template&gt;</code>_
+                方法。 </p>
+            <p>当然，还有一个问题，如何将值转化为字符串？很幸运，Python 有办法将任意值转为字符串：将它传入 <code>repr() &lt;https://docs.python.org/2.7/library/functions.html#repr&gt;</code>_
+                或 <code>str() &lt;https://docs.python.org/2.7/library/functions.html#str&gt;</code>_ 函数。 </p>
+            <p>函数 <code>str() &lt;https://docs.python.org/2.7/library/functions.html#str&gt;</code>_ 用于将值转化为适于人阅读的形式，而
+                <code>repr() &lt;https://docs.python.org/2.7/library/functions.html#repr&gt;</code>_
+                转化为供解释器读取的形式(如果没有等价的语法，则会发生 <code>SyntaxError &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.SyntaxError&gt;</code>_
+                异常)某对象没有适于人阅读的解释形式的话，<code>str() &lt;https://docs.python.org/2.7/library/functions.html#str&gt;</code>_
+                会返回与 <code>repr() &lt;https://docs.python.org/2.7/library/functions.html#repr&gt;</code>_
+                等同的值。很多类型，诸如数值或链表、字典这样的结构，针对各函数都有着统一的解读方式。字符串和浮点数，有着独特的解读方式。</p>
+            <p>下面有些例子::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; s = 'Hello, world.'
+&gt;&gt;&gt; str(s)
+'Hello, world.'
+&gt;&gt;&gt; repr(s)
+"'Hello, world.'"
+&gt;&gt;&gt; str(1/7)
+'0.14285714285714285'
+&gt;&gt;&gt; x = 10 * 3.25
+&gt;&gt;&gt; y = 200 * 200
+&gt;&gt;&gt; s = 'The value of x is ' + repr(x) + ', and y is ' + repr(y) + '...'
+&gt;&gt;&gt; print s
+The value of x is 32.5, and y is 40000...
+&gt;&gt;&gt; # The repr() of a string adds string quotes and backslashes:
+... hello = 'hello, world\n'
+&gt;&gt;&gt; hellos = repr(hello)
+&gt;&gt;&gt; print hellos
+'hello, world\n'
+&gt;&gt;&gt; # The argument to repr() may be any Python object:
+... repr((x, y, ('spam', 'eggs')))
+"(32.5, 40000, ('spam', 'eggs'))"
+</code></pre>
+            <p>有两种方式可以写平方和立方表::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; for x in range(1, 11):
+...     print repr(x).rjust(2), repr(x*x).rjust(3)
+...     # Note use of 'end' on previous line
+...     print repr(x*x*x).rjust(4)
+...
+1   1    1
+2   4    8
+3   9   27
+4  16   64
+5  25  125
+6  36  216
+7  49  343
+8  64  512
+9  81  729
+10 100 1000
+
+&gt;&gt;&gt; for x in range(1, 11):
+...     print '{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x)
+...
+1   1    1
+2   4    8
+3   9   27
+4  16   64
+5  25  125
+6  36  216
+7  49  343
+8  64  512
+9  81  729
+10 100 1000
+</code></pre>
+            <p>(注意第一个例子，<code>print &lt;https://docs.python.org/2.7/reference/simple_stmts.html#print&gt;</code>_
+                在每列之间加了一个空格，它总是在参数间加入空格。)</p>
+            <p>以上是一个 <code>str.rjust() &lt;https://docs.python.org/2.7/library/stdtypes.html#str.rjust&gt;</code>_
+                方法的演示，它把字符串输出到一列，并通过向左侧填充空格来使其右对齐。类似的方法还有 <code>str.ljust() &lt;https://docs.python.org/2.7/library/stdtypes.html#str.ljust&gt;</code>_
+                和 <code>str.center() &lt;https://docs.python.org/2.7/library/stdtypes.html#str.center&gt;</code>_。这些函数只是输出新的字符串，并不改变什么。如果输出的字符串太长，它们也不会截断它，而是原样输出，这会使你的输出格式变得混乱，不过总强过另一种选择(截断字符串)，因为那样会产生错误的输出值(如果你确实需要截断它，可以使用切割操作，例如：<code>x.ljust(n)[:n]</code>）。
+            </p>
+            <p>还有另一个方法，<code>str.zfill() &lt;https://docs.python.org/2.7/library/stdtypes.html#str.zfill&gt;</code>_
+                它用于向数值的字符串表达左侧填充 0。该函数可以正确理解正负号::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; '12'.zfill(5)
+'00012'
+&gt;&gt;&gt; '-3.14'.zfill(7)
+'-003.14'
+&gt;&gt;&gt; '3.14159265359'.zfill(5)
+'3.14159265359'
+</code></pre>
+            <p>方法 <code>str.format() &lt;https://docs.python.org/2.7/library/stdtypes.html#str.format&gt;</code>_
+                的基本用法如下::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; print 'We are the {} who say "{}!"'.format('knights', 'Ni')
+We are the knights who say "Ni!"
+</code></pre>
+            <p>大括号和其中的字符会被替换成传入 <code>str.format()
+                &lt;https://docs.python.org/2.7/library/stdtypes.html#str.format&gt;</code>_ 的参数。大括号中的数值指明使用传入 <code>str.format()
+                &lt;https://docs.python.org/2.7/library/stdtypes.html#str.format&gt;</code>_ 方法的对象中的哪一个::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; print '{0} and {1}'.format('spam', 'eggs')
+spam and eggs
+&gt;&gt;&gt; print '{1} and {0}'.format('spam', 'eggs')
+eggs and spam
+</code></pre>
+            <p>如果在 <code>str.format() &lt;https://docs.python.org/2.7/library/stdtypes.html#str.format&gt;</code>_
+                调用时使用关键字参数，可以通过参数名来引用值::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; print 'This {food} is {adjective}.'.format(
+...       food='spam', adjective='absolutely horrible')
+This spam is absolutely horrible.
+</code></pre>
+            <p>定位和关键字参数可以组合使用::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; print 'The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred',
+</code></pre>
+            <pre><code>                                                      other='Georg')
+</code></pre>
+            <p>The story of Bill, Manfred, and Georg.</p>
+            <p><code>'!s'</code> (应用 <code>str() &lt;https://docs.python.org/2.7/library/functions.html#str&gt;</code>_
+                )和 <code>'!r'</code> (应用 <code>repr()
+                    &lt;https://docs.python.org/2.7/library/functions.html#repr&gt;</code>_)可以在格式化之前转换值::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import math
+&gt;&gt;&gt; print 'The value of PI is approximately {}.'.format(math.pi)
+The value of PI is approximately 3.14159265359.
+&gt;&gt;&gt; print 'The value of PI is approximately {!r}.'.format(math.pi)
+The value of PI is approximately 3.141592653589793.
+</code></pre>
+            <p>字段名后允许可选的 <code>':'</code> 和格式指令。这允许对值的格式化加以更深入的控制。下例将 Pi 转为三位精度。</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import math
+&gt;&gt;&gt; print('The value of PI is approximately {0:.3f}.'.format(math.pi))
+The value of PI is approximately 3.142.
+</code></pre>
+            <p>在字段后的 <code>':'</code> 后面加一个整数会限定该字段的最小宽度，这在美化表格时很有用::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
+&gt;&gt;&gt; for name, phone in table.items():
+...     print '{0:10} ==&gt; {1:10d}'.format(name, phone)
+...
+Jack       ==&gt;       4098
+Dcab       ==&gt;       7678
+Sjoerd     ==&gt;       4127
+</code></pre>
+            <p>如果你有个实在是很长的格式化字符串，不想分割它。如果你可以用命名来引用被格式化的变量而不是位置就好了。有个简单的方法，可以传入一个字典，用中括号( <code>'[]'</code> )访问它的键::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+&gt;&gt;&gt; print 'Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; '
+         'Dcab: {0[Dcab]:d}'.format(table)
+Jack: 4098; Sjoerd: 4127; Dcab: 8637678
+</code></pre>
+            <p>也可以用 ‘**’ 标志将这个字典以关键字参数的方式传入::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+&gt;&gt;&gt; print 'Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table)
+Jack: 4098; Sjoerd: 4127; Dcab: 8637678
+</code></pre>
+            <p>这种方式与新的内置函数 <code>vars() &lt;https://docs.python.org/2.7/library/functions.html#vars&gt;</code>_
+                组合使用非常有效。该函数返回包含所有局部变量的字典。</p>
+            <p>要进一步了解字符串格式化方法 <code>str.format()
+                &lt;https://docs.python.org/2.7/library/stdtypes.html#str.format&gt;</code><em>，参见 <code>Format String
+                Syntax &lt;https://docs.python.org/2.7/library/string.html#formatstrings&gt;</code></em>。</p>
+            <div class="dsd_title_2"><a href="#top" id="1.1">1.1 旧式的字符串格式化</a></div>
+            <p>操作符 <code>%</code> 也可以用于字符串格式化。它以类似 :c:func:<code>sprintf</code>\ -style
+                的方式解析左参数，将右参数应用于此，得到格式化操作生成的字符串，例如::</p>
+            <blockquote>
+                <blockquote>
+                    <blockquote>
+                        <p>import math
+                            print 'The value of PI is approximately %5.3f.' % math.pi
+                            The value of PI is approximately 3.142.</p>
+                    </blockquote>
+                </blockquote>
+            </blockquote>
+            <p>进一步的信息可以参见 <code>String Formatting Operations &lt;https://docs.python.org/2.7/library/stdtypes.html#string-formatting&gt;</code>_
+                一节。</p>
+            <div class="dsd_title_1"><a href="#top" id="2"><h2>2 文件读写</h2></a></div>
+            <p>函数 <code>open() &lt;https://docs.python.org/2.7/library/functions.html#open&gt;</code>_
+                返回文件对象，通常的用法需要两个参数：<code>open(filename, mode)</code>。</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; f = open('workfile', 'w')
+&gt;&gt;&gt; print f
+&lt;open file 'workfile', mode 'w' at 80a0960&gt;
+</code></pre>
+            <p>第一个参数是一个标识文件名的字符串。第二个参数是由有限的字母组成的字符串，描述了文件将会被如何使用。可选的 <em>模式</em>
+                有：<code>'r'</code>，此选项使文件只读；<code>'w'</code>，此选项使文件只写(对于同名文件，该操作使原有文件被覆盖)；<code>'a'</code>，此选项以追加方式打开文件；<code>'r+'</code>，此选项以读写方式打开文件；模式参数是可选的。如果没有指定，默认为
+                <code>'r'</code> 模式。 </p>
+            <p>在 Windows 平台上，<code>'b'</code> 模式以二进制方式打开文件，所以可能会有类似于 <code>'rb'</code>， <code>'wb'</code>，
+                <code>'r+b'</code> 等等模式组合。Windows 平台上文本文件与二进制文件是有区别的，读写文本文件时，行尾会自动添加行结束符。这种后台操作方式对 ASCII 文本文件没有什么问题，但是操作
+                :file:<code>JPEG</code> 或 :file:<code>EXE</code> 这样的二进制文件时就会产生破坏。在操作这些文件时一定要记得以二进制模式打开。在 Unix 上，加一个
+                <code>'b'</code> 模式也一样是无害的，所以你可以一切二进制文件处理中平台无关的使用它。</p>
+            <div class="dsd_title_2"><a href="#top" id="2.1">2.1 文件对象方法</a></div>
+            <p>本节中的示例都默认文件对象 <code>f</code> 已经创建。 </p>
+            <p>要读取文件内容，需要调用 <code>f.read(size)</code>，该方法读取若干数量的数据并以字符串形式返回其内容，<em>size</em> 是可选的数值，指定字符串长度。如果没有指定 <em>size</em>
+                或者指定为负数，就会读取并返回整个文件。当文件大小为当前机器内存两倍时，就会产生问题。反之，会尽可能按比较大的 <em>size</em>
+                读取和返回数据。如果到了文件末尾，<code>f.read()</code> 会返回一个空字符串( <code>”“</code> )::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; f.read()
+'This is the entire file.\n'
+&gt;&gt;&gt; f.read()
+''
+</code></pre>
+            <p><code>f.readline()</code> 从文件中读取单独一行，字符串结尾会自动加上一个换行符( <code>\n</code>
+                )，只有当文件最后一行没有以换行符结尾时，这一操作才会被忽略。这样返回值就不会有混淆，如果如果 <code>f.readline()</code>
+                返回一个空字符串，那就表示到达了文件末尾，如果是一个空行，就会描述为 <code>'\n'</code>，一个只包含换行符的字符串::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; f.readline()
+'This is the first line of the file.\n'
+&gt;&gt;&gt; f.readline()
+'Second line of the file\n'
+&gt;&gt;&gt; f.readline()
+''
+</code></pre>
+            <p><code>f.readlines()</code> 返回一个列表，其中包含了文件中所有的数据行。如果给定了 <em>sizehint</em>
+                参数，就会读入多于一行的比特数，从中返回多行文本。这个功能通常用于高效读取大型行文件，避免了将整个文件读入内存。这种操作只返回完整的行。</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; f.readlines()
+['This is the first line of the file.\n', 'Second line of the file\n']
+</code></pre>
+            <p>一种替代的方法是通过遍历文件对象来读取文件行。这是一种内存高效、快速，并且代码简洁的方式::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; for line in f:
+...     print(line, end='')
+...
+This is the first line of the file.
+Second line of the file
+</code></pre>
+            <p>虽然这种替代方法更简单，但并不具备细节控制能力。因为这两种方法处理行缓存的方式不同，千万不能搞混。</p>
+            <p><code>f.write(string)</code> 方法将 string 的内容写入文件，并返回写入字符的长度::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; f.write('This is a test\n')
+15
+</code></pre>
+            <p>想要写入其他非字符串内容，首先要将它转换为字符串::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; value = ('the answer', 42)
+&gt;&gt;&gt; s = str(value)
+&gt;&gt;&gt; f.write(s)
+18
+</code></pre>
+            <p><code>f.tell()</code> 返回一个整数，代表文件对象在文件中的指针位置，该数值计量了自文件开头到指针处的比特数。需要改变文件对象指针话话，使用 <code>f.seek(offset,from_what)</code>。指针在该操作中从指定的引用位置移动
+                <em>offset</em> 比特，引用位置由 <em>from<em>what</em> 参数指定。 <em>from</em>what</em> 值为 0 表示自文件起始处开始，1
+                表示自当前文件指针位置开始，2 表示自文件末尾开始。<em>from_what</em> 可以忽略，其默认值为零，此时从文件头开始::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; f = open('workfile', 'r+')
+&gt;&gt;&gt; f.write('0123456789abcdef')
+&gt;&gt;&gt; f.seek(5)     # Go to the 6th byte in the file
+&gt;&gt;&gt; f.read(1)
+'5'
+&gt;&gt;&gt; f.seek(-3, 2) # Go to the 3rd byte before the end
+&gt;&gt;&gt; f.read(1)
+'d'
+</code></pre>
+            <p>在文本文件中(那些没有使用 <code>b</code> 模式选项打开的文件)，只允许从文件头开始计算相对位置(使用 <code>seek(0, 2)</code> 从文件尾计算时就会引发异常)。</p>
+            <p>当你使用完一个文件时，调用 <code>f.close()</code> 方法就可以关闭它并释放其占用的所有系统资源。在调用 <code>f.close()</code>
+                方法后，试图再次使用文件对象将会自动失败::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; f.close()
+&gt;&gt;&gt; f.read()
+Traceback (most recent call last):
+ File "&lt;stdin&gt;", line 1, in ?
+ValueError: I/O operation on closed file
+</code></pre>
+            <p>用关键字 <code>with &lt;https://docs.python.org/2.7/reference/compound_stmts.html#with&gt;</code>_
+                处理文件对象是个好习惯。它的先进之处在于文件用完后会自动关闭，就算发生异常也没关系。它是 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code><em>\
+                    -\ <code>finally
+                        &lt;https://docs.python.org/2.7/reference/compound_stmts.html#finally&gt;</code></em> 块的简写::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; with open('/tmp/workfile', 'r') as f:
+...     read_data = f.read()
+&gt;&gt;&gt; f.closed
+True
+</code></pre>
+            <p>文件对象还有一些不太常用的附加方法，比如 <code>isatty()
+                &lt;https://docs.python.org/2.7/library/stdtypes.html#file.isatty&gt;</code>_ 和 <code>truncate() &lt;https://docs.python.org/2.7/library/stdtypes.html#file.truncate&gt;</code>_
+                在库参考手册中有文件对象的完整指南。</p>
+            <div class="dsd_title_2"><a href="#top" id="2.2">2.2 使用json存储结构化数据 </a></div>
+            <p>从文件中读写字符串很容易。数值就要多费点儿周折，因为 :meth:<code>read</code> 方法只会返回字符串，应将其传入 <code>int() &lt;https://docs.python.org/2.7/library/functions.html#int&gt;</code>_
+                这样的函数，就可以将 <code>'123'</code> 这样的字符串转换为对应的数值 123。当你想要保存更为复杂的数据类型，例如嵌套的列表和字典，手工解析和序列化它们将变得更复杂。</p>
+            <p>好在用户不是非得自己编写和调试保存复杂数据类型的代码，Python 允许你使用常用的数据交换格式 <code>JSON（JavaScript Object Notation） &lt;http://json.org/&gt;</code><em>。标准模块
+                <code>json &lt;https://docs.python.org/2.7/library/json.html#module-json&gt;</code></em> 可以接受 Python
+                数据结构，并将它们转换为字符串表示形式；此过程称为 <strong>序列化</strong>。从字符串表示形式重新构建数据结构称为 <strong>反序列化</strong>。序列化和反序列化的过程中，表示该对象的字符串可以存储在文件或数据中，也可以通过网络连接传送给远程的机器。
+            </p>
+            <p>.. note::
+                JSON 格式经常用于现代应用程序中进行数据交换。许多程序员都已经熟悉它了，使它成为相互协作的一个不错的选择。</p>
+            <p>如果你有一个对象 <code>x</code>，你可以用简单的一行代码查看其 JSON 字符串表示形式::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; json.dumps([1, 'simple', 'list'])
+'[1, "simple", "list"]'
+</code></pre>
+            <p><code>dumps() &lt;https://docs.python.org/2.7/library/json.html#json.dumps&gt;</code>_ 函数的另外一个变体 <code>dump()
+                &lt;https://docs.python.org/2.7/library/json.html#json.dump&gt;</code><em>，直接将对象序列化到一个文件。所以如果
+                <code>f</code> 是为写入而打开的一个 <code>文件对象
+                    &lt;https://docs.python.org/2.7/glossary.html#term-file-object&gt;</code></em>，我们可以这样做::</p>
+            <pre class="prettyprint"><code>json.dump(x, f)
+</code></pre>
+            <p>为了重新解码对象，如果f是为读取而打开的 <code>文件对象 &lt;https://docs.python.org/2.7/glossary.html#term-file-object&gt;</code>_::
+            </p>
+            <pre class="prettyprint"><code>x = json.load(f)
+</code></pre>
+            <p>这种简单的序列化技术可以处理列表和字典，但序列化任意类实例为 JSON 需要一点额外的努力。 <code>json &lt;https://docs.python.org/2.7/library/json.html#module-json&gt;</code>_
+                模块的手册对此有详细的解释。</p>
+            <p>.. seealso::</p>
+            <p><code>pickle &lt;https://docs.python.org/2.7/library/pickle.html#module-pickle&gt;</code>_ - pickle 模块
+            </p>
+            <p>与 :ref:<code>JSON &lt;tut-json&gt;</code> 不同，<em>pickle</em> 是一个协议，它允许任意复杂的 Python 对象的序列化。因此，它只能用于 Python
+                而不能用来与其他语言编写的应用程序进行通信。默认情况下它也是不安全的：如果数据由熟练的攻击者精心设计， 反序列化来自一个不受信任源的 pickle 数据可以执行任意代码。</p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/python/index.html">http://dashidan.com/article/python/index.html</a>
+                </span>
+        </div>
+    </div>
+
+    <div id="xs_content"></div>
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/python/doc27/8.html">📖
+                下一篇: 错误</a>
+        </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>

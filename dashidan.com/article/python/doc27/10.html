@@ -1,0 +1,369 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>标准库概览</title>
+    <meta name="description" content="标准库概览">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/python/index.html">Python</a></li>
+    </ol>
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!--
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
+		-->
+        <div>
+            <div class="dsd_title" onclick="clickTitle('doc27')">
+                <h3><span id="doc_title">➕ Python中文文档2.7</span></h3>
+            </div>
+            <div id="doc27" class="dsd_catalog_left_hide">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/1.html">1.前言</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/2.html">2.解释器</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/3.html">3.简介</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/6.html">6.模块</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/8.html">8.错误</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/9.html">9.类</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/12.html">12.接下来</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/15.html">15.附录</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>标准库概览</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><a href="#﻿1">﻿1 操作系统接口</a><br><a href="#2">2 文件通配符</a><br><a href="#3">3
+                    命令行参数</a><br><a href="#4">4 错误输出重定向和程序终止</a><br><a href="#5">5 字符串正则匹配</a><br><a href="#6">6
+                    数学</a><br><a href="#7">7 互联网访问</a><br><a href="#8">8 日期和时间</a><br><a href="#9">9 数据压缩</a><br><a
+                    href="#10">10 性能度量</a><br><a href="#11">11 质量控制</a><br><a href="#12">12 “瑞士军刀”</a><br></div>
+            </div>
+            <div class="dsd_title_1"><a href="#top" id="﻿1"><h2>﻿1 操作系统接口</h2></a></div>
+            <p><code>os &lt;https://docs.python.org/2.7/library/os.html#module-os&gt;</code>_ 模块提供了很多与操作系统交互的函数::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import os
+&gt;&gt;&gt; os.getcwd()      # Return the current working directory
+'C:\\Python27'
+&gt;&gt;&gt; os.chdir('/server/accesslogs')   # Change current working directory
+&gt;&gt;&gt; os.system('mkdir today')   # Run the command mkdir in the system shell
+0
+</code></pre>
+            <p>应该用 <code>import os</code> 风格而非 <code>from os import *</code>。这样可以保证随操作系统不同而有所变化的 <code>os.open() &lt;https://docs.python.org/2.7/library/os.html#os.open&gt;</code>_
+                不会覆盖内置函数 <code>open() &lt;https://docs.python.org/2.7/library/functions.html#open&gt;</code>_</p>
+            <p>在使用一些像 <code>os &lt;https://docs.python.org/2.7/library/os.html#module-os&gt;</code>_ 这样的大型模块时内置的 <code>dir()
+                &lt;https://docs.python.org/2.7/library/functions.html#dir&gt;</code>_ 和 <code>help() &lt;https://docs.python.org/2.7/library/functions.html#help&gt;</code>_
+                函数非常有用::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import os
+&gt;&gt;&gt; dir(os)
+&lt;returns a list of all module functions&gt;
+&gt;&gt;&gt; help(os)
+&lt;returns an extensive manual page created from the module's docstrings&gt;
+</code></pre>
+            <p>针对日常的文件和目录管理任务，<code>shutil &lt;https://docs.python.org/2.7/library/shutil.html#module-shutil&gt;</code>_
+                模块提供了一个易于使用的高级接口::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import shutil
+&gt;&gt;&gt; shutil.copyfile('data.db', 'archive.db')
+&gt;&gt;&gt; shutil.move('/build/executables', 'installdir')
+</code></pre>
+            <div class="dsd_title_1"><a href="#top" id="2"><h2>2 文件通配符</h2></a></div>
+            <p><code>glob &lt;https://docs.python.org/2.7/library/glob.html#module-glob&gt;</code>_
+                模块提供了一个函数用于从目录通配符搜索中生成文件列表::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import glob
+&gt;&gt;&gt; glob.glob('*.py')
+['primes.py', 'random.py', 'quote.py']
+</code></pre>
+            <div class="dsd_title_1"><a href="#top" id="3"><h2>3 命令行参数</h2></a></div>
+            <p>通用工具脚本经常调用命令行参数。这些命令行参数以链表形式存储于 <code>sys
+                &lt;https://docs.python.org/2.7/library/sys.html#module-sys&gt;</code>_ 模块的 <em>argv</em> 变量。例如在命令行中执行
+                <code>python demo.py one two three</code> 后可以得到以下输出结果::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; print sys.argv
+['demo.py', 'one', 'two', 'three']
+</code></pre>
+            <p><code>getopt &lt;https://docs.python.org/2.7/library/getopt.html#module-getopt&gt;</code>_ 模块使用 Unix
+                <code>getopt() &lt;https://docs.python.org/2.7/library/getopt.html#module-getopt&gt;</code>_ 函数处理 <em>sys.argv</em>。更多的复杂命令行处理由
+                <code>argparse &lt;https://docs.python.org/2.7/library/argparse.html#module-argparse&gt;</code>_ 模块提供。
+            </p>
+            <div class="dsd_title_1"><a href="#top" id="4"><h2>4 错误输出重定向和程序终止</h2></a></div>
+            <p><code>sys &lt;https://docs.python.org/2.7/library/sys.html#module-sys&gt;</code>_ 还有 <em>stdin</em>， <em>stdout</em>
+                和 <em>stderr</em> 属性，即使在 <em>stdout</em> 被重定向时，后者也可以用于显示警告和错误信息::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; sys.stderr.write('Warning, log file not found starting a new one\n')
+Warning, log file not found starting a new one
+</code></pre>
+            <p>大多脚本的定向终止都使用 <code>sys.exit()</code> 。</p>
+            <div class="dsd_title_1"><a href="#top" id="5"><h2>5 字符串正则匹配</h2></a></div>
+            <p><code>re &lt;https://docs.python.org/2.7/library/re.html#module-re&gt;</code>_
+                模块为高级字符串处理提供了正则表达式工具。对于复杂的匹配和处理，正则表达式提供了简洁、优化的解决方案::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest')
+['foot', 'fell', 'fastest']
+&gt;&gt;&gt; re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
+'cat in the hat'
+</code></pre>
+            <p>只需简单的操作时，字符串方法最好用，因为它们易读，又容易调试::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; 'tea for too'.replace('too', 'two')
+'tea for two'
+</code></pre>
+            <div class="dsd_title_1"><a href="#top" id="6"><h2>6 数学</h2></a></div>
+            <p><code>math &lt;https://docs.python.org/2.7/library/math.html#module-math&gt;</code>_ 模块为浮点运算提供了对底层 C
+                函数库的访问::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.cos(math.pi / 4.0)
+0.70710678118654757
+&gt;&gt;&gt; math.log(1024, 2)
+10.0
+</code></pre>
+            <p><code>random &lt;https://docs.python.org/2.7/library/random.html#module-random&gt;</code>_ 提供了生成随机数的工具::
+            </p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import random
+&gt;&gt;&gt; random.choice(['apple', 'pear', 'banana'])
+'apple'
+&gt;&gt;&gt; random.sample(xrange(100), 10)   # sampling without replacement
+[30, 83, 16, 4, 8, 81, 41, 50, 18, 33]
+&gt;&gt;&gt; random.random()    # random float
+0.17970987693706186
+&gt;&gt;&gt; random.randrange(6)    # random integer chosen from range(6)
+4
+</code></pre>
+            <div class="dsd_title_1"><a href="#top" id="7"><h2>7 互联网访问</h2></a></div>
+            <p>有几个模块用于访问互联网以及处理网络通信协议。其中最简单的两个是用于处理从 urls 接收的数据的 <code>urllib2 &lt;https://docs.python.org/2.7/library/urllib2.html#module-urllib2&gt;</code>_
+                以及用于发送电子邮件的 <code>smtplib &lt;https://docs.python.org/2.7/library/smtplib.html#module-smtplib&gt;</code>_::
+            </p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import urllib2
+&gt;&gt;&gt; for line in urllib2.urlopen('http://tycho.usno.navy.mil/cgi-bin/timer.pl'):
+...     line = line.decode('utf-8')  # Decoding the binary data to text.
+...     if 'EST' in line or 'EDT' in line:  # look for Eastern Time
+...         print line
+
+&lt;BR&gt;Nov. 25, 09:43:32 PM EST
+
+&gt;&gt;&gt; import smtplib
+&gt;&gt;&gt; server = smtplib.SMTP('dashidan.com')
+&gt;&gt;&gt; server.sendmail('soothsayer@example.org', 'jcaesar@example.org',
+... """To: jcaesar@example.org
+... From: soothsayer@example.org
+...
+... Beware the Ides of March.
+... """)
+&gt;&gt;&gt; server.quit()
+</code></pre>
+            <p>(注意第二个例子需要在 dashidan.com 运行一个邮件服务器。)</p>
+            <div class="dsd_title_1"><a href="#top" id="8"><h2>8 日期和时间</h2></a></div>
+            <p><code>datetime &lt;https://docs.python.org/2.7/library/datetime.html#module-datetime&gt;</code>_
+                模块为日期和时间处理同时提供了简单和复杂的方法。支持日期和时间算法的同时，实现的重点放在更有效的处理和格式化输出。该模块还支持时区处理::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; # dates are easily constructed and formatted
+&gt;&gt;&gt; from datetime import date
+&gt;&gt;&gt; now = date.today()
+&gt;&gt;&gt; now
+datetime.date(2003, 12, 2)
+&gt;&gt;&gt; now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")
+'12-02-03. 02 Dec 2003 is a Tuesday on the 02 day of December.'
+
+&gt;&gt;&gt; # dates support calendar arithmetic
+&gt;&gt;&gt; birthday = date(1964, 7, 31)
+&gt;&gt;&gt; age = now - birthday
+&gt;&gt;&gt; age.days
+14368
+</code></pre>
+            <div class="dsd_title_1"><a href="#top" id="9"><h2>9 数据压缩</h2></a></div>
+            <p>以下模块直接支持通用的数据打包和压缩格式：<code>zlib
+                &lt;https://docs.python.org/2.7/library/zlib.html#module-zlib&gt;</code><em>，<code>gzip &lt;https://docs.python.org/2.7/library/gzip.html#module-gzip&gt;</code></em>，<code>bz2
+                &lt;https://docs.python.org/2.7/library/bz2.html#module-bz2&gt;</code><em>，<code>zipfile &lt;https://docs.python.org/2.7/library/zipfile.html#module-zipfile&gt;</code></em>
+                以及
+                <code>tarfile &lt;https://docs.python.org/2.7/library/tarfile.html#module-tarfile&gt;</code>_::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; import zlib
+&gt;&gt;&gt; s = b'witch which has which witches wrist watch'
+&gt;&gt;&gt; len(s)
+41
+&gt;&gt;&gt; t = zlib.compress(s)
+&gt;&gt;&gt; len(t)
+37
+&gt;&gt;&gt; zlib.decompress(t)
+b'witch which has which witches wrist watch'
+&gt;&gt;&gt; zlib.crc32(s)
+226805979
+</code></pre>
+            <div class="dsd_title_1"><a href="#top" id="10"><h2>10 性能度量</h2></a></div>
+            <p>有些用户对了解解决同一问题的不同方法之间的性能差异很感兴趣。Python 提供了一个度量工具，为这些问题提供了直接答案。</p>
+            <p>例如，使用元组封装和拆封来交换元素看起来要比使用传统的方法要诱人的多。<code>timeit &lt;https://docs.python.org/2.7/library/timeit.html#module-timeit&gt;</code>_
+                证明了后者更快一些::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; from timeit import Timer
+&gt;&gt;&gt; Timer('t=a; a=b; b=t', 'a=1; b=2').timeit()
+0.57535828626024577
+&gt;&gt;&gt; Timer('a,b = b,a', 'a=1; b=2').timeit()
+0.54962537085770791
+</code></pre>
+            <p>相对于 <code>timeit &lt;https://docs.python.org/2.7/library/timeit.html#module-timeit&gt;</code>_
+                的细粒度，<code>profile &lt;https://docs.python.org/2.7/library/profile.html#module-profile&gt;</code>_ 和
+                <code>pstats &lt;https://docs.python.org/2.7/library/profile.html#module-pstats&gt;</code>_
+                模块提供了针对更大代码块的时间度量工具。</p>
+            <div class="dsd_title_1"><a href="#top" id="11"><h2>11 质量控制</h2></a></div>
+            <p>开发高质量软件的方法之一是为每一个函数开发测试代码，并且在开发过程中经常进行测试。 </p>
+            <p><code>doctest &lt;https://docs.python.org/2.7/library/doctest.html#module-doctest&gt;</code>_
+                模块提供了一个工具，扫描模块并根据程序中内嵌的文档字符串执行测试。测试构造如同简单的将它的输出结果剪切并粘贴到文档字符串中。通过用户提供的例子，它发展了文档，允许 doctest
+                模块确认代码的结果是否与文档一致::</p>
+            <pre class="prettyprint"><code>def average(values):
+   """Computes the arithmetic mean of a list of numbers.
+
+   &gt;&gt;&gt; print average([20, 30, 70])
+   40.0
+   """
+   return sum(values, 0.0) / len(values)
+
+import doctest
+doctest.testmod()   # automatically validate the embedded tests
+</code></pre>
+            <p><code>unittest &lt;https://docs.python.org/2.7/library/unittest.html#module-unittest&gt;</code>_ 模块不像
+                <code>doctest &lt;https://docs.python.org/2.7/library/doctest.html#module-doctest&gt;</code>_
+                模块那么容易使用，不过它可以在一个独立的文件里提供一个更全面的测试集::</p>
+            <pre class="prettyprint"><code>import unittest
+
+class TestStatisticalFunctions(unittest.TestCase):
+
+   def test_average(self):
+       self.assertEqual(average([20, 30, 70]), 40.0)
+       self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
+       self.assertRaises(ZeroDivisionError, average, [])
+       self.assertRaises(TypeError, average, 20, 30, 70)
+
+unittest.main() # Calling from the command line invokes all tests
+</code></pre>
+            <div class="dsd_title_1"><a href="#top" id="12"><h2>12 “瑞士军刀”</h2></a></div>
+            <p>Python 展现了“瑞士军刀”的哲学。这可以通过它更大的包的高级和健壮的功能来得到最好的展现。例如:</p>
+            <ul>
+                <li><p><code>xmlrpclib
+                    &lt;https://docs.python.org/2.7/library/xmlrpclib.html#module-xmlrpclib&gt;</code>_ 和 <code>SimpleXMLRPCServer
+                    &lt;https://docs.python.org/2.7/library/simplexmlrpcserver.html#module-SimpleXMLRPCServer&gt;</code>_
+                    模块让远程过程调用变得轻而易举。</p>
+                    <p>尽管模块有这样的名字，用户无需拥有XML的知识或处理 XML。</p></li>
+                <li><p><code>email &lt;https://docs.python.org/2.7/library/email.html#module-email&gt;</code>_
+                    包是一个管理邮件信息的库，包括MIME和其它基于 RFC2822 的信息文档。</p>
+                    <p>不同于实际发送和接收信息的 <code>smtplib &lt;https://docs.python.org/2.7/library/smtplib.html#module-smtplib&gt;</code>_
+                        和 <code>poplib &lt;https://docs.python.org/2.7/library/poplib.html#module-poplib&gt;</code>_
+                        模块，email 包包含一个构造或解析复杂消息结构(包括附件)及实现互联网编码和头协议的完整工具集。</p></li>
+                <li><p><code>xml.dom &lt;https://docs.python.org/2.7/library/xml.dom.html#module-xml.dom&gt;</code>_ 和
+                    <code>xml.sax &lt;https://docs.python.org/2.7/library/xml.sax.html#module-xml.sax&gt;</code>_
+                    包为流行的信息交换格式提供了强大的支持。</p>
+                    <p>同样，<code>csv &lt;https://docs.python.org/2.7/library/csv.html#module-csv&gt;</code>_
+                        模块支持在通用数据库格式中直接读写。综合起来，这些模块和包大大简化了 Python 应用程序和其它工具之间的数据交换。</p></li>
+                <li><p>国际化由 <code>gettext &lt;https://docs.python.org/2.7/library/gettext.html#module-gettext&gt;</code><em>，
+                    <code>locale &lt;https://docs.python.org/2.7/library/locale.html#module-locale&gt;</code></em> 和
+                    <code>codecs &lt;https://docs.python.org/2.7/library/codecs.html#module-codecs&gt;</code>_ 包支持。</p>
+                </li>
+            </ul>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/python/index.html">http://dashidan.com/article/python/index.html</a>
+                </span>
+        </div>
+    </div>
+
+    <div id="xs_content"></div>
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/python/doc27/11.html">📖
+                下一篇: 标准库浏览II</a>
+        </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>

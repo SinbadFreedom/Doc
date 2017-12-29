@@ -132,7 +132,7 @@
             </div>
             <div id="addenda" class="dsd_catalog_left_hide">
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/mongodb/appenda/1.html">1.MongoDb在线测试工具</a>
+                    <a href="http://dashidan.com/article/mongodb/addenda/1.html">1.MongoDb在线测试工具</a>
                 </div>
             </div>
 
@@ -144,52 +144,52 @@
             <span style="color: white">🔖目录</span>
         </div>
     </div>
-    <div id="xs_content">
-        <div class="col-sm-9 col-md-9 col-lg-9">
-            <!-- 文章内容-->
-            <div id="xs_content_border">
-                <div>
-                    <div class="dsd_title"><h1>11.MongoDB插入命令详解</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① 插入单个文档</a></p>
-                        <p><a href="#②">② 插入运转状态</a></p>
-                        <p><a href="#③">③ 参考文章</a></p>
-                        <p><a href="#④">④ 相关文章</a></p></div>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>MongoDB插入命令详解</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><p><a href="#11.MongoDB插入命令详解">11.MongoDB插入命令详解</a></p><a href="#①">①
+                    插入单个文档</a><br><a href="#②">② 插入运转状态</a><br><a href="#③">③ 参考文章</a><br><a href="#④">④ 相关文章</a><br>
                 </div>
-                <p>MongoDB执行插入数据操作时, 如果指定集合不存在, 会自动创建这个集合.</p>
-                <div class="dsd_title"><a href="#top" id="①">① 插入单个文档</a></div>
-                <p>MongoDB3.2版本新特性</p>
-                <p><code>db.collection.insertOne()</code>向一个集合中插入一条数据.</p>
-                <p>插入的数据如果没有指定<code>_id</code>这个字段的值, MongoDB会自动设置一个<code>ObjectId</code>类型的值.</p>
-                <pre class="prettyprint"><code>db.inventory.insertMany([
+            </div>
+            <div class="dsd_title_1"><a href="#top" id="11.MongoDB插入命令详解"><h2>11.MongoDB插入命令详解</h2></a></div>
+            <p>MongoDB执行插入数据操作时, 如果指定集合不存在, 会自动创建这个集合.</p>
+            <div class="dsd_title_2"><a href="#top" id="①">① 插入单个文档</a></div>
+            <p>MongoDB3.2版本新特性</p>
+            <p><code>db.collection.insertOne()</code>向一个集合中插入一条数据.</p>
+            <p>插入的数据如果没有指定<code>_id</code>这个字段的值, MongoDB会自动设置一个<code>ObjectId</code>类型的值.</p>
+            <pre class="prettyprint"><code>db.inventory.insertMany([
    { item: "journal", qty: 25, tags: ["blank", "red"], size: { h: 14, w: 21, uom: "cm" } },
    { item: "mat", qty: 85, tags: ["gray"], size: { h: 27.9, w: 35.5, uom: "cm" } },
    { item: "mousepad", qty: 25, tags: ["gel", "blue"], size: { h: 19, w: 22.85, uom: "cm" } }
 ])
 </code></pre>
-                <p>你可以在以下窗口中运行该程序.</p>
-                <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
-                        height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
-                <p>查看插入的数据, 输入:</p>
-                <pre class="prettyprint"><code>db.inventory.find( {} )
+            <p>你可以在以下窗口中运行该程序.</p>
+            <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
+                    height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
+            <p>查看插入的数据, 输入:</p>
+            <pre class="prettyprint"><code>db.inventory.find( {} )
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="②">② 插入运转状态</a></div>
-                <h3>1.创建集合</h3>
-                <p>如果目标集合不存在, 则创建该集合.</p>
-                <h3>2._id字段</h3>
-                <p>MongoDB中每个文档都需要一个唯一的<code>_id</code>字段来作为主键. 如果插入的文档数据没有该字段, MongoDB会自动生成该字段,
-                    并赋予<code>ObjectId</code>类型的值.</p>
-                <p>这个过程同样适用于<code>update</code>操作时设定了<code>upsert:true</code>属性.</p>
-                <h3>3.原子性</h3>
-                <p>MongoDB写操作提供文档级别的原子操作.</p>
-                <h3>4.写入回执</h3>
-                <p>MonogoDB执行写操作时, 可以指定回执等级.详情参考<a href="https://docs.mongodb.com/manual/reference/write-concern/">Write
-                    Concern</a>.</p>
-                <p>写入相关方法:</p>
-                <pre class="prettyprint"><code>db.collection.insertOne()
+            <div class="dsd_title_2"><a href="#top" id="②">② 插入运转状态</a></div>
+            <h3>1.创建集合</h3>
+            <p>如果目标集合不存在, 则创建该集合.</p>
+            <h3>2._id字段</h3>
+            <p>MongoDB中每个文档都需要一个唯一的<code>_id</code>字段来作为主键. 如果插入的文档数据没有该字段, MongoDB会自动生成该字段, 并赋予<code>ObjectId</code>类型的值.
+            </p>
+            <p>这个过程同样适用于<code>update</code>操作时设定了<code>upsert:true</code>属性.</p>
+            <h3>3.原子性</h3>
+            <p>MongoDB写操作提供文档级别的原子操作.</p>
+            <h3>4.写入回执</h3>
+            <p>MonogoDB执行写操作时, 可以指定回执等级.详情参考<a href="https://docs.mongodb.com/manual/reference/write-concern/">Write
+                Concern</a>.</p>
+            <p>写入相关方法:</p>
+            <pre class="prettyprint"><code>db.collection.insertOne()
 db.collection.insertMany()
 </code></pre>
-                <p>update操作与写入相关的方法:</p>
-                <pre class="prettyprint"><code>db.collection.update() when used with the upsert: true option.
+            <p>update操作与写入相关的方法:</p>
+            <pre class="prettyprint"><code>db.collection.update() when used with the upsert: true option.
 db.collection.updateOne() when used with the upsert: true option.
 db.collection.updateMany() when used with the upsert: true option.
 db.collection.findAndModify() when used with the upsert: true option.
@@ -198,16 +198,17 @@ db.collection.findOneAndReplace() when used with the upsert: true option.
 db.collection.save().
 db.collection.bulkWrite().
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ 参考文章</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/insert-documents/">https://docs.mongodb.com/manual/tutorial/insert-documents/</a>
-                </p>
-                <div class="dsd_title"><a href="#top" id="④">④ 相关文章</a></div>
-                <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
-                <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
+            <div class="dsd_title_2"><a href="#top" id="③">③ 参考文章</a></div>
+            <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/insert-documents/">https://docs.mongodb.com/manual/tutorial/insert-documents/</a>
+            </p>
+            <div class="dsd_title_2"><a href="#top" id="④">④ 相关文章</a></div>
+            <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>
-            </div>
         </div>
     </div>
+
+    <div id="xs_content"></div>
     <div class="text-center">
         <div>
             <a href="http://dashidan.com/article/mongodb/basic/12.html">📖

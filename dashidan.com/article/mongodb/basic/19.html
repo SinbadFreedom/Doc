@@ -132,7 +132,7 @@
             </div>
             <div id="addenda" class="dsd_catalog_left_hide">
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/mongodb/appenda/1.html">1.MongoDb在线测试工具</a>
+                    <a href="http://dashidan.com/article/mongodb/addenda/1.html">1.MongoDb在线测试工具</a>
                 </div>
             </div>
 
@@ -144,49 +144,48 @@
             <span style="color: white">🔖目录</span>
         </div>
     </div>
-    <div id="xs_content">
-        <div class="col-sm-9 col-md-9 col-lg-9">
-            <!-- 文章内容-->
-            <div id="xs_content_border">
-                <div>
-                    <div class="dsd_title"><h1>19.MongoDB块写入操作</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① MongoDB块写入简介</a></p>
-                        <p><a href="#②">② 有序和无序操作</a></p>
-                        <p><a href="#③">③ <code>bulkWrite()</code>方法</a></p>
-                        <p><a href="#④">④ 分片集合块写入策略</a></p>
-                        <p><a href="#⑤">⑤ 参考文章</a></p>
-                        <p><a href="#⑥">⑥ 相关文章</a></p></div>
-                </div>
-                <div class="dsd_title"><a href="#top" id="①">① MongoDB块写入简介</a></div>
-                <p>MonogoDB提供了像一个集合中进行块写入的操作.</p>
-                <p>MongoDB3.2新特性</p>
-                <p><code>db.collection.bulkWrite()</code>方法提供了插入, 更新, 删除操作. 也可以通过<code>db.collection.insertMany()</code>方法执行块插入.
-                </p>
-                <div class="dsd_title"><a href="#top" id="②">② 有序和无序操作</a></div>
-                <p>MongoDB操作可以是有序的也可以是无序的.</p>
-                <p>执行有序操作时, MongoDB顺序执行操作. 如果发生了错误, MongoDB将返回, 并且不执行剩下的操作.
-                    <a href="https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/#bulkwrite-example-bulk-write-operation">ordered
-                        Bulk Write</a></p>
-                <p>执行无序操作时， MongoDB并行执行操作. 如果发生了错误, MongoDB将继续执行其他的操作.
-                    <a href="https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/#bulkwrite-example-unordered-bulk-write">Unordered
-                        Bulk Write</a></p>
-                <p>有序操作比无序操作执行慢, 因为有序操作需要等待前一个操作执行完毕后再执行.</p>
-                <p>默认<code>bulkWrite()</code>方法执行顺序操作. 采用无序执行, 在选项文档数据中设置<code>ordered : false</code>.
-                    <a href="https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/#bulkwrite-write-operations-executionofoperations">Execution
-                        of Operations</a></p>
-                <div class="dsd_title"><a href="#top" id="③">③ <code>bulkWrite()</code>方法</a></div>
-                <p><code>bulkWrite()</code>方法支持以下数据操作:</p>
-                <ul>
-                    <li>insertOne</li>
-                    <li>updateOne</li>
-                    <li>updateMany</li>
-                    <li>replaceOne</li>
-                    <li>deleteOne</li>
-                    <li>deleteMany</li>
-                </ul>
-                <p>每个操作作为一个文档传入一个数组中.</p>
-                <p><code>bulkWrite()</code>执行多次操作</p>
-                <pre class="prettyprint"><code>try {
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>MongoDB块写入操作</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><p><a href="#19.MongoDB块写入操作">19.MongoDB块写入操作</a></p><a href="#①">①
+                    MongoDB块写入简介</a><br><a href="#②">② 有序和无序操作</a><br><a href="#③">③
+                    <code>bulkWrite()</code>方法</a><br><a href="#④">④ 分片集合块写入策略</a><br><a href="#⑤">⑤ 参考文章</a><br><a
+                    href="#⑥">⑥ 相关文章</a><br></div>
+            </div>
+            <div class="dsd_title_1"><a href="#top" id="19.MongoDB块写入操作"><h2>19.MongoDB块写入操作</h2></a></div>
+            <div class="dsd_title_2"><a href="#top" id="①">① MongoDB块写入简介</a></div>
+            <p>MonogoDB提供了像一个集合中进行块写入的操作.</p>
+            <p>MongoDB3.2新特性</p>
+            <p><code>db.collection.bulkWrite()</code>方法提供了插入, 更新, 删除操作. 也可以通过<code>db.collection.insertMany()</code>方法执行块插入.
+            </p>
+            <div class="dsd_title_2"><a href="#top" id="②">② 有序和无序操作</a></div>
+            <p>MongoDB操作可以是有序的也可以是无序的.</p>
+            <p>执行有序操作时, MongoDB顺序执行操作. 如果发生了错误, MongoDB将返回, 并且不执行剩下的操作.
+                <a href="https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/#bulkwrite-example-bulk-write-operation">ordered
+                    Bulk Write</a></p>
+            <p>执行无序操作时， MongoDB并行执行操作. 如果发生了错误, MongoDB将继续执行其他的操作.
+                <a href="https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/#bulkwrite-example-unordered-bulk-write">Unordered
+                    Bulk Write</a></p>
+            <p>有序操作比无序操作执行慢, 因为有序操作需要等待前一个操作执行完毕后再执行.</p>
+            <p>默认<code>bulkWrite()</code>方法执行顺序操作. 采用无序执行, 在选项文档数据中设置<code>ordered : false</code>.
+                <a href="https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/#bulkwrite-write-operations-executionofoperations">Execution
+                    of Operations</a></p>
+            <div class="dsd_title_2"><a href="#top" id="③">③ <code>bulkWrite()</code>方法</a></div>
+            <p><code>bulkWrite()</code>方法支持以下数据操作:</p>
+            <ul>
+                <li>insertOne</li>
+                <li>updateOne</li>
+                <li>updateMany</li>
+                <li>replaceOne</li>
+                <li>deleteOne</li>
+                <li>deleteMany</li>
+            </ul>
+            <p>每个操作作为一个文档传入一个数组中.</p>
+            <p><code>bulkWrite()</code>执行多次操作</p>
+            <pre class="prettyprint"><code>try {
    db.characters.bulkWrite(
       [
          { insertOne :
@@ -227,8 +226,8 @@ catch (e) {
    print(e);
 }
 </code></pre>
-                <p>返回结果</p>
-                <pre class="prettyprint"><code>{
+            <p>返回结果</p>
+            <pre class="prettyprint"><code>{
    "acknowledged" : true,
    "deletedCount" : 1,
    "insertedCount" : 2,
@@ -243,21 +242,22 @@ catch (e) {
    }
 }
 </code></pre>
-                <p>其他块写入例子<a
-                    href="https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/#bulkwrite-example-bulk-write-operation">bulkWrite()
-                    Examples</a></p>
-                <div class="dsd_title"><a href="#top" id="④">④ 分片集合块写入策略</a></div>
-                <p>这个部分暂时不写.日后补充.感兴趣的同学可以去看英文原文.</p>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 参考文章</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/core/bulk-write-operations/">https://docs.mongodb.com/manual/core/bulk-write-operations/</a>
-                </p>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 相关文章</a></div>
-                <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
-                <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
+            <p>其他块写入例子<a
+                href="https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/#bulkwrite-example-bulk-write-operation">bulkWrite()
+                Examples</a></p>
+            <div class="dsd_title_2"><a href="#top" id="④">④ 分片集合块写入策略</a></div>
+            <p>这个部分暂时不写.日后补充.感兴趣的同学可以去看英文原文.</p>
+            <div class="dsd_title_2"><a href="#top" id="⑤">⑤ 参考文章</a></div>
+            <p>📖 <a href="https://docs.mongodb.com/manual/core/bulk-write-operations/">https://docs.mongodb.com/manual/core/bulk-write-operations/</a>
+            </p>
+            <div class="dsd_title_2"><a href="#top" id="⑥">⑥ 相关文章</a></div>
+            <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>
-            </div>
         </div>
     </div>
+
+    <div id="xs_content"></div>
     <div class="text-center">
         <div>
             <a href="http://dashidan.com/article/mongodb/basic/20.html">📖

@@ -132,7 +132,7 @@
             </div>
             <div id="addenda" class="dsd_catalog_left_hide">
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/mongodb/appenda/1.html">1.MongoDb在线测试工具</a>
+                    <a href="http://dashidan.com/article/mongodb/addenda/1.html">1.MongoDb在线测试工具</a>
                 </div>
             </div>
 
@@ -144,26 +144,22 @@
             <span style="color: white">🔖目录</span>
         </div>
     </div>
-    <div id="xs_content">
-        <div class="col-sm-9 col-md-9 col-lg-9">
-            <!-- 文章内容-->
-            <div id="xs_content_border">
-                <div>
-                    <div class="dsd_title"><h1>12.MongoDb查询基本操作详解</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① 查询一个集合中全部数据</a></p>
-                        <p><a href="#②">② 指定条件查询</a></p>
-                        <p><a href="#③">③ 通过条件操作符来设置查询条件</a></p>
-                        <p><a href="#④">④ <code>AND</code>条件查询</a></p>
-                        <p><a href="#⑤">⑤ <code>OR</code>条件查询</a></p>
-                        <p><a href="#⑥">⑥ <code>AND</code>和<code>OR</code>联合查询</a></p>
-                        <p><a href="#⑦">⑦ 查询行为</a></p>
-                        <p><a href="#⑧">⑧ 其他查询方法</a></p>
-                        <p><a href="#⑨">⑨ 参考文章</a></p>
-                        <p><a href="#⑩">⑩ 相关文章</a></p></div>
-                </div>
-                <p>Mongodb提供了查询文档的方法<code>db.collection.find()</code>.</p>
-                <p>例如:</p>
-                <pre class="prettyprint"><code>db.inventory.insertMany([
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>MongoDb查询基本操作详解</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><p><a href="#12.MongoDb查询基本操作详解">12.MongoDb查询基本操作详解</a></p><a href="#②">②
+                    指定条件查询</a><br><a href="#③">③ 通过条件操作符来设置查询条件</a><br><a href="#④">④ <code>AND</code>条件查询</a><br><a
+                    href="#①">① 查询一个集合中全部数据</a><br><a href="#⑥">⑥ <code>AND</code>和<code>OR</code>联合查询</a><br><a
+                    href="#⑦">⑦ 查询行为</a><br><a href="#⑧">⑧ 其他查询方法</a><br><a href="#⑨">⑨ 参考文章</a><br><a href="#⑩">⑩
+                    相关文章</a><br><a href="#⑤">⑤ <code>OR</code>条件查询</a><br></div>
+            </div>
+            <div class="dsd_title_1"><a href="#top" id="12.MongoDb查询基本操作详解"><h2>12.MongoDb查询基本操作详解</h2></a></div>
+            <p>Mongodb提供了查询文档的方法<code>db.collection.find()</code>.</p>
+            <p>例如:</p>
+            <pre class="prettyprint"><code>db.inventory.insertMany([
    { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
    { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
    { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
@@ -171,97 +167,96 @@
    { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
 ]);
 </code></pre>
-                <p>你可以在以下窗口输入命令测试:</p>
-                <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
-                        height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
-                <div class="dsd_title"><a href="#top" id="①">① 查询一个集合中全部数据</a></div>
-                <p>输入:</p>
-                <pre class="prettyprint"><code>db.inventory.find( {} )
+            <p>你可以在以下窗口输入命令测试:</p>
+            <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
+                    height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
+            <div class="dsd_title_2"><a href="#top" id="①">① 查询一个集合中全部数据</a></div>
+            <p>输入:</p>
+            <pre class="prettyprint"><code>db.inventory.find( {} )
 </code></pre>
-                <p>这个对应的SQL语句为</p>
-                <pre class="prettyprint"><code>SELECT * FROM inventory
+            <p>这个对应的SQL语句为</p>
+            <pre class="prettyprint"><code>SELECT * FROM inventory
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="②">② 指定条件查询</a></div>
-                <p>MongoDB使用<code>&lt;field&gt;:&lt;value&gt;</code>表达式来指定查询条件.</p>
-                <pre class="prettyprint"><code>{ &lt;field1&gt;: &lt;value1&gt;, ... }
+            <div class="dsd_title_2"><a href="#top" id="②">② 指定条件查询</a></div>
+            <p>MongoDB使用<code>&lt;field&gt;:&lt;value&gt;</code>表达式来指定查询条件.</p>
+            <pre class="prettyprint"><code>{ &lt;field1&gt;: &lt;value1&gt;, ... }
 </code></pre>
-                <p>以下例子为从<code>inventory</code>集合中查找<code>status</code>为<code>D</code>的全部文档.</p>
-                <pre class="prettyprint"><code>db.inventory.find( { status: "D" } )
+            <p>以下例子为从<code>inventory</code>集合中查找<code>status</code>为<code>D</code>的全部文档.</p>
+            <pre class="prettyprint"><code>db.inventory.find( { status: "D" } )
 </code></pre>
-                <p>这个对应SQL表达式</p>
-                <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "D"
+            <p>这个对应SQL表达式</p>
+            <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "D"
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ 通过条件操作符来设置查询条件</a></div>
-                <p>MongoDB操作符列表:
-                    <a href="https://docs.mongodb.com/manual/reference/operator/query/#query-selectors">query
-                        operators</a></p>
-                <p>操作符使用方式:</p>
-                <pre class="prettyprint"><code>{ &lt;field1&gt;: { &lt;operator1&gt;: &lt;value1&gt; }, ... }
+            <div class="dsd_title_2"><a href="#top" id="③">③ 通过条件操作符来设置查询条件</a></div>
+            <p>MongoDB操作符列表:
+                <a href="https://docs.mongodb.com/manual/reference/operator/query/#query-selectors">query operators</a>
+            </p>
+            <p>操作符使用方式:</p>
+            <pre class="prettyprint"><code>{ &lt;field1&gt;: { &lt;operator1&gt;: &lt;value1&gt; }, ... }
 </code></pre>
-                <p>以下例子为从<code>inventory</code>集合中查找<code>status</code>为<code>A</code>或<code>D</code>的全部文档.</p>
-                <pre class="prettyprint"><code>db.inventory.find( { status: { $in: [ "A", "D" ] } } )
+            <p>以下例子为从<code>inventory</code>集合中查找<code>status</code>为<code>A</code>或<code>D</code>的全部文档.</p>
+            <pre class="prettyprint"><code>db.inventory.find( { status: { $in: [ "A", "D" ] } } )
 </code></pre>
-                <p>另外也可以使用<code>$or</code>操作符来实现以上操作. 当执行相等性检查时,
-                    采用<code>$in</code>而不要用<code>$or</code>(下文<code>OR条件查询</code>有<code>$or</code>的应用场景示例.).</p>
-                <p>等同于SQL语句:</p>
-                <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status in ("A", "D")
+            <p>另外也可以使用<code>$or</code>操作符来实现以上操作. 当执行相等性检查时,
+                采用<code>$in</code>而不要用<code>$or</code>(下文<code>OR条件查询</code>有<code>$or</code>的应用场景示例.).</p>
+            <p>等同于SQL语句:</p>
+            <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status in ("A", "D")
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ <code>AND</code>条件查询</a></div>
-                <p>MongoDB可以同时多个条件, 查询同时满足这些条件的文档.</p>
-                <p>
-                    以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>并且<code>qty</code>小于<code>30</code>的全部文档.
-                </p>
-                <pre class="prettyprint"><code>db.inventory.find( { status: "A", qty: { $lt: 30 } } )
+            <div class="dsd_title_2"><a href="#top" id="④">④ <code>AND</code>条件查询</a></div>
+            <p>MongoDB可以同时多个条件, 查询同时满足这些条件的文档.</p>
+            <p>以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>并且<code>qty</code>小于<code>30</code>的全部文档.
+            </p>
+            <pre class="prettyprint"><code>db.inventory.find( { status: "A", qty: { $lt: 30 } } )
 </code></pre>
-                <p>等同于SQL语句:</p>
-                <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" AND qty &lt; 30
+            <p>等同于SQL语句:</p>
+            <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" AND qty &lt; 30
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ <code>OR</code>条件查询</a></div>
-                <p>MongoDB中可以将多个查询条件放在数组中, 通过<code>$or</code>操作符, 来查询满足其中至少一个条件的文档.</p>
-                <p>
-                    以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>或者<code>qty</code>小于<code>30</code>的全部文档.
-                </p>
-                <pre class="prettyprint"><code>db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
+            <div class="dsd_title_2"><a href="#top" id="⑤">⑤ <code>OR</code>条件查询</a></div>
+            <p>MongoDB中可以将多个查询条件放在数组中, 通过<code>$or</code>操作符, 来查询满足其中至少一个条件的文档.</p>
+            <p>以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>或者<code>qty</code>小于<code>30</code>的全部文档.
+            </p>
+            <pre class="prettyprint"><code>db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
 </code></pre>
-                <p>等同于SQL语句:</p>
-                <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" OR qty &lt; 30
+            <p>等同于SQL语句:</p>
+            <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" OR qty &lt; 30
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ <code>AND</code>和<code>OR</code>联合查询</a></div>
-                <p>以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>的,
-                    并且满足<code>qty</code>小于<code>30</code>或者<code>item</code>数据以<code>p</code>开头的全部文档.</p>
-                <pre class="prettyprint"><code>db.inventory.find( {
+            <div class="dsd_title_2"><a href="#top" id="⑥">⑥ <code>AND</code>和<code>OR</code>联合查询</a></div>
+            <p>以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>的,
+                并且满足<code>qty</code>小于<code>30</code>或者<code>item</code>数据以<code>p</code>开头的全部文档.</p>
+            <pre class="prettyprint"><code>db.inventory.find( {
      status: "A",
      $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ]
 } )
 </code></pre>
-                <p>对应以下SQL语句</p>
-                <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" AND ( qty &lt; 30 OR item LIKE "p%")
+            <p>对应以下SQL语句</p>
+            <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" AND ( qty &lt; 30 OR item LIKE "p%")
 </code></pre>
-                <p>MongoDB的<code>$regex</code>操作符可以做字符串模式匹配.</p>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ 查询行为</a></div>
-                <h3>1.Cursor</h3>
-                <p><code>db.collection.find()</code>方法返回一个<a
-                    href="https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/">cursor</a>执行匹配的文档.</p>
-                <h3>2.读分离</h3>
-                <p>MongoDB3.2新特性</p>
-                <p>For reads to replica sets and replica set shards, read concern allows clients to choose a level of
-                    isolation for their reads. For more information, see Read Concern.</p>
-                <div class="dsd_title"><a href="#top" id="⑧">⑧ 其他查询方法</a></div>
-                <ul>
-                    <li>db.collection.findOne</li>
-                    <li>In aggregation pipeline, the $match pipeline stage provides access to MongoDB queries.</li>
-                </ul>
-                <p><code>db.collection.findOne()</code>方法等同于<code>db.collection.find().limit(1)</code>.</p>
-                <div class="dsd_title"><a href="#top" id="⑨">⑨ 参考文章</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/query-documents/">https://docs.mongodb.com/manual/tutorial/query-documents/</a>
-                </p>
-                <div class="dsd_title"><a href="#top" id="⑩">⑩ 相关文章</a></div>
-                <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
-                <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
+            <p>MongoDB的<code>$regex</code>操作符可以做字符串模式匹配.</p>
+            <div class="dsd_title_2"><a href="#top" id="⑦">⑦ 查询行为</a></div>
+            <h3>1.Cursor</h3>
+            <p><code>db.collection.find()</code>方法返回一个<a
+                href="https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/">cursor</a>执行匹配的文档.</p>
+            <h3>2.读分离</h3>
+            <p>MongoDB3.2新特性</p>
+            <p>For reads to replica sets and replica set shards, read concern allows clients to choose a level of
+                isolation for their reads. For more information, see Read Concern.</p>
+            <div class="dsd_title_2"><a href="#top" id="⑧">⑧ 其他查询方法</a></div>
+            <ul>
+                <li>db.collection.findOne</li>
+                <li>In aggregation pipeline, the $match pipeline stage provides access to MongoDB queries.</li>
+            </ul>
+            <p><code>db.collection.findOne()</code>方法等同于<code>db.collection.find().limit(1)</code>.</p>
+            <div class="dsd_title_2"><a href="#top" id="⑨">⑨ 参考文章</a></div>
+            <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/query-documents/">https://docs.mongodb.com/manual/tutorial/query-documents/</a>
+            </p>
+            <div class="dsd_title_2"><a href="#top" id="⑩">⑩ 相关文章</a></div>
+            <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>
-            </div>
         </div>
     </div>
+
+    <div id="xs_content"></div>
     <div class="text-center">
         <div>
             <a href="http://dashidan.com/article/mongodb/basic/13.html">📖

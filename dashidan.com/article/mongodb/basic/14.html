@@ -132,7 +132,7 @@
             </div>
             <div id="addenda" class="dsd_catalog_left_hide">
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/mongodb/appenda/1.html">1.MongoDb在线测试工具</a>
+                    <a href="http://dashidan.com/article/mongodb/addenda/1.html">1.MongoDb在线测试工具</a>
                 </div>
             </div>
 
@@ -144,24 +144,22 @@
             <span style="color: white">🔖目录</span>
         </div>
     </div>
-    <div id="xs_content">
-        <div class="col-sm-9 col-md-9 col-lg-9">
-            <!-- 文章内容-->
-            <div id="xs_content_border">
-                <div>
-                    <div class="dsd_title"><h1>14.MongoDB查询返回指定字段</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① 初始化数据</a></p>
-                        <p><a href="#②">② 只返回指定字段和<code>_id</code>字段</a></p>
-                        <p><a href="#③">③ MongoDb查询结果去掉<code>_id</code>字段</a></p>
-                        <p><a href="#④">④ MongoDb查询结果返回不包含指定字段</a></p>
-                        <p><a href="#⑤">⑤ MongoDb查询内嵌文档返回指定字段</a></p>
-                        <p><a href="#⑥">⑥ MongoDb查询返回数组中指定数组对象</a></p>
-                        <p><a href="#⑦">⑦ 参考文章</a></p>
-                        <p><a href="#⑧">⑧ 相关文章</a></p></div>
-                </div>
-                <p>MonoDB查询默认返回文档的全部字段. 你可以指定返回字段.</p>
-                <div class="dsd_title"><a href="#top" id="①">① 初始化数据</a></div>
-                <pre class="prettyprint"><code>db.inventory.insertMany( [
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>MongoDB查询返回指定字段</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><p><a href="#14.MongoDB查询返回指定字段">14.MongoDB查询返回指定字段</a></p><a href="#①">①
+                    初始化数据</a><br><a href="#②">② 只返回指定字段和<code>_id</code>字段</a><br><a href="#③">③
+                    MongoDb查询结果去掉<code>_id</code>字段</a><br><a href="#④">④ MongoDb查询结果返回不包含指定字段</a><br><a href="#⑤">⑤
+                    MongoDb查询内嵌文档返回指定字段</a><br><a href="#⑥">⑥ MongoDb查询返回数组中指定数组对象</a><br><a href="#⑦">⑦ 参考文章</a><br><a
+                    href="#⑧">⑧ 相关文章</a><br></div>
+            </div>
+            <div class="dsd_title_1"><a href="#top" id="14.MongoDB查询返回指定字段"><h2>14.MongoDB查询返回指定字段</h2></a></div>
+            <p>MonoDB查询默认返回文档的全部字段. 你可以指定返回字段.</p>
+            <div class="dsd_title_2"><a href="#top" id="①">① 初始化数据</a></div>
+            <pre class="prettyprint"><code>db.inventory.insertMany( [
   { item: "journal", status: "A", size: { h: 14, w: 21, uom: "cm" }, instock: [ { warehouse: "A", qty: 5 } ] },
   { item: "notebook", status: "A",  size: { h: 8.5, w: 11, uom: "in" }, instock: [ { warehouse: "C", qty: 5 } ] },
   { item: "paper", status: "D", size: { h: 8.5, w: 11, uom: "in" }, instock: [ { warehouse: "A", qty: 60 } ] },
@@ -169,52 +167,53 @@
   { item: "postcard", status: "A", size: { h: 10, w: 15.25, uom: "cm" }, instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
 ]);
 </code></pre>
-                <p>你可以在以下窗口输入命令测试:</p>
-                <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
-                        height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
-                <div class="dsd_title"><a href="#top" id="②">② 只返回指定字段和<code>_id</code>字段</a></div>
-                <p>可以通过将<code>&lt;field&gt;</code>字段设置为1, 来指定返回字段. 默认会返回<code>_id</code>字段.</p>
-                <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { item: 1, status: 1 } )
+            <p>你可以在以下窗口输入命令测试:</p>
+            <iframe class="mws-root" allowfullscreen="" sandbox="allow-scripts allow-same-origin" width="600"
+                    height="280" src="https://mws.mongodb.com/?version=3.4"></iframe>
+            <div class="dsd_title_2"><a href="#top" id="②">② 只返回指定字段和<code>_id</code>字段</a></div>
+            <p>可以通过将<code>&lt;field&gt;</code>字段设置为1, 来指定返回字段. 默认会返回<code>_id</code>字段.</p>
+            <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { item: 1, status: 1 } )
 </code></pre>
-                <p>对应的SQL语句:</p>
-                <pre class="prettyprint"><code>SELECT _id, item, status from inventory WHERE status = "A"
+            <p>对应的SQL语句:</p>
+            <pre class="prettyprint"><code>SELECT _id, item, status from inventory WHERE status = "A"
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ MongoDb查询结果去掉<code>_id</code>字段</a></div>
-                <p>可以通过将指定<code>&lt;field&gt;</code>字段设置为<code>0</code>, 来排除指定字段.</p>
-                <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { item: 1, status: 1, _id: 0 } )
+            <div class="dsd_title_2"><a href="#top" id="③">③ MongoDb查询结果去掉<code>_id</code>字段</a></div>
+            <p>可以通过将指定<code>&lt;field&gt;</code>字段设置为<code>0</code>, 来排除指定字段.</p>
+            <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { item: 1, status: 1, _id: 0 } )
 </code></pre>
-                <p>对应的SQL语句:</p>
-                <pre class="prettyprint"><code>SELECT item, status from inventory WHERE status = "A"
+            <p>对应的SQL语句:</p>
+            <pre class="prettyprint"><code>SELECT item, status from inventory WHERE status = "A"
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="④">④ MongoDb查询结果返回不包含指定字段</a></div>
-                <p>你可以通过设置<code>&lt;field&gt;</code>字段设置为<code>0</code>, 来排除指定字段.</p>
-                <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { status: 0, instock: 0 } )
+            <div class="dsd_title_2"><a href="#top" id="④">④ MongoDb查询结果返回不包含指定字段</a></div>
+            <p>你可以通过设置<code>&lt;field&gt;</code>字段设置为<code>0</code>, 来排除指定字段.</p>
+            <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { status: 0, instock: 0 } )
 </code></pre>
-                <p><code>_id</code>字段是个例外, 除了<code>_id</code>字段外, 不同同时指定包含和排除的数据. 只能选择其中一种方式.</p>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ MongoDb查询内嵌文档返回指定字段</a></div>
-                <p>可以通过<code>.</code>操作符来返回指定字段.</p>
-                <pre class="prettyprint"><code>db.inventory.find(
+            <p><code>_id</code>字段是个例外, 除了<code>_id</code>字段外, 不同同时指定包含和排除的数据. 只能选择其中一种方式.</p>
+            <div class="dsd_title_2"><a href="#top" id="⑤">⑤ MongoDb查询内嵌文档返回指定字段</a></div>
+            <p>可以通过<code>.</code>操作符来返回指定字段.</p>
+            <pre class="prettyprint"><code>db.inventory.find(
    { status: "A" },
    { "size.uom": 0 }
 )
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ MongoDb查询返回数组中指定数组对象</a></div>
-                <p>MongoDB提供了: <code>$elemMatch</code>, <code>$slice</code>, and <code>$</code>. 操作符来返回指定数组数据.</p>
-                <p>以下示例通过<code>$slice</code>操作符返回数组中最后一个数据.</p>
-                <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { name: 1, status: 1, instock: { $slice: -1 } } )
+            <div class="dsd_title_2"><a href="#top" id="⑥">⑥ MongoDb查询返回数组中指定数组对象</a></div>
+            <p>MongoDB提供了: <code>$elemMatch</code>, <code>$slice</code>, and <code>$</code>. 操作符来返回指定数组数据.</p>
+            <p>以下示例通过<code>$slice</code>操作符返回数组中最后一个数据.</p>
+            <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { name: 1, status: 1, instock: { $slice: -1 } } )
 </code></pre>
-                <p><code>$elemMatch</code>, <code>$slice</code>, and <code>$</code>这三个操作符是唯一的方式来指定返回数组中的数据,
-                    你不能指定数组索引来返回数组中的数据.例如<code>{ "instock.0": 1 }</code>不会返回数组中的第一个元素.</p>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ 参考文章</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/">https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/</a>
-                </p>
-                <div class="dsd_title"><a href="#top" id="⑧">⑧ 相关文章</a></div>
-                <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
-                <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
+            <p><code>$elemMatch</code>, <code>$slice</code>, and <code>$</code>这三个操作符是唯一的方式来指定返回数组中的数据,
+                你不能指定数组索引来返回数组中的数据.例如<code>{ "instock.0": 1 }</code>不会返回数组中的第一个元素.</p>
+            <div class="dsd_title_2"><a href="#top" id="⑦">⑦ 参考文章</a></div>
+            <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/">https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/</a>
+            </p>
+            <div class="dsd_title_2"><a href="#top" id="⑧">⑧ 相关文章</a></div>
+            <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>
-            </div>
         </div>
     </div>
+
+    <div id="xs_content"></div>
     <div class="text-center">
         <div>
             <a href="http://dashidan.com/article/mongodb/basic/15.html">📖

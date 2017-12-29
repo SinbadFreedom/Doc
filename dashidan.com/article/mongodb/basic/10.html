@@ -132,7 +132,7 @@
             </div>
             <div id="addenda" class="dsd_catalog_left_hide">
                 <div class="single_line">
-                    <a href="http://dashidan.com/article/mongodb/appenda/1.html">1.MongoDb在线测试工具</a>
+                    <a href="http://dashidan.com/article/mongodb/addenda/1.html">1.MongoDb在线测试工具</a>
                 </div>
             </div>
 
@@ -144,80 +144,78 @@
             <span style="color: white">🔖目录</span>
         </div>
     </div>
-    <div id="xs_content">
-        <div class="col-sm-9 col-md-9 col-lg-9">
-            <!-- 文章内容-->
-            <div id="xs_content_border">
-                <div>
-                    <div class="dsd_title"><h1>10.MongoDB增删改查操作简介</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① 增加操作</a></p>
-                        <p><a href="#②">② 查询操作</a></p>
-                        <p><a href="#③">③ 修改操作</a></p>
-                        <p><a href="#④">④ 删除操作</a></p>
-                        <p><a href="#⑤">⑤ 块写入</a></p>
-                        <p><a href="#⑥">⑥ 参考文章</a></p>
-                        <p><a href="#⑦">⑦ 相关文章</a></p></div>
-                </div>
-                <p><code>CRUD</code>(create, read, update, delete)即为增删改查数据.</p>
-                <div class="dsd_title"><a href="#top" id="①">① 增加操作</a></div>
-                <p>增加操作即为创建或者插入数据.MongoDB提供了一下方法:</p>
-                <pre class="prettyprint"><code>db.collection.insertOne() New in version 3.2
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>MongoDB增删改查操作简介</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><p><a href="#10.MongoDB增删改查操作简介">10.MongoDB增删改查操作简介</a></p><a href="#①">①
+                    增加操作</a><br><a href="#②">② 查询操作</a><br><a href="#③">③ 修改操作</a><br><a href="#④">④ 删除操作</a><br><a
+                    href="#⑤">⑤ 块写入</a><br><a href="#⑥">⑥ 参考文章</a><br><a href="#⑦">⑦ 相关文章</a><br></div>
+            </div>
+            <div class="dsd_title_1"><a href="#top" id="10.MongoDB增删改查操作简介"><h2>10.MongoDB增删改查操作简介</h2></a></div>
+            <p><code>CRUD</code>(create, read, update, delete)即为增删改查数据.</p>
+            <div class="dsd_title_2"><a href="#top" id="①">① 增加操作</a></div>
+            <p>增加操作即为创建或者插入数据.MongoDB提供了一下方法:</p>
+            <pre class="prettyprint"><code>db.collection.insertOne() New in version 3.2
 db.collection.insertMany() New in version 3.2
 </code></pre>
-                <p>MongoDB中插入操作只能以一个数据库为目标. 所有的写的操作都是文档级别原子性的.</p>
-                <p><img class="center-block img-responsive" src="http://dashidan.com/img/mongodb/basic/10-1.svg"
-                        alt="10-1"/></p>
-                <p>举个栗子:
-                    <a href="https://docs.mongodb.com/manual/tutorial/insert-documents/">Insert Documents</a></p>
-                <div class="dsd_title"><a href="#top" id="②">② 查询操作</a></div>
-                <p>从集合中读取数据.MongoDB提供了以下方法来读取数据:</p>
-                <pre class="prettyprint"><code>db.collection.find()
+            <p>MongoDB中插入操作只能以一个数据库为目标. 所有的写的操作都是文档级别原子性的.</p>
+            <p><img class="center-block img-responsive" src="http://dashidan.com/img/mongodb/basic/10-1.svg"
+                    alt="10-1"/></p>
+            <p>举个栗子:
+                <a href="https://docs.mongodb.com/manual/tutorial/insert-documents/">Insert Documents</a></p>
+            <div class="dsd_title_2"><a href="#top" id="②">② 查询操作</a></div>
+            <p>从集合中读取数据.MongoDB提供了以下方法来读取数据:</p>
+            <pre class="prettyprint"><code>db.collection.find()
 </code></pre>
-                <p>你可以指定查询的过滤条件.例如:</p>
-                <p><img class="center-block img-responsive" src="http://dashidan.com/img/mongodb/basic/10-2.svg"
-                        alt="10-2"/></p>
-                <p>举个栗子:
-                    <a href="https://docs.mongodb.com/manual/tutorial/query-documents/">Query Documents</a>
-                    <a href="https://docs.mongodb.com/manual/tutorial/query-embedded-documents/">Query on
-                        Embedded/Nested Documents</a>
-                    <a href="https://docs.mongodb.com/manual/tutorial/query-arrays/">Query an Array</a>
-                    <a href="https://docs.mongodb.com/manual/tutorial/query-array-of-documents/">Query an Array of
-                        Embedded Documents</a></p>
-                <div class="dsd_title"><a href="#top" id="③">③ 修改操作</a></div>
-                <p>修改指定文档的数据.MongoDB提供了以下方法来修改数据:</p>
-                <pre class="prettyprint"><code>db.collection.updateOne() New in version 3.2
+            <p>你可以指定查询的过滤条件.例如:</p>
+            <p><img class="center-block img-responsive" src="http://dashidan.com/img/mongodb/basic/10-2.svg"
+                    alt="10-2"/></p>
+            <p>举个栗子:
+                <a href="https://docs.mongodb.com/manual/tutorial/query-documents/">Query Documents</a>
+                <a href="https://docs.mongodb.com/manual/tutorial/query-embedded-documents/">Query on Embedded/Nested
+                    Documents</a>
+                <a href="https://docs.mongodb.com/manual/tutorial/query-arrays/">Query an Array</a>
+                <a href="https://docs.mongodb.com/manual/tutorial/query-array-of-documents/">Query an Array of Embedded
+                    Documents</a></p>
+            <div class="dsd_title_2"><a href="#top" id="③">③ 修改操作</a></div>
+            <p>修改指定文档的数据.MongoDB提供了以下方法来修改数据:</p>
+            <pre class="prettyprint"><code>db.collection.updateOne() New in version 3.2
 db.collection.updateMany() New in version 3.2
 db.collection.replaceOne() New in version 3.2
 </code></pre>
-                <p>MongoDB中修改操作只能以一个数据库为目标. 所有的修改操作都是文档级别原子性的.</p>
-                <p>你可以指定修改的过滤条件.例如:</p>
-                <p><img class="center-block img-responsive" src="http://dashidan.com/img/mongodb/basic/10-3.svg"
-                        alt="10-3"/></p>
-                <p>举个栗子:
-                    <a href="https://docs.mongodb.com/manual/tutorial/update-documents/">Update Documents</a></p>
-                <div class="dsd_title"><a href="#top" id="④">④ 删除操作</a></div>
-                <p>从集合中删除文档数据.MongoDB提供了以下方法来删除文档:</p>
-                <pre class="prettyprint"><code>db.collection.deleteOne() New in version 3.2
+            <p>MongoDB中修改操作只能以一个数据库为目标. 所有的修改操作都是文档级别原子性的.</p>
+            <p>你可以指定修改的过滤条件.例如:</p>
+            <p><img class="center-block img-responsive" src="http://dashidan.com/img/mongodb/basic/10-3.svg"
+                    alt="10-3"/></p>
+            <p>举个栗子:
+                <a href="https://docs.mongodb.com/manual/tutorial/update-documents/">Update Documents</a></p>
+            <div class="dsd_title_2"><a href="#top" id="④">④ 删除操作</a></div>
+            <p>从集合中删除文档数据.MongoDB提供了以下方法来删除文档:</p>
+            <pre class="prettyprint"><code>db.collection.deleteOne() New in version 3.2
 db.collection.deleteMany() New in version 3.2
 </code></pre>
-                <p>MongoDB中删除操作只能以一个数据库为目标. 所有的删除操作都是文档级别原子性的.</p>
-                <p>你可以指定删除的过滤条件.例如:</p>
-                <p><img class="center-block img-responsive" src="http://dashidan.com/img/mongodb/basic/10-4.svg"
-                        alt="10-4"/></p>
-                <p>举个栗子:
-                    <a href="https://docs.mongodb.com/manual/tutorial/remove-documents/">Delete Documents</a></p>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 块写入</a></div>
-                <p>MongoDB提供了块级别的写入操作.详情参考<a href="https://docs.mongodb.com/manual/core/bulk-write-operations/">Bulk
-                    Write Operations</a>.</p>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 参考文章</a></div>
-                <p>📖 <a href="https://docs.mongodb.com/manual/crud/">https://docs.mongodb.com/manual/crud/</a></p>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ 相关文章</a></div>
-                <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
-                <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
+            <p>MongoDB中删除操作只能以一个数据库为目标. 所有的删除操作都是文档级别原子性的.</p>
+            <p>你可以指定删除的过滤条件.例如:</p>
+            <p><img class="center-block img-responsive" src="http://dashidan.com/img/mongodb/basic/10-4.svg"
+                    alt="10-4"/></p>
+            <p>举个栗子:
+                <a href="https://docs.mongodb.com/manual/tutorial/remove-documents/">Delete Documents</a></p>
+            <div class="dsd_title_2"><a href="#top" id="⑤">⑤ 块写入</a></div>
+            <p>MongoDB提供了块级别的写入操作.详情参考<a href="https://docs.mongodb.com/manual/core/bulk-write-operations/">Bulk Write
+                Operations</a>.</p>
+            <div class="dsd_title_2"><a href="#top" id="⑥">⑥ 参考文章</a></div>
+            <p>📖 <a href="https://docs.mongodb.com/manual/crud/">https://docs.mongodb.com/manual/crud/</a></p>
+            <div class="dsd_title_2"><a href="#top" id="⑦">⑦ 相关文章</a></div>
+            <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/mongodb/index.html">http://dashidan.com/article/mongodb/index.html</a>
                 </span>
-            </div>
         </div>
     </div>
+
+    <div id="xs_content"></div>
     <div class="text-center">
         <div>
             <a href="http://dashidan.com/article/mongodb/basic/11.html">📖

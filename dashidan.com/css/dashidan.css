@@ -60,6 +60,16 @@ img {
     /*padding-left: 5px;*/
 }
 
+/** 一级标题*/
+.dsd_title_1 {
+    padding-left: 5px;
+}
+
+/** 二级标题*/
+.dsd_title_2 {
+    padding-left: 15px;
+}
+
 #xs_index {
     /*padding: 5px;*/
     /*padding-right: 3px;*/

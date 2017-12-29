@@ -1,0 +1,465 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>错误</title>
+    <meta name="description" content="错误">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/python/index.html">Python</a></li>
+    </ol>
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <!--
+        <div id="xs_index_close" class="text-right visible-xs" onclick="hideIndex()">
+            关闭❎
+            <hr>
+        </div>
+		-->
+        <div>
+            <div class="dsd_title" onclick="clickTitle('doc27')">
+                <h3><span id="doc_title">➕ Python中文文档2.7</span></h3>
+            </div>
+            <div id="doc27" class="dsd_catalog_left_hide">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/1.html">1.前言</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/2.html">2.解释器</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/3.html">3.简介</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/6.html">6.模块</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/8.html">8.错误</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/9.html">9.类</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/12.html">12.接下来</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/python/doc27/15.html">15.附录</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="sx_index_button" class="visible-xs-block" onclick="showIndex()">
+        <!-- 小屏显示目录-->
+        <div id="sx_index_button_text">
+            <span style="color: white">🔖目录</span>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>错误</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><a href="#1">1 语法错误</a><br><a href="#2">2 异常</a><br><a href="#3">3 异常处理</a><br><a
+                    href="#4">4 抛出异常</a><br><a href="#5">5 用户自定义异常</a><br><a href="#6">6 定义清理行为</a><br><a href="#7">7
+                    预定义清理行为</a><br></div>
+            </div>
+            <p>﻿至今为止还没有进一步的谈论过错误信息，不过在你已经试验过的那些例子中，可能已经遇到过一些。Python 中(至少)有两种错误：语法错误和异常( <em>syntax errors</em> 和 <em>exceptions</em>
+                )。</p>
+            <div class="dsd_title_1"><a href="#top" id="1"><h2>1 语法错误</h2></a></div>
+            <p>语法错误，也被称作解析错误，也许是你学习 Python 过程中最常见抱怨::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; while True print 'Hello world'
+ File "&lt;stdin&gt;", line 1, in ?
+   while True print 'Hello world'
+                  ^
+SyntaxError: invalid syntax
+</code></pre>
+            <p>语法分析器指出错误行，并且在检测到错误的位置前面显示一个小“箭头”。错误是由箭头 <em>前面</em> 的标记引起的(或者至少是这么检测的)：这个例子中，关键字 <code>print &lt;https://docs.python.org/2.7/reference/simple_stmts.html#print&gt;</code>_
+                被发现存在错误，因为它前面少了一个冒号( <code>':'</code> )。错误会输出文件名和行号，所以如果是从脚本输入的你就知道去哪里检查错误了。</p>
+            <div class="dsd_title_1"><a href="#top" id="2"><h2>2 异常</h2></a></div>
+            <p>即使一条语句或表达式在语法上是正确的，当试图执行它时也可能会引发错误。运行期检测到的错误称为 <em>异常</em>，并且程序不会无条件的崩溃：很快，你将学到如何在 Python
+                程序中处理它们。然而，大多数异常都不会被程序处理，像这里展示的一样最终会产生一个错误信息::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; 10 * (1/0)
+Traceback (most recent call last):
+ File "&lt;stdin&gt;", line 1, in ?
+ZeroDivisionError: integer division or modulo by zero
+&gt;&gt;&gt; 4 + spam*3
+Traceback (most recent call last):
+ File "&lt;stdin&gt;", line 1, in ?
+NameError: name 'spam' is not defined
+&gt;&gt;&gt; '2' + 2
+Traceback (most recent call last):
+ File "&lt;stdin&gt;", line 1, in ?
+TypeError: cannot concatenate 'str' and 'int' objects
+</code></pre>
+            <p>错误信息的最后一行指出发生了什么错误。异常也有不同的类型，异常类型做为错误信息的一部分显示出来：示例中的异常分别为 除错误( <code>ZeroDivisionError &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.ZeroDivisionError&gt;</code>_
+                )，命名错误( <code>NameError
+                    &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.NameError&gt;</code>_ )和类型错误(
+                <code>TypeError &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.TypeError&gt;</code>_
+                )。打印错误信息时，异常的类型作为异常的内置名显示。对于所有的内置异常都是如此，不过用户自定义异常就不一定了(尽管这是一个很有用的约定)。标准异常名是内置的标识(没有保留关键字)。 </p>
+            <p>这一行后一部分是关于该异常类型的详细说明，这意味着它的内容依赖于异常类型。</p>
+            <p>错误信息的前半部分以堆栈的形式列出异常发生的位置。通常在堆栈中列出了源代码行，然而，来自标准输入的源码不会显示出来。 </p>
+            <p><code>Built-in Exceptions
+                &lt;https://docs.python.org/2.7/library/exceptions.html#bltin-exceptions&gt;</code>_ 列出了内置异常和它们的含义。</p>
+            <div class="dsd_title_1"><a href="#top" id="3"><h2>3 异常处理</h2></a></div>
+            <p>通过编程处理选择的异常是可行的。看一下下面的例子：它会一直要求用户输入，直到输入一个合法的整数为止，但允许用户中断这个程序(使用 :kbd:<code>Control-C</code>
+                或系统支持的任何方法)。注意：用户产生的中断会引发一个 <code>KeyboardInterrupt &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.KeyboardInterrupt&gt;</code>_
+                异常::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; while True:
+...     try:
+...         x = int(raw_input("Please enter a number: "))
+...         break
+...     except ValueError:
+...         print "Oops!  That was no valid number.  Try again..."
+...
+</code></pre>
+            <p><code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_ 语句按如下方式工作：</p>
+            <ul>
+                <li><p>首先，执行 <em>try</em> 子句(在 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                    和 <code>except &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_
+                    关键字之间的部分)。</p></li>
+                <li><p>如果没有异常发生，<em>except</em> 子句在 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                    语句执行完毕后就被忽略了。</p></li>
+                <li><p>如果在 try 子句执行过程中发生了异常，那么该子句其余的部分就会被忽略。</p>
+                    <p>如果异常匹配于 <code>except
+                        &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_ 关键字后面指定的异常类型，
+                    </p>
+                    <p>就执行对应的 <code>except
+                        &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_ 子句。</p>
+                    <p>然后继续执行 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                        语句之后的代码。</p></li>
+                <li><p>如果发生了一个异常，在 <code>except
+                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_ 子句中没有与之匹配的分支，</p>
+                    <p>它就会传递到上一级 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                        语句中。</p>
+                    <p>如果最终仍找不到对应的处理语句，它就成为一个 <em>未处理异常</em>，终止程序运行，显示提示信息。</p></li>
+            </ul>
+            <p>一个 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_ 语句可能包含多个
+                except 子句，分别指定处理不同的异常。至多只会有一个分支被执行。异常处理程序只会处理对应的 try 子句中发生的异常，在同一个 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                语句中，其他子句中发生的异常则不作处理。一个 except 子句可以在括号中列出多个异常的名字，例如::</p>
+            <pre class="prettyprint"><code>... except (RuntimeError, TypeError, NameError):
+...     pass
+</code></pre>
+            <p>注意，此元组周围的括号是必需的，因为 <code>except ValueError, e:</code> 是旧式的写法，在现代 Python 中通常写成 <code>except ValueError,
+                e:</code> （如下所述）。为了保持向后兼容性，旧式语法仍然是支持的。这意味着 <code>except RuntimeError, TypeError</code> 不等同于 <code>except
+                (RuntimeError, TypeError):</code> 而等同于 <code>except RuntimeError as
+                TypeError:</code> , 这应该不是你想要的。</p>
+            <p>最后一个 except 子句可以省略异常名称，以作为通配符使用。你需要慎用此法，因为它会轻易隐藏一个实际的程序错误！可以使用这种方法打印一条错误信息，然后重新抛出异常(允许调用者处理这个异常)::</p>
+            <pre class="prettyprint"><code>import sys
+
+try:
+   f = open('myfile.txt')
+   s = f.readline()
+   i = int(s.strip())
+except IOError as e:
+   print "I/O error({0}): {1}".format(e.errno, e.strerror)
+except ValueError:
+   print "Could not convert data to an integer."
+except:
+   print "Unexpected error:", sys.exc_info()[0]
+   raise
+</code></pre>
+            <p><code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_ ... <code>except
+                &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_ 语句可以带有一个
+                <em>else子句</em> ，该子句只能出现在所有 except 子句之后。当 try 语句没有抛出异常时，需要执行一些代码，可以使用这个子句。例如 ::</p>
+            <pre class="prettyprint"><code>for arg in sys.argv[1:]:
+   try:
+       f = open(arg, 'r')
+   except IOError:
+       print 'cannot open', arg
+   else:
+       print arg, 'has', len(f.readlines()), 'lines'
+       f.close()
+</code></pre>
+            <p>使用 <code>else &lt;https://docs.python.org/2.7/reference/compound_stmts.html#else&gt;</code>_ 子句比在 <code>try
+                &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_ 子句中附加代码要好，因为这样可以避免 <code>try
+                &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_ ... <code>except &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_
+                意外的截获本来不属于它们保护的那些代码抛出的异常。 </p>
+            <p>发生异常时，可能会有一个附属值，作为异常的 <em>参数</em> 存在。这个参数是否存在、是什么类型，依赖于异常的类型。 </p>
+            <p>在异常名(列表)之后，也可以为 except 子句指定一个变量。这个变量绑定于一个异常实例，它存储在 <code>instance.args</code> 的参数中。为了方便起见，异常实例定义了 <code>__str__()
+                &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__str__&gt;</code>_ ，这样就可以直接访问过打印参数而不必引用
+                <code>.args</code>。这种做法不受鼓励。相反，更好的做法是给异常传递一个参数(如果要传递多个参数，可以传递一个元组)，把它绑定到 message
+                属性。一旦异常发生，它会在抛出前绑定所有指定的属性::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; try:
+...    raise Exception('spam', 'eggs')
+... except Exception as inst:
+...    print type(inst)     # the exception instance
+...    print inst.args      # arguments stored in .args
+...    print inst           # __str__ allows args to be printed directly
+...    x, y = inst.args
+...    print 'x =', x
+...    print 'y =', y
+...
+&lt;type 'exceptions.Exception'&gt;
+('spam', 'eggs')
+('spam', 'eggs')
+x = spam
+y = eggs
+</code></pre>
+            <p>对于那些未处理的异常，如果一个它们带有参数，那么就会被作为异常信息的最后部分(“详情”)打印出来。</p>
+            <p>异常处理器不仅仅处理那些在 try 子句中立刻发生的异常，也会处理那些 try 子句中调用的函数内部发生的异常。例如::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; def this_fails():
+...     x = 1/0
+...
+&gt;&gt;&gt; try:
+...     this_fails()
+... except ZeroDivisionError as detail:
+...     print 'Handling run-time error:', detail
+...
+Handling run-time error: int division or modulo by zero
+</code></pre>
+            <div class="dsd_title_1"><a href="#top" id="4"><h2>4 抛出异常</h2></a></div>
+            <p><code>raise &lt;https://docs.python.org/2.7/reference/simple_stmts.html#raise&gt;</code>_
+                语句允许程序员强制抛出一个指定的异常。例如::</p>
+            <blockquote>
+                <blockquote>
+                    <blockquote>
+                        <p>raise NameError('HiThere')
+                            Traceback (most recent call last):
+                            File "
+                            <stdin>", line 1, in ?
+                                NameError: HiThere
+                        </p>
+                    </blockquote>
+                </blockquote>
+            </blockquote>
+            <p>要抛出的异常由 <code>raise &lt;https://docs.python.org/2.7/reference/simple_stmts.html#raise&gt;</code>_
+                的唯一参数标识。它必需是一个异常实例或异常类(继承自 :class:<code>Exception</code> 的类)。</p>
+            <p>如果你需要明确一个异常是否抛出，但不想处理它，<code>raise
+                &lt;https://docs.python.org/2.7/reference/simple_stmts.html#raise&gt;</code>_ 语句可以让你很简单的重新抛出该异常::</p>
+            <blockquote>
+                <blockquote>
+                    <blockquote>
+                        <p>try:
+                            ... raise NameError('HiThere')
+                            ... except NameError:
+                            ... print 'An exception flew by!'
+                            ... raise
+                            ...
+                            An exception flew by!
+                            Traceback (most recent call last):
+                            File "
+                            <stdin>", line 2, in ?
+                                NameError: HiThere
+                        </p>
+                    </blockquote>
+                </blockquote>
+            </blockquote>
+            <p>.. _tut-userexceptions:</p>
+            <div class="dsd_title_1"><a href="#top" id="5"><h2>5 用户自定义异常</h2></a></div>
+            <p>在程序中可以通过创建新的异常类型来命名自己的异常(Python 类的内容请参见 :ref:<code>tut-classes</code> )。异常类通常应该直接或间接的从 <code>Exception
+                &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.Exception&gt;</code>_ 类派生，例如::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; class MyError(Exception):
+...     def __init__(self, value):
+...         self.value = value
+...     def __str__(self):
+...         return repr(self.value)
+...
+&gt;&gt;&gt; try:
+...     raise MyError(2*2)
+... except MyError as e:
+...     print 'My exception occurred, value:', e.value
+...
+My exception occurred, value: 4
+&gt;&gt;&gt; raise MyError('oops!')
+Traceback (most recent call last):
+ File "&lt;stdin&gt;", line 1, in ?
+__main__.MyError: 'oops!'
+</code></pre>
+            <p>在这个例子中，:class:<code>Exception</code> 默认的 <code>__init__() &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__init__&gt;</code>_
+                被覆盖。新的方式简单的创建 <em>value</em> 属性。这就替换了原来创建 <em>args</em> 属性的方式。 </p>
+            <p>
+                异常类中可以定义任何其它类中可以定义的东西，但是通常为了保持简单，只在其中加入几个属性信息，以供异常处理句柄提取。如果一个新创建的模块中需要抛出几种不同的错误时，一个通常的作法是为该模块定义一个异常基类，然后针对不同的错误类型派生出对应的异常子类::</p>
+            <pre class="prettyprint"><code>class Error(Exception):
+   """Base class for exceptions in this module."""
+   pass
+
+class InputError(Error):
+   """Exception raised for errors in the input.
+
+   Attributes:
+       expr -- input expression in which the error occurred
+       msg  -- explanation of the error
+   """
+
+   def __init__(self, expr, msg):
+       self.expr = expr
+       self.msg = msg
+
+class TransitionError(Error):
+   """Raised when an operation attempts a state transition that's not
+   allowed.
+
+   Attributes:
+       prev -- state at beginning of transition
+       next -- attempted new state
+       msg  -- explanation of why the specific transition is not allowed
+   """
+
+   def __init__(self, prev, next, msg):
+       self.prev = prev
+       self.next = next
+       self.msg = msg
+</code></pre>
+            <p>与标准异常相似，大多数异常的命名都以 “Error” 结尾。</p>
+            <p>很多标准模块中都定义了自己的异常，用以报告在他们所定义的函数中可能发生的错误。关于类的进一步信息请参见 :ref:<code>tut-classes</code> 一章。</p>
+            <div class="dsd_title_1"><a href="#top" id="6"><h2>6 定义清理行为</h2></a></div>
+            <p><code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                语句还有另一个可选的子句，目的在于定义在任何情况下都一定要执行的功能。例如::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; try:
+...     raise KeyboardInterrupt
+... finally:
+...     print 'Goodbye, world!'
+...
+Goodbye, world!
+Traceback (most recent call last):
+ File "&lt;stdin&gt;", line 2, in ?
+KeyboardInterrupt
+</code></pre>
+            <p>不管有没有发生异常，<em>finally子句</em> 在程序离开 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                后都一定会被执行。当 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                语句中发生了未被 <code>except &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_
+                捕获的异常(或者它发生在 <code>except
+                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_ 或 <code>else &lt;https://docs.python.org/2.7/reference/compound_stmts.html#else&gt;</code>_
+                子句中)，在 <code>finally &lt;https://docs.python.org/2.7/reference/compound_stmts.html#finally&gt;</code>_
+                子句执行完后它会被重新抛出。<code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
+                语句经由 <code>break &lt;https://docs.python.org/2.7/reference/simple_stmts.html#break&gt;</code><em>，<code>continue
+                    &lt;https://docs.python.org/2.7/reference/simple_stmts.html#continue&gt;</code></em> 或 <code>return
+                    &lt;https://docs.python.org/2.7/reference/simple_stmts.html#return&gt;</code>_ 语句退出也一样会执行 <code>finally
+                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#finally&gt;</code>_ 子句。以下是一个更复杂些的例子(在同
+                一个 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_ 语句中的 <code>except
+                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_ 和 <code>finally
+                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#finally&gt;</code>_ 子句的工作方式与 Python
+                2.5 一样)::</p>
+            <pre class="prettyprint"><code>&gt;&gt;&gt; def divide(x, y):
+...     try:
+...         result = x / y
+...     except ZeroDivisionError:
+...         print "division by zero!"
+...     else:
+...         print "result is", result
+...     finally:
+...         print "executing finally clause"
+...
+&gt;&gt;&gt; divide(2, 1)
+result is 2
+executing finally clause
+&gt;&gt;&gt; divide(2, 0)
+division by zero!
+executing finally clause
+&gt;&gt;&gt; divide("2", "1")
+executing finally clause
+Traceback (most recent call last):
+ File "&lt;stdin&gt;", line 1, in ?
+ File "&lt;stdin&gt;", line 3, in divide
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+</code></pre>
+            <p>如你所见，<code>finally &lt;https://docs.python.org/2.7/reference/compound_stmts.html#finally&gt;</code>_
+                子句在任何情况下都会执行。<code>TypeError &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.TypeError&gt;</code>_
+                在两个字符串相除的时候抛出，未被 except 子句捕获，因此在 <code>finally &lt;https://docs.python.org/2.7/reference/compound_stmts.html#finally&gt;</code>_
+                子句执行完毕后重新抛出。 </p>
+            <p>在真实场景的应用程序中，<code>finally
+                &lt;https://docs.python.org/2.7/reference/compound_stmts.html#finally&gt;</code>_
+                子句用于释放外部资源(文件或网络连接之类的)，无论它们的使用过程中是否出错。</p>
+            <div class="dsd_title_1"><a href="#top" id="7"><h2>7 预定义清理行为</h2></a></div>
+            <p>有些对象定义了标准的清理行为，无论对象操作是否成功，不再需要该对象的时候就会起作用。以下示例尝试打开文件并把内容打印到屏幕上::</p>
+            <pre class="prettyprint"><code>for line in open("myfile.txt"):
+   print line
+</code></pre>
+            <p>这段代码的问题在于在代码执行完后没有立即关闭打开的文件。这在简单的脚本里没什么，但是大型应用程序就会出问题。<code>with &lt;https://docs.python.org/2.7/reference/compound_stmts.html#with&gt;</code>_
+                语句使得文件之类的对象可以确保总能及时准确地进行清理::</p>
+            <pre class="prettyprint"><code>with open("myfile.txt") as f:
+   for line in f:
+       print line
+</code></pre>
+            <p>语句执行后，文件 <em>f</em> 总会被关闭，即使是在处理文件中的数据时出错也一样。其它对象是否提供了预定义的清理行为要查看它们的文档。</p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/python/index.html">http://dashidan.com/article/python/index.html</a>
+                </span>
+        </div>
+    </div>
+
+    <div id="xs_content"></div>
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/python/doc27/9.html">📖
+                下一篇: 类</a>
+        </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>
