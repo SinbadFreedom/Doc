@@ -160,6 +160,16 @@
                 </div>
             </div>
 
+            <div class="dsd_title" onclick="clickTitle('api6')">
+                <h3><span id="api6_title">➕ JDK6中文文档</span></h3>
+            </div>
+
+            <div id="api6" class="dsd_catalog_left_hide">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/api6/index.html">JDK6中文文档主页</a>
+                </div>
+            </div>
+
             <div class="dsd_title" onclick="clickTitle('addenda')">
                 <h3 id="addenda_title">➕ 附录</h3>
             </div>
@@ -176,6 +186,9 @@
                 <div class="single_line">
                     <a href="http://dashidan.com/article/java/addenda/4.html">4.Linux配置Java环境</a>
                 </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                </div>
             </div>
 
         </div>
@@ -186,49 +199,48 @@
             <span style="color: white">🔖目录</span>
         </div>
     </div>
-    <div id="xs_content">
-        <div class="col-sm-9 col-md-9 col-lg-9">
-            <!-- 文章内容-->
-            <div id="xs_content_border">
-                <div>
-                    <div class="dsd_title"><h1>19.Java线程</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① 线程和进程的概念</a></p>
-                        <p><a href="#②">② 线程的实现</a></p>
-                        <p><a href="#③">③ Java线程调度</a></p>
-                        <p><a href="#④">④ Java中线程的实现</a></p>
-                        <p><a href="#⑤">⑤ 启动线程</a></p>
-                        <p><a href="#⑥">⑥ Java线程的状态</a></p>
-                        <p><a href="#⑦">⑦ 线程死锁</a></p>
-                        <p><a href="#⑧">⑧ synchronized用在对象, 方法, 代码块的区别</a></p>
-                        <p><a href="#⑨">⑨ Lock对象</a></p>
-                        <p><a href="#⑩">⑩ 线程常见问题 </a></p>
-                        <p><a href="#⑪">⑪ 相关文章</a></p></div>
-                </div>
-                <div class="jumbotron">
-                    <p>部分内容源自:《深入理解JVM虚拟机》.
-                    </p>
-                </div>
-                <div class="dsd_title"><a href="#top" id="①">① 线程和进程的概念</a></div>
-                <p>进程是指一个内存中运行有自己独立的一块内存空间的应用程序.一个进程中至少一个线程.</p>
-                <p>线程是指进程中的一个执行流程.每个线程有独立的运行栈. 线程从属于进程. 一个进程中可以运行多个线程.进程中的多个线程共享进程的内存.</p>
-                <p>线程和进程一样分为五个阶段:创建、就绪、运行、阻塞、终止.</p>
-                <p>多进程是指操作系统能同时运行多个任务(程序).</p>
-                <p>多线程是指在同一程序中,有多个顺序流在执行.</p>
-                <p><img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/18-1.jpg" alt="线程"/>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>Java线程</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_title"><h1>19.Java线程</h1></div>
+                <div class="dsd_catalog"><p><a href="#①">① 线程和进程的概念</a></p>
+                    <p><a href="#②">② 线程的实现</a></p>
+                    <p><a href="#③">③ Java线程调度</a></p>
+                    <p><a href="#④">④ Java中线程的实现</a></p>
+                    <p><a href="#⑤">⑤ 启动线程</a></p>
+                    <p><a href="#⑥">⑥ Java线程的状态</a></p>
+                    <p><a href="#⑦">⑦ 线程死锁</a></p>
+                    <p><a href="#⑧">⑧ synchronized用在对象, 方法, 代码块的区别</a></p>
+                    <p><a href="#⑨">⑨ Lock对象</a></p>
+                    <p><a href="#⑩">⑩ 线程常见问题 </a></p>
+                    <p><a href="#⑪">⑪ 相关文章</a></p></div>
+            </div>
+            <div class="jumbotron">
+                <p>部分内容源自:《深入理解JVM虚拟机》.
                 </p>
-                <div class="dsd_title"><a href="#top" id="②">② 线程的实现</a></div>
-                <p>线程是比进程更轻量级的调度执行单位,线程的引入,可以把一个进程的资源分配和执行调度分开,各个线程既可以共享进程资源(内存地址、文件I/O等),又可以独立调度(线程是CPU调度的基本单位).</p>
-                <p>主流的操作系统都提供了线程实现,Java语言则提供了在不同硬件和操作系统平台下对线程操作的统一处理.</p>
-                <p>Thread类中所有关键方法都是声明为Native的,在Java API中,本地方法往往意味着这个方法没有使用或无法使用平台无关的手段来实现(当然也有可能是为了执行效率而使用Native方法)</p>
-                <div class="dsd_title"><a href="#top" id="③">③ Java线程调度</a></div>
-                <p>
-                    Java的线程调度方式是抢占式调度,虽然Java线程的调度是系统自动完成的,但是我们还是可以“建议”系统给某些线程多分配一点执行时间,另外的一些线程则可以少分配一点——这项操作可以通过设置优先级来完成.</p>
-                <p>
-                    不过,线程的优先级并不是太靠谱,因为Java线程是通过映射到原生线程上来实现的,所以线程调度最终还是取决于操作系统,虽然现在很多操作系统都提供了优先级的概念,但是并不见得与Java线程的优先级一一对应.比如:Windows中就只有7种线程优先级,而Java语言一共设置了10个级别的线程优先级.</p>
-                <div class="dsd_title"><a href="#top" id="④">④ Java中线程的实现</a></div>
-                <p>在Java中想实现多线程有两种手段,一种是集成Thread类,另一种就是实现Runnable接口.</p>
-                <h3>1.继承自Thread类</h3>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            </div>
+            <div class="dsd_title"><a href="#top" id="①">① 线程和进程的概念</a></div>
+            <p>进程是指一个内存中运行有自己独立的一块内存空间的应用程序.一个进程中至少一个线程.</p>
+            <p>线程是指进程中的一个执行流程.每个线程有独立的运行栈. 线程从属于进程. 一个进程中可以运行多个线程.进程中的多个线程共享进程的内存.</p>
+            <p>线程和进程一样分为五个阶段:创建、就绪、运行、阻塞、终止.</p>
+            <p>多进程是指操作系统能同时运行多个任务(程序).</p>
+            <p>多线程是指在同一程序中,有多个顺序流在执行.</p>
+            <p><img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/18-1.jpg" alt="线程"/></p>
+            <div class="dsd_title"><a href="#top" id="②">② 线程的实现</a></div>
+            <p>线程是比进程更轻量级的调度执行单位,线程的引入,可以把一个进程的资源分配和执行调度分开,各个线程既可以共享进程资源(内存地址、文件I/O等),又可以独立调度(线程是CPU调度的基本单位).</p>
+            <p>主流的操作系统都提供了线程实现,Java语言则提供了在不同硬件和操作系统平台下对线程操作的统一处理.</p>
+            <p>Thread类中所有关键方法都是声明为Native的,在Java API中,本地方法往往意味着这个方法没有使用或无法使用平台无关的手段来实现(当然也有可能是为了执行效率而使用Native方法)</p>
+            <div class="dsd_title"><a href="#top" id="③">③ Java线程调度</a></div>
+            <p>Java的线程调度方式是抢占式调度,虽然Java线程的调度是系统自动完成的,但是我们还是可以“建议”系统给某些线程多分配一点执行时间,另外的一些线程则可以少分配一点——这项操作可以通过设置优先级来完成.</p>
+            <p>
+                不过,线程的优先级并不是太靠谱,因为Java线程是通过映射到原生线程上来实现的,所以线程调度最终还是取决于操作系统,虽然现在很多操作系统都提供了优先级的概念,但是并不见得与Java线程的优先级一一对应.比如:Windows中就只有7种线程优先级,而Java语言一共设置了10个级别的线程优先级.</p>
+            <div class="dsd_title"><a href="#top" id="④">④ Java中线程的实现</a></div>
+            <p>在Java中想实现多线程有两种手段,一种是集成Thread类,另一种就是实现Runnable接口.</p>
+            <h3>1.继承自Thread类</h3>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -244,9 +256,9 @@ public class MyThread1 extends Thread {
     }
 }
 </code></pre>
-                <h3>2.实现Runnable接口</h3>
-                <p>首先定义一个线程类继承自Runnable接口,如: </p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <h3>2.实现Runnable接口</h3>
+            <p>首先定义一个线程类继承自Runnable接口,如: </p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -261,8 +273,8 @@ public class MyThread2 implements Runnable {
     }
 }
 </code></pre>
-                <p>入口类,实例化线程类的对象,发动启动线程的命令</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <p>入口类,实例化线程类的对象,发动启动线程的命令</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -281,67 +293,64 @@ public class Demo1 {
     }
 }
 </code></pre>
-                <p>输出:</p>
-                <pre><code>MyThread2 run.
+            <p>输出:</p>
+            <pre><code>MyThread2 run.
 MyThread1 run.
 </code></pre>
-                <div class="bs-callout bs-callout-warning">
-                    <h4>输出的顺序可能不一致</h4>
-                    <p>多运行几次, 输出的顺序可能不一致, 这个是由于线程的执行顺序无法保证导致.</p>
-                </div>
-                <div class="bs-callout bs-callout-success">
-                    <h4>继承Thread和实现Runnable接口如何选择</h4>
-                    <p>由于Java是单根继承体系, 当一个类需要继承与其他类, 还需要具有线程的能力, 这时只能采用实现Runable接口的方式.</p>
-                </div>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 启动线程</a></div>
-                <p>在线程的Thread对象上调用start()方法,而不是run()或者别的方法.在调用start()方法之前,线程处于新状态中, 新状态指有一个Thread对象, 但还没有一个真正的线程.
-                    在调用start()方法之后,发生了一系列复杂的事情</p>
-                <ol>
-                    <li>启动新的执行线程(具有新的调用栈).</li>
-                    <li>该线程从新状态转移到可运行状态.</li>
-                    <li>当该线程获得机会执行时,其目标run()方法将运行.</li>
-                </ol>
-                <div class="bs-callout bs-callout-danger">
-                    <h4>run()方法</h4>
-                    <p>对Java来说,run()方法是线程启动的入口方法, 同时也是一个普通的方法.
-                        因此,在Runnable上或者Thread上调用run方法是合法的.但并不启动新的线程.所以不建议直接调用run()方法.</p>
-                </div>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ Java线程的状态</a></div>
-                <p>Java线程具有五中基本状态</p>
-                <ol>
-                    <li>新建状态(New)</li>
-                </ol>
-                <p>在生成线程对象,并没有调用该对象的start方法.如:</p>
-                <pre class="prettyprint"><code class="java language-java">Thread t = new MyThread1();
+            <div class="bs-callout bs-callout-warning">
+                <h4>输出的顺序可能不一致</h4>
+                <p>多运行几次, 输出的顺序可能不一致, 这个是由于线程的执行顺序无法保证导致.</p>
+            </div>
+            <div class="bs-callout bs-callout-success">
+                <h4>继承Thread和实现Runnable接口如何选择</h4>
+                <p>由于Java是单根继承体系, 当一个类需要继承与其他类, 还需要具有线程的能力, 这时只能采用实现Runable接口的方式.</p>
+            </div>
+            <div class="dsd_title"><a href="#top" id="⑤">⑤ 启动线程</a></div>
+            <p>在线程的Thread对象上调用start()方法,而不是run()或者别的方法.在调用start()方法之前,线程处于新状态中, 新状态指有一个Thread对象, 但还没有一个真正的线程.
+                在调用start()方法之后,发生了一系列复杂的事情</p>
+            <ol>
+                <li>启动新的执行线程(具有新的调用栈).</li>
+                <li>该线程从新状态转移到可运行状态.</li>
+                <li>当该线程获得机会执行时,其目标run()方法将运行.</li>
+            </ol>
+            <div class="bs-callout bs-callout-danger">
+                <h4>run()方法</h4>
+                <p>对Java来说,run()方法是线程启动的入口方法, 同时也是一个普通的方法.
+                    因此,在Runnable上或者Thread上调用run方法是合法的.但并不启动新的线程.所以不建议直接调用run()方法.</p>
+            </div>
+            <div class="dsd_title"><a href="#top" id="⑥">⑥ Java线程的状态</a></div>
+            <p>Java线程具有五中基本状态</p>
+            <ol>
+                <li>新建状态(New)</li>
+            </ol>
+            <p>在生成线程对象,并没有调用该对象的start方法.如:</p>
+            <pre class="prettyprint"><code class="java language-java">Thread t = new MyThread1();
 </code></pre>
-                <ol>
-                    <li>就绪状态(Runnable)</li>
-                </ol>
-                <p>
-                    当调用了线程对象的start方法之后,该线程就进入了就绪状态,但是此时线程调度程序还没有把该线程设置为当前线程,此时处于就绪状态.随时等待CPU调度执行,并不是说执行了t.start()此线程立即就会执行.
-                    在线程运行之后,从等待或者睡眠中回来之后,也会处于就绪状态.</p>
-                <ol>
-                    <li>运行状态(Running)</li>
-                </ol>
-                <p>
-                    线程调度程序将处于就绪状态的线程设置为当前线程,此时线程就进入了运行状态,开始运行run函数当中的代码.就绪状态是进入到运行状态的唯一入口,也就是说,线程要想进入运行状态执行,首先必须处于就绪状态中.</p>
-                <ol>
-                    <li>阻塞状态(Blocked)</li>
-                </ol>
-                <p>
-                    线程正在运行的时候,暂时放弃对CPU的使用权,停止执行,此时进入阻塞状态.通常是为了等待某个时间的发生(比如说某项资源就绪)之后再继续运行.sleep,suspend,wait等方法都可以导致线程阻塞.</p>
-                <p>处于运行状态中的线程直到其进入到就绪状态,才有机会再次被CPU调用以进入到运行状态.根据阻塞产生的原因不同,阻塞状态又可以分为三种:</p>
-                <ul>
-                    <li>等待阻塞</li>
-                </ul>
-                <p>运行状态中的线程执行wait()方法,使本线程进入到等待阻塞状态.
-                    wait()、notify()、notifyAll()是三个定义在Object类里的方法，可以用来控制线程的状态.
-                    任何一个时刻，对象的控制权（monitor）只能被一个线程拥有.
-                    无论是执行对象的wait、notify还是notifyAll方法，必须保证当前运行的线程取得了该对象的控制权（monitor）
-                    如果在没有控制权的线程里执行对象的以上三种方法，就会报java.lang.IllegalMonitorStateException异常.</p>
-                <p>执行时wait(), sleep()时会抛出InterruptedException, 需要放在try-catch语句中执行.</p>
-                <p>报错示例:</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <ol>
+                <li>就绪状态(Runnable)</li>
+            </ol>
+            <p>当调用了线程对象的start方法之后,该线程就进入了就绪状态,但是此时线程调度程序还没有把该线程设置为当前线程,此时处于就绪状态.随时等待CPU调度执行,并不是说执行了t.start()此线程立即就会执行.
+                在线程运行之后,从等待或者睡眠中回来之后,也会处于就绪状态.</p>
+            <ol>
+                <li>运行状态(Running)</li>
+            </ol>
+            <p>线程调度程序将处于就绪状态的线程设置为当前线程,此时线程就进入了运行状态,开始运行run函数当中的代码.就绪状态是进入到运行状态的唯一入口,也就是说,线程要想进入运行状态执行,首先必须处于就绪状态中.</p>
+            <ol>
+                <li>阻塞状态(Blocked)</li>
+            </ol>
+            <p>线程正在运行的时候,暂时放弃对CPU的使用权,停止执行,此时进入阻塞状态.通常是为了等待某个时间的发生(比如说某项资源就绪)之后再继续运行.sleep,suspend,wait等方法都可以导致线程阻塞.</p>
+            <p>处于运行状态中的线程直到其进入到就绪状态,才有机会再次被CPU调用以进入到运行状态.根据阻塞产生的原因不同,阻塞状态又可以分为三种:</p>
+            <ul>
+                <li>等待阻塞</li>
+            </ul>
+            <p>运行状态中的线程执行wait()方法,使本线程进入到等待阻塞状态.
+                wait()、notify()、notifyAll()是三个定义在Object类里的方法，可以用来控制线程的状态.
+                任何一个时刻，对象的控制权（monitor）只能被一个线程拥有.
+                无论是执行对象的wait、notify还是notifyAll方法，必须保证当前运行的线程取得了该对象的控制权（monitor）
+                如果在没有控制权的线程里执行对象的以上三种方法，就会报java.lang.IllegalMonitorStateException异常.</p>
+            <p>执行时wait(), sleep()时会抛出InterruptedException, 需要放在try-catch语句中执行.</p>
+            <p>报错示例:</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -363,8 +372,8 @@ public class WaitThread extends Thread {
     }
 }
 </code></pre>
-                <p>入口类:</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <p>入口类:</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -379,25 +388,25 @@ public class Demo2 {
     }
 }
 </code></pre>
-                <p>输出:</p>
-                <pre><code>WaitThread run.
+            <p>输出:</p>
+            <pre><code>WaitThread run.
 WaitThread before wait.
 Exception in thread "Thread-0" java.lang.IllegalMonitorStateException
     at java.lang.Object.wait(Native Method)
     at java.lang.Object.wait(Object.java:502)
     at com.dashidan.lesson19.WaitThread.run(WaitThread.java:15)
 </code></pre>
-                <p>线程取得控制权的方法有三种:</p>
-                <ul>
-                    <li>执行对象的某个同步实例方法.</li>
-                    <li>执行对象对应类的同步静态方法.</li>
-                    <li>执行对该对象加同步锁的同步块.</li>
-                </ul>
-                <p>如果对象调用了wait方法就会使持有该对象的线程把该对象的控制权交出去，然后处于等待状态.
-                    如果对象调用了notify方法就会通知某个正在等待这个对象的控制权的线程可以继续运行, 由Java虚拟机来决定哪个线程继续运行.
-                    如果对象调用了notifyAll方法就会通知所有等待这个对象控制权的线程继续运行
-                    可以通过synchronize关键字来获取同步锁, 然后再调用wait(), notify(), notifyAll().</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <p>线程取得控制权的方法有三种:</p>
+            <ul>
+                <li>执行对象的某个同步实例方法.</li>
+                <li>执行对象对应类的同步静态方法.</li>
+                <li>执行对该对象加同步锁的同步块.</li>
+            </ul>
+            <p>如果对象调用了wait方法就会使持有该对象的线程把该对象的控制权交出去，然后处于等待状态.
+                如果对象调用了notify方法就会通知某个正在等待这个对象的控制权的线程可以继续运行, 由Java虚拟机来决定哪个线程继续运行.
+                如果对象调用了notifyAll方法就会通知所有等待这个对象控制权的线程继续运行
+                可以通过synchronize关键字来获取同步锁, 然后再调用wait(), notify(), notifyAll().</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -450,17 +459,17 @@ class WaitThread extends Thread {
     }
 }
 </code></pre>
-                <p>输出:</p>
-                <pre><code>主线程休眠3秒
+            <p>输出:</p>
+            <pre><code>主线程休眠3秒
 WaitThread run.
 WaitThread before lock Thread-0
 WaitThread after lock Thread-0
 </code></pre>
-                <ul>
-                    <li>同步阻塞</li>
-                </ul>
-                <p>线程在获取synchronized同步锁失败(因为锁被其它线程所占用),它会进入同步阻塞状态. 当锁被释放后, 其他获得该锁的线程继续执行.</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <ul>
+                <li>同步阻塞</li>
+            </ul>
+            <p>线程在获取synchronized同步锁失败(因为锁被其它线程所占用),它会进入同步阻塞状态. 当锁被释放后, 其他获得该锁的线程继续执行.</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -503,24 +512,24 @@ class SyncThread extends Thread {
     }
 }
 </code></pre>
-                <p>输出:</p>
-                <pre><code>t2 before sleep.
+            <p>输出:</p>
+            <pre><code>t2 before sleep.
 t2 after sleep.
 t1 before sleep.
 t1 after sleep.
 </code></pre>
-                <div class="bs-callout bs-callout-success">
-                    <h4>多运行几次, 输出结果可能不一致, 但每次都是执行完一个线程, 再执行另一个.</h4>
-                </div>
-                <div class="bs-callout bs-callout-success">
-                    <h4>sleep()方法会释放cpu, 进入等待执行的状态, 但不会释放所持对象的锁.</h4>
-                </div>
-                <ul>
-                    <li>其他阻塞</li>
-                </ul>
-                <p>通过调用线程的sleep()或join()或发出了I/O请求时,线程会进入到阻塞状态.当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时,线程重新转入就绪状态.</p>
-                <p>sleep示例:</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <div class="bs-callout bs-callout-success">
+                <h4>多运行几次, 输出结果可能不一致, 但每次都是执行完一个线程, 再执行另一个.</h4>
+            </div>
+            <div class="bs-callout bs-callout-success">
+                <h4>sleep()方法会释放cpu, 进入等待执行的状态, 但不会释放所持对象的锁.</h4>
+            </div>
+            <ul>
+                <li>其他阻塞</li>
+            </ul>
+            <p>通过调用线程的sleep()或join()或发出了I/O请求时,线程会进入到阻塞状态.当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时,线程重新转入就绪状态.</p>
+            <p>sleep示例:</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -550,17 +559,17 @@ class SleepThread extends Thread {
     }
 }
 </code></pre>
-                <p>输出:</p>
-                <pre><code>before sleep.
+            <p>输出:</p>
+            <pre><code>before sleep.
 after sleep.
 </code></pre>
-                <ol>
-                    <li>死亡状态(Dead)</li>
-                </ol>
-                <p>如果一个线程的run方法执行结束或者调用stop方法后,该线程就会死亡结束生命周期.对于已经死亡的线程,无法再使用start方法令其进入就绪.</p>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ 线程死锁</a></div>
-                <p>线程死锁是指2个线程都在同步阻塞状态, 等待对象的锁, 在对方的线程中无法释放. 这样会导致这两个线程卡死, 无法继续执行. 开发时应极力避免.</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <ol>
+                <li>死亡状态(Dead)</li>
+            </ol>
+            <p>如果一个线程的run方法执行结束或者调用stop方法后,该线程就会死亡结束生命周期.对于已经死亡的线程,无法再使用start方法令其进入就绪.</p>
+            <div class="dsd_title"><a href="#top" id="⑦">⑦ 线程死锁</a></div>
+            <p>线程死锁是指2个线程都在同步阻塞状态, 等待对象的锁, 在对方的线程中无法释放. 这样会导致这两个线程卡死, 无法继续执行. 开发时应极力避免.</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 
 /**
@@ -633,23 +642,23 @@ class LockObject {
     }
 }
 </code></pre>
-                <p>输出:</p>
-                <pre><code>t1持有对象锁 LOCK-A
+            <p>输出:</p>
+            <pre><code>t1持有对象锁 LOCK-A
 t2持有对象锁 LOCK-B
 t2等待对象锁 LOCK-A ...
 t1等待对象锁 LOCK-B ...
 </code></pre>
-                <div class="bs-callout bs-callout-warning">
-                    <h4>执行完毕这一句并没有输出.</h4>
-                    <p>是因为两个线程进入了线程死锁状态, 互相等待对方释放锁. 编码过程中要极力避免嵌套调用锁的情况出现..</p>
-                </div>
-                <p>线程死锁如何检测?
-                    限于篇幅问题, 新建一篇来说明.<a href="http://dashidan.com">Java线程死锁检测</a>.</p>
-                <div class="dsd_title"><a href="#top" id="⑧">⑧ synchronized用在对象, 方法, 代码块的区别</a></div>
-                <p>synchronized关键字的本质是<code>锁对象</code>. 用在对象类型上, 即为锁定目标对象. 用在方法和代码块中, 表示锁定当前对象.对象一旦被锁定,
-                    所有的synchonized关键字修饰的区域都需要等待锁释放后才能执行.</p>
-                <p>前边几个例子都是synchronized锁对象的方式.下面来看看用锁方法和锁代码块.</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <div class="bs-callout bs-callout-warning">
+                <h4>执行完毕这一句并没有输出.</h4>
+                <p>是因为两个线程进入了线程死锁状态, 互相等待对方释放锁. 编码过程中要极力避免嵌套调用锁的情况出现..</p>
+            </div>
+            <p>线程死锁如何检测?
+                限于篇幅问题, 新建一篇来说明.<a href="http://dashidan.com">Java线程死锁检测</a>.</p>
+            <div class="dsd_title"><a href="#top" id="⑧">⑧ synchronized用在对象, 方法, 代码块的区别</a></div>
+            <p>synchronized关键字的本质是<code>锁对象</code>. 用在对象类型上, 即为锁定目标对象. 用在方法和代码块中, 表示锁定当前对象.对象一旦被锁定,
+                所有的synchonized关键字修饰的区域都需要等待锁释放后才能执行.</p>
+            <p>前边几个例子都是synchronized锁对象的方式.下面来看看用锁方法和锁代码块.</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 /**
  * 大屎蛋教程网-dashidan.com
@@ -713,8 +722,8 @@ class Demo7Thread extends Thread {
     }
 }
 </code></pre>
-                <p>输出:</p>
-                <pre><code>t1运行testSyncMethod开始.
+            <p>输出:</p>
+            <pre><code>t1运行testSyncMethod开始.
 t1运行testSyncMethod结束.
 t2运行testSyncMethod开始.
 t2运行testSyncMethod结束.
@@ -723,15 +732,15 @@ t1运行testSyncCode结束.
 t2运行testSyncCode开始.
 t2运行testSyncCode结束.
 </code></pre>
-                <div class="bs-callout">
-                    <p>运行结果可能不一样, 但开始和结束总是一一对应.在开始和结束之间没有执行其他方法,
-                        说明都是锁的同一个对象.可以将任意一个synchronized屏蔽,再跑一下程序,就会发现输出中的开始和结束不再一一对应.</p>
-                </div>
-                <div class="dsd_title"><a href="#top" id="⑨">⑨ Lock对象</a></div>
-                <p>JDK1.5开始提供了一个更加高效的锁的方式.concurrent包中Lock对象.最大的优势是可以读写锁分离, 加入写锁后, 读锁需要等写锁释放后再进行. 加入读锁后, 还是可以获取写锁,
-                    为了保证数据安全, 使用写锁的时候. 同一个对象可以使用多个Lock对象, 锁定对应的范围, 而不像synchonized锁整个对象.
-                    官方例子</p>
-                <pre class="prettyprint"><code class="java language-java">class CachedData {
+            <div class="bs-callout">
+                <p>运行结果可能不一样, 但开始和结束总是一一对应.在开始和结束之间没有执行其他方法,
+                    说明都是锁的同一个对象.可以将任意一个synchronized屏蔽,再跑一下程序,就会发现输出中的开始和结束不再一一对应.</p>
+            </div>
+            <div class="dsd_title"><a href="#top" id="⑨">⑨ Lock对象</a></div>
+            <p>JDK1.5开始提供了一个更加高效的锁的方式.concurrent包中Lock对象.最大的优势是可以读写锁分离, 加入写锁后, 读锁需要等写锁释放后再进行. 加入读锁后, 还是可以获取写锁, 为了保证数据安全,
+                使用写锁的时候. 同一个对象可以使用多个Lock对象, 锁定对应的范围, 而不像synchonized锁整个对象.
+                官方例子</p>
+            <pre class="prettyprint"><code class="java language-java">class CachedData {
     Object data;
     volatile boolean cacheValid;
     final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
@@ -763,8 +772,8 @@ t2运行testSyncCode结束.
     }
 }
 </code></pre>
-                <p>一个简单的读写锁例子</p>
-                <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
+            <p>一个简单的读写锁例子</p>
+            <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson19;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -873,8 +882,8 @@ class ReadThread extends Thread {
     }
 }
 </code></pre>
-                <p>输出:</p>
-                <pre><code>加入读锁 r1
+            <p>输出:</p>
+            <pre><code>加入读锁 r1
 读取休息1秒
 ------WriteThread 加入写锁------ : w1
 释放读锁 r1
@@ -893,46 +902,47 @@ class ReadThread extends Thread {
 释放读锁 r1
 加入读锁 r1
 </code></pre>
-                <div class="bs-callout">
-                    <p>输出结果可能不一样. 但每次加上写锁之后, 读取的操作便停止. 释放写锁后, 读取继续.</p>
-                </div>
-                <div class="dsd_title"><a href="#top" id="⑩">⑩ 线程常见问题 </a></div>
-                <ul>
-                    <li>线程的名字</li>
-                </ul>
-                <p>默认线程名:<code>Thread-</code>加<code>下一线程数</code>:</p>
-                <pre class="prettyprint"><code class="java language-java">public Thread() {
+            <div class="bs-callout">
+                <p>输出结果可能不一样. 但每次加上写锁之后, 读取的操作便停止. 释放写锁后, 读取继续.</p>
+            </div>
+            <div class="dsd_title"><a href="#top" id="⑩">⑩ 线程常见问题 </a></div>
+            <ul>
+                <li>线程的名字</li>
+            </ul>
+            <p>默认线程名:<code>Thread-</code>加<code>下一线程数</code>:</p>
+            <pre class="prettyprint"><code class="java language-java">public Thread() {
     init(null, null, "Thread-" + nextThreadNum(), 0);
 }
 </code></pre>
-                <p>自定义线程名:</p>
-                <p>在构造函数中传入线程名.</p>
-                <pre class="prettyprint"><code class="java language-java">public Thread(Runnable target, String name) {
+            <p>自定义线程名:</p>
+            <p>在构造函数中传入线程名.</p>
+            <pre class="prettyprint"><code class="java language-java">public Thread(Runnable target, String name) {
     init(null, target, name, 0);
 }
 </code></pre>
-                <ul>
-                    <li>获取当前线程对象的方法</li>
-                </ul>
-                <pre class="prettyprint"><code class="java language-java">Thread.currentThread().
+            <ul>
+                <li>获取当前线程对象的方法</li>
+            </ul>
+            <pre class="prettyprint"><code class="java language-java">Thread.currentThread().
 </code></pre>
-                <ul>
-                    <li>当线程目标<code>run()</code>方法结束时, 该线程结束.</li>
-                    <li>一个线程只能启动一次, 一旦线程启动, 不能再重新启动.</li>
-                    <li>线程的调度由Java虚拟机(JVM)控制.</li>
-                </ul>
-                <p>
-                    在单核CPU的电脑上,实际上一次只能运行一个线程,CPU分时处理,看上去向同步运行一样.多核CPU的电脑同时可以运行多个线程.Java虚拟机决定实际运行哪个线程.有多个可运行线程时,其中的某一个会被Java虚拟机选为当前线程.默认情况下不能保证线程运行的先后顺序.量子理论的上帝掷骰子.</p>
-                <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/aiyinsitan.jpg"
-                        alt="爱因斯坦"/></p>
-                <div class="dsd_title"><a href="#top" id="⑪">⑪ 相关文章</a></div>
-                <p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通目录</a></p>
-                <p>📖 <a href="http://dashidan.com/article/java/basic/Java集成开发环境.html">Java集成开发环境</a></p>
-                <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>
+            <ul>
+                <li>当线程目标<code>run()</code>方法结束时, 该线程结束.</li>
+                <li>一个线程只能启动一次, 一旦线程启动, 不能再重新启动.</li>
+                <li>线程的调度由Java虚拟机(JVM)控制.</li>
+            </ul>
+            <p>
+                在单核CPU的电脑上,实际上一次只能运行一个线程,CPU分时处理,看上去向同步运行一样.多核CPU的电脑同时可以运行多个线程.Java虚拟机决定实际运行哪个线程.有多个可运行线程时,其中的某一个会被Java虚拟机选为当前线程.默认情况下不能保证线程运行的先后顺序.量子理论的上帝掷骰子.</p>
+            <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/aiyinsitan.jpg" alt="爱因斯坦"/>
+            </p>
+            <div class="dsd_title"><a href="#top" id="⑪">⑪ 相关文章</a></div>
+            <p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通目录</a></p>
+            <p>📖 <a href="http://dashidan.com/article/java/basic/Java集成开发环境.html">Java集成开发环境</a></p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>
                 </span>
-            </div>
         </div>
     </div>
+
+    <div id="xs_content"></div>
     <div class="text-center">
         <div>
             <a href="http://dashidan.com/article/java/basic/20.html">📖

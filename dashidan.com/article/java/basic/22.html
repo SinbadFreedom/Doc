@@ -160,6 +160,16 @@
                 </div>
             </div>
 
+            <div class="dsd_title" onclick="clickTitle('api6')">
+                <h3><span id="api6_title">➕ JDK6中文文档</span></h3>
+            </div>
+
+            <div id="api6" class="dsd_catalog_left_hide">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/api6/index.html">JDK6中文文档主页</a>
+                </div>
+            </div>
+
             <div class="dsd_title" onclick="clickTitle('addenda')">
                 <h3 id="addenda_title">➕ 附录</h3>
             </div>
@@ -176,6 +186,9 @@
                 <div class="single_line">
                     <a href="http://dashidan.com/article/java/addenda/4.html">4.Linux配置Java环境</a>
                 </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                </div>
             </div>
 
         </div>
@@ -186,31 +199,32 @@
             <span style="color: white">🔖目录</span>
         </div>
     </div>
-    <div id="xs_content">
-        <div class="col-sm-9 col-md-9 col-lg-9">
-            <!-- 文章内容-->
-            <div id="xs_content_border">
-                <div>
-                    <div class="dsd_title"><h1>22.jvm参数优化</h1></div>
-                    <div class="dsd_catalog"><p><a href="#①">① 标准配置选项</a></p>
-                        <p><a href="#②">② 非标准配置选项</a></p>
-                        <p><a href="#③">③ JVM性能优化示例</a></p>
-                        <p><a href="#④">④ 著名中间件jvm参数配置</a></p>
-                        <p><a href="#⑤">⑤ 建议配置</a></p>
-                        <p><a href="#⑥">⑥ 参考文章</a></p>
-                        <p><a href="#⑦">⑦ 相关文章</a></p></div>
-                </div>
-                <div class="jumbotron">
-                    <p>Java虚拟机简称JVM(Java Virtual Machine).像一个构造十分精密的仪器, 提供了一些可以调控机器运行状态的参数.
-                        这些参数需要根据自己的实际的生产环境的要求来设置.就像头文字D中的那辆车86, 只有经过对应的配置和调试, 才能达到跑车的最优性能.</p>
-                </div>
-                <p><img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/22-1.jpg"
-                        alt="豆腐店自家用"/></p>
-                <div class="bs-callout bs-callout-warning">
-                    <h4>不同的厂家的SDK有不同的配置, 我们以sun公司出品的官方JDK为例介绍下JVM参数.</h4>
-                </div>
-                <div class="dsd_title"><a href="#top" id="①">① 标准配置选项</a></div>
-                <pre class="prettyprint"><code>-d32          使用 32 位数据模型 (如果可用)
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>jvm参数优化</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_title"><h1>22.jvm参数优化</h1></div>
+                <div class="dsd_catalog"><p><a href="#①">① 标准配置选项</a></p>
+                    <p><a href="#②">② 非标准配置选项</a></p>
+                    <p><a href="#③">③ JVM性能优化示例</a></p>
+                    <p><a href="#④">④ 著名中间件jvm参数配置</a></p>
+                    <p><a href="#⑤">⑤ 建议配置</a></p>
+                    <p><a href="#⑥">⑥ 参考文章</a></p>
+                    <p><a href="#⑦">⑦ 相关文章</a></p></div>
+            </div>
+            <div class="jumbotron">
+                <p>Java虚拟机简称JVM(Java Virtual Machine).像一个构造十分精密的仪器, 提供了一些可以调控机器运行状态的参数.
+                    这些参数需要根据自己的实际的生产环境的要求来设置.就像头文字D中的那辆车86, 只有经过对应的配置和调试, 才能达到跑车的最优性能.</p>
+            </div>
+            <p><img class="center-block img-responsive" src="http://dashidan.com/img/java/basic/22-1.jpg" alt="豆腐店自家用"/>
+            </p>
+            <div class="bs-callout bs-callout-warning">
+                <h4>不同的厂家的SDK有不同的配置, 我们以sun公司出品的官方JDK为例介绍下JVM参数.</h4>
+            </div>
+            <div class="dsd_title"><a href="#top" id="①">① 标准配置选项</a></div>
+            <pre class="prettyprint"><code>-d32          使用 32 位数据模型 (如果可用)
 -d64          使用 64 位数据模型 (如果可用)
 -server       选择 "server" VM
               默认 VM 是 server.
@@ -255,8 +269,8 @@
 -splash:&lt;imagepath&gt;
               使用指定的图像显示启动屏幕
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="②">② 非标准配置选项</a></div>
-                <pre class="prettyprint"><code>-Xmixed           混合模式执行 (默认)
+            <div class="dsd_title"><a href="#top" id="②">② 非标准配置选项</a></div>
+            <pre class="prettyprint"><code>-Xmixed           混合模式执行 (默认)
 -Xint             仅解释模式执行
 -Xbootclasspath:&lt;用 ; 分隔的目录和 zip/jar 文件&gt;
                   设置搜索路径以引导类和资源
@@ -292,61 +306,61 @@
 -XshowSettings:locale
                   显示所有与区域设置相关的设置并继续
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="③">③ JVM性能优化示例</a></div>
-                <ul>
-                    <li><p>高吞吐量(<code>Higher Throughput</code>)JVM性能优化示例:</p>
-                        <p>java -d64 -server -XX:+AggressiveOpts -XX:+UseLargePages -Xmn10g -Xms26g -Xmx26g </p></li>
-                    <li><p>低延迟(<code>Lower Response Time</code>)JVM性能优化示例:</p>
-                        <p>java -d64 -XX:+UseG1GC -Xms26g Xmx26g -XX:MaxGCPauseMillis=500 -XX:+PrintGCTimeStamps </p>
-                    </li>
-                </ul>
-                <div class="dsd_title"><a href="#top" id="④">④ 著名中间件jvm参数配置</a></div>
-                <h3>1.<code>zookeeper</code>JVM参数设置</h3>
-                <pre class="prettyprint"><code>-XX:+HeapDumpOnOutOfMemoryError
+            <div class="dsd_title"><a href="#top" id="③">③ JVM性能优化示例</a></div>
+            <ul>
+                <li><p>高吞吐量(<code>Higher Throughput</code>)JVM性能优化示例:</p>
+                    <p>java -d64 -server -XX:+AggressiveOpts -XX:+UseLargePages -Xmn10g -Xms26g -Xmx26g </p></li>
+                <li><p>低延迟(<code>Lower Response Time</code>)JVM性能优化示例:</p>
+                    <p>java -d64 -XX:+UseG1GC -Xms26g Xmx26g -XX:MaxGCPauseMillis=500 -XX:+PrintGCTimeStamps </p></li>
+            </ul>
+            <div class="dsd_title"><a href="#top" id="④">④ 著名中间件jvm参数配置</a></div>
+            <h3>1.<code>zookeeper</code>JVM参数设置</h3>
+            <pre class="prettyprint"><code>-XX:+HeapDumpOnOutOfMemoryError
 -XX:OnOutOfMemoryError=kill -9 %p
 -Xmx1000m
 -Dcom.sun.management.jmxremote
 -Dcom.sun.management.jmxremote.local.only=false
 </code></pre>
-                <h3>2.<code>apollo</code>JVM参数设置</h3>
-                <pre class="prettyprint"><code>-ea
+            <h3>2.<code>apollo</code>JVM参数设置</h3>
+            <pre class="prettyprint"><code>-ea
 -server
 -Xmx1G
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-UseBiasedLocking
 -Dcom.sun.management.jmxremote
 </code></pre>
-                <h3>3.参数说明:</h3>
-                <pre class="prettyprint"><code>-XX:+HeapDumpOnOutOfMemoryError参数表示当JVM发生内存溢出时,自动生成信息文件.
+            <h3>3.参数说明:</h3>
+            <pre class="prettyprint"><code>-XX:+HeapDumpOnOutOfMemoryError参数表示当JVM发生内存溢出时,自动生成信息文件.
 -XX:HeapDumpPath=${path} 生成信息文件的路径.也可以指定文件名称.例如:
     -XX:HeapDumpPath=${path}/java_heapdump.hprof. 如果不指定文件名,默认名为:java_&lt;pid&gt;_&lt;date&gt;_&lt;time&gt;_heapDump.hprof.
 -Dcom.sun.management.jmxremote
     通过JMX的方式远程监控JVM的运行情况.
 </code></pre>
-                <div class="dsd_title"><a href="#top" id="⑤">⑤ 建议配置</a></div>
-                <p>以下是个人建议, 不一定使用全部场景.根据自己的应用场景配置.</p>
-                <pre class="prettyprint"><code class="     language-    ">-d64
+            <div class="dsd_title"><a href="#top" id="⑤">⑤ 建议配置</a></div>
+            <p>以下是个人建议, 不一定使用全部场景.根据自己的应用场景配置.</p>
+            <pre class="prettyprint"><code class="     language-    ">-d64
 -Xms4g
 -Xmx4g
 -XX:+HeapDumpOnOutOfMemoryError
 -Dcom.sun.management.jmxremote
 </code></pre>
-                <div class="bs-callout bs-callout-success">
-                    <h4>不要过分纠结</h4>
-                    有时采用更高配置的硬件更有效.
-                </div>
-                <div class="dsd_title"><a href="#top" id="⑥">⑥ 参考文章</a></div>
-                <p>📖 <a
-                    href="https://docs.oracle.com/cd/E22289_01/html/821-1274/configuring-the-default-jvm-and-java-arguments.html">配置jvm和java参数</a>
-                </p>
-                <p>📖 <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html">java技术文档</a></p>
-                <div class="dsd_title"><a href="#top" id="⑦">⑦ 相关文章</a></div>
-                <p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通索引</a></p>
-                <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>
-                </span>
+            <div class="bs-callout bs-callout-success">
+                <h4>不要过分纠结</h4>
+                有时采用更高配置的硬件更有效.
             </div>
+            <div class="dsd_title"><a href="#top" id="⑥">⑥ 参考文章</a></div>
+            <p>📖 <a
+                href="https://docs.oracle.com/cd/E22289_01/html/821-1274/configuring-the-default-jvm-and-java-arguments.html">配置jvm和java参数</a>
+            </p>
+            <p>📖 <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html">java技术文档</a></p>
+            <div class="dsd_title"><a href="#top" id="⑦">⑦ 相关文章</a></div>
+            <p>📖 <a href="http://dashidan.com/article/java/basic/index.html">Java从入门到精通索引</a></p>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/java/index.html">http://dashidan.com/article/java/index.html</a>
+                </span>
         </div>
     </div>
+
+    <div id="xs_content"></div>
     <div class="text-center">
     </div>
 </div>
