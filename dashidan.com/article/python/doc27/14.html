@@ -172,15 +172,13 @@
             <pre class="prettyprint"><code>&gt;&gt;&gt; round(2.675, 2)
 2.67
 </code></pre>
-            <p>内置 <code>round() &lt;https://docs.python.org/2.7/library/functions.html#round&gt;</code>_
-                函数的文档说它舍入到最接近的值。因为小数 2.675 正好是 2.67 和 2.68 的中间，你可能期望这里的结果是（二进制近似为) 2.68。但是不是的，因为当十进制字符串 2.675
-                转换为一个二进制浮点数时，它仍然被替换为一个二进制的近似值，其确切的值是::</p>
+            <p>内置 <code>round()</code> 函数的文档说它舍入到最接近的值。因为小数 2.675 正好是 2.67 和 2.68 的中间，你可能期望这里的结果是（二进制近似为)
+                2.68。但是不是的，因为当十进制字符串 2.675 转换为一个二进制浮点数时，它仍然被替换为一个二进制的近似值，其确切的值是::</p>
             <pre class="prettyprint"><code>2.67499999999999982236431605997495353221893310546875
 </code></pre>
             <p>因为这个近似值稍微接近 2.67 而不是 2.68，所以向下舍入。</p>
-            <p>如果你的情况需要考虑十进制的中位数是如何被舍入的，你应该考虑使用 <code>decimal &lt;https://docs.python.org/2.7/library/decimal.html#module-decimal&gt;</code>_
-                模块。顺便说一下，<code>decimal &lt;https://docs.python.org/2.7/library/decimal.html#module-decimal&gt;</code>_
-                模块还提供了很好的方式可以“看到”任何 Python 浮点数的精确值::</p>
+            <p>如果你的情况需要考虑十进制的中位数是如何被舍入的，你应该考虑使用 <code>decimal</code> 模块。顺便说一下，<code>decimal</code> 模块还提供了很好的方式可以“看到”任何
+                Python 浮点数的精确值::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; from decimal import Decimal
 &gt;&gt;&gt; Decimal(2.675)
 Decimal('2.67499999999999982236431605997495353221893310546875')
@@ -198,9 +196,7 @@ Decimal('2.67499999999999982236431605997495353221893310546875')
                 。 最后我要说，“没有简单的答案”。还是不要过度的敌视浮点数！</p>
             <p>Python 浮点数操作的错误来自于浮点数硬件，大多数机器上同类的问题每次计算误差不超过 2**53
                 分之一。对于大多数任务这已经足够让人满意了。但是你要在心中记住这不是十进制算法，每个浮点数计算可能会带来一个新的精度错误。 </p>
-            <p>问题已经存在了，对于大多数偶发的浮点数错误，你应该比对最终显示结果是否符合你的期待。<code>str() &lt;https://docs.python.org/2.7/library/functions.html#str&gt;</code>_
-                通常够用了，完全的控制参见 <code>字符串格式化 &lt;https://docs.python.org/2.7/library/string.html#formatstrings&gt;</code>_
-                中 <code>str.format &lt;https://docs.python.org/2.7/library/stdtypes.html#str.format&gt;</code>_
+            <p>问题已经存在了，对于大多数偶发的浮点数错误，你应该比对最终显示结果是否符合你的期待。<code>str()</code> 通常够用了，完全的控制参见 <code>字符串格式化</code> 中 <code>str.format</code>
                 方法的格式化方式。</p>
             <div class="dsd_title_1"><a href="#top" id="1"><h2>1 表达错误</h2></a></div>
             <p>这一节详细说明 “0.1” 示例，教你怎样自己去精确地分析此类案例。假设这里你已经对浮点数表示有基本的了解。 </p>

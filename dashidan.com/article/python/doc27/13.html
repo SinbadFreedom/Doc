@@ -178,13 +178,11 @@ Meta-h: backward-kill-word
 readline.parse_and_bind('tab: complete')
 </code></pre>
             <p>这个操作将 :kbd:<code>Tab</code> 绑定到完成函数，故按 Tab 键两次会给出建议的完成内容；它查找　Python 命名、当前的局部变量、有效的模块名。对于类似
-                <code>string.a</code> 这样的文件名，它会解析 <code>'.'</code> 相关的表达式，从返回的结果对象中获取属性，以提供完成建议。需要注意的是，如果对象的 <code>__getattr__()
-                    &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__getattr__&gt;</code>_
+                <code>string.a</code> 这样的文件名，它会解析 <code>'.'</code> 相关的表达式，从返回的结果对象中获取属性，以提供完成建议。需要注意的是，如果对象的 <code>__getattr__()</code>
                 方法是此表达式的一部分，这可能会执行应用程序定义代码。 </p>
             <p>
                 更有用的初始化文件可能是下面这个例子这样的。要注意一旦创建的名字没用了，它会删掉它们；因为初始化文件作为解释命令与之在同一个命名空间执行，在交互环境中删除命名带来了边际效应。可能你发现了它体贴的保留了一些导入模块，类似
-                <code>os &lt;https://docs.python.org/2.7/library/os.html#module-os&gt;</code>_ ，在解释器的大多数使用场合中都会用到它们::
-            </p>
+                <code>os</code>，在解释器的大多数使用场合中都会用到它们::</p>
             <pre class="prettyprint"><code># Add auto-completion and a stored history file of commands to your Python
 # interactive interpreter. Requires Python 2.0+, readline. Autocomplete is
 # bound to the Esc key by default (you can change it - see readline docs).
@@ -214,9 +212,8 @@ del os, atexit, readline, rlcompleter, save_history, historyPath
                 跟早先版本的解释器比，现在已经有了很大的进步。不过，还是有些期待没有完成：它应该在后继行中优美的提供缩进(解释器知道下一行是否需要缩进)建议。完成机制可以使用解释器的符号表。命名检查(或进一步建议)匹配括号、引号等等。 </p>
             <p>另有一个强化交互式解释器已经存在一段时间了，它就是 IPython<em>，它支持 tab
                 完成，对象浏览和高级历史管理。它也可以完全定制或嵌入到其它应用程序中。另一个类似的强化交互环境是　bpython</em> 。</p>
-            <p>.. [#] 启动交互解释器时，Python 可以执行 <code>PYTHONSTARTUP &lt;https://docs.python.org/2.7/using/cmdline.html#envvar-PYTHONSTARTUP&gt;</code>_
-                环境变量所指定的文件内容。若还要定制化非交互式的 Python，请参阅 <code>定制化模块 &lt;https://docs.python.org/2.7/tutorial/appendix.html#tut-customize&gt;</code>_。
-            </p>
+            <p>.. [#] 启动交互解释器时，Python 可以执行 <code>PYTHONSTARTUP</code> 环境变量所指定的文件内容。若还要定制化非交互式的 Python，请参阅
+                <code>定制化模块</code>。</p>
             <p>.. _IPython: http://ipython.scipy.org/
                 .. _bpython: http://www.bpython-interpreter.org/</p>
             <span>转载请保留原文链接: <a href="http://dashidan.com/article/python/index.html">http://dashidan.com/article/python/index.html</a>

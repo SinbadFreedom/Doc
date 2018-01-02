@@ -133,12 +133,10 @@
             </div>
             <div class="dsd_title_1"><a href="#top" id="﻿1"><h2>﻿1 交互模式</h2></a></div>
             <div class="dsd_title_2"><a href="#top" id="1.1">1.1 错误处理</a></div>
-            <p>有错误发生时，解释器会打印一个错误信息和栈跟踪器。在交互模式下，它返回主提示符，如果从文件输入执行，它在打印栈跟踪器后以非零状态退出。(异常可以由 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
-                语句中的 <code>except &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_
+            <p>有错误发生时，解释器会打印一个错误信息和栈跟踪器。在交互模式下，它返回主提示符，如果从文件输入执行，它在打印栈跟踪器后以非零状态退出。(异常可以由 <code>try</code> 语句中的 <code>except</code>
                 子句来控制，这样就不会出现上文中的错误信息) 有一些非常致命的错误会导致非零状态下退出，这通常由内部矛盾和内存溢出造成。所有的错误信息都写入标准错误流；命令中执行的普通输出写入标准输出。</p>
-            <p>在主提示符或从属提示符中输入中断符 (通常是 Control-C 或者 DEL) 就会取消当前输入，回到主命令行。[#]_ 执行命令时输入一个中断符会抛出一个 <code>KeyboardInterrupt
-                &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.KeyboardInterrupt&gt;</code>_ 异常，它可以被
-                <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_ 语句截获。</p>
+            <p>在主提示符或从属提示符中输入中断符 (通常是 Control-C 或者 DEL) 就会取消当前输入，回到主命令行。[#]_ 执行命令时输入一个中断符会抛出一个
+                <code>KeyboardInterrupt</code> 异常，它可以被 <code>try</code> 语句截获。</p>
             <div class="dsd_title_2"><a href="#top" id="1.2">1.2 执行 Python 脚本</a></div>
             <p>BSD 类的 Unix 系统中，Python 脚本可以像 Shell 脚本那样直接执行。只要在脚本文件开头写一行命令，指定文件和模式::</p>
             <pre class="prettyprint"><code>#! /usr/bin/env python
@@ -153,7 +151,7 @@
             <p>Windows 系统上没有“执行模式”。Python 安装程序自动将 <code>.py</code> 文件关联到 <code>python.exe</code> ，所以在 Python
                 文件图标上双击，它就会作为脚本执行。同样 <code>.pyw</code> 也做了这样的关联，通常它执行时不会显示控制台窗口。</p>
             <div class="dsd_title_2"><a href="#top" id="1.1">1.1 交互执行文件</a></div>
-            <p>使用 Python 解释器的时候，我们可能需要在每次解释器启动时执行一些命令。你可以在一个文件中包含你想要执行的命令，设定一个名为 <code>PYTHONSTARTUP &lt;https://docs.python.org/2.7/using/cmdline.html#envvar-PYTHONSTARTUP&gt;</code>_
+            <p>使用 Python 解释器的时候，我们可能需要在每次解释器启动时执行一些命令。你可以在一个文件中包含你想要执行的命令，设定一个名为 <code>PYTHONSTARTUP</code>
                 的环境变量来指定这个文件。这类似于 Unix shell 的 :file:<code>.profile</code> 文件。 </p>
             <p>这个文件在交互会话期是只读的，当 Python 从脚本中解读文件或以终端 :file:<code>/dev/tty</code> 做为外部命令源时则不会如此 (尽管它们的行为很像是处在交互会话期)
                 它与解释器执行的命令处在同一个命名空间，所以由它定义或引用的一切可以在解释器中不受限制地使用。你也可以在这个文件中改变 <code>sys.ps1</code> 和 <code>sys.ps2</code>
@@ -175,10 +173,9 @@ if filename and os.path.isfile(filename):
 '/home/user/.local/lib/python2.7/site-packages'
 </code></pre>
             <p>现在你可以在 site-packages 的目录下创建 :file:<code>usercustomize.py</code> 文件，内容就悉听尊便了。这个文件将会影响 python
-                的每次调用，除非启动的时候加入 <code>-s &lt;https://docs.python.org/2.7/using/cmdline.html#cmdoption-s&gt;</code>_
-                选项禁止自动导入。</p>
+                的每次调用，除非启动的时候加入 <code>-s</code> 选项禁止自动导入。</p>
             <p>:mod:<code>sitecustomize</code> 的工作方式一样，但是是由电脑的管理账户创建以及在 :mod:<code>usercustomize</code> 之前导入。具体可以参见
-                <code>site &lt;https://docs.python.org/2.7/library/site.html#module-site&gt;</code>_ 。</p>
+                <code>site</code>。</p>
             <p>.. [#] GNU Readline包的一个问题可能禁止此功能。</p>
             <span>转载请保留原文链接: <a href="http://dashidan.com/article/python/index.html">http://dashidan.com/article/python/index.html</a>
                 </span>

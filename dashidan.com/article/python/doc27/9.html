@@ -152,20 +152,17 @@
                 程序员都非常有用。 </p>
             <p>让我们从一些定义说起。</p>
             <p><em>命名空间</em> 是从命名到对象的映射。当前命名空间主要是通过 Python
-                字典实现的，不过通常不关心具体的实现方式(除非出于性能考虑)，以后也有可能会改变其实现方式。以下有一些命名空间的例子：内置命名(像 <code>abs() &lt;https://docs.python.org/2.7/library/functions.html#abs&gt;</code>_
+                字典实现的，不过通常不关心具体的实现方式(除非出于性能考虑)，以后也有可能会改变其实现方式。以下有一些命名空间的例子：内置命名(像 <code>abs()</code>
                 这样的函数，以及内置异常名)集，模块中的全局命名，函数调用中的局部命名。某种意义上讲对象的属性集也是一个命名空间。关于命名空间需要了解的一件很重要的事就是不同命名空间中的命名没有任何联系，例如两个不同的模块可能都会定义一个名为
                 <code>maximize</code> 的函数而不会发生混淆－－用户必须以模块名为前缀来引用它们。 </p>
             <p>顺便提一句，我称 Python 中任何一个 “.” 之后的命名为 <em>属性</em> －－例如，表达式 <code>z.real</code> 中的 <code>real</code> 是对象 <code>z</code>
                 的一个属性。严格来讲，从模块中引用命名是引用属性：表达式 <code>modname.funcname</code> 中，<code>modname</code>
                 是一个模块对象，<code>funcname</code> 是它的一个属性。因此，模块的属性和模块中的全局命名有直接的映射关系：它们共享同一命名空间！[#]_</p>
-            <p>属性可以是只读或写的。后一种情况下，可以对属性赋值。你可以这样做：<code>modname.the_answer = 42</code>。可写的属性也可以用 <code>del &lt;https://docs.python.org/2.7/reference/simple_stmts.html#del&gt;</code>_
-                语句删除。例如：<code>del modname.the_answer</code> 会从 <code>modname</code> 对象中删除 <code>the_answer</code> 属性。
-            </p>
+            <p>属性可以是只读或写的。后一种情况下，可以对属性赋值。你可以这样做：<code>modname.the_answer = 42</code>。可写的属性也可以用 <code>del</code> 语句删除。例如：<code>del
+                modname.the_answer</code> 会从 <code>modname</code> 对象中删除 <code>the_answer</code> 属性。 </p>
             <p>不同的命名空间在不同的时刻创建，有不同的生存期。包含内置命名的命名空间在 Python
                 解释器启动时创建，会一直保留，不被删除。模块的全局命名空间在模块定义被读入时创建，通常，模块命名空间也会一直保存到解释器退出。由解释器在最高层调用执行的语句，不管它是从脚本文件中读入还是来自交互式输入，都是
-                <code>__main__ &lt;https://docs.python.org/2.7/library/__main__.html#module-__main__&gt;</code>_
-                模块的一部分，所以它们也拥有自己的命名空间(内置命名也同样被包含在一个模块中，它被称作 <code>__builtin__ &lt;https://docs.python.org/2.7/library/__builtin__.html#module-__builtin__&gt;</code>_
-                )。</p>
+                <code>__main__</code> 模块的一部分，所以它们也拥有自己的命名空间(内置命名也同样被包含在一个模块中，它被称作 <code>__builtin__</code> )。</p>
             <p>当调用函数时，就会为它创建一个局部命名空间，并且在函数返回或抛出一个并没有在函数内部处理的异常时被删除(实际上，用遗忘来形容到底发生了什么更为贴切)。 当然，每个递归调用都有自己的局部命名空间。</p>
             <p><em>作用域</em> 就是一个 Python 程序可以直接访问命名空间的正文区域。这里的直接访问意思是一个对名称的错误引用会尝试在命名空间内查找。</p>
             <p>尽管作用域是静态定义，在使用时他们都是动态的。每次执行时，至少有三个命名空间可以直接访问的作用域嵌套在一起：</p>
@@ -182,11 +179,9 @@
             <p>
                 重要的是作用域决定于源程序的意义：一个定义于某模块中的函数的全局作用域是该模块的命名空间，而不是该函数的别名被定义或调用的位置，了解这一点非常重要。另一方面，命名的实际搜索过程是动态的，在运行时确定的——然而，Python
                 语言也在不断发展，以后有可能会成为静态的“编译”时确定，所以不要依赖动态解析(事实上，局部变量已经是静态确定了。)！</p>
-            <p>Python 的一个特别之处在于 —— 如果没有使用 <code>global &lt;https://docs.python.org/2.7/reference/simple_stmts.html#global&gt;</code>_
-                语法 —— 其赋值操作总是在最里层的作用域。赋值不会复制数据 —— 只是将命名绑定到对象。删除也是如此：<code>del x</code> 只是从局部作用域的命名空间中删除命名 <code>x</code>
-                。事实上，所有引入新命名的操作都作用于局部作用域。特别是 <code>import &lt;https://docs.python.org/2.7/reference/simple_stmts.html#import&gt;</code>_
-                语句和函数定将模块名或函数绑定于局部作用域(可以使用 <code>global &lt;https://docs.python.org/2.7/reference/simple_stmts.html#global&gt;</code>_
-                语句将变量引入到全局作用域。)。</p>
+            <p>Python 的一个特别之处在于 —— 如果没有使用 <code>global</code> 语法 —— 其赋值操作总是在最里层的作用域。赋值不会复制数据 —— 只是将命名绑定到对象。删除也是如此：<code>del
+                x</code> 只是从局部作用域的命名空间中删除命名 <code>x</code> 。事实上，所有引入新命名的操作都作用于局部作用域。特别是 <code>import</code>
+                语句和函数定将模块名或函数绑定于局部作用域(可以使用 <code>global</code> 语句将变量引入到全局作用域。)。</p>
             <div class="dsd_title_1"><a href="#top" id="3"><h2>3 初识类</h2></a></div>
             <p>类引入了一些新语法：三种新的对象类型和一些新的语义。</p>
             <div class="dsd_title_2"><a href="#top" id="3.1">3.1 类定义语法</a></div>
@@ -198,10 +193,7 @@
    .
    &lt;statement-N&gt;
 </code></pre>
-            <p>类的定义就像函数定义( <code>def &lt;https://docs.python.org/2.7/reference/compound_stmts.html#def&gt;</code>_
-                语句)，要先执行才能生效(你当然可以把它放进 <code>if
-                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#if&gt;</code>_ 语句的某一分支，或者一个函数的内部。)。
-            </p>
+            <p>类的定义就像函数定义( <code>def</code> 语句)，要先执行才能生效(你当然可以把它放进 <code>if</code> 语句的某一分支，或者一个函数的内部。)。 </p>
             <p>习惯上，类定义语句的内容通常是函数定义，不过其它语句也可以，有时会很有用——后面我们再回过头来讨论。类中的函数定义通常包括了一个特殊形式的参数列表，用于方法调用约定——同样我们在后面讨论这些。</p>
             <p>进入类定义部分后，会创建出一个新的命名空间，作为局部作用域——因此，所有的赋值成为这个新命名空间的局部变量。特别是函数定义在此绑定了新的命名。 </p>
             <p>类定义完成时(正常退出)，就创建了一个 <em>类对象</em>。基本上它是对类定义创建的命名空间进行了一个包装；我们在下一节进一步学习类对象的知识。原始的局部作用域(类定义引入之前生效的那个)得到恢复，类对象在这里绑定到类定义头部的类名(例子中是
@@ -226,15 +218,11 @@
             <pre class="prettyprint"><code>def __init__(self):
    self.data = []
 </code></pre>
-            <p>类定义了 <code>__init__() &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__init__&gt;</code>_
-                方法的话，类的实例化操作会自动为新创建的类实例调用 <code>__init__() &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__init__&gt;</code>_
-                方法。所以在下例中，可以这样创建一个新的实例::</p>
+            <p>类定义了 <code>__init__()</code> 方法的话，类的实例化操作会自动为新创建的类实例调用 <code>__init__()</code> 方法。所以在下例中，可以这样创建一个新的实例::
+            </p>
             <pre class="prettyprint"><code>x = MyClass()
 </code></pre>
-            <p>当然，出于弹性的需要，<code>__init__()
-                &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__init__&gt;</code>_ 方法可以有参数。事实上，参数通过
-                <code>__init__() &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__init__&gt;</code>_
-                传递到类的实例化操作上。例如::</p>
+            <p>当然，出于弹性的需要，<code>__init__()</code> 方法可以有参数。事实上，参数通过 <code>__init__()</code> 传递到类的实例化操作上。例如::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; class Complex:
 ...     def __init__(self, realpart, imagpart):
 ...         self.r = realpart
@@ -297,8 +285,8 @@ while True:
 &gt;&gt;&gt; e.name                  # unique to e
 'Buddy'
 </code></pre>
-            <p>正如在 :ref:<code>tut-object</code> 讨论的， <code>可变 &lt;https://docs.python.org/2.7/glossary.html#term-mutable&gt;</code>_
-                对象，例如列表和字典，的共享数据可能带来意外的效果。例如，下面代码中的 <em>tricks</em> 列表不应该用作类变量，因为所有的 <em>Dog</em> 实例将共享同一个列表::</p>
+            <p>正如在 :ref:<code>tut-object</code> 讨论的， <code>可变</code> 对象，例如列表和字典，的共享数据可能带来意外的效果。例如，下面代码中的 <em>tricks</em>
+                列表不应该用作类变量，因为所有的 <em>Dog</em> 实例将共享同一个列表::</p>
             <pre class="prettyprint"><code>class Dog:
 
     tricks = []             # mistaken use of a class variable
@@ -393,18 +381,12 @@ class C:
                 arguments)</code>。有时这对于客户也很有用(要注意只有 <code>BaseClassName</code> 在同一全局作用域定义或导入时才能这样用)。 </p>
             <p>Python 有两个用于继承的函数：</p>
             <ul>
-                <li><p>函数 <code>isinstance()
-                    &lt;https://docs.python.org/2.7/library/functions.html#isinstance&gt;</code>_ 用于检查实例类型：<code>isinstance(obj,
-                    int)</code> 只有在 <code>obj.__class__</code> 是 <code>int &lt;https://docs.python.org/2.7/library/functions.html#int&gt;</code>_
-                    或其它从 <code>int &lt;https://docs.python.org/2.7/library/functions.html#int&gt;</code>_ 继承的类型</p></li>
-                <li><p>函数 <code>issubclass()
-                    &lt;https://docs.python.org/2.7/library/functions.html#issubclass&gt;</code>_ 用于检查类继承：<code>issubclass(bool,
-                    int)</code> 为 <code>True</code>，因为 <code>bool &lt;https://docs.python.org/2.7/library/functions.html#bool&gt;</code>_
-                    是 <code>int &lt;https://docs.python.org/2.7/library/functions.html#int&gt;</code>_ 的子类。</p>
-                    <p>但是，<code>issubclass(unicode, str)</code> 是 <code>False</code>，因为 <code>unicode &lt;https://docs.python.org/2.7/library/functions.html#unicode&gt;</code>_
-                        不是 <code>str &lt;https://docs.python.org/2.7/library/functions.html#str&gt;</code>_
-                        的子类(它们只是共享一个通用祖先类 <code>basestring &lt;https://docs.python.org/2.7/library/functions.html#basestring&gt;</code>_
-                        )。</p></li>
+                <li><p>函数 <code>isinstance()</code> 用于检查实例类型：<code>isinstance(obj, int)</code> 只有在
+                    <code>obj.__class__</code> 是 <code>int</code> 或其它从 <code>int</code> 继承的类型</p></li>
+                <li><p>函数 <code>issubclass()</code> 用于检查类继承：<code>issubclass(bool, int)</code> 为 <code>True</code>，因为
+                    <code>bool</code> 是 <code>int</code> 的子类。</p>
+                    <p>但是，<code>issubclass(unicode, str)</code> 是 <code>False</code>，因为 <code>unicode</code> 不是 <code>str</code>
+                        的子类(它们只是共享一个通用祖先类 <code>basestring</code> )。</p></li>
             </ul>
             <div class="dsd_title_2"><a href="#top" id="2.1">2.1 多继承</a></div>
             <p>Python 同样有限的支持多继承形式。多继承的类定义形如下例::</p>
@@ -421,11 +403,10 @@ class C:
                 ——看起来更自然。然而，在你能弄明白与 :class:<code>Base2</code> 中的一个属性名称冲突的后果之前，你需要知道 :class:<code>Base1</code>
                 的某个特定属性实际上是定义在 :class:<code>Base1</code> 的还是在其某个基类中的。深度优先规则使 :class:<code>Base1</code>
                 的直接属性和继承的属性之间没有差别）。</p>
-            <p>对于 <code>新风格的类 &lt;https://docs.python.org/2.7/glossary.html#term-new-style-class&gt;</code><em>，方法的解析顺序动态变化地支持合作对
-                <code>super() &lt;https://docs.python.org/2.7/library/functions.html#super&gt;</code></em>
-                的调用。这种方法在某些其它多继承的语言中也有并叫做 call-next-method，它比单继承语言中的super调用更强大。</p>
-            <p>对于新风格的类，动态调整顺序是必要的，因为所有的多继承都会有一个或多个菱形关系(从最底部的类向上，至少会有一个父类可以通过多条路径访问到）。例如，所有新风格的类都继承自 <code>object &lt;https://docs.python.org/2.7/library/functions.html#object&gt;</code><em>，所以任何多继承都会有多条路径到达
-                <code>object &lt;https://docs.python.org/2.7/library/functions.html#object&gt;</code></em>。为了防止基类被重复访问，动态算法线性化搜索顺序，每个类都按从左到右的顺序特别指定了顺序，每个父类只调用一次，这是单调的（也就是说一个类被继承时不会影响它祖先的次序）。所有这些特性使得设计可靠并且可扩展的多继承类成为可能。有关详细信息，请参阅
+            <p>对于 <code>新风格的类</code>，方法的解析顺序动态变化地支持合作对 <code>super()</code> 的调用。这种方法在某些其它多继承的语言中也有并叫做
+                call-next-method，它比单继承语言中的super调用更强大。</p>
+            <p>对于新风格的类，动态调整顺序是必要的，因为所有的多继承都会有一个或多个菱形关系(从最底部的类向上，至少会有一个父类可以通过多条路径访问到）。例如，所有新风格的类都继承自 <code>object</code>，所以任何多继承都会有多条路径到达
+                <code>object</code>。为了防止基类被重复访问，动态算法线性化搜索顺序，每个类都按从左到右的顺序特别指定了顺序，每个父类只调用一次，这是单调的（也就是说一个类被继承时不会影响它祖先的次序）。所有这些特性使得设计可靠并且可扩展的多继承类成为可能。有关详细信息，请参阅
                 <code>http://www.python.org/download/releases/2.3/mro/ &lt;http://www.python.org/download/releases/2.3/mro/&gt;</code>_。
             </p>
             <div class="dsd_title_1"><a href="#top" id="3"><h2>3 私有变量和类本地引用</h2></a></div>
@@ -475,8 +456,7 @@ john.salary = 1000
             <p>实例方法对象也有属性：<code>m.im_self</code> 是一个实例方法所属的对象，而 <code>m.im_func</code> 是这个方法对应的函数对象。</p>
             <div class="dsd_title_1"><a href="#top" id="5"><h2>5 异常也是类</h2></a></div>
             <p>用户自定义异常也可以是类。利用这个机制可以创建可扩展的异常体系。 </p>
-            <p>以下是两种新的，有效的(语义上的)异常抛出形式，使用 <code>raise &lt;https://docs.python.org/2.7/reference/simple_stmts.html#raise&gt;</code>_
-                语句::</p>
+            <p>以下是两种新的，有效的(语义上的)异常抛出形式，使用 <code>raise</code> 语句::</p>
             <pre class="prettyprint"><code>raise Class, instance
 
 raise instance
@@ -484,7 +464,7 @@ raise instance
             <p>第一种形式中，<code>instance</code> 必须是 :class:<code>Class</code> 或其派生类的一个实例。第二种形式是以下形式的简写::</p>
             <pre class="prettyprint"><code>raise instance.__class__, instance
 </code></pre>
-            <p>发生的异常其类型如果是 <code>except &lt;https://docs.python.org/2.7/reference/compound_stmts.html#except&gt;</code>_
+            <p>发生的异常其类型如果是 <code>except</code>
                 子句中列出的类，或者是其派生类，那么它们就是相符的(反过来说－－发生的异常其类型如果是异常子句中列出的类的基类，它们就不相符)。例如，以下代码会按顺序打印 B，C，D::</p>
             <pre class="prettyprint"><code>class B:
    pass
@@ -504,11 +484,9 @@ for c in [B, C, D]:
        print "B"
 </code></pre>
             <p>要注意的是如果异常子句的顺序颠倒过来( <code>execpt B</code> 在最前)，它就会打印 B，B，B，第一个匹配的异常被触发。</p>
-            <p>打印一个异常类的错误信息时，先打印类名，然后是一个空格、一个冒号，然后是用内置函数 <code>str() &lt;https://docs.python.org/2.7/library/functions.html#str&gt;</code>_
-                将类转换得到的完整字符串。</p>
+            <p>打印一个异常类的错误信息时，先打印类名，然后是一个空格、一个冒号，然后是用内置函数 <code>str()</code> 将类转换得到的完整字符串。</p>
             <div class="dsd_title_1"><a href="#top" id="6"><h2>6 迭代器</h2></a></div>
-            <p>现在你可能注意到大多数容器对象都可以用 <code>for
-                &lt;https://docs.python.org/2.7/reference/compound_stmts.html#for&gt;</code>_ 遍历::</p>
+            <p>现在你可能注意到大多数容器对象都可以用 <code>for</code> 遍历::</p>
             <pre class="prettyprint"><code>for element in [1, 2, 3]:
    print element
 for element in (1, 2, 3):
@@ -520,14 +498,9 @@ for char in "123":
 for line in open("myfile.txt"):
    print line
 </code></pre>
-            <p>这种形式的访问清晰、简洁、方便。迭代器的用法在 Python 中普遍而且统一。在后台，<code>for &lt;https://docs.python.org/2.7/reference/compound_stmts.html#for&gt;</code>_
-                语句在容器对象中调用 <code>iter() &lt;https://docs.python.org/2.7/library/functions.html#iter&gt;</code><em>。
-                    该函数返回一个定义了 <code>next()
-                        &lt;https://docs.python.org/2.7/library/stdtypes.html#iterator.next&gt;</code></em>
-                方法的迭代器对象，它在容器中逐一访问元素。没有后续的元素时，<code>next() &lt;https://docs.python.org/2.7/library/stdtypes.html#iterator.next&gt;</code>_
-                抛出一个 <code>StopIteration &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.StopIteration&gt;</code>_
-                异常通知 <code>for &lt;https://docs.python.org/2.7/reference/compound_stmts.html#for&gt;</code>_
-                语句循环结束。以下是其工作原理的示例::</p>
+            <p>这种形式的访问清晰、简洁、方便。迭代器的用法在 Python 中普遍而且统一。在后台，<code>for</code> 语句在容器对象中调用 <code>iter()</code>。 该函数返回一个定义了
+                <code>next()</code> 方法的迭代器对象，它在容器中逐一访问元素。没有后续的元素时，<code>next()</code> 抛出一个 <code>StopIteration</code>
+                异常通知 <code>for</code> 语句循环结束。以下是其工作原理的示例::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; s = 'abc'
 &gt;&gt;&gt; it = iter(s)
 &gt;&gt;&gt; it
@@ -544,12 +517,8 @@ Traceback (most recent call last):
    next(it)
 StopIteration
 </code></pre>
-            <p>了解了迭代器协议的后台机制，就可以很容易的给自己的类添加迭代器行为。定义一个 <code>__iter__() &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__iter__&gt;</code>_
-                方法，使其返回一个带有 <code>next() &lt;https://docs.python.org/2.7/library/stdtypes.html#iterator.next&gt;</code>_
-                方法的对象。如果这个类已经定义了 <code>next()
-                    &lt;https://docs.python.org/2.7/library/stdtypes.html#iterator.next&gt;</code><em>，那么 <code>__iter__()
-                    &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__iter__&gt;</code></em> 只需要返回
-                <code>self</code>::</p>
+            <p>了解了迭代器协议的后台机制，就可以很容易的给自己的类添加迭代器行为。定义一个 <code>__iter__()</code> 方法，使其返回一个带有 <code>next()</code>
+                方法的对象。如果这个类已经定义了 <code>next()</code>，那么 <code>__iter__()</code> 只需要返回 <code>self</code>::</p>
             <pre class="prettyprint"><code>class Reverse:
    """Iterator for looping over a sequence backwards."""
    def __init__(self, data):
@@ -575,10 +544,8 @@ p
 s
 </code></pre>
             <div class="dsd_title_1"><a href="#top" id="7"><h2>7 生成器</h2></a></div>
-            <p><code>Generator &lt;https://docs.python.org/2.7/glossary.html#term-generator&gt;</code>_
-                是创建迭代器的简单而强大的工具。它们写起来就像是正规的函数，需要返回数据的时候使用 <code>yield &lt;https://docs.python.org/2.7/reference/simple_stmts.html#yield&gt;</code>_
-                语句。每次 <code>next() &lt;https://docs.python.org/2.7/library/functions.html#next&gt;</code>_
-                被调用时，生成器回复它脱离的位置(它记忆语句最后一次执行的位置和所有的数据值)。以下示例演示了生成器可以很简单的创建出来::</p>
+            <p><code>Generator</code> 是创建迭代器的简单而强大的工具。它们写起来就像是正规的函数，需要返回数据的时候使用 <code>yield</code> 语句。每次
+                <code>next()</code> 被调用时，生成器回复它脱离的位置(它记忆语句最后一次执行的位置和所有的数据值)。以下示例演示了生成器可以很简单的创建出来::</p>
             <pre class="prettyprint"><code>def reverse(data):
    for index in range(len(data)-1, -1, -1):
        yield data[index]
@@ -591,13 +558,10 @@ l
 o
 g
 </code></pre>
-            <p>前一节中描述了基于类的迭代器，它能作的每一件事生成器也能作到。因为自动创建了 <code>__iter__() &lt;https://docs.python.org/2.7/reference/datamodel.html#object.__iter__&gt;</code>_
-                和 <code>next() &lt;https://docs.python.org/2.7/reference/expressions.html#generator.next&gt;</code>_
-                方法，生成器显得如此简洁。 </p>
+            <p>前一节中描述了基于类的迭代器，它能作的每一件事生成器也能作到。因为自动创建了 <code>__iter__()</code> 和 <code>next()</code> 方法，生成器显得如此简洁。 </p>
             <p>另一个关键的功能在于两次执行之间，局部变量和执行状态都自动的保存下来。这使函数很容易写，而且比使用 <code>self.index</code> 和 <code>self.data</code>
                 之类的方式更清晰。 </p>
-            <p>除了创建和保存程序状态的自动方法，当发生器终结时，还会自动抛出 <code>StopIteration &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.StopIteration&gt;</code>_
-                异常。综上所述，这些功能使得编写一个正规函数成为创建迭代器的最简单方法。</p>
+            <p>除了创建和保存程序状态的自动方法，当发生器终结时，还会自动抛出 <code>StopIteration</code> 异常。综上所述，这些功能使得编写一个正规函数成为创建迭代器的最简单方法。</p>
             <div class="dsd_title_1"><a href="#top" id="8"><h2>8 生成器表达式</h2></a></div>
             <p>有时简单的生成器可以用简洁的方式调用，就像不带中括号的链表推导式。这些表达式是为函数调用生成器而设计的。生成器表达式比完整的生成器定义更简洁，但是没有那么多变，而且通常比等价的链表推导式更容易记。 </p>
             <p>例如::</p>

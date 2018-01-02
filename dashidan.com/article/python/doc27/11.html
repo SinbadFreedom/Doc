@@ -131,14 +131,13 @@
             </div>
             <p>﻿第二部分包含了支持专业编程工作所需的更高级的模块，这些模块很少出现在小脚本中。</p>
             <div class="dsd_title_1"><a href="#top" id="1"><h2>1 输出格式</h2></a></div>
-            <p><code>repr &lt;https://docs.python.org/2.7/library/functions.html#repr&gt;</code>_ 模块为大型的或深度嵌套的容器缩写显示提供了
-                <code>repr() &lt;https://docs.python.org/2.7/library/functions.html#repr&gt;</code>_ 函数的一个定制版本::</p>
+            <p><code>repr</code> 模块为大型的或深度嵌套的容器缩写显示提供了 <code>repr()</code> 函数的一个定制版本::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; import repr
 &gt;&gt;&gt; repr.repr(set('supercalifragilisticexpialidocious'))
 "set(['a', 'c', 'd', 'e', 'f', 'g', ...])"
 </code></pre>
-            <p><code>pprint &lt;https://docs.python.org/2.7/library/pprint.html#module-pprint&gt;</code>_
-                模块给老手提供了一种解释器可读的方式深入控制内置和用户自定义对象的打印。当输出超过一行的时候，“美化打印(pretty printer)”添加断行和标识符，使得数据结构显示的更清晰::</p>
+            <p><code>pprint</code> 模块给老手提供了一种解释器可读的方式深入控制内置和用户自定义对象的打印。当输出超过一行的时候，“美化打印(pretty
+                printer)”添加断行和标识符，使得数据结构显示的更清晰::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; import pprint
 &gt;&gt;&gt; t = [[[['black', 'cyan'], 'white', ['green', 'red']], [['magenta',
 ...     'yellow'], 'blue']]]
@@ -150,8 +149,7 @@
  [['magenta', 'yellow'],
   'blue']]]
 </code></pre>
-            <p><code>textwrap &lt;https://docs.python.org/2.7/library/textwrap.html#module-textwrap&gt;</code>_
-                模块格式化文本段落以适应设定的屏宽::</p>
+            <p><code>textwrap</code> 模块格式化文本段落以适应设定的屏宽::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; import textwrap
 &gt;&gt;&gt; doc = """The wrap() method is just like fill() except that it returns
 ... a list of strings instead of one big string with newlines to separate
@@ -163,8 +161,7 @@ except that it returns a list of strings
 instead of one big string with newlines
 to separate the wrapped lines.
 </code></pre>
-            <p><code>locale &lt;https://docs.python.org/2.7/library/locale.html#module-locale&gt;</code>_
-                模块按访问预定好的国家信息数据库。locale 的格式化函数属性集提供了一个直接方式以分组标示格式化数字::</p>
+            <p><code>locale</code> 模块按访问预定好的国家信息数据库。locale 的格式化函数属性集提供了一个直接方式以分组标示格式化数字::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; import locale
 &gt;&gt;&gt; locale.setlocale(locale.LC_ALL, 'English_United States.1252')
 'English_United States.1252'
@@ -177,9 +174,7 @@ to separate the wrapped lines.
 '$1,234,567.80'
 </code></pre>
             <div class="dsd_title_1"><a href="#top" id="2"><h2>2 模板</h2></a></div>
-            <p><code>string &lt;https://docs.python.org/2.7/library/string.html#module-string&gt;</code>_ 提供了一个灵活多变的模版类
-                <code>Template &lt;https://docs.python.org/2.7/library/string.html#string.Template&gt;</code>_
-                ，使用它最终用户可以简单地进行编辑。这使用户可以在不进行改变的情况下定制他们的应用程序。 </p>
+            <p><code>string</code> 提供了一个灵活多变的模版类 <code>Template</code> ，使用它最终用户可以简单地进行编辑。这使用户可以在不进行改变的情况下定制他们的应用程序。 </p>
             <p>格式使用 <code>$</code> 为开头的 Python 合法标识(数字、字母和下划线)作为占位符。占位符外面的大括号使它可以和其它的字符不加空格混在一起。<code>$$</code> 创建一个单独的
                 <code>$</code>::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; from string import Template
@@ -187,11 +182,7 @@ to separate the wrapped lines.
 &gt;&gt;&gt; t.substitute(village='Nottingham', cause='the ditch fund')
 'Nottinghamfolk send $10 to the ditch fund.'
 </code></pre>
-            <p>当一个占位符在字典或关键字参数中没有被提供时，<code>substitute() &lt;https://docs.python.org/2.7/library/string.html#string.Template.substitute&gt;</code>_
-                方法就会抛出一个 <code>KeyError
-                    &lt;https://docs.python.org/2.7/library/exceptions.html#exceptions.KeyError&gt;</code>_
-                异常。对于邮件合并风格的应用程序，用户提供的数据可能并不完整，这时使用 <code>safe_substitute() &lt;https://docs.python.org/2.7/library/string.html#string.Template.safe_substitute&gt;</code>_
-                方法可能更适合。如果数据不完整，它就不会改变占位符::</p>
+            <p>当一个占位符在字典或关键字参数中没有被提供时，<code>substitute()</code> 方法可能更适合。如果数据不完整，它就不会改变占位符::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; t = Template('Return the $item to $owner.')
 &gt;&gt;&gt; d = dict(item='unladen swallow')
 &gt;&gt;&gt; t.substitute(d)
@@ -222,13 +213,9 @@ img_1077.jpg --&gt; Ashley_2.jpg
 </code></pre>
             <p>模板的另一个应用是把多样的输出格式细节从程序逻辑中分类出来。这便使得 XML 文件，纯文本报表和 HTML WEB 报表定制模板成为可能。</p>
             <div class="dsd_title_1"><a href="#top" id="3"><h2>3 使用二进制数据记录布局</h2></a></div>
-            <p><code>struct &lt;https://docs.python.org/2.7/library/struct.html#module-struct&gt;</code>_
-                模块为使用变长的二进制记录格式提供了 <code>pack()
-                    &lt;https://docs.python.org/2.7/library/struct.html#struct.pack&gt;</code>_ 和 <code>unpack() &lt;https://docs.python.org/2.7/library/struct.html#struct.unpack&gt;</code>_
-                函数。下面的示例演示了在不使用 <code>zipfile
-                    &lt;https://docs.python.org/2.7/library/zipfile.html#module-zipfile&gt;</code>_ 模块的情况下如何迭代一个 ZIP
-                文件的头信息。压缩码 <code>"H"</code> 和 <code>"I"</code> 分别表示2和4字节无符号数字，<code>"&lt;"</code> 表明它们都是标准大小并且按照
-                little-endian 字节排序::</p>
+            <p><code>struct</code> 模块为使用变长的二进制记录格式提供了 <code>pack()</code> 和 <code>unpack()</code> 函数。下面的示例演示了在不使用 <code>zipfile</code>
+                模块的情况下如何迭代一个 ZIP 文件的头信息。压缩码 <code>"H"</code> 和 <code>"I"</code> 分别表示2和4字节无符号数字，<code>"&lt;"</code>
+                表明它们都是标准大小并且按照 little-endian 字节排序::</p>
             <pre class="prettyprint"><code>import struct
 
 with open('myfile.zip', 'rb') as f:
@@ -250,9 +237,7 @@ for i in range(3):                      # show the first 3 file headers
 </code></pre>
             <div class="dsd_title_1"><a href="#top" id="4"><h2>4 多线程</h2></a></div>
             <p>线程是一个分离无顺序依赖关系任务的技术。在某些任务运行于后台的时候应用程序会变得迟缓，线程可以提升其速度。一个有关的用途是在 I/O 的同时其它线程可以并行计算。 </p>
-            <p>下面的代码显示了高级模块 <code>threading
-                &lt;https://docs.python.org/2.7/library/threading.html#module-threading&gt;</code>_ 如何在主程序运行的同时运行任务::
-            </p>
+            <p>下面的代码显示了高级模块 <code>threading</code> 如何在主程序运行的同时运行任务::</p>
             <pre class="prettyprint"><code>import threading, zipfile
 
 class AsyncZip(threading.Thread):
@@ -274,12 +259,10 @@ background.join()    # Wait for the background task to finish
 print 'Main program waited until background was done.'
 </code></pre>
             <p>多线程应用程序的主要挑战是协调线程，诸如线程间共享数据或其它资源。为了达到那个目的，线程模块提供了许多同步化的原生支持，包括：锁，事件，条件变量和信号灯。</p>
-            <p>尽管这些工具很强大，微小的设计错误也可能造成难以挽回的故障。因此，任务协调的首选方法是把对一个资源的所有访问集中在一个单独的线程中，然后使用 <code>Queue &lt;https://docs.python.org/2.7/library/queue.html#module-Queue&gt;</code>_
-                模块用那个线程服务其他线程的请求。为内部线程通信和协调而使用 <code>Queue.Queue &lt;https://docs.python.org/2.7/library/queue.html#Queue.Queue&gt;</code>_
-                对象的应用程序更易于设计，更可读，并且更可靠。</p>
+            <p>尽管这些工具很强大，微小的设计错误也可能造成难以挽回的故障。因此，任务协调的首选方法是把对一个资源的所有访问集中在一个单独的线程中，然后使用 <code>Queue</code>
+                模块用那个线程服务其他线程的请求。为内部线程通信和协调而使用 <code>Queue.Queue</code> 对象的应用程序更易于设计，更可读，并且更可靠。</p>
             <div class="dsd_title_1"><a href="#top" id="5"><h2>5 日志</h2></a></div>
-            <p><code>logging &lt;https://docs.python.org/2.7/library/logging.html#module-logging&gt;</code>_
-                模块提供了完整和灵活的日志系统。它最简单的用法是记录信息并发送到一个文件或 <code>sys.stderr</code>::</p>
+            <p><code>logging</code> 模块提供了完整和灵活的日志系统。它最简单的用法是记录信息并发送到一个文件或 <code>sys.stderr</code>::</p>
             <pre class="prettyprint"><code>import logging
 logging.debug('Debugging information')
 logging.info('Informational message')
@@ -297,9 +280,8 @@ CRITICAL:root:Critical error -- shutting down
                 和 :const:<code>CRITICAL</code> 。 </p>
             <p>日志系统可以直接在 Python 代码中定制，也可以不经过应用程序直接在一个用户可编辑的配置文件中加载。</p>
             <div class="dsd_title_1"><a href="#top" id="6"><h2>6 弱引用</h2></a></div>
-            <p>Python 自动进行内存管理(对大多数的对象进行引用计数和垃圾回收 <code>garbage collection &lt;https://docs.python.org/2.7/glossary.html#term-garbage-collection&gt;</code>_
-                以循环利用)在最后一个引用消失后，内存会很快释放。</p>
-            <p>这个工作方式对大多数应用程序工作良好，但是偶尔会需要跟踪对象来做一些事。不幸的是，仅仅为跟踪它们创建引用也会使其长期存在。<code>weakref &lt;https://docs.python.org/2.7/library/weakref.html#module-weakref&gt;</code>_
+            <p>Python 自动进行内存管理(对大多数的对象进行引用计数和垃圾回收 <code>garbage collection</code> 以循环利用)在最后一个引用消失后，内存会很快释放。</p>
+            <p>这个工作方式对大多数应用程序工作良好，但是偶尔会需要跟踪对象来做一些事。不幸的是，仅仅为跟踪它们创建引用也会使其长期存在。<code>weakref</code>
                 模块提供了不用创建引用的跟踪对象工具，一旦对象不再存在，它自动从弱引用表上删除并触发回调。典型的应用包括捕获难以构造的对象::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; import weakref, gc
 &gt;&gt;&gt; class A:
@@ -326,9 +308,8 @@ KeyError: 'primary'
 </code></pre>
             <div class="dsd_title_1"><a href="#top" id="7"><h2>7 列表工具</h2></a></div>
             <p>很多数据结构可能会用到内置列表类型。然而，有时可能需要不同性能代价的实现。 </p>
-            <p><code>array &lt;https://docs.python.org/2.7/library/array.html#module-array&gt;</code>_ 模块提供了一个类似列表的
-                <code>array() &lt;https://docs.python.org/2.7/library/array.html#array.array&gt;</code>_
-                对象，它仅仅是存储数据，更为紧凑。以下的示例演示了一个存储双字节无符号整数的数组(类型编码 <code>"H"</code> )而非存储 16 字节 Python 整数对象的普通正规列表::</p>
+            <p><code>array</code> 模块提供了一个类似列表的 <code>array()</code> 对象，它仅仅是存储数据，更为紧凑。以下的示例演示了一个存储双字节无符号整数的数组(类型编码 <code>"H"</code>
+                )而非存储 16 字节 Python 整数对象的普通正规列表::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; from array import array
 &gt;&gt;&gt; a = array('H', [4000, 10, 700, 22222])
 &gt;&gt;&gt; sum(a)
@@ -336,9 +317,7 @@ KeyError: 'primary'
 &gt;&gt;&gt; a[1:3]
 array('H', [10, 700])
 </code></pre>
-            <p><code>collections &lt;https://docs.python.org/2.7/library/collections.html#module-collections&gt;</code>_
-                模块提供了类似列表的 <code>deque()
-                    &lt;https://docs.python.org/2.7/library/collections.html#collections.deque&gt;</code>_
+            <p><code>collections</code> 模块提供了类似列表的 <code>deque()</code>_
                 对象，它从左边添加(append)和弹出(pop)更快，但是在内部查询更慢。这些对象更适用于队列实现和广度优先的树搜索::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; from collections import deque
 &gt;&gt;&gt; d = deque(["task1", "task2", "task3"])
@@ -354,16 +333,14 @@ def breadth_first_search(unsearched):
            return m
        unsearched.append(m)
 </code></pre>
-            <p>除了链表的替代实现，该库还提供了 <code>bisect
-                &lt;https://docs.python.org/2.7/library/bisect.html#module-bisect&gt;</code>_ 这样的模块以操作存储链表::</p>
+            <p>除了链表的替代实现，该库还提供了 <code>bisect</code> 这样的模块以操作存储链表:</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; import bisect
 &gt;&gt;&gt; scores = [(100, 'perl'), (200, 'tcl'), (400, 'lua'), (500, 'python')]
 &gt;&gt;&gt; bisect.insort(scores, (300, 'ruby'))
 &gt;&gt;&gt; scores
 [(100, 'perl'), (200, 'tcl'), (300, 'ruby'), (400, 'lua'), (500, 'python')]
 </code></pre>
-            <p><code>heapq &lt;https://docs.python.org/2.7/library/heapq.html#module-heapq&gt;</code>_
-                提供了基于正规链表的堆实现。最小的值总是保持在 0 点。这在希望循环访问最小元素但是不想执行完整堆排序的时候非常有用::</p>
+            <p><code>heapq</code> 提供了基于正规链表的堆实现。最小的值总是保持在 0 点。这在希望循环访问最小元素但是不想执行完整堆排序的时候非常有用::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; from heapq import heapify, heappop, heappush
 &gt;&gt;&gt; data = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
 &gt;&gt;&gt; heapify(data)                      # rearrange the list into heap order
@@ -372,10 +349,8 @@ def breadth_first_search(unsearched):
 [-5, 0, 1]
 </code></pre>
             <div class="dsd_title_1"><a href="#top" id="8"><h2>8 十进制浮点数算法</h2></a></div>
-            <p><code>decimal &lt;https://docs.python.org/2.7/library/decimal.html#module-decimal&gt;</code>_ 模块提供了一个
-                <code>Decimal &lt;https://docs.python.org/2.7/library/decimal.html#decimal.Decimal&gt;</code>_
-                数据类型用于浮点数计算。相比内置的二进制浮点数实现 <code>float
-                    &lt;https://docs.python.org/2.7/library/functions.html#float&gt;</code>_，这个类型有助于：</p>
+            <p><code>decimal</code> 模块提供了一个 <code>Decimal</code> 数据类型用于浮点数计算。相比内置的二进制浮点数实现 <code>float</code>，这个类型有助于：
+            </p>
             <ul>
                 <li><p>金融应用和其它需要精确十进制表达的场合，</p></li>
                 <li><p>控制精度，</p></li>
@@ -391,10 +366,8 @@ Decimal('0.74')
 &gt;&gt;&gt; round(.70 * 1.05, 2)
 0.73
 </code></pre>
-            <p><code>Decimal &lt;https://docs.python.org/2.7/library/decimal.html#decimal.Decimal&gt;</code>_ 的结果总是保有结尾的
-                0，自动从两位精度延伸到4位。Decimal 重现了手工的数学运算，这就确保了二进制浮点数无法精确保有的数据精度。</p>
-            <p>高精度使 <code>Decimal &lt;https://docs.python.org/2.7/library/decimal.html#decimal.Decimal&gt;</code>_
-                可以执行二进制浮点数无法进行的模运算和等值测试::</p>
+            <p><code>Decimal</code> 的结果总是保有结尾的 0，自动从两位精度延伸到4位。Decimal 重现了手工的数学运算，这就确保了二进制浮点数无法精确保有的数据精度。</p>
+            <p>高精度使 <code>Decimal</code> 可以执行二进制浮点数无法进行的模运算和等值测试::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; Decimal('1.00') % Decimal('.10')
 Decimal('0.00')
 &gt;&gt;&gt; 1.00 % 0.10
@@ -405,8 +378,7 @@ True
 &gt;&gt;&gt; sum([0.1]*10) == 1.0
 False
 </code></pre>
-            <p><code>decimal &lt;https://docs.python.org/2.7/library/decimal.html#module-decimal&gt;</code>_
-                提供了必须的高精度算法::</p>
+            <p><code>decimal</code> 提供了必须的高精度算法::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; getcontext().prec = 36
 &gt;&gt;&gt; Decimal(1) / Decimal(7)
 Decimal('0.142857142857142857142857142857142857')

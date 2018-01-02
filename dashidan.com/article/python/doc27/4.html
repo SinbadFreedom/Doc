@@ -136,10 +136,9 @@
                     <p><a href="#7.5">7.5 Lambda 形式</a></p>
                     <p><a href="#7.6">7.6 文档字符串</a></p><a href="#8">8 插曲：编码风格</a><br></div>
             </div>
-            <p>﻿除了前面介绍的 <code>while &lt;https://docs.python.org/2.7/reference/compound_stmts.html#while&gt;</code>_
-                语句，Python 还从其它语言借鉴了一些流程控制功能，并有所改变。</p>
+            <p>﻿除了前面介绍的 <code>while</code> 语句，Python 还从其它语言借鉴了一些流程控制功能，并有所改变。</p>
             <div class="dsd_title_1"><a href="#top" id="1"><h2>1 if 语句</h2></a></div>
-            <p>也许最有名的是 <code>if &lt;https://docs.python.org/2.7/reference/compound_stmts.html#if&gt;</code>_ 语句。例如::</p>
+            <p>也许最有名的是 <code>if</code> 语句。例如::</p>
             <pre><code>&gt;&gt;&gt; x = int(raw_input("Please enter an integer: "))
 Please enter an integer: 42
 &gt;&gt;&gt; if x &lt; 0:
@@ -154,19 +153,14 @@ Please enter an integer: 42
 ...
 More
 </code></pre>
-            <p>可能会有零到多个 <code>elif &lt;https://docs.python.org/2.7/reference/compound_stmts.html#elif&gt;</code>_
-                部分，<code>else &lt;https://docs.python.org/2.7/reference/compound_stmts.html#else&gt;</code>_ 是可选的。关键字
-                <code>elif &lt;https://docs.python.org/2.7/reference/compound_stmts.html#elif&gt;</code>_ 是 "else if"
-                的缩写，这个可以有效避免过深的缩进。<code>if &lt;https://docs.python.org/2.7/reference/compound_stmts.html#if&gt;</code>_
-                ... <code>elif &lt;https://docs.python.org/2.7/reference/compound_stmts.html#elif&gt;</code>_ ... <code>elif
-                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#elif&gt;</code>_ ... 序列用于替代其它语言中的
-                <code>switch</code> 或 <code>case</code> 语句。</p>
+            <p>可能会有零到多个 <code>elif</code> 部分，<code>else</code> 是可选的。关键字 <code>elif</code> 是 "else if" 的缩写，这个可以有效避免过深的缩进。<code>if</code>
+                ... <code>elif</code> ... <code>elif</code> ... 序列用于替代其它语言中的 <code>switch</code> 或 <code>case</code> 语句。
+            </p>
             <div class="dsd_title_1"><a href="#top" id="2"><h2>2 for 语句</h2></a></div>
             <p>.. index::
                 statement: for</p>
-            <p>Python 中的 <code>for &lt;https://docs.python.org/2.7/reference/compound_stmts.html#for&gt;</code>_ 语句和 C 或
-                Pascal 中的略有不同。通常的循环可能会依据一个等差数值步进过程(如 Pascal)，或由用户来定义迭代步骤和中止条件(如 C )，Python 的 <code>for &lt;https://docs.python.org/2.7/reference/compound_stmts.html#for&gt;</code>_
-                语句依据任意序列(链表或字符串)中的子项，按它们在序列中的顺序来进行迭代。例如(没有暗指)::</p>
+            <p>Python 中的 <code>for</code> 语句和 C 或 Pascal 中的略有不同。通常的循环可能会依据一个等差数值步进过程(如 Pascal)，或由用户来定义迭代步骤和中止条件(如 C
+                )，Python 的 <code>for</code> 语句依据任意序列(链表或字符串)中的子项，按它们在序列中的顺序来进行迭代。例如(没有暗指)::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; # Measure some strings:
 ... words = ['cat', 'window', 'defenestrate']
 &gt;&gt;&gt; for w in words:
@@ -186,8 +180,7 @@ defenestrate 12
 </code></pre>
             <p>.. _tut-range:</p>
             <div class="dsd_title_1"><a href="#top" id="3"><h2>3 range() 函数</h2></a></div>
-            <p>如果你需要一个数值序列，内置函数 <code>range() &lt;https://docs.python.org/2.7/library/functions.html#range&gt;</code>_
-                会很方便，它生成一个等差级数链表::</p>
+            <p>如果你需要一个数值序列，内置函数 <code>range()</code> 会很方便，它生成一个等差级数链表::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; range(10)
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </code></pre>
@@ -202,8 +195,7 @@ defenestrate 12
 &gt;&gt;&gt; range(-10, -100, -30)
 [-10, -40, -70]
 </code></pre>
-            <p>需要迭代链表索引的话，如下所示结合使用 <code>range() &lt;https://docs.python.org/2.7/library/functions.html#range&gt;</code>_
-                和 <code>len() &lt;https://docs.python.org/2.7/library/functions.html#len&gt;</code>_::</p>
+            <p>需要迭代链表索引的话，如下所示结合使用 <code>range()</code> 和 <code>len()</code>:</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; a = ['Mary', 'had', 'a', 'little', 'lamb']
 &gt;&gt;&gt; for i in range(len(a)):
 ...     print i, a[i]
@@ -214,22 +206,15 @@ defenestrate 12
 3 little
 4 lamb
 </code></pre>
-            <p>不过，这种场合可以方便地使用 <code>enumerate()
-                &lt;https://docs.python.org/2.7/library/functions.html#enumerate&gt;</code>_，请参见 :ref:<code>tut-loopidioms</code>。
-            </p>
+            <p>不过，这种场合可以方便地使用 <code>enumerate()</code>，请参见 :ref:<code>tut-loopidioms</code>。</p>
             <div class="dsd_title_1"><a href="#top" id="4"><h2>4 <code>break</code>_ 和 <code>continue</code>_ 语句, 以及循环中的
                 <code>else</code>_ 子句</h2></a></div>
-            <p>.. <em>break: https://docs.python.org/2.7/reference/simple</em>stmts.html#break
-                .. <em>continue: https://docs.python.org/2.7/reference/simple</em>stmts.html#continue
-                .. <em>else: https://docs.python.org/2.7/reference/compound</em>stmts.html#else</p>
-            <p><code>break &lt;https://docs.python.org/2.7/reference/simple_stmts.html#break&gt;</code>_ 语句和 C
-                中的类似，用于跳出最近的一级 <code>for &lt;https://docs.python.org/2.7/reference/compound_stmts.html#for&gt;</code>_ 或
-                <code>while &lt;https://docs.python.org/2.7/reference/compound_stmts.html#while&gt;</code>_ 循环。</p>
-            <p>循环可以有一个 <code>else</code> 子句；它在循环迭代完整个列表 (对于 <code>for &lt;https://docs.python.org/2.7/reference/compound_stmts.html#for&gt;</code><em>)
-                后或执行条件为 false (对于 <code>while
-                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#while&gt;</code></em>) 时执行，但循环被 <code>break
-                &lt;https://docs.python.org/2.7/reference/simple_stmts.html#break&gt;</code>_
-                中止的情况下不会执行。以下搜索素数的示例程序演示了这个子句::</p>
+            <p>.. _break
+                .. _continue
+                .. _else</p>
+            <p><code>break</code> 语句和 C 中的类似，用于跳出最近的一级 <code>for</code> 或 <code>while</code> 循环。</p>
+            <p>循环可以有一个 <code>else</code> 子句；它在循环迭代完整个列表 (对于 <code>for</code>) 后或执行条件为 false (对于 <code>while</code>)
+                时执行，但循环被 <code>break</code> 中止的情况下不会执行。以下搜索素数的示例程序演示了这个子句::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; for n in range(2, 10):
 ...     for x in range(2, n):
 ...         if n % x == 0:
@@ -248,17 +233,12 @@ defenestrate 12
 8 equals 2 * 4
 9 equals 3 * 3
 </code></pre>
-            <p>(Yes, 这是正确的代码。看仔细: <code>else</code> 语句是属于 <code>for &lt;https://docs.python.org/2.7/reference/compound_stmts.html#for&gt;</code>_
-                循环之中, <strong>不是</strong> <code>if
-                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#if&gt;</code>_ 语句。)</p>
-            <p>与循环一起使用时，<code>else</code> 子句与 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
-                语句的 <code>else</code> 子句比与 <code>if
-                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#if&gt;</code>_ 语句的具有更多的共同点：<code>try
-                    &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_ 语句的 <code>else</code>
-                子句在未出现异常时运行，循环的 <code>else</code> 子句在未出现 <code>break</code> 时运行。更多关于 <code>try &lt;https://docs.python.org/2.7/reference/compound_stmts.html#try&gt;</code>_
-                语句和异常的内容，请参见 :ref:<code>tut-handling</code>。</p>
-            <p><code>continue &lt;https://docs.python.org/2.7/reference/simple_stmts.html#continue&gt;</code>_ 语句是从 C
-                中借鉴来的，它表示循环继续执行下一次迭代::</p>
+            <p>(Yes, 这是正确的代码。看仔细: <code>else</code> 语句是属于 <code>for</code> 循环之中, <strong>不是</strong> <code>if</code>
+                语句。)</p>
+            <p>与循环一起使用时，<code>else</code> 子句与 <code>try</code> 语句的 <code>else</code> 子句比与 <code>if</code>
+                语句的具有更多的共同点：<code>try</code> 语句的 <code>else</code> 子句在未出现异常时运行，循环的 <code>else</code> 子句在未出现
+                <code>break</code> 时运行。更多关于 <code>try</code> 语句和异常的内容，请参见 :ref:<code>tut-handling</code>。</p>
+            <p><code>continue</code> 语句是从 C 中借鉴来的，它表示循环继续执行下一次迭代::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; for num in range(2, 10):
 ...     if num % 2 == 0:
 ...         print "Found an even number", num
@@ -275,8 +255,7 @@ Found a number 9
 </code></pre>
             <p>.. _tut-pass:</p>
             <div class="dsd_title_1"><a href="#top" id="5"><h2>5 pass 语句</h2></a></div>
-            <p><code>pass &lt;https://docs.python.org/2.7/reference/simple_stmts.html#pass&gt;</code>_
-                语句什么也不做。它用于那些语法上必须要有什么语句，但程序什么也不做的场合，例如::</p>
+            <p><code>pass</code> 语句什么也不做。它用于那些语法上必须要有什么语句，但程序什么也不做的场合，例如::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; while True:
 ...     pass  # Busy-wait for keyboard interrupt (Ctrl+C)
 ...
@@ -286,9 +265,7 @@ Found a number 9
 ...     pass
 ...
 </code></pre>
-            <p>另一方面，<code>pass &lt;https://docs.python.org/2.7/reference/simple_stmts.html#pass&gt;</code>_
-                可以在创建新代码时用来做函数或控制体的占位符。可以让你在更抽象的级别上思考。<code>pass &lt;https://docs.python.org/2.7/reference/simple_stmts.html#pass&gt;</code>_
-                可以默默地被忽视::</p>
+            <p>另一方面，<code>pass</code> 可以在创建新代码时用来做函数或控制体的占位符。可以让你在更抽象的级别上思考。<code>pass</code> 可以默默地被忽视::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; def initlog(*args):
 ...     pass   # Remember to implement this!
 ...
@@ -310,14 +287,12 @@ Found a number 9
                 single: documentation strings
                 single: docstrings
                 single: strings, documentation</p>
-            <p>关键字 <code>def &lt;https://docs.python.org/2.7/reference/compound_stmts.html#def&gt;</code>_ 引入了一个函数 <em>定义</em>
-                。在其后必须跟有函数名和包括形式参数的圆括号。函数体语句从下一行开始，必须是缩进的。 </p>
+            <p>关键字 <code>def</code> 引入了一个函数 <em>定义</em> 。在其后必须跟有函数名和包括形式参数的圆括号。函数体语句从下一行开始，必须是缩进的。 </p>
             <p>函数体的第一行语句可以是可选的字符串文本，这个字符串是函数的文档字符串，或者称为 :dfn:<code>docstring</code> 。(更多关于 docstrings 的信息请参考 :ref:<code>tut-docstrings</code>
                 ) 有些工具通过 docstrings 自动生成在线的或可打印的文档，或者让用户通过代码交互浏览；在你的代码中包含 docstrings 是一个好的实践，让它成为习惯吧。</p>
             <p>函数 <em>调用</em>
                 会为函数局部变量生成一个新的符号表。确切地说，所有函数中的变量赋值都是将值存储在局部符号表。变量引用首先在局部符号表中查找，然后是包含函数的局部符号表，然后是全局符号表，最后是内置名字表。因此，全局变量不能在函数中直接赋值
-                (除非用 <code>global &lt;https://docs.python.org/2.7/reference/simple_stmts.html#global&gt;</code>_
-                语句命名)，尽管他们可以被引用。 </p>
+                (除非用 <code>global</code> 语句命名)，尽管他们可以被引用。 </p>
             <p>函数引用的实际参数在函数调用时引入局部符号表，因此，实参总是 <em>传值调用</em> (这里的 <em>值</em> 总是一个对象引用，而不是该对象的值)。[#]_
                 一个函数被另一个函数调用时，一个新的局部符号表在调用过程中被创建。 </p>
             <p>一个函数定义会在当前符号表内引入函数名。函数名指代的值(即函数体)存在一个被 Python 解释器认定为 <em>用户自定义函数</em>
@@ -328,10 +303,9 @@ Found a number 9
 &gt;&gt;&gt; f(100)
 0 1 1 2 3 5 8 13 21 34 55 89
 </code></pre>
-            <p>如果你使用过其他语言，你可能会反对说：<code>fib</code> 不是一个函数，而是一个方法，因为它并不返回任何值。事实上，没有 <code>return &lt;https://docs.python.org/2.7/reference/simple_stmts.html#return&gt;</code>_
+            <p>如果你使用过其他语言，你可能会反对说：<code>fib</code> 不是一个函数，而是一个方法，因为它并不返回任何值。事实上，没有 <code>return</code>
                 语句的函数确实会返回一个值，虽然是一个相当令人厌烦的值(指 None )。这个值被称为 <code>None</code> (这是一个内建名称)。如果 <code>None</code>
-                值是唯一被书写的值，那么在写的时候通常会被解释器忽略(即不输出任何内容)。如果你确实想看到这个值的输出内容，请使用 <code>print &lt;https://docs.python.org/2.7/reference/simple_stmts.html#print&gt;</code>_::
-            </p>
+                值是唯一被书写的值，那么在写的时候通常会被解释器忽略(即不输出任何内容)。如果你确实想看到这个值的输出内容，请使用 <code>print</code> :</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; fib(0)
 &gt;&gt;&gt; print fib(0)
 None
@@ -352,10 +326,8 @@ None
 </code></pre>
             <p>和以前一样，这个例子演示了一些新的 Python 功能：</p>
             <ul>
-                <li><p><code>return &lt;https://docs.python.org/2.7/reference/simple_stmts.html#return&gt;</code>_
-                    语句从函数中返回一个值。</p>
-                    <p>不带表达式的 <code>return &lt;https://docs.python.org/2.7/reference/simple_stmts.html#return&gt;</code>_
-                        返回 <code>None</code> 。过程结束后也会返回 <code>None</code> 。</p></li>
+                <li><p><code>return</code> 语句从函数中返回一个值。</p>
+                    <p>不带表达式的 <code>return</code> 返回 <code>None</code> 。过程结束后也会返回 <code>None</code> 。</p></li>
                 <li><p>语句 <code>result.append(b)</code> 称为链表对象 <code>result</code> 的一个 <em>方法</em> (method)。</p>
                     <p>方法是一个“属于”某个对象的函数，它被命名为 <code>obj.methodename</code>，这里的 <code>obj</code> 是某个对象(可能是一个表达式)，<code>methodename</code>
                         是某个在该对象类型定义中的方法的命名。不同的类型定义不同的方法。不同类型可能有同样名字的方法，但不会混淆(当你定义自己的对象类型和方法时，可能会出现这种情况，<em>class</em>
@@ -387,8 +359,7 @@ None
                 <li><p>或者给出所有的参数:</p>
                     <p><code>ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')</code></p></li>
             </ul>
-            <p>这个例子还介绍了 <code>in &lt;https://docs.python.org/2.7/reference/expressions.html#in&gt;</code>_
-                关键字。它测定序列中是否包含某个确定的值。 </p>
+            <p>这个例子还介绍了 <code>in</code> 关键字。它测定序列中是否包含某个确定的值。 </p>
             <p>默认值在函数 <em>定义</em> 作用域被解析，如下所示::</p>
             <pre class="prettyprint"><code>i = 5
 
@@ -421,8 +392,7 @@ print f(3)
     return L
 </code></pre>
             <div class="dsd_title_2"><a href="#top" id="7.2">7.2 关键字参数 </a></div>
-            <p>函数可以通过 <code>关键字参数 &lt;https://docs.python.org/2.7/glossary.html#term-keyword-argument&gt;</code>_
-                的形式来调用，形如 <code>keyword = value</code>。例如，以下的函数::</p>
+            <p>函数可以通过 <code>关键字参数</code> 的形式来调用，形如 <code>keyword = value</code>。例如，以下的函数::</p>
             <pre class="prettyprint"><code>def parrot(voltage, state='a stiff', action='voom', type='Norwegian Blue'):
     print "-- This parrot wouldn't", action,
     print "if you put", voltage, "volts through it."
@@ -455,7 +425,7 @@ Traceback (most recent call last):
   File "&lt;stdin&gt;", line 1, in ?
 TypeError: function() got multiple values for keyword argument 'a'
 </code></pre>
-            <p>引入一个形如 <code>**name</code> 的参数时，它接收一个字典(参见 <code>Mapping Types — dict &lt;https://docs.python.org/2.7/library/stdtypes.html#typesmapping&gt;</code>_
+            <p>引入一个形如 <code>**name</code> 的参数时，它接收一个字典(参见 <code>Mapping Types — dict</code>
                 )，该字典包含了所有未出现在形式参数列表中的关键字参数。这里可能还会组合使用一个形如 <code>*name</code>
                 (下一小节详细介绍)的形式参数，它接收一个元组(下一节中会详细介绍)，包含了所有没有出现在形式参数列表中的参数值。( <code>*name</code> 必须在 <code>**name</code>
                 之前出现)例如，我们这样定义一个函数::</p>
@@ -494,8 +464,8 @@ sketch : Cheese Shop Sketch
    file.write(separator.join(args))
 </code></pre>
             <div class="dsd_title_2"><a href="#top" id="7.4">7.4 参数列表的分拆</a></div>
-            <p>另有一种相反的情况: 当你要传递的参数已经是一个列表，但要调用的函数却接受分开一个个的参数值。这时候你要把已有的列表拆开来。例如内建函数 <code>range() &lt;https://docs.python.org/2.7/library/functions.html#range&gt;</code>_
-                需要独立的 <em>start</em> ，<em>stop</em> 参数。 你可以在调用函数时加一个 <code>*</code> 操作符来自动把参数列表拆开::</p>
+            <p>另有一种相反的情况: 当你要传递的参数已经是一个列表，但要调用的函数却接受分开一个个的参数值。这时候你要把已有的列表拆开来。例如内建函数 <code>range()</code> 需要独立的
+                <em>start</em> ，<em>stop</em> 参数。 你可以在调用函数时加一个 <code>*</code> 操作符来自动把参数列表拆开::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; list(range(3, 6))            # normal call with separate arguments
 [3, 4, 5]
 &gt;&gt;&gt; args = [3, 6]
@@ -513,9 +483,9 @@ sketch : Cheese Shop Sketch
 -- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
 </code></pre>
             <div class="dsd_title_2"><a href="#top" id="7.5">7.5 Lambda 形式</a></div>
-            <p>出于实际需要，有几种通常在函数式编程语言例如 Lisp 中出现的功能加入到了 Python 中。通过 <code>lambda &lt;https://docs.python.org/2.7/reference/expressions.html#lambda&gt;</code>_
-                关键字，可以创建短小的匿名函数。这里有一个函数返回它的两个参数的和：<code>lambda a, b: a+b</code>。Lambda
-                形式可以用于任何需要的函数对象。出于语法限制，它们只能有一个单独的表达式。语义上讲，它们只是普通函数定义中的一个语法技巧。类似于嵌套函数定义，lambda 形式可以从外部作用域引用变量::</p>
+            <p>出于实际需要，有几种通常在函数式编程语言例如 Lisp 中出现的功能加入到了 Python 中。通过 <code>lambda</code> 关键字，可以创建短小的匿名函数。这里有一个函数返回它的两个参数的和：<code>lambda
+                a, b: a+b</code>。Lambda 形式可以用于任何需要的函数对象。出于语法限制，它们只能有一个单独的表达式。语义上讲，它们只是普通函数定义中的一个语法技巧。类似于嵌套函数定义，lambda
+                形式可以从外部作用域引用变量::</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; def make_incrementor(n):
 ...     return lambda x: x + n
 ...

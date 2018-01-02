@@ -153,8 +153,7 @@
             <p>有一些 Python 模块也可以当作脚本使用。你可以使用 <code>python -m module [arg] ...</code> 命令来调用它们，这类似在命令行中键入完整的路径名执行
                 <em>模块</em> 源文件一样。</p>
             <p>使用脚本文件时，经常会运行脚本然后进入交互模式。这也可以通过在脚本之前加上 :option:<code>-i</code> 参数来实现。</p>
-            <p>所有的命令行参数详细描述在 <code>命令行和环境 &lt;https://docs.python.org/3.6/using/cmdline.html#using-on-general&gt;</code>_
-                。</p>
+            <p>所有的命令行参数详细描述在 <code>命令行和环境</code> 。</p>
             <div class="dsd_title_2"><a href="#top" id="1.1">1.1 参数传递</a></div>
             <p>调用解释器时，脚本名和附加参数传入一个名为 <code>sys.argv</code> 的字符串列表。你能够通过执行 <code>import sys</code>
                 来获取这个列表，列表的长度大于等于1；没有给定脚本和参数时，它至少也有一个元素：<code>sys.argv[0]</code> 此时为空字符串。</p>
@@ -173,8 +172,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 .. XXX update for new releases
 </code></pre>
-            <p>输入多行结构时需要从属提示符了，例如，下面这个 <code>if
-                &lt;https://docs.python.org/2.7/reference/compound_stmts.html#if&gt;</code>_ 语句::</p>
+            <p>输入多行结构时需要从属提示符了，例如，下面这个 <code>if</code> 语句:</p>
             <pre class="prettyprint"><code>&gt;&gt;&gt; the_world_is_flat = 1
 &gt;&gt;&gt; if the_world_is_flat:
 ...     print "Be careful not to fall off!"
@@ -187,7 +185,7 @@ Be careful not to fall off!
             <p>在Python源文件中可以使用非 ASCII 编码。最好的方法是在 <code>#!</code> 行的后面再增加一行特殊的注释来定义源文件的编码::</p>
             <pre class="prettyprint"><code># -*- coding: encoding -*-
 </code></pre>
-            <p>通过此声明，源文件中所有的东西都会被当做用 <em>encoding</em> 指代的 UTF-8 编码对待。在 Python 库参考手册 <code>codecs &lt;https://docs.python.org/2.7/library/codecs.html#module-codecs&gt;</code>_
+            <p>通过此声明，源文件中所有的东西都会被当做用 <em>encoding</em> 指代的 UTF-8 编码对待。在 Python 库参考手册 <code>codecs</code>
                 一节中你可以找到一张可用的编码列表。</p>
             <p>例如，若要写入包含欧元货币符号的 Unicode 字面量，可以使用 ISO-8859-15 编码，其欧元符号的值为 164 。此脚本中，以 ISO-8859-15 编码，保存时将打印的值 8364
                 (Unicode 代码点相应的欧元符号），然后退出::</p>
