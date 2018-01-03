@@ -23,7 +23,7 @@
      The PDO_SQLSRV Data Source Name (DSN) is composed of the following elements:
      <dl>
 
-      
+
        <dt>
 DSN prefix</dt>
 
@@ -34,8 +34,8 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>APP</em></dt>
 
@@ -46,21 +46,21 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>ConnectionPooling</em></dt>
 
        <dd>
 
         <p class="para">
-         Specifies whether the connection is assigned from a connection pool 
+         Specifies whether the connection is assigned from a connection pool
          (1 or <strong><code>TRUE</code></strong>) or not (0 or <strong><code>FALSE</code></strong>).
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>Database</em></dt>
 
@@ -71,34 +71,34 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>Encrypt</em></dt>
 
        <dd>
 
         <p class="para">
-         Specifies whether the communication with SQL Server is encrypted 
+         Specifies whether the communication with SQL Server is encrypted
          (1 or <strong><code>TRUE</code></strong>) or unencrypted (0 or <strong><code>FALSE</code></strong>).
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>Failover_Partner</em></dt>
 
        <dd>
 
         <p class="para">
-         Specifies the server and instance of the database&#039;s mirror (if enabled 
+         Specifies the server and instance of the database&#039;s mirror (if enabled
          and configured) to use when the primary server is unavailable.
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>LoginTimeout</em></dt>
 
@@ -109,8 +109,8 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>MultipleActiveResultSets</em></dt>
 
@@ -121,21 +121,21 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>QuotedId</em></dt>
 
        <dd>
 
         <p class="para">
-         Specifies whether to use SQL-92 rules for quoted identifiers (1 or <strong><code>TRUE</code></strong>) 
+         Specifies whether to use SQL-92 rules for quoted identifiers (1 or <strong><code>TRUE</code></strong>)
          or to use legacy Transact-SQL rules (0 or <strong><code>FALSE</code></strong>).
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>Server</em></dt>
 
@@ -146,8 +146,8 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>TraceFile</em></dt>
 
@@ -158,49 +158,49 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>TraceOn</em></dt>
 
        <dd>
 
         <p class="para">
-         Specifies whether ODBC tracing is enabled (1 or <strong><code>TRUE</code></strong>) or disabled 
+         Specifies whether ODBC tracing is enabled (1 or <strong><code>TRUE</code></strong>) or disabled
          (0 or <strong><code>FALSE</code></strong>) for the connection being established.
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>TransactionIsolation</em></dt>
 
        <dd>
 
         <p class="para">
-         Specifies the transaction isolation level. The accepted values for this 
-         option are PDO::SQLSRV_TXN_READ_UNCOMMITTED, PDO::SQLSRV_TXN_READ_COMMITTED, 
-         PDO::SQLSRV_TXN_REPEATABLE_READ, PDO::SQLSRV_TXN_SNAPSHOT, and 
+         Specifies the transaction isolation level. The accepted values for this
+         option are PDO::SQLSRV_TXN_READ_UNCOMMITTED, PDO::SQLSRV_TXN_READ_COMMITTED,
+         PDO::SQLSRV_TXN_REPEATABLE_READ, PDO::SQLSRV_TXN_SNAPSHOT, and
          PDO::SQLSRV_TXN_SERIALIZABLE.
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>TrustServerCertificate</em></dt>
 
        <dd>
 
         <p class="para">
-         Specifies whether the client should trust (1 or <strong><code>TRUE</code></strong>) or reject 
+         Specifies whether the client should trust (1 or <strong><code>TRUE</code></strong>) or reject
          (0 or <strong><code>FALSE</code></strong>) a self-signed server certificate.
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>WSID</em></dt>
 
@@ -211,7 +211,7 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
+
      </dl>
 
     </p>
@@ -227,24 +227,24 @@ DSN prefix</dt>
        The following example shows how to connecto to a specified MS SQL Server database:
        <div class="example-contents">
 <div class="cdata"><pre>
-$c = new PDO(&quot;sqlsrv:Server=localhost;Database=testdb&quot;, &quot;UserName&quot;, &quot;Password&quot;);
+$c = new PDO(&quot;sqlsrv:Server=dashidan.com;Database=testdb&quot;, &quot;UserName&quot;, &quot;Password&quot;);
 </pre></div>
        </div>
 
        </p></div>
        <div class="example-contents"><p>
-       The following example shows how to connect to a MS SQL Server database on 
+       The following example shows how to connect to a MS SQL Server database on
        a specified port:
        <div class="example-contents">
 <div class="cdata"><pre>
-$c = new PDO(&quot;sqlsrv:Server=localhost,1521;Database=testdb&quot;, &quot;UserName&quot;, &quot;Password&quot;);
+$c = new PDO(&quot;sqlsrv:Server=dashidan.com,1521;Database=testdb&quot;, &quot;UserName&quot;, &quot;Password&quot;);
 </pre></div>
        </div>
 
       </p></div>
       <div class="example-contents"><p>
-       The following example shows how to connecto to a SQL Azure database with 
-       server ID 12345abcde. Note that when you connect to SQL Azure with PDO, 
+       The following example shows how to connecto to a SQL Azure database with
+       server ID 12345abcde. Note that when you connect to SQL Azure with PDO,
        your username will be UserName@12345abcde (UserName@ServerId).
        <div class="example-contents">
 <div class="cdata"><pre>

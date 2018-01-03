@@ -30,7 +30,7 @@
   <p class="para rdfs-comment">
     This function returns an object with the column names of the result set as
     properties. The values of these properties are extracted from the current
-    row of the result. 
+    row of the result.
   </p>
  </div>
 
@@ -40,15 +40,15 @@
  <p class="para">
   <dl>
 
-  
+
    <dt>
 <code class="parameter">result</code></dt>
 
    <dd>
 <p class="para"><code class="parameter">result</code> comes from a call to <span class="function"><a href="function.cubrid-execute.html" class="function">cubrid_execute()</a></span></p></dd>
 
-  
-  
+
+
     <dt>
 <code class="parameter">class_name</code></dt>
 
@@ -61,8 +61,8 @@
        </p>
      </dd>
 
-   
-    
+
+
      <dt>
 <code class="parameter">params</code></dt>
 
@@ -74,8 +74,8 @@
        </p>
      </dd>
 
-   
-    
+
+
      <dt>
 <code class="parameter">type</code></dt>
 
@@ -87,7 +87,7 @@
        </p>
      </dd>
 
-   
+
   </dl>
 
   </p>
@@ -111,7 +111,7 @@
    <p><strong>Example #1 <span class="function"><strong>cubrid_fetch_object()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">cubrid_fetch_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;operate&nbsp;LOB&nbsp;object,&nbsp;you&nbsp;can&nbsp;use&nbsp;cubrid_fetch_object($res,&nbsp;CUBRID_LOB)<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">demodb_code&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$s_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$f_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">toString</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">cubrid_fetch_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb_code"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;operate&nbsp;LOB&nbsp;object,&nbsp;you&nbsp;can&nbsp;use&nbsp;cubrid_fetch_object($res,&nbsp;"demodb_code",&nbsp;CUBRID_LOB)<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">demodb_code_construct&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">demodb_code&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$f</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">s_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$s</span><span style="color: #007700">;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">f_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$f</span><span style="color: #007700">;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">cubrid_fetch_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'demodb_code_construct'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'s_name'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'f_name'</span><span style="color: #007700">)));<br /><br /></span><span style="color: #FF8000">//&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;operate&nbsp;LOB&nbsp;object,&nbsp;you&nbsp;can&nbsp;use&nbsp;cubrid_fetch_object($res,&nbsp;'demodb_code_construct',&nbsp;array('s_name',&nbsp;'f_name'),&nbsp;CUBRID_LOB)<br /><br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">cubrid_fetch_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">cubrid_close_request</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">cubrid_fetch_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;operate&nbsp;LOB&nbsp;object,&nbsp;you&nbsp;can&nbsp;use&nbsp;cubrid_fetch_object($res,&nbsp;CUBRID_LOB)<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">demodb_code&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$s_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$f_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">toString</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">cubrid_fetch_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb_code"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;operate&nbsp;LOB&nbsp;object,&nbsp;you&nbsp;can&nbsp;use&nbsp;cubrid_fetch_object($res,&nbsp;"demodb_code",&nbsp;CUBRID_LOB)<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">demodb_code_construct&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">demodb_code&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$f</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">s_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$s</span><span style="color: #007700">;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">f_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$f</span><span style="color: #007700">;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">cubrid_fetch_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'demodb_code_construct'</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'s_name'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'f_name'</span><span style="color: #007700">)));<br /><br /></span><span style="color: #FF8000">//&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;operate&nbsp;LOB&nbsp;object,&nbsp;you&nbsp;can&nbsp;use&nbsp;cubrid_fetch_object($res,&nbsp;'demodb_code_construct',&nbsp;array('s_name',&nbsp;'f_name'),&nbsp;CUBRID_LOB)<br /><br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">cubrid_fetch_object</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">cubrid_close_request</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

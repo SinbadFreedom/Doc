@@ -16,8 +16,8 @@
   <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_affected_rows</span> &mdash; <span class="dc-title">取得前一次 MySQL 操作所影响的记录行数</span></p>
 
  </div>
- 
- 
+
+
  <div id="function.mysql-affected-rows-refsynopsisdiv">
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">本扩展自 PHP 5.5.0
@@ -30,7 +30,7 @@
    </ul>
   </div>
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.mysql-affected-rows-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
@@ -86,7 +86,7 @@ link_identifier</code></dt>
    REPLACE 语句首先删除具有相同主键的记录，然后插入一个新记录。本函数返回的是被删除的记录数加上被插入的记录数。
   </p>
   <p class="para">
-   &quot;INSERT ... ON DUPLICATE KEY UPDATE&quot; 这种情况的查询，当执行了一次 INSERT 返回的值会是 <em>1</em>；如果是对已经存在的记录执行一次 UPDATE 将返回 <em>2</em>。 
+   &quot;INSERT ... ON DUPLICATE KEY UPDATE&quot; 这种情况的查询，当执行了一次 INSERT 返回的值会是 <em>1</em>；如果是对已经存在的记录执行一次 UPDATE 将返回 <em>2</em>。
   </p>
  </div>
 
@@ -98,7 +98,7 @@ link_identifier</code></dt>
     <p><strong>Example #1 <span class="function"><strong>mysql_affected_rows()</strong></span> 例子</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #DD0000">'mydb'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;本例返回被删除记录的准确数目&nbsp;*/<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">'DELETE&nbsp;FROM&nbsp;mytable&nbsp;WHERE&nbsp;id&nbsp;&lt;&nbsp;10'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Records&nbsp;deleted:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysql_affected_rows</span><span style="color: #007700">());<br /><br /></span><span style="color: #FF8000">/*&nbsp;对于非真值的&nbsp;WHERE&nbsp;子句，应返回&nbsp;0&nbsp;*/<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">'DELETE&nbsp;FROM&nbsp;mytable&nbsp;WHERE&nbsp;0'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Records&nbsp;deleted:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysql_affected_rows</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #DD0000">'mydb'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;本例返回被删除记录的准确数目&nbsp;*/<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">'DELETE&nbsp;FROM&nbsp;mytable&nbsp;WHERE&nbsp;id&nbsp;&lt;&nbsp;10'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Records&nbsp;deleted:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysql_affected_rows</span><span style="color: #007700">());<br /><br /></span><span style="color: #FF8000">/*&nbsp;对于非真值的&nbsp;WHERE&nbsp;子句，应返回&nbsp;0&nbsp;*/<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">'DELETE&nbsp;FROM&nbsp;mytable&nbsp;WHERE&nbsp;0'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Records&nbsp;deleted:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysql_affected_rows</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -117,7 +117,7 @@ Records deleted: 0
     <p><strong>Example #2 使用事务处理的 <span class="function"><strong>mysql_affected_rows()</strong></span> 例子</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #DD0000">'mydb'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Update&nbsp;records&nbsp;*/<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"UPDATE&nbsp;mytable&nbsp;SET&nbsp;used=1&nbsp;WHERE&nbsp;id&nbsp;&lt;&nbsp;10"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"Updated&nbsp;records:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysql_affected_rows</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"COMMIT"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #DD0000">'mydb'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Update&nbsp;records&nbsp;*/<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"UPDATE&nbsp;mytable&nbsp;SET&nbsp;used=1&nbsp;WHERE&nbsp;id&nbsp;&lt;&nbsp;10"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"Updated&nbsp;records:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysql_affected_rows</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"COMMIT"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -135,25 +135,25 @@ Updated Records: 10
 
  <div class="refsect1 notes" id="refsect1-function.mysql-affected-rows-notes">
   <h3 class="title">注释</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>事务处理</strong><br />
    <p class="para">
     如果使用事务处理（transactions），需要在 INSERT，UPDATE 或 DELETE 查询后调用
     <span class="function"><strong>mysql_affected_rows()</strong></span> 函数，而不是在 COMMIT 命令之后。
    </p>
   </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>SELECT 语句</strong><br />
    <p class="para">
     要获取 SELECT 所返回的行数，可以用
     <span class="function"><a href="function.mysql-num-rows.html" class="function">mysql_num_rows()</a></span>。
    </p>
   </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>Cascaded 外键</strong><br />
    <p class="para">
      <span class="function"><strong>mysql_affected_rows()</strong></span> does not count rows affected
-     implicitly through the use of ON DELETE CASCADE and/or ON UPDATE CASCADE 
+     implicitly through the use of ON DELETE CASCADE and/or ON UPDATE CASCADE
      in foreign key constraints.
    </p>
   </p></blockquote>

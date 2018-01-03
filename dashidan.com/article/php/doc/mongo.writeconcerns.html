@@ -67,7 +67,7 @@
  <p class="para">
   <table id="mongo.writeconcerns.options" class="doctable table">
    <caption><strong>Available Write Concerns</strong></caption>
-   
+
     <thead>
      <tr>
       <th>Write Concern</th>
@@ -117,17 +117,17 @@
      </tr>
 
     </tbody>
-   
+
   </table>
 
  </p>
- 
+
  <div class="simplesect">
   <h3 class="title">Using WriteConcerns</h3>
   <p class="para">
    Each of the methods that causes writes
    (<span class="methodname"><a href="mongocollection.insert.html" class="methodname">MongoCollection::insert()</a></span>,
-   <span class="methodname"><a href="mongocollection.update.html" class="methodname">MongoCollection::update()</a></span>, 
+   <span class="methodname"><a href="mongocollection.update.html" class="methodname">MongoCollection::update()</a></span>,
    <span class="methodname"><a href="mongocollection.remove.html" class="methodname">MongoCollection::remove()</a></span>, and
    <span class="methodname"><a href="mongocollection.batchinsert.html" class="methodname">MongoCollection::batchInsert()</a></span>) allow an optional
    argument to send a set of options to the MongoDB server. With this option
@@ -157,7 +157,7 @@
    <p><strong>Example #2 Connection string WriteConcerns</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost/?journal=true&amp;w=majority&amp;wTimeoutMS=20000"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://dashidan.com/?journal=true&amp;w=majority&amp;wTimeoutMS=20000"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -176,7 +176,7 @@
    <p><strong>Example #3 MongoDB::setWriteConcern and MongoCollection::setWriteConcern</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost/"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$d&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">demoDb</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">demoCollection</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;w=3&nbsp;on&nbsp;the&nbsp;database&nbsp;object&nbsp;with&nbsp;a&nbsp;timeout&nbsp;of&nbsp;25000ms<br /></span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setWriteConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">25000</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;w=majority&nbsp;on&nbsp;the&nbsp;collection&nbsp;object&nbsp;without&nbsp;changing&nbsp;the&nbsp;timeout<br /></span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setWriteConcern</span><span style="color: #007700">(</span><span style="color: #DD0000">"majority"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://dashidan.com/"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$d&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">demoDb</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">demoCollection</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;w=3&nbsp;on&nbsp;the&nbsp;database&nbsp;object&nbsp;with&nbsp;a&nbsp;timeout&nbsp;of&nbsp;25000ms<br /></span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setWriteConcern</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">25000</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;w=majority&nbsp;on&nbsp;the&nbsp;collection&nbsp;object&nbsp;without&nbsp;changing&nbsp;the&nbsp;timeout<br /></span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setWriteConcern</span><span style="color: #007700">(</span><span style="color: #DD0000">"majority"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -189,13 +189,13 @@
   <p class="para">
    By not requiring the server to acknowledge writes the writes can be performed
    extremely quickly, but you don&#039;t know whether or not they actually succeeded.
-   Writes can fail for a number of reasons: if there are network problems, if a 
-   database server goes down, or if the write was simply invalid (e.g., writing 
+   Writes can fail for a number of reasons: if there are network problems, if a
+   database server goes down, or if the write was simply invalid (e.g., writing
    to a system collection; or duplicate key errors).
   </p>
   <p class="para">
-   While developing, you should always use acknowledged writes (to protect against 
-   inadvertent mistakes, such as syntax errors, invalid operators, duplicate key errors and so on).  In 
+   While developing, you should always use acknowledged writes (to protect against
+   inadvertent mistakes, such as syntax errors, invalid operators, duplicate key errors and so on).  In
    production, unacknowledged writes can be used for &quot;unimportant&quot; data.  Unimportant
    data varies on application, but it&#039;s generally automatically (instead of user
    generated) data, such as click tracking or GPS locations, where you can get
@@ -285,7 +285,7 @@
   </div>
  </div>
 
- 
+
 
  <div class="simplesect">
   <h3 class="title">Journaled Writes</h3>
@@ -321,7 +321,7 @@
  <div class="simplesect">
   <h3 class="title">更新日志</h3>
   <table class="doctable informaltable">
-   
+
     <thead>
      <tr>
       <th>版本</th>
@@ -351,7 +351,7 @@
      </tr>
 
     </tbody>
-   
+
   </table>
 
  </div>

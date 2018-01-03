@@ -16,7 +16,7 @@
   <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_socket_client</span> &mdash; <span class="dc-title">Open Internet or Unix domain socket connection</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.stream-socket-client-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
@@ -40,7 +40,7 @@
    domain sockets, the <code class="parameter">target</code> portion should point
    to the socket file on the filesystem.
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     The stream will by default be opened in blocking mode.  You can
     switch it to non-blocking mode by using
@@ -55,7 +55,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">remote_socket</code></dt>
 
@@ -66,8 +66,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">errno</code></dt>
 
@@ -78,8 +78,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">errstr</code></dt>
 
@@ -90,8 +90,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">timeout</code></dt>
 
@@ -100,13 +100,13 @@
       <p class="para">
        Number of seconds until the <em>connect()</em> system call
        should timeout.
-       <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <blockquote class="note"><p><strong class="note">Note</strong>:
         <span class="simpara">
          This parameter only applies when not making asynchronous
          connection attempts.
         </span>
        </p></blockquote>
-       <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <blockquote class="note"><p><strong class="note">Note</strong>:
         <p class="para">
          To set a timeout for reading/writing data over the socket, use the
          <span class="function"><a href="function.stream-set-timeout.html" class="function">stream_set_timeout()</a></span>, as the
@@ -117,8 +117,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">flags</code></dt>
 
@@ -133,8 +133,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">context</code></dt>
 
@@ -145,7 +145,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -163,7 +163,7 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 errors" id="refsect1-function.stream-socket-client-errors">
   <h3 class="title">错误／异常</h3>
   <p class="para">
@@ -181,8 +181,8 @@
   </p>
  </div>
 
- 
- 
+
+
  <div class="refsect1 examples" id="refsect1-function.stream-socket-client-examples">
   <h3 class="title">范例</h3>
   <p class="para">
@@ -200,7 +200,7 @@
     <p><strong>Example #2 Using UDP connection</strong></p>
     <div class="example-contents"><p>
      Retrieving the day and time from the UDP service &quot;daytime&quot; (port 13)
-     on localhost.
+     on dashidan.com.
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -229,7 +229,7 @@
   <blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">当指定数值型的 IPv6
 地址（例如 <em>fe80::1</em>）时必须用方括号将 IP 围起来——例如，
 <em>tcp://[fe80::1]:80</em>。</span></p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     Depending on the environment, the Unix domain or the optional
     connect timeout may not be available.  A list of available

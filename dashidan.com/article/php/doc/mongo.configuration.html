@@ -18,7 +18,7 @@
  <p class="para">
   <table class="doctable table">
    <caption><strong>Mongo 配置选项</strong></caption>
-   
+
     <thead>
      <tr>
       <th>名字</th>
@@ -60,7 +60,7 @@
 
      <tr>
       <td><a href="mongo.configuration.html#ini.mongo.default-host" class="link">mongo.default_host</a></td>
-      <td>&quot;localhost&quot;</td>
+      <td>&quot;dashidan.com&quot;</td>
       <td>PHP_INI_ALL</td>
       <td class="empty">&nbsp;</td>
      </tr>
@@ -108,7 +108,7 @@
      </tr>
 
     </tbody>
-   
+
   </table>
 
   有关 PHP_INI_* 样式的更多详情与定义，见 <a href="configuration.changes.modes.html" class="xref">配置可被设定范围</a>。
@@ -119,7 +119,7 @@
  <p class="para">
   <dl>
 
-   
+
     <dt id="ini.mongo.allow-empty-keys">
      <code class="parameter">mongo.allow_empty_keys</code>
      <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -131,9 +131,9 @@
       Added in version 1.0.11.
      </p>
      <p class="para">
-      If empty strings (&quot;&quot;) should be allowed as key names.  By default, the 
+      If empty strings (&quot;&quot;) should be allowed as key names.  By default, the
       driver will throw an exception if you attempt to pass the empty string as
-      a key to the database.  It is extremely easy to do this inavertently by 
+      a key to the database.  It is extremely easy to do this inavertently by
       using double quotes with $-operators, so it is recommended that you leave
       this setting as default.  However, if you need to save keys that are empty
       strings, you can set this option to true and the driver will allow you to
@@ -141,9 +141,9 @@
      </p>
     </dd>
 
-     
 
-   
+
+
     <dt id="ini.mongo.allow-persistent">
      <code class="parameter">mongo.allow_persistent</code>
      <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -157,9 +157,9 @@
      </p>
     </dd>
 
-     
 
-   
+
+
     <dt id="ini.mongo.chunk-size">
      <code class="parameter">mongo.chunk_size</code>
      <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -168,15 +168,15 @@
     <dd>
 
      <p class="para">
-      The number of bytes-per-chunk.  Used in divvying up GridFS files. This 
+      The number of bytes-per-chunk.  Used in divvying up GridFS files. This
       number must be at least 100 less than 4 megabytes (max: 4194204) and it is
       recommended that it be less than that.
      </p>
     </dd>
 
-     
 
-   
+
+
     <dt id="ini.mongo.cmd">
      <code class="parameter">mongo.cmd</code>
      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -208,15 +208,15 @@
      </div>
 
      <p class="para">
-      You can also change it in your code using 
-      <em>ini_set(&quot;mongo.cmd&quot;, &quot;:&quot;)</em>.  Of course, you can also 
+      You can also change it in your code using
+      <em>ini_set(&quot;mongo.cmd&quot;, &quot;:&quot;)</em>.  Of course, you can also
       just use single quotes or backslash-escape the $.
      </p>
     </dd>
 
-     
 
-   
+
+
     <dt id="ini.mongo.default-host">
      <code class="parameter">mongo.default_host</code>
      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -229,9 +229,9 @@
      </p>
     </dd>
 
-   
 
-   
+
+
     <dt id="ini.mongo.default-port">
      <code class="parameter">mongo.default_port</code>
      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -240,15 +240,15 @@
     <dd>
 
      <p class="para">
-      The default TCP port number to use when connecting to the database server 
-      if no other port is specified. The database&#039;s default is 
+      The default TCP port number to use when connecting to the database server
+      if no other port is specified. The database&#039;s default is
       <em>27017</em>.
      </p>
     </dd>
 
-   
-  
-   
+
+
+
     <dt id="ini.mongo.is-master-interval">
      <code class="parameter">mongo.is_master_interval</code>
      <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -267,9 +267,9 @@
      </p>
     </dd>
 
-     
 
-   
+
+
     <dt id="ini.mongo.long-as-object">
      <code class="parameter">mongo.long_as_object</code>
      <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -283,9 +283,9 @@
      </p>
     </dd>
 
-   
 
-   
+
+
     <dt id="ini.mongo.native-long">
      <code class="parameter">mongo.native_long</code>
      <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -296,29 +296,29 @@
      <p class="para">
       <em class="emphasis">
        The default behavior for this has been changed to <strong><code>TRUE</code></strong> in 1.5.0, so make
-       sure to set this variable to the value you want (probably <strong><code>TRUE</code></strong>) so that 
+       sure to set this variable to the value you want (probably <strong><code>TRUE</code></strong>) so that
        the driver&#039;s behavior doesn&#039;t suddenly change when you upgrade.
       </em>
      </p>
      <p class="para">
-      On 64-bit platforms, the <em>mongo.native_long</em> setting 
+      On 64-bit platforms, the <em>mongo.native_long</em> setting
       allows for 64-bit integers to be stored in MongoDB. If it is not set, only
-      32-bits of the integer will be saved.  The MongoDB data type that is used 
-      in this case is the BSON LONG, instead of the BSON INT that is used if 
-      this setting is turned off. 
+      32-bits of the integer will be saved.  The MongoDB data type that is used
+      in this case is the BSON LONG, instead of the BSON INT that is used if
+      this setting is turned off.
      </p>
      <p class="para">
-      The setting also changes the way how BSON LONGs behave when they are read 
-      back from MongoDB. Without <em>mongo.native_long</em> enabled, 
-      the driver would convert every BSON LONG to a PHP double which can result 
-      in a loss of precision. 
+      The setting also changes the way how BSON LONGs behave when they are read
+      back from MongoDB. Without <em>mongo.native_long</em> enabled,
+      the driver would convert every BSON LONG to a PHP double which can result
+      in a loss of precision.
      </p>
      <p class="para">
-      On 32-bit platforms, the <em>mongo.native_long</em> setting 
-      changes nothing for storing integers in MongoDB: the integer is stored 
-      as a BSON INT as before. However, when the setting is enabled and a 
-      BSON LONG is read from MongoDB a 
-      <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> is thrown alerting you that 
+      On 32-bit platforms, the <em>mongo.native_long</em> setting
+      changes nothing for storing integers in MongoDB: the integer is stored
+      as a BSON INT as before. However, when the setting is enabled and a
+      BSON LONG is read from MongoDB a
+      <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> is thrown alerting you that
       the data could not be read back without losing precision.
      </p>
      <p class="para">
@@ -327,9 +327,9 @@
      </p>
     </dd>
 
-   
 
-   
+
+
     <dt id="ini.mongo.ping-interval">
      <code class="parameter">mongo.ping_interval</code>
      <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -348,9 +348,9 @@
      </p>
     </dd>
 
-     
 
-   
+
+
     <dt id="ini.mongo.utf8">
      <code class="parameter">mongo.utf8</code>
      <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -359,10 +359,10 @@
     <dd>
 
      <p class="para">
-      If an exception should be thrown for non-UTF8 strings.  Until version 
+      If an exception should be thrown for non-UTF8 strings.  Until version
       1.0.4, the PHP driver would ignore non-UTF8 strings, even though you&#039;re
-      not supposed to insert them.  As of 1.0.4, the driver throws a 
-      <a href="class.mongoexception.html" class="classname">MongoException</a>.  To ease the transition for 
+      not supposed to insert them.  As of 1.0.4, the driver throws a
+      <a href="class.mongoexception.html" class="classname">MongoException</a>.  To ease the transition for
       applications that insert non-UTF8 strings, you can turn this option off to
       emulate the old, non-exception-throwning behavior.  This option will be
       eliminated and exceptions always thrown for non-UTF8 strings starting with
@@ -370,7 +370,7 @@
      </p>
     </dd>
 
-     
+
 
   </dl>
 

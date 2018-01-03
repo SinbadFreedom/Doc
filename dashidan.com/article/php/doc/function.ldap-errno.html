@@ -16,7 +16,7 @@
   <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_errno</span> &mdash; <span class="dc-title">Return the LDAP error number of the last LDAP command</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.ldap-errno-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
@@ -37,7 +37,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">link_identifier</code></dt>
 
@@ -48,7 +48,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -74,7 +74,7 @@
     <p><strong>Example #1 Generating and catching an error</strong></p>
 <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;example&nbsp;contains&nbsp;an&nbsp;error,&nbsp;which&nbsp;we&nbsp;will&nbsp;catch.<br /></span><span style="color: #0000BB">$ld&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$bind&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_bind</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;syntax&nbsp;error&nbsp;in&nbsp;filter&nbsp;expression&nbsp;(errno&nbsp;87),<br />//&nbsp;must&nbsp;be&nbsp;"objectclass=*"&nbsp;to&nbsp;work.<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;&nbsp;@</span><span style="color: #0000BB">ldap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"o=Myorg,&nbsp;c=DE"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"objectclass"</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$res</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"LDAP-Errno:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">ldap_errno</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"LDAP-Error:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">ldap_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"Argh!&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_get_entries</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;matching&nbsp;entries.&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;example&nbsp;contains&nbsp;an&nbsp;error,&nbsp;which&nbsp;we&nbsp;will&nbsp;catch.<br /></span><span style="color: #0000BB">$ld&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$bind&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_bind</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;syntax&nbsp;error&nbsp;in&nbsp;filter&nbsp;expression&nbsp;(errno&nbsp;87),<br />//&nbsp;must&nbsp;be&nbsp;"objectclass=*"&nbsp;to&nbsp;work.<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;&nbsp;@</span><span style="color: #0000BB">ldap_search</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"o=Myorg,&nbsp;c=DE"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"objectclass"</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$res</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"LDAP-Errno:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">ldap_errno</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"LDAP-Error:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">ldap_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"Argh!&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_get_entries</span><span style="color: #007700">(</span><span style="color: #0000BB">$ld</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$info</span><span style="color: #007700">[</span><span style="color: #DD0000">"count"</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;matching&nbsp;entries.&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

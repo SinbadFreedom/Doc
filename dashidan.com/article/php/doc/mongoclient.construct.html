@@ -21,12 +21,12 @@
   <h3 class="title">说明</h3>
   <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoClient::__construct</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://localhost:27017&quot;</span></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://dashidan.com:27017&quot;</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array(&quot;connect&quot; =&gt; <strong><code>TRUE</code></strong>)</span></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
-   如果没有传入参数，它会连接到 &quot;localhost:27017&quot;（或者 php.ini 里指定的 <a href="mongo.configuration.html#ini.mongo.default-host" class="link">mongo.default_host</a> 和
+   如果没有传入参数，它会连接到 &quot;dashidan.com:27017&quot;（或者 php.ini 里指定的 <a href="mongo.configuration.html#ini.mongo.default-host" class="link">mongo.default_host</a> 和
    <a href="mongo.configuration.html#ini.mongo.default-port" class="link">mongo.default_port</a>）。
   </p>
   <p class="para">
@@ -70,7 +70,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
   <p class="para">
    <dl>
 
-    
+
      <dt>
 
       <code class="parameter">server</code>
@@ -83,8 +83,8 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 
       <code class="parameter">options</code>
@@ -158,7 +158,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
           以字符串的数组指定读取选项标签。
           标签能够控制 <em>readPreference</em> 选项来进一步控制从备份节点数据的读取。
          </p>
-         <p class="para">          
+         <p class="para">
           更多信息参见<a href="mongo.readpreferences.html" class="link">读取首选项</a>文档。
          </p>
         </li>
@@ -195,7 +195,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
          </p>
          <p class="para">
           在套接字上发送或接收超时的时间。
-          <blockquote class="note"><p><strong class="note">Note</strong>: 
+          <blockquote class="note"><p><strong class="note">Note</strong>:
            <span class="simpara">
             这是客户端的超时时间。如果一个 <em>insert</em> 达到了 socketTimeoutMS，
             将无法得知服务器是否确实已写入。
@@ -247,7 +247,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -266,9 +266,9 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
   <h3 class="title">错误／异常</h3>
   <p class="para">
    如果给出的主机都无法连接，将会抛出 <a href="class.mongoconnectionexception.html" class="classname">MongoConnectionException</a> 异常。
-   
+
    如果提供了无效的用户名和密码将会抛出一个 <strong class="classname">MongoConnnectionException</strong>。
-   
+
    参见 <a href="class.mongoconnectionexception.html" class="classname">MongoConnectionException</a> 相关文档获取异常发生的原因。
   </p>
  </div>
@@ -278,7 +278,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -321,7 +321,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
         </p>
         <dl>
 
-         
+
           <dt>
 
            <code class="parameter">&quot;persist&quot;</code>
@@ -335,7 +335,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
            </p>
           </dd>
 
-         
+
         </dl>
 
         <p class="para">
@@ -357,7 +357,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
         </p>
         <dl>
 
-         
+
           <dt>
 
            <code class="parameter">server</code>
@@ -370,8 +370,8 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
            </p>
           </dd>
 
-         
-         
+
+
           <dt>
 
            <code class="parameter">connect</code>
@@ -384,8 +384,8 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
            </p>
           </dd>
 
-         
-         
+
+
           <dt>
 
            <code class="parameter">persistent</code>
@@ -398,8 +398,8 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
            </p>
           </dd>
 
-         
-         
+
+
           <dt>
 
            <code class="parameter">paired</code>
@@ -412,14 +412,14 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
            </p>
           </dd>
 
-         
+
         </dl>
 
        </td>
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -478,7 +478,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;尝试连接到套接字，失败时使用&nbsp;localhost&nbsp;连接<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb:///tmp/mongodb-27017.sock,localhost:27017"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;尝试连接到套接字，失败时使用&nbsp;dashidan.com&nbsp;连接<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb:///tmp/mongodb-27017.sock,dashidan.com:27017"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -505,12 +505,12 @@ switched to db admin
    </div>
 
    <div class="example-contents"><p>
-    创建一个用户后，上面的例子里用户名为 &quot;testUser&quot; 并且密码为 
+    创建一个用户后，上面的例子里用户名为 &quot;testUser&quot; 并且密码为
     &quot;testPass&quot;，你可以创建一个验证后的连接：
    </p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://testUser:testPass@localhost"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://testUser:testPass@dashidan.com"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

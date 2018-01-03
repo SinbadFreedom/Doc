@@ -12,24 +12,24 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="ref.pdo-cubrid" class="reference">
   <h1 class="title">CUBRID Functions (PDO_CUBRID)</h1>
-  
+
   <div class="partintro">
 
    <div class="section" id="pdo-cubrid.intro">
    <h2 class="title">简介</h2>
     <p class="para">
-     PDO_CUBRID is a driver that implements the <a href="intro.pdo.html" class="link">PHP Data Objects (PDO) interface</a> to 
+     PDO_CUBRID is a driver that implements the <a href="intro.pdo.html" class="link">PHP Data Objects (PDO) interface</a> to
      enable access from PHP to CUBRID databases.
     </p>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <blockquote class="note"><p><strong class="note">Note</strong>:
     <p class="para">
      Current version of PDO_CUBRID doesn&#039;t support persistent connection now.
     </p>
    </p></blockquote>
    </div>
-    
-   
-   
+
+
+
 
 <div class="section" id="ref.pdo-cubrid.installation">
  <h2 class="title">安装</h2>
@@ -65,7 +65,7 @@
     <h2 class="title">Features</h2>
     <table class="doctable table">
      <caption><strong>PDO_CUBRID Features</strong></caption>
-     
+
       <thead>
        <tr>
         <th>Feature</th>
@@ -95,14 +95,14 @@
         <td>
          PDO_CUBRID supports both autocommit_mode and transaction, and
          autocommit_mode is enabled by default. You can use
-         <span class="function"><a href="pdo.setattribute.html" class="function">PDO::setAttribute()</a></span> to change its state. 
-         
+         <span class="function"><a href="pdo.setattribute.html" class="function">PDO::setAttribute()</a></span> to change its state.
+
          <p class="para">
           If you use <span class="function"><a href="pdo.begintransaction.html" class="function">PDO::beginTransaction()</a></span> to begin a
           transaction, it will disable autocommit_mode automatically and
           restore it after <span class="function"><a href="pdo.commit.html" class="function">PDO::commit()</a></span> or
           <span class="function"><a href="pdo.rollback.html" class="function">PDO::rollBack()</a></span>. Note that before disabling the
-          autocommit_mode, any pending work is automatically committed. 
+          autocommit_mode, any pending work is automatically committed.
          </p>
         </td>
        </tr>
@@ -123,7 +123,7 @@
        <tr>
         <td>LOBs</td>
         <td>PDO_CUBRID supports BLOB/CLOB data type. The LOB in PDO is
-         represented as a stream, so you can insert LOBs by binding a stream, 
+         represented as a stream, so you can insert LOBs by binding a stream,
          and get LOBs by reading a stream returned by CUBRID PDO. For example:
 
          <p class="para">
@@ -177,13 +177,13 @@
 
        <tr>
         <td>Collection Data Type</td>
-        <td>PDO_CUBRID supports SET/MULTISET/SEQUENCE data type. If you don&#039;t specify data type, 
+        <td>PDO_CUBRID supports SET/MULTISET/SEQUENCE data type. If you don&#039;t specify data type,
         the default data type is char,for example:
          <p class="para">
           <div class="example" id="example-1036"><p><strong>Example #3 Insert set in CUBRID PDO with default data type.</strong></p>
            <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn_str&nbsp;</span><span style="color: #007700">=</span><span style="color: #DD0000">"cubrid:dbname=demodb;host=localhost;port=33000"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$cubrid_pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dba'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;if&nbsp;exists&nbsp;test_tbl"</span><span style="color: #007700">);&nbsp;<br /></span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;test_tbl&nbsp;(col_1&nbsp;SET(VARCHAR))"</span><span style="color: #007700">);<br />&nbsp;<br /></span><span style="color: #0000BB">$sql_stmt_insert&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;test_tbl&nbsp;VALUES&nbsp;(?);"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql_stmt_insert</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"abc"</span><span style="color: #007700">,</span><span style="color: #DD0000">"def"</span><span style="color: #007700">,</span><span style="color: #DD0000">"ghi"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_NULL</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_Dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn_str&nbsp;</span><span style="color: #007700">=</span><span style="color: #DD0000">"cubrid:dbname=demodb;host=dashidan.com;port=33000"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$cubrid_pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dba'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;if&nbsp;exists&nbsp;test_tbl"</span><span style="color: #007700">);&nbsp;<br /></span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;test_tbl&nbsp;(col_1&nbsp;SET(VARCHAR))"</span><span style="color: #007700">);<br />&nbsp;<br /></span><span style="color: #0000BB">$sql_stmt_insert&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;test_tbl&nbsp;VALUES&nbsp;(?);"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql_stmt_insert</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"abc"</span><span style="color: #007700">,</span><span style="color: #DD0000">"def"</span><span style="color: #007700">,</span><span style="color: #DD0000">"ghi"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">PARAM_NULL</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_Dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
            </div>
@@ -194,7 +194,7 @@
           <div class="example" id="example-1037"><p><strong>Example #4 Specify data type when insert set in CUBRID PDO</strong></p>
            <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn_str&nbsp;</span><span style="color: #007700">=</span><span style="color: #DD0000">"cubrid:dbname=demodb;host=localhost;port=33000"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$cubrid_pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dba'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;if&nbsp;exists&nbsp;test_tbl"</span><span style="color: #007700">);&nbsp;<br /></span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;test_tbl&nbsp;(col_1&nbsp;SET(int))"</span><span style="color: #007700">);<br />&nbsp;<br /></span><span style="color: #0000BB">$sql_stmt_insert&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;test_tbl&nbsp;VALUES&nbsp;(?);"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql_stmt_insert</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #0000BB">3</span><span style="color: #007700">,</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #DD0000">"int"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_Dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn_str&nbsp;</span><span style="color: #007700">=</span><span style="color: #DD0000">"cubrid:dbname=demodb;host=dashidan.com;port=33000"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$cubrid_pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dba'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;if&nbsp;exists&nbsp;test_tbl"</span><span style="color: #007700">);&nbsp;<br /></span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;test_tbl&nbsp;(col_1&nbsp;SET(int))"</span><span style="color: #007700">);<br />&nbsp;<br /></span><span style="color: #0000BB">$sql_stmt_insert&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;test_tbl&nbsp;VALUES&nbsp;(?);"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$cubrid_pdo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql_stmt_insert</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #0000BB">3</span><span style="color: #007700">,</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindParam</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #DD0000">"int"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_Dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
            </div>
@@ -226,13 +226,13 @@
        </tr>
 
       </tbody>
-     
+
     </table>
 
    </div>
 
-   
-   
+
+
 
 <div class="section" id="pdo-cubrid.constants">
  <h2 class="title">预定义常量</h2>
@@ -247,7 +247,7 @@
    <span class="function"><a href="pdo.setattribute.html" class="function">PDO::setAttribute()</a></span>.
   <table class="doctable table">
    <caption><strong>PDO::CUBRID attribute flags</strong></caption>
-    
+
      <thead>
       <tr>
        <th>Constant</th>
@@ -275,7 +275,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -286,7 +286,7 @@
    returned by <span class="function"><a href="pdo.setattribute.html" class="function">PDO::setAttribute()</a></span>.
   <table class="doctable table">
    <caption><strong>PDO::CUBRID isolation level flags</strong></caption>
-    
+
      <thead>
       <tr>
        <th>Constant</th>
@@ -336,7 +336,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -346,7 +346,7 @@
    can be passed to <span class="function"><a href="pdo.cubrid-schema.html" class="function">PDO::cubrid_schema()</a></span>.
   <table class="doctable table">
    <caption><strong>PDO::CUBRID schema flags</strong></caption>
-    
+
      <thead>
       <tr>
        <th>Constant</th>
@@ -460,7 +460,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -471,9 +471,9 @@
 
   </div>
 
-  
 
-  
+
+
 
 
 

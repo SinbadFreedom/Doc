@@ -16,7 +16,7 @@
   <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">curl_setopt</span> &mdash; <span class="dc-title">设置 cURL 传输选项</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.curl-setopt-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
@@ -31,7 +31,7 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 parameters" id="refsect1-function.curl-setopt-parameters">
   <h3 class="title">参数</h3>
   <p class="para">
@@ -43,7 +43,7 @@
 <dd>
 <p class="para">由 <span class="function"><a href="function.curl-init.html" class="function">curl_init()</a></span> 返回的 cURL 句柄。</p></dd>
 
-    
+
      <dt>
 <code class="parameter">option</code></dt>
 
@@ -54,8 +54,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">value</code></dt>
 
@@ -67,7 +67,7 @@
       <p class="para">
        以下 <code class="parameter">option</code> 参数的 <code class="parameter">value</code>应该被设置成 <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> 类型：
        <table class="doctable informaltable">
-        
+
          <thead>
           <tr>
            <th>选项</th>
@@ -339,7 +339,7 @@
            <td style="vertical-align: top;"><strong><code>CURLOPT_NOPROGRESS</code></strong></td>
            <td style="vertical-align: top;"><p class="para">
             <strong><code>TRUE</code></strong> 时关闭 cURL 的传输进度。
-            <blockquote class="note"><p><strong class="note">Note</strong>: 
+            <blockquote class="note"><p><strong class="note">Note</strong>:
              <p class="para">
               PHP 默认自动设置此选项为 <strong><code>TRUE</code></strong>，只有为了调试才需要改变设置。
              </p>
@@ -410,14 +410,14 @@
            <td style="vertical-align: top;"><strong><code>CURLOPT_SAFE_UPLOAD</code></strong></td>
            <td style="vertical-align: top;">
             <strong><code>TRUE</code></strong> 禁用 <em>@</em> 前缀在 <strong><code>CURLOPT_POSTFIELDS</code></strong> 中发送文件。
-            
-            意味着 <em>@</em> 可以在字段中安全得使用了。 
+
+            意味着 <em>@</em> 可以在字段中安全得使用了。
             可使用 <a href="class.curlfile.html" class="classname">CURLFile</a> 作为上传的代替。
            </td>
-           
-           
-           
-           
+
+
+
+
            <td style="vertical-align: top;">
             PHP 5.5.0 中添加，默认值 <strong><code>FALSE</code></strong>。
             PHP 5.6.0 改默认值为 <strong><code>TRUE</code></strong>。.
@@ -457,21 +457,21 @@
            </td>
           </tr>
 
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_VERIFYPEER</code></strong></td>
            <td style="vertical-align: top;">
@@ -540,8 +540,8 @@
            </td>
           </tr>
 
-          
-          
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_VERBOSE</code></strong></td>
            <td style="vertical-align: top;">
@@ -552,14 +552,14 @@
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
       <p class="para">
        以下 <code class="parameter">option</code>的<code class="parameter">value</code>应该被设置成 <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>：
        <table class="doctable informaltable">
-        
+
          <thead>
           <tr>
            <th>选项</th>
@@ -584,7 +584,7 @@
            <td style="vertical-align: top;"><strong><code>CURLOPT_CLOSEPOLICY</code></strong></td>
            <td style="vertical-align: top;">
             <strong><code>CURLCLOSEPOLICY_*</code></strong> 中的一个。
-            <blockquote class="note"><p><strong class="note">Note</strong>: 
+            <blockquote class="note"><p><strong class="note">Note</strong>:
              <p class="para">
               此选项已被废弃，它不会被实现，永远不会有效果啦。
              </p>
@@ -607,8 +607,8 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_CONNECTTIMEOUT_MS</code></strong></td>
            <td style="vertical-align: top;">
-            尝试连接等待的时间，以毫秒为单位。设置为0，则无限等待。 
-            
+            尝试连接等待的时间，以毫秒为单位。设置为0，则无限等待。
+
             如果 libcurl 编译时使用系统标准的名称解析器（ standard system name resolver），那部分的连接仍旧使用以秒计的超时解决方案，最小超时时间还是一秒钟。
            </td>
            <td style="vertical-align: top;">
@@ -653,7 +653,7 @@
             <span class="simpara">
              <strong><code>CURLHEADER_UNIFIED</code></strong>: the headers specified in
              <strong><code>CURLOPT_HTTPHEADER</code></strong> will be used in requests
-             both to servers and proxies. With this option enabled, 
+             both to servers and proxies. With this option enabled,
              <strong><code>CURLOPT_PROXYHEADER</code></strong> will not have any effect.
             </span>
             <span class="simpara">
@@ -686,8 +686,8 @@
            </td>
           </tr>
 
-          
-          
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HTTPAUTH</code></strong></td>
            <td style="vertical-align: top;">
@@ -706,7 +706,7 @@
             <p class="para">
              <code class="parameter">CURLAUTH_ANY</code>是 <em>CURLAUTH_BASIC | CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM</em> 的别名。
             </p>
-            
+
             <p class="para">
       <code class="parameter">CURLAUTH_ANYSAFE</code> 是 <em>CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM</em> 的别名。
             </p>
@@ -774,7 +774,7 @@
            <td style="vertical-align: top;"><strong><code>CURLOPT_POSTREDIR</code></strong></td>
            <td style="vertical-align: top;">
             位掩码， 1 (301 永久重定向), 2 (302 Found)
-           和 4 (303 See Other) 
+           和 4 (303 See Other)
             设置 <strong><code>CURLOPT_FOLLOWLOCATION</code></strong> 时，什么情况下需要再次  HTTP POST 到重定向网址。
            </td>
            <td style="vertical-align: top;">
@@ -782,8 +782,8 @@
            </td>
           </tr>
 
-          
-          
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PROTOCOLS</code></strong></td>
            <td style="vertical-align: top;">
@@ -838,7 +838,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PROXYTYPE</code></strong></td>
            <td style="vertical-align: top;">
-            可以是 <strong><code>CURLPROXY_HTTP</code></strong> (默认值) 
+            可以是 <strong><code>CURLPROXY_HTTP</code></strong> (默认值)
          <strong><code>CURLPROXY_SOCKS4</code></strong>、
             <strong><code>CURLPROXY_SOCKS5</code></strong>、
   <strong><code>CURLPROXY_SOCKS4A</code></strong> 或
@@ -912,7 +912,7 @@
             <strong><code>CURL_SSLVERSION_TLSv1_0</code></strong> (4),
             <strong><code>CURL_SSLVERSION_TLSv1_1</code></strong> (5) ，
             <strong><code>CURL_SSLVERSION_TLSv1_2</code></strong> (6)  中的其中一个。
-            <blockquote class="note"><p><strong class="note">Note</strong>: 
+            <blockquote class="note"><p><strong class="note">Note</strong>:
              <p class="para">
               你最好别设置这个值，让它使用默认值。
 设置为 2 或 3 比较危险，在 SSLv2 和 SSLv3 中有弱点存在。
@@ -957,8 +957,8 @@
            <td style="vertical-align: top;"><strong><code>CURLOPT_TIMEOUT_MS</code></strong></td>
            <td style="vertical-align: top;">
             设置cURL允许执行的最长毫秒数。
-             
-            
+
+
             如果 libcurl 编译时使用系统标准的名称解析器（ standard system name resolver），那部分的连接仍旧使用以秒计的超时解决方案，最小超时时间还是一秒钟。
            </td>
            <td style="vertical-align: top;">
@@ -966,7 +966,7 @@
            </td>
           </tr>
 
-          
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_TIMEVALUE</code></strong></td>
            <td style="vertical-align: top;">
@@ -989,7 +989,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_MAX_SEND_SPEED_LARGE</code></strong></td>
            <td style="vertical-align: top;">
-            如果上传的速度超过了此速度(以每秒字节数来统计)，即传输过程中累计的平均数 
+            如果上传的速度超过了此速度(以每秒字节数来统计)，即传输过程中累计的平均数
             ，传输就会降速到这个参数的值。默认不限速。
            </td>
            <td style="vertical-align: top;">
@@ -1000,11 +1000,11 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSH_AUTH_TYPES</code></strong></td>
            <td style="vertical-align: top;">
-            A bitmask consisting of one or more of 
-            <strong><code>CURLSSH_AUTH_PUBLICKEY</code></strong>, 
-            <strong><code>CURLSSH_AUTH_PASSWORD</code></strong>, 
-            <strong><code>CURLSSH_AUTH_HOST</code></strong>, 
-            <strong><code>CURLSSH_AUTH_KEYBOARD</code></strong>. Set to 
+            A bitmask consisting of one or more of
+            <strong><code>CURLSSH_AUTH_PUBLICKEY</code></strong>,
+            <strong><code>CURLSSH_AUTH_PASSWORD</code></strong>,
+            <strong><code>CURLSSH_AUTH_HOST</code></strong>,
+            <strong><code>CURLSSH_AUTH_KEYBOARD</code></strong>. Set to
             <strong><code>CURLSSH_AUTH_ANY</code></strong> to let libcurl pick one.
            </td>
            <td style="vertical-align: top;">
@@ -1031,7 +1031,7 @@
            <td style="vertical-align: top;">
             告诉 curl 使用哪种方式来获取 FTP(s) 服务器上的文件。可能的值有：
             <strong><code>CURLFTPMETHOD_MULTICWD</code></strong>、
-            <strong><code>CURLFTPMETHOD_NOCWD</code></strong> 和  
+            <strong><code>CURLFTPMETHOD_NOCWD</code></strong> 和
             <strong><code>CURLFTPMETHOD_SINGLECWD</code></strong>。
            </td>
            <td style="vertical-align: top;">
@@ -1040,14 +1040,14 @@
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
       <p class="para">
        对于下面的这些<code class="parameter">option</code>，<code class="parameter">value</code>应该被设置成 <span class="type"><a href="language.types.string.html" class="type string">string</a></span>：
        <table class="doctable informaltable">
-        
+
          <thead>
           <tr>
            <th>选项</th>
@@ -1109,7 +1109,7 @@
            <td style="vertical-align: top;"><p class="para">
             HTTP 请求时，使用自定义的 Method 来代替<em>&quot;GET&quot;</em>或<em>&quot;HEAD&quot;</em>。对 <em>&quot;DELETE&quot;</em> 或者其他更隐蔽的 HTTP 请求有用。
             有效值如 <em>&quot;GET&quot;</em>，<em>&quot;POST&quot;</em>，<em>&quot;CONNECT&quot;</em>等等；也就是说，不要在这里输入整行 HTTP 请求。例如输入<em>&quot;GET /index.html HTTP/1.0\r\n\r\n&quot;</em>是不正确的。
-            <blockquote class="note"><p><strong class="note">Note</strong>: 
+            <blockquote class="note"><p><strong class="note">Note</strong>:
              <p class="para">
               不确定服务器支持这个自定义方法则不要使用它。
              </p>
@@ -1120,7 +1120,7 @@
            </td>
           </tr>
 
-          
+
            <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_DEFAULT_PROTOCOL</code></strong></td>
            <td style="vertical-align: top;"><p class="para">
@@ -1207,7 +1207,7 @@
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_KEYPASSWD</code></strong></td>
            <td style="vertical-align: top;">
-            使用 <strong><code>CURLOPT_SSLKEY</code></strong> 
+            使用 <strong><code>CURLOPT_SSLKEY</code></strong>
             或 <strong><code>CURLOPT_SSH_PRIVATE_KEYFILE</code></strong> 私钥时候的密码。
            </td>
            <td style="vertical-align: top;">
@@ -1259,7 +1259,7 @@
             全部数据使用HTTP协议中的 &quot;POST&quot; 操作来发送。
             要发送文件，在文件名前面加上<em>@</em>前缀并使用完整路径。
             文件类型可在文件名后以 &#039;<em>;type=mimetype</em>&#039; 的格式指定。
-            
+
             这个参数可以是 urlencoded 后的字符串，类似&#039;<em>para1=val1&amp;para2=val2&amp;...</em>&#039;，也可以使用一个以字段名为键值，字段数据为值的数组。
             如果<code class="parameter">value</code>是一个数组，<em>Content-Type</em>头将会被设置成<em>multipart/form-data</em>。
             </span>
@@ -1275,7 +1275,7 @@
            </td>
           </tr>
 
-          
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PRIVATE</code></strong></td>
            <td style="vertical-align: top;">
@@ -1288,7 +1288,7 @@
             unique key to identify a standard cURL handle.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.10.3. 
+            Added in cURL 7.10.3.
            </td>
           </tr>
 
@@ -1347,7 +1347,7 @@
            </td>
           </tr>
 
-          
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SERVICE_NAME</code></strong></td>
            <td style="vertical-align: top;">
@@ -1369,30 +1369,30 @@
            </td>
           </tr>
 
-          
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSH_PUBLIC_KEYFILE</code></strong></td>
            <td style="vertical-align: top;">
-            The file name for your public key. If not used, libcurl defaults to 
-            $HOME/.ssh/id_dsa.pub if the HOME environment variable is set, 
+            The file name for your public key. If not used, libcurl defaults to
+            $HOME/.ssh/id_dsa.pub if the HOME environment variable is set,
             and just &quot;id_dsa.pub&quot; in the current directory if HOME is not set.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.16.1. 
+            Added in cURL 7.16.1.
            </td>
           </tr>
 
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSH_PRIVATE_KEYFILE</code></strong></td>
            <td style="vertical-align: top;">
-            The file name for your private key. If not used, libcurl defaults to 
-            $HOME/.ssh/id_dsa if the HOME environment variable is set, 
-            and just &quot;id_dsa&quot; in the current directory if HOME is not set. 
-            If the file is password-protected, set the password with 
+            The file name for your private key. If not used, libcurl defaults to
+            $HOME/.ssh/id_dsa if the HOME environment variable is set,
+            and just &quot;id_dsa&quot; in the current directory if HOME is not set.
+            If the file is password-protected, set the password with
             <strong><code>CURLOPT_KEYPASSWD</code></strong>.
            </td>
            <td style="vertical-align: top;">
-            Added in cURL 7.16.1. 
+            Added in cURL 7.16.1.
            </td>
           </tr>
 
@@ -1464,7 +1464,7 @@
            <td style="vertical-align: top;"><strong><code>CURLOPT_SSLKEYPASSWD</code></strong></td>
            <td style="vertical-align: top;"><p class="para">
             在 <strong><code>CURLOPT_SSLKEY</code></strong>中指定了的SSL私钥的密码。
-            <blockquote class="note"><p><strong class="note">Note</strong>: 
+            <blockquote class="note"><p><strong class="note">Note</strong>:
              <p class="para">
               由于这个选项包含了敏感的密码信息，记得保证这个PHP脚本的安全。
              </p>
@@ -1541,13 +1541,13 @@
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
       <p class="para">以下<code class="parameter">option</code>，<code class="parameter">value</code>应该被设置成数组：
        <table class="doctable informaltable">
-        
+
          <thead>
           <tr>
            <th>选项</th>
@@ -1579,11 +1579,11 @@
            </td>
           </tr>
 
-          
-          
-          
-          
-          
+
+
+
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HTTPHEADER</code></strong></td>
            <td style="vertical-align: top;">
@@ -1605,7 +1605,7 @@
            </td>
           </tr>
 
-          
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PROXYHEADER</code></strong></td>
            <td style="vertical-align: top;">
@@ -1616,8 +1616,8 @@
            </td>
           </tr>
 
-          
-          
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_QUOTE</code></strong></td>
            <td style="vertical-align: top;">
@@ -1627,7 +1627,7 @@
            </td>
           </tr>
 
-          
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_RESOLVE</code></strong></td>
            <td style="vertical-align: top;">
@@ -1643,7 +1643,7 @@
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
@@ -1651,7 +1651,7 @@
 以下 <code class="parameter">option</code>，<code class="parameter">value</code>应该被设置成流资源
         （例如使用<span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>）：
        <table class="doctable informaltable">
-        
+
          <thead>
           <tr>
            <th>选项</th>
@@ -1661,10 +1661,10 @@
          </thead>
 
          <tbody class="tbody">
-          
-          
-          
-          
+
+
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_FILE</code></strong></td>
            <td style="vertical-align: top;">
@@ -1694,14 +1694,14 @@
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
       <p class="para">
        以下<code class="parameter">option</code> 的 <code class="parameter">value</code>应该是有效的函数或者闭包：
        <table class="doctable informaltable">
-        
+
          <thead>
           <tr>
            <th>选项</th>
@@ -1711,12 +1711,12 @@
          </thead>
 
          <tbody class="tbody">
-          
-          
-          
-          
-          
-          
+
+
+
+
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_HEADERFUNCTION</code></strong></td>
            <td style="vertical-align: top;">
@@ -1731,18 +1731,18 @@
            </td>
           </tr>
 
-          
-          
-          
-          
-          
+
+
+
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_PROGRESSFUNCTION</code></strong></td>
            <td style="vertical-align: top;">
             <p class="para">
             设置一个回调函数，有五个参数，第一个是cURL的资源句柄，第二个是预计要下载的总字节（bytes）数。第三个是目前下载的字节数，第四个是预计传输中总上传字节数，第五个是目前上传的字节数。
             </p>
-            <blockquote class="note"><p><strong class="note">Note</strong>: 
+            <blockquote class="note"><p><strong class="note">Note</strong>:
              <p class="para">
               只有设置 <strong><code>CURLOPT_NOPROGRESS</code></strong>
               选项为 <strong><code>FALSE</code></strong> 时才会调用这个回调函数。
@@ -1755,24 +1755,24 @@
            </td>
           </tr>
 
-          
-          
-          
-          
-          
+
+
+
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_READFUNCTION</code></strong></td>
            <td style="vertical-align: top;">
-            回调函数名。该函数应接受三个参数。第一个是 cURL resource；第二个是通过选项 
+            回调函数名。该函数应接受三个参数。第一个是 cURL resource；第二个是通过选项
 <strong><code>CURLOPT_INFILE</code></strong> 传给 cURL 的 stream resource；第三个参数是最大可以读取的数据的数量。回
-调函数必须返回一个字符串，长度小于或等于请求的数据量（第三个参数）。一般从传入的 stream 
+调函数必须返回一个字符串，长度小于或等于请求的数据量（第三个参数）。一般从传入的 stream
 resource 读取。返回空字符串作为 <em>EOF</em>（文件结束） 信号。
            </td>
           </tr>
 
-          
-          
-          
+
+
+
           <tr>
            <td style="vertical-align: top;"><strong><code>CURLOPT_WRITEFUNCTION</code></strong></td>
            <td style="vertical-align: top;">
@@ -1784,14 +1784,14 @@ resource 读取。返回空字符串作为 <em>EOF</em>（文件结束） 信号
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
       <p class="para">
        其他值：
        <table class="doctable informaltable">
-        
+
          <thead>
           <tr>
            <th>Option</th>
@@ -1809,19 +1809,19 @@ resource 读取。返回空字符串作为 <em>EOF</em>（文件结束） 信号
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
  </div>
 
- 
+
  <div class="refsect1 returnvalues" id="refsect1-function.curl-setopt-returnvalues">
   <h3 class="title">返回值</h3>
   <p class="para">
@@ -1829,12 +1829,12 @@ resource 读取。返回空字符串作为 <em>EOF</em>（文件结束） 信号
   </p>
  </div>
 
- 
+
  <div class="refsect1 changelog" id="refsect1-function.curl-setopt-changelog">
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -1844,7 +1844,7 @@ resource 读取。返回空字符串作为 <em>EOF</em>（文件结束） 信号
      </thead>
 
      <tbody class="tbody">
-      
+
       <tr>
        <td>7.0.7</td>
        <td>
@@ -1928,7 +1928,7 @@ resource 读取。返回空字符串作为 <em>EOF</em>（文件结束） 信号
        </td>
       </tr>
 
-      
+
       <tr>
        <td>5.2.4</td>
        <td>
@@ -1963,13 +1963,13 @@ resource 读取。返回空字符串作为 <em>EOF</em>（文件结束） 信号
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
  </div>
 
- 
+
  <div class="refsect1 examples" id="refsect1-function.curl-setopt-examples">
   <h3 class="title">范例</h3>
   <p class="para">
@@ -1989,7 +1989,7 @@ resource 读取。返回空字符串作为 <em>EOF</em>（文件结束） 信号
     <p><strong>Example #2 上传文件 (PHP 5.5.0 后被废弃)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;http://localhost/upload.php:<br />print_r($_POST);<br />print_r($_FILES);<br />*/<br /><br /></span><span style="color: #0000BB">$ch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">curl_init</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'name'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'file'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'@/home/user/test.png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_URL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'http://localhost/upload.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_POST</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_SAFE_UPLOAD</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;&nbsp;PHP&nbsp;5.6.0&nbsp;后必须开启<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_POSTFIELDS</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">curl_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;http://dashidan.com/upload.php:<br />print_r($_POST);<br />print_r($_FILES);<br />*/<br /><br /></span><span style="color: #0000BB">$ch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">curl_init</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'name'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'file'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'@/home/user/test.png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_URL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'http://dashidan.com/upload.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_POST</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_SAFE_UPLOAD</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;&nbsp;PHP&nbsp;5.6.0&nbsp;后必须开启<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_POSTFIELDS</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">curl_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -2020,10 +2020,10 @@ Array
   </p>
  </div>
 
- 
+
  <div class="refsect1 notes" id="refsect1-function.curl-setopt-notes">
   <h3 class="title">注释</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     传递一个数组到<strong><code>CURLOPT_POSTFIELDS</code></strong>，cURL会把数据编码成
     <em class="emphasis">multipart/form-data</em>，而然传递一个URL-encoded字符串时，数据会被编码成
@@ -2032,7 +2032,7 @@ Array
   </p></blockquote>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.curl-setopt-seealso">
   <h3 class="title">参见</h3>
   <p class="para">
@@ -2042,7 +2042,7 @@ Array
   </p>
  </div>
 
- 
+
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.curl-setopt-array.html">curl_setopt_array</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.curl-share-close.html">curl_share_close</a></div>

@@ -16,7 +16,7 @@
   <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fbsql_create_blob</span> &mdash; <span class="dc-title">Create a BLOB</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.fbsql-create-blob-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
@@ -36,7 +36,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">blob_data</code></dt>
 
@@ -47,7 +47,7 @@
       </p>
      </dd>
 
-    
+
     <dt>
 <code class="parameter">
 link_identifier</code></dt>
@@ -80,7 +80,7 @@ link_identifier</code></dt>
     <p><strong>Example #1 <span class="function"><strong>fbsql_create_blob()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fbsql_pconnect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"_SYSTEM"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"secret"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;connect"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"blobfile.bin"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"rb"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$blobdata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fread</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">filesize</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$blobHandle&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fbsql_create_blob</span><span style="color: #007700">(</span><span style="color: #0000BB">$blobdata</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;BLOB_TABLE&nbsp;(BLOB_COLUMN)&nbsp;VALUES&nbsp;(</span><span style="color: #0000BB">$blobHandle</span><span style="color: #DD0000">);"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$rs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fbsql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fbsql_pconnect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"_SYSTEM"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"secret"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;connect"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"blobfile.bin"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"rb"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$blobdata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fread</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">filesize</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$blobHandle&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fbsql_create_blob</span><span style="color: #007700">(</span><span style="color: #0000BB">$blobdata</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;BLOB_TABLE&nbsp;(BLOB_COLUMN)&nbsp;VALUES&nbsp;(</span><span style="color: #0000BB">$blobHandle</span><span style="color: #DD0000">);"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$rs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fbsql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

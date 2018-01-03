@@ -21,7 +21,7 @@
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">int</span> <span class="methodname"><strong>cubrid_num_rows</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>  
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$result</code></span>
    )</div>
 
   <p class="para rdfs-comment">
@@ -43,7 +43,7 @@
   <p class="para">
   <dl>
 
-    
+
   <dt>
 <code class="parameter">result</code></dt>
 
@@ -52,7 +52,7 @@
     <span class="function"><a href="function.cubrid-execute.html" class="function">cubrid_execute()</a></span>, <span class="function"><a href="function.cubrid-query.html" class="function">cubrid_query()</a></span> and
     <span class="function"><a href="function.cubrid-prepare.html" class="function">cubrid_prepare()</a></span></p></dd>
 
-   
+
   </dl>
 
   </p>
@@ -65,7 +65,7 @@
     Number of rows, when process is successful.
   </p>
   <p class="para">
-    0 when the query was done in async mode. 
+    0 when the query was done in async mode.
   </p>
   <p class="para">
     -1, if SQL statement is not SELECT.
@@ -82,7 +82,7 @@
    <p><strong>Example #1 <span class="function"><strong>cubrid_num_rows()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dba"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$row_num&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_num_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$col_num&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_num_cols</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Row&nbsp;Num:&nbsp;%d\nColumn&nbsp;Num:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$row_num</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$col_num</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dba"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$row_num&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_num_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$col_num&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_num_cols</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Row&nbsp;Num:&nbsp;%d\nColumn&nbsp;Num:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$row_num</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$col_num</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -102,14 +102,14 @@ Column Num: 2
   <h3 class="title">参见</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.cubrid-execute.html" class="function" rel="rdfs-seeAlso">cubrid_execute()</a> - Execute a prepared SQL statement</span></li>  
-    <li class="member"><span class="function"><a href="function.cubrid-num-cols.html" class="function" rel="rdfs-seeAlso">cubrid_num_cols()</a> - Return the number of columns in the result set</span></li>  
-    <li class="member"><span class="function"><a href="function.cubrid-affected-rows.html" class="function" rel="rdfs-seeAlso">cubrid_affected_rows()</a> - Return the number of rows affected by the last SQL statement</span></li>  
+    <li class="member"><span class="function"><a href="function.cubrid-execute.html" class="function" rel="rdfs-seeAlso">cubrid_execute()</a> - Execute a prepared SQL statement</span></li>
+    <li class="member"><span class="function"><a href="function.cubrid-num-cols.html" class="function" rel="rdfs-seeAlso">cubrid_num_cols()</a> - Return the number of columns in the result set</span></li>
+    <li class="member"><span class="function"><a href="function.cubrid-affected-rows.html" class="function" rel="rdfs-seeAlso">cubrid_affected_rows()</a> - Return the number of rows affected by the last SQL statement</span></li>
    </ul>
   </p>
   </div>
 
- 
+
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-num-cols.html">cubrid_num_cols</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-pconnect-with-url.html">cubrid_pconnect_with_url</a></div>

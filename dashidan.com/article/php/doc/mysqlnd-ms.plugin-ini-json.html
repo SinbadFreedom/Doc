@@ -24,7 +24,7 @@
    <h2 class="title">Introduction</h2>
 
 
-   <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <blockquote class="note"><p><strong class="note">Note</strong>:
     <strong>Changelog: Feature was added in PECL/mysqlnd_ms 1.1.0-beta</strong><br />
     <p class="para">
      The below description applies to PECL/mysqlnd_ms &gt;= 1.1.0-beta.
@@ -68,7 +68,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$config&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;</span><span style="color: #DD0000">"myapp"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"master"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"master_0"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"host"&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"socket"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"/tmp/mysql.sock"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"slave"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(),<br />&nbsp;&nbsp;),<br />);<br /><br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"mysqlnd_ms.ini"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">JSON_PRETTY_PRINT</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"mysqlnd_ms.ini&nbsp;file&nbsp;created...\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Dumping&nbsp;file&nbsp;contents...\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #DD0000">"-"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">80</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"mysqlnd_ms.ini"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #DD0000">"-"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">80</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$config&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;</span><span style="color: #DD0000">"myapp"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"master"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"master_0"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"host"&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"socket"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"/tmp/mysql.sock"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"slave"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(),<br />&nbsp;&nbsp;),<br />);<br /><br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"mysqlnd_ms.ini"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">JSON_PRETTY_PRINT</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"mysqlnd_ms.ini&nbsp;file&nbsp;created...\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Dumping&nbsp;file&nbsp;contents...\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #DD0000">"-"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">80</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"mysqlnd_ms.ini"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #DD0000">"-"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">80</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -83,7 +83,7 @@ Dumping file contents...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -121,7 +121,7 @@ Dumping file contents...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -134,10 +134,10 @@ Dumping file contents...
             }
         }
     },
-    &quot;localhost&quot;: {
+    &quot;dashidan.com&quot;: {
         &quot;master&quot;: [
             {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/path\/to\/mysql.sock&quot;
             }
         ],
@@ -158,7 +158,7 @@ Dumping file contents...
 
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;All&nbsp;of&nbsp;the&nbsp;following&nbsp;connections&nbsp;will&nbsp;be&nbsp;load&nbsp;balanced&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=myapp;dbname=database'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;All&nbsp;of&nbsp;the&nbsp;following&nbsp;connections&nbsp;will&nbsp;be&nbsp;load&nbsp;balanced&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=myapp;dbname=database'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -168,13 +168,13 @@ Dumping file contents...
   <p class="para">
    Section names are strings. It is valid to use a section name such as
    <em>192.168.2.1</em>, <em>127.0.0.1</em> or
-   <em>localhost</em>. If, for example, an application
-   connects to <em>localhost</em> and a plugin
-   configuration section <em>localhost</em> exists, the
+   <em>dashidan.com</em>. If, for example, an application
+   connects to <em>dashidan.com</em> and a plugin
+   configuration section <em>dashidan.com</em> exists, the
    semantics of the connect operation are changed. The application will
    no longer only use the MySQL server running on the host
-   <em>localhost</em>, but the plugin will start to load balance
-   MySQL queries following the rules from the <em>localhost</em>
+   <em>dashidan.com</em>, but the plugin will start to load balance
+   MySQL queries following the rules from the <em>dashidan.com</em>
    configuration section. This way you can load balance queries from
    an application without changing the applications source code.
    Please keep in mind, that such a configuration may not contribute
@@ -228,7 +228,7 @@ Dumping file contents...
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">&quot;master&quot;: {
     &quot;master_0&quot;: {
-        &quot;host&quot;: &quot;localhost&quot;
+        &quot;host&quot;: &quot;dashidan.com&quot;
     }
 }</pre>
 </div>
@@ -312,7 +312,7 @@ Dumping file contents...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -455,7 +455,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
   <p class="para">
   <dl>
 
-   
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.master">
       <code class="parameter">master</code>
       <span class="type"><span class="type array or object">array or object</span></span>
@@ -493,7 +493,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
        Table of server configuration keywords.
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -596,7 +596,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
          </tr>
 
         </tbody>
-       
+
       </table>
 
       <p class="para">
@@ -606,8 +606,8 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
       </p>
      </dd>
 
-    
-    
+
+
     <dt id="ini.mysqlnd-ms-plugin-config-v2.slave">
       <code class="parameter">slave</code>
       <span class="type"><span class="type array or object">array or object</span></span>
@@ -644,8 +644,8 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.gtid">
       <code class="parameter">global_transaction_id_injection</code>
       <span class="type"><span class="type array or object">array or object</span></span>
@@ -659,7 +659,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
        the client-side emulation.
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -769,13 +769,13 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
           </tr>
 
          </tbody>
-        
+
        </table>
 
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.fabric">
       <code class="parameter">fabric</code>
       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -821,7 +821,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
        members.
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -862,7 +862,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
          </tr>
 
         </tbody>
-       
+
       </table>
 
       <p class="para">
@@ -968,8 +968,8 @@ PHP Warning: mysqlnd_ms_fabric_select_global(): (mysqlnd_ms) Fabric server excha
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.filters">
       <code class="parameter">filters</code>
       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -1019,7 +1019,7 @@ PHP Warning: mysqlnd_ms_fabric_select_global(): (mysqlnd_ms) Fabric server excha
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -1056,8 +1056,8 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
       </p>
     </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.filter-random">
       Filter: <code class="parameter">random</code>
       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -1090,7 +1090,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -1170,7 +1170,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
    &quot;myapp&quot;: {
        &quot;master&quot;: {
            &quot;master1&quot;:{
-               &quot;host&quot;:&quot;localhost&quot;,
+               &quot;host&quot;:&quot;dashidan.com&quot;,
                &quot;socket&quot;:&quot;\/var\/run\/mysql\/mysql.sock&quot;
            }
        },
@@ -1237,7 +1237,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        List of filter arguments.
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -1278,13 +1278,13 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
          </tr>
 
         </tbody>
-       
+
       </table>
 
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.filter-roundrobin">
       Filter: <code class="parameter">roundrobin</code>
       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -1307,7 +1307,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -1337,7 +1337,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        List of filter arguments.
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -1366,13 +1366,13 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
          </tr>
 
         </tbody>
-       
+
       </table>
 
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.filter-user">
       Filter: <code class="parameter">user</code>
       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -1426,7 +1426,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -1479,7 +1479,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        The following parameters are passed from the plugin to the callback.
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -1586,7 +1586,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
          </tr>
 
         </tbody>
-       
+
       </table>
 
       <p class="para">
@@ -1597,7 +1597,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -1648,8 +1648,8 @@ User has connected to &#039;myapp&#039;...
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.filter-user-multi">
       Filter: <code class="parameter">user_multi</code>
       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -1721,9 +1721,9 @@ User has connected to &#039;myapp&#039;...
       </p>
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.filter-node-groups">
       Filter: <code class="parameter">node_groups</code>
       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -1742,7 +1742,7 @@ User has connected to &#039;myapp&#039;...
        down to one for statement execution.
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -1799,7 +1799,7 @@ User has connected to &#039;myapp&#039;...
   &quot;myapp&quot;: {
        &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -1840,14 +1840,14 @@ User has connected to &#039;myapp&#039;...
          </tr>
 
         </tbody>
-       
+
       </table>
 
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.filter-qos">
       Filter: <code class="parameter">quality_of_service</code>
       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -1893,7 +1893,7 @@ User has connected to &#039;myapp&#039;...
        of eventual consistency and maximum slave lag.
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -1940,7 +1940,7 @@ User has connected to &#039;myapp&#039;...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -2012,14 +2012,14 @@ User has connected to &#039;myapp&#039;...
          </tr>
 
         </tbody>
-       
+
       </table>
 
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.failover">
       <code class="parameter">failover</code>
       Up to and including 1.3.x: <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
@@ -2063,7 +2063,7 @@ User has connected to &#039;myapp&#039;...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -2092,7 +2092,7 @@ User has connected to &#039;myapp&#039;...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -2110,7 +2110,7 @@ User has connected to &#039;myapp&#039;...
        </div>
       </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -2203,7 +2203,7 @@ User has connected to &#039;myapp&#039;...
          </tr>
 
         </tbody>
-       
+
       </table>
 
       <p class="para">
@@ -2214,9 +2214,9 @@ User has connected to &#039;myapp&#039;...
       </p>
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.lazy-connections">
       <code class="parameter">lazy_connections</code>
       <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>
@@ -2255,7 +2255,7 @@ User has connected to &#039;myapp&#039;...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -2279,9 +2279,9 @@ User has connected to &#039;myapp&#039;...
       </p>
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.server-charset">
       <code class="parameter">server_charset</code>
       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -2351,7 +2351,7 @@ User has connected to &#039;myapp&#039;...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -2378,9 +2378,9 @@ User has connected to &#039;myapp&#039;...
       </p>
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.master-on-write">
       <code class="parameter">master_on_write</code>
       <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>
@@ -2410,7 +2410,7 @@ User has connected to &#039;myapp&#039;...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -2439,9 +2439,9 @@ User has connected to &#039;myapp&#039;...
       </p>
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.trx-stickiness">
       <code class="parameter">trx_stickiness</code>
       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -2506,7 +2506,7 @@ User has connected to &#039;myapp&#039;...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -2567,9 +2567,9 @@ User has connected to &#039;myapp&#039;...
       </p>
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.transient_error">
        <code class="parameter">transient_error</code>
        <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -2604,7 +2604,7 @@ User has connected to &#039;myapp&#039;...
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -2628,7 +2628,7 @@ User has connected to &#039;myapp&#039;...
       </div>
      </p>
       <table class="doctable informaltable">
-       
+
         <col width="1*" />
         <col width="7*" />
         <col width="2*" />
@@ -2696,14 +2696,14 @@ User has connected to &#039;myapp&#039;...
          </tr>
 
         </tbody>
-       
+
       </table>
 
      </dd>
 
-    
 
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config-v2.xa">
        <code class="parameter">xa</code>
        <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
@@ -2715,7 +2715,7 @@ User has connected to &#039;myapp&#039;...
        The setting has been introduced in 1.6.0.
       </p>
       <p class="para">
-       <blockquote class="note"><p><strong class="note">Note</strong>: 
+       <blockquote class="note"><p><strong class="note">Note</strong>:
         <strong>Experimental</strong><br />
         <p class="para">
          The feature is currently under development. There may be issues and/or
@@ -2725,7 +2725,7 @@ User has connected to &#039;myapp&#039;...
       </p>
       <dl>
 
-       
+
         <dt>
 state_store</dt>
 
@@ -2733,7 +2733,7 @@ state_store</dt>
 
            <dl>
 
-            
+
              <dt>
 record_participant_credentials</dt>
 
@@ -2757,34 +2757,34 @@ record_participant_credentials</dt>
               </p>
              </dd>
 
-            
-            
+
+
              <dt>
-participant_localhost_ip</dt>
+participant_dashidan.com_ip</dt>
 
              <dd>
 
               <p class="para">
                During XA garbage collection the plugin may find a participant server
-               for which the host <em>localhost</em>
+               for which the host <em>dashidan.com</em>
                has been recorded. If the garbage collection takes place on another host
                but the host that has written the participant record to the state store,
-               the host name <em>localhost</em> now resolves to a different
+               the host name <em>dashidan.com</em> now resolves to a different
                host. Therefore, when recording a participant servers host name
-               in the state store, a value of <em>localhost</em> must
-               be replaced with the actual IP address of <em>localhost</em>.
+               in the state store, a value of <em>dashidan.com</em> must
+               be replaced with the actual IP address of <em>dashidan.com</em>.
               </p>
               <p class="para">
-               Setting <em>participant_localhost_ip</em> should be considered
-               only if using <em>localhost</em> cannot be avoided.
+               Setting <em>participant_dashidan.com_ip</em> should be considered
+               only if using <em>dashidan.com</em> cannot be avoided.
                From a garbage collection point of view only, it is preferrable not to
                configure any socket connection but to provide an IP address and port
                for a node.
               </p>
              </dd>
 
-            
-            
+
+
              <dt>
 mysql</dt>
 
@@ -2795,7 +2795,7 @@ mysql</dt>
               </p>
               <dl>
 
-               
+
                 <dt>
 global_trx_table</dt>
 
@@ -2834,8 +2834,8 @@ global_trx_table</dt>
                  </p>
                 </dd>
 
-               
-                 
+
+
                   <dt>
 participant_table</dt>
 
@@ -2886,8 +2886,8 @@ participant_table</dt>
                   </div>
                  </dd>
 
-                
-                
+
+
                  <dt>
 garbage_collection_table</dt>
 
@@ -2920,8 +2920,8 @@ garbage_collection_table</dt>
                   </div>
                  </dd>
 
-                
-               
+
+
                 <dt>
 host</dt>
 
@@ -2932,8 +2932,8 @@ host</dt>
                  </p>
                 </dd>
 
-               
-               
+
+
                 <dt>
 user</dt>
 
@@ -2944,8 +2944,8 @@ user</dt>
                  </p>
                 </dd>
 
-               
-               
+
+
                 <dt>
 password</dt>
 
@@ -2956,8 +2956,8 @@ password</dt>
                  </p>
                 </dd>
 
-               
-               
+
+
                 <dt>
 db</dt>
 
@@ -2972,8 +2972,8 @@ db</dt>
                  </p>
                 </dd>
 
-               
-               
+
+
                 <dt>
 port</dt>
 
@@ -2984,8 +2984,8 @@ port</dt>
                  </p>
                 </dd>
 
-               
-               
+
+
                 <dt>
 socket</dt>
 
@@ -3002,18 +3002,18 @@ socket</dt>
                  </p>
                 </dd>
 
-               
+
               </dl>
 
              </dd>
 
-            
+
            </dl>
 
           </dd>
 
-         
-         
+
+
           <dt>
 rollback_on_close</dt>
 
@@ -3030,15 +3030,15 @@ rollback_on_close</dt>
            </p>
           </dd>
 
-         
-         
+
+
           <dt id="ini.mysqlnd-ms-plugin-config-v2.xa.gc">garbage_collection</dt>
 
           <dd>
 
            <dl>
 
-            
+
              <dt>
 max_retries</dt>
 
@@ -3069,8 +3069,8 @@ max_retries</dt>
               </p>
              </dd>
 
-            
-            
+
+
              <dt>
 probability</dt>
 
@@ -3106,8 +3106,8 @@ probability</dt>
               </p>
              </dd>
 
-            
-            
+
+
              <dt>
 max_transactions_per_run</dt>
 
@@ -3131,17 +3131,17 @@ max_transactions_per_run</dt>
               </p>
              </dd>
 
-            
+
            </dl>
 
           </dd>
 
-         
+
         </dl>
 
        </dd>
 
-      
+
      </dl>
 
     </p>
@@ -3149,7 +3149,7 @@ max_transactions_per_run</dt>
 
  <div class="section" id="mysqlnd-ms.plugin-ini-v1">
   <h2 class="title">Plugin configuration file (&lt;= 1.0.x)</h2>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     The below description applies to PECL/mysqlnd_ms &lt; 1.1.0-beta.
     It is not valid for later versions.
@@ -3186,11 +3186,11 @@ max_transactions_per_run</dt>
     <p><strong>Example #36 Using section names example</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">[myapp]
-master[] = localhost
+master[] = dashidan.com
 slave[] = 192.168.2.27
 slave[] = 192.168.2.28:3306
-[localhost]
-master[] = localhost:/tmp/mysql/mysql.sock
+[dashidan.com]
+master[] = dashidan.com:/tmp/mysql/mysql.sock
 slave[] = 192.168.3.24:3305
 slave[] = 192.168.3.65:3309</pre>
 </div>
@@ -3198,7 +3198,7 @@ slave[] = 192.168.3.65:3309</pre>
 
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;All&nbsp;of&nbsp;the&nbsp;following&nbsp;connections&nbsp;will&nbsp;be&nbsp;load&nbsp;balanced&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=myapp;dbname=database'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;All&nbsp;of&nbsp;the&nbsp;following&nbsp;connections&nbsp;will&nbsp;be&nbsp;load&nbsp;balanced&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=myapp;dbname=database'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -3208,13 +3208,13 @@ slave[] = 192.168.3.65:3309</pre>
   <p class="para">
    Section names are strings. It is valid to use a section name such as
    <em>192.168.2.1</em>, <em>127.0.0.1</em> or
-   <em>localhost</em>. If, for example, an application
-   connects to <em>localhost</em> and a plugin
-   configuration section <em>[localhost]</em> exists, the
+   <em>dashidan.com</em>. If, for example, an application
+   connects to <em>dashidan.com</em> and a plugin
+   configuration section <em>[dashidan.com]</em> exists, the
    semantics of the connect operation are changed. The application will
    no longer only use the MySQL server running on the host
-   <em>localhost</em> but the plugin will start to load balance
-   MySQL queries following the rules from the <em>[localhost]</em>
+   <em>dashidan.com</em> but the plugin will start to load balance
+   MySQL queries following the rules from the <em>[dashidan.com]</em>
    configuration section. This way you can load balance queries from
    an application without changing the applications source code.
   </p>
@@ -3254,7 +3254,7 @@ slave[] = mysql_slave_2</pre>
   <p class="para">
   <dl>
 
-   
+
      <dt id="ini.mysqlnd-ms-plugin-config.master">
       <code class="parameter">master[]</code>
       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -3281,8 +3281,8 @@ slave[] = mysql_slave_2</pre>
       </p>
      </dd>
 
-    
-    
+
+
     <dt id="ini.mysqlnd-ms-plugin-config.slave">
       <code class="parameter">slave[]</code>
       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -3308,8 +3308,8 @@ slave[] = mysql_slave_2</pre>
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config.pick">
       <code class="parameter">pick[]</code>
       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -3349,8 +3349,8 @@ slave[] = mysql_slave_2</pre>
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config.failover">
       <code class="parameter">failover</code>
       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -3378,8 +3378,8 @@ slave[] = mysql_slave_2</pre>
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config.lazy-connections">
       <code class="parameter">lazy_connections</code>
       <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>
@@ -3417,8 +3417,8 @@ slave[] = mysql_slave_2</pre>
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config.master-on-write">
       <code class="parameter">master_on_write</code>
       <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>
@@ -3442,8 +3442,8 @@ slave[] = mysql_slave_2</pre>
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="ini.mysqlnd-ms-plugin-config.trx-stickiness">
       <code class="parameter">trx_stickiness</code>
       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
@@ -3495,7 +3495,7 @@ slave[] = mysql_slave_2</pre>
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -3503,7 +3503,7 @@ slave[] = mysql_slave_2</pre>
 
  <div class="section" id="mysqlnd-ms.testing">
   <h2 class="title">Testing</h2>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     The section applies to mysqlnd_ms 1.1.0 or newer, not the 1.0 series.
    </p>
@@ -3530,7 +3530,7 @@ slave[] = mysql_slave_2</pre>
    The most basic configuration is as follows.
    <div class="example-contents">
 <div class="cdata"><pre>
- putenv(&quot;MYSQL_TEST_HOST=localhost&quot;);
+ putenv(&quot;MYSQL_TEST_HOST=dashidan.com&quot;);
  putenv(&quot;MYSQL_TEST_PORT=3306&quot;);
  putenv(&quot;MYSQL_TEST_USER=root&quot;);
  putenv(&quot;MYSQL_TEST_PASSWD=&quot;);
@@ -3595,7 +3595,7 @@ mysqlnd.debug=d:t:x:O,/tmp/mysqlnd.trace
 </pre></div>
   </div>
 
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
     <p class="para">
      This feature is only available with a debug build of PHP. Works
      on Microsoft Windows if using a debug build of PHP and PHP was
@@ -3645,7 +3645,7 @@ mysqlnd.debug=d:t:x:O,/tmp/mysqlnd.trace
    <div class="example-contents">
 <div class="cdata"><pre>
 [...]
-| | | | | | | info : adding error [Access denied for user &#039;root&#039;@&#039;localhost&#039; (using password: YES)] to the list
+| | | | | | | info : adding error [Access denied for user &#039;root&#039;@&#039;dashidan.com&#039; (using password: YES)] to the list
 | | | | | | | info : PACKET_FREE(0)
 | | | | | | | info : PACKET_FREE(0x7f3ef6323f50)
 | | | | | | | info : PACKET_FREE(0x7f3ef6324080)
@@ -3697,7 +3697,7 @@ mysqlnd.debug=d:t:x:O,/tmp/mysqlnd.trace
 | | | info : Using master connection
 | | | &gt;mysqlnd_ms_advanced_connect
 | | | | &gt;mysqlnd_conn::connect
-| | | | | info : host=localhost user=root db=test port=3306 flags=131072 persistent=0 state=0
+| | | | | info : host=dashidan.com user=root db=test port=3306 flags=131072 persistent=0 state=0
 </pre></div>
    </div>
 
@@ -3711,7 +3711,7 @@ mysqlnd.debug=d:t:x:O,/tmp/mysqlnd.trace
     The statement has been load balanced using round robin policy,
     as you can easily guess from the functions name <em>&gt;mysqlnd_ms_choose_connection_rr</em>.
     It has been sent to a master server running on
-    <em>host=localhost user=root db=test port=3306 flags=131072 persistent=0 state=0</em>.
+    <em>host=dashidan.com user=root db=test port=3306 flags=131072 persistent=0 state=0</em>.
   </p>
  </div>
 

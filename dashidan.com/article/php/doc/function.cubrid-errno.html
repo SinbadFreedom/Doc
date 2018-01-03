@@ -25,7 +25,7 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-   Returns the error number from the last CUBRID function. 
+   Returns the error number from the last CUBRID function.
   </p>
   <p class="para">
    The <span class="function"><strong>cubrid_errno()</strong></span> function is used to get the
@@ -40,7 +40,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">conn_identifier</code></dt>
 
@@ -53,13 +53,13 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
  </div>
 
- 
+
  <div class="refsect1 returnvalues" id="refsect1-function.cubrid-errno-returnvalues">
   <h3 class="title">返回值</h3>
   <p class="para">
@@ -75,7 +75,7 @@
     <p><strong>Example #1 <span class="function"><strong>cubrid_errno()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$con&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'demodb'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dba'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"select&nbsp;id,&nbsp;name&nbsp;from&nbsp;person"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$req</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(list&nbsp;(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">cubrid_fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">))&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error&nbsp;Code:&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cubrid_errno</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error&nbsp;Message:&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cubrid_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$con&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'demodb'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dba'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"select&nbsp;id,&nbsp;name&nbsp;from&nbsp;person"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$req</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(list&nbsp;(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">cubrid_fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">))&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error&nbsp;Code:&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cubrid_errno</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error&nbsp;Message:&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cubrid_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

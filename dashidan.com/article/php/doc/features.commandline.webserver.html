@@ -16,7 +16,7 @@
   <p class="para">
    PHP 5.4.0起， <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> 提供了一个内置的Web服务器。
   </p>
-<p class="para">   
+<p class="para">
    这个内置的Web服务器主要用于本地开发使用，不可用于线上产品环境。
   </p>
 
@@ -25,20 +25,20 @@
   </p>
 
   <p class="para">
-  
+
    如果请求未指定执行哪个PHP文件，则默认执行目录内的index.php 或者 index.html。如果这两个文件都不存在，服务器会返回404错误。
   </p>
 
-  <p class="para">  
-   
+  <p class="para">
+
    当你在命令行启动这个Web Server时，如果指定了一个PHP文件，则这个文件会作为一个“路由”脚本，意味着每次请求都会先执行这个脚本。如果这个脚本返回 <strong><code>FALSE</code></strong> ，那么直接返回请求的文件（例如请求静态文件不作任何处理）。否则会把输出返回到浏览器。
   </p>
 
   <div class="example" id="example-375">
-   <p><strong>Example #1 启动Web服务器</strong></p> 
+   <p><strong>Example #1 启动Web服务器</strong></p>
    <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ cd ~/public_html
-$ php -S localhost:8000</pre>
+$ php -S dashidan.com:8000</pre>
 </div>
    </div>
 
@@ -48,19 +48,19 @@ $ php -S localhost:8000</pre>
    <div class="example-contents screen">
 <div class="cdata"><pre>
 PHP 5.4.0 Development Server started at Thu Jul 21 10:43:28 2011
-Listening on localhost:8000
+Listening on dashidan.com:8000
 Document root is /home/me/public_html
 Press Ctrl-C to quit
 </pre></div>
    </div>
-   <div class="example-contents"><p>   
-    
-    接着访问http://localhost:8000/和http://localhost:8000/myscript.html，窗口会显示：
+   <div class="example-contents"><p>
+
+    接着访问http://dashidan.com:8000/和http://dashidan.com:8000/myscript.html，窗口会显示：
    </p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
 PHP 5.4.0 Development Server started at Thu Jul 21 10:43:28 2011
-Listening on localhost:8000
+Listening on dashidan.com:8000
 Document root is /home/me/public_html
 Press Ctrl-C to quit.
 [Thu Jul 21 10:48:48 2011] ::1:39144 GET /favicon.ico - Request read
@@ -73,10 +73,10 @@ Press Ctrl-C to quit.
   </div>
 
   <div class="example" id="example-376">
-   <p><strong>Example #2 启动时指定根目录</strong></p> 
+   <p><strong>Example #2 启动时指定根目录</strong></p>
    <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">$ cd ~/public_html
-$ php -S localhost:8000 -t foo/</pre>
+$ php -S dashidan.com:8000 -t foo/</pre>
 </div>
    </div>
 
@@ -86,7 +86,7 @@ $ php -S localhost:8000 -t foo/</pre>
    <div class="example-contents screen">
 <div class="cdata"><pre>
 PHP 5.4.0 Development Server started at Thu Jul 21 10:50:26 2011
-Listening on localhost:8000
+Listening on dashidan.com:8000
 Document root is /home/me/public_html/foo
 Press Ctrl-C to quit
 </pre></div>
@@ -94,9 +94,9 @@ Press Ctrl-C to quit
   </div>
 
   <div class="example" id="example-377">
-   <p><strong>Example #3 使用路由（Router）脚本</strong></p> 
+   <p><strong>Example #3 使用路由（Router）脚本</strong></p>
 <div class="example-contents"><p>
- 
+
  请求图片直接显示图片，请求HTML则显示“Welcome to PHP”
 </p></div>
    <div class="example-contents">
@@ -107,18 +107,18 @@ Press Ctrl-C to quit
    </div>
 
    <div class="example-contents">
-<div class="shellcode"><pre class="shellcode">$ php -S localhost:8000 router.php</pre>
+<div class="shellcode"><pre class="shellcode">$ php -S dashidan.com:8000 router.php</pre>
 </div>
    </div>
 
    <div class="example-contents"><p>
-    
+
     执行之后终端显示：
    </p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
 PHP 5.4.0 Development Server started at Thu Jul 21 10:53:19 2011
-Listening on localhost:8000
+Listening on dashidan.com:8000
 Document root is /home/me/public_html
 Press Ctrl-C to quit.
 [Thu Jul 21 10:53:45 2011] ::1:55801 GET /mylogo.jpg - Request read

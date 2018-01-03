@@ -42,21 +42,21 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">connection</code></dt>
 
      <dd>
 
       <p class="para">
-       PostgreSQL database connection resource.  When 
-       <code class="parameter">connection</code> is not present, the default connection 
-       is used. The default connection is the last connection made by 
+       PostgreSQL database connection resource.  When
+       <code class="parameter">connection</code> is not present, the default connection
+       is used. The default connection is the last connection made by
        <span class="function"><a href="function.pg-connect.html" class="function">pg_connect()</a></span> or <span class="function"><a href="function.pg-pconnect.html" class="function">pg_pconnect()</a></span>.
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -66,13 +66,13 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-version-returnvalues">
   <h3 class="title">返回值</h3>
   <p class="para">
-   Returns an array with <em>client</em>, <em>protocol</em> 
+   Returns an array with <em>client</em>, <em>protocol</em>
    and <em>server</em> keys and values (if available).  Returns
    <strong><code>FALSE</code></strong> on error or invalid connection.
   </p>
  </div>
 
- 
+
  <div class="refsect1 examples" id="refsect1-function.pg-version-examples">
   <h3 class="title">范例</h3>
   <p class="para">
@@ -80,7 +80,7 @@
     <p><strong>Example #1 <span class="function"><strong>pg_version()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$dbconn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"host=localhost&nbsp;port=5432&nbsp;dbname=mary"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;connect"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$v&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_version</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbconn</span><span style="color: #007700">);<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #007700">[</span><span style="color: #DD0000">'client'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$dbconn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"host=dashidan.com&nbsp;port=5432&nbsp;dbname=mary"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;connect"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$v&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_version</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbconn</span><span style="color: #007700">);<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #007700">[</span><span style="color: #DD0000">'client'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

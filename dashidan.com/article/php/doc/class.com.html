@@ -11,7 +11,7 @@
  <div class="up"><a href="book.com.html">COM</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="class.com" class="reference">
- 
+
  <h1 class="title">The COM class</h1>
  <div class="partintro"><p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p>
 
@@ -39,7 +39,7 @@
    COM class constructor. The parameters have the following meanings:
    <dl>
 
-    
+
      <dt>
 module_name</dt>
 
@@ -65,8 +65,8 @@ module_name</dt>
       </span>
      </dd>
 
-    
-    
+
+
      <dt>
 server_name</dt>
 
@@ -94,7 +94,7 @@ server_name</dt>
        directive.
        <table class="doctable table">
         <caption><strong>DCOM server name</strong></caption>
-        
+
          <thead>
           <tr>
            <th><code class="parameter">server_name</code> key</th>
@@ -143,14 +143,14 @@ server_name</dt>
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 codepage</dt>
 
@@ -177,7 +177,7 @@ codepage</dt>
       </span>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -303,7 +303,7 @@ codepage</dt>
     <p><strong>Example #2 COM example (2)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">COM</span><span style="color: #007700">(</span><span style="color: #DD0000">"ADODB.Connection"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Cannot&nbsp;start&nbsp;ADO"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Open</span><span style="color: #007700">(</span><span style="color: #DD0000">"Provider=SQLOLEDB;&nbsp;Data&nbsp;Source=localhost;<br />Initial&nbsp;Catalog=database;&nbsp;User&nbsp;ID=user;&nbsp;Password=password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$rs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Execute</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;sometable"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Recordset<br /><br /></span><span style="color: #0000BB">$num_columns&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Fields</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Count</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$num_columns&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br />for&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$num_columns</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$fld</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Fields</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$rowcount&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />while&nbsp;(!</span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">EOF</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$num_columns</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$fld</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">value&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\t"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rowcount</span><span style="color: #007700">++;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;increments&nbsp;rowcount<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">MoveNext</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Close</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$rs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">COM</span><span style="color: #007700">(</span><span style="color: #DD0000">"ADODB.Connection"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Cannot&nbsp;start&nbsp;ADO"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Open</span><span style="color: #007700">(</span><span style="color: #DD0000">"Provider=SQLOLEDB;&nbsp;Data&nbsp;Source=dashidan.com;<br />Initial&nbsp;Catalog=database;&nbsp;User&nbsp;ID=user;&nbsp;Password=password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$rs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Execute</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;sometable"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Recordset<br /><br /></span><span style="color: #0000BB">$num_columns&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Fields</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Count</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$num_columns&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br />for&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$num_columns</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$fld</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Fields</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$rowcount&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />while&nbsp;(!</span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">EOF</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$num_columns</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$fld</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">]-&gt;</span><span style="color: #0000BB">value&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\t"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rowcount</span><span style="color: #007700">++;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;increments&nbsp;rowcount<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">MoveNext</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">$rs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Close</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$rs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -53,7 +53,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">host</code></dt>
 
@@ -61,7 +61,7 @@
 
       <p class="para">
        Can be either a host name or an IP address. Passing the <strong><code>NULL</code></strong> value
-       or the string &quot;localhost&quot; to this parameter, the local host is
+       or the string &quot;dashidan.com&quot; to this parameter, the local host is
        assumed. When possible, pipes will be used instead of the TCP/IP
        protocol.
       </p>
@@ -72,8 +72,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">username</code></dt>
 
@@ -84,8 +84,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">passwd</code></dt>
 
@@ -99,8 +99,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">dbname</code></dt>
 
@@ -112,8 +112,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">port</code></dt>
 
@@ -124,8 +124,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">socket</code></dt>
 
@@ -134,7 +134,7 @@
       <p class="para">
        Specifies the socket or named pipe that should be used.
       </p>
-      <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <blockquote class="note"><p><strong class="note">Note</strong>:
        <p class="para">
         Specifying the <code class="parameter">socket</code> parameter will not
         explicitly determine the type of connection to be used when
@@ -145,7 +145,7 @@
       </p></blockquote>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -164,7 +164,7 @@
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -182,7 +182,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -196,7 +196,7 @@
    <div class="example-contents"><p>面向对象风格</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*<br />&nbsp;*&nbsp;This&nbsp;is&nbsp;the&nbsp;"official"&nbsp;OO&nbsp;way&nbsp;to&nbsp;do&nbsp;it,<br />&nbsp;*&nbsp;BUT&nbsp;$connect_error&nbsp;was&nbsp;broken&nbsp;until&nbsp;PHP&nbsp;5.2.9&nbsp;and&nbsp;5.3.0.<br />&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">')&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">/*<br />&nbsp;*&nbsp;Use&nbsp;this&nbsp;instead&nbsp;of&nbsp;$connect_error&nbsp;if&nbsp;you&nbsp;need&nbsp;to&nbsp;ensure<br />&nbsp;*&nbsp;compatibility&nbsp;with&nbsp;PHP&nbsp;versions&nbsp;prior&nbsp;to&nbsp;5.2.9&nbsp;and&nbsp;5.3.0.<br />&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">')&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />}<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Success...&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">host_info&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*<br />&nbsp;*&nbsp;This&nbsp;is&nbsp;the&nbsp;"official"&nbsp;OO&nbsp;way&nbsp;to&nbsp;do&nbsp;it,<br />&nbsp;*&nbsp;BUT&nbsp;$connect_error&nbsp;was&nbsp;broken&nbsp;until&nbsp;PHP&nbsp;5.2.9&nbsp;and&nbsp;5.3.0.<br />&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">')&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">/*<br />&nbsp;*&nbsp;Use&nbsp;this&nbsp;instead&nbsp;of&nbsp;$connect_error&nbsp;if&nbsp;you&nbsp;need&nbsp;to&nbsp;ensure<br />&nbsp;*&nbsp;compatibility&nbsp;with&nbsp;PHP&nbsp;versions&nbsp;prior&nbsp;to&nbsp;5.2.9&nbsp;and&nbsp;5.3.0.<br />&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">')&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />}<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Success...&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">host_info&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -204,7 +204,7 @@
    <div class="example-contents"><p>面向对象风格 when extending mysqli class</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">foo_mysqli&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">mysqli&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">')&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">foo_mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Success...&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">host_info&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">foo_mysqli&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">mysqli&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">')&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">foo_mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Success...&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">host_info&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -212,7 +212,7 @@
    <div class="example-contents"><p>过程化风格</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">')&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />}<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Success...&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_get_host_info</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">mysqli_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_password'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_db'</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">')&nbsp;'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />}<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Success...&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysqli_get_host_info</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">mysqli_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -220,7 +220,7 @@
    <div class="example-contents"><p>以上例程会输出：</p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
-Success... MySQL host info: localhost via TCP/IP
+Success... MySQL host info: dashidan.com via TCP/IP
 </pre></div>
    </div>
   </div>
@@ -229,32 +229,32 @@ Success... MySQL host info: localhost via TCP/IP
 
  <div class="refsect1 notes" id="refsect1-mysqli.construct-notes">
   <h3 class="title">注释</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
 <p class="para">MySQLnd 总是使用服务器的默认字符集。此字符集在连接握手／认证时发送，并被 mysqlnd
 使用。</p><p class="para">Libmysqlclient 使用 <var class="filename">my.cnf</var> 中的默认字符集或者由在调用
 <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span> 之后，<span class="function"><a href="mysqli.real-connect.html" class="function">mysqli_real_connect()</a></span>
 之前先调用 <span class="function"><a href="mysqli.options.html" class="function">mysqli_options()</a></span> 来指定。</p></p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
-    OO syntax only: If a connection fails an object is still returned. To check 
-    if the connection failed then use either the 
-    <span class="function"><a href="mysqli.connect-error.html" class="function">mysqli_connect_error()</a></span> function or the <a href="mysqli.connect-error.html" class="link">mysqli-&gt;connect_error</a> property as in 
+    OO syntax only: If a connection fails an object is still returned. To check
+    if the connection failed then use either the
+    <span class="function"><a href="mysqli.connect-error.html" class="function">mysqli_connect_error()</a></span> function or the <a href="mysqli.connect-error.html" class="link">mysqli-&gt;connect_error</a> property as in
     the preceding examples.
    </p>
   </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     If it is necessary to set options, such as the connection timeout,
     <span class="function"><a href="mysqli.real-connect.html" class="function">mysqli_real_connect()</a></span> must be used instead.
    </p>
   </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     Calling the constructor with no parameters is the same as calling
     <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>.
    </p>
   </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     Error &quot;Can&#039;t create TCP/IP socket (10106)&quot; usually means that the <a href="ini.core.html#ini.variables-order" class="link">variables_order</a> configure directive
     doesn&#039;t contain character <em>E</em>. On Windows, if the

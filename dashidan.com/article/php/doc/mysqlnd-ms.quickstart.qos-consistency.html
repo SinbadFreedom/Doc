@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mysqlnd-ms.quickstart.qos-consistency" class="section">
   <h2 class="title">服务级别和一致性</h2>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>版本需求</strong><br />
    <p class="para">
     服务级别是从 1.2.0-alpha版本引入的，<span class="function"><a href="function.mysqlnd-ms-set-qos.html" class="function">mysqlnd_ms_set_qos()</a></span>
@@ -42,7 +42,7 @@
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -95,7 +95,7 @@
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -131,7 +131,7 @@
    在范例中，只有满足 <em>Slave_IO_Running=Yes</em>,
    <em>Slave_SQL_Running=Yes</em> 和
    <em>Seconds_Behind_Master &lt;= 4</em> 的 slave
-   会被执行语句 <em>SELECT item, price FROM daytrade</em>。  
+   会被执行语句 <em>SELECT item, price FROM daytrade</em>。
   </p>
   <p class="para">
    在应用运行时，会透明的执行 <em>SHOW SLAVE STATUS</em> 命令。
@@ -139,10 +139,10 @@
    即使所有的 <em>SHOW SLAVE STATUS</em> 都失败了，用户的执行请求也不会被终止，
    给定的 master 作为最后的选择。然而应用不需要做任何调整。
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>耗时和缓慢的操作</strong><br />
    <p class="para">
-    在任何程序的开始，对所有的 slave 进行 <em>SHOW SLAVE STATUS</em> 
+    在任何程序的开始，对所有的 slave 进行 <em>SHOW SLAVE STATUS</em>
     查询，是一个非常耗时和缓慢的操作。不要经常这样操作。MySQL 主从同步集群并没有
     提供一个客户端从一个中心控制器获取备选方案的能力。
     然而，没有更多有效的方式获取 slave 延迟。
@@ -169,7 +169,7 @@
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },

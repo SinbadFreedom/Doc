@@ -29,66 +29,66 @@
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$retries</code><span class="initializer"> = 5</span></span>
   ]] )</div>
 
-  
+
   <p class="para rdfs-comment">
    The <span class="function"><strong>snmpgetnext()</strong></span> function is used to read the
-   value of the <acronym title="Simple Network Management Protocol">SNMP</acronym> object that follows the specified 
+   value of the <acronym title="Simple Network Management Protocol">SNMP</acronym> object that follows the specified
    <code class="parameter">object_id</code>.
   </p>
  </div>
 
- 
+
  <div class="refsect1 parameters" id="refsect1-function.snmpgetnext-parameters">
   <h3 class="title">参数</h3>
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">host</code></dt>
 
      <dd>
 <p class="para">The hostname of the <acronym title="Simple Network Management Protocol">SNMP</acronym> agent (server).</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">community</code></dt>
 
      <dd>
 <p class="para">The read community.</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">object_id</code></dt>
 
      <dd>
 <p class="para">The <acronym title="Simple Network Management Protocol">SNMP</acronym> object id which precedes the wanted one.</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">timeout</code></dt>
 
      <dd>
 <p class="para">The number of microseconds until the first timeout.</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">retries</code></dt>
 
      <dd>
 <p class="para">The number of times to retry if timeouts occur.</p></dd>
 
-    
+
    </dl>
 
   </p>
  </div>
 
- 
+
  <div class="refsect1 returnvalues" id="refsect1-function.snmpgetnext-returnvalues">
   <h3 class="title">返回值</h3>
   <p class="para">
@@ -97,7 +97,7 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 examples" id="refsect1-function.snmpgetnext-examples">
   <h3 class="title">范例</h3>
   <p class="para">
@@ -105,7 +105,7 @@
     <p><strong>Example #1 Using <span class="function"><strong>snmpgetnext()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$nameOfSecondInterface&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmpgetnetxt</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'public'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$nameOfSecondInterface&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmpgetnetxt</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'public'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -114,7 +114,7 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.snmpgetnext-seealso">
   <h3 class="title">参见</h3>
   <p class="para">
@@ -125,7 +125,7 @@
   </p>
  </div>
 
- 
+
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.snmpget.html">snmpget</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.snmprealwalk.html">snmprealwalk</a></div>

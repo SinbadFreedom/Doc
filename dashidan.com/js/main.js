@@ -27,21 +27,17 @@ function clickTitle(name) {
     var titleId = "#" + name + "_title";
     var titleName = $(titleId).text();
 
-    if ($("#" + name).hasClass("dsd_catalog_left_hide")) {
+    if (titleName.startsWith("➕")) {
         /** 隐藏状态切换到显示*/
         $("#" + name).removeClass("dsd_catalog_left_hide");
         $("#" + name).addClass("dsd_catalog_left_show");
-        if (titleName.startsWith("➕")) {
-            titleName = titleName.substring(1);
-        }
+        titleName = titleName.substring(1);
         titleName = "➖" + titleName;
-    } else {
+    } else if (titleName.startsWith("➖")) {
         /** 显示状态切换到隐藏*/
         $("#" + name).removeClass("dsd_catalog_left_show");
         $("#" + name).addClass("dsd_catalog_left_hide");
-        if (titleName.startsWith("➖")) {
-            titleName = titleName.substring(1);
-        }
+        titleName = titleName.substring(1);
         titleName = "➕" + titleName;
     }
 
@@ -75,7 +71,7 @@ function showLeftHighlight() {
     });
 
     /** 去掉 id=""显示*/
-    $("#" + idName).removeClass("dsd_catalog_left_hide")
+    // $("#" + idName).removeClass("dsd_catalog_left_hide")
 }
 
 /** 加载后立即执行, 通过文章URL显示打开左侧边栏*/

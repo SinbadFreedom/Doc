@@ -48,7 +48,7 @@
     <p><strong>Example #1 maxdb_connect_errno sample</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">maxdb_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"XXXXXXXX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"YYYYYYYYY"</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Can't&nbsp;connect&nbsp;to&nbsp;localhost.&nbsp;Errorcode:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">maxdb_connect_errno</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">maxdb_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"XXXXXXXX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"YYYYYYYYY"</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Can't&nbsp;connect&nbsp;to&nbsp;dashidan.com.&nbsp;Errorcode:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">maxdb_connect_errno</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -59,7 +59,7 @@
   <div class="example-contents screen">
 <div class="cdata"><pre>
 PHP Warning:  maxdb_connect(): -4008 POS(1) Unknown user name/password combination [08004] &lt;...&gt;
-Can&#039;t connect to localhost. Errorcode: -4008
+Can&#039;t connect to dashidan.com. Errorcode: -4008
 </pre></div>
   </div>
  </div>

@@ -43,7 +43,7 @@
 <div class="section">
  <h2 class="title">Installing OCI8 as a Shared Extension</h2>
  <p class="para">
-  The configuration <em>shared</em> option 
+  The configuration <em>shared</em> option
   builds OCI8 as a shared library that can be dynamically loaded into
   PHP.  Building a shared extension allows OCI8 to be upgraded easily
   without impacting the rest of PHP.
@@ -368,7 +368,7 @@ extension=oci8.so
   server is automatically started at boot time then make sure that the
   boot-time environment is also configured correctly.
  </p>
- <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <blockquote class="note"><p><strong class="note">Note</strong>:
   <p class="para">
    Do not set Oracle environment variables
    using <span class="function"><a href="function.putenv.html" class="function">putenv()</a></span> in a PHP script because Oracle
@@ -376,7 +376,7 @@ extension=oci8.so
    runs. Variables set with <span class="function"><a href="function.putenv.html" class="function">putenv()</a></span> may then cause
    conflicts, crashes, or unpredictable behavior.  Some functions may
    work but others might give subtle errors. The variables should be
-   set up <em class="emphasis">before</em> the web server is started.  
+   set up <em class="emphasis">before</em> the web server is started.
   </p>
  </p></blockquote>
  <p class="para">
@@ -400,7 +400,7 @@ extension=oci8.so
   all the variables.
   <table class="doctable table">
    <caption><strong>Common Oracle Environment Variables</strong></caption>
-   
+
     <thead>
      <tr>
       <th>Name</th>
@@ -457,21 +457,21 @@ extension=oci8.so
       and <var class="filename">sqlnet.ora</var> are kept.  Not needed if
       the <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> connection string uses the
       Easy Connect naming syntax such
-      as <em>localhost/XE</em>.  Not needed if the network
+      as <em>dashidan.com/XE</em>.  Not needed if the network
       configuration files are in one of the default locations such
       as <var class="filename">$ORACLE_HOME/network/admin</var>
       or <var class="filename">/etc</var>.</td>
      </tr>
 
     </tbody>
-   
+
   </table>
 
    Less frequently used Oracle environment variables include
    <em>TWO_TASK</em>, <em>ORA_TZFILE</em>, and the
    various Oracle globalization settings
    like <em>NLS*</em> and the <em>ORA_NLS_*</em>
-   variables.  
+   variables.
  </p>
 </div>
 <div class="section">
@@ -503,7 +503,7 @@ extension=oci8.so
   can help resolve missing or clashing library issues, particularly on
   Windows.
  </p>
- <blockquote class="note"><p><strong class="note">Note</strong>: 
+ <blockquote class="note"><p><strong class="note">Note</strong>:
   <strong>If the web server doesn&#039;t start or crashes at
   startup</strong><br />
   <p class="para">

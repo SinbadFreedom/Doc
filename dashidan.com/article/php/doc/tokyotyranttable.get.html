@@ -25,7 +25,7 @@
    )</div>
 
   <p class="para rdfs-comment">
-   Gets a row from table database. <code class="parameter">keys</code> is a single integer for 
+   Gets a row from table database. <code class="parameter">keys</code> is a single integer for
    the primary key of the row or an array of integers for multiple rows.
   </p>
  </div>
@@ -36,7 +36,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">keys</code></dt>
 
@@ -47,7 +47,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -69,7 +69,7 @@
     <p><strong>Example #1 <span class="methodname"><strong>TokyoTyrantTable::get()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;a&nbsp;table&nbsp;database&nbsp;*/<br /></span><span style="color: #0000BB">$tt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">TokyoTyrantTable</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1979</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Passing&nbsp;null&nbsp;to&nbsp;put&nbsp;generates&nbsp;a&nbsp;new&nbsp;uid&nbsp;*/<br /></span><span style="color: #0000BB">$index&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">put</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"column1"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"some&nbsp;data"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"column2"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"more&nbsp;data"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;Get&nbsp;the&nbsp;row&nbsp;back&nbsp;*/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #0000BB">$index</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;a&nbsp;table&nbsp;database&nbsp;*/<br /></span><span style="color: #0000BB">$tt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">TokyoTyrantTable</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1979</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Passing&nbsp;null&nbsp;to&nbsp;put&nbsp;generates&nbsp;a&nbsp;new&nbsp;uid&nbsp;*/<br /></span><span style="color: #0000BB">$index&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">put</span><span style="color: #007700">(</span><span style="color: #0000BB">null</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"column1"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"some&nbsp;data"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"column2"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"more&nbsp;data"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;Get&nbsp;the&nbsp;row&nbsp;back&nbsp;*/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #0000BB">$index</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -92,7 +92,7 @@ array(2) {
 
  <div class="refsect1 notes" id="refsect1-tokyotyranttable.get-notes">
   <h3 class="title">注释</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     Starting from version 0.3.0 this method accepts array as parameter. Please note
     that multi-get on tables is not binary-safe.

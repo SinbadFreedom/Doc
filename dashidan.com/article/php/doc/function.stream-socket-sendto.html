@@ -28,7 +28,7 @@
 
   <p class="para rdfs-comment">
    Sends the specified <code class="parameter">data</code> through the
-   <code class="parameter">socket</code>.  
+   <code class="parameter">socket</code>.
   </p>
  </div>
 
@@ -38,7 +38,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">socket</code></dt>
 
@@ -49,8 +49,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">data</code></dt>
 
@@ -61,8 +61,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">flags</code></dt>
 
@@ -73,7 +73,7 @@
        of the following:
        <table class="doctable table">
         <caption><strong>possible values for <code class="parameter">flags</code></strong></caption>
-        
+
          <tbody class="tbody">
           <tr>
            <td><strong><code>STREAM_OOB</code></strong></td>
@@ -83,14 +83,14 @@
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">address</code></dt>
 
@@ -105,7 +105,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -127,7 +127,7 @@
     <p><strong>Example #1 <span class="function"><strong>stream_socket_sendto()</strong></span> Example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Open&nbsp;a&nbsp;socket&nbsp;to&nbsp;port&nbsp;1234&nbsp;on&nbsp;localhost&nbsp;*/<br /></span><span style="color: #0000BB">$socket&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stream_socket_client</span><span style="color: #007700">(</span><span style="color: #DD0000">'tcp://127.0.0.1:1234'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Send&nbsp;ordinary&nbsp;data&nbsp;via&nbsp;ordinary&nbsp;channels.&nbsp;*/<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Normal&nbsp;data&nbsp;transmit."</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Send&nbsp;more&nbsp;data&nbsp;out&nbsp;of&nbsp;band.&nbsp;*/<br /></span><span style="color: #0000BB">stream_socket_sendto</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Out&nbsp;of&nbsp;Band&nbsp;data."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">STREAM_OOB</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Close&nbsp;it&nbsp;up&nbsp;*/<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Open&nbsp;a&nbsp;socket&nbsp;to&nbsp;port&nbsp;1234&nbsp;on&nbsp;dashidan.com&nbsp;*/<br /></span><span style="color: #0000BB">$socket&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stream_socket_client</span><span style="color: #007700">(</span><span style="color: #DD0000">'tcp://127.0.0.1:1234'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Send&nbsp;ordinary&nbsp;data&nbsp;via&nbsp;ordinary&nbsp;channels.&nbsp;*/<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Normal&nbsp;data&nbsp;transmit."</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Send&nbsp;more&nbsp;data&nbsp;out&nbsp;of&nbsp;band.&nbsp;*/<br /></span><span style="color: #0000BB">stream_socket_sendto</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Out&nbsp;of&nbsp;Band&nbsp;data."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">STREAM_OOB</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Close&nbsp;it&nbsp;up&nbsp;*/<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
