@@ -117,4 +117,16 @@ img {
 /** 始终显示竖滚动条*/
 html {
     overflow-y: scroll;
+    min-height: 100%;
 }
+
+body {
+    min-height: 100%;
+}
+
+.content_full_height {
+    min-height: 100%;
+}
+
+
+
