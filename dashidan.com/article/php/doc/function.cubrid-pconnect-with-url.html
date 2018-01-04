@@ -16,14 +16,14 @@
   <p class="verinfo">(PECL CUBRID &gt;= 8.3.1)</p><p class="refpurpose"><span class="refname">cubrid_pconnect_with_url</span> &mdash; <span class="dc-title">Open a persistent connection to CUBRID server</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.cubrid-pconnect-with-url-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">resource</span> <span class="methodname"><strong>cubrid_pconnect_with_url</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$conn_url</code></span>  
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$userid</code></span>  
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code></span>  
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$conn_url</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$userid</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$passwd</code></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
@@ -31,7 +31,7 @@
   </p>
   <p class="para">
    <span class="function"><strong>cubrid_pconnect_with_url()</strong></span> acts very much like
-   <span class="function"><a href="function.cubrid-connect-with-url.html" class="function">cubrid_connect_with_url()</a></span> with two major differences. 
+   <span class="function"><a href="function.cubrid-connect-with-url.html" class="function">cubrid_connect_with_url()</a></span> with two major differences.
   </p>
   <p class="para">
    First, when connecting, the function would first try to find a (persistent)
@@ -87,14 +87,14 @@
     <li class="member">db_password : A database user password</li>
     <li class="member">
      alhosts : Specifies the broker information of the standby server, which is
-     used for failover when it is impossible to connect to the active server. 
+     used for failover when it is impossible to connect to the active server.
      You can specify multiple brokers for failover, and the connection to the brokers
      is attempted in the order listed in alhosts</li>
     <li class="member">
      rctime : An interval between the attempts to connect to the active broker in
-     which failure occurred. After a failure occurs, the system connects to the 
+     which failure occurred. After a failure occurs, the system connects to the
      broker specified by althosts (failover), terminates the transaction, and then
-     attempts to connect to the active broker of the master database at every rctime. 
+     attempts to connect to the active broker of the master database at every rctime.
      The default value is 600 seconds.</li>
     <li class="member">
      login_timeout : Timeout value (unit: msec.) for database login. The default
@@ -102,7 +102,7 @@
     </li>
     <li class="member">
      query_timeout : Timeout value (unit: msec.) for query request. Upon timeout,
-     a message to cancel requesting a query transferred to server is sent. The return 
+     a message to cancel requesting a query transferred to server is sent. The return
      value can depend on the disconnect_on_query_timeout configuration; even though the
      message to cancel a request is sent to server, that request may succeed.
     </li>
@@ -112,7 +112,7 @@
     </li>
    </ul>
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     <em>?</em> and <em>:</em> that are used as identifiers
     in PHP connection URL can&#039;t be included in the password. The following is
@@ -120,14 +120,14 @@
     &quot;<em>?:</em>&quot;.
    </p>
    <p class="para">
-    $url = &quot;CUBRID:localhost:33000:tdb:dba:12?:?login_timeout=100&quot;;
+    $url = &quot;CUBRID:dashidan.com:33000:tdb:dba:12?:?login_timeout=100&quot;;
    </p>
    <p class="para">
     Passwords that contain <em>?</em> or <em>:</em> may be
     passed as a separate parameter.
    </p>
    <p class="para">
-    $url = &quot;CUBRID:localhost:33000:tbd:::?login_timeout=100&quot;;
+    $url = &quot;CUBRID:dashidan.com:33000:tbd:::?login_timeout=100&quot;;
    </p>
    <p class="para">
     $conn = cubrid_pconnect_with_url ($url, &quot;dba&quot;, &quot;12?&quot;);
@@ -137,58 +137,58 @@
     an example.
    </p>
    <p class="para">
-    $url = &quot;CUBRID:localhost:33000:demodb:::&quot;;
+    $url = &quot;CUBRID:dashidan.com:33000:demodb:::&quot;;
    </p>
   </p></blockquote>
  </div>
 
- 
+
  <div class="refsect1 parameters" id="refsect1-function.cubrid-pconnect-with-url-parameters">
   <h3 class="title">参数</h3>
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">conn_url</code></dt>
 
      <dd>
 <p class="para">A character string that contains server connection information.</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">userid</code></dt>
 
      <dd>
 <p class="para">User name for the database.</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">passwd</code></dt>
 
      <dd>
 <p class="para">User password.</p></dd>
 
-    
+
    </dl>
 
   </p>
  </div>
 
- 
+
  <div class="refsect1 returnvalues" id="refsect1-function.cubrid-pconnect-with-url-returnvalues">
   <h3 class="title">返回值</h3>
   <p class="para">
-   Connection identifier, when process is successful. 
+   Connection identifier, when process is successful.
   </p>
   <p class="para">
    <strong><code>FALSE</code></strong>, when process is unsuccessful.
   </p>
  </div>
 
- 
+
  <div class="refsect1 examples" id="refsect1-function.cubrid-pconnect-with-url-examples">
   <h3 class="title">范例</h3>
   <div class="example" id="example-1121">
@@ -201,7 +201,7 @@
    </div>
 
   </div>
-  
+
   <div class="example" id="example-1122">
    <p><strong>Example #2 <span class="function"><strong>cubrid_pconnect_with_url()</strong></span> url with properties example</strong></p>
    <div class="example-contents">
@@ -214,7 +214,7 @@
   </div>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.cubrid-pconnect-with-url-seealso">
   <h3 class="title">参见</h3>
   <p class="para">
@@ -228,7 +228,7 @@
   </p>
  </div>
 
- 
+
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-num-rows.html">cubrid_num_rows</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-pconnect.html">cubrid_pconnect</a></div>

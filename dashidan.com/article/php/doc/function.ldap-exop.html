@@ -41,7 +41,7 @@
   <h3 class="title">参数</h3>
   <dl>
 
-   
+
     <dt>
 <code class="parameter">link</code></dt>
 
@@ -52,8 +52,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">reqoid</code></dt>
 
@@ -64,8 +64,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">reqdata</code></dt>
 
@@ -76,8 +76,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">servercontrols</code></dt>
 
@@ -88,8 +88,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">retdata</code></dt>
 
@@ -102,8 +102,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">retoid</code></dt>
 
@@ -114,7 +114,7 @@
      </p>
     </dd>
 
-   
+
   </dl>
 
  </div>
@@ -136,7 +136,7 @@
     <p><strong>Example #1 Whoami extended operation</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$ds&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;assuming&nbsp;the&nbsp;LDAP&nbsp;server&nbsp;is&nbsp;on&nbsp;this&nbsp;host<br /><br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bind&nbsp;with&nbsp;appropriate&nbsp;dn&nbsp;to&nbsp;give&nbsp;update&nbsp;access<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$bind&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_bind</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cn=root,&nbsp;o=My&nbsp;Company,&nbsp;c=US"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"secret"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$bind</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;bind&nbsp;to&nbsp;LDAP&nbsp;server"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Call&nbsp;WHOAMI&nbsp;EXOP<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$r&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_exop</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">LDAP_EXOP_WHO_AM_I</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Parse&nbsp;the&nbsp;result&nbsp;object<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ldap_parse_exop</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$retdata</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Output:&nbsp;string(31)&nbsp;"dn:cn=root,&nbsp;o=My&nbsp;Company,&nbsp;c=US"<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$retdata</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Same&nbsp;thing&nbsp;using&nbsp;$retdata&nbsp;parameter<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$success&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_exop</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">LDAP_EXOP_WHO_AM_I</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$retdata</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$retoid</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$success</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$retdata</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ldap_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">);<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;connect&nbsp;to&nbsp;LDAP&nbsp;server"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$ds&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;assuming&nbsp;the&nbsp;LDAP&nbsp;server&nbsp;is&nbsp;on&nbsp;this&nbsp;host<br /><br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;bind&nbsp;with&nbsp;appropriate&nbsp;dn&nbsp;to&nbsp;give&nbsp;update&nbsp;access<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$bind&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_bind</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cn=root,&nbsp;o=My&nbsp;Company,&nbsp;c=US"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"secret"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$bind</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;bind&nbsp;to&nbsp;LDAP&nbsp;server"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Call&nbsp;WHOAMI&nbsp;EXOP<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$r&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_exop</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">LDAP_EXOP_WHO_AM_I</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Parse&nbsp;the&nbsp;result&nbsp;object<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ldap_parse_exop</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$retdata</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Output:&nbsp;string(31)&nbsp;"dn:cn=root,&nbsp;o=My&nbsp;Company,&nbsp;c=US"<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$retdata</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Same&nbsp;thing&nbsp;using&nbsp;$retdata&nbsp;parameter<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$success&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ldap_exop</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">LDAP_EXOP_WHO_AM_I</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$retdata</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$retoid</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$success</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$retdata</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ldap_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$ds</span><span style="color: #007700">);<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Unable&nbsp;to&nbsp;connect&nbsp;to&nbsp;LDAP&nbsp;server"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

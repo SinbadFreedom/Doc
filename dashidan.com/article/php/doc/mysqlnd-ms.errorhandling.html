@@ -32,7 +32,7 @@
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -76,7 +76,7 @@ PHP Warning:  mysqli::query(): [2002] php_network_getaddresses: getaddrinfo fail
    应用程序希望通过有效的错误处理控制这种连接错误。
   </p>
   <p class="para">
-   处于使用的目的，应用程序应该希望控制这些错误，典型的错误内容 
+   处于使用的目的，应用程序应该希望控制这些错误，典型的错误内容
    <em>2002 (CR_CONNECTION_ERROR) - Can&#039;t connect to local MySQL server through socket &#039;%s&#039; (%d)</em>,
    <em>2003 (CR_CONN_HOST_ERROR) - Can&#039;t connect to MySQL server on &#039;%s&#039; (%d)</em> 和
    <em>2005 (CR_UNKNOWN_HOST) - Unknown MySQL server host &#039;%s&#039; (%d)</em>。
@@ -91,7 +91,7 @@ PHP Warning:  mysqli::query(): [2002] php_network_getaddresses: getaddrinfo fail
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;
+                &quot;host&quot;: &quot;dashidan.com&quot;
             }
         },
         &quot;slave&quot;: {
@@ -132,7 +132,7 @@ PHP Warning:  mysqli::query(): [2002] php_network_getaddresses: getaddrinfo fail
 <div class="example-contents"><p>以上例程的输出类似于：</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-[1045] Access denied for user &#039;username&#039;@&#039;localhost&#039; (using password: YES)
+[1045] Access denied for user &#039;username&#039;@&#039;dashidan.com&#039; (using password: YES)
 PHP Warning:  mysqli::query(): php_network_getaddresses: getaddrinfo failed: Name or service not known in %s on line %d
 PHP Warning:  mysqli::query(): [2002] php_network_getaddresses: getaddrinfo failed: Name or service not known (trying to connect via tcp://invalid_host_name:3306) in %s on line %d
 SUCCESS, [0] &#039;&#039;

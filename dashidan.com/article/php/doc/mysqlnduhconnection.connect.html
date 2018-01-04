@@ -42,7 +42,7 @@
   <h3 class="title">参数</h3>
   <dl>
 
-   
+
     <dt>
 <code class="parameter">connection</code></dt>
 
@@ -53,8 +53,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">host</code></dt>
 
@@ -62,14 +62,14 @@
 
      <p class="para">
        Can be either a host name or an IP address. Passing the NULL value or
-       the string &quot;localhost&quot; to this parameter,
+       the string &quot;dashidan.com&quot; to this parameter,
        the local host is assumed. When possible, pipes will be used
        instead of the TCP/IP protocol.
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">user</code></dt>
 
@@ -80,8 +80,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">password</code></dt>
 
@@ -96,8 +96,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">database</code></dt>
 
@@ -108,8 +108,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">port</code></dt>
 
@@ -120,8 +120,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">socket</code></dt>
 
@@ -134,8 +134,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">mysql_flags</code></dt>
 
@@ -146,7 +146,7 @@
      </p>
     </dd>
 
-   
+
   </dl>
 
  </div>
@@ -168,7 +168,7 @@
     <p><strong>Example #1 <span class="function"><strong>MysqlndUhConnection::connect()</strong></span> example</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">proxy&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">MysqlndUhConnection&nbsp;</span><span style="color: #007700">{<br />&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$passwd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysql_flags</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s(%s)\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">__METHOD__</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">func_get_args</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$passwd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysql_flags</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s&nbsp;returns&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">__METHOD__</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">;<br />&nbsp;}<br />}<br /></span><span style="color: #0000BB">mysqlnd_uh_set_connection_proxy</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">proxy</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"root"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">proxy&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">MysqlndUhConnection&nbsp;</span><span style="color: #007700">{<br />&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$passwd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysql_flags</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s(%s)\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">__METHOD__</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">func_get_args</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$passwd</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$port</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysql_flags</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s&nbsp;returns&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">__METHOD__</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$ret</span><span style="color: #007700">;<br />&nbsp;}<br />}<br /></span><span style="color: #0000BB">mysqlnd_uh_set_connection_proxy</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">proxy</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"root"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -178,7 +178,7 @@
 <div class="cdata"><pre>
 proxy::connect(array (
   0 =&gt; NULL,
-  1 =&gt; &#039;localhost&#039;,
+  1 =&gt; &#039;dashidan.com&#039;,
   2 =&gt; &#039;root&#039;,
   3 =&gt; &#039;&#039;,
   4 =&gt; &#039;test&#039;,

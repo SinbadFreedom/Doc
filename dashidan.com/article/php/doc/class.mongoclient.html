@@ -13,10 +13,10 @@
 </div><hr /><div id="class.mongoclient" class="reference">
 
  <h1 class="title">MongoClient 类</h1>
- 
+
 
  <div class="partintro"><p class="verinfo">(PECL mongo &gt;=1.3.0)</p>
-  
+
 
   <div class="warning"><strong class="warning">Warning</strong>
    <p class="para">This extension that defines this class
@@ -26,7 +26,7 @@ Alternatives to this class include:</p>
     <li class="member"><a href="class.mongodb-driver-manager.html" class="classname">MongoDB\Driver\Manager</a></li>
    </ul>
   </div>
-  
+
   <div class="section" id="mongoclient.intro">
    <h2 class="title">简介</h2>
    <p class="para">
@@ -49,22 +49,22 @@ Alternatives to this class include:</p>
     关于创建连接的更多信息，参见 <span class="function"><a href="mongoclient.construct.html" class="function">MongoClient::__construct()</a></span> 和 <a href="mongo.connecting.html" class="link">connecting</a> 的章节。
    </p>
   </div>
-  
+
 
   <div class="section" id="mongoclient.synopsis">
    <h2 class="title">类摘要</h2>
 
-   
+
    <div class="classsynopsis">
     <div class="ooclass"></div>
 
-    
+
     <div class="classsynopsisinfo">
      <span class="ooclass">
       <strong class="classname">MongoClient</strong>
      </span>
      {</div>
-    
+
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* 常量 */</div>
     <div class="fieldsynopsis">
@@ -77,7 +77,7 @@ Alternatives to this class include:</p>
      <span class="modifier">const</span>
      <span class="type">string</span>
       <var class="fieldsynopsis_varname"><a href="class.mongoclient.html#mongoclient.constants.defaulthost"><var class="varname">DEFAULT_HOST</var></a></var>
-     <span class="initializer"> = &quot;localhost&quot;</span>
+     <span class="initializer"> = &quot;dashidan.com&quot;</span>
     ;</div>
 
     <div class="fieldsynopsis">
@@ -156,7 +156,7 @@ Alternatives to this class include:</p>
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* 方法 */</div>
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoclient.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://localhost:27017&quot;</span></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://dashidan.com:27017&quot;</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array(&quot;connect&quot; =&gt; <strong><code>TRUE</code></strong>)</span></span>
   ]] )</div>
 
@@ -226,7 +226,7 @@ Alternatives to this class include:</p>
    )</div>
 
    }</div>
-   
+
 
   </div>
 
@@ -237,7 +237,7 @@ Alternatives to this class include:</p>
     <h2 class="title">MongoClient 常量</h2>
     <dl>
 
-     
+
       <dt id="mongoclient.constants.version"><strong><code>MongoClient::VERSION</code></strong></dt>
 
       <dd>
@@ -247,12 +247,12 @@ Alternatives to this class include:</p>
        </span>
       </dd>
 
-     
-     
+
+
       <dt id="mongoclient.constants.defaulthost"><strong><code>MongoClient::DEFAULT_HOST</code></strong></dt>
 
       <dt>
-<strong><code>&quot;localhost&quot;</code></strong></dt>
+<strong><code>&quot;dashidan.com&quot;</code></strong></dt>
 
       <dd>
 
@@ -261,8 +261,8 @@ Alternatives to this class include:</p>
        </span>
       </dd>
 
-     
-     
+
+
       <dt id="mongoclient.constants.defaultport"><strong><code>MongoClient::DEFAULT_PORT</code></strong></dt>
 
       <dt>
@@ -275,8 +275,8 @@ Alternatives to this class include:</p>
        </span>
       </dd>
 
-     
-     
+
+
       <dt id="mongoclient.constants.rpprimary"><strong><code>MongoClient::RP_PRIMARY</code></strong></dt>
 
       <dt>
@@ -289,8 +289,8 @@ Alternatives to this class include:</p>
        </span>
       </dd>
 
-     
-     
+
+
       <dt id="mongoclient.constants.rpprimarypreferred"><strong><code>MongoClient::RP_PRIMARY_PREFERRED</code></strong></dt>
 
       <dt>
@@ -303,8 +303,8 @@ Alternatives to this class include:</p>
        </span>
       </dd>
 
-     
-     
+
+
       <dt id="mongoclient.constants.rpsecondary"><strong><code>MongoClient::RP_SECONDARY</code></strong></dt>
 
       <dt>
@@ -317,8 +317,8 @@ Alternatives to this class include:</p>
        </span>
       </dd>
 
-     
-     
+
+
       <dt id="mongoclient.constants.rpsecondarypreferred"><strong><code>MongoClient::RP_SECONDARY_PREFERRED</code></strong></dt>
 
       <dt>
@@ -331,8 +331,8 @@ Alternatives to this class include:</p>
        </span>
       </dd>
 
-     
-     
+
+
       <dt id="mongoclient.constants.rpnearest"><strong><code>MongoClient::RP_NEAREST</code></strong></dt>
 
       <dt>
@@ -345,7 +345,7 @@ Alternatives to this class include:</p>
        </span>
       </dd>
 
-     
+
     </dl>
 
    </div>
@@ -355,7 +355,7 @@ Alternatives to this class include:</p>
    <h2 class="title">字段属性</h2>
    <dl>
 
-    
+
      <dt id="mongoclient.props.connected"><var class="varname"><var class="varname">connected</var></var></dt>
 
      <dd>
@@ -370,8 +370,8 @@ Alternatives to this class include:</p>
       </p>
      </dd>
 
-    
-    
+
+
      <dt id="mongoclient.props.status"><var class="varname"><var class="varname">status</var></var></dt>
 
      <dd>
@@ -384,7 +384,7 @@ Alternatives to this class include:</p>
       </p>
      </dd>
 
-    
+
    </dl>
 
   </div>
@@ -402,13 +402,11 @@ Alternatives to this class include:</p>
 
  </div>
 
- 
 
 
 
 
 
- 
 
 
 
@@ -416,7 +414,6 @@ Alternatives to this class include:</p>
 
 
 
- 
 
 
 
@@ -432,7 +429,6 @@ Alternatives to this class include:</p>
 
 
 
- 
 
 
 
@@ -440,7 +436,6 @@ Alternatives to this class include:</p>
 
 
 
- 
 
 
 
@@ -479,7 +474,6 @@ Alternatives to this class include:</p>
 
 
 
- 
 
 
 
@@ -487,7 +481,6 @@ Alternatives to this class include:</p>
 
 
 
- 
 
 
 
@@ -495,7 +488,6 @@ Alternatives to this class include:</p>
 
 
 
- 
 
 
 
@@ -503,7 +495,6 @@ Alternatives to this class include:</p>
 
 
 
- 
 
 
 
@@ -527,7 +518,16 @@ Alternatives to this class include:</p>
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
 
 
 

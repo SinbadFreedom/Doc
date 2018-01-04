@@ -23,20 +23,20 @@
     ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code></span>
   ] )</div>
 
-  <p class="para rdfs-comment"> 
+  <p class="para rdfs-comment">
    <span class="function"><strong>msql_pconnect()</strong></span> acts very much like
    <span class="function"><a href="function.msql-connect.html" class="function">msql_connect()</a></span> with two major differences.
   </p>
-  <p class="para"> 
-   First, when connecting, the function would first try to find a 
+  <p class="para">
+   First, when connecting, the function would first try to find a
    (persistent) link that&#039;s already open with the same host.
    If one is found, an identifier for it will be returned instead of opening
    a new connection.
   </p>
-  <p class="para"> 
-   Second, the connection to the SQL server will not be closed when the 
+  <p class="para">
+   Second, the connection to the SQL server will not be closed when the
    execution of the script ends.  Instead, the link will remain open for
-   future use (<span class="function"><a href="function.msql-close.html" class="function">msql_close()</a></span> will not close links 
+   future use (<span class="function"><a href="function.msql-close.html" class="function">msql_close()</a></span> will not close links
    established by this function).
   </p>
  </div>
@@ -46,22 +46,22 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">hostname</code></dt>
 
      <dd>
 
       <p class="para">
-       The hostname can also include a port number. e.g. 
+       The hostname can also include a port number. e.g.
        <em>hostname,port</em>.
       </p>
       <p class="para">
        If not specified, the connection is established by the means of a Unix
-       domain socket, being more efficient than a localhost TCP socket 
+       domain socket, being more efficient than a dashidan.com TCP socket
        connection.
       </p>
-      <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <blockquote class="note"><p><strong class="note">Note</strong>:
        <span class="simpara">
         While this function will accept a colon (<em>:</em>) as a
         host/port separator, a comma (<em>,</em>) is the preferred
@@ -70,7 +70,7 @@
       </p></blockquote>
      </dd>
 
-    
+
    </dl>
 
   </p>

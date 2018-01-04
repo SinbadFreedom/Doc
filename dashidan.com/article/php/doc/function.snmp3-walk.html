@@ -16,7 +16,7 @@
   <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">snmp3_walk</span> &mdash; <span class="dc-title">Fetch all the <acronym title="Simple Network Management Protocol">SNMP</acronym> objects from an agent</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.snmp3-walk-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
@@ -35,19 +35,19 @@
 
   <p class="para rdfs-comment">
    <span class="function"><strong>snmp3_walk()</strong></span> function is used to read all the values from
-   an <acronym title="Simple Network Management Protocol">SNMP</acronym> agent specified by the <code class="parameter">hostname</code>. 
+   an <acronym title="Simple Network Management Protocol">SNMP</acronym> agent specified by the <code class="parameter">hostname</code>.
   </p>
   <p class="para">
    Even if the security level does not use an auth or priv protocol/password valid values have to be specified.
   </p>
  </div>
 
- 
+
  <div class="refsect1 parameters" id="refsect1-function.snmp3-walk-parameters">
   <h3 class="title">参数</h3>
   <dl>
 
-   
+
     <dt>
 <code class="parameter">host</code></dt>
 
@@ -58,8 +58,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">sec_name</code></dt>
 
@@ -70,8 +70,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">sec_level</code></dt>
 
@@ -82,8 +82,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">auth_protocol</code></dt>
 
@@ -94,8 +94,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">auth_passphrase</code></dt>
 
@@ -106,8 +106,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">priv_protocol</code></dt>
 
@@ -118,8 +118,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">priv_passphrase</code></dt>
 
@@ -130,8 +130,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">object_id</code></dt>
 
@@ -140,7 +140,7 @@
      <p class="para">
       If <strong><code>NULL</code></strong>, <code class="parameter">object_id</code> is taken as the root of
       the <acronym title="Simple Network Management Protocol">SNMP</acronym> objects tree and all objects under that tree are returned as
-      an array. 
+      an array.
      </p>
      <p class="para">
       If <code class="parameter">object_id</code> is specified, all the <acronym title="Simple Network Management Protocol">SNMP</acronym> objects
@@ -148,8 +148,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">timeout</code></dt>
 
@@ -160,8 +160,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">retries</code></dt>
 
@@ -172,12 +172,12 @@
      </p>
     </dd>
 
-   
+
   </dl>
 
  </div>
 
- 
+
  <div class="refsect1 returnvalues" id="refsect1-function.snmp3-walk-returnvalues">
   <h3 class="title">返回值</h3>
   <p class="para">
@@ -186,26 +186,26 @@
   </p>
  </div>
 
- 
- 
+
+
  <div class="refsect1 examples" id="refsect1-function.snmp3-walk-examples">
   <h3 class="title">范例</h3>
-  <p class="para"> 
+  <p class="para">
    <div class="example" id="example-5247">
     <p><strong>Example #1 <span class="function"><strong>snmp3_walk()</strong></span> Example</strong></p>
-    <div class="example-contents"> 
+    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmp3_walk</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'james'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'AES'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$ret&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmp3_walk</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'james'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'authPriv'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'SHA'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'AES'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret007'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$ret</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-  </p> 
+  </p>
   <p class="para">
    Above function call would return all the <acronym title="Simple Network Management Protocol">SNMP</acronym> objects from the
-   <acronym title="Simple Network Management Protocol">SNMP</acronym> agent running on localhost:
-<div class="cdata"><pre>      
+   <acronym title="Simple Network Management Protocol">SNMP</acronym> agent running on dashidan.com:
+<div class="cdata"><pre>
 array (
   0 =&gt; &#039;STRING: lo&#039;,
   1 =&gt; &#039;STRING: eth0&#039;,
@@ -217,7 +217,7 @@ array (
   </p>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.snmp3-walk-seealso">
   <h3 class="title">参见</h3>
   <p class="para">
@@ -227,7 +227,7 @@ array (
   </p>
  </div>
 
- 
+
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.snmp3-set.html">snmp3_set</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.snmpget.html">snmpget</a></div>

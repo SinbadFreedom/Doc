@@ -38,7 +38,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">module</code></dt>
 
@@ -46,8 +46,8 @@
 
       <p class="para">
        The <code class="parameter">module</code> parameter can be either a string or a
-       constant, though the latter form is preferred. The possible values are 
-       given below, but keep in mind that they only work if the module is 
+       constant, though the latter form is preferred. The possible values are
+       given below, but keep in mind that they only work if the module is
        actually loaded.
       </p>
       <p class="para">
@@ -96,8 +96,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">host</code></dt>
 
@@ -108,8 +108,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">database</code></dt>
 
@@ -120,8 +120,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">username</code></dt>
 
@@ -132,8 +132,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">password</code></dt>
 
@@ -144,27 +144,27 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">persistent</code></dt>
 
      <dd>
 
       <p class="para">
-       The <code class="parameter">persistent</code> parameter can be set to 
+       The <code class="parameter">persistent</code> parameter can be set to
        <strong><code>DBX_PERSISTENT</code></strong>, if so, a persistent connection
        will be created.
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
   <p class="para">
-   The <code class="parameter">host</code>, <code class="parameter">database</code>, 
-   <code class="parameter">username</code> and <code class="parameter">password</code> 
+   The <code class="parameter">host</code>, <code class="parameter">database</code>,
+   <code class="parameter">username</code> and <code class="parameter">password</code>
    parameters are expected, but not always used depending on the connect
    functions for the abstracted module.
   </p>
@@ -175,13 +175,13 @@
   <p class="para">
    Returns an object on success, <strong><code>FALSE</code></strong> on error. If a connection has been
    made but the database could not be selected, the connection is closed and
-   <strong><code>FALSE</code></strong> is returned. 
+   <strong><code>FALSE</code></strong> is returned.
   </p>
   <p class="para">
    The returned <var class="varname"><var class="varname">object</var></var> has three properties:
    <dl>
 
-    
+
      <dt>
 
       <span class="property">database</span>
@@ -190,12 +190,12 @@
      <dd>
 
       <span class="simpara">
-       It is the name of the currently selected database. 
+       It is the name of the currently selected database.
       </span>
      </dd>
 
-    
-    
+
+
      <dt>
 
       <span class="property">handle</span>
@@ -209,7 +209,7 @@
        <div class="informalexample">
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbx_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">DBX_MYSQL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"db"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handle</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;dbx_close($link)&nbsp;would&nbsp;be&nbsp;better&nbsp;here<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbx_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">DBX_MYSQL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"db"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">handle</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;dbx_close($link)&nbsp;would&nbsp;be&nbsp;better&nbsp;here<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
         </div>
@@ -218,8 +218,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 
       <span class="property">module</span>
@@ -233,7 +233,7 @@
       </span>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -243,7 +243,7 @@
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -282,7 +282,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -306,7 +306,7 @@
 
  <div class="refsect1 notes" id="refsect1-function.dbx-connect-notes">
   <h3 class="title">注释</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     Always refer to the module-specific documentation as well.
    </p>

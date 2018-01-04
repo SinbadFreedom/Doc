@@ -37,7 +37,7 @@
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -100,7 +100,7 @@
   <p class="para">
    在使用中，slave 中应该有同样的表单。当没有给定 SQL hints 的时候，插件在发送
    <em>CREATE</em> <em>INSERT</em> 语句到 master 服务器。
-   可以通过设定 <strong><code>MYSQLND_MS_SLAVE_SWITCH</code></strong> 来让这些语句在 
+   可以通过设定 <strong><code>MYSQLND_MS_SLAVE_SWITCH</code></strong> 来让这些语句在
    slave 中运行。例如建立一个临时表单：
   </p>
   <p class="para">

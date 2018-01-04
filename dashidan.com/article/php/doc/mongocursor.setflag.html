@@ -40,7 +40,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 
       <code class="parameter">flag</code>
@@ -56,8 +56,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 
       <code class="parameter">set</code>
@@ -70,15 +70,15 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
  </div>
- 
+
 
  <div class="refsect1 returnvalues" id="refsect1-mongocursor.setflag-returnvalues">
-  <h3 class="title">返回值</h3>  
+  <h3 class="title">返回值</h3>
   <p class="para">
    Returns this cursor.
   </p>
@@ -97,7 +97,7 @@
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -116,7 +116,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -129,7 +129,7 @@
    <p><strong>Example #1 <span class="function"><strong>MongoCursor::setFlag()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'mongodb://localhost:13000'</span><span style="color: #007700">,&nbsp;array(&nbsp;</span><span style="color: #DD0000">'replSet'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'seta'&nbsp;</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">local</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectCollection</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'oplog.rs'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(&nbsp;array(&nbsp;</span><span style="color: #DD0000">'ns'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'demo.article'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'op'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'i'&nbsp;</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setFlag</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;sets&nbsp;the&nbsp;tailable&nbsp;flag<br /></span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setFlag</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;sets&nbsp;the&nbsp;await&nbsp;data&nbsp;flag<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'mongodb://dashidan.com:13000'</span><span style="color: #007700">,&nbsp;array(&nbsp;</span><span style="color: #DD0000">'replSet'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'seta'&nbsp;</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">local</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectCollection</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'oplog.rs'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(&nbsp;array(&nbsp;</span><span style="color: #DD0000">'ns'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'demo.article'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'op'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'i'&nbsp;</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setFlag</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;sets&nbsp;the&nbsp;tailable&nbsp;flag<br /></span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setFlag</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;sets&nbsp;the&nbsp;await&nbsp;data&nbsp;flag<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

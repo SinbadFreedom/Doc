@@ -43,7 +43,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">mailbox</code></dt>
 
@@ -59,11 +59,11 @@
       <p class="para">
        The server part, which is enclosed in &#039;{&#039; and &#039;}&#039;, consists of the servers
        name or ip address, an optional port (prefixed by &#039;:&#039;), and an optional
-       protocol specification (prefixed by &#039;/&#039;). 
+       protocol specification (prefixed by &#039;/&#039;).
       </p>
       <p class="para">
        The server part is mandatory in all mailbox
-       parameters. 
+       parameters.
       </p>
       <p class="para">
        All names which start with <em>{</em> are remote names, and are
@@ -97,7 +97,7 @@
       <p class="para">
        <table class="doctable table">
         <caption><strong>Optional flags for names</strong></caption>
-        
+
          <thead>
           <tr>
            <th>Flag</th>
@@ -197,14 +197,14 @@
           </tr>
 
          </tbody>
-        
+
        </table>
 
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">username</code></dt>
 
@@ -215,8 +215,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">password</code></dt>
 
@@ -227,8 +227,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">options</code></dt>
 
@@ -292,8 +292,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">n_retries</code></dt>
 
@@ -304,15 +304,15 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">params</code></dt>
 
      <dd>
 
       <p class="para">
-       Connection parameters, the following (string) keys maybe used 
+       Connection parameters, the following (string) keys maybe used
        to set one or more connection parameters:
        <ul class="itemizedlist">
         <li class="listitem">
@@ -324,7 +324,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -342,7 +342,7 @@
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -363,7 +363,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -377,7 +377,7 @@
     <p><strong>Example #1 Different use of <span class="function"><strong>imap_open()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;IMAP&nbsp;server&nbsp;running&nbsp;on&nbsp;port&nbsp;143&nbsp;on&nbsp;the&nbsp;local&nbsp;machine,<br />//&nbsp;do&nbsp;the&nbsp;following:<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"{localhost:143}INBOX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user_id"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;a&nbsp;POP3&nbsp;server&nbsp;on&nbsp;port&nbsp;110&nbsp;on&nbsp;the&nbsp;local&nbsp;server,&nbsp;use:<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"{localhost:110/pop3}INBOX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user_id"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;SSL&nbsp;IMAP&nbsp;or&nbsp;POP3&nbsp;server,&nbsp;add&nbsp;/ssl&nbsp;after&nbsp;the&nbsp;protocol<br />//&nbsp;specification:<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"{localhost:993/imap/ssl}INBOX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user_id"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;SSL&nbsp;IMAP&nbsp;or&nbsp;POP3&nbsp;server&nbsp;with&nbsp;a&nbsp;self-signed&nbsp;certificate,<br />//&nbsp;add&nbsp;/ssl/novalidate-cert&nbsp;after&nbsp;the&nbsp;protocol&nbsp;specification:<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"{localhost:995/pop3/ssl/novalidate-cert}"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user_id"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;NNTP&nbsp;server&nbsp;on&nbsp;port&nbsp;119&nbsp;on&nbsp;the&nbsp;local&nbsp;server,&nbsp;use:<br /></span><span style="color: #0000BB">$nntp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"{localhost:119/nntp}comp.test"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;a&nbsp;remote&nbsp;server&nbsp;replace&nbsp;"localhost"&nbsp;with&nbsp;the&nbsp;name&nbsp;or&nbsp;the<br />//&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;server&nbsp;you&nbsp;want&nbsp;to&nbsp;connect&nbsp;to.<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;IMAP&nbsp;server&nbsp;running&nbsp;on&nbsp;port&nbsp;143&nbsp;on&nbsp;the&nbsp;local&nbsp;machine,<br />//&nbsp;do&nbsp;the&nbsp;following:<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open</span><span style="color: #007700">(</span><span style="color: #DD0000">"{dashidan.com:143}INBOX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user_id"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;a&nbsp;POP3&nbsp;server&nbsp;on&nbsp;port&nbsp;110&nbsp;on&nbsp;the&nbsp;local&nbsp;server,&nbsp;use:<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"{dashidan.com:110/pop3}INBOX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user_id"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;SSL&nbsp;IMAP&nbsp;or&nbsp;POP3&nbsp;server,&nbsp;add&nbsp;/ssl&nbsp;after&nbsp;the&nbsp;protocol<br />//&nbsp;specification:<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"{dashidan.com:993/imap/ssl}INBOX"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user_id"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;SSL&nbsp;IMAP&nbsp;or&nbsp;POP3&nbsp;server&nbsp;with&nbsp;a&nbsp;self-signed&nbsp;certificate,<br />//&nbsp;add&nbsp;/ssl/novalidate-cert&nbsp;after&nbsp;the&nbsp;protocol&nbsp;specification:<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"{dashidan.com:995/pop3/ssl/novalidate-cert}"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user_id"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;an&nbsp;NNTP&nbsp;server&nbsp;on&nbsp;port&nbsp;119&nbsp;on&nbsp;the&nbsp;local&nbsp;server,&nbsp;use:<br /></span><span style="color: #0000BB">$nntp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imap_open&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"{dashidan.com:119/nntp}comp.test"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;To&nbsp;connect&nbsp;to&nbsp;a&nbsp;remote&nbsp;server&nbsp;replace&nbsp;"dashidan.com"&nbsp;with&nbsp;the&nbsp;name&nbsp;or&nbsp;the<br />//&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;server&nbsp;you&nbsp;want&nbsp;to&nbsp;connect&nbsp;to.<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

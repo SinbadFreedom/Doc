@@ -36,7 +36,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">link_identifier</code></dt>
 
@@ -47,8 +47,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">text</code></dt>
 
@@ -59,7 +59,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -80,7 +80,7 @@
     <p><strong>Example #1 <span class="function"><strong>dbx_escape_string()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$link&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbx_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">DBX_MYSQL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"db"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;connect"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbx_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"It\'s&nbsp;quoted&nbsp;and&nbsp;backslashed&nbsp;(\\)."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbx_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"insert&nbsp;into&nbsp;tbl&nbsp;(txt)&nbsp;values&nbsp;('"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$text&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"')"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">dbx_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">dbx_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbx_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">DBX_MYSQL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"db"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Could&nbsp;not&nbsp;connect"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbx_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"It\'s&nbsp;quoted&nbsp;and&nbsp;backslashed&nbsp;(\\)."</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbx_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"insert&nbsp;into&nbsp;tbl&nbsp;(txt)&nbsp;values&nbsp;('"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$text&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"')"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">dbx_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">dbx_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -16,7 +16,7 @@
   <p class="verinfo">(PHP 5.3.2, PHP 7, PECL OCI8 &gt;= 1.4.0)</p><p class="refpurpose"><span class="refname">oci_set_edition</span> &mdash; <span class="dc-title">Sets the database edition</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.oci-set-edition-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
@@ -55,7 +55,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">edition</code></dt>
 
@@ -67,7 +67,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -76,7 +76,7 @@
 
  <div class="refsect1 notes" id="refsect1-function.oci-set-edition-notes">
   <h3 class="title">注释</h3>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>Oracle version requirement</strong><br />
    <p class="para">
     This function is available from Oracle 11<em class="emphasis">g</em>R2 onwards.
@@ -119,7 +119,7 @@
     <p><strong>Example #1 Two scripts can use different versions of myfunc() at the same time</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;File&nbsp;1<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Version&nbsp;1&nbsp;of&nbsp;application\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">oci_set_edition</span><span style="color: #007700">(</span><span style="color: #DD0000">'ORA$BASE'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">oci_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'hr'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'welcome'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'localhost/XE'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$s&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">oci_parse</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"begin&nbsp;:r&nbsp;:=&nbsp;myfunc();&nbsp;end;"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">oci_bind_by_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">":r"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">oci_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;result&nbsp;is&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;File&nbsp;1<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Version&nbsp;1&nbsp;of&nbsp;application\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">oci_set_edition</span><span style="color: #007700">(</span><span style="color: #DD0000">'ORA$BASE'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">oci_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'hr'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'welcome'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dashidan.com/XE'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$s&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">oci_parse</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"begin&nbsp;:r&nbsp;:=&nbsp;myfunc();&nbsp;end;"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">oci_bind_by_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">":r"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">oci_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;result&nbsp;is&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
 </div>
@@ -127,7 +127,7 @@
 
 <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;File&nbsp;2<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Version&nbsp;2&nbsp;of&nbsp;application\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">oci_set_edition</span><span style="color: #007700">(</span><span style="color: #DD0000">'E1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">oci_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'hr'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'welcome'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'localhost/XE'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$s&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">oci_parse</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"begin&nbsp;:r&nbsp;:=&nbsp;myfunc();&nbsp;end;"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">oci_bind_by_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">":r"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">oci_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;result&nbsp;is&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;File&nbsp;2<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Version&nbsp;2&nbsp;of&nbsp;application\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">oci_set_edition</span><span style="color: #007700">(</span><span style="color: #DD0000">'E1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">oci_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'hr'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'welcome'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dashidan.com/XE'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$s&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">oci_parse</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"begin&nbsp;:r&nbsp;:=&nbsp;myfunc();&nbsp;end;"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">oci_bind_by_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">":r"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">oci_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$s</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;result&nbsp;is&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -36,7 +36,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">log_function</code></dt>
 
@@ -55,7 +55,7 @@
 
        <dl>
 
-        
+
          <dt>
 <code class="parameter">module</code></dt>
 
@@ -67,8 +67,8 @@
           </span>
          </dd>
 
-        
-        
+
+
          <dt>
 <code class="parameter">level</code></dt>
 
@@ -80,8 +80,8 @@
           </span>
          </dd>
 
-        
-        
+
+
          <dt>
 <code class="parameter">message</code></dt>
 
@@ -92,13 +92,13 @@
           </span>
          </dd>
 
-        
+
        </dl>
 
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -128,41 +128,41 @@
    <div class="example-contents"><p>以上例程的输出类似于：</p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
-2013-07-09 09:41:42 - PARSE (INFO): Parsing localhost:27017
-2013-07-09 09:41:42 - PARSE (INFO): - Found node: localhost:27017
+2013-07-09 09:41:42 - PARSE (INFO): Parsing dashidan.com:27017
+2013-07-09 09:41:42 - PARSE (INFO): - Found node: dashidan.com:27017
 2013-07-09 09:41:42 - PARSE (INFO): - Connection type: STANDALONE
 2013-07-09 09:41:42 - CON (INFO): mongo_get_read_write_connection: finding a STANDALONE connection
-2013-07-09 09:41:42 - CON (INFO): connection_create: creating new connection for localhost:27017
-2013-07-09 09:41:42 - CON (INFO): stream_connect: Not establishing SSL for localhost:27017
+2013-07-09 09:41:42 - CON (INFO): connection_create: creating new connection for dashidan.com:27017
+2013-07-09 09:41:42 - CON (INFO): stream_connect: Not establishing SSL for dashidan.com:27017
 2013-07-09 09:41:42 - CON (INFO): get_server_flags: start
 2013-07-09 09:41:42 - CON (FINE): send_packet: read from header: 36
 2013-07-09 09:41:42 - CON (FINE): send_packet: data_size: 95
 2013-07-09 09:41:42 - CON (FINE): get_server_flags: setting maxBsonObjectSize to 16777216
 2013-07-09 09:41:42 - CON (FINE): get_server_flags: setting maxMessageSizeBytes to 48000000
-2013-07-09 09:41:42 - CON (INFO): is_ping: pinging localhost:27017;-;.;1543
+2013-07-09 09:41:42 - CON (INFO): is_ping: pinging dashidan.com:27017;-;.;1543
 2013-07-09 09:41:42 - CON (FINE): send_packet: read from header: 36
 2013-07-09 09:41:42 - CON (FINE): send_packet: data_size: 17
 2013-07-09 09:41:42 - CON (INFO): is_ping: last pinged at 1373359302; time: 0ms
 2013-07-09 09:41:42 - REPLSET (FINE): finding candidate servers
 2013-07-09 09:41:42 - REPLSET (FINE): - all servers
 2013-07-09 09:41:42 - REPLSET (FINE): filter_connections: adding connections:
-2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: localhost:27017;-;.;1543
+2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: dashidan.com:27017;-;.;1543
 2013-07-09 09:41:42 - REPLSET (FINE): filter_connections: done
 2013-07-09 09:41:42 - REPLSET (FINE): limiting by seeded/discovered servers
-2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: localhost:27017;-;.;1543
+2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: dashidan.com:27017;-;.;1543
 2013-07-09 09:41:42 - REPLSET (FINE): limiting by seeded/discovered servers: done
 2013-07-09 09:41:42 - REPLSET (FINE): limiting by credentials
-2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: localhost:27017;-;.;1543
+2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: dashidan.com:27017;-;.;1543
 2013-07-09 09:41:42 - REPLSET (FINE): limiting by credentials: done
 2013-07-09 09:41:42 - REPLSET (FINE): sorting servers by priority and ping time
-2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: localhost:27017;-;.;1543
+2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: dashidan.com:27017;-;.;1543
 2013-07-09 09:41:42 - REPLSET (FINE): sorting servers: done
 2013-07-09 09:41:42 - REPLSET (FINE): selecting near servers
 2013-07-09 09:41:42 - REPLSET (FINE): selecting near servers: nearest is 0ms
-2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: localhost:27017;-;.;1543
+2013-07-09 09:41:42 - REPLSET (FINE): - connection: type: STANDALONE, socket: 42, ping: 0, hash: dashidan.com:27017;-;.;1543
 2013-07-09 09:41:42 - REPLSET (FINE): selecting near server: done
 2013-07-09 09:41:42 - REPLSET (INFO): pick server: random element 0
-2013-07-09 09:41:42 - REPLSET (INFO): - connection: type: STANDALONE, socket: 42, ping: 0, hash: localhost:27017;-;.;1543
+2013-07-09 09:41:42 - REPLSET (INFO): - connection: type: STANDALONE, socket: 42, ping: 0, hash: dashidan.com:27017;-;.;1543
 </pre></div>
    </div>
   </div>

@@ -22,7 +22,7 @@
     <h3 class="title">说明</h3>
      <div class="methodsynopsis dc-description">
       <span class="type">resource</span> <span class="methodname"><strong>mysql_pconnect</strong></span>
-       ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code></span> 
+       ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code></span>
       [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
       [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
       [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$client_flags</code></span>
@@ -35,7 +35,7 @@
      <span class="function"><strong>mysql_pconnect()</strong></span>
      建立一个到 MySQL
      服务器的连接。如果没有提供可选参数，则使用如下默认值：<code class="parameter">server</code> =
-     &#039;localhost:3306&#039;，<code class="parameter">username</code> =
+     &#039;dashidan.com:3306&#039;，<code class="parameter">username</code> =
      服务器进程所有者的用户名，<code class="parameter">password</code> =
      空密码。<code class="parameter">client_flags</code>
      参数可以是以下常量的组合：MYSQL_CLIENT_COMPRESS，MYSQL_CLIENT_IGNORE_SPACE
@@ -46,7 +46,7 @@
      参数也可以包括端口号，例如
      &quot;hostname:port&quot;，或者是本机套接字的的路径，例如
      &quot;:/path/to/socket&quot;。
-     <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <blockquote class="note"><p><strong class="note">Note</strong>:
       <p class="para">
        对 &quot;:port&quot; 的支持是 3.0B4 版添加的。
       </p>
@@ -56,7 +56,7 @@
      </p></blockquote>
     </p>
 
-    
+
     <p class="para">
      <span class="function"><strong>mysql_pconnect()</strong></span>
      和
@@ -80,7 +80,7 @@
     <p class="para">
      此种连接称为“持久的”。
     </p>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <blockquote class="note"><p><strong class="note">Note</strong>:
      <p class="para">
       注意，此种连接仅能用于模块版本的 PHP。更多信息参见<a href="features.persistent-connections.html" class="link">数据库持久连接</a>一节。
      </p>

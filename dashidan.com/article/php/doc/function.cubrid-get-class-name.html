@@ -21,8 +21,8 @@
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><strong>cubrid_get_class_name</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$conn_identifier</code></span>  
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$oid</code></span>  
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$conn_identifier</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$oid</code></span>
    )</div>
 
   <p class="para rdfs-comment">
@@ -38,22 +38,22 @@
   <p class="para">
   <dl>
 
-   
+
     <dt>
 <code class="parameter">conn_identifier</code></dt>
 
     <dd>
 <p class="para">Connection identifier.</p></dd>
 
-   
-   
+
+
     <dt>
 <code class="parameter">oid</code></dt>
 
     <dd>
 <p class="para">OID of the instance that you want to check the existence.</p></dd>
 
-   
+
   </dl>
 
   </p>
@@ -77,7 +77,7 @@
    <p><strong>Example #1 <span class="function"><strong>cubrid_get_class_name()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dba"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_INCLUDE_OID</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$oid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_current_oid</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$class_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_class_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$class_name</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dba"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_INCLUDE_OID</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$oid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_current_oid</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$class_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_class_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$class_name</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

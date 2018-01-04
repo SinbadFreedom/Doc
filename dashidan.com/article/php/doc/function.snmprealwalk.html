@@ -16,7 +16,7 @@
   <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">snmprealwalk</span> &mdash; <span class="dc-title">返回指定的所有对象，包括它们各自的对象 ID</span></p>
 
  </div>
- 
+
 
 <div class="refsect1 description" id="refsect1-function.snmprealwalk-description">
   <h3 class="title">说明</h3>
@@ -33,61 +33,61 @@
    The <span class="function"><strong>snmprealwalk()</strong></span> function is used to traverse over a number
    of <acronym title="Simple Network Management Protocol">SNMP</acronym> objects starting from <code class="parameter">object_id</code>
    and return not only their values but also their object ids.
-  </p> 
+  </p>
  </div>
 
- 
+
  <div class="refsect1 parameters" id="refsect1-function.snmprealwalk-parameters">
   <h3 class="title">参数</h3>
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">host</code></dt>
 
      <dd>
 <p class="para">The hostname of the <acronym title="Simple Network Management Protocol">SNMP</acronym> agent (server).</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">community</code></dt>
 
      <dd>
 <p class="para">The read community.</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">object_id</code></dt>
 
      <dd>
 <p class="para">The <acronym title="Simple Network Management Protocol">SNMP</acronym> object id which precedes the wanted one.</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">timeout</code></dt>
 
      <dd>
 <p class="para">The number of microseconds until the first timeout.</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">retries</code></dt>
 
      <dd>
 <p class="para">The number of times to retry if timeouts occur.</p></dd>
 
-    
+
    </dl>
 
   </p>
  </div>
 
- 
+
  <div class="refsect1 returnvalues" id="refsect1-function.snmprealwalk-returnvalues">
   <h3 class="title">返回值</h3>
   <p class="para">
@@ -96,7 +96,7 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 examples" id="refsect1-function.snmprealwalk-examples">
   <h3 class="title">范例</h3>
   <p class="para">
@@ -104,15 +104,15 @@
     <p><strong>Example #1 Using <span class="function"><strong>snmprealwalk()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">snmprealwalk</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"public"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"IF-MIB::ifName"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />&nbsp;print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">snmprealwalk</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"public"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"IF-MIB::ifName"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
-    
+
     <div class="example-contents"><p>
      The above will output something like:
-<div class="cdata"><pre>     
+<div class="cdata"><pre>
     Array
       (
       [IF-MIB::ifName.1] =&gt; STRING: lo
@@ -127,7 +127,7 @@
   </p>
  </div>
 
- 
+
  <div class="refsect1 seealso" id="refsect1-function.snmprealwalk-seealso">
   <h3 class="title">参见</h3>
   <p class="para">

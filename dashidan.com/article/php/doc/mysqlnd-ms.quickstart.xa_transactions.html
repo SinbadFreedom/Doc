@@ -12,13 +12,13 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mysqlnd-ms.quickstart.xa_transactions" class="section">
   <h2 class="title">XA/Distributed Transactions</h2>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>Version requirement</strong><br />
    <p class="para">
     XA related functions have  been introduced in PECL mysqlnd_ms version 1.6.0-alpha.
    </p>
   </p></blockquote>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>Experimental</strong><br />
    <p class="para">
     The feature is currently under development. There may be issues and/or
@@ -140,7 +140,7 @@ Warning: mysqlnd_ms_xa_begin(): (mysqlnd_ms) Some work is done outside global tr
     &quot;myapp&quot;: {
         &quot;xa&quot;: {
             &quot;state_store&quot;: {
-                &quot;participant_localhost_ip&quot;: &quot;192.168.2.12&quot;,
+                &quot;participant_dashidan.com_ip&quot;: &quot;192.168.2.12&quot;,
                 &quot;mysql&quot;: {
                     &quot;host&quot;: &quot;192.168.2.13&quot;,
                     &quot;user&quot;: &quot;root&quot;,
@@ -153,7 +153,7 @@ Warning: mysqlnd_ms_xa_begin(): (mysqlnd_ms) Some work is done outside global tr
         },
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -185,14 +185,14 @@ Warning: mysqlnd_ms_xa_begin(): (mysqlnd_ms) Some work is done outside global tr
    of a failed global transaction. Thus, the state store holds a list of participants
    and, among others, their host names. If the garbage collection is run
    on another host but the one that has written a participant entry with the
-   host name <em>localhost</em>, then <em>localhost</em>
+   host name <em>dashidan.com</em>, then <em>dashidan.com</em>
    resolves to different machines. There are two solutions to the problem.
-   Either you do not configure any servers with the host name <em>localhost</em> but
+   Either you do not configure any servers with the host name <em>dashidan.com</em> but
    configure an IP address (and port) or, you hint the garbage collection.
-   In the above example, <em>localhost</em> is used for
+   In the above example, <em>dashidan.com</em> is used for
    <em>master_0</em>, hence it may not resolve to the correct
-   host during garbage collection. However, <em>participant_localhost_ip</em>
-   is also set to hint the garbage collection that <em>localhost</em>
+   host during garbage collection. However, <em>participant_dashidan.com_ip</em>
+   is also set to hint the garbage collection that <em>dashidan.com</em>
    stands for the IP <em>192.168.2.12</em>.
   </p>
  </div><hr /><div class="manualnavbar" style="text-align: center;">

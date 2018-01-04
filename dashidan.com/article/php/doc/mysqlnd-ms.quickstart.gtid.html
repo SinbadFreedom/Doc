@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mysqlnd-ms.quickstart.gtid" class="section">
   <h2 class="title">Global transaction IDs (GTID)</h2>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>版本需求</strong><br />
    <p class="para">
     从 1.2.0-alpha 版本开始客户端 GTID 可以使用，这个功能并不需要在同步集群中使用，
@@ -70,7 +70,7 @@ INSERT INTO `trx`(`trx_id`) VALUES (1);</pre>
   </p>
   <p class="para">
    在插件的配置文件中，需要在 <em>global_transaction_id_injection</em>
-   章节中设定 <em>on_commit</em> 参数。一定要确认在 
+   章节中设定 <em>on_commit</em> 参数。一定要确认在
    <em>UPDATE</em> 中使用的表明是可达的，例如：使用上一步创建的表，
    <em>test.trx</em> 要比 <em>trx</em> 更合适。
    这一点非常重要，因为不同的数据库连接，可能的默认数据库选择并不相同。
@@ -88,7 +88,7 @@ INSERT INTO `trx`(`trx_id`) VALUES (1);</pre>
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -139,7 +139,7 @@ array(1) {
    第四条语句，因为是 <em>SELECT</em> 语句，并不会在 master 上执行，
    所以不会引发 master 增加 GTID。
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <strong>基于 SQL 的 GTID 如何有效率的工作</strong><br />
    <p class="para">
     在客户端通过 GTID 模拟在每个 SQL 执行的时候处理是很没有效率的做法。
@@ -155,7 +155,7 @@ array(1) {
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -219,7 +219,7 @@ GTID after transaction 8
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },
@@ -258,7 +258,7 @@ GTID after transaction 8
    通过 <span class="function"><a href="function.mysqlnd-ms-get-last-gtid.html" class="function">mysqlnd_ms_get_last_gtid()</a></span> 获取的 GTID 可以被用于
    Session 一致性服务级别。通过 <span class="function"><a href="function.mysqlnd-ms-set-qos.html" class="function">mysqlnd_ms_set_qos()</a></span>
    设定 Session 一致性服务级别，他决定从哪里读取写入的数据。在范例中，
-   通过判断 <em>INSERT</em> 是否已经被同步，来决定 
+   通过判断 <em>INSERT</em> 是否已经被同步，来决定
    <em>SELECT</em> 从哪个服务器中读取数据，
   </p>
   <p class="para">
@@ -302,7 +302,7 @@ GTID after transaction 8
     &quot;myapp&quot;: {
         &quot;master&quot;: {
             &quot;master_0&quot;: {
-                &quot;host&quot;: &quot;localhost&quot;,
+                &quot;host&quot;: &quot;dashidan.com&quot;,
                 &quot;socket&quot;: &quot;\/tmp\/mysql.sock&quot;
             }
         },

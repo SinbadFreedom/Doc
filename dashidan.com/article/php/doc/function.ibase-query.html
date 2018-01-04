@@ -16,7 +16,7 @@
   <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ibase_query</span> &mdash; <span class="dc-title">Execute a query on an InterBase database</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.ibase-query-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
@@ -27,7 +27,7 @@
   ] )</div>
 
   <p class="simpara">
-   Performs a query on an InterBase database. 
+   Performs a query on an InterBase database.
   </p>
  </div>
 
@@ -37,7 +37,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">link_identifier</code></dt>
 
@@ -49,8 +49,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">query</code></dt>
 
@@ -61,8 +61,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">bind_args</code></dt>
 
@@ -72,7 +72,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -87,7 +87,7 @@
    returns a result identifier. If the query was successful and there were
    no results, returns <strong><code>TRUE</code></strong>.
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <p class="para">
     In PHP 5.0.0 and up, this function will return the number of rows
     affected by the query for INSERT, UPDATE and DELETE statements. In order
@@ -114,7 +114,7 @@
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -127,14 +127,14 @@
       <tr>
        <td>5.3.1</td>
        <td>
-        On success the function now returns <strong><code>TRUE</code></strong> if there were no 
-        affected rows, where it previously returned <em>0 </em> 
+        On success the function now returns <strong><code>TRUE</code></strong> if there were no
+        affected rows, where it previously returned <em>0 </em>
         (a zero followed by an empty space).
        </td>
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -148,7 +148,7 @@
     <p><strong>Example #1 <span class="function"><strong>ibase_query()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$host&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'localhost:/path/to/your.gdb'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ibase_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;FROM&nbsp;tblname'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ibase_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #0000BB">ibase_errmsg</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$host&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dashidan.com:/path/to/your.gdb'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ibase_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$host</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;FROM&nbsp;tblname'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ibase_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #0000BB">ibase_errmsg</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

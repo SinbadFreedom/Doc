@@ -29,7 +29,7 @@
   <p class="para rdfs-comment">
    <span class="function"><strong>Memcached::getMulti()</strong></span>与<span class="methodname"><a href="memcached.get.html" class="methodname">Memcached::get()</a></span>类似，但是这个方法用来检索
    <code class="parameter">keys</code>数组指定的多个key对应的元素。如果提供了参数<code class="parameter">cas_tokens</code>，对于检索到的元素会为其添加CAS标记值。
-   <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <blockquote class="note"><p><strong class="note">Note</strong>:
     <p class="para">
      与<span class="methodname"><a href="memcached.get.html" class="methodname">Memcached::get()</a></span>不同的是，不能为<span class="function"><strong>Memcached::getMulti()</strong></span>指定通读回调函数，因为memcache协议
      不能提供多个key检索时没有查找到的key的信息。
@@ -48,7 +48,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">keys</code></dt>
 
@@ -59,8 +59,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">cas_tokens</code></dt>
 
@@ -71,8 +71,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">flags</code></dt>
 
@@ -83,7 +83,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -106,7 +106,7 @@
     <p><strong>Example #1 <span class="function"><strong>Memcached::getMulti()</strong></span> 示例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addServer</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$items&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'key1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'value1'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'key2'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'value2'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'key3'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'value3'<br /></span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setMulti</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMulti</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'key1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'key3'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'badkey'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$cas</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cas</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addServer</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$items&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'key1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'value1'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'key2'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'value2'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'key3'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'value3'<br /></span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setMulti</span><span style="color: #007700">(</span><span style="color: #0000BB">$items</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMulti</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'key1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'key3'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'badkey'</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$cas</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cas</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -135,7 +135,7 @@ array(2) {
     <p><strong>Example #2 <strong><code>Memcached::GET_PRESERVE_ORDER</code></strong> 示例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addServer</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'foo'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'foo-data'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'bar'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bar-data'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'baz'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'baz-data'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'lol'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'lol-data'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'kek'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'kek-data'</span><span style="color: #007700">,<br />);<br /><br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setMulti</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$null&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$keys&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$keys</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">'zoo'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$got&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMulti</span><span style="color: #007700">(</span><span style="color: #0000BB">$keys</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">::</span><span style="color: #0000BB">GET_PRESERVE_ORDER</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$got&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$k&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$k</span><span style="color: #DD0000">&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addServer</span><span style="color: #007700">(</span><span style="color: #DD0000">'dashidan.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'foo'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'foo-data'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'bar'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bar-data'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'baz'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'baz-data'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'lol'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'lol-data'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'kek'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'kek-data'</span><span style="color: #007700">,<br />);<br /><br /></span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setMulti</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$null&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$keys&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$keys</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">'zoo'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$got&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMulti</span><span style="color: #007700">(</span><span style="color: #0000BB">$keys</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$null</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Memcached</span><span style="color: #007700">::</span><span style="color: #0000BB">GET_PRESERVE_ORDER</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$got&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$k&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$k</span><span style="color: #DD0000">&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -148,7 +148,7 @@ bar bar-data
 baz baz-data
 lol lol-data
 kek kek-data
-zoo 
+zoo
 </pre></div>
     </div>
    </div>

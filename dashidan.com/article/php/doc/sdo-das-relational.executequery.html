@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Executes a given SQL query against a relational database 
+  <title>Executes a given SQL query against a relational database
    and returns the results as a normalised data graph.</title>
 
  </head>
@@ -15,7 +15,7 @@
  <div class="refnamediv">
   <h1 class="refname">SDO_DAS_Relational::executeQuery</h1>
   <p class="verinfo">(^)</p><p class="refpurpose"><span class="refname">SDO_DAS_Relational::executeQuery</span> &mdash; <span class="dc-title">
-   Executes a given SQL query against a relational database 
+   Executes a given SQL query against a relational database
    and returns the results as a normalised data graph.
   </span></p>
 
@@ -24,7 +24,7 @@
  <div class="refsect1 description" id="refsect1-sdo-das-relational.executequery-description">
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type"><span class="type SDODataObject">SDODataObject</span></span> 
+   <span class="type"><span class="type SDODataObject">SDODataObject</span></span>
    <span class="methodname"><strong>SDO_DAS_Relational::executeQuery</strong></span>
     ( <span class="methodparam">
     <span class="type"><a href="class.pdo.html" class="type PDO">PDO</a></span>
@@ -45,9 +45,9 @@
 PHP 发布版本中未通知就被修改。使用本函数风险自担 。</p></div>
 
   <p class="para">
-   Executes a given query against the relational database, 
+   Executes a given query against the relational database,
    using the supplied PDO database handle.
-   Uses the model that it built from the metadata 
+   Uses the model that it built from the metadata
    to interpret the result set.
    Returns a data graph.
   </p>
@@ -59,27 +59,27 @@ PHP 发布版本中未通知就被修改。使用本函数风险自担 。</p></
   <p class="para">
    <dl>
 
-    
+
      <dt>
 PDO_database_handle</dt>
 
      <dd>
 
       <p class="para">
-       Constructed using the PDO extension. 
-       A typical line to construct a PDO database handle might look 
+       Constructed using the PDO extension.
+       A typical line to construct a PDO database handle might look
        like this:
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-$dbh&nbsp;=&nbsp;new&nbsp;PDO("mysql:dbname=COMPANYDB;host=localhost",DATABASE_USER,DATABASE_PASSWORD);</span>
+$dbh&nbsp;=&nbsp;new&nbsp;PDO("mysql:dbname=COMPANYDB;host=dashidan.com",DATABASE_USER,DATABASE_PASSWORD);</span>
 </code></div>
        </div>
 
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 SQL_statement</dt>
 
@@ -90,64 +90,64 @@ SQL_statement</dt>
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 column_specifier</dt>
 
      <dd>
 
       <p class="para">
-       The Relational DAS needs to examine the result set and 
-       for every column, know which table and which column of 
+       The Relational DAS needs to examine the result set and
+       for every column, know which table and which column of
        that table it came from.
-       In some circumstances it can find this information for itself, 
+       In some circumstances it can find this information for itself,
        but sometimes it cannot.
-       In these cases a column specifier is needed, 
+       In these cases a column specifier is needed,
        which is an array that identifies the columns.
        Each entry in the array is simply a string in the form
        <var class="varname"><var class="varname">table-name.column_name</var></var>.
       </p>
-          
+
 
       <p class="para">
-       The column specifier is needed when there are duplicate 
+       The column specifier is needed when there are duplicate
        column names in the database metadata.
-       For example, in the database used within the examples, 
+       For example, in the database used within the examples,
        all the tables have both a
        <var class="varname"><var class="varname">id</var></var>
        and a
        <var class="varname"><var class="varname">name</var></var>
        column.
-       When the Relational DAS fetches the result set from PDO 
-       it can do so with the PDO_FETCH_ASSOC attribute, 
-       which will cause the columns in the results set 
-       to be labelled with  the column name, but will not distinguish 
+       When the Relational DAS fetches the result set from PDO
+       it can do so with the PDO_FETCH_ASSOC attribute,
+       which will cause the columns in the results set
+       to be labelled with  the column name, but will not distinguish
        duplicates.
-       So this will only work when there are no duplicates 
+       So this will only work when there are no duplicates
        possible in the results set.
       </p>
-          
+
       <p class="para">
-       To summarise, specify a column specifier array whenever there 
+       To summarise, specify a column specifier array whenever there
        is any uncertainty about which column could be from which table and
        only omit it when every column name in the database metadata is unique.
       </p>
-          
+
       <p class="para">
        All of the examples in the
        <a href="sdodasrel.examples.html" class="link">Examples</a>
        use a column specifier.
        There is one example in the
        <var class="filename">Scenarios</var>
-       directory of the installation that does not: 
-       that which works with just the employee table, 
-       and because it works with just one table, 
+       directory of the installation that does not:
+       that which works with just the employee table,
+       and because it works with just one table,
        there can not exist duplicate column names.
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -157,18 +157,18 @@ column_specifier</dt>
  <div class="refsect1 returnvalues" id="refsect1-sdo-das-relational.executequery-returnvalues">
   <h3 class="title">返回值</h3>
   <p class="para">
-   Returns a data graph. 
+   Returns a data graph.
    Specifically, it returns a root object of a special type.
    Under this root object will be the data from the result set.
-   The root object will have a multi-valued containment property 
-   with the same name as the application root type 
+   The root object will have a multi-valued containment property
+   with the same name as the application root type
    specified on the constructor,
-   and that property will contain one or more data objects 
+   and that property will contain one or more data objects
    of the application root type.
   </p>
   <p class="para">
-   In the event that the query returns no data, 
-   the special root object will still be returned but 
+   In the event that the query returns no data,
+   the special root object will still be returned but
    the containment property for the application root type will be empty.
   </p>
  </div>
@@ -178,13 +178,13 @@ column_specifier</dt>
   <h3 class="title">错误／异常</h3>
   <p class="para">
    <span class="function"><strong>SDO_DAS_Relational::executeQuery()</strong></span>
-   can throw an <strong class="classname">SDO_DAS_Relational_Exception</strong> if it is unable 
+   can throw an <strong class="classname">SDO_DAS_Relational_Exception</strong> if it is unable
    to construct the data graph correctly.
-   This can occur for a  number of reasons: 
-   for example if it finds that it does not have primary keys 
+   This can occur for a  number of reasons:
+   for example if it finds that it does not have primary keys
    in the result set for all the objects.
-   It also catches any PDO exceptions and obtains PDO 
-   diagnostic information which it includes in an 
+   It also catches any PDO exceptions and obtains PDO
+   diagnostic information which it includes in an
    <strong class="classname">SDO_DAS_Relational_Exception</strong> which it then throws.
   </p>
  </div>
@@ -195,7 +195,7 @@ column_specifier</dt>
   <p class="para">
    Please see the
    <a href="sdodasrel.examples.html" class="link">Examples</a>
-   section in the general information about the 
+   section in the general information about the
    Relational DAS for many examples of calling this method.
   </p>
  </div>

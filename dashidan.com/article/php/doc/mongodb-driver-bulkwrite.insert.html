@@ -36,7 +36,7 @@
   <h3 class="title">参数</h3>
   <dl>
 
-   
+
     <dt>
 <code class="parameter">document</code> (<span class="type"><span class="type array|object">array|object</span></span>)</dt>
 
@@ -47,7 +47,7 @@
      </p>
     </dd>
 
-   
+
   </dl>
 
  </div>
@@ -76,7 +76,7 @@
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -96,7 +96,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -109,7 +109,7 @@
    <p><strong>Example #1 <span class="function"><strong>MongoDB\Driver\BulkWrite::insert()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$bulk&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">BulkWrite</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$document1&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'title'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'one'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$document2&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'custom&nbsp;ID'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'title'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'two'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$document3&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">ObjectId</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'title'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'three'</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">$_id1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$bulk</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$document1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$_id2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$bulk</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$document2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$_id3&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$bulk</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$document3</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$_id1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$_id2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$_id3</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">'mongodb://localhost:27017'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeBulkWrite</span><span style="color: #007700">(</span><span style="color: #DD0000">'db.collection'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$bulk</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$bulk&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">BulkWrite</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$document1&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'title'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'one'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$document2&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'custom&nbsp;ID'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'title'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'two'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$document3&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">BSON</span><span style="color: #007700">\</span><span style="color: #0000BB">ObjectId</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'title'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'three'</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">$_id1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$bulk</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$document1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$_id2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$bulk</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$document2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$_id3&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$bulk</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$document3</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$_id1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$_id2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$_id3</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$manager&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoDB</span><span style="color: #007700">\</span><span style="color: #0000BB">Driver</span><span style="color: #007700">\</span><span style="color: #0000BB">Manager</span><span style="color: #007700">(</span><span style="color: #DD0000">'mongodb://dashidan.com:27017'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$manager</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">executeBulkWrite</span><span style="color: #007700">(</span><span style="color: #DD0000">'db.collection'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$bulk</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

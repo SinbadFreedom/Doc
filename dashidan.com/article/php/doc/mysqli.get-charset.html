@@ -34,9 +34,9 @@
 
 
   <p class="para rdfs-comment">
-   Returns a character set object providing several properties 
+   Returns a character set object providing several properties
    of the current active character set.
-  </p> 
+  </p>
 
  </div>
 
@@ -65,62 +65,62 @@ link</code></dt>
    The function returns a character set object with the following properties:
    <dl>
 
-    
+
      <dt>
 <code class="parameter">charset</code></dt>
 
      <dd>
 <p class="para">Character set name</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">collation</code></dt>
 
      <dd>
 <p class="para">Collation name</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">dir</code></dt>
 
      <dd>
 <p class="para">Directory the charset description was fetched from (?) or &quot;&quot; for built-in character sets</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">min_length</code></dt>
 
      <dd>
 <p class="para">Minimum character length in bytes</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">max_length</code></dt>
 
      <dd>
 <p class="para">Maximum character length in bytes</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">number</code></dt>
 
      <dd>
 <p class="para">Internal character set number</p></dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">state</code></dt>
 
      <dd>
 <p class="para">Character set status (?)</p></dd>
 
-    
+
    </dl>
 
   </p>
@@ -134,7 +134,7 @@ link</code></dt>
    <div class="example-contents"><p>面向对象风格</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_init</span><span style="color: #007700">();<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,</span><span style="color: #DD0000">"root"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #007700">,</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get_charset</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_init</span><span style="color: #007700">();<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,</span><span style="color: #DD0000">"root"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #007700">,</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get_charset</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -142,7 +142,7 @@ link</code></dt>
    <div class="example-contents"><p>过程化风格</p></div>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_init</span><span style="color: #007700">();<br />&nbsp;&nbsp;</span><span style="color: #0000BB">mysqli_real_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,</span><span style="color: #DD0000">"root"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #007700">,</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">mysqli_get_charset</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_init</span><span style="color: #007700">();<br />&nbsp;&nbsp;</span><span style="color: #0000BB">mysqli_real_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,</span><span style="color: #DD0000">"root"</span><span style="color: #007700">,</span><span style="color: #DD0000">""</span><span style="color: #007700">,</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">mysqli_get_charset</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

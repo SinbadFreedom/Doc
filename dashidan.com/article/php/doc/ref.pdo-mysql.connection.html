@@ -23,7 +23,7 @@
      The PDO_MYSQL Data Source Name (DSN) is composed of the following elements:
      <dl>
 
-      
+
        <dt>
 DSN prefix</dt>
 
@@ -34,8 +34,8 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>host</em></dt>
 
@@ -46,8 +46,8 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>port</em></dt>
 
@@ -58,8 +58,8 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>dbname</em></dt>
 
@@ -70,8 +70,8 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>unix_socket</em></dt>
 
@@ -83,8 +83,8 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
-      
+
+
        <dt>
 <em>charset</em></dt>
 
@@ -112,12 +112,12 @@ DSN prefix</dt>
         </div>
         <p class="para">
          <div class="example" id="example-1049">
-          <p><strong>Example #1 
+          <p><strong>Example #1
            Setting the connection character set to UTF-8 prior to PHP 5.3.6
           </strong></p>
           <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql:host=localhost;dbname=testdb'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$username&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">MYSQL_ATTR_INIT_COMMAND&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'SET&nbsp;NAMES&nbsp;utf8'</span><span style="color: #007700">,<br />);&nbsp;<br /><br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql:host=dashidan.com;dbname=testdb'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$username&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">MYSQL_ATTR_INIT_COMMAND&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'SET&nbsp;NAMES&nbsp;utf8'</span><span style="color: #007700">,<br />);&nbsp;<br /><br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
           </div>
@@ -126,7 +126,7 @@ DSN prefix</dt>
         </p>
        </dd>
 
-      
+
      </dl>
 
     </p>
@@ -137,7 +137,7 @@ DSN prefix</dt>
     <h3 class="title">更新日志</h3>
     <p class="para">
      <table class="doctable informaltable">
-      
+
        <thead>
         <tr>
          <th>版本</th>
@@ -155,7 +155,7 @@ DSN prefix</dt>
         </tr>
 
        </tbody>
-      
+
      </table>
 
     </p>
@@ -172,14 +172,14 @@ DSN prefix</dt>
        MySQL databases:
        <div class="example-contents">
 <div class="cdata"><pre>
-mysql:host=localhost;dbname=testdb
+mysql:host=dashidan.com;dbname=testdb
 </pre></div>
        </div>
 
        More complete examples:
        <div class="example-contents">
 <div class="cdata"><pre>
-mysql:host=localhost;port=3307;dbname=testdb
+mysql:host=dashidan.com;port=3307;dbname=testdb
 mysql:unix_socket=/tmp/mysql.sock;dbname=testdb
 </pre></div>
        </div>
@@ -192,12 +192,12 @@ mysql:unix_socket=/tmp/mysql.sock;dbname=testdb
 
    <div class="refsect1 notes" id="refsect1-ref.pdo-mysql.connection-notes">
     <h3 class="title">注释</h3>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <blockquote class="note"><p><strong class="note">Note</strong>:
      <strong>Unix only:</strong><br />
      <p class="para">
-      When the host name is set to <em>&quot;localhost&quot;</em>, then the connection to the 
-      server is made thru a domain socket. If PDO_MYSQL is compiled against libmysqlclient then the 
-      location of the socket file is at libmysqlclient&#039;s compiled in location. If PDO_MYSQL is compiled 
+      When the host name is set to <em>&quot;dashidan.com&quot;</em>, then the connection to the
+      server is made thru a domain socket. If PDO_MYSQL is compiled against libmysqlclient then the
+      location of the socket file is at libmysqlclient&#039;s compiled in location. If PDO_MYSQL is compiled
       against mysqlnd a default socket can be set thru the <a href="ref.pdo-mysql.html#ini.pdo-mysql.default-socket" class="link">
       pdo_mysql.default_socket</a> setting.
      </p>

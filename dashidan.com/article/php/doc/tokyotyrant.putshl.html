@@ -27,7 +27,7 @@
    )</div>
 
   <p class="para rdfs-comment">
-   Concatenate to a record and shift to left. 
+   Concatenate to a record and shift to left.
   </p>
  </div>
 
@@ -37,7 +37,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">key</code></dt>
 
@@ -48,8 +48,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">value</code></dt>
 
@@ -60,8 +60,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">width</code></dt>
 
@@ -72,7 +72,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -94,7 +94,7 @@
     <p><strong>Example #1 <span class="methodname"><strong>TokyoTyrant::putShl()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;a&nbsp;database&nbsp;on&nbsp;default&nbsp;port&nbsp;*/<br /></span><span style="color: #0000BB">$tt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">TokyoTyrant</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;key&nbsp;*/<br /></span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">put</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"just&nbsp;a&nbsp;long&nbsp;piece&nbsp;of&nbsp;data"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Concatenate&nbsp;and&nbsp;shift&nbsp;to&nbsp;left&nbsp;*/<br /></span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">putShl</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&nbsp;and&nbsp;string"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">15</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Echo&nbsp;the&nbsp;key&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;a&nbsp;database&nbsp;on&nbsp;default&nbsp;port&nbsp;*/<br /></span><span style="color: #0000BB">$tt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">TokyoTyrant</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;key&nbsp;*/<br /></span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">put</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"just&nbsp;a&nbsp;long&nbsp;piece&nbsp;of&nbsp;data"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Concatenate&nbsp;and&nbsp;shift&nbsp;to&nbsp;left&nbsp;*/<br /></span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">putShl</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&nbsp;and&nbsp;string"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">15</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Echo&nbsp;the&nbsp;key&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

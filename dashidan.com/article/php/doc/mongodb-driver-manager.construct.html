@@ -29,14 +29,14 @@
   <p class="para rdfs-comment">
    Constructs a new <a href="class.mongodb-driver-manager.html" class="classname">MongoDB\Driver\Manager</a> object with the specified options.
   </p>
-  <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <blockquote class="note"><p><strong class="note">Note</strong>:
    <span class="simpara">
     Per the <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst#single-threaded-client-construction" class="link external">&raquo;&nbsp;Server Discovery and Monitoring Specification</a>,
     this constructor performs no I/O. Connections will be initialized on demand,
     when the first operation is executed.
    </span>
   </p></blockquote>
-  
+
    <div class="tip"><strong class="tip">Tip</strong>
     <p class="simpara">
      On Unix platforms, the MongoDB driver is sensitive to scripts that use the
@@ -53,7 +53,7 @@
   <h3 class="title">参数</h3>
   <dl>
 
-   
+
     <dt id="mongodb-driver-manager.construct-uri"><code class="parameter">uri</code></dt>
 
     <dd>
@@ -86,8 +86,8 @@
      </p>
     </dd>
 
-   
-   
+
+
     <dt id="mongodb-driver-manager.construct-options"><code class="parameter">uriOptions</code></dt>
 
     <dd>
@@ -101,7 +101,7 @@
      <p class="para">
       <table class="doctable table">
        <caption><strong>uriOptions</strong></caption>
-       
+
         <thead>
          <tr>
           <th>Option</th>
@@ -153,7 +153,7 @@
             details and a list of supported properties, see the
             <a href="https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#auth-related-options" class="link external">&raquo;&nbsp;Driver Authentication Specification</a>.
            </p>
-           <blockquote class="note"><p><strong class="note">Note</strong>: 
+           <blockquote class="note"><p><strong class="note">Note</strong>:
             <span class="simpara">
              When not specified in the URI string, this option is expressed as
              an array of key/value pairs. The keys and values in this array
@@ -234,7 +234,7 @@
           <td>
            <p class="para">
             Specifies the interval in milliseconds between the driver&#039;s checks
-            of the MongoDB topology, counted from the end of the previous check 
+            of the MongoDB topology, counted from the end of the previous check
             until the beginning of the next one. Defaults to 60,000
             milliseconds.
            </p>
@@ -335,7 +335,7 @@
             members of a replica set. For details, see
             <a href="class.mongodb-driver-readpreference.html" class="classname">MongoDB\Driver\ReadPreference</a>.
            </p>
-           <blockquote class="note"><p><strong class="note">Note</strong>: 
+           <blockquote class="note"><p><strong class="note">Note</strong>:
             <span class="simpara">
              When not specified in the URI string, this option is expressed as
              an array consistent with the format expected by
@@ -482,14 +482,14 @@
          </tr>
 
         </tbody>
-       
+
       </table>
 
      </p>
     </dd>
 
-   
-   
+
+
     <dt id="mongodb-driver-manager.construct-driveroptions"><code class="parameter">driverOptions</code></dt>
 
     <dd>
@@ -497,7 +497,7 @@
      <p class="para">
       <table class="doctable table">
        <caption><strong>driverOptions</strong></caption>
-       
+
         <thead>
          <tr>
           <th>Option</th>
@@ -617,13 +617,13 @@
          </tr>
 
         </tbody>
-       
+
       </table>
 
      </p>
     </dd>
 
-   
+
   </dl>
 
  </div>
@@ -642,7 +642,7 @@
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -699,13 +699,13 @@
        <td>
         <p class="para">
          The <code class="parameter">uri</code> argument is optional and defaults to
-         <em>&quot;mongodb://localhost:27017/&quot;</em>.
+         <em>&quot;mongodb://dashidan.com:27017/&quot;</em>.
         </p>
        </td>
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>

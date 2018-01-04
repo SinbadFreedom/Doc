@@ -21,7 +21,7 @@
   <h3 class="title">说明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><strong>cubrid_get_db_parameter</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$conn_identifier</code></span>  
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$conn_identifier</code></span>
    )</div>
 
   <p class="para rdfs-comment">
@@ -40,7 +40,7 @@
   <p class="para">
   <table class="doctable table">
    <caption><strong>Database parameters</strong></caption>
-    
+
      <thead>
       <tr>
        <th>Parameter</th>
@@ -69,12 +69,12 @@
        <td>PARAM_AUTO_COMMIT</td>
        <td>In CUBRID PHP, auto-commit mode is disabled by default for
         transaction management. It can be set by using
-        <span class="function"><a href="function.cubrid-set-autocommit.html" class="function">cubrid_set_autocommit()</a></span>. 
+        <span class="function"><a href="function.cubrid-set-autocommit.html" class="function">cubrid_set_autocommit()</a></span>.
        </td>
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -84,7 +84,7 @@
    table schema (row) and isolation level:
   <table class="doctable table">
    <caption><strong>Levels of Isolation Supported by CUBRID</strong></caption>
-    
+
      <thead>
       <tr>
        <th>Name</th>
@@ -147,7 +147,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -159,17 +159,17 @@
  <p class="para">
   <dl>
 
-   
+
     <dt>
 <code class="parameter">conn_identifier</code></dt>
 
     <dd>
 <p class="para">
       The CUBRID connection. If the connection identifier is not specified,
-      the last link opened by <span class="function"><a href="function.cubrid-connect.html" class="function">cubrid_connect()</a></span> is assumed. 
+      the last link opened by <span class="function"><a href="function.cubrid-connect.html" class="function">cubrid_connect()</a></span> is assumed.
     </p></dd>
 
-   
+
   </dl>
 
   </p>
@@ -191,7 +191,7 @@
   <h3 class="title">更新日志</h3>
   <p class="para">
    <table class="doctable informaltable">
-    
+
      <thead>
       <tr>
        <th>版本</th>
@@ -210,7 +210,7 @@
       </tr>
 
      </tbody>
-    
+
    </table>
 
   </p>
@@ -223,7 +223,7 @@
    <p><strong>Example #1 <span class="function"><strong>cubrid_get_db_parameter()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CUBRID&nbsp;PHP&nbsp;Version:"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cubrid_version</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33088</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$conn</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">cubrid_error_code</span><span style="color: #007700">()&nbsp;.</span><span style="color: #DD0000">')'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">cubrid_error_msg</span><span style="color: #007700">());<br />}<br /><br /></span><span style="color: #0000BB">$db_params&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_db_parameter</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /><br />while&nbsp;(list(</span><span style="color: #0000BB">$param_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$param_value</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">each</span><span style="color: #007700">(</span><span style="color: #0000BB">$db_params</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$param_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$param_value</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$server_info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_server_info</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$client_info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_client_info</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Server&nbsp;Info:"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$server_info</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Client&nbsp;Info:"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$client_info</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$charset&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_charset</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CUBRID&nbsp;Charset:"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$charset</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CUBRID&nbsp;PHP&nbsp;Version:"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">cubrid_version</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33088</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$conn</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Connect&nbsp;Error&nbsp;('</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">cubrid_error_code</span><span style="color: #007700">()&nbsp;.</span><span style="color: #DD0000">')'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">cubrid_error_msg</span><span style="color: #007700">());<br />}<br /><br /></span><span style="color: #0000BB">$db_params&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_db_parameter</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /><br />while&nbsp;(list(</span><span style="color: #0000BB">$param_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$param_value</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">each</span><span style="color: #007700">(</span><span style="color: #0000BB">$db_params</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$param_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$param_value</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$server_info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_server_info</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$client_info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_client_info</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Server&nbsp;Info:"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$server_info</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Client&nbsp;Info:"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$client_info</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$charset&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_charset</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CUBRID&nbsp;Charset:"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$charset</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>

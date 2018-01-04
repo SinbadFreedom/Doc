@@ -27,8 +27,8 @@
 
   <p class="para rdfs-comment">
    Puts a key-value pair into the database or multiple key-value pairs. If <code class="parameter">keys</code> is
-   string then the second parameter value defines the value. 
-   The second parameter is mandatory if <code class="parameter">keys</code> is a string. If the key already 
+   string then the second parameter value defines the value.
+   The second parameter is mandatory if <code class="parameter">keys</code> is a string. If the key already
    exists this method throws an exception indicating that the records exists.
   </p>
  </div>
@@ -39,7 +39,7 @@
   <p class="para">
    <dl>
 
-    
+
      <dt>
 <code class="parameter">keys</code></dt>
 
@@ -50,8 +50,8 @@
       </p>
      </dd>
 
-    
-    
+
+
      <dt>
 <code class="parameter">value</code></dt>
 
@@ -62,7 +62,7 @@
       </p>
      </dd>
 
-    
+
    </dl>
 
   </p>
@@ -84,7 +84,7 @@
     <p><strong>Example #1 <span class="methodname"><strong>tokyotyrant::putKeep()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;a&nbsp;database&nbsp;on&nbsp;default&nbsp;port&nbsp;*/<br /></span><span style="color: #0000BB">$tt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">TokyoTyrant</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;key&nbsp;*/<br /></span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">put</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"value"</span><span style="color: #007700">);<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">putKeep</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"new&nbsp;value"</span><span style="color: #007700">);<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">TokyoTyrantException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCode</span><span style="color: #007700">()&nbsp;===&nbsp;</span><span style="color: #0000BB">TokyoTyrant</span><span style="color: #007700">::</span><span style="color: #0000BB">TTE_KEEP</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Existing&nbsp;record!&nbsp;Not&nbsp;modified\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error:&nbsp;"&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">()&nbsp;,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br />echo&nbsp;</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Connect&nbsp;to&nbsp;a&nbsp;database&nbsp;on&nbsp;default&nbsp;port&nbsp;*/<br /></span><span style="color: #0000BB">$tt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">TokyoTyrant</span><span style="color: #007700">(</span><span style="color: #DD0000">"dashidan.com"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;key&nbsp;*/<br /></span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">put</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"value"</span><span style="color: #007700">);<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">putKeep</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"new&nbsp;value"</span><span style="color: #007700">);<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">TokyoTyrantException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getCode</span><span style="color: #007700">()&nbsp;===&nbsp;</span><span style="color: #0000BB">TokyoTyrant</span><span style="color: #007700">::</span><span style="color: #0000BB">TTE_KEEP</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Existing&nbsp;record!&nbsp;Not&nbsp;modified\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error:&nbsp;"&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">()&nbsp;,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br />echo&nbsp;</span><span style="color: #0000BB">$tt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #DD0000">"key"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

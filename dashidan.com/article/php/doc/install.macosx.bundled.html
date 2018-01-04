@@ -40,10 +40,10 @@
      来找到这个文件可能不是很容易的事情，因为在默认情况下它一般是 <em>root</em>
      用户拥有所有权的私有文件。
     </span>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <blockquote class="note"><p><strong class="note">Note</strong>:
      <span class="simpara">
       要打开这个文件，可以在命令行下面使用基于 Unix 的文本编辑器，例如
-      <em>nano</em>，因为他的属主是 <em>root</em>，所以我们需要使用 <em>sudo</em> 来打开（以 <em>root</em> 用户权限）。例如我们在 
+      <em>nano</em>，因为他的属主是 <em>root</em>，所以我们需要使用 <em>sudo</em> 来打开（以 <em>root</em> 用户权限）。例如我们在
       <em>Terminal</em>
       程序中敲入下面的指令（操作后，会提示输入密码）：<em>sudo nano /private/etc/apache2/httpd.conf</em>
      </span>
@@ -51,8 +51,8 @@
       注意 nano 中的命令：<em>^w</em>（搜索），<em>^o</em>（保存），以及
       <em>^x</em>（退出）。<em>^</em> 表示 Ctrl 键。
      </span>
-    </p></blockquote> 
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
+    </p></blockquote>
+    <blockquote class="note"><p><strong class="note">Note</strong>:
      <span class="simpara">
       在Mac OS X 10.5之前的版本中捆绑的是旧版本的 PHP 和
       Apache。因此在旧的计算机中 Apache 配置文件的位置可能是
@@ -77,7 +77,7 @@
    </li>
    <li class="listitem">
     <p class="para">
-     确保将所需要的文件扩展名解析为 PHP（例如：.php .html 
+     确保将所需要的文件扩展名解析为 PHP（例如：.php .html
      以及 .inc），否则不能正常运行。
     </p>
     <p class="para">
@@ -100,7 +100,7 @@
 </pre></div>
      </div>
     </p>
-    <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <blockquote class="note"><p><strong class="note">Note</strong>:
      <p class="para">
       在 OS X 10.5（Leopard）以前版本中，捆绑的是
       PHP 4 而不是 PHP 5，因此上面的配置指令稍有不同，需要将 5 更改为 4。
@@ -112,7 +112,7 @@
      确保 DirectoryIndex 加载了所需的默认索引文件。
     </span>
     <span class="simpara">
-     这个也是在 <var class="filename">httpd.conf</var> 中设置的。 通常情况下使用 
+     这个也是在 <var class="filename">httpd.conf</var> 中设置的。 通常情况下使用
      <var class="filename">index.php</var> 和 <var class="filename">index.html</var> 。默认情况下 <var class="filename">index.php</var>
      会被启用，因为在我们上面的配置指令中写明了。根据实际情况可以做相应的调整。
     </span>
@@ -136,7 +136,7 @@
      这是网站所有文件的根目录。此目录中的文件由 web 服务器提供服务，从而使得
      PHP 文件将在输出到浏览器之前解析为 PHP 脚本。通常情况下默认的路径是
      <var class="filename">/Library/WebServer/Documents</var>，但是可以根据需要在
-     <var class="filename">httpd.conf</var>中设置为任何其他目录。另外，用户自己的缺省 
+     <var class="filename">httpd.conf</var>中设置为任何其他目录。另外，用户自己的缺省
      <var class="filename">DocumentRoot</var> 是
      <var class="filename">/Users/yourusername/Sites</var>。
     </span>
@@ -155,7 +155,7 @@
 </code></div>
      </div>
 
-    </p> 
+    </p>
    </li>
    <li class="listitem">
     <span class="simpara">
@@ -165,7 +165,7 @@
      要重启Apache，可以在 shell 中执行 <em>sudo apachectl
      graceful</em>，也可以停止/启动 OS X 系统首选项中的“Personal
      Web Server”选项。默认情况下，从浏览器访问本地文件的 <acronym title="Uniform Resource Locator">URL</acronym>
-     一般类似于：<var class="filename">http://localhost/info.php</var>，或者使用：<var class="filename">http://localhost/~yourusername/info.php</var>
+     一般类似于：<var class="filename">http://dashidan.com/info.php</var>，或者使用：<var class="filename">http://dashidan.com/~yourusername/info.php</var>
      来访问用户自己 DocumentRoot 中的文件。
     </p>
    </li>
@@ -173,7 +173,7 @@
  </p>
  <p class="simpara">
   <acronym title="Command Line Interpreter/Interface">CLI</acronym>（或者旧版本中的 <acronym title="Common Gateway Interface">CGI</acronym>）一般文件名为
-  <var class="filename">php</var> ，其路径可能是  
+  <var class="filename">php</var> ，其路径可能是
   <var class="filename">/usr/bin/php</var>。打开一个终端，参考 PHP 手册中的
   <a href="features.commandline.html" class="link">PHP 的命令行模式</a>一章，然后执行
   <em>php -v</em> 可以检查当前运行的 PHP 的版本。调用
