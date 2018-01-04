@@ -107,33 +107,32 @@
 
         <div id="xs_content_border">
             <div>
-                <div class="dsd_catalog"><a href="#HTML设置不缓存页面">HTML设置不缓存页面</a><br><a href="#①">① 影响页面刷新的问题</a><br><a
-                    href="#②">② HTML通过meta设置网页不缓存</a><br><a href="#③">③ HTTP1.0设置页面缓存</a><br><a href="#④">④
-                    HTTP1.1设置页面缓存</a><br><a href="#⑤">⑤ 相关文章</a><br></div>
+                <div class="dsd_catalog"><a href="#1">1 影响页面刷新的问题</a><br><a href="#2">2 HTML通过meta设置网页不缓存</a><br><a
+                    href="#3">3 HTTP1.0设置页面缓存</a><br><a href="#4">4 HTTP1.1设置页面缓存</a><br><a href="#5">5 相关文章</a><br>
+                </div>
             </div>
-            <div class="dsd_title_1"><a href="#top" id="HTML设置不缓存页面"><h2>HTML设置不缓存页面</h2></a></div>
             <div class="jumbotron">
                 <p>网站能容发布后,经常发现自己访问网页时不更新.</p>
                 <p>是因为浏览器会有缓存机制.</p>
                 <p>可以通过设置页面缓存的方式,让页面每次打开都是最新的.</p>
             </div>
-            <div class="dsd_title_2"><a href="#top" id="①">① 影响页面刷新的问题</a></div>
+            <div class="dsd_title_1"><a href="#top" id="1"><h2>1 影响页面刷新的问题</h2></a></div>
             <p>几个地方的可能控制HTML的缓存信息包括:</p>
             <p>浏览器端, 中间缓存服务器端(如:squid等), Web服务器端, HTML缓存设置.</p>
             <p>本文主要针对HTML的缓存设置.</p>
-            <div class="dsd_title_2"><a href="#top" id="②">② HTML通过meta设置网页不缓存</a></div>
+            <div class="dsd_title_1"><a href="#top" id="2"><h2>2 HTML通过meta设置网页不缓存</h2></a></div>
             <pre class="prettyprint"><code class="html language-html">&lt;meta http-equiv="Expires" content="0"&gt;
 &lt;meta http-equiv="Pragma" content="no-cache"&gt;
 &lt;meta http-equiv="Cache-control" content="no-cache"&gt;
 &lt;meta http-equiv="Cache" content="no-cache"&gt;
 </code></pre>
             <p>HTTP协议中关于缓存的信息头关键字包括Cache-Control(HTTP1.1),Pragma(HTTP1.0),last-Modified,Expires等.</p>
-            <div class="dsd_title_2"><a href="#top" id="③">③ HTTP1.0设置页面缓存</a></div>
+            <div class="dsd_title_1"><a href="#top" id="3"><h2>3 HTTP1.0设置页面缓存</h2></a></div>
             <p>HTTP1.0中通过Pragma控制页面缓存.</p>
             <p>可以设置:Pragma或no-cache.</p>
             <p>通常设置的值为no-cache,不过这个值不保险,通常还加上Expires置为0来达到目的.</p>
             <p>但是如我们刻意需要浏览器或缓存服务器缓存住我们的页面这个值则要设置为 Pragma.</p>
-            <div class="dsd_title_2"><a href="#top" id="④">④ HTTP1.1设置页面缓存</a></div>
+            <div class="dsd_title_1"><a href="#top" id="4"><h2>4 HTTP1.1设置页面缓存</h2></a></div>
             <p>HTTP1.1中启用Cache-Control来控制页面是否缓存, 常用参数:</p>
             <ul>
                 <li>no-cache,浏览器和缓存服务器都不应该缓存页面信息.</li>
@@ -143,8 +142,8 @@
                 <li>Last-Modified只页面的最后生成时间,GMT格式.</li>
                 <li>Expires过时期限值,GMT格式,指浏览器或缓存服务器在该时间点后必须从真正的服务器中获取新的页面信息.</li>
             </ul>
-            <div class="dsd_title_2"><a href="#top" id="⑤">⑤ 相关文章</a></div>
-            <p>📖 <a href="http://dashidan.com/article/html/index.html">HTML常见问题</a></p>
+            <div class="dsd_title_1"><a href="#top" id="5"><h2>5 相关文章</h2></a></div>
+            <p><a href="http://dashidan.com/article/html/index.html">HTML常见问题</a></p>
             <span>转载请保留原文链接: <a href="http://dashidan.com/article/html/index.html">http://dashidan.com/article/html/index.html</a>
                 </span>
         </div>
