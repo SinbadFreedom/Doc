@@ -1401,9 +1401,8 @@ th {
 
 html {
     font-size: 10px;
-
     /*-webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
-    background-color: #f7f7f7;
+    /*background-color: #f7f7f7;*/
 }
 
 body {
@@ -1413,7 +1412,7 @@ body {
     line-height: 1.8;
     color: #333;
     /** edit by sinbad 20170908*/
-    /*background-color: #dddddd;*/
+    background-color: #ebebeb;
 }
 
 input,
