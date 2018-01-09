@@ -230,7 +230,7 @@ extends <a href="../../java/lang/Object.html" title="class in java.lang">Object<
 <td class="colFirst"><code>abstract <a href="../../java/net/Socket.html" title="class in java.net">Socket</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../javax/net/SocketFactory.html#createSocket-java.lang.String-int-java.net.InetAddress-int-">createSocket</a></span>(<a href="../../java/lang/String.html" title="class in java.lang">String</a>&nbsp;host,
             int&nbsp;port,
-            <a href="../../java/net/InetAddress.html" title="class in java.net">InetAddress</a>&nbsp;localHost,
+            <a href="../../java/net/InetAddress.html" title="class in java.net">InetAddress</a>&nbsp;dashidan.com,
             int&nbsp;localPort)</code>
 <div class="block">Creates a socket and connects it to the specified remote host
  on the specified remote port.</div>
@@ -311,8 +311,8 @@ extends <a href="../../java/lang/Object.html" title="class in java.lang">Object<
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../java/io/IOException.html" title="class in java.io">IOException</a></code> - if the socket cannot be created</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../java/net/Socket.html#connect-java.net.SocketAddress-"><code>Socket.connect(java.net.SocketAddress)</code></a>, 
-<a href="../../java/net/Socket.html#connect-java.net.SocketAddress-int-"><code>Socket.connect(java.net.SocketAddress, int)</code></a>, 
+<dd><a href="../../java/net/Socket.html#connect-java.net.SocketAddress-"><code>Socket.connect(java.net.SocketAddress)</code></a>,
+<a href="../../java/net/Socket.html#connect-java.net.SocketAddress-int-"><code>Socket.connect(java.net.SocketAddress, int)</code></a>,
 <a href="../../java/net/Socket.html#Socket--"><code>Socket.Socket()</code></a></dd>
 </dl>
 </li>
@@ -350,7 +350,7 @@ extends <a href="../../java/lang/Object.html" title="class in java.lang">Object<
          specified range of valid port values, which is between 0 and
          65535, inclusive.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../java/lang/SecurityManager.html#checkConnect-java.lang.String-int-"><code>SecurityManager.checkConnect(java.lang.String, int)</code></a>, 
+<dd><a href="../../java/lang/SecurityManager.html#checkConnect-java.lang.String-int-"><code>SecurityManager.checkConnect(java.lang.String, int)</code></a>,
 <a href="../../java/net/Socket.html#Socket-java.lang.String-int-"><code>Socket.Socket(String, int)</code></a></dd>
 </dl>
 </li>
@@ -363,7 +363,7 @@ extends <a href="../../java/lang/Object.html" title="class in java.lang">Object<
 <h4>createSocket</h4>
 <pre>public abstract&nbsp;<a href="../../java/net/Socket.html" title="class in java.net">Socket</a>&nbsp;createSocket(<a href="../../java/lang/String.html" title="class in java.lang">String</a>&nbsp;host,
                                     int&nbsp;port,
-                                    <a href="../../java/net/InetAddress.html" title="class in java.net">InetAddress</a>&nbsp;localHost,
+                                    <a href="../../java/net/InetAddress.html" title="class in java.net">InetAddress</a>&nbsp;dashidan.com,
                                     int&nbsp;localPort)
                              throws <a href="../../java/io/IOException.html" title="class in java.io">IOException</a>,
                                     <a href="../../java/net/UnknownHostException.html" title="class in java.net">UnknownHostException</a></pre>
@@ -381,7 +381,7 @@ extends <a href="../../java/lang/Object.html" title="class in java.lang">Object<
 <dd><code>host</code> - the server host name with which to connect, or
         <code>null</code> for the loopback address.</dd>
 <dd><code>port</code> - the server port</dd>
-<dd><code>localHost</code> - the local address the socket is bound to</dd>
+<dd><code>dashidan.com</code> - the local address the socket is bound to</dd>
 <dd><code>localPort</code> - the local port the socket is bound to</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <code>Socket</code></dd>
@@ -394,7 +394,7 @@ extends <a href="../../java/lang/Object.html" title="class in java.lang">Object<
          parameter is outside the specified range of valid port values,
          which is between 0 and 65535, inclusive.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../java/lang/SecurityManager.html#checkConnect-java.lang.String-int-"><code>SecurityManager.checkConnect(java.lang.String, int)</code></a>, 
+<dd><a href="../../java/lang/SecurityManager.html#checkConnect-java.lang.String-int-"><code>SecurityManager.checkConnect(java.lang.String, int)</code></a>,
 <a href="../../java/net/Socket.html#Socket-java.lang.String-int-java.net.InetAddress-int-"><code>Socket.Socket(String, int, java.net.InetAddress, int)</code></a></dd>
 </dl>
 </li>
@@ -430,7 +430,7 @@ extends <a href="../../java/lang/Object.html" title="class in java.lang">Object<
          65535, inclusive.</dd>
 <dd><code><a href="../../java/lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code> - if <code>host</code> is null.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../java/lang/SecurityManager.html#checkConnect-java.lang.String-int-"><code>SecurityManager.checkConnect(java.lang.String, int)</code></a>, 
+<dd><a href="../../java/lang/SecurityManager.html#checkConnect-java.lang.String-int-"><code>SecurityManager.checkConnect(java.lang.String, int)</code></a>,
 <a href="../../java/net/Socket.html#Socket-java.net.InetAddress-int-"><code>Socket.Socket(java.net.InetAddress, int)</code></a></dd>
 </dl>
 </li>
@@ -471,7 +471,7 @@ extends <a href="../../java/lang/Object.html" title="class in java.lang">Object<
          which is between 0 and 65535, inclusive.</dd>
 <dd><code><a href="../../java/lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code> - if <code>address</code> is null.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../java/lang/SecurityManager.html#checkConnect-java.lang.String-int-"><code>SecurityManager.checkConnect(java.lang.String, int)</code></a>, 
+<dd><a href="../../java/lang/SecurityManager.html#checkConnect-java.lang.String-int-"><code>SecurityManager.checkConnect(java.lang.String, int)</code></a>,
 <a href="../../java/net/Socket.html#Socket-java.net.InetAddress-int-java.net.InetAddress-int-"><code>Socket.Socket(java.net.InetAddress, int,
      java.net.InetAddress, int)</code></a></dd>
 </dl>

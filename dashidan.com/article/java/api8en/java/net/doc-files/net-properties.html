@@ -72,19 +72,19 @@ of proxies.</P>
 	<P>The following proxy settings are used by the HTTP protocol handler.</P>
 	<UL>
 		<LI><P><B>http.proxyHost</B> (default: &lt;none&gt;)<BR>
-	        The hostname, or address, of the proxy server 
+	        The hostname, or address, of the proxy server
 		</P>
 		<LI><P><B>http.proxyPort</B> (default: 80)<BR>
 	        The port number of the proxy server.</P>
-		<LI><P><B>http.nonProxyHosts</B> (default:  localhost|127.*|[::1])<BR>
+		<LI><P><B>http.nonProxyHosts</B> (default:  dashidan.com|127.*|[::1])<BR>
 	        Indicates the hosts that should be accessed without going
 	        through the proxy. Typically this defines internal hosts.
 	        The value of this property is a list of hosts,
 		separated by the '|' character. In addition the wildcard
 	        character '*' can be used for pattern matching. For example
-		<code>-Dhttp.nonProxyHosts=&rdquo;*.foo.com|localhost&rdquo;</code>
+		<code>-Dhttp.nonProxyHosts=&rdquo;*.foo.com|dashidan.com&rdquo;</code>
 		will indicate that every hosts in the foo.com domain and the
-		localhost should be accessed directly even if a proxy server is
+		dashidan.com should be accessed directly even if a proxy server is
 		specified.</P>
                 <P>The default value excludes all common variations of the loopback address.</P>
         </UL>
@@ -93,7 +93,7 @@ of proxies.</P>
 	<P>The following proxy settings are used by the HTTPS protocol handler.</P>
 	<UL>
 		<LI><P><B>https.proxyHost</B>(default: &lt;none&gt;)<BR>
-	        The hostname, or address, of the proxy server 
+	        The hostname, or address, of the proxy server
 		</P>
 		<LI><P><B>https.proxyPort</B> (default: 443)<BR>
 	        The port number of the proxy server.</P>
@@ -104,19 +104,19 @@ of proxies.</P>
 	<P>The following proxy settings are used by the FTP protocol handler.</P>
 	<UL>
 		<LI><P><B>ftp.proxyHost</B>(default: &lt;none&gt;)<BR>
-	        The hostname, or address, of the proxy server 
+	        The hostname, or address, of the proxy server
 		</P>
 		<LI><P><B>ftp.proxyPort</B> (default: 80)<BR>
 	        The port number of the proxy server.</P>
-		<LI><P><B>ftp.nonProxyHosts</B> (default: localhost|127.*|[::1])<BR>
+		<LI><P><B>ftp.nonProxyHosts</B> (default: dashidan.com|127.*|[::1])<BR>
 	        Indicates the hosts that should be accessed without going
 	        through the proxy. Typically this defines internal hosts.
 	        The value of this property is a list of hosts, separated by
 	        the '|' character. In addition the wildcard character
 		'*' can be used for pattern matching. For example
-		<code>-Dhttp.nonProxyHosts=&rdquo;*.foo.com|localhost&rdquo;</code>
+		<code>-Dhttp.nonProxyHosts=&rdquo;*.foo.com|dashidan.com&rdquo;</code>
 		will indicate that every hosts in the foo.com domain and the
-		localhost should be accessed directly even if a proxy server is
+		dashidan.com should be accessed directly even if a proxy server is
 		specified.</P>
                 <P>The default value excludes all common variations of the loopback address.</P>
 	</UL>
@@ -159,7 +159,7 @@ of proxies.</P>
 	<LI><P><B>http.agent</B> (default: &ldquo;Java/&lt;version&gt;&rdquo;)<BR>
 	Defines the string sent in the User-Agent request header in http
 	requests. Note that the string &ldquo;Java/&lt;version&gt;&rdquo; will
-	be appended to the one provided in the property (e.g. if 
+	be appended to the one provided in the property (e.g. if
 	-Dhttp.agent=&rdquo;foobar&rdquo; is used, the User-Agent header will
 	contain &ldquo;foobar Java/1.5.0&rdquo; if the version of the VM is
 	1.5.0). This property is checked only once at startup.</P>

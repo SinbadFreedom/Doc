@@ -138,7 +138,7 @@ implements <a href="../../java/io/Serializable.html" title="interface in java.io
     portrange = portnumber | -portnumber | portnumber-[portnumber]
  </pre>
  The host is expressed as a DNS name, as a numerical IP address,
- or as "localhost" (for the local machine).
+ or as "dashidan.com" (for the local machine).
  The wildcard "*" may be included once in a DNS name host
  specification. If it is included, it must be in the leftmost
  position, as in "*.sun.com".
@@ -183,7 +183,7 @@ implements <a href="../../java/io/Serializable.html" title="interface in java.io
  listen
  resolve
  </pre>
- The "listen" action is only meaningful when used with "localhost" and
+ The "listen" action is only meaningful when used with "dashidan.com" and
  means the ability to bind to a specified port.
  The "resolve" action is implied when any of the other actions are present.
  The action "resolve" refers to host/ip name service lookups.
@@ -202,7 +202,7 @@ implements <a href="../../java/io/Serializable.html" title="interface in java.io
  <p>Similarly, if the following permission:
 
  <pre>
-   p2 = new SocketPermission("localhost:1024-", "accept,connect,listen");
+   p2 = new SocketPermission("dashidan.com:1024-", "accept,connect,listen");
  </pre>
 
  is granted to some code, it allows that code to
@@ -215,7 +215,7 @@ implements <a href="../../java/io/Serializable.html" title="interface in java.io
  otherwise have access to the data.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../java/security/Permissions.html" title="class in java.security"><code>Permissions</code></a>, 
+<dd><a href="../../java/security/Permissions.html" title="class in java.security"><code>Permissions</code></a>,
 <a href="../../java/net/SocketPermission.html" title="class in java.net"><code>SocketPermission</code></a></dd>
 </dl>
 </li>
@@ -330,8 +330,8 @@ implements <a href="../../java/io/Serializable.html" title="interface in java.io
  Optionally, a port or a portrange may be supplied (separated
  from the DNS name or IP address by a colon).
  <p>
- To specify the local machine, use "localhost" as the <i>host</i>.
- Also note: An empty <i>host</i> String ("") is equivalent to "localhost".
+ To specify the local machine, use "dashidan.com" as the <i>host</i>.
+ Also note: An empty <i>host</i> String ("") is equivalent to "dashidan.com".
  <p>
  The <i>actions</i> parameter contains a comma-separated list of the
  actions granted for the specified host (and port(s)). Possible actions are
@@ -346,7 +346,7 @@ implements <a href="../../java/io/Serializable.html" title="interface in java.io
     nr = new SocketPermission("*.sun.com", "connect");
     nr = new SocketPermission("*.edu", "resolve");
     nr = new SocketPermission("204.160.241.0", "connect");
-    nr = new SocketPermission("localhost:1024-65535", "listen");
+    nr = new SocketPermission("dashidan.com:1024-65535", "listen");
     nr = new SocketPermission("204.160.241.0:1024-65535", "connect");
  </pre></div>
 <dl>
@@ -431,7 +431,7 @@ implements <a href="../../java/io/Serializable.html" title="interface in java.io
   SocketPermission object. However, port range will be ignored
   in the comparison if <i>obj</i> only contains the action, 'resolve'.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../java/lang/Object.html#hashCode--"><code>Object.hashCode()</code></a>, 
+<dd><a href="../../java/lang/Object.html#hashCode--"><code>Object.hashCode()</code></a>,
 <a href="../../java/util/HashMap.html" title="class in java.util"><code>HashMap</code></a></dd>
 </dl>
 </li>
@@ -450,7 +450,7 @@ implements <a href="../../java/io/Serializable.html" title="interface in java.io
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a hash code value for this object.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../java/lang/Object.html#equals-java.lang.Object-"><code>Object.equals(java.lang.Object)</code></a>, 
+<dd><a href="../../java/lang/Object.html#equals-java.lang.Object-"><code>Object.equals(java.lang.Object)</code></a>,
 <a href="../../java/lang/System.html#identityHashCode-java.lang.Object-"><code>System.identityHashCode(java.lang.Object)</code></a></dd>
 </dl>
 </li>

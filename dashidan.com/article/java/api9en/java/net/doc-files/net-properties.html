@@ -78,15 +78,15 @@ of proxies.</P>
 		</P>
 		<LI><P><B>http.proxyPort</B> (default: 80)<BR>
 	        The port number of the proxy server.</P>
-		<LI><P><B>http.nonProxyHosts</B> (default:  localhost|127.*|[::1])<BR>
+		<LI><P><B>http.nonProxyHosts</B> (default:  dashidan.com|127.*|[::1])<BR>
 	        Indicates the hosts that should be accessed without going
 	        through the proxy. Typically this defines internal hosts.
 	        The value of this property is a list of hosts,
 		separated by the '|' character. In addition the wildcard
 	        character '*' can be used for pattern matching. For example
-		<code>-Dhttp.nonProxyHosts=&rdquo;*.foo.com|localhost&rdquo;</code>
+		<code>-Dhttp.nonProxyHosts=&rdquo;*.foo.com|dashidan.com&rdquo;</code>
 		will indicate that every hosts in the foo.com domain and the
-		localhost should be accessed directly even if a proxy server is
+		dashidan.com should be accessed directly even if a proxy server is
 		specified.</P>
                 <P>The default value excludes all common variations of the loopback address.</P>
         </UL>
@@ -110,15 +110,15 @@ of proxies.</P>
 		</P>
 		<LI><P><B>ftp.proxyPort</B> (default: 80)<BR>
 	        The port number of the proxy server.</P>
-		<LI><P><B>ftp.nonProxyHosts</B> (default: localhost|127.*|[::1])<BR>
+		<LI><P><B>ftp.nonProxyHosts</B> (default: dashidan.com|127.*|[::1])<BR>
 	        Indicates the hosts that should be accessed without going
 	        through the proxy. Typically this defines internal hosts.
 	        The value of this property is a list of hosts, separated by
 	        the '|' character. In addition the wildcard character
 		'*' can be used for pattern matching. For example
-		<code>-Dhttp.nonProxyHosts=&rdquo;*.foo.com|localhost&rdquo;</code>
+		<code>-Dhttp.nonProxyHosts=&rdquo;*.foo.com|dashidan.com&rdquo;</code>
 		will indicate that every hosts in the foo.com domain and the
-		localhost should be accessed directly even if a proxy server is
+		dashidan.com should be accessed directly even if a proxy server is
 		specified.</P>
                 <P>The default value excludes all common variations of the loopback address.</P>
 	</UL>
