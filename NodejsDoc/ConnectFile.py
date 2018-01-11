@@ -40,19 +40,6 @@ for folder, files in fileList.items():
         # newFile.write('\n')
         # read file
         f = open(fileName, 'r')
-        allLines = []
-        useTab = False
 
-        for line in f:
-            # for code area start and end
-            if line.startswith("```"):
-                useTab = not useTab
-                allLines.append("\t\n")
-            else:
-                # for code content
-                if useTab:
-                    line = "    " + line
-                allLines.append(line)
-
-        newFile.writelines(allLines)
+        newFile.writelines(f)
         newFile.write('\n')
