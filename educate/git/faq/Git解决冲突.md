@@ -1,0 +1,31 @@
+1 设置Git对比工具
+===
+git自带对比工具不是很方便。可以设置为更好的文件对比工具比如Compare Merge.
+参考文章:[Git设置对比工具]()
+
+2 Git运行代码合并工具
+===
+执行git的合并工具命令:
+```
+git mergetool
+```
+执行git mergetool命令会启动预先配置的Beyond Compare来显示文件差异.
+
+3 利用图形界面工具解决冲突
+===
+有冲突的文件会顺次显示以下提示:
+
+```
+$ git mergetool
+Merging:
+test.txt
+
+Normal merge conflict for 'test.txt':
+  {local}: modified
+  {remote}: modified
+
+```
+
+输入`local`采用本地合并.
+
+然后在文件对比工具中将冲突的地方合并.保存后会自动到下一个冲突文件.直到全部冲突都解决.

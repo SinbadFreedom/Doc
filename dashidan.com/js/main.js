@@ -69,9 +69,6 @@ function showLeftHighlight() {
             $(this).addClass("dsd_callout");
         }
     });
-
-    /** 去掉 id=""显示*/
-    // $("#" + idName).removeClass("dsd_catalog_left_hide")
 }
 
 /** 加载后立即执行, 通过文章URL显示打开左侧边栏*/
