@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Git清除本地保存的账号信息</title>
-    <meta name="description" content="Git清除本地保存的账号信息">
+    <title>Git解决冲突</title>
+    <meta name="description" content="Git解决冲突">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -85,27 +85,32 @@
     </div>
     <div class="col-sm-9 col-md-9 col-lg-9">
         <!-- 文章内容-->
-        <div class="dsd_title"><h1>Git清除本地保存的账号信息</h1></div>
+        <div class="dsd_title"><h1>Git解决冲突</h1></div>
 
         <div id="xs_content_border">
             <div>
-                <div class="dsd_catalog"><a href="#Git清除本地保存的账号信息">Git清除本地保存的账号信息</a><br><a href="#①">① 清除步骤</a><br><a
-                    href="#②">② 相关文章</a><br></div>
+                <div class="dsd_catalog"><a href="#1">1 设置Git对比工具</a><br><a href="#2">2 Git运行代码合并工具</a><br><a href="#3">3
+                    利用图形界面工具解决冲突</a><br></div>
             </div>
-            <div class="dsd_title_1"><a href="#top" id="Git清除本地保存的账号信息"><h2>Git清除本地保存的账号信息</h2></a></div>
-            <div class="jumbotron">
-                <p>Git是一个很好的文件管理工具, Git的账号信息默认会存储在本地. 如果你有多个Git账号, 向不同的账号仓库提交文件时需要切换账号. 这时需要清除原有存储的账号信息, 否则会提示验证失败.
-                </p>
-            </div>
-            <div class="dsd_title_2"><a href="#top" id="①">① 清除步骤</a></div>
-            <p>
-                <code>开始菜单</code>-&gt;<code>控制面板</code>-&gt;<code>凭据管理器</code>-&gt;<code>普通凭据</code>-&gt;<code>从保管库中删除</code>.
-            </p>
-            <p>如图:<br/>
-                <img class="center-block img-responsive" src="http://dashidan.com/img/git/basic/1-1.png" alt="图1-1"/>
-            </p>
-            <div class="dsd_title_2"><a href="#top" id="②">② 相关文章</a></div>
-            <p>📖 <a href="http://dashidan.com/article/git/index.html">Git常见问题</a></p>
+            <div class="dsd_title_1"><a href="#top" id="1"><h2>1 设置Git对比工具</h2></a></div>
+            <p>git自带对比工具不是很方便.可以设置为更好的文件对比工具比如Compare Merge.来进行差异比较和文件合并.
+                参考文章:<a href="http://dashidan.com/article/git/faq/4.html">Git设置外部对比工具</a>;</p>
+            <div class="dsd_title_1"><a href="#top" id="2"><h2>2 Git运行代码合并工具</h2></a></div>
+            <p>执行git的合并工具命令:</p>
+            <pre class="prettyprint"><code>git mergetool
+</code></pre>
+            <p>执行git mergetool命令会启动预先配置的Beyond Compare来显示文件差异.</p>
+            <div class="dsd_title_1"><a href="#top" id="3"><h2>3 利用图形界面工具解决冲突</h2></a></div>
+            <p>有冲突的文件会顺次显示以下提示:</p>
+            <pre class="prettyprint"><code>$ git mergetool
+Merging:
+test.txt
+
+Normal merge conflict for 'test.txt':
+  {local}: modified
+  {remote}: modified
+</code></pre>
+            <p>输入<code>local</code>采用本地合并.然后在文件对比工具中将冲突的地方合并.保存后会自动到下一个冲突文件.直到全部冲突都解决.</p>
             <span>转载请保留原文链接: <a href="http://dashidan.com/article/git/index.html">http://dashidan.com/article/git/index.html</a>
                 </span>
         </div>
@@ -113,9 +118,6 @@
 
     <div id="xs_content"></div>
     <div class="text-center">
-        <div>
-            <a href="http://dashidan.com/article/git/faq/2.html">📖 下一篇: Git修改文件名大小写时不更新</a>
-        </div>
     </div>
 
     <div class="visible-xs-block">

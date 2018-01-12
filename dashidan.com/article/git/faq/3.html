@@ -1,0 +1,194 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Git撤销提交</title>
+    <meta name="description" content="Git撤销提交">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+</head>
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="http://dashidan.com/img/dsd24.png">
+            </a>
+            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dashidan.com/about.html">关于</a></li>
+                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- 顶部面包屑导航-->
+    <ol class="breadcrumb">
+        <li><a href="http://dashidan.com/index.html">首页</a></li>
+        <li class="active"><a href="http://dashidan.com/article/git/index.html">Git</a></li>
+    </ol>
+
+    <div class="visible-xs-block">
+        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">目录
+        </div>
+    </div>
+
+    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+        <div>
+            <div class="dsd_title" onclick="clickTitle('faq')">
+                <h3><span id="faq_title">➕ Git常见问题</span></h3>
+            </div>
+            <div id="faq" class="dsd_catalog_left_hide">
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                </div>
+                <div class="single_line">
+                    <a href="http://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <!-- 文章内容-->
+        <div class="dsd_title"><h1>Git撤销提交</h1></div>
+
+        <div id="xs_content_border">
+            <div>
+                <div class="dsd_catalog"><a href="#1">1 撤销已push的改变</a><br>
+                    <p><a href="#1.1">1.1 git revert命令撤销提交</a></p>
+                    <p><a href="#1.2">1.2 git commit命令修改上一次commit</a></p>
+                    <p><a href="#1.3">1.3 撤销本地修改</a></p>
+                    <p><a href="#1.4">1.4 重置本地修改</a></p>
+                    <p><a href="#1.5">1.5 git reflog还原修改</a></p></div>
+            </div>
+            <div class="dsd_title_1"><a href="#top" id="1"><h2>1 撤销已push的改变</h2></a></div>
+            <p>已经执行了<code>git push</code>, 把修改发送到了GitHub, 你需要撤销其中某一个commit.执行命令:</p>
+            <pre class="prettyprint"><code>git revert &lt;SHA&gt;
+</code></pre>
+            <div class="dsd_title_2"><a href="#top" id="1.1">1.1 git revert命令撤销提交</a></div>
+            <p><code>git revert</code>会产生一个新的<code>commit</code>,它和指定<code>SHA</code>对应的<code>commit</code>是逆操作.任何从原先的commit里删除的内容会在新的commit里被加回去,任何在原先的commit里加入的内容会在新的commit里被删除.
+            </p>
+            <p>所以你现在可以<code>git
+                push</code>新的逆操作<code>commit</code>,来抵消你错误提交的<code>commit</code>.修正最后一个<code>commit</code>消息.</p>
+            <div class="dsd_title_2"><a href="#top" id="1.2">1.2 git commit命令修改上一次commit</a></div>
+            <p>如果在最后一条<code>commit</code>消息里有个笔误,已经执行了<code>git commit -m "Fxies bug"</code>,但在<code>git push</code>
+                之前你意识到消息应该是 “add files″.</p>
+            <p>执行命令:</p>
+            <pre class="prettyprint"><code>git commit --amend
+</code></pre>
+            <p>或</p>
+            <pre class="prettyprint"><code>git commit --amend -m "add files"
+</code></pre>
+            <p><code>git commit
+                --amend</code>会用一个新的<code>commit</code>更新并替换最近的<code>commit</code>,这个新的<code>commit</code>
+                会把任何修改内容和上一个<code>commit</code>的内容结合起来.如果当前没有提出任何修改,这个操作就只会把上次的 <code>commit</code>消息重写一遍.</p>
+            <div class="dsd_title_2"><a href="#top" id="1.3">1.3 撤销本地修改</a></div>
+            <p>还没有<code>commit</code>这些修改.想要恢复被修改文件里的所有内容.执行命令:</p>
+            <pre class="prettyprint"><code>git checkout -- &lt;bad filename&gt;
+</code></pre>
+            <p><code>git checkout</code>会把工作目录里的文件修改到<code>Git</code>之前记录的某个状态. 你可以提供一个你想返回的分支名或特定<code>SHA</code>,或者在缺省情况下,<code>Git</code>会认为你希望<code>checkout</code>的是
+                HEAD,当前<code>checkout</code>分支的最后一次<code>commit</code>.</p>
+            <p>用这种方法“撤销”的任何修改真的会完全消失.因为它们从来没有被提交过,所以之后 Git 也无法帮助我们恢复它们.</p>
+            <div class="dsd_title_2"><a href="#top" id="1.4">1.4 重置本地修改</a></div>
+            <p>撤销前面的几次尚未push的提交.
+                执行命令:</p>
+            <pre class="prettyprint"><code>git reset &lt;last good SHA&gt;
+</code></pre>
+            <p>或</p>
+            <pre class="prettyprint"><code>git reset --hard &lt;last good SHA&gt;
+</code></pre>
+            <p><code>git reset</code>会把你的代码库历史返回到指定的<code>SHA</code>状态.这样就像是这些提交从来没有发生过. 缺省情况下,<code>git reset</code>会保留工作目录.
+            </p>
+            <p>这样,提交是没有了,但是修改内容还在磁盘上.这是一种安全的选择,但通常我们会希望一步就撤销提交以及修改内容.这就是 --hard 选项的功能.在撤销本地修改之后再恢复</p>
+            <div class="dsd_title_2"><a href="#top" id="1.5">1.5 git reflog还原修改</a></div>
+            <p>你提交了几个<code>commit</code>,然后用<code>git reset --hard</code> 撤销了这些修改(见上一段),接着你又意识到：你希望还原这些修改！</p>
+            <p>执行命令: </p>
+            <pre class="prettyprint"><code>git reflog
+</code></pre>
+            <p>或者</p>
+            <pre class="prettyprint"><code>git reset
+</code></pre>
+            <p>或者</p>
+            <pre class="prettyprint"><code>git checkout
+</code></pre>
+            <p>git reflog 对于恢复项目历史是一个超棒的资源.你可以恢复几乎任何你commit过的东西.</p>
+            <p>你可能已经熟悉了 git log 命令,它会显示 commit 的列表. git reflog 也是类似的,不过它显示的是一个HEAD发生改变的时间列表.</p>
+            <p>注意事项：</p>
+            <p>它涉及的只是 HEAD 的改变.在你切换分支、用 git commit 进行提交、以及用 git reset 撤销 commit 时,HEAD 会改变,但当你用<code>git checkout --
+                &lt;bad filename&gt;</code>撤销时(正如我们在前面讲到的情况),HEAD 并不会改变 — 如前所述,这些修改从来没有被提交过,因此 reflog 也无法帮助我们恢复它们.
+                git reflog 不会永远保持.Git 会定期清理那些 “用不到的” 对象.不要指望几个月前的提交还一直躺在那里.
+                你的<code>reflog</code>就是你的,只是你的.你不能用<code>git
+                    reflog</code>来恢复另一个开发者没有<code>push</code>过的<code>commit</code>.</p>
+            <p>如果希望准确地恢复项目的历史到某个时间点,采用:</p>
+            <pre class="prettyprint"><code class="  language- ">git reset --hard &lt;SHA&gt;
+</code></pre>
+            <p>如果希望重建工作目录里的一个或多个文件,让它们恢复到某个时间点的状态,采用:</p>
+            <pre class="prettyprint"><code>git checkout &lt;SHA&gt; -- &lt;filename&gt;
+</code></pre>
+            <p>如果你希望把这些 commit 里的某一个重新提交到你的代码库里,采用:</p>
+            <pre class="prettyprint"><code>git cherry-pick &lt;SHA&gt;
+</code></pre>
+            <span>转载请保留原文链接: <a href="http://dashidan.com/article/git/index.html">http://dashidan.com/article/git/index.html</a>
+                </span>
+        </div>
+    </div>
+
+    <div id="xs_content"></div>
+    <div class="text-center">
+        <div>
+            <a href="http://dashidan.com/article/git/faq/4.html">📖 下一篇: Git设置外部对比工具</a>
+        </div>
+    </div>
+
+    <div class="visible-xs-block">
+        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">目录
+        </div>
+    </div>
+</div>
+
+<div style="display:none;">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
+</div>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>
