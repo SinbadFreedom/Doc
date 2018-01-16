@@ -10,26 +10,13 @@
 
 ```html
 <html>
-<head>
-<style>
-.container{
-    padding-bottom:30px;  
-}
-.footer{
-    height:30px;  
-    /*position:fixed;  */
-    bottom:0px;  
-    /*z-index:-1;  */
-}
-</style>
-</head>
 <title>大屎蛋教程网-页脚底部自适应</title>
-<body style="height: 100%">
- <div class='header'></div>  
- <div class='container'></div>  
- <div class='footer'></div>  
+<body style="min-height: 100%; background-color: antiquewhite">
+ <div style="min-height: 100%">
+ <div style="background-color: aqua">
+ <scan></scan>
+</div>
+</div>
 </body>
 </html>
 ```
-
-
