@@ -1412,7 +1412,7 @@ body {
     line-height: 1.8;
     color: #333;
     /** edit by sinbad 20170908*/
-    background-color: #ebebeb;
+    /*background-color: #ebebeb;*/
 }
 
 input,
@@ -5145,7 +5145,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 @media (min-width: 768px) {
     .navbar {
-        border-radius: 4px;
+        /*border-radius: 4px;*/
     }
 }
 
@@ -8300,5 +8300,12 @@ button.close {
 
 .bs-callout-info h4 {
     color: #5bc0de;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
