@@ -14,116 +14,102 @@
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
-<body style="height: 100%">
-
-<!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience and security.</p>
-<![endif]-->
-
+<body>
 <nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <img src="http://dashidan.com/img/dsd24.png">
-            </a>
-            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://dashidan.com/about.html">关于</a></li>
-                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
-                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
-            </ul>
-        </div>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <img src="http://dashidan.com/img/dsd24.png">
+        </a>
+        <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://dashidan.com/about.html">关于</a></li>
+            <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+            <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+        </ul>
     </div>
 </nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <!-- 顶部面包屑导航-->
+        <ol class="breadcrumb">
+            <li><a href="http://dashidan.com/index.html">首页</a></li>
+            <li class="active"><a href="http://dashidan.com/article/git/index.html">Git</a></li>
+        </ol>
 
-<div class="container" style="min-height: 100%">
-    <!-- 顶部面包屑导航-->
-    <ol class="breadcrumb">
-        <li><a href="http://dashidan.com/index.html">首页</a></li>
-        <li class="active"><a href="http://dashidan.com/article/git/index.html">Git</a></li>
-    </ol>
+        <div class="dsd_content">
+            <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+                <div>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <h3><span id="faq_title">➕ Git常见问题</span></h3>
+                    </div>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
+                        </div>
+                    </div>
 
-    <div class="visible-xs-block">
-        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">目录
-        </div>
-    </div>
-
-    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-        <div>
-            <div class="dsd_title" onclick="clickTitle('faq')">
-                <h3><span id="faq_title">➕ Git常见问题</span></h3>
+                </div>
             </div>
-            <div id="faq" class="dsd_catalog_left_hide">
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
-                </div>
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
-                </div>
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
-                </div>
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
-                </div>
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-sm-9 col-md-9 col-lg-9">
-        <!-- 文章内容-->
-        <div class="dsd_title"><h1>Git清除本地保存的账号信息</h1></div>
-
-        <div id="xs_content_border">
-            <div>
-                <div class="dsd_catalog"><a href="#Git清除本地保存的账号信息">Git清除本地保存的账号信息</a><br><a href="#①">① 清除步骤</a><br><a
-                    href="#②">② 相关文章</a><br></div>
-            </div>
-            <div class="dsd_title_1"><a href="#top" id="Git清除本地保存的账号信息"><h2>Git清除本地保存的账号信息</h2></a></div>
-            <div class="jumbotron">
-                <p>Git是一个很好的文件管理工具, Git的账号信息默认会存储在本地. 如果你有多个Git账号, 向不同的账号仓库提交文件时需要切换账号. 这时需要清除原有存储的账号信息, 否则会提示验证失败.
-                </p>
-            </div>
-            <div class="dsd_title_2"><a href="#top" id="①">① 清除步骤</a></div>
-            <p>
-                <code>开始菜单</code>-&gt;<code>控制面板</code>-&gt;<code>凭据管理器</code>-&gt;<code>普通凭据</code>-&gt;<code>从保管库中删除</code>.
-            </p>
-            <p>如图:<br/>
-                <img class="center-block img-responsive" src="http://dashidan.com/img/git/basic/1-1.png" alt="图1-1"/>
-            </p>
-            <div class="dsd_title_2"><a href="#top" id="②">② 相关文章</a></div>
-            <p>📖 <a href="http://dashidan.com/article/git/index.html">Git常见问题</a></p>
-            <span>转载请保留原文链接: <a href="http://dashidan.com/article/git/index.html">http://dashidan.com/article/git/index.html</a>
+            <div class="col-sm-9 col-md-9 col-lg-9">
+                <!-- 文章内容-->
+                <div class="dsd_title"><h1>Git清除本地保存的账号信息</h1></div>
+                <div id="xs_content_border">
+                    <div>
+                        <div class="dsd_catalog"><a href="#Git清除本地保存的账号信息">Git清除本地保存的账号信息</a><br><a href="#①">① 清除步骤</a><br><a
+                            href="#②">② 相关文章</a><br></div>
+                    </div>
+                    <div class="dsd_title_1"><a href="#top" id="Git清除本地保存的账号信息"><h2>Git清除本地保存的账号信息</h2></a></div>
+                    <div class="jumbotron">
+                        <p>Git是一个很好的文件管理工具, Git的账号信息默认会存储在本地. 如果你有多个Git账号, 向不同的账号仓库提交文件时需要切换账号. 这时需要清除原有存储的账号信息,
+                            否则会提示验证失败.
+                        </p>
+                    </div>
+                    <div class="dsd_title_2"><a href="#top" id="①">① 清除步骤</a></div>
+                    <p><code>开始菜单</code>-&gt;<code>控制面板</code>-&gt;<code>凭据管理器</code>-&gt;<code>普通凭据</code>-&gt;<code>从保管库中删除</code>.
+                    </p>
+                    <p>如图:<br/>
+                        <img class="center-block img-responsive" src="http://dashidan.com/img/git/basic/1-1.png"
+                             alt="图1-1"/></p>
+                    <div class="dsd_title_2"><a href="#top" id="②">② 相关文章</a></div>
+                    <p>📖 <a href="http://dashidan.com/article/git/index.html">Git常见问题</a></p>
+                    <span>转载请保留原文链接: <a href="http://dashidan.com/article/git/index.html">http://dashidan.com/article/git
+                        /index.html</a>
                 </span>
-        </div>
-    </div>
-
-    <div id="xs_content"></div>
-    <div class="text-center">
-        <div>
-            <a href="http://dashidan.com/article/git/faq/2.html">📖 下一篇: Git修改文件名大小写时不更新</a>
-        </div>
-    </div>
-
-    <div class="visible-xs-block">
-        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">目录
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+<footer class="text-center navbar-fixed-bottom">
+    <div class="visible-xs-block">
+        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">
+            目录
+        </div>
+    </div>
+    <a href="http://dashidan.com/article/git/faq/2.html">下一篇: Git修改文件名大小写时不更新</a>
+</footer>
 <div style="display:none;">
     <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
 </div>

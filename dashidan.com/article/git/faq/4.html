@@ -14,101 +14,88 @@
     <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
 </head>
-<body style="height: 100%">
-
-<!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience and security.</p>
-<![endif]-->
-
+<body>
 <nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <img src="http://dashidan.com/img/dsd24.png">
-            </a>
-            <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://dashidan.com/about.html">关于</a></li>
-                <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
-                <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
-            </ul>
-        </div>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <img src="http://dashidan.com/img/dsd24.png">
+        </a>
+        <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://dashidan.com/about.html">关于</a></li>
+            <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+            <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+        </ul>
     </div>
 </nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <!-- 顶部面包屑导航-->
+        <ol class="breadcrumb">
+            <li><a href="http://dashidan.com/index.html">首页</a></li>
+            <li class="active"><a href="http://dashidan.com/article/git/index.html">Git</a></li>
+        </ol>
 
-<div class="container" style="min-height: 100%">
-    <!-- 顶部面包屑导航-->
-    <ol class="breadcrumb">
-        <li><a href="http://dashidan.com/index.html">首页</a></li>
-        <li class="active"><a href="http://dashidan.com/article/git/index.html">Git</a></li>
-    </ol>
+        <div class="dsd_content">
+            <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+                <div>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <h3><span id="faq_title">➕ Git常见问题</span></h3>
+                    </div>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
+                        </div>
+                    </div>
 
-    <div class="visible-xs-block">
-        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">目录
-        </div>
-    </div>
-
-    <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-        <div>
-            <div class="dsd_title" onclick="clickTitle('faq')">
-                <h3><span id="faq_title">➕ Git常见问题</span></h3>
+                </div>
             </div>
-            <div id="faq" class="dsd_catalog_left_hide">
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
-                </div>
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
-                </div>
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
-                </div>
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
-                </div>
-                <div class="single_line">
-                    <a href="http://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-sm-9 col-md-9 col-lg-9">
-        <!-- 文章内容-->
-        <div class="dsd_title"><h1>Git设置外部对比工具</h1></div>
-
-        <div id="xs_content_border">
-            <div>
-                <div class="dsd_catalog"><a href="#1">1 git查看命令帮助</a><br><a href="#2">2 设置对比工具</a><br><a href="#3">3
-                    设置合并工具</a><br></div>
-            </div>
-            <div class="jumbotron">
-                <p>在通过GIt比较文本差异的时候,采用外部对比工具比如Compare Merge会比Git自带的对比工具更直观. windows下设置git的对比工具,beyond compare 3或者Compare
-                    Merge.</p>
-            </div>
-            <div class="dsd_title_1"><a href="#top" id="1"><h2>1 git查看命令帮助</h2></a></div>
-            <pre class="prettyprint"><code>$ git difftool --tool-help
+            <div class="col-sm-9 col-md-9 col-lg-9">
+                <!-- 文章内容-->
+                <div class="dsd_title"><h1>Git设置外部对比工具</h1></div>
+                <div id="xs_content_border">
+                    <div>
+                        <div class="dsd_catalog"><a href="#1">1 git查看命令帮助</a><br><a href="#2">2 设置对比工具</a><br><a
+                            href="#3">3 设置合并工具</a><br></div>
+                    </div>
+                    <div class="jumbotron">
+                        <p>在通过GIt比较文本差异的时候,采用外部对比工具比如Compare Merge会比Git自带的对比工具更直观. windows下设置git的对比工具,beyond compare
+                            3或者Compare Merge.</p>
+                    </div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 git查看命令帮助</h2></a></div>
+                    <pre class="prettyprint"><code>$ git difftool --tool-help
 </code></pre>
-            <div class="dsd_title_1"><a href="#top" id="2"><h2>2 设置对比工具</h2></a></div>
-            <pre class="prettyprint"><code>$ git config --global diff.tool bc3
+                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 设置对比工具</h2></a></div>
+                    <pre class="prettyprint"><code>$ git config --global diff.tool bc3
 $ git config --global difftool.bc3.path "D:\Program Files\Beyond Compare 4\BCompare.exe"
 </code></pre>
-            <div class="dsd_title_1"><a href="#top" id="3"><h2>3 设置合并工具</h2></a></div>
-            <pre class="prettyprint"><code>$ git config --global merge.tool bc3
+                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 设置合并工具</h2></a></div>
+                    <pre class="prettyprint"><code>$ git config --global merge.tool bc3
 $ git config --global mergetool.bc3.path "D:\Program Files\Beyond Compare 4\BCompare.exe"
 </code></pre>
-            <p>也可以直接修改.gitconfig文件,直接增加如下:</p>
-            <pre class="prettyprint"><code>[diff]
+                    <p>也可以直接修改.gitconfig文件,直接增加如下:</p>
+                    <pre class="prettyprint"><code>[diff]
     tool = bc3
 [difftool "bc3"]
     path = D:\Program Files\Beyond Compare 4\BCompare.exe
@@ -117,27 +104,26 @@ $ git config --global mergetool.bc3.path "D:\Program Files\Beyond Compare 4\BCom
 [mergetool "bc3"]
     path = D:\Program Files\Beyond Compare 4\BCompare.exe
 </code></pre>
-            <p>设置好后,使用命令是 git difftool 而不是之前的 git diff 了。</p>
-            <p>注:
-                文中对比工具的路径设置为自己.</p>
-            <span>转载请保留原文链接: <a href="http://dashidan.com/article/git/index.html">http://dashidan.com/article/git/index.html</a>
+                    <p>设置好后,使用命令是 git difftool 而不是之前的 git diff 了。</p>
+                    <p>注:
+                        文中对比工具的路径设置为自己.</p>
+                    <span>转载请保留原文链接: <a href="http://dashidan.com/article/git/index.html">http://dashidan.com/article/git
+                        /index.html</a>
                 </span>
-        </div>
-    </div>
-
-    <div id="xs_content"></div>
-    <div class="text-center">
-        <div>
-            <a href="http://dashidan.com/article/git/faq/5.html">📖 下一篇: Git解决冲突</a>
-        </div>
-    </div>
-
-    <div class="visible-xs-block">
-        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">目录
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+<footer class="text-center navbar-fixed-bottom">
+    <div class="visible-xs-block">
+        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">
+            目录
+        </div>
+    </div>
+    <a href="http://dashidan.com/article/git/faq/5.html">下一篇: Git解决冲突</a>
+</footer>
 <div style="display:none;">
     <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
 </div>
