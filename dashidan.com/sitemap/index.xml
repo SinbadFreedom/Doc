@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex>
- <sitemap>
-   <loc>http://dashidan.com/sitemap/java.xml</loc>
-   <lastmod>2018-01-18</lastmod>
- </sitemap>
- <sitemap>
-   <loc>http://dashidan.com/sitemap/mongodb.xml</loc>
-   <lastmod>2018-01-18</lastmod>
- </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/sitemap/java.xml</loc>
+        <lastmod>2018-01-18</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/sitemap/mongodb.xml</loc>
+        <lastmod>2018-01-18</lastmod>
+    </sitemap>
 </sitemapindex>

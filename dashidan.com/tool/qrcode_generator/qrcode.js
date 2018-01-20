@@ -86,8 +86,8 @@ var qrcode = function () {
                         continue;
                     }
 
-                    if ((0 <= r && r <= 6 && (c == 0 || c == 6) )
-                        || (0 <= c && c <= 6 && (r == 0 || r == 6) )
+                    if ((0 <= r && r <= 6 && (c == 0 || c == 6))
+                        || (0 <= c && c <= 6 && (r == 0 || r == 6))
                         || (2 <= r && r <= 4 && 2 <= c && c <= 4)) {
                         _modules[row + r][col + c] = true;
                     } else {
@@ -170,12 +170,12 @@ var qrcode = function () {
             var bits = QRUtil.getBCHTypeNumber(_typeNumber);
 
             for (var i = 0; i < 18; i += 1) {
-                var mod = (!test && ( (bits >> i) & 1) == 1);
+                var mod = (!test && ((bits >> i) & 1) == 1);
                 _modules[Math.floor(i / 3)][i % 3 + _moduleCount - 8 - 3] = mod;
             }
 
             for (var i = 0; i < 18; i += 1) {
-                var mod = (!test && ( (bits >> i) & 1) == 1);
+                var mod = (!test && ((bits >> i) & 1) == 1);
                 _modules[i % 3 + _moduleCount - 8 - 3][Math.floor(i / 3)] = mod;
             }
         };
@@ -188,7 +188,7 @@ var qrcode = function () {
             // vertical
             for (var i = 0; i < 15; i += 1) {
 
-                var mod = (!test && ( (bits >> i) & 1) == 1);
+                var mod = (!test && ((bits >> i) & 1) == 1);
 
                 if (i < 6) {
                     _modules[i][8] = mod;
@@ -202,7 +202,7 @@ var qrcode = function () {
             // horizontal
             for (var i = 0; i < 15; i += 1) {
 
-                var mod = (!test && ( (bits >> i) & 1) == 1);
+                var mod = (!test && ((bits >> i) & 1) == 1);
 
                 if (i < 8) {
                     _modules[8][_moduleCount - i - 1] = mod;
@@ -240,7 +240,7 @@ var qrcode = function () {
                             var dark = false;
 
                             if (byteIndex < data.length) {
-                                dark = ( ( (data[byteIndex] >>> bitIndex) & 1) == 1);
+                                dark = (((data[byteIndex] >>> bitIndex) & 1) == 1);
                             }
 
                             var mask = maskFunc(row, col - c);
@@ -663,15 +663,15 @@ var qrcode = function () {
         _this.getBCHTypeInfo = function (data) {
             var d = data << 10;
             while (getBCHDigit(d) - getBCHDigit(G15) >= 0) {
-                d ^= (G15 << (getBCHDigit(d) - getBCHDigit(G15) ) );
+                d ^= (G15 << (getBCHDigit(d) - getBCHDigit(G15)));
             }
-            return ( (data << 10) | d) ^ G15_MASK;
+            return ((data << 10) | d) ^ G15_MASK;
         };
 
         _this.getBCHTypeNumber = function (data) {
             var d = data << 12;
             while (getBCHDigit(d) - getBCHDigit(G18) >= 0) {
-                d ^= (G18 << (getBCHDigit(d) - getBCHDigit(G18) ) );
+                d ^= (G18 << (getBCHDigit(d) - getBCHDigit(G18)));
             }
             return (data << 12) | d;
         };
@@ -702,7 +702,7 @@ var qrcode = function () {
                     };
                 case QRMaskPattern.PATTERN100 :
                     return function (i, j) {
-                        return (Math.floor(i / 2) + Math.floor(j / 3) ) % 2 == 0;
+                        return (Math.floor(i / 2) + Math.floor(j / 3)) % 2 == 0;
                     };
                 case QRMaskPattern.PATTERN101 :
                     return function (i, j) {
@@ -710,11 +710,11 @@ var qrcode = function () {
                     };
                 case QRMaskPattern.PATTERN110 :
                     return function (i, j) {
-                        return ( (i * j) % 2 + (i * j) % 3) % 2 == 0;
+                        return ((i * j) % 2 + (i * j) % 3) % 2 == 0;
                     };
                 case QRMaskPattern.PATTERN111 :
                     return function (i, j) {
-                        return ( (i * j) % 3 + (i + j) % 2) % 2 == 0;
+                        return ((i * j) % 3 + (i + j) % 2) % 2 == 0;
                     };
 
                 default :
@@ -1350,12 +1350,12 @@ var qrcode = function () {
 
         _this.getAt = function (index) {
             var bufIndex = Math.floor(index / 8);
-            return ( (_buffer[bufIndex] >>> (7 - index % 8) ) & 1) == 1;
+            return ((_buffer[bufIndex] >>> (7 - index % 8)) & 1) == 1;
         };
 
         _this.put = function (num, length) {
             for (var i = 0; i < length; i += 1) {
-                _this.putBit(( (num >>> (length - i - 1) ) & 1) == 1);
+                _this.putBit(((num >>> (length - i - 1)) & 1) == 1);
             }
         };
 
@@ -1371,7 +1371,7 @@ var qrcode = function () {
             }
 
             if (bit) {
-                _buffer[bufIndex] |= (0x80 >>> (_length % 8) );
+                _buffer[bufIndex] |= (0x80 >>> (_length % 8));
             }
 
             _length += 1;
@@ -1575,7 +1575,7 @@ var qrcode = function () {
                 _buflen += 6;
             }
 
-            var n = (_buffer >>> (_buflen - 8) ) & 0xff;
+            var n = (_buffer >>> (_buflen - 8)) & 0xff;
             _buflen -= 8;
             return n;
         };
@@ -1698,7 +1698,7 @@ var qrcode = function () {
                 }
 
                 while (_bitLength + length >= 8) {
-                    _out.writeByte(0xff & ( (data << _bitLength) | _bitBuffer));
+                    _out.writeByte(0xff & ((data << _bitLength) | _bitBuffer));
                     length -= (8 - _bitLength);
                     data >>>= (8 - _bitLength);
                     _bitBuffer = 0;

@@ -27,7 +27,7 @@ var DataGridRenderer = {
                 if ((headerTypes[j] == "int") || (headerTypes[j] == "float")) {
                     var rowOutput = row[j] || "null";
                 } else {
-                    var rowOutput = '"' + ( row[j] || "" ) + '"';
+                    var rowOutput = '"' + (row[j] || "") + '"';
                 }
                 ;
                 outputText += (headerNames[j] + ":" + rowOutput)
@@ -68,7 +68,7 @@ var DataGridRenderer = {
                 if ((headerTypes[j] == "int") || (headerTypes[j] == "float")) {
                     var rowOutput = row[j] || "null";
                 } else {
-                    var rowOutput = '"' + ( row[j] || "" ) + '"';
+                    var rowOutput = '"' + (row[j] || "") + '"';
                 }
                 ;
                 outputText += 'myArray(' + j + ',' + i + ') = ' + rowOutput + newLine;
@@ -151,11 +151,11 @@ var DataGridRenderer = {
                 if ((headerTypes[j] == "int") || (headerTypes[j] == "float")) {
                     var rowOutput = row[j] || "null";
                 } else {
-                    var rowOutput = '"' + ( row[j] || "" ) + '"';
+                    var rowOutput = '"' + (row[j] || "") + '"';
                 }
                 ;
 
-                outputText += ('"' + headerNames[j] + '"' + ":" + rowOutput );
+                outputText += ('"' + headerNames[j] + '"' + ":" + rowOutput);
 
                 if (j < (numColumns - 1)) {
                     outputText += ","
@@ -343,7 +343,7 @@ var DataGridRenderer = {
                 if ((headerTypes[j] == "int") || (headerTypes[j] == "float")) {
                     outputText += dataGrid[i][j] || "null";
                 } else {
-                    outputText += "'" + ( dataGrid[i][j] || "" ) + "'";
+                    outputText += "'" + (dataGrid[i][j] || "") + "'";
                 }
                 ;
 
@@ -432,7 +432,7 @@ var DataGridRenderer = {
                 }
                 ;
 
-                outputText += ('"' + headerNames[j] + '"' + ":" + rowOutput );
+                outputText += ('"' + headerNames[j] + '"' + ":" + rowOutput);
 
                 if (j < (numColumns - 1)) {
                     outputText += ","

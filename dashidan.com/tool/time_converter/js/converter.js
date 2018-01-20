@@ -2,6 +2,7 @@
  * Created by bj on 2015/9/10.
  */
 /*global disTime, disTimeRepeater */
+
 /*jslint browser: true, indent: 2 */
 function random(min, max) {
     "use strict";
@@ -23,7 +24,7 @@ function generateExamples(config) {
                    / 1000
                    - parseInt(eval(config.time),
                               10),
-                   10) + '</p>'
+        10) + '</p>'
         + examples;
 }
 

@@ -241,6 +241,6 @@ var CSVParser = {
         }
 
         // Return the parsed data.
-        return ( arrData );
+        return (arrData);
     }
 };

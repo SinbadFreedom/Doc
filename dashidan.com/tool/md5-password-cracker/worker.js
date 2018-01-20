@@ -13,6 +13,7 @@ var interval    = 100000
 function status(msg) {
     this.postMessage({cmd: "status", data: msg, id: workerId})
 }
+
 function log(msg) {
     this.postMessage({cmd: "log", data: msg, id: workerId})
 }
