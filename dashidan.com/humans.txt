@@ -3,7 +3,7 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Hello, this is dashidan.com created by Sinbad. Welcome!
 
 # THANKS
 

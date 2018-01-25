@@ -3,3 +3,6 @@
 # Allow crawling of all content
 User-agent: *
 Disallow:
+
+# sitemap add by Sinbad
+Sitemap: http://dashidan.com/sitemap.xml
