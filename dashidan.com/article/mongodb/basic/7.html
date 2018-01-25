@@ -11,8 +11,18 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -25,15 +35,15 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">
-            <img src="http://dashidan.com/img/dsd24.png">
+            <img src="http://localhost/img/dsd24.png">
         </a>
-        <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
+        <a class="navbar-brand" href="http://localhost/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://dashidan.com/about.html">关于</a></li>
-            <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
-            <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
+            <li><a href="http://localhost/about.html">关于</a></li>
+            <li><a href="http://localhost/thanks.html">鸣谢</a></li>
+            <li><a href="http://localhost/siteMap.html">网站地图</a></li>
         </ul>
     </div>
 </nav>
@@ -41,8 +51,8 @@
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
         <ol class="breadcrumb">
-            <li><a href="http://dashidan.com/index.html">首页</a></li>
-            <li class="active"><a href="http://dashidan.com/article/mongodb/index.html">MongoDB</a></li>
+            <li><a href="http://localhost/index.html">首页</a></li>
+            <li class="active"><a href="http://localhost/article/mongodb/index.html">MongoDB</a></li>
         </ol>
 
         <div class="dsd_content">
@@ -149,15 +159,14 @@
 new Mongo(&lt;host&gt;)
 new Mongo(&lt;host:port&gt;)
 </code></pre>
-                    <p>以下示例是以MongoDB在<code>dashidan.com</code>默认端口运行, 并且将全局数据库变量设置为myDatabase,可以通过getDB()方法获取一个新的连接实例:
-                    </p>
+                    <p>以下示例是以MongoDB在<code>localhost</code>默认端口运行, 并且将全局数据库变量设置为myDatabase,可以通过getDB()方法获取一个新的连接实例:</p>
                     <pre class="prettyprint"><code>conn = new Mongo();
 db = conn.getDB("myDatabase");
 </code></pre>
                     <p>如果Mongodb连接实例设置了访问控制, 你可以通过使用<code>db.auth()</code>方法来认证.</p>
-                    <p>另外, 你可以通过<code>connect()</code>方法链接MongoDB实例. 以下为连接到MongoDB绑定<code>dashidan.com</code>非默认端口<code>27020</code>的示例：
+                    <p>另外, 你可以通过<code>connect()</code>方法链接MongoDB实例. 以下为连接到MongoDB绑定<code>localhost</code>非默认端口<code>27020</code>的示例：
                     </p>
-                    <pre class="prettyprint"><code>db = connect("dashidan.com:27020/myDatabase");
+                    <pre class="prettyprint"><code>db = connect("localhost:27020/myDatabase");
 </code></pre>
                     <div class="dsd_title_1"><a href="#top" id="2"><h2>2 命令输入和通过mongo脚本操作的区别</h2></a></div>
                     <p>当你写mongo脚本的时候, 你需要考虑以下几点:</p>
@@ -245,13 +254,13 @@ while ( cursor.hasNext() ) {
                     <p>使用<code>--eval</code>选项来传入JavaScript脚本:</p>
                     <pre class="prettyprint"><code>mongo test --eval "printjson(db.getCollectionNames())"
 </code></pre>
-                    <p>这个命令连接运行在<code>dashidan.com</code>,绑定27017端口的mongo实例, 并将<code>db.getCollectionNames()</code>方法的输出返回.
+                    <p>这个命令连接运行在<code>localhost</code>,绑定27017端口的mongo实例, 并将<code>db.getCollectionNames()</code>方法的输出返回.
                     </p>
                     <h3>2.执行JavaScript文件</h3>
                     <p>你可以直指定定一个以<code>.js</code>为后缀的JavaScript文件, mongo可以直接执行.例如:</p>
-                    <pre class="prettyprint"><code>mongo dashidan.com:27017/test myjsfile.js
+                    <pre class="prettyprint"><code>mongo localhost:27017/test myjsfile.js
 </code></pre>
-                    <p>这个命令连接运行在<code>dashidan.com</code>,绑定27017端口的mongo实例, 并将<code>myjsfile.js</code>的运行结果返回.</p>
+                    <p>这个命令连接运行在<code>localhost</code>,绑定27017端口的mongo实例, 并将<code>myjsfile.js</code>的运行结果返回.</p>
                     <p>另外, 你可以在JavaScript文件中通过<code>Mongo()</code>构造函数来执行mongodb连接参数.参考[Opening New Connections]()
                         查看更多信息.</p>
                     <p>在mongo命令行中你可以通过<code>load()</code>方法运行<code>.js</code>文件, 例如:</p>
@@ -271,7 +280,7 @@ load("/data/db/scripts/myjstest.js")
                     <p>📖 <a href="https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/">https://docs.mongodb.com/manual/tutorial/write-scripts-for-the-mongo-shell/</a>
                     </p>
                     <div class="dsd_title_1"><a href="#top" id="5"><h2>5 相关文章</h2></a></div>
-                    <p>📖 <a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+                    <p>📖 <a href="http://localhost/article/mongodb/index.html">MongoDB中文文档</a></p>
                 </div>
             </div>
         </div>
@@ -284,16 +293,13 @@ load("/data/db/scripts/myjstest.js")
             目录
         </div>
     </div>
-    <a href="http://dashidan.com/article/mongodb/basic/8.html">下一篇: mongo命令行中的数据类型</a>
+    <a href="http://localhost/article/mongodb/basic/8.html">下一篇: mongo命令行中的数据类型</a>
 </footer>
-<div style="display:none;">
-    <script src="https://s19.cnzz.com/z_stat.php?id=1264355070&web_id=1264355070" language="JavaScript"></script>
-</div>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://localhost/js/jquery-3.2.1.min.js"></script>
+<script src="http://localhost/js/vendor/modernizr-custom.js"></script>
+<script src="http://localhost/js/bootstrap.js"></script>
+<script src="http://localhost/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://localhost/js/main.js"></script>
 </body>
 </html>
