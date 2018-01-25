@@ -279,10 +279,9 @@ Sitemap: http://dashidan.com/sitemap-host2.xml
 <searchengine_URL>/ping?sitemap=sitemap_url
 ```
 
-例如,如果你的站点地图是位于http://dashidan.com/sitemap.gz,URL为：
+例如,如果你的站点地图是位于http://dashidan.com/sitemap.xml,URL为：
 ```
-bing.com/ping?sitemap=http://dashidan.com/sitemap.gz
-baidu.com/ping?sitemap=http://dashidan.com/sitemap.gz
+bing.com/ping?sitemap=http://dashidan.com/sitemap.xml
 ```
 
 `/ping?sitemap=:`后边的需要进行URL转码
