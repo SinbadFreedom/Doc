@@ -8,4 +8,24 @@
         <loc>http://dashidan.com/sitemap/mongodb.xml</loc>
         <lastmod>2018-01-18</lastmod>
     </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/sitemap/git.xml</loc>
+        <lastmod>2018-01-24</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/sitemap/html.xml</loc>
+        <lastmod>2018-01-24</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/sitemap/linux.xml</loc>
+        <lastmod>2018-01-24</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/sitemap/nodejs.xml</loc>
+        <lastmod>2018-01-24</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/sitemap/python.xml</loc>
+        <lastmod>2018-01-24</lastmod>
+    </sitemap>
 </sitemapindex>
