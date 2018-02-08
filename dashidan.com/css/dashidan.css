@@ -94,6 +94,7 @@ body {
     min-height: 100%;
     /* .footer 的高度，为 footer 占位 */
     padding-bottom: 80px;
+    /*background-color: #008ace;*/
 }
 
 .fullscreen {
@@ -105,12 +106,12 @@ body {
 nav {
     position: absolute;
     top: 0;
-    background-color: #666666;
+    background-color: #3399cc;
 }
 
 footer {
-    background-color: #666666;
-    opacity: 0.8;
+    background-color: #008ace;
+    /*opacity: 0.8;*/
 }
 
 footer > a {

@@ -1,0 +1,1 @@
+java从JDK8.0开始引入了Lambda表达式, 同时也是引入了一种新的编程思想-函数式编程(Functional Programming).介绍了命令式编程和函数式编程的区别.以及Java为什么引入lambda表达式.

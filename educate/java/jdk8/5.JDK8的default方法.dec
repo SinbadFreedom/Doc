@@ -1,0 +1,1 @@
+java从jdk8.0开始提供了default方法.default方法可以认为是Lambda表达式和JDK类库之间的桥梁.jdk8引入default方法的主要目的是为了升级标准JDK接口.

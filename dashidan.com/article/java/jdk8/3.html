@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Java中Lambda表达式由来</title>
-    <meta name="description" content="Java中Lambda表达式由来">
+    <meta name="description"
+          content="java从JDK8.0开始引入了Lambda表达式, 同时也是引入了一种新的编程思想-函数式编程(Functional Programming).介绍了命令式编程和函数式编程的区别.以及Java为什么引入lambda表达式.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -29,21 +30,16 @@
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                 data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">
-            <img src="http://dashidan.com/img/dsd24.png">
-        </a>
-        <a class="navbar-brand" href="http://dashidan.com/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://dashidan.com/index.html">首页</a></li>
             <li><a href="http://dashidan.com/about.html">关于</a></li>
             <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
-            <li><a href="http://dashidan.com/siteMap.html">网站地图</a></li>
         </ul>
     </div>
 </nav>
@@ -58,22 +54,6 @@
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
-                    <div class="dsd_title" onclick="clickTitle('api')">
-                        <h3><span id="api_title">➕ Java中文手册</span></h3>
-                    </div>
-
-                    <div id="api" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="http://dashidan.com/apidoc/java/api6/index.html">Java6手册(中)</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/apidoc/java/api8en/index.html">Java8手册(英)</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/apidoc/java/api9en/index.html">Java9手册(英)</a>
-                        </div>
-                    </div>
-
                     <div class="dsd_title" onclick="clickTitle('basic')">
                         <h3><span id="basic_title">➕ Java入门到精通</span></h3>
                     </div>
@@ -174,6 +154,23 @@
                         </div>
                     </div>
 
+                    <div class="dsd_title" onclick="clickTitle('api')">
+                        <h3><span id="api_title">➕ Java中文手册</span></h3>
+                    </div>
+
+                    <div id="api" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/apidoc/java/api6/index.html">Java6手册(中)</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/apidoc/java/api8en/index.html">Java8手册(英)</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/apidoc/java/api9en/index.html">Java9手册(英)</a>
+                        </div>
+                    </div>
+
+
                     <div class="dsd_title" onclick="clickTitle('addenda')">
                         <h3 id="addenda_title">➕ 附录</h3>
                     </div>
@@ -204,7 +201,7 @@
                     <div>
                         <div class="dsd_catalog"><a href="#1">1 什么是Lambda表达式</a><br><a href="#2">2 命令式编程(Imperative
                             Programming)</a><br><a href="#3">3 函数式编程(Functional Programming)</a><br><a href="#4">4
-                            Java为什么会引入Lambda表达式</a><br><a href="#5">5 相关文章</a><br><a href="#6">6 参考文章</a><br></div>
+                            Java为什么会引入Lambda表达式</a><br><a href="#5">5 参考文章</a><br></div>
                     </div>
                     <div class="jumbotron">
                         <p>Lambda表达式是函数式编程(Functional Programming)的基础.</p>
@@ -269,12 +266,10 @@
                     </ul>
                     <p>JDK8引入stream API. 将大数据处理常用的map、reduce、filter这样的基本函数式编程的概念与Java集合结合起来.
                         随之而来的是map、reduce、filter等操作都可以并行化,更加适合大数据的并行处理.</p>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 相关文章</h2></a></div>
-                    <p>📖 <a href="http://dashidan.com/article/java/index.html">Java从入门到精通索引</a></p>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 参考文章</h2></a></div>
-                    <p>📖 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html</a>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 参考文章</h2></a></div>
+                    <p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html</a>
                     </p>
-                    <p>📖 <a href="https://www.developer.com/java/start-using-java-lambda-expressions.html">https://www.developer.com/java/start-using-java-lambda-expressions.html</a>
+                    <p><a href="https://www.developer.com/java/start-using-java-lambda-expressions.html">https://www.developer.com/java/start-using-java-lambda-expressions.html</a>
                     </p>
                 </div>
             </div>

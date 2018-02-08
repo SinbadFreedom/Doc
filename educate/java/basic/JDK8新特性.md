@@ -135,15 +135,6 @@ JavaFX is now available for ARM platforms. JDK for ARM includes the base, graphi
 
 
 
-
-1. 相关文章
----
-
-📖 [Java从入门到精通索引](http://localhost/article/java/basic/index.html)
-
-
-
-
 1. 参考文章
 ---
 

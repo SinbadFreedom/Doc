@@ -1,0 +1,1 @@
+Java异常是Java提供的一种识别及响应错误的一致性机制.java通过throw关键词可以抛出异常, 通过try/catch语句捕获异常.

@@ -1,0 +1,1 @@
+JDK8提供了函数式接口(Functional Interface),是指只有一个抽象方法的接口. 这种类型的接口也称为SAM(Single Abstract Method).

@@ -36,6 +36,15 @@ Meta Language 信息可作为帮助我们了解页面内容适用的目标语言
 <html lang="en-gb"> 或 <title lang="en-gb">
 ````
 
+3 去掉无用信息
+===
+
+来源baidu
+
+输入 site:dashidan.com 有部分网页中会有"Toggle navigation"这样的字样，这个是模板文件中自带的, 对用户和搜索引擎都没有意义,删除这个数据.
+
+
+
 
 
 

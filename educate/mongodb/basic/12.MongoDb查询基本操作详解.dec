@@ -1,0 +1,1 @@
+MongoDb查询基本操作详解,Mongodb提供了查询文档的方法`db.collection.find()`.可以查询一个集合中全部数据,指定条件查询,通过条件操作符来设置查询条件,AND条件查询,OR条件查询,AND和OR联合查询.mongodb与SQL语法对应.

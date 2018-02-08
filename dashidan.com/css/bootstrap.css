@@ -5550,7 +5550,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 .navbar-default .navbar-nav > li > a {
     /*color: #777;*/
-    color: #000000;
+    color: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -6688,7 +6688,7 @@ button.list-group-item-danger.active:focus {
 
 .panel {
     /* edit by sinbad 20170908*/
-    margin: 5px;
+    margin: 1px;
     background-color: #fff;
     /*border: 1px solid transparent;*/
     /*border-radius: 6px;*/
