@@ -28,6 +28,9 @@ pre {
 /** 图片设置为圆角*/
 img {
     border-radius: 6px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #eeeeee;
 }
 
 .dsd_catalog {
