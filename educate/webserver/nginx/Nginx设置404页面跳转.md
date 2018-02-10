@@ -11,32 +11,20 @@
 1 Nginx设置404错误指向页面
 ===
 
-nginx默认配置中是这样的：
+更改nginx.conf中在server区域加入:
 
-```
-location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-}
-```
+error_page 404 /404.html
 
-其中try_files是nginx解析网站地址的过程, 找不到的话返回404错误.把最后的404改为404.html,表示返回404.html页面.
-
-```
-try_files $uri $uri/ =/404.html;
-```
 
 2 制作一个404.html页面
 ===
 
-可以做一个静态html页面来作为道歉页面.参考页面[http://dashidan.com/404.html](http://dashidan.com/404.html).
+可以做一个静态html页面来作为道歉页面, 404页面最好有主页的链接,方便用户找到主页.参考页面[http://dashidan.com/404.html](http://dashidan.com/404.html).
 
 3 重启Nginx使配置生效
 ===
 
-重启完成后,可以输入一个域名后并不存在的页面来查看效果.
-
+重启完成后,可以输入一个不存在的页面来查看效果.
 
 4 避免出现404错误
 ===
@@ -56,7 +44,7 @@ try_files $uri $uri/ =/404.html;
 5 roboot.txt屏蔽404页面
 ===
 
-在roboot.txt文件中加入死链url, 来避免搜索引擎访问已失效的网页.也是针对404错误的一种补救措施.
+在roboot.txt文件中加入死链url,来避免搜索引擎访问并收录已失效的网页.也是针对404错误的一种补救措施.
 
 通过robot设置屏蔽指定网页的方式：
 ```
