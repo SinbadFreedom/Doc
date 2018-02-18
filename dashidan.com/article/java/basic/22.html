@@ -211,7 +211,7 @@
                     <div class="bs-callout bs-callout-warning">
                         <h4>不同的厂家的SDK有不同的配置, 我们以sun公司出品的官方JDK为例介绍下JVM参数.</h4>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 标准配置选项</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 标准配置选项</h3></a></div>
                     <pre class="prettyprint"><code>-d32          使用 32 位数据模型 (如果可用)
 -d64          使用 64 位数据模型 (如果可用)
 -server       选择 "server" VM
@@ -257,7 +257,7 @@
 -splash:&lt;imagepath&gt;
               使用指定的图像显示启动屏幕
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 非标准配置选项</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 非标准配置选项</h3></a></div>
                     <pre class="prettyprint"><code>-Xmixed           混合模式执行 (默认)
 -Xint             仅解释模式执行
 -Xbootclasspath:&lt;用 ; 分隔的目录和 zip/jar 文件&gt;
@@ -294,7 +294,7 @@
 -XshowSettings:locale
                   显示所有与区域设置相关的设置并继续
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 JVM性能优化示例</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 JVM性能优化示例</h3></a></div>
                     <ul>
                         <li><p>高吞吐量(<code>Higher Throughput</code>)JVM性能优化示例:</p>
                             <p>java -d64 -server -XX:+AggressiveOpts -XX:+UseLargePages -Xmn10g -Xms26g -Xmx26g </p>
@@ -303,7 +303,7 @@
                             <p>java -d64 -XX:+UseG1GC -Xms26g Xmx26g -XX:MaxGCPauseMillis=500
                                 -XX:+PrintGCTimeStamps </p></li>
                     </ul>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 著名中间件jvm参数配置</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 著名中间件jvm参数配置</h3></a></div>
                     <h3>1.<code>zookeeper</code>JVM参数设置</h3>
                     <pre class="prettyprint"><code>-XX:+HeapDumpOnOutOfMemoryError
 -XX:OnOutOfMemoryError=kill -9 %p
@@ -326,7 +326,7 @@
 -Dcom.sun.management.jmxremote
     通过JMX的方式远程监控JVM的运行情况.
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 建议配置</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 建议配置</h3></a></div>
                     <p>以下是个人建议, 不一定使用全部场景.根据自己的应用场景配置.</p>
                     <pre class="prettyprint"><code class="     language-    ">-d64
 -Xms4g
@@ -338,7 +338,7 @@
                         <h4>不要过分纠结</h4>
                         有时采用更高配置的硬件更有效.
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 参考文章</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 参考文章</h3></a></div>
                     <p><a
                         href="https://docs.oracle.com/cd/E22289_01/html/821-1274/configuring-the-default-jvm-and-java-arguments.html">配置jvm和java参数</a>
                     </p>

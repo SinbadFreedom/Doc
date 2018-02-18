@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Linux退出telnet</title>
-    <meta name="description" content="Linux退出telnet">
+    <meta name="description"
+          content="在linux系统中,可以通过telnet命令来测试ip和端口是否可以连接.启用这个命令连接成功后,会进入telnet提示符状态.可通过输入&quot;Ctrl+c&quot;,&quot;Ctrl+z&quot;,&quot;quit&quot;命令退出talnet命令行.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -81,6 +82,19 @@
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/common/8.html">8.Linux退出telnet</a>
                         </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/9.html">9.Linux压缩和解压缩</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/10.html">10.Linux查看系统版本</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/11.html">11.Linux的shell脚本中数组及数组遍历</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/12.html">12.localefacet_S_create_c_locale
+                                name not valid</a>
+                        </div>
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('ubuntu')">
@@ -88,16 +102,16 @@
                     </div>
                     <div id="ubuntu" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/1.html">1.Ubuntu搭建nginx+mysql+php+php-fpm</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/1.html">1.linux搭建nginx+mysql+php+php-fpm</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/2.html">2.Ubuntu安装配置SVN及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/2.html">2.linux安装配置SVN及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/3.html">3.Ubuntu安装配置Apollo及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/3.html">3.linux安装配置Apollo及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/4.html">4.Ubuntu安装配置Zookeeper及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/4.html">4.linux安装配置Zookeeper及常用命令</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/ubuntu/5.html">5.Ubuntu允许root用户登录</a>
@@ -109,7 +123,7 @@
                     </div>
                     <div id="tmux" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/tmux/1.html">1.Centos安装tmux及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/tmux/2.html">2.Ubuntu安装配置tmux及常用命令</a>
@@ -126,22 +140,36 @@
                 <div class="dsd_title"><h1>Linux退出telnet</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><p><a href="#8.Linux退出telnet">8.Linux退出telnet</a></p><a href="#①">①
-                            Linux退出telnet方法</a><br><a href="#②">② 相关文章</a><br></div>
+                        <div class="dsd_catalog"><a href="#1">1 telnet命令测试ip和端口是否开放</a><br>
+                            <p><a href="#1.1">1.1 telnet测试已开放端口</a></p>
+                            <p><a href="#1.2">1.2 telnet测试没开放端口示例</a></p><a href="#2">2 Linux退出telnet命令行</a><br></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="8.Linux退出telnet"><h2>8.Linux退出telnet</h2></a></div>
-                    <p>在linux系统中, 可以通过telnet命令来测试ip和端口是否联通.</p>
-                    <p>启用这个命令连接成功后, 会进入telnet提示符.这个时候使用ctrl + c 或者ctrl + z都不能退出.</p>
-                    <div class="dsd_title_2"><a href="#top" id="①">① Linux退出telnet方法</a></div>
-                    <p>输入:</p>
-                    <pre class="prettyprint"><code>ctrl + ] 回车
+                    <div class="jumbotron">
+                        <p>
+                            在linux系统中,可以通过telnet命令来测试ip和端口是否可以连接.启用这个命令连接成功后,会进入telnet提示符状态.在开发过程和linux服务器部署过成功经常通过telnet命令可以测试IP和端口是否正常,来排查服务器配置或者网络连接问题.</p>
+                    </div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 telnet命令测试ip和端口是否开放</h3></a></div>
+                    <div class="dsd_title_2"><a href="#top" id="1.1">1.1 telnet测试已开放端口</a></div>
+                    <p>由于本机跑着nginx服务器,开通了80端口显示以上信心表示80端口可以连接.通过telnet命令来测试本机的80端口是否可以连接,输入命令"telnet 127.0.0.1
+                        80"显示示例:</p>
+                    <pre class="prettyprint"><code>root@dashidan.com:/dashidan.com# telnet 127.0.0.1 80
+Trying 127.0.0.1...
+Connected to 127.0.0.1.
+Escape character is '^]'.
 </code></pre>
-                    <p>这个时候进入telnet命令行, 输入:</p>
-                    <pre class="prettyprint"><code>quit
+                    <p>"Escape character is '^]'"这个提示的意思是:通过ESC键退出.按下ESC键shell命令中就会出现"^]"字符.再按下回车即可退出telnet命令.
+                        在这个窗口使用ctrl+c或者ctrl+z都可以退出.</p>
+                    <div class="dsd_title_2"><a href="#top" id="1.2">1.2 telnet测试没开放端口示例</a></div>
+                    <p>本机没有81端口,通过telnet命令来测试本机的81端口是否可以连接,输入命令"telnet 127.0.0.1 81"显示示例:</p>
+                    <pre class="prettyprint"><code>root@dashidan.com:/dashidan.com# telnet 127.0.0.1 81
+Trying 127.0.0.1...
+telnet: Unable to connect to remote host: Connection refused
 </code></pre>
-                    <p>按回车退出telnet窗口.</p>
-                    <div class="dsd_title_2"><a href="#top" id="②">② 相关文章</a></div>
-                    <p>📖 <a href="http://dashidan.com/article/linux/index.html">linux常用操作</a></p>
+                    <p>提示"telnet: Unable to connect to remote host: Connection refused"无法链接远端服务器, 连接被拒绝.表示该ip对应的端口无法连接.
+                        在这个窗口使用ctrl+c或者ctrl+z都可以退出.</p>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 Linux退出telnet命令行</h3></a></div>
+                    <p>
+                        通过"ctrl+]"可以进入telnet命令行.进入telnet命令行后,"Ctrl+c"无法退出telnet命令行,可以使用"Ctrl+z"在或者输入"quit"命令退出telnet命令行.</p>
                 </div>
             </div>
         </div>
@@ -154,7 +182,7 @@
             目录
         </div>
     </div>
-    <a href="http://dashidan.com/article/linux/common/9.html">下一篇: localefacet_S_create_c_locale name not valid</a>
+    <a href="http://dashidan.com/article/linux/common/9.html">下一篇: Linux压缩和解压缩</a>
 </footer>
 
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>

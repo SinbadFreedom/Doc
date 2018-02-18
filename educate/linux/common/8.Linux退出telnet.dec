@@ -1,0 +1,1 @@
+在linux系统中,可以通过telnet命令来测试ip和端口是否可以连接.启用这个命令连接成功后,会进入telnet提示符状态.可通过输入"Ctrl+c","Ctrl+z","quit"命令退出talnet命令行.

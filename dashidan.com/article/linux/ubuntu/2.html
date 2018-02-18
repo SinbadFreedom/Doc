@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Ubuntu安装配置SVN及常用命令</title>
-    <meta name="description" content="Ubuntu安装配置SVN及常用命令">
+    <title>linux安装配置SVN及常用命令</title>
+    <meta name="description" content="linux安装svn服务及svn权限设置.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -81,6 +81,19 @@
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/common/8.html">8.Linux退出telnet</a>
                         </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/9.html">9.Linux压缩和解压缩</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/10.html">10.Linux查看系统版本</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/11.html">11.Linux的shell脚本中数组及数组遍历</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/12.html">12.localefacet_S_create_c_locale
+                                name not valid</a>
+                        </div>
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('ubuntu')">
@@ -88,16 +101,16 @@
                     </div>
                     <div id="ubuntu" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/1.html">1.Ubuntu搭建nginx+mysql+php+php-fpm</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/1.html">1.linux搭建nginx+mysql+php+php-fpm</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/2.html">2.Ubuntu安装配置SVN及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/2.html">2.linux安装配置SVN及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/3.html">3.Ubuntu安装配置Apollo及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/3.html">3.linux安装配置Apollo及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/4.html">4.Ubuntu安装配置Zookeeper及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/4.html">4.linux安装配置Zookeeper及常用命令</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/ubuntu/5.html">5.Ubuntu允许root用户登录</a>
@@ -109,7 +122,7 @@
                     </div>
                     <div id="tmux" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/tmux/1.html">1.Centos安装tmux及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/tmux/2.html">2.Ubuntu安装配置tmux及常用命令</a>
@@ -123,51 +136,68 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>Ubuntu安装配置SVN及常用命令</h1></div>
+                <div class="dsd_title"><h1>linux安装配置SVN及常用命令</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#Ubuntu安装配置SVN及常用命令">Ubuntu安装配置SVN及常用命令</a><br><a href="#①">①
-                            ubuntu安装svn服务</a><br><a href="#②">② 创建svn仓储</a><br><a href="#③">③ 修改svn设置</a><br><a
-                            href="#④">④ 修改svn用户名和密码</a><br><a href="#⑤">⑤ 启动svn服务</a><br><a href="#⑥">⑥ 相关文章</a><br>
-                        </div>
+                        <div class="dsd_catalog"><a href="#1">1 linux安装svn服务</a><br><a href="#2">2 创建svn仓储</a><br><a
+                            href="#3">3 修改svn设置</a><br>
+                            <p><a href="#3.1">3.1 修改conf/svnserve.conf文件</a></p>
+                            <p><a href="#3.2">3.2 修改匿名访问的权限</a></p>
+                            <p><a href="#3.3">3.3 修改认证用户的权限</a></p>
+                            <p><a href="#3.3">3.3 修改密码数据库的路径</a></p><a href="#4">4 修改svn用户名和密码</a><br><a href="#5">5
+                                启动svn服务</a><br></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="Ubuntu安装配置SVN及常用命令"><h2>Ubuntu安装配置SVN及常用命令</h2></a>
-                    </div>
-                    <div class="dsd_title_2"><a href="#top" id="①">① ubuntu安装svn服务</a></div>
-                    <p>输入命令:</p>
-                    <pre><code>apt-get install subversion
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 linux安装svn服务</h3></a></div>
+                    <ul>
+                        <li>ubuntu安装svn服务
+                            输入命令:
+                        </li>
+                    </ul>
+                    <pre class="prettyprint"><code>apt-get install subversion
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="②">② 创建svn仓储</a></div>
+                    <ul>
+                        <li>Centos安装svn服务</li>
+                    </ul>
                     <p>输入命令:</p>
-                    <pre><code>mkdir -p /svn/plateform
+                    <pre class="prettyprint"><code>apt-get install subversion
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 创建svn仓储</h3></a></div>
+                    <p>输入命令:</p>
+                    <pre class="prettyprint"><code>mkdir -p /svn/plateform
 svnadmin create /svn/plateform
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="③">③ 修改svn设置</a></div>
-                    <h3>修改svn目录下的conf/svnserve.conf文件</h3>
-                    <p>去掉#[general]前面的#号</p>
-                    <pre><code>[general]
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 修改svn设置</h3></a></div>
+                    <div class="dsd_title_2"><a href="#top" id="3.1">3.1 修改conf/svnserve.conf文件</a></div>
+                    <p>这个文件是svn的权限配置文件在svn安装目录下.去掉#[general]前面的#号</p>
+                    <pre class="prettyprint"><code>[general]
 </code></pre>
-                    <h3>匿名访问的权限，可以是read,write,none,默认为read</h3>
-                    <pre><code>anon-access = none
+                    <div class="dsd_title_2"><a href="#top" id="3.2">3.2 修改匿名访问的权限</a></div>
+                    <p>svn的文件匿名访问的权限可以是read,write,none,默认为read.这个必须修改, 否则默认是匿名用户可以下载,
+                        这样对于svn中的文件信息不安全.将"anon-access"改为"none".可以设置为默认不允许访问.</p>
+                    <pre class="prettyprint"><code>anon-access = none
 </code></pre>
-                    <h3>认证用户的权限，可以是read,write,none,默认为write</h3>
-                    <pre><code>auth-access = write
+                    <pre><code>
 </code></pre>
-                    <h3>密码数据库的路径，去掉前面的</h3>
-                    <pre><code>password-db = passwd
+                    <div class="dsd_title_2"><a href="#top" id="3.3">3.3 修改认证用户的权限</a></div>
+                    <p>svn的认证用户的权限可以是read,write,none,默认为write.</p>
+                    <pre class="prettyprint"><code>auth-access = write
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="④">④ 修改svn用户名和密码</a></div>
-                    <p>修改配置文件<code>passwd</code></p>
-                    <pre><code>[users]
-name = password
+                    <pre><code>
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="⑤">⑤ 启动svn服务</a></div>
+                    <div class="dsd_title_2"><a href="#top" id="3.3">3.3 修改密码数据库的路径</a></div>
+                    <p>去掉"password-db"前面的"#",这样表示在passwd文件中来设定用户的密码.</p>
+                    <pre class="prettyprint"><code>password-db = passwd
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 修改svn用户名和密码</h3></a></div>
+                    <p>修改配置文件passwd,[users]部分设置用户名和密码,等号前边是用户名后边是密码.</p>
+                    <pre class="prettyprint"><code>[users]
+dashidan.com = 大屎蛋教程网
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 启动svn服务</h3></a></div>
                     <p>输入命令:</p>
-                    <pre><code>svnserve -d -r /svn/plateform
+                    <pre class="prettyprint"><code>svnserve -d -r /svn/dashidan.com
 </code></pre>
-                    <p>完成, 现在可以使用svn工具比如<code>TutorialSVN</code>连接svn服务器了.</p>
-                    <div class="dsd_title_2"><a href="#top" id="⑥">⑥ 相关文章</a></div>
-                    <p>📖 <a href="http://dashidan.com/article/linux/index.html">linux常用操作</a></p>
+                    <p>完成, 现在可以使用svn客户端工具比如"TutorialSVN"连接svn服务器了.</p>
                 </div>
             </div>
         </div>
@@ -180,7 +210,7 @@ name = password
             目录
         </div>
     </div>
-    <a href="http://dashidan.com/article/linux/ubuntu/3.html">下一篇: Ubuntu安装配置Apollo及常用命令</a>
+    <a href="http://dashidan.com/article/linux/ubuntu/3.html">下一篇: linux安装配置Apollo及常用命令</a>
 </footer>
 
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>

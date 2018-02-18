@@ -207,7 +207,7 @@
                             位运算是通过二进制计算的方式来改变数据.位运算表达式由操作数和位运算符组成,实现对整数类型的二进制数进行位运算.位运算符可以分为逻辑运算符(包括~,&,|和^)及移位运算符(包括`>>`,`<<`和`>>>`).
                         </p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 Java进位方式</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 Java进位方式</h3></a></div>
                     <p>在Java语言中, 二进制数使用补码表示, 最高位为符号位, 正数的符号位为0, 负数为1.</p>
                     <p>补码的表示规则:</p>
                     <ul>
@@ -305,7 +305,7 @@ public class Demo1 {
                     <p>输出:</p>
                     <pre><code>d: -64 e: -256
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 位运算逻辑运算符</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 位运算逻辑运算符</h3></a></div>
                     <p>位运算逻辑运算符包括: 与(&amp;),非(~),或(|),异或(^).</p>
                     <ul>
                         <li>&amp;: 与. 当两边操作数的位同时为1时, 结果为1, 否则为0.</li>
@@ -392,7 +392,7 @@ public class Demo3 {
                         <h4>数a两次异或同一个数b(a=a^b^b)仍然为原值.
                         </h4>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 移位运算符</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 移位运算符</h3></a></div>
                     <p>java移位运算符包括:</p>
                     <ul>
                         <li><code>&lt;&lt;</code>:左移位</li>
@@ -498,7 +498,7 @@ public class Demo4 {
                         <h4>char,byte或者short移位</h4>
                         <p>在移位前,它们会自动转换成一个int. 移位操作符右端的那个数(转化成二进制)的5个低位才会用到, 即x<
                             <y
-                            ,是指y的低5位才有用,即不能大于32. 对于long也是同样道理(6个低位).这样可防止我们在一个int数里移动不切实际的位数.
+                                ,是指y的低5位才有用,即不能大于32. 对于long也是同样道理(6个低位).这样可防止我们在一个int数里移动不切实际的位数.
                         </p>
                     </div>
                     <p>在进行位运算时,需要注意以下几点:</p>
@@ -512,9 +512,9 @@ public class Demo4 {
                         <li>按位或运算可以用来对某个整型数的特定位的值置l.</li>
                         <li>数a两次异或同一个数b(<code>a^b^b</code>),仍然为原值.</li>
                     </ul>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 位运算符的优先级</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 位运算符的优先级</h3></a></div>
                     <p>~的优先级最高,其次是<<,>&gt;和&gt;&gt;&gt;,再次是&amp;,然后是^,优先级最低的是|. </p>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 相关文章</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 相关文章</h3></a></div>
                     <p><a href="http://dashidan.com/article/java/basic/7.html">Java运算符</a></p>
                 </div>
             </div>

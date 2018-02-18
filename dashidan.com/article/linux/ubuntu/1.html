@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Ubuntu搭建nginx+mysql+php+php-fpm</title>
-    <meta name="description" content="Ubuntu搭建nginx+mysql+php+php-fpm">
+    <title>linux搭建nginx+mysql+php+php-fpm</title>
+    <meta name="description"
+          content="在linux系统中,LAMP(Linux, Apache, MySql, PHP)曾经是最流行的web服务器组合.在nginx问世之后,以高效,轻量的优势,引起了IT行业的变革. 以迅雷不及掩耳之势替代了很多apache的市场份额.成为了新一代的linux系统web组合LNMP(Linux, Nginx, Mysql, PHP).">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -81,6 +82,19 @@
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/common/8.html">8.Linux退出telnet</a>
                         </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/9.html">9.Linux压缩和解压缩</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/10.html">10.Linux查看系统版本</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/11.html">11.Linux的shell脚本中数组及数组遍历</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/12.html">12.localefacet_S_create_c_locale
+                                name not valid</a>
+                        </div>
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('ubuntu')">
@@ -88,16 +102,16 @@
                     </div>
                     <div id="ubuntu" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/1.html">1.Ubuntu搭建nginx+mysql+php+php-fpm</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/1.html">1.linux搭建nginx+mysql+php+php-fpm</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/2.html">2.Ubuntu安装配置SVN及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/2.html">2.linux安装配置SVN及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/3.html">3.Ubuntu安装配置Apollo及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/3.html">3.linux安装配置Apollo及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/4.html">4.Ubuntu安装配置Zookeeper及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/4.html">4.linux安装配置Zookeeper及常用命令</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/ubuntu/5.html">5.Ubuntu允许root用户登录</a>
@@ -109,7 +123,7 @@
                     </div>
                     <div id="tmux" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/tmux/1.html">1.Centos安装tmux及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/tmux/2.html">2.Ubuntu安装配置tmux及常用命令</a>
@@ -123,70 +137,75 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>Ubuntu搭建nginx+mysql+php+php-fpm</h1></div>
+                <div class="dsd_title"><h1>linux搭建nginx+mysql+php+php-fpm</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#Ubuntu搭建nginx+mysql+php+php-fpm">Ubuntu搭建nginx+mysql+php+php-fpm</a><br><a
-                            href="#①">① 安装nginx, php, mysql, php-fpm服务</a><br><a href="#②">② 创建web目录</a><br><a
-                            href="#③">③ 修改nginx root路径</a><br><a href="#④">④ nginx开启php解析功能</a><br><a href="#⑤">⑤
-                            重启nginx,php-fpm</a><br><a href="#⑥">⑥ 测试nginx, php-fpm是否配置成功</a><br><a href="#⑦">⑦ 测试php,
-                            mysql连接</a><br><a href="#⑧">⑧ 相关文章</a><br></div>
+                        <div class="dsd_catalog"><a href="#1">1 linux安装nginx php mysql php-fpm服务</a><br><a href="#2">2
+                            创建web目录</a><br><a href="#3">3 修改nginx root路径</a><br><a href="#4">4 nginx开启php解析功能</a><br><a
+                            href="#5">5 重启nginx,php-fpm</a><br><a href="#6">6 测试nginx, php-fpm是否配置成功</a><br><a
+                            href="#7">7 测试php, mysql连接</a><br></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="Ubuntu搭建nginx+mysql+php+php-fpm"><h2>
-                        Ubuntu搭建nginx+mysql+php+php-fpm</h2></a></div>
-                    <div class="dsd_title_2"><a href="#top" id="①">① 安装nginx, php, mysql, php-fpm服务</a></div>
+                    <div class="jumbotron">
+                        <p>在linux系统中,LAMP(Linux, Apache, MySql, PHP)曾经是最流行的web服务器组合.在nginx问世之后,以高效,轻量的优势,引起了IT行业的变革.
+                            以迅雷不及掩耳之势替代了很多apache的市场份额.成为了新一代的linux系统web组合LNMP(Linux, Nginx, Mysql, PHP).</p>
+                    </div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 linux安装nginx php mysql php-fpm服务</h3></a></div>
+                    <ul>
+                        <li>Ubuntu安装nginx php mysql php-fpm服务</li>
+                    </ul>
                     <p>输入以下命令:</p>
-                    <pre><code>apt-get update
+                    <pre class="prettyprint"><code>apt-get update
 apt-get install nginx
 apt-get install php5-cli php5-cgi mysql-server php5-mysql
 apt-get install php5-fpm
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="②">② 创建web目录</a></div>
+                    <ul>
+                        <li>Centos安装nginx php mysql php-fpm服务</li>
+                    </ul>
                     <p>输入以下命令:</p>
-                    <pre><code>mkdir -p /workplace/plateform/web
+                    <pre class="prettyprint"><code>yum install nginx
+yum install php5-cli php5-cgi mysql-server php5-mysql
+yum install php5-fpm
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="③">③ 修改nginx root路径</a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 创建web目录</h3></a></div>
                     <p>输入以下命令:</p>
-                    <pre><code>vim /etc/nginx/sites-enabled/default
+                    <pre class="prettyprint"><code>mkdir -p /dashidan.com/plateform/web
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 修改nginx root路径</h3></a></div>
+                    <p>输入以下命令:</p>
+                    <pre class="prettyprint"><code>vim /etc/nginx/sites-enabled/default
 </code></pre>
                     <p><code>index</code> 字段后边加入<code>index.php</code>, 开启默认支持查找<code>index.php</code>入口.</p>
-                    <div class="dsd_title_2"><a href="#top" id="④">④ nginx开启php解析功能</a></div>
-                    <p>打开注释掉php解析的部分.<br/>
-                        查找<code>php-fpm.sock</code>文件的路径:</p>
-                    <pre><code>find / -name php5-fpm.sock
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 nginx开启php解析功能</h3></a></div>
+                    <p>打开注释掉php解析的部分.通过find命令查找<code>php-fpm.sock</code>文件的路径:</p>
+                    <pre class="prettyprint"><code>find / -name php5-fpm.sock
 </code></pre>
-                    <p>不同版本的linux操作系统和php的版本不一样, 有的有该文件, 有的没有.<br/>
-                        如果有<code>php5-fpm.sock</code>文件, 将这个路径设置到php-fpm区域. </p>
-                    <p>如果没有<code>php5-fpm.sock</code>文件, 采用<code>php-cgi</code>的9000端口配置. </p>
-                    <div class="dsd_title_2"><a href="#top" id="⑤">⑤ 重启nginx,php-fpm</a></div>
-                    <pre><code>service nginx restart
+                    <p>不同版本的linux操作系统和php的版本不一样, 有的有该文件, 有的没有.如果有<code>php5-fpm.sock</code>文件,
+                        将这个路径设置到php-fpm区域.如果没有<code>php5-fpm.sock</code>文件, 采用<code>php-cgi</code>的9000端口配置. </p>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 重启nginx,php-fpm</h3></a></div>
+                    <pre class="prettyprint"><code>service nginx restart
 service php5-fpm restart
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="⑥">⑥ 测试nginx, php-fpm是否配置成功</a></div>
-                    <p>通过<code>phpinfo()</code>查看php是否配置成功.
-                        将以下代码复制, 保存为<code>index.php</code>, 放入web根目录.
-                        使用浏览器打开ip地址, 查看是否有php配置信息, 有的话说明成功.</p>
+                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 测试nginx, php-fpm是否配置成功</h3></a></div>
+                    <p>通过<code>phpinfo()</code>查看php是否配置成功.将以下代码复制, 保存为<code>index.php</code>, 放入web根目录.使用浏览器打开ip地址,
+                        查看是否有php配置信息, 有的话说明成功.</p>
                     <pre class="prettyprint"><code class="php language-php">&lt;?php
     phpinfo();
 ?&gt;
 </code></pre>
-                    <p>注:
-                        <code>phpinfo()</code>显示了php支持的所有木块, 如果其中有<code>Mysql</code>标签信息, 说明<code>php-mysql</code>扩展安装成功,
+                    <p><code>phpinfo()</code>显示了php支持的所有木块, 如果其中有<code>Mysql</code>标签信息, 说明<code>php-mysql</code>扩展安装成功,
                         如果没有, 需要重新安装<code>php-mysql</code>模块.</p>
-                    <div class="dsd_title_2"><a href="#top" id="⑦">⑦ 测试php, mysql连接</a></div>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>这里的用户名和密码改为安装`mysql`时自己设定的密码.
-                        <p>
-                    </div>
+                    <div class="dsd_title_1"><a href="#top" id="7"><h3>7 测试php, mysql连接</h3></a></div>
+                    <p>将以下代码复制到test.php文件中.</p>
                     <pre class="prettyprint"><code class="php language-php">&lt;?php
     $link=mysql_connect("dashidan.com","root","123");
-    if(!$link) echo "FAILD!连接错误, 请检查php用户名密码不对";
+    if(!$link) echo "请检查php用户名密码.大屎蛋教程网.";
     else echo "OK!可以连接";
 ?&gt;
 </code></pre>
-                    <p>ubuntu nginx+mysql+php+php-fpm配置成功.</p>
-                    <div class="dsd_title_2"><a href="#top" id="⑧">⑧ 相关文章</a></div>
-                    <p>📖 <a href="http://dashidan.com/article/linux/index.html">linux常用操作</a></p>
+                    <p>这里的用户名和密码改为安装<code>mysql</code>时自己设定的密码.在浏览器打开"http://dashidan.com/test.php",
+                        如果显示"OK!可以连接"说明nginx+mysql+php+php-fpm配置成功.如果显示"请检查php用户名密码.大屎蛋教程网."表示配置错误, 重新检查各项配置及数据库的用户名和密码.
+                    </p>
                 </div>
             </div>
         </div>
@@ -199,7 +218,7 @@ service php5-fpm restart
             目录
         </div>
     </div>
-    <a href="http://dashidan.com/article/linux/ubuntu/2.html">下一篇: Ubuntu安装配置SVN及常用命令</a>
+    <a href="http://dashidan.com/article/linux/ubuntu/2.html">下一篇: linux安装配置SVN及常用命令</a>
 </footer>
 
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>

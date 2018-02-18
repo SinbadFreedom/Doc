@@ -202,7 +202,7 @@
                         <div class="dsd_catalog"><a href="#1">1 方法引用的概念</a><br><a href="#2">2 方法引用的种类</a><br><a
                             href="#3">3 参考文章</a><br></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 方法引用的概念</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 方法引用的概念</h3></a></div>
                     <p>某些lambda表达式里面仅仅是执行一个方法调用. 在这种情况下,不用lambda表达式,直接通过方法名称引用方法的形式可读性更高一些,这种形式就是方法引用.
                         方法引用是一种更简洁易懂的lambda表达式.</p>
                     <p>看下面这个Person类:</p>
@@ -260,7 +260,7 @@ Arrays.sort(rosterAsArray, new PersonAgeComparator());
                     <p>两者有如下的共同点:</p>
                     <p>1.形参相同.都是(Person, Person).
                         2.调用方法Person.compareByAge.</p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 方法引用的种类</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 方法引用的种类</h3></a></div>
                     <table class="table table-bordered table-responsive text-center">
                         <thead>
                         <tr class="info">
@@ -334,7 +334,7 @@ Arrays.sort(stringArray, String::compareToIgnoreCase);
                     <p>Java编译器推断出你想创建一个HashSet集合,其中包含Person类型的元素.当然,你也可以像下面这样显式的指定集合元素的类型为Person</p>
                     <pre class="prettyprint"><code class="java language-java">Set&lt;Person&gt;rosterSet = transferElements(roster,HashSet&lt;Person&gt;::new);
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 参考文章</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 参考文章</h3></a></div>
                     <p><a href="http://blog.csdn.net/wwwsssaaaddd/article/details/37573517">http://blog.csdn.net/wwwsssaaaddd/article/details/37573517</a>
                     </p>
                     <p><a href="http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html</a>

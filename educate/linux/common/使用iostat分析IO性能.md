@@ -3,7 +3,30 @@
  
 对于I/O-bond类型的进程，我们经常用iostat工具查看进程IO请求下发的数量、系统处理IO请求的耗时，进而分析进程与操作系统的交互过程中IO方面是否存在瓶颈。
 
- 
+
+1 安装iostat命令
+===
+linux系统默认不带iostat命令输入iostat后显示:
+
+```
+The program 'iostat' is currently not installed. You can install it by typing:
+apt install sysstat
+```
+
+通过安装sysstat包来使用iostate命令
+
+- ubuntu安装sysstate包:
+
+```
+sudo apt install sysstat
+```
+
+- centos安装sysstate包:
+
+```
+yum install sysstat
+```
+
 
 下面通过iostat命令使用实例，说明使用iostat查看IO请求下发情况、系统IO处理能力的方法，以及命令执行结果中各字段的含义。
 

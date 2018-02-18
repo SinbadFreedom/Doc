@@ -205,7 +205,7 @@
                     <div class="jumbotron">
                         <p>default方法可以认为是Lambda表达式和JDK类库之间的桥梁.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 为什么要有default方法</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 为什么要有default方法</h3></a></div>
                     <p>在JDK8发布之际,有件事情就显得非常重要,即在不破坏java现有实现架构的情况下能往接口里增加新方法.优化接口的同时,避免跟现有实现架构的兼容问题.</p>
                     <p>引入default方法的主要目的是为了升级标准JDK接口, 最终能在JDK8中顺畅使用Lambda表达式.</p>
                     <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/example.jpg"
@@ -221,7 +221,7 @@ list.forEach(...);// Lambda 表达式
                         方法,它目前可以添加到接口中,为声明的方法提供默认的实现.</p>
                     <p>简单地说,Java接口现在可以有非抽象方法了. default方法带来的好处是,往接口新增一个default方法,而不破坏现有的实现架构.
                         尽管如此, default方法不适合过多使用,但是对于Java集合API的优化升级,并达到无缝地结合Lambda表达式来说,default 方法是至关重要的特性.</p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 default方法入门</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 default方法入门</h3></a></div>
                     <p>从最简单可行的例子开始. 下面代码定义了接口A,以及实现了接口A的Clazz类:</p>
                     <pre class="prettyprint"><code class="java language-java">public  interface  A {
     default  void  foo(){
@@ -281,7 +281,7 @@ publicclassClazzimplements A, B {}
                     <pre class="prettyprint"><code class="java language-java">List&lt;?&gt; list = ...
 list.forEach(System.out::println);
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 方法调用</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 方法调用</h3></a></div>
                     <p>我们来看看实际上是如何调用default方法的.
                         从客户端代码角度来看,default方法只不过都是初始化的抽象方法.因此default方法也叫-虚拟扩展方法.</p>
                     <p>如果出现上例中的那个类,该类实现了带default方法的接口,那么调用default方法的客户端代码会在调用端生成invokeinterface .
@@ -308,7 +308,7 @@ clazz.foo();// invokevirtual foo()
   4: return
 </code></pre>
                     <p>如上面所示的,invokespecial 指令用来调用接口中定义的方法foo().这从字节码的角度看也是新东西,因为先前你进行方法调用,仅是通过指向父类的super而不是指向父接口的.</p>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 参考文章</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 参考文章</h3></a></div>
                     <p><a href="http://blog.csdn.net/wwwsssaaaddd/article/details/24213525">http://blog.csdn.net/wwwsssaaaddd/article/details/24213525</a>
                     </p>
                 </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>linux常用命令</title>
-    <meta name="description" content="linux常用命令">
+    <meta name="description" content="linux常用运维命令, linux磁盘信息, linux挂在磁盘, linux日常关键词查找.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -81,6 +81,19 @@
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/common/8.html">8.Linux退出telnet</a>
                         </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/9.html">9.Linux压缩和解压缩</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/10.html">10.Linux查看系统版本</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/11.html">11.Linux的shell脚本中数组及数组遍历</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/linux/common/12.html">12.localefacet_S_create_c_locale
+                                name not valid</a>
+                        </div>
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('ubuntu')">
@@ -88,16 +101,16 @@
                     </div>
                     <div id="ubuntu" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/1.html">1.Ubuntu搭建nginx+mysql+php+php-fpm</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/1.html">1.linux搭建nginx+mysql+php+php-fpm</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/2.html">2.Ubuntu安装配置SVN及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/2.html">2.linux安装配置SVN及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/3.html">3.Ubuntu安装配置Apollo及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/3.html">3.linux安装配置Apollo及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/ubuntu/4.html">4.Ubuntu安装配置Zookeeper及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/ubuntu/4.html">4.linux安装配置Zookeeper及常用命令</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/ubuntu/5.html">5.Ubuntu允许root用户登录</a>
@@ -109,7 +122,7 @@
                     </div>
                     <div id="tmux" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/tmux/1.html">1.Centos安装tmux及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/tmux/2.html">2.Ubuntu安装配置tmux及常用命令</a>
@@ -126,42 +139,44 @@
                 <div class="dsd_title"><h1>linux常用命令</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#Linux常用命令">Linux常用命令</a><br><a href="#①">①
-                            linux常用命令</a><br><a href="#②">② 相关文章</a><br></div>
+                        <div class="dsd_catalog"><a href="#1">1 linux查看目录占用空间</a><br><a href="#2">2
+                            linux查看磁盘信息</a><br><a href="#3">3 linux查看挂载的磁盘信息</a><br><a href="#4">4 linux查看磁盘使用情况</a><br><a
+                            href="#5">5 linux递归复制</a><br><a href="#6">6 linux查看指定文件大小</a><br><a href="#7">7
+                            linux挂载磁盘</a><br><a href="#8">8 linux日志搜索</a><br></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="Linux常用命令"><h2>Linux常用命令</h2></a></div>
-                    <div class="dsd_title_2"><a href="#top" id="①">① linux常用命令</a></div>
-                    <h3>查看目录占用空间</h3>
-                    <pre><code> du -h --max-depth=1
+                    <div class="jumbotron">
+                        <p>linux常用运维命令, linux磁盘信息, linux挂在磁盘, linux日常关键词查找.</p>
+                    </div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 linux查看目录占用空间</h3></a></div>
+                    <pre class="prettyprint"><code>du -h --max-depth=1
 </code></pre>
-                    <h3>查看磁盘信息</h3>
-                    <pre><code> fdisk -l
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 linux查看磁盘信息</h3></a></div>
+                    <pre class="prettyprint"><code>fdisk -l
 </code></pre>
-                    <h3>查看挂载的磁盘信息</h3>
-                    <pre><code>mount -l
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 linux查看挂载的磁盘信息</h3></a></div>
+                    <pre class="prettyprint"><code>mount -l
 </code></pre>
-                    <h3>查看磁盘使用情况</h3>
-                    <pre><code>df -Th
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 linux查看磁盘使用情况</h3></a></div>
+                    <pre class="prettyprint"><code>df -Th
 </code></pre>
-                    <h3>递归复制</h3>
-                    <pre><code>cp -r bbs ../backup/bbs
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 linux递归复制</h3></a></div>
+                    <pre class="prettyprint"><code>cp -r bbs ../backup/bbs
 </code></pre>
-                    <h3>查看指定文件大小</h3>
-                    <pre><code> du -hs /data
+                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 linux查看指定文件大小</h3></a></div>
+                    <pre class="prettyprint"><code>du -hs /data
 </code></pre>
-                    <h3>挂载磁盘</h3>
-                    <pre><code>mount  /dev/xvdb1 /data
+                    <div class="dsd_title_1"><a href="#top" id="7"><h3>7 linux挂载磁盘</h3></a></div>
+                    <pre class="prettyprint"><code>mount  /dev/xvdb1 /data
 </code></pre>
-                    <h3>日志搜索</h3>
-                    <p>在名为"1.log"的文件中搜索包含"ERROR"的上下5行日志并将结果输出到名为"2.log"的文件</p>
-                    <pre><code>cat 1.log | grep "ERROR" -a5 &gt; 2.log
+                    <div class="dsd_title_1"><a href="#top" id="8"><h3>8 linux日志搜索</h3></a></div>
+                    <p>在名为"log"的文件中搜索包含"ERROR"的上下5行日志并将结果输出到名为"2.log"的文件</p>
+                    <pre class="prettyprint"><code>cat log | grep "ERROR" -a5 &gt; 2.log
 </code></pre>
-                    <h3>修改服务器时间</h3>
-                    <p>设置时间为2008年8月8号12:00</p>
-                    <pre><code>date -s "2008-08-08 12:00:00"
+                    <p>9 linux修改服务器时间</p>
+                    <pre class="prettyprint"><code>设置时间为2018年8月8号12:00
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="②">② 相关文章</a></div>
-                    <p>📖 <a href="http://dashidan.com/article/linux/index.html">linux常用操作</a></p>
+                    <p>date -s "2018-08-08 12:00:00"
+                        ```</p>
                 </div>
             </div>
         </div>

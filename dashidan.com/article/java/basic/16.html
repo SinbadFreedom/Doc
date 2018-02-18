@@ -206,7 +206,7 @@
                         <p>Java异常是Java提供的一种识别及响应错误的一致性机制.
                         </p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 Java异常机制相关关键字</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 Java异常机制相关关键字</h3></a></div>
                     <p>Java异常机制相关关键字有:
                         <code>try</code>、<code>catch</code>、<code>finally</code>、<code>throw</code>、<code>throws</code>.
                         关键字解释: </p>
@@ -225,7 +225,7 @@
                         <li>throw 用于抛出异常.</li>
                         <li>throws 用在方法签名中,用于声明该方法可能抛出的异常.</li>
                     </ul>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 Java异常框架</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 Java异常框架</h3></a></div>
                     <p>Java将可抛出(Throwable)的结构分为三种类型：</p>
                     <ul>
                         <li>编译异常(Checked Exception)</li>
@@ -347,7 +347,7 @@
                         <p>对于可以恢复的条件使用被检查异常,对于程序错误使用运行时异常.虚拟机及系统错误采用Error.
                         </p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 捕获异常</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 捕获异常</h3></a></div>
                     <p>使用<code>try</code>和<code>catch</code>关键字可以捕获异常.<code>try/catch</code>代码块放在异常可能发生的地方. </p>
                     <p>语法如下：</p>
                     <pre class="prettyprint"><code class="java language-java">try {
@@ -368,7 +368,7 @@
     /** 异常处理*/
 }
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 抛出异常</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 抛出异常</h3></a></div>
                     <p>可以使用<code>throw</code>关键字抛出一个异常.</p>
                     <pre class="prettyprint"><code class="java language-java">public static void testThrow() {
     /** 方法体*/
@@ -389,7 +389,7 @@
     /** 方法体*/
 }
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 finally关键字</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 finally关键字</h3></a></div>
                     <p><code>finally</code>关键字用来创建在<code>try</code>代码块后面执行的代码块. 无论是否发生异常,<code>finally</code>代码块中的代码总会被执行.
                         在<code>finally</code>代码块中,可以运关闭链接, 释放系统资源等必须要执行的语句. </p>
                     <p><code>finally</code>代码块出现在<code>catch</code>代码块最后. </p>
@@ -460,7 +460,7 @@ java.lang.NullPointerException
     at java.lang.reflect.Method.invoke(Method.java:497)
     at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 自定义异常</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 自定义异常</h3></a></div>
                     <p>在<code>Java</code>中自定义异常需要注意:</p>
                     <ul>
                         <li>所有异常都必须是 Throwable 的子类.</li>

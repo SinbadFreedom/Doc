@@ -151,7 +151,7 @@
                         <p>MongoDB采用`BSON`数据类型, 比`JSON`格式提供了更多的数据类型. 数据库驱动提供了本地方法支持这些数据类型,
                             并且mongo命令行也提供了一些帮助类来使用这些数据类型.数据类型包括以下几种:</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 Date</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 Date</h3></a></div>
                     <p>mongo命令行返回当前时间, 以字符串或者一个对象的形式.</p>
                     <ul>
                         <li>Date() 以字符串返回当前时间</li>
@@ -193,7 +193,7 @@ myDateInitUsingISODateWrapper instanceof Date
                     <pre class="prettyprint"><code>true
 true
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 ObjectId</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 ObjectId</h3></a></div>
                     <p>mongo命令行提供了<code>ObjectId()</code>包装类来封装<code>ObjectId</code>数据类型.</p>
                     <p>生成一个新的ObjectId,输入:</p>
                     <pre class="prettyprint"><code>new ObjectId
@@ -201,7 +201,7 @@ true
                     <p>显示:</p>
                     <pre class="prettyprint"><code>ObjectId("59f1ac932cacee0f03e35dc6")
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 NumberLong</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 NumberLong</h3></a></div>
                     <p>mongo命令默认返回浮点数, 提供了<code>NumberLong()</code>包装类来返回一个64位的整数.</p>
                     <p>例如:</p>
                     <pre class="prettyprint"><code>NumberLong("2090845886852")
@@ -233,15 +233,15 @@ db.collection.updateOne( { _id: 10 },
                     <p>3.显示结果</p>
                     <pre class="prettyprint"><code>{ "_id" : 10, "calc" : 2555555000010 }
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 NumberInt</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 NumberInt</h3></a></div>
                     <p>mongo命令默认所有的数字类型数字为64位浮点型, 提供了<code>NumberInt()</code>构造函数来生成32位整数.</p>
                     <p>理论同<code>NumberLong</code>.</p>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 NumberDecimal</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 NumberDecimal</h3></a></div>
                     <p>mongo命令默认所有的数字类型数字为64位浮点型, 提供了<code>NumberDecimal()</code>构造函数来指定128位浮点型十进制小数.</p>
                     <div class="bs-callout bs-callout-warning">
                         <h4>浮点数满足了绝大部分应用场景,不再额外介绍这个.可以参考原文.</h4>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 mongo命令查看类型</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 mongo命令查看类型</h3></a></div>
                     <p>mongo命令中可以通过<code>instanceof</code>和<code>typeof</code>操作符来查看数据类型.</p>
                     <h3>1.instanceof</h3>
                     <p><code>instanceof</code>返回一个布尔值, 来表示是否是某个类型的实例.</p>
@@ -259,10 +259,10 @@ db.collection.updateOne( { _id: 10 },
                     <div class="bs-callout bs-callout-warning">
                         <h4>这里返回`object`类型而不是`ObjectId`类型.</h4>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="7"><h2>7 参考文章</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="7"><h3>7 参考文章</h3></a></div>
                     <p><a href="https://docs.mongodb.com/manual/core/shell-types/">https://docs.mongodb.com/manual/core/shell-types/</a>
                     </p>
-                    <div class="dsd_title_1"><a href="#top" id="8"><h2>8 相关文章</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="8"><h3>8 相关文章</h3></a></div>
                     <p><a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
                 </div>
             </div>

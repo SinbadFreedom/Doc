@@ -213,7 +213,7 @@
                         <p>* 批量数据操作(bulk dataoperations)</p>
                         </p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 函数接口(Functional Interface)</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 函数接口(Functional Interface)</h3></a></div>
                     <p>只包含一个抽象方法的接口,所以也称为SAM(Single Abstract Method)类型的接口.</p>
                     <div class="bs-callout bs-callout-success">
                         <h4>单方法接口(Single Abstract Method)</h4>
@@ -223,23 +223,23 @@
                             alt="举个栗子"/></p>
                     <p>Runnable接口中,只有一个run()方法.这个Runnalbe接口即为单方法接口, 也叫函数接口.</p>
                     <p>JDK8中新增了许多函数接口, 一个重要的原因是为了支持新增加的Lambda表达式.</p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 Lambda表达式</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 Lambda表达式</h3></a></div>
                     <p>Java中的Lambda表达式是一种匿名方法.可以将函数接口中的函数作为方法参数处理, 使代码更加简洁.</p>
                     <p>在Java中Lambda表达式返回值是一个对象, 这个对象必须是单方法接口(Single Abstract Method)对象.</p>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 方法引用(Method Reference)</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 方法引用(Method Reference)</h3></a></div>
                     <p>
                         Lambda表达式的一种特殊形式.当一个lambda表达式body中仅仅是调用某个方法,这种情况下,使用方法引用替代lambda表达式,从形式上直接引用这个方法,这就比在lambda表达式body中引用在形式上更简洁一些.</p>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 default方法</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 default方法</h3></a></div>
                     <p>
                         Default方法可以认为是Lambda表达式和JDK类库之间的桥梁.引入Default方法的主要目的是为了升级标准JDK接口，另外也是为了我们最终能在JDK8中顺畅使用Lambda表达式.</p>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 批量数据操作(bulk dataoperations)</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 批量数据操作(bulk dataoperations)</h3></a></div>
                     <p>引入批量数据操作的目的是应用lambda函数来实现包含并行操作在内的多种数据处理功能，而支持并行数据操作是其关键内容.这个并行操作是在Java7
                         java.util.concurrency的Fork/Join机制上实现的.</p>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 总结</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 总结</h3></a></div>
                     <p>Lambda表达式极大地提升的代码可读性并使Java语言更加具有表现力,尤其当我们使用新增的数据流API时.相应地,<code>default</code>方法对API升级至关重要,它用来把Lambda表达式集成到集合API中,为我们使用提供便利.
                     </p>
                     <p>所有新特性的终极目标却是引入并行类库和无缝地利用多核硬件的优势.这些新的变化,将使我们能够以更加高效的方式充分利用Java语言.</p>
-                    <div class="dsd_title_1"><a href="#top" id="7"><h2>7 参考文章</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="7"><h3>7 参考文章</h3></a></div>
                     <p><a
                         href="http://zeroturnaround.com/rebellabs/java-8-revealed-lambdas-default-methods-and-bulk-data-operations/">http://zeroturnaround.com/rebellabs/java-8-revealed-lambdas-default-methods-and-bulk-data-operations/</a>
                     </p>

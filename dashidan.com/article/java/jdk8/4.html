@@ -204,7 +204,7 @@
                             href="#3">3 使用Lambda表达式对集合排序</a><br><a href="#4">4 Lambad表达式在流式操作中的应用</a><br><a href="#5">5
                             参考文章</a><br></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 Lambda表达式的语法</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 Lambda表达式的语法</h3></a></div>
                     <p>Lambda表达式的本质是一个"语法糖", 由编译器推断并转换为常规的代码, 对应"单抽象方法接口"中的那一个方法.</p>
                     <p>基本语法:</p>
                     <pre class="prettyprint"><code>(parameters) -&gt; expression
@@ -228,7 +228,7 @@ x -&gt; 2 * x
 // 5 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)
 (String s) -&gt; System.out.print(s)
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 基本的Lambda例子</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 基本的Lambda例子</h3></a></div>
                     <p>在本节中,我们将看到lambda表达式如何影响我们编码的方式. 假设有一个玩家List,可以使用"for 循环"来遍历,在Java SE 8中可以转换为另一种形式:</p>
                     <pre class="prettyprint"><code>String[] atp = {"Rafael Nadal", "Novak Djokovic",
        "Stanislas Wawrinka",
@@ -284,7 +284,7 @@ Runnable race1 = new Runnable() {
 // 2.2使用 lambda expression
 Runnable race2 = () -&gt; System.out.println("Hello world !");
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 使用Lambda表达式对集合排序</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 使用Lambda表达式对集合排序</h3></a></div>
                     <p>在Java中, Comparator类被用来排序集合.</p>
                     <p>在下面的例子中,我们将根据球员的 name, surname, name 长度 以及最后一个字母.和前面的示例一样,先使用匿名内部类来排序,然后再使用lambda表达式精简我们的代码.</p>
                     <p>在第一个例子中,我们将根据name来排序list. 使用旧的方式,代码如下所示:</p>
@@ -361,7 +361,7 @@ Arrays.sort(players, sortByLastLetter);
 // 3.3 或者这样
 Arrays.sort(players, (String s1, String s2) -&gt; (s1.charAt(s1.length() - 1) - s2.charAt(s2.length() - 1)));
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 Lambad表达式在流式操作中的应用</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 Lambad表达式在流式操作中的应用</h3></a></div>
                     <p>对于java程序员,需要能快速上手并行类库,提高工作效率. 启动这样一种技术变革的最佳切入点是集合(collection)内部操作并行化.通过Lambda表达式和Stream
                         API可以实现.</p>
                     <p>Stream是对集合的包装,通常和lambda一起使用. 使用lambdas可以支持许多操作,如 map, filter, limit, sorted, count, min, max,
@@ -548,7 +548,7 @@ System.out.println("List中最小的数字 : " + stats.getMin());
 System.out.println("所有数字的总和   : " + stats.getSum());
 System.out.println("所有数字的平均值 : " + stats.getAverage());
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 参考文章</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 参考文章</h3></a></div>
                     <p><a
                         href="http://zeroturnaround.com/rebellabs/java-8-revealed-lambdas-default-methods-and-bulk-data-operations/">http://zeroturnaround.com/rebellabs/java-8-revealed-lambdas-default-methods-and-bulk-data-operations/</a>
                     </p>

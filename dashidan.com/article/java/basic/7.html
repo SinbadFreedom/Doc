@@ -206,7 +206,7 @@
                     <div class="jumbotron">
                         <p>Java运算符分为, 算术运算符, 复合运算符, 关系运算符, 条件运算符.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 Java算数运算符</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 Java算数运算符</h3></a></div>
                     <p>Java算数运算符： 加, 减, 乘, 除(取模, 取余), 算数运算符从右往左赋值.即将等号右边的值,赋给等号左边的变量.</p>
                     <ul>
                         <li>加<code>+</code></li>
@@ -250,7 +250,7 @@ int b = 2;
 int c = a % b;
 System.out.println(c);
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 Java自动类型转换</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 Java自动类型转换</h3></a></div>
                     <p>当两个类型不同的数据类型运算时,结果自动转化为取值范围大的数据.</p>
                     <pre><code>byte-&gt;short-&gt;int-&gt;long-&gt;float-&gt;double
 </code></pre>
@@ -310,7 +310,7 @@ public class Demo1 {
 0
 1
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 Java复合运算符</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 Java复合运算符</h3></a></div>
                     <p>复合运算符是一种简写. 以<code>+=</code>为例,表示加一个值再赋值给本身.常用的复合运算符:</p>
                     <ul>
                         <li><code>+=</code>加法赋值</li>
@@ -388,7 +388,7 @@ public class Demo2 {
 1
 2
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 Java自增,自减运算符</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 Java自增,自减运算符</h3></a></div>
                     <p>自增运算符<code>++</code>, 自减运算符<code>--</code>.原理一样,以自增运算符为例介绍.</p>
                     <p>分前缀式(如<code>++i</code>)和后缀式(如<code>i++</code>). 以自增运算符(++)为例: 前缀式是先加1再使用,后缀式是先使用再加1.</p>
                     <p>单独执行自增自减时前缀式,后缀式单独执行结果一样.道理同自增运算符,只是加1,变成了减1. </p>
@@ -462,7 +462,7 @@ public class Demo3 {
                     <div class="bs-callout">
                         <h4>倒数第二个输出是`0`,这个就是后缀式的使用后计算导致的结果.</h4>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 Java关系运算符</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 Java关系运算符</h3></a></div>
                     <p>关系运算符用于比较两个数值之间的大小. 其运算结果为一个布尔值(<code>boolean</code>),只有<code>true</code>(真)和<code>false</code>(假)两个取值.<br/>
                         基本数据类型的关系运算符:</p>
                     <ul>
@@ -503,7 +503,7 @@ false
 true
 true
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 Java逻辑运算符</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 Java逻辑运算符</h3></a></div>
                     <p>逻辑运算符主要用于进行条件真(<code>true</code>)假(<code>false</code>)运算.包括<code>&amp;&amp;</code>(且),
                         <code>||</code>(或),<code>!</code>(异或) , <code>^</code>(非), <code>instanceof</code>(判断对象实例类型).
                     </p>
@@ -601,7 +601,7 @@ false
 true
 false
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="7"><h2>7 Java条件运算符</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="7"><h3>7 Java条件运算符</h3></a></div>
                     <p>由两个符号组成<code>?</code>和<code>:</code>,要求有3个操作对象,所以也叫三目运算符. </p>
                     <pre><code>a&lt;b?a:b;
 </code></pre>
@@ -629,7 +629,7 @@ public class Demo6 {
                     <p>输出:</p>
                     <pre><code>2
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="8"><h2>8 Java运算符优先级</h2></a></div>
+                    <div class="dsd_title_1"><a href="#top" id="8"><h3>8 Java运算符优先级</h3></a></div>
                     <p>基本的原则是有括号先算括号里的,然后先乘除后加减. 乘除都有时,从左往右依次计算. 加减从左往右依次计算. 示例代码:</p>
                     <pre class="prettyprint"><code class="java language-java">int a = 1;
 int b = 2;
