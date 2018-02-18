@@ -9,7 +9,6 @@ http://dashidan.com/article/java/addenda/Java%E4%B8%AD@Override%E6%A0%87%E7%AD%B
 http://www.dashidan.com/java/basic/12.Java%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A%EF%BC%9F%EF%BC%9A.html
 http://www.dashidan.com/math/basic/%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95.html
 http://www.dashidan.com/windows/basic/windows%E5%9F%BA%E7%A1%80%E7%AF%872.%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80windows%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6.html
-http://dashidan.com/article/java/basic/
 http://www.dashidan.com/article/excel/basic/index.html
 http://dashidan.com/article/linux/ubuntu/index.html
 http://dashidan.com/article/linux/common/redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html

@@ -44,7 +44,6 @@ http://dashidan.com/article/windows/faq/%E5%A6%82%E4%BD%95%E5%88%86%E8%BE%A8wind
 http://dashidan.com/article/linux/tmux/Centos%E5%AE%89%E8%A3%85tmux%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html
 http://www.dashidan.com/java/basic/5.Java%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A%EF%BC%9A%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A,%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A.html
 http://www.dashidan.com/java/basic/9.Java%E8%87%AA%E5%A2%9E,%E8%87%AA%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A++,--.html
-http://dashidan.com/article/java/basic/
 http://dashidan.com/article/linux/common/linux%E4%BF%AE%E6%94%B9root%E5%AF%86%E7%A0%81.html
 http://dashidan.com/article/linux/centos/index.html
 http://dashidan.com/article/linux/common/windows%E5%90%91linux%E4%BC%A0%E6%96%87%E4%BB%B6.html
