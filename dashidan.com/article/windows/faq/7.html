@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Win10蓝屏WHEA UNCREATABLE ERROR</title>
-    <meta name="description" content="win10系统出现蓝屏提示WHEA UNCREATABLE ERROR错误原因分析和解决办法.">
+    <title>批处理注释</title>
+    <meta name="description" content="常用的批处理文件注释方法.bat注释方式.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -87,30 +87,45 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>Win10蓝屏WHEA UNCREATABLE ERROR</h1></div>
+                <div class="dsd_title"><h1>批处理注释</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 原因分析</a><br><a href="#2">2 下载固态硬盘检测工具</a><br><a
-                            href="#3">3 执行固态硬盘全盘检测</a><br><a href="#4">4 执行固态硬盘固件升级</a><br></div>
+                        <div class="dsd_catalog"><a href="#1">1 批处理::注释</a><br><a href="#2">2 批处理rem注释内容</a><br><a
+                            href="#3">3 %注释内容%</a><br><a href="#4">4 goto 标签 注释内容</a><br></div>
                     </div>
-                    <div class="jumbotron">
-                        <p>最近用win10玩游戏或者转视频的时候经常蓝屏.电脑配置i7 6700k, 显卡1060, 内存DDR4, 16G,
-                            硬盘是系统盘是固态硬盘.这个配置做这个事毫无压力呀.在网上搜索了一下, 有好多人遇到这种情况. 整理了一下自己的解决办法.本文解决方案适用于win10系统,
-                            笔记本电脑或者台式机安装了固态硬盘的情况.</p>
+                    <div class="jumbotron"><p>
+                        写批处理的程序的时候,我们在需要添加程序描述,或者注释掉一部分代码不执行的时候,需要用到批处理注释.本文中列举了常用的批处理注释(bat注释)方式.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 原因分析</h3></a></div>
-                    <p>win10系统出现蓝屏提示WHEA UNCREATABLE ERROR错误.内存和CPU无压力,期间CPU的温度也正常75度左右,不是因为CPU温度过高导致.由于固态硬盘比较脆弱,
-                        直接关机可能会损伤到固态硬盘.以前出现过强制关机的情况,问题可能出现在固态硬盘上.</p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 下载固态硬盘检测工具</h3></a></div>
-                    <p>我的固态硬盘是Intel的下边是检测工具下载链接:</p>
-                    <p><a href="https://downloadmirror.intel.com/27130/eng/Intel%20SSD%20Toolbox%20-%20v3.4.7.zip">Intel
-                        SSD Toolbox</a></p>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 执行固态硬盘全盘检测</h3></a></div>
-                    <p>安装完成后, 打开<code>Intel SSD Toolbox</code>, 执行固态硬盘全盘检测.如图:</p>
-                    <p><img class="center-block img-responsive" src="http://dashidan.com/img/windows/faq/5-1.jpg"
-                            alt="5-1"/></p>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 执行固态硬盘固件升级</h3></a></div>
-                    <p>执行固态硬盘全盘检测后,再进行固件更新.完成后,重启电脑.再运行就没有问题了.固态硬盘比较脆弱, 尽量避免强制关机和系统断电来避免出现这种情况.</p>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 批处理::注释</h3></a></div>
+                    <p>批处理遇到以冒号":"开头的行时，会将其后的语句识别为"标记"而不是命令语句，因此类似</p>
+                    <p>
+                        ":label"这样的东东在批处理中仅仅是一个标记。对于"::"而言，之所以可以达到注释的效果，是因为第二个:不是标签的合法字符（把它换成\;.等等都行），它不被当作一个合法的标签.如果在你的批处理中有一个永远用不到的标签hero，那么你就可以用":hero"打头来作为注释。只不过冒号有其先天的优越性--语法上的问题。</p>
+                    <p>第一个冒号后也可以跟任何一个非字母数字的字符,示例:</p>
+                    <pre class="prettyprint"><code>@echo off
+:: dashidan.com
+:# 大屎蛋教程网
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 批处理rem注释内容</h3></a></div>
+                    <p>rem和::都起到注释的作用，然而又有些不同。rem是一条命令，在运行的时候相当于把rem本身及其后面的内容置空。
+                        不能出现重定向符号和管道符号.</p>
+                    <pre class="prettyprint"><code>@echo off
+rem dashidan.com
+rem 大屎蛋教程网
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 %注释内容%</h3></a></div>
+                    <p>可以用作行间注释,不能出现重定向符号和管道符号</p>
+                    <pre class="prettyprint"><code>%dashidan.com%
+%大屎蛋教程网%
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 goto 标签 注释内容</h3></a></div>
+                    <p>可以用作说明goto的条件和执行内容,可以是多行文本,可以是命令
+                        可以包含重定向符号和其他特殊字符.</p>
+                    <pre class="prettyprint"><code class="     language-    ">goto tip
+    dashidan.com
+    大屎蛋教程网
+    从tip标签开始到:tip结束之间都是注释
+:tip
+</code></pre>
                 </div>
             </div>
         </div>
@@ -123,7 +138,7 @@
             目录
         </div>
     </div>
-    <a href="http://dashidan.com/article/windows/faq/6.html">下一篇: 电脑重启键不管用</a>
+    <a href="http://dashidan.com/article/windows/faq/8.html">下一篇: 手机向电脑安全传输文件</a>
 </footer>
 
 <script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>

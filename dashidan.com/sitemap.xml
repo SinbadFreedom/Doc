@@ -28,4 +28,8 @@
         <loc>http://dashidan.com/article/python/sitemap.xml</loc>
         <lastmod>2018-01-24</lastmod>
     </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/article/windows/sitemap.xml</loc>
+        <lastmod>2018-02-20</lastmod>
+    </sitemap>
 </sitemapindex>
