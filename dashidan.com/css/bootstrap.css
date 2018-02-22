@@ -8229,7 +8229,7 @@ button.close {
 
 /* bootstrap callout add by sinbad 20170908*/
 .bs-callout {
-    margin-left: 2em;
+    /*margin-left: 2em;*/
     padding: 20px;
     /*margin: 20px 0;*/
     border: 1px solid #eee;
