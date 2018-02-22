@@ -1,0 +1,145 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>nginx设置404页面跳转</title>
+    <meta name="description" content="Nginx设置404错误指向页面.如何避免出现404错误.roboot.txt加入屏蔽404页面.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://dashidan.com/index.html">首页</a></li>
+            <li><a href="http://dashidan.com/about.html">关于</a></li>
+            <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <!-- 顶部面包屑导航-->
+        <ol class="breadcrumb">
+            <li><a href="http://dashidan.com/index.html">首页</a></li>
+            <li class="active"><a href="http://dashidan.com/article/webserver/index.html">webserver</a></li>
+        </ol>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+                <div>
+                    <div class="dsd_title" onclick="clickTitle('nginx')">
+                        <h3><span id="nginx_title">➕ Nginx</span></h3>
+                    </div>
+                    <div id="nginx" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-9">
+                <!-- 文章内容-->
+                <div class="dsd_title"><h1>nginx设置404页面跳转</h1></div>
+                <div id="xs_content_border">
+                    <div>
+                        <div class="dsd_catalog"><a href="#1">1 Nginx设置404错误指向页面</a><br><a href="#2">2
+                            制作一个404.html页面</a><br><a href="#3">3 重启Nginx使配置生效</a><br><a href="#4">4 避免出现404错误</a><br><a
+                            href="#5">5 roboot.txt屏蔽404页面</a><br>
+                            <p><a href="#5.1">5.1 通过robot设置屏蔽指定网页的示例：</a></p></div>
+                    </div>
+                    <div class="jumbotron">
+                        <p>
+                            如果网页的链接地址改变了,在通过这个地址访问的时候会返回一个错误码404.表示没有找到该地址内容.这个在建站初期是很容易发生的事.我的文章开始是通过中文名作为URL的，后来改为数字作为URL.这时网上已经有很多文章中存储了以前的已经失效的地址.这样导致搜索引擎抓取网页时会有大量的失效链接.死连数量多会导致搜索引擎降权,
+                            我的网站dashidan.com就没有被bing收录. 很惨痛的教训.针对404有2种补救措施。发生404错误时指向404.html页面或者做网页重定向.</p>
+                    </div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 Nginx设置404错误指向页面</h3></a></div>
+                    <p>更改nginx.conf中在server区域加入error_page页面:</p>
+                    <pre class="prettyprint"><code>error_page 404 /404.html
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 制作一个404.html页面</h3></a></div>
+                    <p>可以做一个静态html页面来作为道歉页面,404页面最好有主页的链接,方便用户找到主页.参考页面<a href="http://dashidan.com/404.html">http://dashidan.com/404.html</a>.
+                    </p>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 重启Nginx使配置生效</h3></a></div>
+                    <p>重启完成后,可以输入一个不存在的页面来查看效果.</p>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 避免出现404错误</h3></a></div>
+                    <p>网页避免出现404错误的最佳方案是在设计网站之初对整体的URL做好完整的规划. 否则只能在出现问题后补救了.
+                        以大屎蛋教程网的url规划为例：</p>
+                    <ul>
+                        <li>文章均放在article目录</li>
+                        <li>文章根据语言分类 article/java, article/mongodb...</li>
+                        <li>图片放在img目录</li>
+                        <li>下载资源放在download目录</li>
+                        <li>css文件放在css目录</li>
+                        <li>js脚本文件放在js目录</li>
+                    </ul>
+                    <p>有了合理的规划就能最大程度避免出现404错误.</p>
+                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 roboot.txt屏蔽404页面</h3></a></div>
+                    <p>
+                        在roboot.txt文件中加入死链url,来避免搜索引擎访问并收录已失效的网页.也是针对404错误的一种补救措施.这种方式也是在外部链接地址无法修改的情况的解决方案.通过这种方式告诉搜索引擎这些页面不存在了,从索引中移除,
+                        减少搜索引擎中的死链.对网站评级有一定的帮助.</p>
+                    <div class="dsd_title_2"><a href="#top" id="5.1">5.1 通过robot设置屏蔽指定网页的示例：</a></div>
+                    <pre class="prettyprint"><code>User-agent: *
+Disallow: /article/java/basic/屏蔽.html
+Disallow: /article/java/basic/大屎蛋教程网
+Disallow: /article/java/basic/dashidan.com
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center navbar-fixed-bottom">
+    <div class="visible-xs-block">
+        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">
+            目录
+        </div>
+    </div>
+</footer>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>

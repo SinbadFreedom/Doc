@@ -1,0 +1,1 @@
+3.linux系统配置nginx支持PHP解析.nginx配置表中带有php文件解析的配置,默认情况下是注销掉的.注释中有2种支持php的方式,通过php-cgi和php-fpm.

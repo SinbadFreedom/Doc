@@ -16,14 +16,14 @@ a:hover {
 }
 
 /* 首行缩进2字符*/
-p {
-    text-indent: 2em;
-}
+/*p {*/
+/*text-indent: 2em;*/
+/*}*/
 
-pre {
-    margin-left: 3em;
-    /*padding-left: 2em;*/
-}
+/*pre {*/
+/*margin-left: 3em;*/
+/*!*padding-left: 2em;*!*/
+/*}*/
 
 /** 图片设置为圆角*/
 img {
@@ -59,12 +59,12 @@ img {
 
 /** 一级标题*/
 .dsd_title_1 {
-    padding-left: 5px;
+    /*padding-left: 5px;*/
 }
 
 /** 二级标题*/
 .dsd_title_2 {
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
 #sx_index_button_text {

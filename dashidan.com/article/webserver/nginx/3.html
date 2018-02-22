@@ -1,0 +1,192 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>linux系统配置nginx支持PHP解析</title>
+    <meta name="description"
+          content="3.linux系统配置nginx支持PHP解析.nginx配置表中带有php文件解析的配置,默认情况下是注销掉的.注释中有2种支持php的方式,通过php-cgi和php-fpm.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://dashidan.com/index.html">首页</a></li>
+            <li><a href="http://dashidan.com/about.html">关于</a></li>
+            <li><a href="http://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <!-- 顶部面包屑导航-->
+        <ol class="breadcrumb">
+            <li><a href="http://dashidan.com/index.html">首页</a></li>
+            <li class="active"><a href="http://dashidan.com/article/webserver/index.html">webserver</a></li>
+        </ol>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+                <div>
+                    <div class="dsd_title" onclick="clickTitle('nginx')">
+                        <h3><span id="nginx_title">➕ Nginx</span></h3>
+                    </div>
+                    <div id="nginx" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-9">
+                <!-- 文章内容-->
+                <div class="dsd_title"><h1>linux系统配置nginx支持PHP解析</h1></div>
+                <div id="xs_content_border">
+                    <div>
+                        <div class="dsd_catalog"><a href="#1">1 安装fpm-php</a><br><a href="#2">2
+                            如何区分采用php-cgi和php-fpm</a><br><a href="#3">3 修改nginx配置文件</a><br><a href="#4">4
+                            测试nginx是否支持php</a><br>
+                            <p><a href="#4.1">4.1 新建一个info.php文件,</a></p>
+                            <p><a href="#4.2">4.2 将以下代码复制到文件中</a></p>
+                            <p><a href="#4.3">4.3 网页中打开info.php文件测试</a></p></div>
+                    </div>
+                    <div class="jumbotron">
+                        <p>nginx配置表中带有php文件解析的配置,默认情况下是注销掉的.打开对应的注释即可.注释中有2种支持php的方式,通过php-cgi和php-fpm.</p>
+                    </div>
+                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 安装fpm-php</h3></a></div>
+                    <p>配置nginx支持php也可以不安装fpm-php.php-fpm是php-cli的进程管理程序,
+                        当一个进程关闭后,会自动启动一个新的线程.非常强大,建议安装装.其他操作系统类似.国内部分镜像源是php5-fpm,
+                        阿里云上的为php7-fpm.我们以ubuntu和centos为例介绍下php-fpm安装命令,其他linux系统类似,不再赘述.</p>
+                    <ul>
+                        <li>ubuntu安装php5-fpm</li>
+                    </ul>
+                    <pre class="prettyprint"><code>apt-get install php5-fpm
+</code></pre>
+                    <p>或者安装php7-fpm</p>
+                    <pre class="prettyprint"><code>apt-get install php7-fpm
+</code></pre>
+                    <ul>
+                        <li>centos安装php5-fpm</li>
+                    </ul>
+                    <pre class="prettyprint"><code>yum install php5-fpm
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 如何区分采用php-cgi和php-fpm</h3></a></div>
+                    <p>安装完成后, 搜索一下是否有<code>php5-fpm.sock</code>或者<code>php7-fpm.sock</code>.linux系统通过find命令查找文件:</p>
+                    <pre class="prettyprint"><code>find / -name php5-fpm
+</code></pre>
+                    <p>或者</p>
+                    <pre class="prettyprint"><code>find / -name php7-fpm
+</code></pre>
+                    <p>如果有这个文件就采用php-fpm的模式, 没有的话就采用php-cgi模式.</p>
+                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 修改nginx配置文件</h3></a></div>
+                    <p>默认情况下修改nginx安装目录中的<code>site-enable/default</code>文件.</p>
+                    <ul>
+                        <li>nginx配置php-cgi支持php</li>
+                    </ul>
+                    <pre class="prettyprint"><code>location ~ \.php$ {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+#    # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+#
+#    # With php5-cgi alone:
+    fastcgi_pass 127.0.0.1:9000;
+#    # With php5-fpm:
+#    fastcgi_pass unix:/var/run/php5-fpm.sock;
+#    fastcgi_index index.php;
+#    include fastcgi_params;
+}
+</code></pre>
+                    <ul>
+                        <li>nginx配置php-fpm支持php</li>
+                    </ul>
+                    <pre class="prettyprint"><code>location ~ \.php$ {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+#    # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+#
+#    # With php5-cgi alone:
+#    fastcgi_pass 127.0.0.1:9000;
+#    # With php5-fpm:
+#    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index index.php;
+    include fastcgi_params;
+}
+</code></pre>
+                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 测试nginx是否支持php</h3></a></div>
+                    <div class="dsd_title_2"><a href="#top" id="4.1">4.1 新建一个info.php文件,</a></div>
+                    <p>linux新建文件的命令为touch.在nginx的web服务器的根目录新建一个名为info.php的文件.</p>
+                    <pre class="prettyprint"><code>touch info.php
+</code></pre>
+                    <div class="dsd_title_2"><a href="#top" id="4.2">4.2 将以下代码复制到文件中</a></div>
+                    <p>通过vim程序编辑info.php文件.</p>
+                    <pre class="prettyprint"><code>vim info.php
+</code></pre>
+                    <p>将以下代码复制到文件中</p>
+                    <pre class="prettyprint"><code class="php language-php">&lt;?php
+    phpinfo();
+?&gt;
+</code></pre>
+                    <div class="dsd_title_2"><a href="#top" id="4.3">4.3 网页中打开info.php文件测试</a></div>
+                    <p>用浏览器访问info.php文件,输入http://dashidan.com/info.php, 配置正确的话会显示phpinfo页面,里面有详细的php相关的信息.如图:</p>
+                    <p><img class="center-block img-responsive" src="http://dashidan.com/img/webserver/nginx/2-1.png"
+                            alt="2-1.png"/></p>
+                    <p>如果访问php页面时,该页面从浏览器下载下来,没有正确显示phpinfo的信息说明配置错误.从新检查nginx的php相关配置.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center navbar-fixed-bottom">
+    <div class="visible-xs-block">
+        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">
+            目录
+        </div>
+    </div>
+    <a href="http://dashidan.com/article/webserver/Nginx/4.html">下一篇: nginx目录路径重定向</a>
+</footer>
+
+<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://dashidan.com/js/bootstrap.js"></script>
+<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://dashidan.com/js/main.js"></script>
+</body>
+</html>

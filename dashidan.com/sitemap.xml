@@ -32,4 +32,8 @@
         <loc>http://dashidan.com/article/windows/sitemap.xml</loc>
         <lastmod>2018-02-20</lastmod>
     </sitemap>
+    <sitemap>
+        <loc>http://dashidan.com/article/webserver/sitemap.xml</loc>
+        <lastmod>2018-02-22</lastmod>
+    </sitemap>
 </sitemapindex>
