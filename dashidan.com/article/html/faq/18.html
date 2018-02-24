@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>查看http请求的header信息</title>
-    <meta name="description" content="使用chrome浏览器自带的开发者工具查看http请求的header信息.">
+    <meta name="description" content="通过chrome控制台查看http请求的header信息.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">➕ HTML常见问题</span></h3>
+                        <h3><span id="faq_title">+ HTML常见问题</span></h3>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -120,32 +120,30 @@
                 <div class="dsd_title"><h1>查看http请求的header信息</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 下载chrome浏览器</a><br><a href="#2">2
-                            通过chrome控制台查看http请求的header信息</a><br>
-                            <p><a href="#2.1">2.1 打开chrome自带的调试工具</a></p>
-                            <p><a href="#2.2">2.2 选择network标签</a></p>
-                            <p><a href="#2.3">2.3 查看当前网页的http头;</a></p>
-                            <p><a href="#2.4">2.4 header信息表示的意义</a></p></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 下载chrome浏览器</a><br><a href="#2">2
+                            通过chrome控制台查看http请求的header信息</a><br><a href="#2.1">&nbsp;&nbsp;2.1 打开chrome自带的调试工具</a><br><a
+                            href="#2.2">&nbsp;&nbsp;2.2 选择network标签</a><br><a href="#2.3">&nbsp;&nbsp;2.3
+                            查看当前网页的http头;</a><br><a href="#2.4">&nbsp;&nbsp;2.4 header信息表示的意义</a></div>
                     </div>
                     <div class="jumbotron">
                         <p>使用chrome浏览器自带的开发者工具查看http请求的header信息.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 下载chrome浏览器</h3></a></div>
+                    <div id="1"><h3>1 下载chrome浏览器</h3></div>
                     <p>chrome浏览器是google开发的一块非常绑定浏览器.<a
                         href="http://sw.bos.baidu.com/sw-search-sp/software/1dabeccc5dd84/ChromeStandalone_64.0.3282.167_Setup.exe">chrome浏览器下载地址</a>.
                     </p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 通过chrome控制台查看http请求的header信息</h3></a></div>
-                    <div class="dsd_title_2"><a href="#top" id="2.1">2.1 打开chrome自带的调试工具</a></div>
+                    <div id="2"><h3>2 通过chrome控制台查看http请求的header信息</h3></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 打开chrome自带的调试工具</h4></div>
                     <p>在网页任意地方右击选择审查元素或者按下shift+ctrl+c,打开chrome自带的调试工具.如图:</p>
                     <p><img class="center-block img-responsive" src="http://dashidan.com/img/html/faq/18-1.jpg"
                             alt="18-1"/></p>
-                    <div class="dsd_title_2"><a href="#top" id="2.2">2.2 选择network标签</a></div>
+                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 选择network标签</h4></div>
                     <p>在调试工具中选择network标签,刷新网页.</p>
-                    <div class="dsd_title_2"><a href="#top" id="2.3">2.3 查看当前网页的http头;</a></div>
+                    <div id="2.3" class="dsd_title_c_2"><h4>2.3 查看当前网页的http头;</h4></div>
                     <p>刷新后在左边找到该网页url,点击该url,选择headers,就可以看到当前网页的http头.如图:</p>
                     <p><img class="center-block img-responsive" src="http://dashidan.com/img/html/faq/18-2.png"
                             alt="18-2"/></p>
-                    <div class="dsd_title_2"><a href="#top" id="2.4">2.4 header信息表示的意义</a></div>
+                    <div id="2.4" class="dsd_title_c_2"><h4>2.4 header信息表示的意义</h4></div>
                     <p>客户端浏览器请求Header(HTTP request header)</p>
                     <ul>
                         <li>Host 请求的域名</li>

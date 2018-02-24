@@ -1,0 +1,4 @@
+{
+  "title": "package.json ^ ~ latest符号意义",
+  "desc": "package.json ^ ~ latest符号意义.用来控制模块自动更新版本号的范围."
+}

@@ -1,0 +1,4 @@
+{
+  "title": "java @Override标签",
+  "desc": "java中的@Override是伪代码 表示覆写父类方法 可用于代码检查 验证父类是否有该方法"
+}

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>点击div跳转页面</title>
-    <meta name="description" content="一般跳转链接直接用a标签就可以实现点击链接跳转.有时候需要将点击区域扩大到整个div区域.这是就就需要点击div跳转页面.">
+    <meta name="description" content="html页面点击div在新窗口打开页面 html页面点击div在当前窗口打开页面 html打开新页面参数说明 _blank _parent _self _top">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">➕ HTML常见问题</span></h3>
+                        <h3><span id="faq_title">+ HTML常见问题</span></h3>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -120,19 +120,28 @@
                 <div class="dsd_title"><h1>点击div跳转页面</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 点击div在新窗口打开页面</a><br><a href="#2">2
-                            点击div在当前窗口打开页面</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 html页面点击div在新窗口打开页面</a><br><a href="#2">2
+                            html页面点击div在当前窗口打开页面</a><br><a href="#3">3 html打开新页面参数说明</a></div>
                     </div>
-                    <div class="jumbotron"><p>
-                        一般跳转链接直接用a标签就可以实现点击链接跳转.有时候需要将点击区域扩大到整个div区域.这是就就需要点击div跳转页面.有2种两种常用方式.</p>
+                    <div class="jumbotron">
+                        <p>一般跳转链接直接用a标签就可以实现点击链接跳转.有时候需要将点击区域扩大到整个div区域.这是就就需要点击div跳转页面.有2种两种常用方式.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 点击div在新窗口打开页面</h3></a></div>
+                    <div id="1"><h3>1 html页面点击div在新窗口打开页面</h3></div>
+                    <p>htm代码:</p>
                     <pre class="prettyprint"><code class="html language-html">&lt;div onclick="window.open('http://dashidan.com')"&gt;在新窗口跳转至大屎蛋教程网&lt;/div&gt;
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 点击div在当前窗口打开页面</h3></a></div>
+                    <div id="2"><h3>2 html页面点击div在当前窗口打开页面</h3></div>
+                    <p>htm代码:</p>
                     <pre class="prettyprint"><code>&lt;div onclick="window.open('http://dashidan.com','_self')"&gt;在当前窗口跳转至大屎蛋教程网&lt;/div&gt;
 </code></pre>
-                    <p>这个和上一个的区别是加了<code>_self</code>参数.</p>
+                    <p>这个和上一个的区别是加了_self参数, 表示在当前页面打开.</p>
+                    <div id="3"><h3>3 html打开新页面参数说明</h3></div>
+                    <ul>
+                        <li>_blank: 在新窗口中打开链接</li>
+                        <li>_parent: 在父窗体中打开链接</li>
+                        <li>_self: 在当前窗体打开链接,此为默认值</li>
+                        <li>_top: 在当前窗体打开链接,并替换当前的整个窗体(框架页)</li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('nginx')">
-                        <h3><span id="nginx_title">➕ Nginx</span></h3>
+                        <h3><span id="nginx_title">+ Nginx</span></h3>
                     </div>
                     <div id="nginx" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -81,19 +81,19 @@
                 <div class="dsd_title"><h1>windows搭建nginx服务器</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 下载nginx的windwos最新版</a><br><a href="#2">2
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 下载nginx的windwos最新版</a><br><a href="#2">2
                             解压nginx安装包</a><br><a href="#3">3 测试nginx是否运行正常</a><br><a href="#4">4 修改nginx网站根目录</a><br><a
-                            href="#5">5 windows系统停止nginx</a><br><a href="#6">6 测试nginx新的工作目录</a><br></div>
+                            href="#5">5 windows系统停止nginx</a><br><a href="#6">6 测试nginx新的工作目录</a></div>
                     </div>
                     <div class="jumbotron">
                         <p>
                             nginx是俄罗斯访问量第二的网站(Rambler.ru),解决高并发问题,开发的.现在已经开源.非常棒.nginx主要是面向Linux系统开发的,也哟windows版.建议生产服务器采用Linux,开发调试可以在windows中.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 下载nginx的windwos最新版</h3></a></div>
+                    <div id="1"><h3>1 下载nginx的windwos最新版</h3></div>
                     <p><a href="http://nginx.org/download/nginx-1.13.5.zip">nginx下载链接</a></p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 解压nginx安装包</h3></a></div>
+                    <div id="2"><h3>2 解压nginx安装包</h3></div>
                     <p>解压后双击<code>nginx.exe</code>即可运行.</p>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 测试nginx是否运行正常</h3></a></div>
+                    <div id="3"><h3>3 测试nginx是否运行正常</h3></div>
                     <p>打开浏览器输入:</p>
                     <pre class="prettyprint"><code>http://dashidan.com
 </code></pre>
@@ -102,7 +102,7 @@
 </code></pre>
                     <p>
                         说明运行成功.nginx默认绑定侦听80端口作为http请求的端口.如果没有显示该页面,查看网络防火墙是否阻止了80端口.或者是否有其他的web服务器例如apache已经占用了该端口,如果有的话停止其他占用80端口的程序,重启nginx即可.</p>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 修改nginx网站根目录</h3></a></div>
+                    <div id="4"><h3>4 修改nginx网站根目录</h3></div>
                     <p>
                         默认配置是nginx文件中的html目录,这样开发需要将网站文件都放在nginx的安装目录中,对于文件维护不方便.修改nginx.conf文件中的root目录,将nginx默认目录为开发代码目录,这样调试方便.修改文件:nginx目录中的conf目录-&gt;nginx.conf中的内容:</p>
                     <pre class="prettyprint"><code>location / {
@@ -117,13 +117,13 @@
 }
 </code></pre>
                     <p>root 后边的路径改为自己的本地路径.文件目录的盘符采用反斜杠"/",这个反斜杠linux和windows通用,"\"是windows的盘符,linux不支持.养成好习惯.</p>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 windows系统停止nginx</h3></a></div>
+                    <div id="5"><h3>5 windows系统停止nginx</h3></div>
                     <p>打开任务管理器,找到"nginx"进程,"结束进程".这样可以停止nginx服务.windows资源管理器中会有多个nginx.exe进程,需要都执行结束进程操作.</p>
                     <p>如图:</p>
                     <p><img class="center-block img-responsive" src="http://dashidan.com/img/webserver/nginx/1-1.png"
                             alt="1-1.png"/></p>
                     <p>再双击"nginx.exe",启动nginx服务.</p>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 测试nginx新的工作目录</h3></a></div>
+                    <div id="6"><h3>6 测试nginx新的工作目录</h3></div>
                     <p>nginx服务器默认的web入口页面为index.html.重新设定的nginxweb目录中如果没有index.html文件,需要新建一个.新建index.html,并粘贴贴以下代码:</p>
                     <pre class="prettyprint"><code class="html language-html">&lt;html&gt;
 &lt;body&gt;

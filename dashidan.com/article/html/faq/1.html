@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>html链接样式设置</title>
-    <meta name="description" content="css样式a标签属性介绍,设置css样式a标签设置链接颜色,css设置连接点击后颜色不变,css设置链接去掉下划线.">
+    <title>html css样式a标签</title>
+    <meta name="description" content="html css样式a标签属性介绍,html css样式设置链接颜色,html css设置链接点击后颜色不变,html css设置链接不显示下划线.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">➕ HTML常见问题</span></h3>
+                        <h3><span id="faq_title">+ HTML常见问题</span></h3>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -117,21 +117,22 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>html链接样式设置</h1></div>
+                <div class="dsd_title"><h1>html css链接样式设置</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 css样式a标签属性介绍</a><br>
-                            <p><a href="#1.1">1.1 设置css样式a标签设置链接颜色</a></p>
-                            <p><a href="#1.2">1.2 css设置连接点击后颜色不变</a></p><a href="#2">2 css设置链接去掉下划线</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 html css样式a标签属性介绍</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            a标签有3种状态</a><br><a href="#1.1">&nbsp;&nbsp;1.1 html css样式设置链接颜色</a><br><a href="#1.2">&nbsp;&nbsp;1.2
+                            html css设置链接点击后颜色不变</a><br><a href="#2">2 html css设置链接不显示下划线</a></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 css样式a标签属性介绍</h3></a></div>
-                    <p>设置a标签的属性,可以控制链接颜色和下划线.a标签有3种状态:</p>
+                    <div id="1"><h3>1 html css样式a标签属性介绍</h3></div>
+                    <p>html页面可以通过css设置a标签的属性,可以控制链接颜色和下划线.</p>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 a标签有3种状态</h4></div>
                     <ul>
                         <li>a:link 未访问的连接</li>
                         <li>a:hover 鼠标悬停的连接</li>
                         <li>a:visited 访问过的连接</li>
                     </ul>
-                    <div class="dsd_title_2"><a href="#top" id="1.1">1.1 设置css样式a标签设置链接颜色</a></div>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 html css样式设置链接颜色</h4></div>
                     <ul>
                         <li>设置a标签默认链接样式</li>
                     </ul>
@@ -153,7 +154,7 @@
     color: #3c763d;
 }
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="1.2">1.2 css设置连接点击后颜色不变</a></div>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 html css设置链接点击后颜色不变</h4></div>
                     <p>css样式中color属性设置链接的颜色.可以通过这个属性设置来设置各个状态链接的颜色值.将a:link, a:hover,
                         a:visited设置同样的颜色,可以达到点击连接后不变色的效果.color可以直接设置RGB颜色值或者颜色名.
                         例:</p>
@@ -179,7 +180,7 @@ a:visited {
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 css设置链接去掉下划线</h3></a></div>
+                    <div id="2"><h3>2 html css设置链接不显示下划线</h3></div>
                     <p>
                         通过设置css样式中a标签属性"text-decoration:none;"去掉链接下划线.设置如果想所有状态下的链接都不带下划线.需要将"a,a:link,a:hover,a:visited"这四个状态都设置.示例代码:</p>
                     <pre class="prettyprint"><code class="html language-html">&lt;body&gt;

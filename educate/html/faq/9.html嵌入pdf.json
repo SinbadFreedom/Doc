@@ -1,0 +1,4 @@
+{
+  "title": "html嵌入pdf常用方法",
+  "desc": "HTML嵌入pdf文档常用的3种方法.1使用iframe嵌入pdf.2使用<object>标记.3加入链接直接打开pdf."
+}

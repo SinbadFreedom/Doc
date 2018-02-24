@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('basic')">
-                        <h2><span id="basic_title">➕ MongoDB中文手册</span></h2>
+                        <h2><span id="basic_title">+ MongoDB中文手册</span></h2>
                     </div>
 
                     <div id="basic" class="dsd_catalog_left_hide">
@@ -121,7 +121,7 @@
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('addenda')">
-                        <h2 id="addenda_title">➕ MongoDB附录</h2>
+                        <h2 id="addenda_title">+ MongoDB附录</h2>
                     </div>
                     <div id="addenda" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -142,13 +142,12 @@
                 <div class="dsd_title"><h1>Mongodb的导入导出及备份恢复</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 mongodb导出</a><br><a href="#2">2 mongodb数据导入</a><br><a
-                            href="#3">3 MongoDB数据库备份</a><br><a href="#4">4 MongoDB数据库恢复</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 mongodb导出</a><br><a href="#2">2
+                            mongodb数据导入</a><br><a href="#3">3 mongodb数据库备份</a><br><a href="#4">4 mongodb数据库恢复</a></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 mongodb导出</h3></a></div>
-                    <p><code>mongoDB</code>中的<code>mongoexport</code>工具可以把一个<code>collection</code>导出成<code>JSON</code>格式或<code>CSV</code>格式的文件.可以通过参数指定导出的数据项,也可以根据指定的条件导出数据.
-                    </p>
-                    <p>mongodb导出命令:</p>
+                    <div id="1"><h3>1 mongodb导出</h3></div>
+                    <p>mongoDB中的mongoexport工具可以把一个collection导出成JSON格式或CSV格式的文件.可以通过参数指定导出的数据项,也可以根据指定的条件导出数据. </p>
+                    <p>mongodb导出命令mongoexport:</p>
                     <pre class="prettyprint"><code>mongoexport -d dbname -c collectionname -o file --type json/csv -f field
 </code></pre>
                     <p>参数说明: </p>
@@ -162,8 +161,8 @@
                     <p>示例: </p>
                     <pre class="prettyprint"><code>sudo mongoexport -d mongotest -c users -q "{'username' : 'test'}" -o /home/python/Desktop/mongoDB/users.json --type json -f  "_id,user_id,user_name,age,status"
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 mongodb数据导入</h3></a></div>
-                    <p>mongodb数据导入命令:</p>
+                    <div id="2"><h3>2 mongodb数据导入</h3></div>
+                    <p>mongodb数据导入命令mongoimport:</p>
                     <pre class="prettyprint"><code>mongoimport -d dbname -c collectionname --file filename --headerline --type json/csv -f field
 </code></pre>
                     <p>参数说明:</p>
@@ -177,8 +176,8 @@
                     <p>示例: </p>
                     <pre class="prettyprint"><code>sudo mongoimport -d mongotest -c users --file /home/mongodump/articles.json --type json
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 MongoDB数据库备份</h3></a></div>
-                    <p>MongoDB数据库备份命令:</p>
+                    <div id="3"><h3>3 mongodb数据库备份</h3></div>
+                    <p>MongoDB数据库备份命令mongodump用法示例:</p>
                     <pre class="prettyprint"><code>mongodump -h dbhost -d dbname -o dbdirectory
 </code></pre>
                     <p>参数说明:</p>
@@ -191,8 +190,8 @@
 sudo mkdir -p /home/momgodump
 sudo mongodump -h 127.0.0.1:27017 -d dbdata -o /home/mongodump/
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 MongoDB数据库恢复</h3></a></div>
-                    <p>MongoDB数据库恢复命令:</p>
+                    <div id="4"><h3>4 mongodb数据库恢复</h3></div>
+                    <p>MongoDB数据库恢复命令mongorestore用法示例:</p>
                     <pre class="prettyprint"><code>mongorestore -h dbhost -d dbname --dir dbdirectory
 </code></pre>
                     <p>参数说明:</p>

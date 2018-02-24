@@ -1,0 +1,4 @@
+{
+  "title": "Ubuntu允许root用户登录",
+  "desc": "修改ubuntu设置允许root用户登录.在安全性要求不高的环境中,直接使用root登陆会很方便."
+}

@@ -55,7 +55,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('basic')">
-                        <h2><span id="basic_title">➕ MongoDB中文手册</span></h2>
+                        <h2><span id="basic_title">+ MongoDB中文手册</span></h2>
                     </div>
 
                     <div id="basic" class="dsd_catalog_left_hide">
@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('addenda')">
-                        <h2 id="addenda_title">➕ MongoDB附录</h2>
+                        <h2 id="addenda_title">+ MongoDB附录</h2>
                     </div>
                     <div id="addenda" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -143,25 +143,24 @@
                 <div class="dsd_title"><h1>Mongodb配置及常用命令</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 修改mongodb的绑定IP和端口</a><br><a href="#2">2 修改启动报错</a><br><a
-                            href="#3">3 连接mongodb</a><br><a href="#4">4 常用命令</a><br>
-                            <p><a href="#4.1">4.1 查看所有数据库</a></p>
-                            <p><a href="#4.2">4.2 选择数据库</a></p>
-                            <p><a href="#4.3">4.3 查看当前数据库下所有集合</a></p>
-                            <p><a href="#4.4">4.4 查看帮助文档</a></p>
-                            <p><a href="#4.5">4.5 在数据库级别查看帮助信息</a></p>
-                            <p><a href="#4.6">4.6 在集合级别查看帮助信息</a></p>
-                            <p><a href="#4.7">4.7 删除集合</a></p>
-                            <p><a href="#4.8">4.8 删除数据库</a></p><a href="#5">5 数据库备份</a><br><a href="#6">6 整库恢复</a><br><a
-                                href="#7">7 单个collection备份:</a><br><a href="#8">8 单个collection恢复:</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 修改mongodb的绑定IP和端口</a><br><a href="#2">2
+                            mongodb修改启动报错</a><br><a href="#3">3 连接mongodb</a><br><a href="#4">4 mongodb常用命令</a><br><a
+                            href="#4.1">&nbsp;&nbsp;4.1 mongodb查看所有数据库show dbs</a><br><a href="#4.2">&nbsp;&nbsp;4.2
+                            mongodb选择数据库use db_name</a><br><a href="#4.3">&nbsp;&nbsp;4.3 mongodb查看当前数据库下所有集合show
+                            collections</a><br><a href="#4.4">&nbsp;&nbsp;4.4 mongodb查看帮助文档help</a><br><a href="#4.5">&nbsp;&nbsp;4.5
+                            mongodb在数据库级别查看帮助信息</a><br><a href="#4.6">&nbsp;&nbsp;4.6 在集合级别查看帮助信息help</a><br><a
+                            href="#4.7">&nbsp;&nbsp;4.7 mongodb删除集合drop</a><br><a href="#4.8">&nbsp;&nbsp;4.8
+                            mongodb删除数据库dropDatabase</a><br><a href="#5">5 mongodb数据库备份mongodump</a><br><a href="#6">6
+                            mongodb整库恢复mongorestore</a><br><a href="#7">7 mongodb单个collection备份mongoexport</a><br><a
+                            href="#8">8 mongodb单个collection恢复mongoimport</a></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 修改mongodb的绑定IP和端口</h3></a></div>
+                    <div id="1"><h3>1 修改mongodb的绑定IP和端口</h3></div>
                     <p>修改<code>mongo.conf</code>文件中的bindIp和port</p>
                     <pre class="prettyprint"><code>net:
 port: 37017
 bindIp: 127.0.0.1  # Listen to local interface only, comment to listen on all interfaces.
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 修改启动报错</h3></a></div>
+                    <div id="2"><h3>2 mongodb修改启动报错</h3></div>
                     <pre class="prettyprint"><code>** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
 **        We suggest setting it to 'never'
 ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
@@ -170,72 +169,78 @@ bindIp: 127.0.0.1  # Listen to local interface only, comment to listen on all in
 sudo echo "never" &gt; /sys/kernel/mm/transparent_hugepage/enabled
 sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 连接mongodb</h3></a></div>
+                    <div id="3"><h3>3 连接mongodb</h3></div>
                     <pre class="prettyprint"><code>mongo 127.0.0.1:37017
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 常用命令</h3></a></div>
-                    <div class="dsd_title_2"><a href="#top" id="4.1">4.1 查看所有数据库</a></div>
+                    <div id="4"><h3>4 mongodb常用命令</h3></div>
+                    <div id="4.1" class="dsd_title_c_2"><h4>4.1 mongodb查看所有数据库show dbs</h4></div>
                     <pre class="prettyprint"><code>show dbs;
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.2">4.2 选择数据库</a></div>
+                    <div id="4.2" class="dsd_title_c_2"><h4>4.2 mongodb选择数据库use db_name</h4></div>
                     <pre class="prettyprint"><code>use db_name;
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.3">4.3 查看当前数据库下所有集合</a></div>
+                    <div id="4.3" class="dsd_title_c_2"><h4>4.3 mongodb查看当前数据库下所有集合show collections</h4></div>
                     <pre class="prettyprint"><code>show collections;
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.4">4.4 查看帮助文档</a></div>
+                    <div id="4.4" class="dsd_title_c_2"><h4>4.4 mongodb查看帮助文档help</h4></div>
                     <pre class="prettyprint"><code>help;
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.5">4.5 在数据库级别查看帮助信息</a></div>
+                    <div id="4.5" class="dsd_title_c_2"><h4>4.5 mongodb在数据库级别查看帮助信息</h4></div>
                     <pre class="prettyprint"><code>db.help();
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.6">4.6 在集合级别查看帮助信息</a></div>
+                    <div id="4.6" class="dsd_title_c_2"><h4>4.6 在集合级别查看帮助信息help</h4></div>
                     <pre class="prettyprint"><code>db.collection_name.help();
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.7">4.7 删除集合</a></div>
+                    <div id="4.7" class="dsd_title_c_2"><h4>4.7 mongodb删除集合drop</h4></div>
                     <pre class="prettyprint"><code>db.collection_name.drop();
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.8">4.8 删除数据库</a></div>
+                    <div id="4.8" class="dsd_title_c_2"><h4>4.8 mongodb删除数据库dropDatabase</h4></div>
                     <pre class="prettyprint"><code>db.dropDatabase();
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 数据库备份</h3></a></div>
+                    <div id="5"><h3>5 mongodb数据库备份mongodump</h3></div>
                     <p>命令:</p>
                     <pre class="prettyprint"><code>mongodump -h dbhost -d dbname -o dbdirectory
 </code></pre>
                     <p>参数说明:</p>
-                    <pre class="prettyprint"><code>-h:MongDB所在服务器地址,例如:127.0.0.1,当然也可以指定端口号:127.0.0.1:27017
--d:需要备份的数据库实例,例如:test    -o:备份的数据存放位置,例如:c:\data\dump,当然该目录需要提前建立,在备份完成后,统自动在dump目录下建立一个test目录,这个目录里面存放该数据库实例的备份数据
-</code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 整库恢复</h3></a></div>
+                    <ul>
+                        <li>-h:MongDB所在服务器地址,例如:127.0.0.1,当然也可以指定端口号:127.0.0.1:27017</li>
+                        <li>-d:需要备份的数据库实例,例如:test
+                            -o:备份的数据存放位置,例如:c:\data\dump,当然该目录需要提前建立,在备份完成后,统自动在dump目录下建立一个test目录,这个目录里面存放该数据库实例的备份数据
+                        </li>
+                    </ul>
+                    <div id="6"><h3>6 mongodb整库恢复mongorestore</h3></div>
                     <p>命令:</p>
                     <pre class="prettyprint"><code>mongorestore -h dbhost -d dbname –directoryperdb dbdirectory
 </code></pre>
                     <p>参数说明:</p>
-                    <pre class="prettyprint"><code>-h:MongoDB所在服务器地址
--d:需要恢复的数据库实例,例如:test,当然这个名称也可以和备份时候的不一样,比如test2
-–directoryperdb:备份数据所在位置,例如:c:\data\dump\test,这里为什么要多加一个test,而不是备份时候的dump
-–drop:恢复的时候,先删除当前数据,然后恢复备份的数据。就是说,恢复后,备份后添加修改的数据都会被删除,慎用哦！
-</code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="7"><h3>7 单个collection备份:</h3></a></div>
+                    <ul>
+                        <li>-h:MongoDB所在服务器地址</li>
+                        <li>-d:需要恢复的数据库实例,例如:test,当然这个名称也可以和备份时候的不一样,比如test2</li>
+                        <li>–directoryperdb:备份数据所在位置,例如:c:\data\dump\test,这里为什么要多加一个test,而不是备份时候的dump</li>
+                        <li>–drop:恢复的时候,先删除当前数据,然后恢复备份的数据。就是说,恢复后,备份后添加修改的数据都会被删除,慎用哦！</li>
+                    </ul>
+                    <div id="7"><h3>7 mongodb单个collection备份mongoexport</h3></div>
                     <p>命令:</p>
                     <pre class="prettyprint"><code>mongoexport -h dbhost -d dbname -c collectionname -f collectionKey -o dbdirectory
 </code></pre>
                     <p>参数说明:</p>
-                    <pre class="prettyprint"><code>-h: MongoDB所在服务器地址
--d: 需要恢复的数据库实例
--c: 需要恢复的集合
--f: 需要导出的字段(省略为所有字段)
--o: 表示导出的文件名
-</code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="8"><h3>8 单个collection恢复:</h3></a></div>
+                    <ul>
+                        <li>-h: MongoDB所在服务器地址</li>
+                        <li>-d: 需要恢复的数据库实例</li>
+                        <li>-c: 需要恢复的集合</li>
+                        <li>-f: 需要导出的字段(省略为所有字段)</li>
+                        <li>-o: 表示导出的文件名</li>
+                    </ul>
+                    <div id="8"><h3>8 mongodb单个collection恢复mongoimport</h3></div>
                     <p>命令:</p>
                     <pre class="prettyprint"><code>mongoimport -d dbhost -c collectionname –type csv –headerline –file
 </code></pre>
                     <p>参数说明:</p>
-                    <pre class="prettyprint"><code>-type: 指明要导入的文件格式
--headerline: 批明不导入第一行,因为第一行是列名
--file: 指明要导入的文件路径
-</code></pre>
+                    <ul>
+                        <li>type: 指明要导入的文件格式</li>
+                        <li>headerline: 批明不导入第一行,因为第一行是列名</li>
+                        <li>file: 指明要导入的文件路径</li>
+                    </ul>
                 </div>
             </div>
         </div>

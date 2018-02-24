@@ -1,0 +1,4 @@
+{
+  "title": "Linux的shell脚本中数组及数组遍历",
+  "desc": "在linux的shell中编写脚本的时候,经常会用到数组的操作.本文举例说明了linux的shell声明数组, linux数组数据的读取, linux数组的遍历, linux执行shell遍历数组的时候报错解决."
+}

@@ -1,0 +1,4 @@
+{
+  "title": "nginx目录路径重定向",
+  "desc": "nginx目录路径重定向的四种实现方式.修改root映射,通过Nginx rewrite内部跳转,设置别名alias映射实现,通过nginx的permanent 301绝对跳转实现."
+}

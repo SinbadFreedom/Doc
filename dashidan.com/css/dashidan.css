@@ -35,6 +35,8 @@ img {
 
 .dsd_catalog {
     padding: 10px;
+    border: 1px solid #888;
+    border-radius: 3px;
 }
 
 /** 默认隐藏左边的内容导航*/

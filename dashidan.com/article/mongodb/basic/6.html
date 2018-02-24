@@ -55,7 +55,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('basic')">
-                        <h2><span id="basic_title">➕ MongoDB中文手册</span></h2>
+                        <h2><span id="basic_title">+ MongoDB中文手册</span></h2>
                     </div>
 
                     <div id="basic" class="dsd_catalog_left_hide">
@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('addenda')">
-                        <h2 id="addenda_title">➕ MongoDB附录</h2>
+                        <h2 id="addenda_title">+ MongoDB附录</h2>
                     </div>
                     <div id="addenda" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -143,11 +143,15 @@
                 <div class="dsd_title"><h1>mongo命令提示符帮助</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 mongo命令行参数帮助</a><br><a href="#2">2 mongo指令帮助</a><br><a
-                            href="#3">3 数据库帮助</a><br><a href="#4">4 集合帮助</a><br><a href="#5">5 cursor帮助</a><br><a
-                            href="#6">6 包装对象帮助</a><br><a href="#7">7 参考文章</a><br><a href="#8">8 相关文章</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 mongo命令行参数帮助</a><br><a href="#2">2
+                            mongo指令帮助</a><br><a href="#3">3 数据库帮助</a><br><a href="#3.1">&nbsp;&nbsp;3.1
+                            显示全部数据库</a><br><a href="#3.2">&nbsp;&nbsp;3.2 显示部数据操作帮助</a><br><a href="#3.3">&nbsp;&nbsp;3.3
+                            显示方法的实现</a><br><a href="#4">4 集合帮助</a><br><a href="#4.1">&nbsp;&nbsp;4.1 显示全部集合</a><br><a
+                            href="#4.2">&nbsp;&nbsp;4.2 显示集合帮助</a><br><a href="#4.3">&nbsp;&nbsp;4.3 显示集合方法实现</a><br><a
+                            href="#5">5 cursor帮助</a><br><a href="#6">6 包装对象帮助</a><br><a href="#7">7 参考文章</a><br><a
+                            href="#8">8 相关文章</a></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 mongo命令行参数帮助</h3></a></div>
+                    <div id="1"><h3>1 mongo命令行参数帮助</h3></div>
                     <p>通过<code>--help</code>参数显示命令行帮助信息</p>
                     <pre class="prettyprint"><code>mongo --help
 </code></pre>
@@ -174,7 +178,7 @@ options:
   --verbose             increase verbosity
   --ipv6                开启IPv6支持(默认关闭)
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 mongo指令帮助</h3></a></div>
+                    <div id="2"><h3>2 mongo指令帮助</h3></div>
                     <p>通过命令提示符连上mongo数据库后,可以输入<code>help</code>来显示命令提示符帮助.</p>
                     <pre class="prettyprint"><code>help
 </code></pre>
@@ -201,14 +205,14 @@ it                           输入it, 继续迭代显示结果, 输出更多结
 DBQuery.shellBatchSize = x   设置显示结果条数
 exit                         退出命令行
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 数据库帮助</h3></a></div>
-                    <h3>1.显示全部数据库</h3>
+                    <div id="3"><h3>3 数据库帮助</h3></div>
+                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 显示全部数据库</h4></div>
                     <pre class="prettyprint"><code>show dbs
 </code></pre>
-                    <h3>2.显示部数据操作帮助</h3>
+                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 显示部数据操作帮助</h4></div>
                     <pre class="prettyprint"><code>db.help()
 </code></pre>
-                    <h3>3.显示方法的实现</h3>
+                    <div id="3.3" class="dsd_title_c_2"><h4>3.3 显示方法的实现</h4></div>
                     <p>显示一个数据的方法的具体实现，输入<code>db.&lt;method name&gt;</code>不带<code>()</code>.
                         例如:</p>
                     <pre class="prettyprint"><code>db.updateUser
@@ -216,11 +220,11 @@ exit                         退出命令行
                     <p>显示:</p>
                     <pre class="prettyprint"><code>test.updateUser
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 集合帮助</h3></a></div>
-                    <h3>1.显示全部集合</h3>
+                    <div id="4"><h3>4 集合帮助</h3></div>
+                    <div id="4.1" class="dsd_title_c_2"><h4>4.1 显示全部集合</h4></div>
                     <pre class="prettyprint"><code>show collections
 </code></pre>
-                    <h3>2.显示集合帮助</h3>
+                    <div id="4.2" class="dsd_title_c_2"><h4>4.2 显示集合帮助</h4></div>
                     <pre class="prettyprint"><code>db.collection.help()
 </code></pre>
                     <p>显示</p>
@@ -258,7 +262,7 @@ db.collection.validate( &lt;full&gt; ) - SLOW
 db.collection.getShardVersion() - only for use with sharding
 db.collection.getShardDistribution() - prints statistics about data distribution in the cluster
 </code></pre>
-                    <h3>3.显示集合方法实现</h3>
+                    <div id="4.3" class="dsd_title_c_2"><h4>4.3 显示集合方法实现</h4></div>
                     <p>显示方法实现输入<code>db.&lt;collection&gt;.&lt;method&gt;</code>, 不带<code>()</code>.
                         例如输入:</p>
                     <pre class="prettyprint"><code>db.collection.save
@@ -279,7 +283,7 @@ db.collection.getShardDistribution() - prints statistics about data distribution
     }
 }
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h3>5 cursor帮助</h3></a></div>
+                    <div id="5"><h3>5 cursor帮助</h3></div>
                     <p>当你在mongo命令行使用<code>find()</code>方法时, 可以使用很多<code>cursor</code>方法来修改<code>find()</code>行为和结果.</p>
                     <ul>
                         <li><p>显示find()方法可用的修改器和<code>cursor</code>处理方法</p>
@@ -325,7 +329,7 @@ function () {
     return a;
 }
 </code></pre>
-                    <p>常用的<code>cursor</code>方法</p>
+                    <p>常用的cursor方法</p>
                     <ul>
                         <li>hasNext() 查询<code>cursor</code>是否还有数据.</li>
                         <li>next() 返回下一个数据对象, 并且<code>cursor</code>指向位置加1.</li>
@@ -335,8 +339,8 @@ function () {
                                     <function>只有1参数, 迭代器中指向的对象.
                         </li>
                     </ul>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h3>6 包装对象帮助</h3></a></div>
-                    <p>可以通过输入<code>help misc</code>来获取对象包装类.</p>
+                    <div id="6"><h3>6 包装对象帮助</h3></div>
+                    <p>可以通过输入help misc来获取对象包装类.</p>
                     <pre class="prettyprint"><code>help misc
 </code></pre>
                     <p>显示:</p>
@@ -358,10 +362,10 @@ function () {
     o.toString()
     o.equals(otherid)
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="7"><h3>7 参考文章</h3></a></div>
+                    <div id="7"><h3>7 参考文章</h3></div>
                     <p><a href="https://docs.mongodb.com/manual/tutorial/access-mongo-shell-help/">https://docs.mongodb.com/manual/tutorial/access-mongo-shell-help/</a>
                     </p>
-                    <div class="dsd_title_1"><a href="#top" id="8"><h3>8 相关文章</h3></a></div>
+                    <div id="8"><h3>8 相关文章</h3></div>
                     <p><a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
                 </div>
             </div>

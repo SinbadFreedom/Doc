@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Java流程控制</title>
+    <title>Java跳转语句与循环语句if-else switch for while continue break</title>
     <meta name="description"
-          content="分支语句&#x60;(if, else),&#x60;跳转语句&#x60;(switch)和&#x60;循环语句&#x60;(for, while)的使用方法.附带java源码.">
+          content="java分支语句if-else java跳转语句switch java循环语句for while do-while java continue break关键字 java 死循环.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -55,7 +55,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('basic')">
-                        <h3><span id="basic_title">➕ Java入门到精通</span></h3>
+                        <h3><span id="basic_title">+ Java入门到精通</span></h3>
                     </div>
 
                     <div id="basic" class="dsd_catalog_left_hide">
@@ -128,7 +128,7 @@
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('jdk8')">
-                        <h3 id="jdk8_title">➕ JDK8新特性</h3>
+                        <h3 id="jdk8_title">+ JDK8新特性</h3>
                     </div>
                     <div id="jdk8" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -138,10 +138,10 @@
                             <a href="http://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/java/jdk8/3.html">3.Java中Lambda表达式由来</a>
+                            <a href="http://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/java/jdk8/4.html">4.Lamdba表达式在Java中的实战应用</a>
+                            <a href="http://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
@@ -154,8 +154,41 @@
                         </div>
                     </div>
 
+                    <div class="dsd_title" onclick="clickTitle('addenda')">
+                        <h3 id="addenda_title">+ 附录</h3>
+                    </div>
+                    <div id="addenda" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                        </div>
+                    </div>
+
+                    <div class="dsd_title" onclick="clickTitle('idea')">
+                        <h3 id="idea_title">+ Intelij IDEA</h3>
+                    </div>
+                    <div id="idea" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
+                        </div>
+                    </div>
+
                     <div class="dsd_title" onclick="clickTitle('api')">
-                        <h3><span id="api_title">➕ Java中文手册</span></h3>
+                        <h3><span id="api_title">+ Java中文手册</span></h3>
                     </div>
 
                     <div id="api" class="dsd_catalog_left_hide">
@@ -170,41 +203,6 @@
                         </div>
                     </div>
 
-
-                    <div class="dsd_title" onclick="clickTitle('addenda')">
-                        <h3 id="addenda_title">➕ 附录</h3>
-                    </div>
-                    <div id="addenda" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/4.html">4.Linux配置Java环境</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
-                        </div>
-                    </div>
-
-                    <div class="dsd_title" onclick="clickTitle('idea')">
-                        <h3 id="idea_title">➕ Intelij IDEA</h3>
-                    </div>
-                    <div id="idea" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
@@ -212,19 +210,23 @@
                 <div class="dsd_title"><h1>Java流程控制</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 分支语句</a><br><a href="#2">2 跳转语句</a><br><a href="#3">3
-                            循环语句</a><br><a href="#4">4 示例代码</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 java分支语句if-else</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            最基本的if-else语句</a><br><a href="#1.2">&nbsp;&nbsp;1.2 if-else if-else</a><br><a href="#2">2
+                            java跳转语句switch</a><br><a href="#2.1">&nbsp;&nbsp;2.1 switch语句规则</a><br><a href="#3">3
+                            java循环语句</a><br><a href="#3.1">&nbsp;&nbsp;3.1 for循环 </a><br><a href="#3.2">&nbsp;&nbsp;3.2
+                            while循环</a><br><a href="#3.3">&nbsp;&nbsp;3.3 java do...while循环</a><br><a href="#3.4">&nbsp;&nbsp;3.4
+                            continue关键字</a><br><a href="#3.5">&nbsp;&nbsp;3.5 break关键字</a><br><a href="#3.6">&nbsp;&nbsp;3.6
+                            循环体中return关键字</a><br><a href="#3.7">&nbsp;&nbsp;3.7 死循环</a><br><a href="#4">4
+                            java流程控制语句示例代码</a></div>
                     </div>
                     <div class="jumbotron">
-                        <p>流程控制语句是编程语言中的核心之一,可以分为`分支语句`(if, else),`跳转语句`(switch)和`循环语句`(for, while).
+                        <p>流程控制语句是编程语言中的核心之一,可以分为分支语句(if,else),跳转语句(switch)和循环语句(for,while).
                         </p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 分支语句</h3></a></div>
-                    <p><code>if</code>, <code>else</code>属于分支语句,意思是根据条件执行语句. if-else 流程控制中,只会执行<code>判断条件为真</code>方法体的代码,不满足条件的不执行.
-                    </p>
-                    <h3>1.最简单的流程控制if, else</h3>
-                    <p>如果<code>if</code>括号中的条件为真(<code>true</code>),则执行<code>if</code>对应大括号内的语句. 如果<code>if</code>括号中的条件为假(<code>false</code>),则执行<code>else</code>对应大括号内的语句.
-                    </p>
+                    <div id="1"><h3>1 java分支语句if-else</h3></div>
+                    <p>java语言中if,else属于分支语句,意思是根据条件执行语句.if-else流程控制中,只会执行判断条件为真(true)方法体的代码,不满足条件的不执行.</p>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 最基本的if-else语句</h4></div>
+                    <p>如果if括号中的条件为真(true),则执行if对应大括号内的语句. 如果if括号中的条件为假(false),则执行else对应大括号内的语句. </p>
                     <pre class="prettyprint"><code class="java language-java">int a = 0;
 int b = 1;
 if(a &gt; b){
@@ -233,13 +235,14 @@ if(a &gt; b){
     System.out.println(b);
 }
 </code></pre>
-                    <h3>2.if-else if-else</h3>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 if-else if-else</h4></div>
                     <ul>
-                        <li>如果<code>if</code>括号中的条件为真(<code>true</code>),则执行<code>if</code>对应大括号内的语句.</li>
-                        <li>如果<code>if</code>括号中的条件为假(<code>false</code>),则顺次往下判断<code>else if</code>对应大括号内的条件是否为真.</li>
+                        <li>如果if括号中的条件为真(true),则执行if对应大括号内的语句.</li>
+                        <li>如果if括号中的条件为假(false),则顺次往下判断else if对应大括号内的条件是否为真.</li>
                         <li>如果条件为真,则执行大括号对应的语句.</li>
                         <li>如果条件为假,则继续向下判断.</li>
                     </ul>
+                    <p>java代码:</p>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
 
 /**
@@ -262,15 +265,16 @@ public class Demo1 {
 }
 </code></pre>
                     <p>输出:</p>
-                    <pre><code>a &lt; b
+                    <pre class="prettyprint"><code>a &lt; b
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 跳转语句</h3></a></div>
-                    <p><code>switch</code>是一种条件控制语句, 由<code>case</code>, <code>break</code>, <code>default</code>(可省略)组成.
-                    </p>
+                    <div id="2"><h3>2 java跳转语句switch</h3></div>
+                    <p>switch语句是一种条件控制语句,由case,break,default(可省略)组成. </p>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 switch语句规则</h4></div>
                     <p>
-                        <code>switch</code>根据一个传入的参数,从<code>case</code>后<code>:</code>的数据,找到和传入的参数相同的值.执行对应的<code>case</code>部分的代码,到<code>break</code>结束.结束<code>switch</code>语句.
-                        如果没有满足的<code>case</code>情况.执行<code>default</code>对应的语句.结束<code>switch</code>语句. </p>
-                    <p>代码示例:</p>
+                        switch根据一个传入的参数,从case后":"的数据,找到和传入的参数相同的值.执行对应的case部分的代码,到break结束,结束switch语句.如果没有满足的case情况,则执行default对应的语句,结束switch语句.</p>
+                    <ul>
+                        <li>switch语句结构示例</li>
+                    </ul>
                     <pre class="prettyprint"><code class="java language-java">switch (var) {
     case 1:
         System.out.println(1);
@@ -286,7 +290,9 @@ public class Demo1 {
         break;
 }
 </code></pre>
-                    <p>调用方式</p>
+                    <ul>
+                        <li>java调用switch语句示例</li>
+                    </ul>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
 
 /**
@@ -327,14 +333,16 @@ public class Demo2 {
 }
 </code></pre>
                     <p>输出:</p>
-                    <pre><code>2
+                    <pre class="prettyprint"><code>2
 switch over.
 </code></pre>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>`case`没有`break`会怎样?</h4>
-                        <p>case如果没有break就会继续往下执行,不中断switch语句,直到遇到`break`,或者switch结尾.</p>
-                    </div>
-                    <p>示例代码:</p>
+                    <ul>
+                        <li>case没有break会怎样?</li>
+                    </ul>
+                    <p>case如果没有break就会继续往下执行,不中断switch语句,直到遇到break,或者switch结尾.</p>
+                    <ul>
+                        <li>switch语句中case如果没有break示例代码</li>
+                    </ul>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
 
 /**
@@ -347,7 +355,7 @@ public class Demo3 {
 
     public static void main(String[] args) {
         int num = 2;
-        testSwitchWithoutBreak(num);
+        testSwitchWithoutbreak(num);
     }
 
     /**
@@ -355,7 +363,7 @@ public class Demo3 {
      *
      * @param var 传入的case参数
      */
-    public static void testSwitchWithoutBreak(int var) {
+    public static void testSwitchWithoutbreak(int var) {
         switch (var) {
             case 1:
                 System.out.println(1);
@@ -373,17 +381,19 @@ public class Demo3 {
 }
 </code></pre>
                     <p>输出:</p>
-                    <pre><code>2
+                    <pre class="prettyprint"><code>2
 3
 switch over.
 </code></pre>
                     <p><img class="center-block img-responsive" src="http://dashidan.com/img/common/truth.jpg"
                             alt="真相只有1个"/></p>
                     <div class="bs-callout bs-callout-danger">
-                        <h4>网上很多文章说`switch`只支持整数型和字符(`char`)型.</h4>
-                        <p>那是以前了. JDK7.0开始`switch case`已经支持字符串类型了.</p>
+                        <h4>网上很多文章说switch只支持整数型和字符(`char`)型.</h4>
+                        <p>那是以前了. JDK7.0开始switch case已经支持字符串类型了.</p>
                     </div>
-                    <p>附带真相的代码:</p>
+                    <ul>
+                        <li>switch case支持字符串java代码示例</li>
+                    </ul>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
 
 /**
@@ -424,78 +434,65 @@ public class Demo4 {
 }
 </code></pre>
                     <p>输出:</p>
-                    <pre><code>a
+                    <pre class="prettyprint"><code>a
 switch over.
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 循环语句</h3></a></div>
-                    <p>循环就是同样的规则重复执行. Java基本循环控制有3种: <code>for</code>, <code>while</code>, <code>do...while</code>.</p>
-                    <h3>1.for循环基本表达方式:</h3>
-                    <pre><code>for(定义变量及初始值; 循环继续执行条件; 循环每执行一次变量的变化){
+                    <div id="3"><h3>3 java循环语句</h3></div>
+                    <p>循环就是同样的规则重复执行.Java基本循环控制有3种:for,while,do...while.</p>
+                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 for循环 </h4></div>
+                    <p>java for循环基本表达方式:</p>
+                    <pre class="prettyprint"><code>for(定义变量及初始值; 循环继续执行条件; 循环每执行一次变量的变化){
     //循环体
 }
 </code></pre>
-                    <p>示例代码:</p>
+                    <p>java for循环示例代码:</p>
                     <pre class="prettyprint"><code>for (int i = 0; i &lt; 3; i++) {
     System.out.println("i: " + i);
 }
 </code></pre>
-                    <p>执行步骤:</p>
-                    <ol>
-                        <li>第一步设定一个整型变量<code>i</code>,并设定初始值<code>i = 0</code>.</li>
-                        <li>
-                            第二步判断<code>循环继续执行条件</code>i&lt;3<code>,是否为</code>true<code>,如果为</code>true<code>,继续第三步，如果为</code>false`则结束循环.
-                        </li>
-                        <li>第二步满足<code>i&lt;3</code>(true)时,执行循环体(打印出变量i的值).</li>
-                        <li>第三步执行完循环体后,执行<code>循环每执行一次变量的变化</code>,为(i++),这时<code>i</code>的值加1,从0变为1.</li>
-                        <li>开始循环执行第二步的判断,直到循环结束.</li>
-                    </ol>
-                    <h3>2.while循环基本表达方式:</h3>
-                    <p>先判断是否结束循环,再执行循环体.</p>
-                    <pre><code>while(循环继续执行条件){
+                    <p>java for循环执行步骤</p>
+                    <p>1.第一步设定一个整型变量(以下以变量i为例),并设定初始值i = 0.<br/>
+                        2.第二步判断循环继续执行条件i&lt;3,是否为true,如果为true,继续第三步，如果为false则结束循环.<br/>
+                        3.第二步满足i&lt;3(true)时,执行循环体(打印出变量i的值).<br/>
+                        4.第三步执行完循环体后,执行"循环每执行一次变量的变化",为(i++),这时i的值加1,从0变为1.<br/>
+                        5.开始循环执行第二步的判断,直到循环结束. </p>
+                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 while循环</h4></div>
+                    <p>先判断是否结束循环,再执行循环体.while循环执行步骤:</p>
+                    <p>1.第一步判断"循环继续执行条件i&lt;3",是否为true,如果为true,继续第二步，如果为false则结束循环.</p>
+                    <p>2.第二步执行循环体(打印出变量i的值,i值加1).</p>
+                    <p>3.开始循环执行第二步的判断,直到循环结束.</p>
+                    <p>java while循环基本表达方式:</p>
+                    <pre class="prettyprint"><code>while(循环继续执行条件){
     //循环体
 }
 </code></pre>
-                    <p>示例代码:</p>
+                    <p>java while循环示例代码:</p>
                     <pre class="prettyprint"><code class="java language-java">int i = 0;
 while (i &lt; 3) {
     System.out.println("i: " + i);
     i++;
 }
 </code></pre>
-                    <p>执行步骤:</p>
-                    <ol>
-                        <li>
-                            第一步判断<code>循环继续执行条件</code>i&lt;3<code>,是否为</code>true<code>,如果为</code>true<code>,继续第二步，如果为</code>false`则结束循环.
-                        </li>
-                        <li>第二步执行循环体(打印出变量i的值, i值加1).</li>
-                        <li>开始循环执行第二步的判断,直到循环结束.</li>
-                    </ol>
-                    <h3>3.<code>do...while</code>循环语句</h3>
-                    <p>先执行循环体,再判断是否结束循环,基本表达方式: </p>
-                    <pre><code>do{
+                    <div id="3.3" class="dsd_title_c_2"><h4>3.3 java do...while循环</h4></div>
+                    <p>先执行循环体,再判断是否结束循环.java do...while循环执行步骤:</p>
+                    <p>1.第一步执行循环体(打印出变量i的值,i值加1).</p>
+                    <p>2.第二步判断"循环继续执行条件i&lt;3",是否为true,如果为true,继续第二步，如果为false则结束循环.</p>
+                    <p>3.开始循环执行第一步的语句,直到循环结束. </p>
+                    <p>java do...while循环基本表达方式:</p>
+                    <pre class="prettyprint"><code class="java language-java">do{
     //循环体
 } while(循环继续执行条件);
 </code></pre>
-                    <p>示例代码:</p>
+                    <p>java do...while循环示例代码:</p>
                     <pre class="prettyprint"><code>int i = 0;
 do {
     System.out.println("i: " + i);
     i++;
 } while (i &lt; 3);
 </code></pre>
-                    <p>执行步骤:</p>
-                    <ol>
-                        <li>第一步执行循环体(打印出变量i的值, i值加1).</li>
-                        <li>
-                            第二步判断<code>循环继续执行条件</code>i&lt;3<code>,是否为</code>true<code>,如果为</code>true<code>,继续第二步，如果为</code>false`则结束循环.
-                        </li>
-                        <li>开始循环执行第一步的语句,直到循环结束.</li>
-                    </ol>
-                    <h3>4.<code>continue</code>关键字</h3>
-                    <p>在循环体中的<code>continue</code>是从continue处停止当前的逻辑执行, 并且继续进入下一次循环.</p>
-                    <ul>
-                        <li>for循环continue示例代码:</li>
-                    </ul>
+                    <div id="3.4" class="dsd_title_c_2"><h4>3.4 continue关键字</h4></div>
+                    <p>在java循环体中的continue关键字的作用是从continue处停止当前的逻辑执行,并且继续进入下一次循环.</p>
+                    <p>java for循环continue示例代码:</p>
                     <pre class="prettyprint"><code class="java language-java">for (int i = 0; i &lt; 3; i++) {
     if (i == 1) {
         continue;
@@ -503,9 +500,7 @@ do {
     System.out.println("i: " + i);
 }
 </code></pre>
-                    <ul>
-                        <li>while循环continue示例代码:</li>
-                    </ul>
+                    <p>java while循环continue示例代码:</p>
                     <pre class="prettyprint"><code class="java language-java">int i = 0;
 while (i &lt; 3) {
     if (i == 1) {
@@ -515,14 +510,13 @@ while (i &lt; 3) {
     i++;
 }
 </code></pre>
-                    <div class="bs-callout">
-                        <h4>在`for`循环和`while`循环中,`continue`语句作用一样.当`i==1`时,执行了`continue`语句,跳过了后续的语句,所以没有输出`i: 1`.</h4>
-                    </div>
-                    <h3>5.<code>break</code>关键字</h3>
-                    <p>在循环体中的<code>break</code>结束当前的循环.</p>
+                    <p>java for while循环continue示例代码需要注意的地方:</p>
                     <ul>
-                        <li>for循环示例代码:</li>
+                        <li>在for循环和while循环中,continue语句作用一样.当"i==1"时,执行了continue语句,跳过了后续的语句,所以没有输出"i: 1".</li>
                     </ul>
+                    <div id="3.5" class="dsd_title_c_2"><h4>3.5 break关键字</h4></div>
+                    <p>在java循环体中的break关键字的作用是结束当前的循环.</p>
+                    <p>java for循环break示例代码:</p>
                     <pre class="prettyprint"><code class="java language-java">for (int i = 0; i &lt; 3; i++) {
     if (i == 1) {
         break;
@@ -530,9 +524,7 @@ while (i &lt; 3) {
     System.out.println("i: " + i);
 }
 </code></pre>
-                    <ul>
-                        <li>while循环示例代码:</li>
-                    </ul>
+                    <p>java while循环break示例代码</p>
                     <pre class="prettyprint"><code>int i = 0;
 while(i &lt; 3){
     if(i == 1){
@@ -542,56 +534,18 @@ while(i &lt; 3){
     i++;
 }
 </code></pre>
-                    <h3>6.<code>return</code>关键字</h3>
-                    <p><code>return</code>语句可以使其从当前方法中退出.返回到调用该方法的语句处.继续程序的执行. 返回语句有两种格式:无返回值和有返回值.</p>
-                    <ul>
-                        <li>return有返回值, 返回一个值给调用该方法的语句.返回值的数据类型必须与方法声明中的返回值类型一致.</li>
-                        <li>return无返回值, 当方法说明中用<code>void</code>声明无返回值时,不返回任何值.</li>
-                    </ul>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>return返回值</h4>
-                        <p>`return`语句通常用在一个方法体的最后,退出该方法并返回一个值. 单独的`return`语句用在一个方法体的中间时,会产生编译错误,因这会导致后续语句执行不到.
-                            可以通过把`return`语句嵌入某些语句(如:`if…else`)来使程序在未执行完方法中的所有语句时退出.</p>
-                    </div>
-                    <p>示例代码:</p>
-                    <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
-
-/**
- * 大屎蛋教程网-dashidan.com
- * &lt;p&gt;
- * Java教程基础篇:9.Java流程控制
- * return 语句
- */
-public class Demo6 {
-    public static void main(String[] args) {
-        /** 执行无返回值的方法*/
-        testReturn(1);
-        int b = testReturnInt(2, 3);
-        System.out.println("执行有返回值的方法: " + b);
-
-    }
-
-    public static void testReturn(int value) {
-        System.out.println("执行无返回值的方法: " + value);
-    }
-
-    public static int testReturnInt(int p0, int p1) {
-        return p0 + p1;
-    }
-}
-</code></pre>
-                    <p>输出:</p>
-                    <pre><code>执行无返回值的方法: 1
-执行有返回值的方法: 5
-</code></pre>
-                    <h3>7. 死循环</h3>
-                    <p>当程序进入循环中,如果符合继续执行循环的条件一直为true, 程序就会无限执行这个循环体的代码, 导致无法执行下一句语句,这种情况就叫<code>死循环</code>. 开发过程中需要注意这点.
-                        最简单的是循环的例子是 </p>
-                    <pre><code>while(true){
+                    <div id="3.6" class="dsd_title_c_2"><h4>3.6 循环体中return关键字</h4></div>
+                    <p>在循环体中使用return关键字也是退出该方法.<a href="http://dashidan.com/article/java/basic/8.html#7">return语句</a>.
+                    </p>
+                    <div id="3.7" class="dsd_title_c_2"><h4>3.7 死循环</h4></div>
+                    <p>当程序进入循环中,如果符合继续执行循环的条件一直为true,程序就会无限执行这个循环体的代码,导致无法执行下一句语句,这种情况就叫死循环. 开发过程中需要注意这点. </p>
+                    <p>最简单的java死循环的例子:</p>
+                    <pre class="prettyprint"><code>while(true){
     ...
 }
 </code></pre>
-                    <p>示例代码</p>
+                    <p>java死循环示例代码:</p>
+                    <p>一旦程序进入死循环状态, 程序会一直执行这个循环体中的语句.</p>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
 
 /**
@@ -609,7 +563,7 @@ public class Demo7 {
 }
 </code></pre>
                     <p>输出</p>
-                    <pre><code>死循环
+                    <pre class="prettyprint"><code>死循环
 死循环
 死循环
 死循环
@@ -618,7 +572,12 @@ public class Demo7 {
 死循环
 ...
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 示例代码</h3></a></div>
+                    <p>java死循环的作用:</p>
+                    <p>在编写程序逻辑出现错误进入死循环时程序会抱住cpu资源不放,会一直执行下去消耗系统的性能.难道死循环一无是处吗?不是的.在一些特定情况下我们需要通过死循环来实现持续执行,比如在<a
+                        href="http://dashidan.com/article/java/basic/19.html">Java多线程</a>环境中我们经常采用死循环来间隔一段时间执行程序实现循环检测等.
+                    </p>
+                    <div id="4"><h3>4 java流程控制语句示例代码</h3></div>
+                    <p>java代码:</p>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson9;
 
 /**
@@ -668,8 +627,8 @@ public class Demo5 {
         }
 
         /**
-         * 在`for`循环和`while`循环中,`break`语句作用一样.
-         * 当`i==1`时,执行了`break`语句,结束了循环.所以只有`i: 0`的输出.
+         * 在for循环和while循环中,break语句作用一样.
+         * 当`i==1`时,执行了break语句,结束了循环.所以只有`i: 0`的输出.
          */
         System.out.println("break在for循环中");
         for (i = 0; i &lt; 3; i++) {
@@ -691,7 +650,7 @@ public class Demo5 {
 }
 </code></pre>
                     <p>输出:</p>
-                    <pre><code>for循环基本表达方式
+                    <pre class="prettyprint"><code>for循环基本表达方式
 i: 0
 i: 1
 i: 2

@@ -1,0 +1,4 @@
+{
+  "title": "npm升级更新指定模块",
+  "desc": "npm update命令可以更新制定模块 npm将模块升级到指定版本 npm install @latest安装最新版模块"
+}

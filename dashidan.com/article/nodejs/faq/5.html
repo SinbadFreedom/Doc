@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>linux安装nodejs5.0以上版本及版本切换</title>
-    <meta name="description" content="linux安装nodejs5.0以上版本及版本切换">
+    <title>linux安装nodejs5.0以上版本及nodejs版本切换</title>
+    <meta name="description" content="linux nvm安装nodejs指定版本步骤及nodejs版本切换">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,11 +54,11 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">➕ NodeJs常见问题</span></h3>
+                        <h3><span id="faq_title">+ NodeJs常见问题</span></h3>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/nodejs/faq/1.html">1.npm切换源</a>
+                            <a href="http://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
@@ -67,14 +67,20 @@
                             <a href="http://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与npm install
-                                --save-dev的区别</a>
+                            <a href="http://dashidan.com/article/nodejs/faq/4.html">4.npm install
+                                --save与--save-dev的区别</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs5.0以上版本及版本切换</a>
+                            <a href="http://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
                         </div>
                     </div>
 
@@ -82,62 +88,65 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>linux安装nodejs5.0以上版本及版本切换</h1></div>
+                <div class="dsd_title"><h1>linux安装nodejs及版本切换</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><p><a href="#linux安装nodejs5.0以上版本及版本切换">linux安装nodejs5.0以上版本及版本切换</a>
-                        </p>
-                            <p><a href="#1.">1. nvm是什么</a></p>
-                            <p><a href="#2.">2. 安装步骤</a></p></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nvm是什么</a><br><a href="#2">2 linux
+                            nvm安装nodejs指定版本步骤</a><br><a href="#2.1">&nbsp;&nbsp;2.1 linux安装nrm切换npm镜像</a><br><a
+                            href="#2.2">&nbsp;&nbsp;2.2 下载安装nvm脚本</a><br><a href="#2.3">&nbsp;&nbsp;2.3
+                            执行nvm脚本</a><br><a href="#2.4">&nbsp;&nbsp;2.4 查看nodejs版本</a><br><a href="#2.5">&nbsp;&nbsp;2.5
+                            nvm安装nodejs指定版本</a></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="linux安装nodejs5.0以上版本及版本切换"><h2>
-                        linux安装nodejs5.0以上版本及版本切换</h2></a></div>
                     <div class="jumbotron">
-                        <p>在linux安装nodejs5.0以上的版本时, 经常遇到出其不意的报错. 经过自己踩坑, 找到了一种很方便的安装方式: 通过nvm命令安装和切换nodejs脚本.</p>
+                        <p>在linux安装nodejs5.0以上的版本时,经常遇到出其不意的报错.可以通过nvm命令安装和切换nodejs脚本.</p>
                     </div>
-                    <div class="dsd_title_2"><a href="#top" id="1.">1. nvm是什么</a></div>
-                    <p>nvm是的github中的一个开源项目, 可以很方便的在linux中安装和切换node的各个版本.<br/>
-                        <a href="https://github.com/creationix/nvm">nvm项目链接</a></p>
-                    <div class="dsd_title_2"><a href="#top" id="2.">2. 安装步骤</a></div>
-                    <h3>1.安装nrm切换npm镜像</h3>
-                    <pre><code>npm install -g nrm
+                    <div id="1"><h3>1 nvm是什么</h3></div>
+                    <p>nvm是的github中的一个开源项目, 可以很方便的在linux中安装和切换node的各个版本.<a href="https://github.com/creationix/nvm">nvm项目链接</a>
+                    </p>
+                    <div id="2"><h3>2 linux nvm安装nodejs指定版本步骤</h3></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 linux安装nrm切换npm镜像</h4></div>
+                    <pre class="prettyprint"><code>npm install -g nrm
 nrm ls
 nrm use taobao
 </code></pre>
-                    <h3>2.下载安装nvm脚本</h3>
-                    <pre><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 下载安装nvm脚本</h4></div>
+                    <pre class="prettyprint"><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 </code></pre>
                     <p>或:</p>
-                    <pre><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+                    <pre class="prettyprint"><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 </code></pre>
-                    <h3>3.执行脚本</h3>
-                    <pre><code>source ~/.nvm/nvm.sh
+                    <div id="2.3" class="dsd_title_c_2"><h4>2.3 执行nvm脚本</h4></div>
+                    <pre class="prettyprint"><code>source ~/.nvm/nvm.sh
 </code></pre>
-                    <h3>4.查看nodejs版本</h3>
-                    <p>查看nodejs本地已安装nodejs版本</p>
-                    <pre><code>nvm ls
+                    <div id="2.4" class="dsd_title_c_2"><h4>2.4 查看nodejs版本</h4></div>
+                    <ul>
+                        <li>查看nodejs本地已安装nodejs版本</li>
+                    </ul>
+                    <pre class="prettyprint"><code>nvm ls
 </code></pre>
-                    <p>查看nodejs远端版本</p>
-                    <pre><code>nvm ls-remote
+                    <ul>
+                        <li>查看nodejs远端版本</li>
+                    </ul>
+                    <pre class="prettyprint"><code>nvm ls-remote
 </code></pre>
-                    <h3>5.安装nodejs版本</h3>
+                    <div id="2.5" class="dsd_title_c_2"><h4>2.5 nvm安装nodejs指定版本</h4></div>
                     <p>命令格式:</p>
-                    <pre><code>nvm install 版本号
+                    <pre class="prettyprint"><code>nvm install 版本号
 </code></pre>
                     <p>以安装nodejs5.0为例, 输入:</p>
-                    <pre><code>nvm install 5.0
+                    <pre class="prettyprint"><code>nvm install 5.0
 </code></pre>
                     <p>选择切换nodejs版本:</p>
-                    <pre><code>nvm use 5.0
+                    <pre class="prettyprint"><code>nvm use 5.0
 </code></pre>
                     <p>运行指定nodejs版本:</p>
-                    <pre><code>nvm run 5.0 --version
+                    <pre class="prettyprint"><code>nvm run 5.0 --version
 </code></pre>
                     <p>在指定nodejs版本环境中运行任意命令:</p>
-                    <pre><code>nvm exec 4.2 node --version
+                    <pre class="prettyprint"><code>nvm exec 4.2 node --version
 </code></pre>
                     <p>查看版本安装路径:</p>
-                    <pre><code>nvm which 5.04.4
+                    <pre class="prettyprint"><code>nvm which 5.04.4
 </code></pre>
                     <div class="bs-callout bs-callout-warning">
                         <p>在使用过程中发现`source`每次关闭控制台就不管用</p>

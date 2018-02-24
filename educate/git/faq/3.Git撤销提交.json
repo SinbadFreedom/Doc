@@ -1,0 +1,4 @@
+{
+  "title": "Git撤销提交",
+  "desc": "git撤销已push的改变 git revert命令撤销提交 git重置本地修改 git撤销本地修改"
+}

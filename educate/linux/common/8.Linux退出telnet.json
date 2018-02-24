@@ -1,0 +1,4 @@
+{
+  "title": "Linux退出telnet",
+  "desc": "在linux系统中可通过输入Ctrl+c,Ctrl+z,或者输入quit命令退出telnet命令行."
+}

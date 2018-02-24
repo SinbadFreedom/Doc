@@ -28,21 +28,21 @@ function clickTitle(name) {
     var titleId = "#" + name + "_title";
     var titleName = $(titleId).text();
 
-    if (titleName.startsWith("➕")) {
+    if (titleName.startsWith("+")) {
         /** 隐藏状态切换到显示*/
         $("#" + name).removeClass("dsd_catalog_left_hide");
         $("#" + name).addClass("dsd_catalog_left_show");
         titleName = titleName.substring(1);
-        titleName = "➖" + titleName;
-    } else if (titleName.startsWith("➖")) {
+        titleName = "-" + titleName;
+    } else if (titleName.startsWith("-")) {
         /** 显示状态切换到隐藏*/
         $("#" + name).removeClass("dsd_catalog_left_show");
         $("#" + name).addClass("dsd_catalog_left_hide");
         titleName = titleName.substring(1);
-        titleName = "➕" + titleName;
+        titleName = "+" + titleName;
     }
 
-    /** 修改标题内容 ➕ 改为 ➖ */
+    /** 修改标题内容 + 改为 - */
     $(titleId).text(titleName);
 }
 

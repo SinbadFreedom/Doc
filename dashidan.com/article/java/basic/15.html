@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Java集合类</title>
+    <title>java集合类接口与java集合类的遍历</title>
     <meta name="description"
-          content="Java集合类是java提供的工具包,包含了常用的数据结构:集合、链表、队列、栈、映射等.Java集合类主要可以划分为4个部分:List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections).">
+          content="java常用集合类接口:Collection List Set Queue Map介绍 java集合类的遍历java HashMap  HashSet  LinkList  ArrayList  Vector等">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -55,7 +55,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('basic')">
-                        <h3><span id="basic_title">➕ Java入门到精通</span></h3>
+                        <h3><span id="basic_title">+ Java入门到精通</span></h3>
                     </div>
 
                     <div id="basic" class="dsd_catalog_left_hide">
@@ -128,7 +128,7 @@
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('jdk8')">
-                        <h3 id="jdk8_title">➕ JDK8新特性</h3>
+                        <h3 id="jdk8_title">+ JDK8新特性</h3>
                     </div>
                     <div id="jdk8" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -138,10 +138,10 @@
                             <a href="http://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/java/jdk8/3.html">3.Java中Lambda表达式由来</a>
+                            <a href="http://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/java/jdk8/4.html">4.Lamdba表达式在Java中的实战应用</a>
+                            <a href="http://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
@@ -154,8 +154,41 @@
                         </div>
                     </div>
 
+                    <div class="dsd_title" onclick="clickTitle('addenda')">
+                        <h3 id="addenda_title">+ 附录</h3>
+                    </div>
+                    <div id="addenda" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                        </div>
+                    </div>
+
+                    <div class="dsd_title" onclick="clickTitle('idea')">
+                        <h3 id="idea_title">+ Intelij IDEA</h3>
+                    </div>
+                    <div id="idea" class="dsd_catalog_left_hide">
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
+                        </div>
+                        <div class="single_line">
+                            <a href="http://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
+                        </div>
+                    </div>
+
                     <div class="dsd_title" onclick="clickTitle('api')">
-                        <h3><span id="api_title">➕ Java中文手册</span></h3>
+                        <h3><span id="api_title">+ Java中文手册</span></h3>
                     </div>
 
                     <div id="api" class="dsd_catalog_left_hide">
@@ -170,41 +203,6 @@
                         </div>
                     </div>
 
-
-                    <div class="dsd_title" onclick="clickTitle('addenda')">
-                        <h3 id="addenda_title">➕ 附录</h3>
-                    </div>
-                    <div id="addenda" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/4.html">4.Linux配置Java环境</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
-                        </div>
-                    </div>
-
-                    <div class="dsd_title" onclick="clickTitle('idea')">
-                        <h3 id="idea_title">➕ Intelij IDEA</h3>
-                    </div>
-                    <div id="idea" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="http://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
@@ -212,17 +210,33 @@
                 <div class="dsd_title"><h1>Java集合类</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 常用集合类接口</a><br><a href="#2">2 常用集合类</a><br><a href="#3">3
-                            常用遍历集合方式</a><br><a href="#4">4 FAQ</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 java常用集合类接口</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            java Collection接口</a><br><a href="#1.2">&nbsp;&nbsp;1.2 java List接口</a><br><a href="#1.3">&nbsp;&nbsp;1.3
+                            java Set接口</a><br><a href="#1.4">&nbsp;&nbsp;1.4 java Queue接口</a><br><a href="#1.5">&nbsp;&nbsp;1.5
+                            Map接口</a><br><a href="#2">2 java常用集合类</a><br><a href="#2.1">&nbsp;&nbsp;2.1 java
+                            LinkedList类</a><br><a href="#2.2">&nbsp;&nbsp;2.2 java ArrayList类</a><br><a href="#2.3">&nbsp;&nbsp;2.3
+                            java Vector类</a><br><a href="#2.4">&nbsp;&nbsp;2.4 java Stack类</a><br><a href="#2.5">&nbsp;&nbsp;2.5
+                            java HashMap类</a><br><a href="#2.6">&nbsp;&nbsp;2.6 java HashTable类</a><br><a href="#2.7">&nbsp;&nbsp;2.7
+                            java WeakHashMap类</a><br><a href="#2.8">&nbsp;&nbsp;2.8 java HashSet类</a><br><a href="#2.9">&nbsp;&nbsp;2.9
+                            java ConcurrentHashMap类</a><br><a href="#2.10">&nbsp;&nbsp;2.10 java
+                            LinkedHashMap类</a><br><a href="#2.11">&nbsp;&nbsp;2.11 java TreeMap类</a><br><a href="#2.12">&nbsp;&nbsp;2.12
+                            java常用集合类总结</a><br><a href="#3">3 java常用遍历集合方式</a><br><a href="#3.1">&nbsp;&nbsp;3.1
+                            java常用遍历集合方式</a><br><a href="#3.2">&nbsp;&nbsp;3.2 java遍历集合示例代码</a><br><a href="#4">4
+                            java集合常见问题</a><br><a href="#4.1">&nbsp;&nbsp;4.1 集合类和数组的区别</a><br><a href="#4.2">&nbsp;&nbsp;4.2
+                            ArrayList和LinkedList区别</a><br><a href="#4.3">&nbsp;&nbsp;4.3
+                            ArrayList和LinkedList应用场景</a><br><a href="#4.4">&nbsp;&nbsp;4.4 队列和栈</a><br><a href="#4.5">&nbsp;&nbsp;4.5
+                            java HashTable与HashMap区别</a><br><a href="#4.6">&nbsp;&nbsp;4.6 java
+                            ArrayList和Vector区别</a><br><a href="#4.7">&nbsp;&nbsp;4.7 java ArrayList和Linklist区别</a><br><a
+                            href="#4.8">&nbsp;&nbsp;4.8 java HashMap与TreeMap区别</a></div>
                     </div>
                     <div class="jumbotron">
                         <p>
                             Java集合类是java提供的工具包,包含了常用的数据结构:集合、链表、队列、栈、映射等.Java集合类主要可以划分为4个部分:List列表、Set集合、Map映射、工具类(Iterator迭代器、Enumeration枚举类、Arrays和Collections).
                         </p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 常用集合类接口</h3></a></div>
+                    <div id="1"><h3>1 java常用集合类接口</h3></div>
                     <p>常用集合类继承关系如下所示: </p>
-                    <pre><code>Collection
+                    <pre class="prettyprint"><code>Collection
     |-List
         |-LinkedList
         |-ArrayList
@@ -231,65 +245,41 @@
     |-HashSet
     |-Queue
 Map
-    |-Hashtable
+    |-HashTable
     |-HashMap
 </code></pre>
-                    <h3>1.<code>Collection</code>接口</h3>
-                    <p><code>Collection</code>是最基本的集合接口,一个<code>Collection</code>代表一组Object,即<code>Collection</code>的元素(Elements).由<code>Collection</code>接口派生的两个接口是<code>List</code>和<code>Set</code>.<code>List</code>允许有相同元素,
-                        <code>Set</code>不允许有相同元素.</p>
-                    <p>实现Collection接口的类都必须提供两个标准的构造函数: </p>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 java Collection接口</h4></div>
+                    <p>
+                        Collection是最基本的集合接口,一个Collection代表一组Object,即Collection的元素(Elements).实现Collection接口的类都必须提供两个标准的构造函数:</p>
                     <ul>
                         <li>无参数的构造函数用于创建一个空的Collection.</li>
-                        <li>有一个参数的构造函数用于创建一个新的<code>Collection</code>对象,这个对象传入的<code>Collection</code>有相同的元素.
-                            允许用户复制一个<code>Collection</code>.
-                        </li>
+                        <li>有一个参数的构造函数用于创建一个新的Collection对象,这个对象传入的Collection有相同的元素.允许用户复制一个Collection.</li>
                     </ul>
-                    <h3>2.<code>List</code>接口</h3>
-                    <p><code>List</code>是<code>有序</code>的<code>Collection</code>.
-                        使用此接口能够精确的控制每个元素插入的位置.能够使用索引(元素在List中的位置,类似于数组下标)来访问List中的元素,这类似于Java的数组.</p>
-                    <p>除了具有<code>Collection</code>接口必备的<code>iterator()</code>方法外, <code>List</code>还提供一个<code>listIterator()</code>方法,
-                        返回一个<code>ListIterator</code>接口,和标准的<code>Iterator</code>接口相比,<code>ListIterator</code>多了一些<code>add()</code>之类的方法,允许添加,删除,设定元素,还能向前或向后遍历.
-                    </p>
-                    <p>
-                        实现List接口的常用类有<code>LinkedList</code>,<code>ArrayList</code>,<code>Vector</code>和<code>Stack</code>.
-                        和<code>Set</code>不同, <code>List</code>允许有相同的元素. </p>
-                    <h3>3.<code>Set</code>接口</h3>
-                    <p>
-                        <code>Set</code>是一种不包含重复的元素的<code>Collection</code>,即任意的两个元素<code>e1</code>和<code>e2</code>都有<code>e1.equals(e2)=false</code>.
-                    </p>
-                    <p><code>Set</code>的构造函数有一个约束条件,传入的<code>Collection</code>参数不能包含重复的元素.<code>Set</code>最多有一个<code>null</code>元素.
-                    </p>
-                    <div class="bs-callout bs-callout-danger">
-                        <h4>必须小心操作可变对象(Mutable Object)</h4>
-                        <p>如果一个`Set`中的可变元素改变了自身状态导致Object.equals(Object)=true将导致一些问题.</p>
-                    </div>
-                    <h3>4.<code>Queue</code>接口</h3>
-                    <p>可以实现先进先出的队列.<code>LinkedList</code>同样实现了Queue接口.<code>PriorityQueue</code>用来创建自然排序的优先级队列. </p>
-                    <h3>5.<code>Map</code>接口</h3>
-                    <p><code>Map</code>提供<code>key</code>到<code>value</code>的映射.
-                        一个<code>Map</code>中不能包含相同的<code>key</code>,每个<code>key</code>只能映射一个<code>value</code>.<code>Map</code>的内容可以被当作一组<code>key</code>集合,一组<code>value</code>集合,或者一组<code>key-value</code>映射.
-                    </p>
-                    <div class="bs-callout bs-callout-danger">
-                        <h4>`Map`没有继承`Collection`接口.
-                        </h4>
-                    </div>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 常用集合类</h3></a></div>
-                    <h3>1.<code>LinkedList</code>类</h3>
-                    <p><code>LinkedList</code>实现了<code>List</code>接口,允许null元素.提供额外的<code>get</code>,<code>remove</code>,<code>insert</code>方法在<code>LinkedList</code>的首部或尾部.这些操作使<code>LinkedList</code>可被用作<code>栈</code>(stack),<code>队列</code>(queue)或<code>双向队列</code>(deque).
-                    </p>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>`LinkedList`没有同步方法</h4>
-                        <p>如果多个线程同时访问一个List, 则必须自己实现访问同步.</p>
-                        <p>一种解决方法是在创建List时构造一个同步的List:</p>
-                        <p>List list = Collections.synchronizedList(new LinkedList(...));.</p>
-                    </div>
-                    <h3>2.<code>ArrayList</code>类</h3>
-                    <p>
-                        <code>ArrayList</code>实现了变长数组.它允许所有元素,包括null.每个<code>ArrayList</code>实例都有一个容量(<code>Capacity</code>),
-                        即用于存储元素的数组的大小.这个容量可随着不断添加新元素而自动增加,但是增长算法并没有定义.</p>
-                    <p>当需要插入大量元素时,在插入前可以调用<code>ensureCapacity</code>方法来增加<code>ArrayList</code>的容量以提高插入效率.<br/>
-                        和LinkedList一样,ArrayList也是非同步的(unsynchronized). </p>
-                    <p><code>ArrayList</code>添加删除对象:</p>
+                    <p>由Collection接口派生的两个接口是List和Set.java List接口和Set接口区别:</p>
+                    <ul>
+                        <li>List允许有相同元素,Set不允许有相同元素.</li>
+                    </ul>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 java List接口</h4></div>
+                    <p>java
+                        List是有序的Collection.使用此接口能够精确的控制每个元素插入的位置.能够使用索引(元素在List中的位置,类似于数组下标)来访问List中的元素,这类似于Java的数组.除了具有Collection接口必备的iterator()方法外,List还提供一个listIterator()方法,返回一个ListIterator接口,和标准的Iterator接口相比,ListIterator多了一些add()之类的方法,允许添加,删除,设定元素,还能向前或向后遍历.实现List接口的常用类有LinkedList,ArrayList,Vector和Stack.和Set不同,List允许有相同的元素. </p>
+                    <div id="1.3" class="dsd_title_c_2"><h4>1.3 java Set接口</h4></div>
+                    <p>java
+                        Set是一种不包含重复的元素的Collection,即任意的两个元素e1和e2都有e1.equals(e2)=false.Set的构造函数有一个约束条件,传入的Collection参数不能包含重复的元素.Set最多有一个null元素.</p>
+                    <div id="1.4" class="dsd_title_c_2"><h4>1.4 java Queue接口</h4></div>
+                    <p>java Queue接口可以实现先进先出的队列.LinkedList同样实现了Queue接口.PriorityQueue用来创建自然排序的优先级队列. </p>
+                    <div id="1.5" class="dsd_title_c_2"><h4>1.5 Map接口</h4></div>
+                    <p>java
+                        Map没有继承Collection接口.Map提供key到value的映射.一个Map中不能包含相同的key,每个key只能映射一个value.Map的内容可以被当作一组key集合,一组value集合,或者一组key-value映射.</p>
+                    <div id="2"><h3>2 java常用集合类</h3></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 java LinkedList类</h4></div>
+                    <p>java
+                        LinkedList实现了List接口,允许null元素.提供额外的get,remove,insert方法在LinkedList的首部或尾部.这些操作使LinkedList可被用作栈(stack),队列(queue)或双向队列(deque).</p>
+                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 java ArrayList类</h4></div>
+                    <p>java
+                        ArrayList实现了变长数组.它允许所有元素,包括null.每个ArrayList实例都有一个容量(Capacity),即用于存储元素的数组的大小.这个容量可随着不断添加新元素而自动增加,但是增长算法并没有定义.当需要插入大量元素时,在插入前可以调用ensureCapacity方法来增加ArrayList的容量以提高插入效率. </p>
+                    <ul>
+                        <li>java ArrayList添加删除对象代码示例</li>
+                    </ul>
                     <pre class="prettyprint"><code class="java language-java">/** ArrayList添加对象*/
 ArrayList&lt;Integer&gt; intList = new ArrayList&lt;&gt;();
 System.out.println("ArrayList 长度: " + intList.size());
@@ -301,24 +291,26 @@ System.out.println("ArrayList 长度: " + intList.size());
 intList.remove(5);
 System.out.println("ArrayList 长度: " + intList.size());
 </code></pre>
-                    <p><code>ArrayList</code>遍历:</p>
+                    <p>java遍历ArrayList的几种方式:</p>
                     <ul>
-                        <li>ArrayList 遍历方式 1 增强for循环, 获得值, 无法获得索引</li>
+                        <li>java增强for循环遍历ArrayList</li>
                     </ul>
+                    <p>这种方法遍历ArrayList无法获得集合中数据的索引.</p>
                     <pre class="prettyprint"><code class="java language-java">for (Integer intNum : arrayList) {
     System.out.println(intNum);
 }
 </code></pre>
                     <ul>
-                        <li>ArrayList 遍历方式 2普通for循环, 索引和值都能获得</li>
+                        <li>java for循环遍历ArrayList</li>
                     </ul>
+                    <p>这种方法遍历ArrayList可以获得集合中数据的索引.</p>
                     <pre class="prettyprint"><code class="java language-java">for (int i = 0; i &lt; arrayList.size(); i++) {
     int num = arrayList.get(i);
     System.out.println(num);
 }
 </code></pre>
                     <ul>
-                        <li>ArrayList 遍历方式 3 迭代器 Itertor, 无法获得索引</li>
+                        <li>java 迭代器Itertor遍历ArrayList</li>
                     </ul>
                     <pre class="prettyprint"><code class="java language-java">Iterator&lt;Integer&gt; it = arrayList.iterator();
 while (it.hasNext()) {
@@ -326,11 +318,12 @@ while (it.hasNext()) {
     System.out.println(num);
 }
 </code></pre>
-                    <h3>3.<code>Vector</code>类</h3>
-                    <p><code>Vector</code>非常类似<code>ArrayList</code>,但<code>Vector</code>是线程同步的.</p>
-                    <p>由<code>Vector</code>创建的<code>Iterator</code>,虽然和<code>ArrayList</code>创建的<code>Iterator</code>是同一接口,但由于<code>Vector</code>是线程同步的,当一个<code>Iterator</code>被创建而且正在被使用,另一个线程改变了<code>Vector</code>的状态(例如,添加或删除了一些元素),这时调用<code>Iterator</code>的方法时将抛出<code>ConcurrentModificationException</code>,因此必须捕获该异常.
-                    </p>
-                    <p>代码示例:</p>
+                    <div id="2.3" class="dsd_title_c_2"><h4>2.3 java Vector类</h4></div>
+                    <p>java
+                        Vector非常类似ArrayList,Vector与ArrayList的区别时是Vector是线程安全的而ArrayList不是.由Vector创建的Iterator,虽然和ArrayList创建的Iterator是同一接口,但由于Vector是线程同步的,当一个Iterator被创建而且正在被使用,另一个线程改变了Vector的状态(例如,添加或删除了一些元素),这时调用Iterator的方法时将抛出ConcurrentModificationException,因此必须捕获该异常.</p>
+                    <ul>
+                        <li>java Vector处理ConcurrentModificationException代码示例</li>
+                    </ul>
                     <pre class="prettyprint"><code class="java language-java">/** Vector*/
 Vector&lt;Integer&gt; vector = new Vector&lt;&gt;();
 System.out.println("Vector 长度: " + vector.size());
@@ -346,21 +339,17 @@ for (Integer intNum : vector) {
     System.out.println(intNum);
 }
 </code></pre>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>Vector添加删除对象和遍历方式和ArrayList类似, 参考ArrayList的代码实现.
-                        </h4>
-                    </div>
-                    <h3>4.<code>Stack</code>类</h3>
-                    <p><code>Stack</code>继承自<code>Vector</code>,实现一个<code>后进先出</code>的堆栈.
-                        <code>stack</code>的常用方法: </p>
+                    <p>Vector添加删除对象和遍历方式和ArrayList类似,参考ArrayList的代码实现.</p>
+                    <div id="2.4" class="dsd_title_c_2"><h4>2.4 java Stack类</h4></div>
+                    <p>java Stack类继承自Vector,实现一个后进先出的堆栈.java Stack的常用方法:</p>
                     <ul>
-                        <li><code>push</code>: 放入栈</li>
-                        <li><code>pop</code>: 出栈</li>
-                        <li><code>peek</code>:得到栈顶的元素</li>
-                        <li><code>empty</code>:测试堆栈是否为空</li>
-                        <li><code>search</code>:检测一个元素在堆栈中的位置</li>
+                        <li>push: 放入栈</li>
+                        <li>pop: 出栈</li>
+                        <li>peek: 得到栈顶的元素</li>
+                        <li>empty: 测试堆栈是否为空</li>
+                        <li>search:检测一个元素在堆栈中的位置</li>
                     </ul>
-                    <p>代码示例:</p>
+                    <p>java Stack代码示例</p>
                     <pre class="prettyprint"><code class="java language-java">/** Stack*/
 Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
 System.out.println("Stack 长度: " + stack.size());
@@ -384,36 +373,21 @@ for (Integer anIntList : stack) {
     System.out.println(num);
 }
 </code></pre>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>`Stack`遍历方式和`ArrayList`类似, 参考`ArrayList`的代码实现.
-                        </h4>
-                    </div>
-                    <h3>5.HashMap类</h3>
-                    <p><code>HashMap</code>是最常用的<code>Map</code>,不是线程安全的.它根据键的<code>HashCode</code>值存储数据,根据键可以直接获取它的值,具有很快的访问速度.遍历时,取得数据的顺序是<code>完全随机</code>的.
-                    </p>
-                    <p>由于键对象不可以重复, 所以<code>HashMap</code>最多只允许一条记录的键为空(null),允许多条记录的值为空(null).</p>
-                    <p>由于作为key的对象将通过计算其<code>散列函数</code>来确定与之对应的<code>value</code>的位置,
-                        因此任何作为<code>key</code>的对象都必须实现<code>hashCode</code>和<code>equals</code>方法.</p>
-                    <div class="bs-callout">
-                        <h4>`hashCode`和`equals`方法继承自根类`Object`.</h4>
-                    </div>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>用自定义的类当作key</h4>
-                        <p>
-                            按照`散列函数`的定义,如果两个对象相同,即`obj1.equals(obj2)=true`,则它们的`hashCode`必须相同,但如果两个对象不同,则它们的`hashCode``不一定不同`.</p>
-                        <p>如果两个不同对象的hashCode相同,这种现象称为`冲突`. 冲突会导致操作哈希表的时间开销增大.<br>
-                        <p>
-                            所以尽量定义好的`hashCode()`方法,能加快哈希表的操作.如果相同的对象有不同的`hashCode`,对哈希表的操作会出现意想不到的结果(`期待的get方法返回null`).</p>
-                        <p>要避免这种问题,只需要牢记一条:要同时覆写`equals`方法和`hashCode`方法, 而不要只写其中一个.
-                        </p>
-                    </div>
-                    <p>代码示例:
-                        <code>HashMap</code>添加和删除对象:</p>
-                    <pre class="prettyprint"><code class="java language-java">HashMap&lt;Integer, Integer&gt; hashMap = new HashMap&lt;&gt;();
+                    <p>java Stack遍历方式和ArrayList类似,参考ArrayList的代码实现.</p>
+                    <div id="2.5" class="dsd_title_c_2"><h4>2.5 java HashMap类</h4></div>
+                    <p>
+                        HashMap是最常用的Map,不是线程安全的.它根据键的HashCode值存储数据,根据键可以直接获取它的值,具有很快的访问速度.遍历时,取得数据的顺序是完全随机的.由于键对象不可以重复,所以HashMap最多只允许一条记录的键为空(null),允许多条记录的值为空(null).由于作为key的对象将通过计算其散列函数来确定与之对应的value的位置,因此任何作为key的对象都必须实现HashCode和equals方法.</p>
+                    <ul>
+                        <li>java HashMap用自定义的类当作key注意事项</li>
+                    </ul>
+                    <p>按照散列函数的定义,如果两个对象相同,即obj1.equals(obj2)=true,则它们的HashCode必须相同,但如果两个对象不同,则它们的HashCode不一定不同.
+                        如果两个不同对象的hashCode相同,这种现象称为冲突.冲突会导致操作哈希表的时间开销增大.所以尽量定义好的hashCode()方法,能加快哈希表的操作.如果相同的对象有不同的HashCode,对哈希表的操作会出现意想不到的结果(期待的get方法返回null).要避免这种问题,只需要牢记一条:要同时覆写equals方法和HashCode方法,而不要只写其中一个.</p>
+                    <p>java HashMap添加和删除对象代码示例</p>
+                    <pre class="prettyprint"><code class="java language-java">HashMap&lt;Integer,Integer&gt; hashMap = new HashMap&lt;&gt;();
 System.out.println("HashMap 长度: " + hashMap.size());
 for (int i = 0; i &lt; 5; i++) {
     /** HashMap 添加对象*/
-    hashMap.put(i, 100 + i);
+    hashMap.put(i,100 + i);
 }
 
 System.out.println("HashMap 长度: " + hashMap.size());
@@ -421,21 +395,19 @@ System.out.println("HashMap 长度: " + hashMap.size());
 hashMap.remove(2);
 System.out.println("HashMap 长度: " + hashMap.size());
 </code></pre>
-                    <p><code>HashMap</code>遍历:</p>
+                    <p>java HashMap遍历</p>
                     <ul>
-                        <li>HashMap 遍历方式 1 增强for循环遍历 Entry</li>
+                        <li>java 增强for循环遍历HashMap的entrySet</li>
                     </ul>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>推荐使用</h4>
-                        <p>直接拿到了key和value的对象, 省去了`get`数据的操作,效率最高.</p>
-                    </div>
+                    <p>java采用for-each遍历HashMap的Entry直接拿到了key和value的对象,省去了通过key来获取value数据的操作,效率最高.推荐采用这种方式遍历HashMap
+                        .java代码:</p>
                     <pre class="prettyprint"><code class="java language-java">System.out.println("HashMap 遍历方式 1 增强for循环遍历 Entry ");
-for (Map.Entry&lt;Integer, Integer&gt; entry : hashMap.entrySet()) {
+for (Map.Entry&lt;Integer,Integer&gt; entry : hashMap.entrySet()) {
     System.out.println("hashMap key: " + entry.getKey() + " hashMap value: " + entry.getValue());
 }
 </code></pre>
                     <ul>
-                        <li>HashMap 遍历方式 2 通过迭代器遍历 key</li>
+                        <li>java通过迭代器遍历HashMap</li>
                     </ul>
                     <pre class="prettyprint"><code class="java language-java">Iterator&lt;Integer&gt; it0 = hashMap.keySet().iterator();
 while (it0.hasNext()) {
@@ -445,7 +417,7 @@ while (it0.hasNext()) {
 }
 </code></pre>
                     <ul>
-                        <li>HashMap 遍历方式 3 通过 增强for循环遍历 key</li>
+                        <li>java增强for循环遍历HashMap的keySet</li>
                     </ul>
                     <pre class="prettyprint"><code class="java language-java">for (Integer key : hashMap.keySet()) {
     int value = hashMap.get(key);
@@ -453,7 +425,7 @@ while (it0.hasNext()) {
 }
 </code></pre>
                     <ul>
-                        <li>HashMap 遍历方式 4 通过迭代器遍历 values, 无法得到 key值</li>
+                        <li>java通过迭代器遍历HashMap</li>
                     </ul>
                     <pre class="prettyprint"><code class="java language-java">Iterator&lt;Integer&gt; it1 = hashMap.values().iterator();
 while (it1.hasNext()) {
@@ -462,37 +434,23 @@ while (it1.hasNext()) {
 }
 </code></pre>
                     <ul>
-                        <li>HashMap 遍历方式 5 通过 增强for循环遍历 values, 无法得到 key值</li>
+                        <li>java增强for循环遍历HashMap的values</li>
                     </ul>
                     <pre class="prettyprint"><code class="java language-java">for (Integer value : hashMap.values()) {
     System.out.println("value: " + value);
 }
 </code></pre>
-                    <h3>6.<code>Hashtable</code>类</h3>
-                    <p><code>Hashtable</code>继承<code>Map</code>接口,实现一个<code>key-value</code>映射的哈希表. 任何<code>非空</code>(non-null)的对象都可作为<code>key</code>或者<code>value</code>.<br/>
-                        <code>Hashtable</code>与<code>HashMap</code>类似,是<code>HashMap</code>的线程安全版,是线程同步的,即任一时刻只有一个线程能写<code>Hashtable</code>,因此也导致了Hashtale在写入时会比较慢.
-                        它继承自<code>Dictionary</code>类,不同的是它不允许记录的键或者值为<code>null</code>,同时效率较低.</p>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>建议使用ConcurrentHashMap替代</h4>
-                        <p>如果需要线程同步的map, 建议使用线程同步的ConcurrentHashMap类. 不建议使用这个类, 并没有示例代码.</p>
-                    </div>
-                    <h3>7.<code>WeakHashMap</code>类</h3>
-                    <p><code>WeakHashMap</code>是一种改进的<code>HashMap</code>.
-                        它对<code>key</code>实行<code>弱引用</code>,如果一个<code>key</code>不再被外部所引用,那么该<code>key</code>可以被Java的<code>垃圾回收器</code>(GC)回收.
-                    </p>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>使用方式同`HashMap`.</h4>
-                    </div>
-                    <h3>8. <code>HashSet</code>类</h3>
-                    <p><code>HashSet</code>中元素是无序的(这个无序指的是数据的添加顺序和后来的排列顺序不同),而且元素不可重复.</p>
-                    <p><code>HashSet</code>的底层是数组,在增加和删除的时候由于运用的<code>hashCode</code>的比较来确定添加元素的位置,不存在元素的偏移,
-                        因此查询和删除和增加元素的效率都非常高.</p>
-                    <p>但是<code>HashSet</code>增删的高效率是通过花费大量的空间换来的, 因为空间越大,取余数相同的情况就越小.<code>HashSet</code>这种算法会建立许多无用的空间.
-                    </p>
-                    <div class="bs-callout bs-callout-danger">
-                        <h4>使用HashSet类时如果发生冲突,就会出现遍历整个数组的情况,这样就使得效率非常的低.
-                        </h4>
-                    </div>
+                    <div id="2.6" class="dsd_title_c_2"><h4>2.6 java HashTable类</h4></div>
+                    <p>
+                        HashTable继承Map接口,实现一个key-value映射的哈希表.任何非空(non-null)的对象都可作为key或者value.HashTable与HashMap类似,是HashMap的线程安全版,是线程同步的,即任一时刻只有一个线程能写HashTable,因此也导致了Hashtale在写入时会比较慢.它继承自Dictionary类,不同的是它不允许记录的键或者值为null,同时效率较低.</p>
+                    <p>建议使用ConcurrentHashMap替代HashTable,如果需要线程同步的map,建议使用线程同步的ConcurrentHashMap类.不建议使用这个类.</p>
+                    <div id="2.7" class="dsd_title_c_2"><h4>2.7 java WeakHashMap类</h4></div>
+                    <p>java
+                        WeakHashMap是一种改进的HashMap.它对key实行弱引用,如果一个key不再被外部所引用,那么该key可以被Java的垃圾回收器(GC)回收.使用方式同HashMap.</p>
+                    <div id="2.8" class="dsd_title_c_2"><h4>2.8 java HashSet类</h4></div>
+                    <p>java
+                        HashSet中元素是无序的(这个无序指的是数据的添加顺序和后来的排列顺序不同),而且元素不可重复.HashSet的底层是数组,在增加和删除的时候由于运用的HashCode的比较来确定添加元素的位置,不存在元素的偏移,因此查询和删除和增加元素的效率都非常高.但是HashSet增删的高效率是通过花费大量的空间换来的,因为空间越大,取余数相同的情况就越小.HashSet这种算法会建立许多无用的空间.使用HashSet类时如果发生冲突,就会出现遍历整个数组的情况,这样就使得效率非常的低.</p>
+                    <p>java HashSet示例代码</p>
                     <pre class="prettyprint"><code class="java language-java">/** 循环两次，放入重复的1-5*/
 for (int i = 0; i &lt; 5; i++) {
     hashSet.add(i);
@@ -506,44 +464,32 @@ for (Integer intNum : hashSet) {
     System.out.println(intNum);
 }
 </code></pre>
-                    <p>由于HashSet去重功能, 第二次循环插入重复数据时, HashSet中并没有加入新的数据, 长度依然是5.
-                        HashSet的遍历方式同ArrayList，参考ArrayList的遍历.</p>
-                    <h3>9.<code>ConcurrentHashMap</code>类</h3>
-                    <p>线程同步的<code>HashMap</code>,线程安全并且锁分离. <code>ConcurrentHashMap</code>内部使用段(<code>Segment</code>)来表示这些不同的部分,每个段其实就是一个小的<code>hash
-                        table</code>,它们有自己的锁. 只要多个修改操作发生在不同的段上,它们就可以并发进行.</p>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>使用方式同`HashMap`.</h4>
-                    </div>
-                    <h3>10.<code>LinkedHashMap</code>类</h3>
-                    <p>有序的<code>HashMap</code>, 非线程安全.
-                        <code>LinkedHashMap</code>保存了记录的插入顺序,在用<code>Iteraor</code>遍历<code>LinkedHashMap</code>时,先得到的记录肯定是先插入的,在遍历的时候会比<code>HashMap</code>慢,有HashMap的全部特性.
-                    </p>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>使用方式同`HashMap`.</h4>
-                    </div>
-                    <h3>11.<code>TreeMap</code>类</h3>
-                    <p><code>TreeMap</code>实现<code>SortMap</code>接口,能够把它保存的记录根据键排序,默认是按键值的升序排序(自然顺序),也可以指定排序的比较器.
-                        当用<code>Iterator</code>遍历<code>TreeMap</code>时, 得到的记录是排过序的.</p>
-                    <p><code>TreeMap</code>不允许<code>key</code>值<code>为空</code>,非线程同步. </p>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>使用方式同`HashMap`.</h4>
-                    </div>
-                    <h3>11.总结</h3>
+                    <p>由于HashSet去重功能,第二次循环插入重复数据时,HashSet中并没有加入新的数据,长度依然是5.HashSet的遍历方式同ArrayList，参考ArrayList的遍历.</p>
+                    <div id="2.9" class="dsd_title_c_2"><h4>2.9 java ConcurrentHashMap类</h4></div>
+                    <p>线程同步的HashMap,线程安全并且锁分离.ConcurrentHashMap内部使用段(Segment)来表示这些不同的部分,每个段其实就是一个小的"hash
+                        table",它们有自己的锁.只要多个修改操作发生在不同的段上,它们就可以并发进行.ConcurrentHashMap遍历方法同HashMap.</p>
+                    <div id="2.10" class="dsd_title_c_2"><h4>2.10 java LinkedHashMap类</h4></div>
+                    <p>
+                        有序的HashMap,非线程安全.LinkedHashMap保存了记录的插入顺序,在用Iteraor遍历LinkedHashMap时,先得到的记录肯定是先插入的,在遍历的时候会比HashMap慢,有HashMap的全部特性.java
+                        LinkedHashMap使用方式同HashMap.</p>
+                    <div id="2.11" class="dsd_title_c_2"><h4>2.11 java TreeMap类</h4></div>
+                    <p>java
+                        TreeMap实现SortMap接口,能够把它保存的记录根据键排序,默认是按键值的升序排序(自然顺序),也可以指定排序的比较器.当用Iterator遍历TreeMap时,得到的记录是排过序的.TreeMap不允许key值为空,非线程同步.java
+                        TreeMap使用方式同HashMap.</p>
+                    <div id="2.12" class="dsd_title_c_2"><h4>2.12 java常用集合类总结</h4></div>
                     <ul>
-                        <li>如果涉及到堆栈,队列等操作,应该考虑用<code>List</code>. 对于需要快速插入,删除元素,应该使用<code>LinkedList</code>,
-                            如果需要快速随机访问元素,应该使用<code>ArrayList</code>.
-                        </li>
-                        <li>如果程序在单线程环境中,或者访问仅仅在一个线程中进行,考虑<code>非同步</code>的类,其效率较高.</li>
+                        <li>如果涉及到堆栈,队列等操作,应该考虑用List.对于需要快速插入,删除元素,应该使用LinkedList,如果需要快速随机访问元素,应该使用ArrayList.</li>
+                        <li>如果程序在单线程环境中,或者访问仅仅在一个线程中进行,考虑非同步的类,其效率较高.</li>
                         <li>如果多个线程可能同时操作一个类,应该使用同步的类.</li>
-                        <li>要特别注意对哈希表的操作,作为<code>key</code>的对象要正确覆写<code>equals</code>和<code>hashCode</code>方法.</li>
-                        <li>尽量返回接口而非实际的类型, 如返回<code>List</code>而非<code>ArrayList</code>, 这样如果以后需要将<code>ArrayList</code>换成<code>LinkedList</code>时,
-                            代码接口不用改变.扩展性强.
-                        </li>
+                        <li>要特别注意对哈希表的操作,作为key的对象要正确覆写equals和HashCode方法.</li>
+                        <li>尽量返回接口而非实际的类型,如返回List而非ArrayList,这样如果以后需要将ArrayList换成LinkedList时,代码接口不用改变.扩展性强.</li>
                     </ul>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 常用遍历集合方式</h3></a></div>
-                    <h3>1. 迭代器<code>Iterator</code></h3>
-                    <p>不论<code>Collection</code>的实际类型如何,它都支持一个<code>iterator()</code>的方法,该方法返回一个迭代器,使用该迭代器即可逐一访问<code>Collection</code>中每一个元素.典型的用法如下:
-                    </p>
+                    <div id="3"><h3>3 java常用遍历集合方式</h3></div>
+                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 java常用遍历集合方式</h4></div>
+                    <ul>
+                        <li>迭代器Iterator</li>
+                    </ul>
+                    <p>不论Collection的实际类型如何,它都支持一个iterator()的方法,该方法返回一个迭代器,使用该迭代器即可逐一访问Collection中每一个元素.典型的用法如下:</p>
                     <pre class="prettyprint"><code class="java language-java">// 获得一个迭代器
 Iterator it = collection.iterator();
 while(it.hasNext()) {
@@ -551,11 +497,14 @@ while(it.hasNext()) {
     Object obj = it.next();
 }
 </code></pre>
-                    <h3>2. foreach</h3>
-                    <p>增强for循环, JDK1.5之后提供的新功能, 可以输出数组或集合.</p>
-                    <h3>3. for循环</h3>
-                    <p>普通for循环遍历</p>
-                    <p>示例代码:</p>
+                    <ul>
+                        <li>java for-each遍历集合</li>
+                    </ul>
+                    <p>增强for循环,JDK1.5之后提供的新功能,可以输出数组或集合.</p>
+                    <ul>
+                        <li>java for循环遍历集合</li>
+                    </ul>
+                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 java遍历集合示例代码</h4></div>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson15;
 
 import java.util.*;
@@ -589,16 +538,16 @@ public class Demo1 {
         /** ArrayList删除对象*/
         arrayList.remove(3);
         System.out.println("ArrayList 长度: " + arrayList.size());
-        /** ArrayList 遍历方式 1 增强for循环, 获得值, 无法获得索引*/
+        /** ArrayList 遍历方式 1 增强for循环,获得值,无法获得索引*/
         for (Integer intNum : arrayList) {
             System.out.println(intNum);
         }
-        /** ArrayList 遍历方式 2普通for循环, 值和索引都能得到*/
+        /** ArrayList 遍历方式 2普通for循环,值和索引都能得到*/
         for (int i = 0; i &lt; arrayList.size(); i++) {
             int num = arrayList.get(i);
             System.out.println(num);
         }
-        /** ArrayList 遍历方式 3 迭代器 Itertor, 获得值, 无法获得索引*/
+        /** ArrayList 遍历方式 3 迭代器 Itertor,获得值,无法获得索引*/
         Iterator&lt;Integer&gt; it = arrayList.iterator();
         while (it.hasNext()) {
             int num = it.next();
@@ -620,16 +569,16 @@ public class Demo1 {
         /** Vectort 删除对象*/
         vector.remove(3);
         System.out.println("Vector 长度: " + vector.size());
-        /** Vectort 遍历方式 1 增强for循环, 获得值, 无法获得索引*/
+        /** Vectort 遍历方式 1 增强for循环,获得值,无法获得索引*/
         for (Integer intNum : vector) {
             System.out.println(intNum);
         }
-        /** Vectort 遍历方式 2普通for循环, 值和索引都能得到*/
+        /** Vectort 遍历方式 2普通for循环,值和索引都能得到*/
         for (int i = 0; i &lt; vector.size(); i++) {
             int num = vector.get(i);
             System.out.println(num);
         }
-        /** Vectort 遍历方式 3 迭代器 Itertor, 获得值, 无法获得索引*/
+        /** Vectort 遍历方式 3 迭代器 Itertor,获得值,无法获得索引*/
         Iterator&lt;Integer&gt; it = vector.iterator();
         while (it.hasNext()) {
             int num = it.next();
@@ -668,11 +617,11 @@ public class Demo1 {
      */
     public static void testHashMap() {
         System.out.println("===HashMap===");
-        HashMap&lt;Integer, Integer&gt; hashMap = new HashMap&lt;&gt;();
+        HashMap&lt;Integer,Integer&gt; hashMap = new HashMap&lt;&gt;();
         System.out.println("HashMap 长度: " + hashMap.size());
         for (int i = 0; i &lt; 5; i++) {
             /** HashMap 添加对象*/
-            hashMap.put(i, 100 + i);
+            hashMap.put(i,100 + i);
         }
 
         System.out.println("HashMap 长度: " + hashMap.size());
@@ -681,7 +630,7 @@ public class Demo1 {
         System.out.println("HashMap 长度: " + hashMap.size());
         /** HashMap 遍历方式 1 增强for循环遍历 Entry */
         System.out.println("HashMap 遍历方式 1 增强for循环遍历 Entry ");
-        for (Map.Entry&lt;Integer, Integer&gt; entry : hashMap.entrySet()) {
+        for (Map.Entry&lt;Integer,Integer&gt; entry : hashMap.entrySet()) {
             System.out.println("hashMap key: " + entry.getKey() + " hashMap value: " + entry.getValue());
         }
 
@@ -701,16 +650,16 @@ public class Demo1 {
             System.out.println("key: " + key + " value: " + value);
         }
 
-        /** HashMap 遍历方式 4 通过迭代器遍历 values, 无法得到 key值 */
-        System.out.println("HashMap 遍历方式 4 通过迭代器遍历 values, 无法得到 key值 ");
+        /** HashMap 遍历方式 4 通过迭代器遍历 values,无法得到 key值 */
+        System.out.println("HashMap 遍历方式 4 通过迭代器遍历 values,无法得到 key值 ");
         Iterator&lt;Integer&gt; it1 = hashMap.values().iterator();
         while (it1.hasNext()) {
             int value = it1.next();
             System.out.println("value: " + value);
         }
 
-        /** HashMap 遍历方式 5 通过 增强for循环遍历 values, 无法得到 key值 */
-        System.out.println("HashMap 遍历方式 5 通过 增强for循环遍历 values, 无法得到 key值 ");
+        /** HashMap 遍历方式 5 通过 增强for循环遍历 values,无法得到 key值 */
+        System.out.println("HashMap 遍历方式 5 通过 增强for循环遍历 values,无法得到 key值 ");
         for (Integer value : hashMap.values()) {
             System.out.println("value: " + value);
         }
@@ -739,7 +688,7 @@ public class Demo1 {
 }
 </code></pre>
                     <p>输出:</p>
-                    <pre><code>===ArrayList===
+                    <pre class="prettyprint"><code>===ArrayList===
 ArrayList 长度: 0
 ArrayList 长度: 5
 ArrayList 长度: 4
@@ -800,12 +749,12 @@ key: 0 value: 100
 key: 1 value: 101
 key: 3 value: 103
 key: 4 value: 104
-HashMap 遍历方式 4 通过迭代器遍历 values, 无法得到 key值
+HashMap 遍历方式 4 通过迭代器遍历 values,无法得到 key值
 value: 100
 value: 101
 value: 103
 value: 104
-HashMap 遍历方式 5 通过 增强for循环遍历 values, 无法得到 key值
+HashMap 遍历方式 5 通过 增强for循环遍历 values,无法得到 key值
 value: 100
 value: 101
 value: 103
@@ -819,17 +768,16 @@ HashSet 长度: 5
 3
 4
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 FAQ</h3></a></div>
-                    <p>集合类相关常见问题</p>
-                    <h3>1.集合类和数组的区别</h3>
+                    <div id="4"><h3>4 java集合常见问题</h3></div>
+                    <div id="4.1" class="dsd_title_c_2"><h4>4.1 集合类和数组的区别</h4></div>
                     <ul>
-                        <li>数组(可以存储基本数据类型)是用来存现对象的一种容器, 数组的长度固定, 适合在对象数量固定时使用.</li>
+                        <li>数组(可以存储基本数据类型)是用来存现对象的一种容器,数组的长度固定,适合在对象数量固定时使用.</li>
                         <li>集合(只能存储对象,对象类型可以不一样)的长度可变,可在对象数量不固定时使用.</li>
                     </ul>
-                    <h3>2.<code>ArrayList</code>和<code>LinkedList</code>区别</h3>
+                    <div id="4.2" class="dsd_title_c_2"><h4>4.2 ArrayList和LinkedList区别</h4></div>
                     <ul>
-                        <li><code>ArrayList</code>和<code>LinkedList</code>在用法上没有区别,但是在功能上还是有区别的. <code>LinkedList</code>经常用在增删操作较多而查询操作很少的情况下,
-                            比如队列和堆栈. <code>ArrayList</code>则相反.
+                        <li>
+                            ArrayList和LinkedList在用法上没有区别,但是在功能上还是有区别的.LinkedList经常用在增删操作较多而查询操作很少的情况下,比如队列和堆栈.ArrayList则相反.
                         </li>
                         <li>ArrayList底层是Object数组,所以ArrayList具有数组的查询速度快的优点以及增删速度慢的缺点.
                             而在LinkedList的底层是一种双向循环链表.在此链表上每一个数据节点都由三部分组成:前指针(指向前面的节点的位置),数据,后指针(指向后面的节点的位置).最后一个节点的后指针指向第一个节点的前指针,形成一个循环.双向循环链表的查询效率低但是增删效率高.
@@ -837,64 +785,44 @@ HashSet 长度: 5
                         <li>对于随机访问get和set,ArrayList觉得优于LinkedList,因为LinkedList要移动指针.</li>
                         <li>对于新增和删除操作add和remove,LinedList比较占优势,因为ArrayList要移动数据.</li>
                     </ul>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>ArrayList和LinkedList应用场景</h4>
-                        <p>若只对单条数据插入或删除,ArrayList的速度优于LinkedList.
-                            但若是批量随机的插入删除数据,LinkedList的速度大大优于ArrayList. 因为ArrayList每插入一条数据,要移动插入点及之后的所有数据.
-                        </p>
-                    </div>
-                    <div class="bs-callout bs-callout-success">
-                        <h4>队列和栈</h4>
-                        <p>队列:先进先出的数据结构.</p>
-                        <p>栈:后进先出的数据结构.</p>
-                        <p>使用栈的时候, 不能提供非末尾元素出栈的方法.
-                        </p>
-                    </div>
-                    <h3>3.<code>HashTable</code>与<code>HashMap</code>区别</h3>
+                    <div id="4.3" class="dsd_title_c_2"><h4>4.3 ArrayList和LinkedList应用场景</h4></div>
+                    <p>
+                        若只对单条数据插入或删除,ArrayList的速度优于LinkedList.但若是批量随机的插入删除数据,LinkedList的速度大大优于ArrayList.因为ArrayList每插入一条数据,要移动插入点及之后的所有数据</p>
+                    <div id="4.4" class="dsd_title_c_2"><h4>4.4 队列和栈</h4></div>
+                    <p>队列:先进先出的数据结构.栈:后进先出的数据结构.使用栈的时候,不能提供非末尾元素出栈的方法.</p>
+                    <div id="4.5" class="dsd_title_c_2"><h4>4.5 java HashTable与HashMap区别</h4></div>
                     <ul>
-                        <li><code>Hashtable</code>是基于陈旧的<code>Dictionary</code>类的, <code>HashMap</code>是Java
-                            1.2引入的<code>Map</code>接口的一个实现
-                        </li>
-                        <li><code>Hashtable</code>是线程安全的,也就是说是同步的, 而<code>HashMap</code>是线程序不安全的,不是同步的</li>
-                        <li><code>HashMap·允许存在一个为空(null)的</code>key<code>,多个为空(null)的</code>value`.</li>
-                        <li><code>Hashtable</code>的<code>key</code>和<code>value</code>都不允许为空(null).</li>
+                        <li>HashTable是基于陈旧的Dictionary类的,HashMap是Java 1.2引入的Map接口的一个实现</li>
+                        <li>HashTable是线程安全的,也就是说是同步的,而HashMap是线程序不安全的,不是同步的</li>
+                        <li>HashMap允许存在一个为空(null)的key,多个为空(null)的value.</li>
+                        <li>HashTable的key和value都不允许为空(null).</li>
                     </ul>
-                    <h3>4.<code>ArrayList</code>和<code>Vector</code>区别</h3>
+                    <div id="4.6" class="dsd_title_c_2"><h4>4.6 java ArrayList和Vector区别</h4></div>
                     <ul>
-                        <li><code>Vector</code>是线程同步的,所以它也是线程安全的. 而<code>Arraylist</code>不是线程同步的.
-                            如果不考虑到线程的安全因素,一般用<code>Arraylist</code>效率比较高.
-                        </li>
-                        <li>如果集合中的元素的数目大于目前集合数组的长度时, <code>Vector</code>增长率为目前数组长度的<code>100%</code>,
-                            而<code>Arraylist</code>增长率为目前数组长度的<code>50%</code>. 在集合中使用数据量比较大的数据,用<code>Vector</code>有一定的优势.
-                        </li>
-                        <li>如果查找一个指定位置的数据, <code>Vector</code>和<code>Arraylist</code>使用的时间是相同的,都是<code>O(1)</code>,
-                            这个时候使用<code>Vector</code>和<code>Arraylist</code>都可以.
+                        <li>Vector是线程同步的,所以它也是线程安全的.而ArrayList不是线程同步的.如果不考虑到线程的安全因素,一般用ArrayList效率比较高.</li>
+                        <li>
+                            如果集合中的元素的数目大于目前集合数组的长度时,Vector增长率为目前数组长度的100%,而ArrayList增长率为目前数组长度的50%.在集合中使用数据量比较大的数据,用Vector有一定的优势.
+                            -* 如果查找一个指定位置的数据,Vector和ArrayList使用的时间是相同的,都是O(1),这个时候使用Vector和ArrayList都可以.
                         </li>
                     </ul>
-                    <h3>5.<code>ArrayList</code>和<code>Linklist</code>区别</h3>
+                    <div id="4.7" class="dsd_title_c_2"><h4>4.7 java ArrayList和Linklist区别</h4></div>
                     <ul>
-                        <li><code>ArrayList</code>和<code>Vector</code>是采用数组方式存储数据, 此数组元素数大于实际存储的数据以便增加和插入元素,
-                            都允许直接序号索引元素, 但是插入数据要设计到数组元素移动等内存操作, 所以索引数据快插入数据慢.
-                            <code>Vector</code>由于使用了<code>synchronized</code>方法(线程安全)所以性能上比<code>ArrayList</code>要差.
+                        <li>
+                            ArrayList和Vector是采用数组方式存储数据,此数组元素数大于实际存储的数据以便增加和插入元素,都允许直接序号索引元素,但是插入数据要设计到数组元素移动等内存操作,所以索引数据快插入数据慢.Vector由于使用了synchronized方法(线程安全)所以性能上比ArrayList要差.
                         </li>
-                        <li><code>LinkedList</code>使用双向链表实现存储, 按序号索引数据需要进行向前或向后遍历, 但是插入数据时只需要记录本项的前后项即可,所以插入数度较快！</li>
-                        <li>如果移动一个指定位置的数据花费的时间为<code>O(n-i)</code>,<code>n</code>为总长度,
-                            这个时候就应该考虑到使用<code>Linklist</code>, 因为它移动一个指定位置的数据所花费的时间为<code>O(1)</code>,
-                            而查询一个指定位置的数据时花费的时间为<code>O(i)</code>.
+                        <li>LinkedList使用双向链表实现存储,按序号索引数据需要进行向前或向后遍历,但是插入数据时只需要记录本项的前后项即可,所以插入数度较快！</li>
+                        <li>
+                            如果移动一个指定位置的数据花费的时间为O(n-i),n为总长度,这个时候就应该考虑到使用Linklist,因为它移动一个指定位置的数据所花费的时间为O(1),而查询一个指定位置的数据时花费的时间为O(i).
                         </li>
                     </ul>
-                    <h3>6.<code>HashMap</code>与<code>TreeMap</code>区别</h3>
+                    <div id="4.8" class="dsd_title_c_2"><h4>4.8 java HashMap与TreeMap区别</h4></div>
                     <ul>
-                        <li><code>TreeMap</code>实现<code>SortedMap</code>, 元素顺序固定. <code>HashMap</code>没有实现该接口.</li>
-                        <li><code>HashMap</code>通过<code>hashcode</code>对其内容进行快速查找, <code>HashMap</code>中元素的排列顺序是不固定的,
-                            而<code>TreeMap</code>中所有的元素都保持着某种固定的顺序. 如果需要得到一个有序的结果应该使用<code>TreeMap</code>.
+                        <li>TreeMap实现SortedMap,元素顺序固定.HashMap没有实现该接口.</li>
+                        <li>
+                            HashMap通过HashCode对其内容进行快速查找,HashMap中元素的排列顺序是不固定的,而TreeMap中所有的元素都保持着某种固定的顺序.如果需要得到一个有序的结果应该使用TreeMap.
                         </li>
-                        <li>在<code>Map</code>中插入、删除和定位元素,<code>HashMap</code>是最好的选择. 但如果要按自然顺序或自定义顺序遍历键,
-                            那么<code>TreeMap</code>会更好.
-                        </li>
-                        <li>使用<code>HashMap</code>要求添加的键类明确定义了<code>hashCode()</code>和<code>equals()</code>的实现. 这个<code>TreeMap</code>没有调优选项,
-                            因为该树总处于平衡状态.
-                        </li>
+                        <li>在Map中插入、删除和定位元素,HashMap是最好的选择.但如果要按自然顺序或自定义顺序遍历键,那么TreeMap会更好.</li>
+                        <li>使用HashMap要求添加的键类明确定义了hashCode()和`equals()的实现.这个TreeMap没有调优选项,因为该树总处于平衡状态.</li>
                     </ul>
                 </div>
             </div>

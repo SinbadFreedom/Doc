@@ -1,0 +1,4 @@
+{
+  "title": "localefacet_S_create_c_locale name not valid",
+  "desc": "linux系统执行mongo备份脚本的时候出现错误S_create_c_locale name not valid解决方法."
+}

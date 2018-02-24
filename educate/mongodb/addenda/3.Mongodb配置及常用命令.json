@@ -1,0 +1,4 @@
+{
+  "title": "Mongodb配置及常用命令",
+  "desc": "Mongodb配置及常用命令.修改mongodb的绑定IP和端口,修改启动报错,连接mongodb,单个collection备份,单个collection恢复.等mongodb常用命令."
+}

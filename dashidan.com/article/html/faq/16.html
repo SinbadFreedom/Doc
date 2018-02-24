@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>html网页自动跳转</title>
-    <meta name="description" content="常用的网页跳转实现方式.">
+    <meta name="description" content="常用的网页跳转实现方式 在head头部里加入meta标签 用js实现自动跳转页面 ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">➕ HTML常见问题</span></h3>
+                        <h3><span id="faq_title">+ HTML常见问题</span></h3>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -120,13 +120,14 @@
                 <div class="dsd_title"><h1>html网页自动跳转</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 在head头部里加入meta标签</a><br><a href="#2">2
-                            用js实现自动跳转页面</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 html在head头部里加入meta标签</a><br><a href="#2">2
+                            用js实现自动跳转页面</a></div>
                     </div>
                     <div class="jumbotron">
                         <p>网页中有些过度页面,需要等待几秒后跳转到另外一个页面.这个时候就用到了网页自动跳转的功能.有2种常用的网页跳转实现方式.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 在head头部里加入meta标签</h3></a></div>
+                    <div id="1"><h3>1 html在head头部里加入meta标签</h3></div>
+                    <p>html示例代码:</p>
                     <pre class="prettyprint"><code>&lt;head&gt;
     &lt;meta http-equiv="refresh" content="3;url=http://dashidan.com/"&gt;
 &lt;/head&gt;
@@ -137,8 +138,9 @@
                     <p>content 后边的参数"3;url=http://dashidan.com/"是一个整体.如果分开设置的话自动跳转无效.
                         设置在当前页面停留时间,单位为秒.url设置将要跳转到的页面路径.3秒后自动跳转到其他页面http://dashidan.com/.</p>
                     <p>推荐采用这种方式, 这个是最简单的实现页面延迟跳转方式, 而且浏览器都兼容.</p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 用js实现自动跳转页面</h3></a></div>
+                    <div id="2"><h3>2 用js实现自动跳转页面</h3></div>
                     <p>需要浏览器开启javascript功能才能正常运行.自动跳转页面javascript代码示例:</p>
+                    <p>js示例代码:</p>
                     <pre class="prettyprint"><code>&lt;html&gt;
   &lt;script language=javascript&gt;
       setTimeout('window.location="http://dashidan.com/"',3000)

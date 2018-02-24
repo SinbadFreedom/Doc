@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>html首行缩进2字符</title>
-    <meta name="description" content="可以使用&#x60;CSS&#x60;中的&#x60;text-indent&#x60;属性设置来实现首行缩进2字符的效果.">
+    <meta name="description" content="使用CSS中的text-indent属性设置,实现首行缩进效果.可以设置缩进字符或者缩进像素等">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">➕ HTML常见问题</span></h3>
+                        <h3><span id="faq_title">+ HTML常见问题</span></h3>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -120,13 +120,32 @@
                 <div class="dsd_title"><h1>html首行缩进2字符</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 CSS设置首行缩进效果</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 CSS设置首行缩进</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            CSS设置首行缩进2个字符效果</a><br><a href="#1.2">&nbsp;&nbsp;1.2 CSS设置首行缩进像素值</a><br><a href="#1.2">&nbsp;&nbsp;1.2
+                            CSS设置首行缩进百分比</a></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 CSS设置首行缩进效果</h3></a></div>
-                    <p>可以使用<code>CSS</code>中的<code>text-indent</code>属性设置来实现首行缩进2字符的效果.以下示例为<code>&lt;p&gt;</code>标签首行缩进2个字符:
-                    </p>
-                    <pre class="prettyprint"><code class="css language-css">p {
+                    <div class="jumbotron">
+                        <p>在做网页开发的时候可能会遇到需要段落空两个字符,来整体美化页面排版.可以通过设置p标签的首行缩进来实现.</p>
+                    </div>
+                    <div id="1"><h3>1 CSS设置首行缩进</h3></div>
+                    <p>可以使用CSS中的text-indent属性设置来实现首行缩进2字符的效果.以下示例为p标签首行缩进2个字符:</p>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 CSS设置首行缩进2个字符效果</h4></div>
+                    <p>css示例代码:</p>
+                    <pre class="prettyprint"><code class="css language-css">/*大屎蛋教程网 http://dashidan.com*/
+p {
     text-indent:2em;
+}
+</code></pre>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 CSS设置首行缩进像素值</h4></div>
+                    <p>css示例代码:</p>
+                    <pre class="prettyprint"><code class="css language-css">p {
+    text-indent: 10px;
+}
+</code></pre>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 CSS设置首行缩进百分比</h4></div>
+                    <p>css示例代码:</p>
+                    <pre class="prettyprint"><code class="css language-css">p {
+    text-indent: 10%;
 }
 </code></pre>
                 </div>

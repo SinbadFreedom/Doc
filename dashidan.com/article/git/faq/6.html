@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Git忽略文件</title>
-    <meta name="description" content="Git忽略文件">
+    <meta name="description" content="新建Git忽略列表文件.gitignore Git忽略文件规则 git例外文件 Git匹配忽略文件名">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">➕ Git常见问题</span></h3>
+                        <h3><span id="faq_title">+ Git常见问题</span></h3>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -84,55 +84,52 @@
                 <div class="dsd_title"><h1>Git忽略文件</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 新建Git忽略列表文件.gitignore</a><br>
-                            <p><a href="#1.1">1.1 下载.gitignore示例文件</a></p>
-                            <p><a href="#1.2">1.2 手动创建.gitignore文件</a></p><a href="#2">2 Git忽略文件规则</a><br>
-                            <p><a href="#2.1">2.1 以'#'开始被视为注释</a></p>
-                            <p><a href="#2.2">2.2 忽略指定文件名的文件</a></p>
-                            <p><a href="#2.3">2.3 忽略指定后缀格式的文件</a></p>
-                            <p><a href="#2.4">2.4 例外文件</a></p>
-                            <p><a href="#2.5">2.5 正则表达式匹配文件名</a></p><a href="#3">3 Git忽略文件规则示例</a><br><a href="#4">4
-                                将Git忽略文件提交</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 新建Git忽略列表文件.gitignore</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            下载.gitignore示例文件</a><br><a href="#1.2">&nbsp;&nbsp;1.2 手动创建.gitignore文件</a><br><a href="#2">2
+                            Git忽略文件规则</a><br><a href="#2.1">&nbsp;&nbsp;2.1 以'#'开始被视为注释</a><br><a href="#2.2">&nbsp;&nbsp;2.2
+                            忽略指定文件名的文件</a><br><a href="#2.3">&nbsp;&nbsp;2.3 忽略指定后缀格式的文件</a><br><a href="#2.4">&nbsp;&nbsp;2.4
+                            例外文件</a><br><a href="#2.5">&nbsp;&nbsp;2.5 正则表达式匹配文件名</a><br><a href="#3">3
+                            Git忽略文件规则示例</a><br><a href="#4">4 将Git忽略文件提交</a></div>
                     </div>
                     <div class="jumbotron">
                         <p>不同的操作系统和工具会生成固定的目录.比如：Xcode生成的build目录, Android/IntelliJ 生成的.idea目录, node.js的node_modules目录等.
                             这些目录中的文件会经常修改,但不需要提交到Git上. 最好的办法是将这些文件和目录添加到git忽略列表中.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 新建Git忽略列表文件.gitignore</h2></a></div>
-                    <p>Git将忽略文件规则存储在<code>.gitignore</code>文件中, 需要在仓库目录下新建一个名为.gitignore的文件.</p>
-                    <div class="dsd_title_2"><a href="#top" id="1.1">1.1 下载.gitignore示例文件</a></div>
+                    <div id="1"><h3>1 新建Git忽略列表文件.gitignore</h3></div>
+                    <p>Git将忽略文件规则存储在".gitignore"文件中, 需要在仓库目录下新建一个名为".gitignore"的文件.</p>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 下载.gitignore示例文件</h4></div>
                     <p>可以直接下载一个示例文件, 在这个文件基础上修改.</p>
                     <p><a href="http://dashidan.com/download/git/.gitignore">.gitignore示例文件下载链接</a></p>
-                    <div class="dsd_title_2"><a href="#top" id="1.2">1.2 手动创建.gitignore文件</a></div>
-                    <p>因为该文件以<code>.</code>开头,在windows系统不能直接创建.可以通过在项目目录中右键选择Git Bash, 通过linux命令行的方式来新建.gitignore文件.</p>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 手动创建.gitignore文件</h4></div>
+                    <p>因为该文件以"."开头,在windows系统不能直接创建.可以通过在项目目录中右键选择Git Bash, 通过linux命令行的方式来新建.gitignore文件.</p>
                     <p>输入:</p>
                     <pre class="prettyprint"><code>touch .gitignore
 </code></pre>
                     <p>如图:
                         <img class="center-block img-responsive" src="http://dashidan.com/img/git/faq/6-1.png"
                              alt="6-1"/></p>
-                    <p>.gitignore文件对其所在的目录及所在目录的全部子目录均有效。通过将.gitignore文件添加到仓库,其他开发者更新该文件到本地仓库,以共享同一套忽略规则。</p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 Git忽略文件规则</h2></a></div>
-                    <div class="dsd_title_2"><a href="#top" id="2.1">2.1 以'#'开始被视为注释</a></div>
+                    <p>.gitignore文件对其所在的目录及所在目录的全部子目录均有效.通过将".gitignore"文件添加到仓库,其他开发者更新该文件到本地仓库,以共享同一套忽略规则。</p>
+                    <div id="2"><h3>2 Git忽略文件规则</h3></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 以'#'开始被视为注释</h4></div>
                     <pre class="prettyprint"><code># Android/IntelliJ
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="2.2">2.2 忽略指定文件名的文件</a></div>
+                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 忽略指定文件名的文件</h4></div>
                     <pre class="prettyprint"><code>local.properties
 dashidan.com
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="2.3">2.3 忽略指定后缀格式的文件</a></div>
+                    <div id="2.3" class="dsd_title_c_2"><h4>2.3 忽略指定后缀格式的文件</h4></div>
                     <pre class="prettyprint"><code>*.iml
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="2.4">2.4 例外文件</a></div>
-                    <p>以<code>!</code>开始,表示不走忽略规则的文件.</p>
+                    <div id="2.4" class="dsd_title_c_2"><h4>2.4 例外文件</h4></div>
+                    <p>以"!"开始,表示不走忽略规则的文件.</p>
                     <pre class="prettyprint"><code>!default.pbxuser
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="2.5">2.5 正则表达式匹配文件名</a></div>
+                    <div id="2.5" class="dsd_title_c_2"><h4>2.5 正则表达式匹配文件名</h4></div>
                     <p>忽略所有<code>.d</code>和<code>.s</code>文件</p>
                     <pre class="prettyprint"><code>*.[ds]
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 Git忽略文件规则示例</h2></a></div>
-                    <p>这里提供一个<code>.gitignore</code>文件内容示例,包含了常用的忽略内容.可以将这些内容直接粘贴到文件中,或者根具自己的需求修改.</p>
+                    <div id="3"><h3>3 Git忽略文件规则示例</h3></div>
+                    <p>这里提供一个".gitignore"文件内容示例,包含了常用的忽略内容.可以将这些内容直接粘贴到文件中,或者根具自己的需求修改.</p>
                     <pre class="prettyprint"><code># OSX
 #
 .DS_Store
@@ -187,7 +184,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 将Git忽略文件提交</h2></a></div>
+                    <div id="4"><h3>4 将Git忽略文件提交</h3></div>
                     <p>多人操作同一个Git库时, 来确保采用统一的文件忽略规则.</p>
                 </div>
             </div>

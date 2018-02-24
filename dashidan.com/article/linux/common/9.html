@@ -55,7 +55,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('common')">
-                        <h3><span id="common_title">➕ Linux常用操作</span></h3>
+                        <h3><span id="common_title">+ Linux常用操作</span></h3>
                     </div>
                     <div id="common" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('ubuntu')">
-                        <h3><span id="ubuntu_title">➕ Ubuntu常用操作</span></h3>
+                        <h3><span id="ubuntu_title">+ Ubuntu常用操作</span></h3>
                     </div>
                     <div id="ubuntu" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -119,14 +119,14 @@
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('tmux')">
-                        <h3><span id="tmux_title">➕ tmux</span></h3>
+                        <h3><span id="tmux_title">+ tmux</span></h3>
                     </div>
                     <div id="tmux" class="dsd_catalog_left_hide">
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
                         </div>
                         <div class="single_line">
-                            <a href="http://dashidan.com/article/linux/tmux/2.html">2.Ubuntu安装配置tmux及常用命令</a>
+                            <a href="http://dashidan.com/article/linux/tmux/2.html">2.ubuntu安装tmux服务必需组件</a>
                         </div>
                         <div class="single_line">
                             <a href="http://dashidan.com/article/linux/tmux/3.html">3.tmux常用命令及快捷键</a>
@@ -140,32 +140,27 @@
                 <div class="dsd_title"><h1>Linux压缩和解压缩</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 tar命令</a><br>
-                            <p><a href="#1.1">1.1 tar命令中与压缩和解压缩相关的参数</a></p>
-                            <p><a href="#1.2">1.2 tar压缩文件和目录</a></p>
-                            <p><a href="#1.3">1.3 tar压缩多个文件</a></p>
-                            <p><a href="#1.4">1.4 tar命令解压文件</a></p>
-                            <p><a href="#1.5">1.5 .tar.bz及.tar.bz2格式文件压缩和解压缩</a></p><a href="#2">2 gz格式文件压缩和解压缩</a><br>
-                            <p><a href="#2.1">2.1 gzip压缩为gz格式</a></p>
-                            <p><a href="#2.2">2.2 gunzip解压gz格式文件:</a></p><a href="#3">3 bz2格式文件压缩和解压缩</a><br>
-                            <p><a href="#3.1">3.1 bzip2命令压缩为gz格式</a></p>
-                            <p><a href="#3.2">3.2 bz2格式解压</a></p><a href="#4">4 zip格式文件压缩和解压缩</a><br>
-                            <p><a href="#4.1">4.1 linux系统安装zip和unzip命令</a></p>
-                            <p><a href="#4.2">4.2 zip命令格式</a></p>
-                            <p><a href="#4.3">4.3 zip主要命令参数</a></p>
-                            <p><a href="#4.4">4.4 zip压缩和解压缩命令示例</a></p></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 tar命令</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            tar命令中与压缩和解压缩相关的参数</a><br><a href="#1.2">&nbsp;&nbsp;1.2 tar压缩文件和目录</a><br><a href="#1.3">&nbsp;&nbsp;1.3
+                            tar压缩多个文件</a><br><a href="#1.4">&nbsp;&nbsp;1.4 tar命令解压文件</a><br><a href="#1.5">&nbsp;&nbsp;1.5
+                            .tar.bz及.tar.bz2格式文件压缩和解压缩</a><br><a href="#2">2 gz格式文件压缩和解压缩</a><br><a href="#2.1">&nbsp;&nbsp;2.1
+                            gzip压缩为gz格式</a><br><a href="#2.2">&nbsp;&nbsp;2.2 gunzip解压gz格式文件:</a><br><a href="#3">3
+                            bz2格式文件压缩和解压缩</a><br><a href="#3.1">&nbsp;&nbsp;3.1 bzip2命令压缩为gz格式</a><br><a href="#3.2">&nbsp;&nbsp;3.2
+                            bz2格式解压</a><br><a href="#4">4 zip格式文件压缩和解压缩</a><br><a href="#4.1">&nbsp;&nbsp;4.1
+                            linux系统安装zip和unzip命令</a><br><a href="#4.2">&nbsp;&nbsp;4.2 zip命令格式</a><br><a href="#4.3">&nbsp;&nbsp;4.3
+                            zip主要命令参数</a><br><a href="#4.4">&nbsp;&nbsp;4.4 zip压缩和解压缩命令示例</a></div>
                     </div>
                     <div class="jumbotron">
                         <p>在linux系统中,可以通过tar命令来对文件和目录进行压缩和解压缩.tar是最常用的压缩和解压缩命令, 还有gz, bzip2, zip, unzip等压缩和解压缩的命令.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h3>1 tar命令</h3></a></div>
+                    <div id="1"><h3>1 tar命令</h3></div>
                     <p>linux中tar命令是一个常用命令.可以将目录或者文件压缩为.tar.gz格式文件, 也可以解压缩这个格式的文件.tar命令可以将文件打包也可以解包,
                         在linux中更多的用于压缩和解压文件.tar命令打包和解包示例:</p>
                     <pre class="prettyprint"><code>tar -cf archive.tar foo bar  # 将 foo and bar文件打包为archive.tar
 tar -tvf archive.tar         # 详细列出archive.tar中的文件
 tar -xf archive.tar          # 解包archive.tar文件
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="1.1">1.1 tar命令中与压缩和解压缩相关的参数</a></div>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 tar命令中与压缩和解压缩相关的参数</h4></div>
                     <p>tar命令可以用来压缩和解压缩多种格式的文件也可以指定其他的命令比如bzip2,gzip,compress等过滤压缩文件.tar命令中涉及到压缩和解压的参数如下:</p>
                     <pre class="prettyprint"><code>-a, --auto-compress                使用压缩文件后缀来确定压缩程序
 -I, --use-compress-program=PROG 通过PROG过滤(必须接受-d)
@@ -178,18 +173,18 @@ tar -xf archive.tar          # 解包archive.tar文件
 -z, --gzip, --gunzip, --ungzip  通过gzip过滤档案
 -Z, --compress, --uncompress       通过compress过滤档案
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="1.2">1.2 tar压缩文件和目录</a></div>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 tar压缩文件和目录</h4></div>
                     <p>tar命令压缩文件的命令格式:</p>
                     <pre class="prettyprint"><code>tar zxvf 压缩后的文件名.tar.gz 需要压缩的文件和目录名
 </code></pre>
                     <p>tar压缩文件的命令示例:</p>
                     <pre class="prettyprint"><code>tar zcvf 大屎蛋教程网.tar.gz 大屎蛋教程网
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="1.3">1.3 tar压缩多个文件</a></div>
+                    <div id="1.3" class="dsd_title_c_2"><h4>1.3 tar压缩多个文件</h4></div>
                     <p>tar命令压缩多个文件的命令格式示例:</p>
                     <pre class="prettyprint"><code>tar zcvf 大屎蛋教程网.tar.gz 大屎蛋教程网1 大屎蛋教程网2 大屎蛋教程网3 ...
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="1.4">1.4 tar命令解压文件</a></div>
+                    <div id="1.4" class="dsd_title_c_2"><h4>1.4 tar命令解压文件</h4></div>
                     <p>tar命令可以将压缩文件解压到当前目录或者指定目录.</p>
                     <ul>
                         <li>tar命令解压文件到当前文件夹
@@ -210,7 +205,7 @@ tar -xf archive.tar          # 解包archive.tar文件
 tar: Error is not recoverable: exiting now
 </code></pre>
                     <p>这个提示表示目录不存在,通过"mkdir"命令创建好目录,再解压就可以了.</p>
-                    <div class="dsd_title_2"><a href="#top" id="1.5">1.5 .tar.bz及.tar.bz2格式文件压缩和解压缩</a></div>
+                    <div id="1.5" class="dsd_title_c_2"><h4>1.5 .tar.bz及.tar.bz2格式文件压缩和解压缩</h4></div>
                     <p>linux中可以通过"tar"命令加上"jcvf"参数将文件压缩为".tar.bz2"或者".tar.bz2"格式的文件, 加上"jxvf"参数来解压缩.以bz2格式为例.</p>
                     <p>压缩为tar.bz2:</p>
                     <pre class="prettyprint"><code>tar jcvf 大屎蛋教程网.tar.bz2 大屎蛋教程网
@@ -218,20 +213,20 @@ tar: Error is not recoverable: exiting now
                     <p>tar.bz2格式解压:</p>
                     <pre class="prettyprint"><code>tar jxvf 大屎蛋教程网.tar.bz2
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h3>2 gz格式文件压缩和解压缩</h3></a></div>
+                    <div id="2"><h3>2 gz格式文件压缩和解压缩</h3></div>
                     <p>linux中可以通过gzip命令将文件压缩为gz格式的文件, gunzip命令来解压缩gz格式的文件.</p>
-                    <div class="dsd_title_2"><a href="#top" id="2.1">2.1 gzip压缩为gz格式</a></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 gzip压缩为gz格式</h4></div>
                     <pre class="prettyprint"><code>gzip 大屎蛋教程网
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="2.2">2.2 gunzip解压gz格式文件:</a></div>
+                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 gunzip解压gz格式文件:</h4></div>
                     <pre class="prettyprint"><code>gunzip 大屎蛋教程网.gz
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h3>3 bz2格式文件压缩和解压缩</h3></a></div>
+                    <div id="3"><h3>3 bz2格式文件压缩和解压缩</h3></div>
                     <p>linux中可以通过bzip2命令将文件压缩为bz2格式的文件, bunzip2命令来解压缩gz格式的文件.</p>
-                    <div class="dsd_title_2"><a href="#top" id="3.1">3.1 bzip2命令压缩为gz格式</a></div>
+                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 bzip2命令压缩为gz格式</h4></div>
                     <pre class="prettyprint"><code>bzip2 -z 大屎蛋教程网
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="3.2">3.2 bz2格式解压</a></div>
+                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 bz2格式解压</h4></div>
                     <ul>
                         <li>通过bzip2命令解压bz2示例</li>
                     </ul>
@@ -242,10 +237,10 @@ tar: Error is not recoverable: exiting now
                     </ul>
                     <pre class="prettyprint"><code>bunzip2 大屎蛋教程网.bz2
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h3>4 zip格式文件压缩和解压缩</h3></a></div>
+                    <div id="4"><h3>4 zip格式文件压缩和解压缩</h3></div>
                     <p>zip压缩格式是windows中常用的文件格式, windws中可以通过可视化压缩工具winrar来压缩/解压文件.linux默认不支持zip格式,
                         linux系统可以安装"zip"和"unzip"命令,分别来压缩和解压缩"zip"格式文件.</p>
-                    <div class="dsd_title_2"><a href="#top" id="4.1">4.1 linux系统安装zip和unzip命令</a></div>
+                    <div id="4.1" class="dsd_title_c_2"><h4>4.1 linux系统安装zip和unzip命令</h4></div>
                     <ul>
                         <li>unbuntu中安装zip和unzip命令:</li>
                     </ul>
@@ -258,10 +253,10 @@ apt-get install unzip
                     <pre class="prettyprint"><code>yum install zip
 yum install unzip
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.2">4.2 zip命令格式</a></div>
+                    <div id="4.2" class="dsd_title_c_2"><h4>4.2 zip命令格式</h4></div>
                     <pre class="prettyprint"><code>zip [-options] [-b path] [-t mmddyyyy] [-n suffixes] [zipfile list] [-xi list]
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.3">4.3 zip主要命令参数</a></div>
+                    <div id="4.3" class="dsd_title_c_2"><h4>4.3 zip主要命令参数</h4></div>
                     <p>在shell控制台数组zip按回车会显示zip命令支持的全部参数, 我将部分常用参数拿出来翻译一下:</p>
                     <pre class="prettyprint"><code>-C：压缩文件中的文件名称区分大小写
 -j：不处理压缩文件中原有的目录路径
@@ -272,7 +267,7 @@ yum install unzip
 -P&lt;密码&gt;：使用zip的密码选项
 -q：执行时不显示任何信息
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="4.4">4.4 zip压缩和解压缩命令示例</a></div>
+                    <div id="4.4" class="dsd_title_c_2"><h4>4.4 zip压缩和解压缩命令示例</h4></div>
                     <ul>
                         <li>zip命令压缩文件示例:</li>
                     </ul>

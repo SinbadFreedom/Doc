@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Git设置外部对比工具</title>
-    <meta name="description" content="Git设置外部对比工具">
+    <meta name="description" content="git设置外部文本对比工具 git设置外部合并工具">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +54,7 @@
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">➕ Git常见问题</span></h3>
+                        <h3><span id="faq_title">+ Git常见问题</span></h3>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -84,21 +84,21 @@
                 <div class="dsd_title"><h1>Git设置外部对比工具</h1></div>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 git查看命令帮助</a><br><a href="#2">2 设置对比工具</a><br><a
-                            href="#3">3 设置合并工具</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 git查看命令帮助</a><br><a href="#2">2
+                            git设置外部文本对比工具</a><br><a href="#3">3 git设置外部合并工具</a></div>
                     </div>
                     <div class="jumbotron">
                         <p>在通过GIt比较文本差异的时候,采用外部对比工具比如Compare Merge会比Git自带的对比工具更直观. windows下设置git的对比工具,beyond compare
                             3或者Compare Merge.</p>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 git查看命令帮助</h2></a></div>
+                    <div id="1"><h3>1 git查看命令帮助</h3></div>
                     <pre class="prettyprint"><code>$ git difftool --tool-help
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 设置对比工具</h2></a></div>
+                    <div id="2"><h3>2 git设置外部文本对比工具</h3></div>
                     <pre class="prettyprint"><code>$ git config --global diff.tool bc3
 $ git config --global difftool.bc3.path "D:\Program Files\Beyond Compare 4\BCompare.exe"
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 设置合并工具</h2></a></div>
+                    <div id="3"><h3>3 git设置外部合并工具</h3></div>
                     <pre class="prettyprint"><code>$ git config --global merge.tool bc3
 $ git config --global mergetool.bc3.path "D:\Program Files\Beyond Compare 4\BCompare.exe"
 </code></pre>

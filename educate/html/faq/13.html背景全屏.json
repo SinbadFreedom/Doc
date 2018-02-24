@@ -1,0 +1,4 @@
+{
+  "title": "html背景全屏",
+  "desc": "设置需要扩充全屏div的css样式min-height:100%.这样div的高度自适应充满整个页面."
+}

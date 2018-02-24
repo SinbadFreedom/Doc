@@ -1,1 +1,0 @@
-通过`rz`命令能够很方便的从windows向linux服务器传送文件."sz"命令能够从linux向windows传文件.这两个命令在同一个程序安装包"lrzsz"中.

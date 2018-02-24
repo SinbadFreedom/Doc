@@ -1,0 +1,4 @@
+{
+  "title": "npm安装删除模块",
+  "desc": "npm安装模块 npm安装全局模块 安装并写入package.json的dependencies中 npm删除模块"
+}
