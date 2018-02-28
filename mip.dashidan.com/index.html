@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v1/mip.css">
     <!--TODO: canonical href需要替换成原页面url-->
-    <link rel="canonical" href="http://dashidan.com/index.html">
+    <link rel="canonical" href="http://localhost/index.html">
     <title>MIP页Demo效果</title>
     <!--TODO: 替换样式-->
     <style mip-custom>
         body {
             margin: 10px;
-        }
-
-        .red-text {
-            color: #f00;
-        }
-
-        .middle-text {
-            text-align: center;
-            font-size: 20px;
         }
 
         hr {
@@ -32,7 +23,6 @@
             display: block;
         }
     </style>
-    <!-- noscript 标签是为了在不支持 script 的环境下快速的展现 MIP 页面，推荐使用 -->
     <noscript>
         <style mip-officialrelease>
             body {
@@ -44,38 +34,71 @@
         </style>
     </noscript>
 </head>
+
 <body>
-<!--自定义样式-->
-<p class="middle-text">增加样式</p>
-<p class="red-text">MIP页支持修改css样式</p>
-<hr>
+<nav>
+    <ul>
+        <li><a href="http://localhost/index.html">首页</a></li>
+    </ul>
+</nav>
 
-<!--跳转链接, 落地页同为MIP-->
-<p class="middle-text">mip 跳转链接</p>
-<a data-type="mip" data-title="目标页面标题" href="https://www.mipengine.org/doc/00-mip-101.html">跳转到MIP新手指南 (MIP)</a>
-<!--跳转链接, 落地页不是MIP-->
-<a target="_blank" href="https://github.com/mipengine">跳转到GitHub (非MIP)</a>
-<hr>
+<div>
+    <div>
+        <mip-img layout="fixed" width="200" height="130" src="http://localhost/img/dsd.png" alt="大屎蛋教程网"/>
+    </div>
 
-<!--图片组件-->
-<p class="middle-text">mip-img 图片组件</p>
-<mip-img layout="fixed" width="200" height="130" src="https://www.mipengine.org/static/img/mip_logo_3b722d7.png" alt="MIP LOGO"></mip-img>
-<hr>
+    <div>
+        <a href="http://localhost/article/java/index.html"><h2>Java</h2></a>
+    </div>
 
-<!--分享组件，外链mip-share.js-->
-<p class="middle-text">mip-share 分享组件</p>
-<mip-share title="分享：我的第一个MIP页面"></mip-share>
-<hr>
+    <div>
+        <a href="http://localhost/article/mongodb/index.html"><h2>MongoDB</h2></a>
+    </div>
 
-<!--百度统计组件，外链mip-stats-baidu.js TODO: 修改token值-->
-<p class="middle-text">mip-stats-baidu 百度统计组件，代码可见</p>
-<mip-stats-baidu token="4e397f684261b9e4ff9d8"></mip-stats-baidu>
+    <div>
+        <a href="http://localhost/article/python/index.html"><h2>Python</h2></a>
+    </div>
 
-<!--mip 运行环境-->
-<script src="https://c.mipcdn.com/static/v1/mip.js"></script>
-<!--分享组件 代码-->
-<script src="https://c.mipcdn.com/static/v1/mip-share/mip-share.js"></script>
-<!--百度统计组件 代码-->
-<script src="https://c.mipcdn.com/static/v1/mip-stats-baidu/mip-stats-baidu.js"></script>
+    <div>
+        <a href="http://localhost/article/redis/index.html"><h2>Redis</h2></a>
+    </div>
+
+    <div>
+        <a href="http://localhost/article/h5game/index.html"><h2>HTML5游戏</h2></a>
+    </div>
+
+    <div>
+        <a href="http://localhost/article/git/index.html"><h2>Git</h2></a>
+    </div>
+
+    <div>
+        <a href="http://localhost/article/linux/index.html"><h2>Linux</h2></a>
+    </div>
+
+    <div>
+        <a href="http://localhost/article/windows/index.html"><h2>Windows</h2></a>
+    </div>
+
+    <div>
+        <a href="http://localhost/article/nodejs/index.html"><h2>NodeJs</h2></a>
+    </div>
+
+    <div>
+        <a href="http://localhost/article/webserver/index.html"><h2>Web服务器</h2></a>
+    </div>
+
+    <div>
+        <a href="http://localhost/article/html/index.html"><h2>HTML</h2></a>
+    </div>
+
+    <div>
+        <a href="http://localhost/article/php/index.html"><h2>PHP</h2></a>
+    </div>
+</div>
+
+<footer>
+    <span><h5>QQ①群:577105281 ©2017-2018 dashidan.com ICP证:冀ICP备10008352号-3</h5></span>
+</footer>
 </body>
+
 </html>
