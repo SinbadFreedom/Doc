@@ -1,4 +1,4 @@
 {
-  "title": "IntelliJ IDEA设置xmx和xms",
+  "title": "IntelliJ IDEA设置xmx和xms - java教程 - 大屎蛋教程网",
   "desc": "Intelij IDEA在跑大内存的程序时.会出现java.lang.OutOfMemoryError异常,解决办法是设置-Xms和-Xmx参数."
 }
