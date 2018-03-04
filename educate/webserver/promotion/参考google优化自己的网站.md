@@ -7,3 +7,6 @@ https://support.google.com/webmasters/answer/7451184
 3. 标题大小    font-size: 24px;font-weight: 400
 4. 去掉标题跳转到目录功能
 5. 目录加上外边框
+
+amp官网
+https://www.ampproject.org/docs/getting_started/create

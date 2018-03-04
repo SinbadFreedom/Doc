@@ -50,6 +50,7 @@ template {
 
 a {
     background-color: transparent;
+    font-weight: 400;
 }
 
 a:active,
@@ -70,10 +71,10 @@ dfn {
     font-style: italic;
 }
 
-h1 {
-    margin: .67em 0;
-    font-size: 2em;
-}
+/*h1 {*/
+/*margin: .67em 0;*/
+/*font-size: 2em;*/
+/*}*/
 
 mark {
     color: #000;
@@ -1410,7 +1411,8 @@ body {
     font-family: Roboto, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 16px;
     /** edit by sinbad 20170907*/
-    line-height: 1.6;
+    /*line-height: 1.6;*/
+    line-height: 26px;
     color: #212121;
     /** edit by sinbad 20170908*/
     /*background-color: #ebebeb;*/
@@ -1426,7 +1428,7 @@ textarea {
 }
 
 a {
-    color: #337ab7;
+    color: #1c79c0;
     text-decoration: none;
 }
 
@@ -1515,22 +1517,30 @@ hr {
     cursor: pointer;
 }
 
-h1,
+/*h1,*/
 h2,
 h3,
 h4,
 h5,
 h6,
-.h1,
+    /*.h1,*/
 .h2,
 .h3,
 .h4,
 .h5,
 .h6 {
-    font-family: inherit;
+    /*font-family: inherit;*/
     font-weight: 400;
     line-height: 1.1;
     color: inherit;
+}
+
+h1, .h1 {
+    /*font-family: inherit;*/
+    font-weight: 100;
+    line-height: 50px;
+    /*color: inherit;*/
+    color: #1c79c0;
 }
 
 h1 small,
@@ -1614,17 +1624,17 @@ h6 .small,
 
 h1,
 .h1 {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 h2,
 .h2 {
-    font-size: 26px;
+    font-size: 30px;
 }
 
 h3,
 .h3 {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 h4,
@@ -5535,7 +5545,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 .navbar-default .navbar-brand {
     /*color: #777;*/
-    color: #000000;
+    /*color: #000000;*/
+    color: #ffffff;
 }
 
 .navbar-default .navbar-brand:hover,
