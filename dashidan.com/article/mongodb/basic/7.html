@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>mongo命令行运行JavaScript脚本</title>
+    <title>mongo命令行运行JavaScript脚本 - Mongodb中文手册 - 大屎蛋教程网</title>
     <meta name="description" content="mongo命令行运行JavaScript脚本.命令输入和通过mongo运行脚本操作的区别.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
@@ -33,6 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="https://dashidan.com//index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -45,10 +46,10 @@
 <div class="fullscreen">
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
-        <ol class="breadcrumb">
-            <li><a href="https://dashidan.com//index.html">首页</a></li>
-            <li class="active"><a href="https://dashidan.com//article/mongodb/index.html">MongoDB</a></li>
-        </ol>
+        <div>
+            <a href="https://dashidan.com//index.html">首页</a> > <a
+            href="https://dashidan.com//article/mongodb/index.html">mongodb</a> > mongo命令行运行JavaScript脚本
+        </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
@@ -139,7 +140,7 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>mongo命令行运行JavaScript脚本</h1></div>
+                <article class="dsd_title_1"><h1>mongo命令行运行JavaScript脚本</h1></article>
                 <div id="xs_content_border">
                     <div>
                         <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 打开新的连接</a><br><a href="#2">2
@@ -155,15 +156,14 @@
 new Mongo(&lt;host&gt;)
 new Mongo(&lt;host:port&gt;)
 </code></pre>
-                    <p>以下示例是以MongoDB在<code>dashidan.com</code>默认端口运行, 并且将全局数据库变量设置为myDatabase,可以通过getDB()方法获取一个新的连接实例:
-                    </p>
+                    <p>以下示例是以MongoDB在<code>localhost</code>默认端口运行, 并且将全局数据库变量设置为myDatabase,可以通过getDB()方法获取一个新的连接实例:</p>
                     <pre class="prettyprint"><code>conn = new Mongo();
 db = conn.getDB("myDatabase");
 </code></pre>
                     <p>如果Mongodb连接实例设置了访问控制, 你可以通过使用<code>db.auth()</code>方法来认证.</p>
-                    <p>另外, 你可以通过<code>connect()</code>方法链接MongoDB实例. 以下为连接到MongoDB绑定<code>dashidan.com</code>非默认端口<code>27020</code>的示例：
+                    <p>另外, 你可以通过<code>connect()</code>方法链接MongoDB实例. 以下为连接到MongoDB绑定<code>localhost</code>非默认端口<code>27020</code>的示例：
                     </p>
-                    <pre class="prettyprint"><code>db = connect("dashidan.com:27020/myDatabase");
+                    <pre class="prettyprint"><code>db = connect("localhost:27020/myDatabase");
 </code></pre>
                     <div id="2"><h3>2 命令输入和通过mongo脚本操作的区别</h3></div>
                     <p>当你写mongo脚本的时候, 你需要考虑以下几点:</p>
@@ -251,13 +251,13 @@ while ( cursor.hasNext() ) {
                     <p>使用<code>--eval</code>选项来传入JavaScript脚本:</p>
                     <pre class="prettyprint"><code>mongo test --eval "printjson(db.getCollectionNames())"
 </code></pre>
-                    <p>这个命令连接运行在<code>dashidan.com</code>,绑定27017端口的mongo实例, 并将<code>db.getCollectionNames()</code>方法的输出返回.
+                    <p>这个命令连接运行在<code>localhost</code>,绑定27017端口的mongo实例, 并将<code>db.getCollectionNames()</code>方法的输出返回.
                     </p>
                     <h3>2.执行JavaScript文件</h3>
                     <p>你可以直指定定一个以<code>.js</code>为后缀的JavaScript文件, mongo可以直接执行.例如:</p>
-                    <pre class="prettyprint"><code>mongo dashidan.com:27017/test myjsfile.js
+                    <pre class="prettyprint"><code>mongo localhost:27017/test myjsfile.js
 </code></pre>
-                    <p>这个命令连接运行在<code>dashidan.com</code>,绑定27017端口的mongo实例, 并将<code>myjsfile.js</code>的运行结果返回.</p>
+                    <p>这个命令连接运行在<code>localhost</code>,绑定27017端口的mongo实例, 并将<code>myjsfile.js</code>的运行结果返回.</p>
                     <p>另外, 你可以在JavaScript文件中通过<code>Mongo()</code>构造函数来执行mongodb连接参数.参考[Opening New Connections]()
                         查看更多信息.</p>
                     <p>在mongo命令行中你可以通过<code>load()</code>方法运行<code>.js</code>文件, 例如:</p>
