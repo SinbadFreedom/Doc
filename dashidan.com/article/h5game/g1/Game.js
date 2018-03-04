@@ -30,10 +30,10 @@ let splashImg = new Image();
 let logoImg = new Image();
 let dogImg = new Image();
 
-logoImg.src = "https://dashidan.com//img/h5game/g1/dashidan_log.jpg";
+logoImg.src = "https://dashidan.com/img/h5game/g1/dashidan_log.jpg";
 let loadFinish = false;
 logoImg.onload = function () {
-    dogImg.src = "https://dashidan.com//img/h5game/g1/dog.jpg";
+    dogImg.src = "https://dashidan.com/img/h5game/g1/dog.jpg";
     dogImg.onload = function () {
         loadFinish = true;
     };
@@ -109,7 +109,7 @@ function renderSlash() {
     console.log("-----renderSlash--------");
     if (!isDrawSplash) {
         splashImg = new Image();
-        splashImg.src = "https://dashidan.com//img/h5game/g1/splash.jpg";
+        splashImg.src = "https://dashidan.com/img/h5game/g1/splash.jpg";
         splashImg.onload = function () {
             ctx.drawImage(splashImg, 0, 0);
         };
