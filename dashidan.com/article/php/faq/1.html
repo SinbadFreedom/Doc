@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>PHP中文JSON乱码</title>
-    <meta name="description" content="PHP中文JSON乱码">
+    <title>1.PHP中文JSON乱码 - PHP常见问题 - 大屎蛋教程网</title>
+    <meta name="description" content="php5.4以下json_encode方法封装JSON数据时会有乱码,加入header采用utf-8编码.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/php/faq/1.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -33,6 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -45,10 +48,10 @@
 <div class="fullscreen">
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
-        <ol class="breadcrumb">
-            <li><a href="https://dashidan.com/index.html">首页</a></li>
-            <li class="active"><a href="https://dashidan.com/article/php/index.html">PHP</a></li>
-        </ol>
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/php/index.html">php</a> > PHP中文JSON乱码
+        </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
@@ -81,17 +84,21 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>PHP中文JSON乱码</h1></div>
+                <article class="dsd_title_1"><h1>PHP中文JSON乱码</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 加入header采用utf-8编码</a><br><a href="#2">2
-                            修改封装JSON方法</a><br><a href="#3">3 相关文章</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 加入header采用utf-8编码</a><br><a href="#2">2
+                            修改封装JSON方法</a><br><a href="#3">3 另外一种解决php解析json格式乱码的方式</a></div>
                     </div>
-                    <p>php5.4以下封装JSON数据时会有乱码.</p>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 加入header采用utf-8编码</h2></a></div>
+                    <div class="jumbotron">
+                        <p>php5.4以下json_encode方法封装JSON数据时会有乱码.</p>
+                    </div>
+                    <div id="1"><h3>1 加入header采用utf-8编码</h3></div>
+                    <p>php的header加入Content-type:text/html;charset=utf-8. 示例代码:</p>
                     <pre class="prettyprint"><code class="php language-php">header("Content-type:text/html;charset=utf-8");
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 修改封装JSON方法</h2></a></div>
+                    <div id="2"><h3>2 修改封装JSON方法</h3></div>
+                    <p>低于5.4版本采用php自带的json_encode方法没有中文乱码. php5.4版本以下修改php的封装json的方法. 示例代码:</p>
                     <pre class="prettyprint"><code class="php language-php">/**
 * 对变量进行 JSON 编码
 * @param mixed value 待编码的 value ，除了resource 类型之外，可以为任何数据类型，该函数只能接受 UTF-8 编码的数据
@@ -120,8 +127,8 @@ function json_encode_ex($value)
 
 echo json_encode_ex($serverArr);
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 相关文章</h2></a></div>
-                    <p><a href="https://dashidan.com/article/php/index.php">PHP常见问题</a></p>
+                    <div id="3"><h3>3 另外一种解决php解析json格式乱码的方式</h3></div>
+                    <p>升级php到5.5版本以上就可以解决json乱码的问题了.</p>
                 </div>
             </div>
         </div>

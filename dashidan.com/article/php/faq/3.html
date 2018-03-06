@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Ubuntu安装php-redis扩展</title>
-    <meta name="description" content="Ubuntu安装php-redis扩展">
+    <title>Ubuntu安装php-redis扩展 - PHP常见问题 - 大屎蛋教程网</title>
+    <meta name="description" content="Ubuntu安装php-redis扩展, php支持redis扩展.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/php/faq/3.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -33,6 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -45,10 +48,10 @@
 <div class="fullscreen">
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
-        <ol class="breadcrumb">
-            <li><a href="https://dashidan.com/index.html">首页</a></li>
-            <li class="active"><a href="https://dashidan.com/article/php/index.html">PHP</a></li>
-        </ol>
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/php/index.html">php</a> > Ubuntu安装php-redis扩展
+        </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
@@ -81,36 +84,35 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>Ubuntu安装php-redis扩展</h1></div>
+                <article class="dsd_title_1"><h1>Ubuntu安装php-redis扩展</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 安装php5-dev依赖</a><br><a href="#2">2 下载redis-3.1.4.tgz</a><br><a
-                            href="#3">3 解压</a><br><a href="#4">4 进入解压目录redis-3.1.4</a><br><a href="#5">5
-                            运行phpize5</a><br><a href="#6">6 编译运行</a><br><a href="#7">7 相关文章</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 安装php5-dev依赖</a><br><a href="#2">2
+                            下载redis-3.1.4.tgz</a><br><a href="#3">3 解压</a><br><a href="#4">4 进入解压目录redis-3.1.4</a><br><a
+                            href="#5">5 运行phpize5</a><br><a href="#6">6 编译运行</a></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 安装php5-dev依赖</h2></a></div>
-                    <p>安装php-redis扩展, 需要通过<code>phpize5</code>命令.这个命令在<code>php5-dev</code>包中.</p>
+                    <p>Ubuntu安装php-redis扩展, php支持redis扩展.</p>
+                    <div id="1"><h3>1 安装php5-dev依赖</h3></div>
+                    <p>安装php-redis扩展, 需要通过phpize5命令.这个命令在php5-dev包中.需要安装php5-dev包.</p>
                     <pre class="prettyprint"><code>apt-get install php5-dev
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 下载redis-3.1.4.tgz</h2></a></div>
+                    <div id="2"><h3>2 下载redis-3.1.4.tgz</h3></div>
                     <pre class="prettyprint"><code>wget https://github.com/nicolasff/phpredis/zipball/master -O php-redis.zip
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 解压</h2></a></div>
+                    <div id="3"><h3>3 解压</h3></div>
                     <pre class="prettyprint"><code>tar zxvf redis-3.1.4.tgz
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 进入解压目录redis-3.1.4</h2></a></div>
+                    <div id="4"><h3>4 进入解压目录redis-3.1.4</h3></div>
                     <pre class="prettyprint"><code>cd redis-3.1.4
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 运行phpize5</h2></a></div>
+                    <div id="5"><h3>5 运行phpize5</h3></div>
                     <pre class="prettyprint"><code>phpize5
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 编译运行</h2></a></div>
+                    <div id="6"><h3>6 编译运行</h3></div>
                     <pre class="prettyprint"><code>./configure
 make
 make install
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="7"><h2>7 相关文章</h2></a></div>
-                    <p><a href="https://dashidan.com/article/php/index.php">PHP常见问题</a></p>
                 </div>
             </div>
         </div>
