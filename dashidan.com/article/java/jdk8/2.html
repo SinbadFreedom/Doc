@@ -227,7 +227,7 @@
                     <div id="2"><h3>2 函数式接口应用场景</h3></div>
                     <p>函数式接口主要应用在Lambda表达式上.如定义了一个函数式接口如下:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 @FunctionalInterface
 interface GreetingService
@@ -237,7 +237,7 @@ interface GreetingService
 </code></pre>
                     <p>那么就可以使用Lambda表达式来表示该接口的一个实现.</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 GreetingService greetService1 = message -&gt; System.out.println("Hello " + message);
 </code></pre>
@@ -247,7 +247,7 @@ GreetingService greetService1 = message -&gt; System.out.println("Hello " + mess
                     <div id="3"><h3>3 @FunctionalInterface注解</h3></div>
                     <p>JDK8为函数式接口引入了一个新注解@FunctionalInterface,主要用于编译级错误检查.加上该注解,当你写的接口不符合函数式接口定义的时候,编译器会报错.例:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 @FunctionalInterface
 interface GreetingService
@@ -264,7 +264,7 @@ interface GreetingService
                     <p>default方法也是<a href="https://dashidan.com/article/java/jdk8/1.html">JDK8新增语法特性</a>.接口中使用该关键字表示该方法是可以在接口中直接实现该方法.函数式接口里是可以包含default方法,因为default方法不是抽象方法,其有一个默认实现,所以是符合函数式接口的定义的.如下代码不会报错:
                     </p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 @FunctionalInterface
 interface GreetingService
@@ -285,7 +285,7 @@ interface GreetingService
                     <div id="5"><h3>5 java函数式接口里允许定义静态方法</h3></div>
                     <p>函数式接口里是可以包含静态方法,因为静态方法不能是抽象方法,是一个已经实现了的方法,所以是符合函数式接口的定义的.如下代码不会报错:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 @FunctionalInterface
 interface GreetingService
@@ -300,7 +300,7 @@ interface GreetingService
                     <p>
                         函数式接口里是可以包含Object里的public方法.这些方法对于函数式接口来说,不被当成是抽象方法(虽然它们是抽象方法).因为任何一个函数式接口的实现,默认都继承了Object类,包含了来自java.lang.Object里对这些抽象方法的实现.如下代码不会报错:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 @FunctionalInterface
 interface GreetingService

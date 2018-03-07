@@ -237,7 +237,7 @@ list.forEach(...);// Lambda 表达式
                     <div id="2"><h3>2 java default方法应用</h3></div>
                     <p>从最简单可行的例子开始. 下面代码定义了接口A,以及实现了接口A的Clazz类:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 public  interface  A {
     default  void  foo(){
@@ -249,7 +249,7 @@ public  class  Clazz  implements A {}
 </code></pre>
                     <p>即使Clazz中没有实现foo(),代码也能编译通过.foo()的默认实现在A接口中给出.上例的客户端代码如下:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 Clazz  clazz= new  Clazz();
 clazz.foo();// Calling A.foo()
@@ -257,7 +257,7 @@ clazz.foo();// Calling A.foo()
                     <p>
                         当大家第一次听说default方法,通常会问:“如果一个类实现了两个接口,而这两个接口中各自定义了一个同名的default方法,会怎么样？”让我们用上一个例子来解释上述情况,代码如下所示:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 http://dashidan.com
+ * 大屎蛋教程网 https://dashidan.com
  */
 public  interface A {
     default  void  foo(){
