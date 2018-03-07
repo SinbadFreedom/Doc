@@ -1,0 +1,4 @@
+{
+  "title": "1.PHP中文JSON乱码 - PHP常见问题 - 大屎蛋教程网",
+  "desc": "php5.4以下json_encode方法封装JSON数据时会有乱码,加入header采用utf-8编码."
+}

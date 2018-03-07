@@ -1,0 +1,4 @@
+{
+  "title": "redis常用命令",
+  "desc": "命令行连接Redis redis查看所有的key redis查看key的类型 redis删除key redis设置密码"
+}

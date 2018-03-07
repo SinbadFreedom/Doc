@@ -1,0 +1,4 @@
+{
+  "title": "Linux系统PHP配置支持Redis扩展 - PHP常见问题 - 大屎蛋教程网",
+  "desc": "以Ubuntu系统为例配置linux支持redis模块.其余的linux操作系统类似,只是安装方法名不一样.Ubuntu为apt-get,CentOS为yum."
+}

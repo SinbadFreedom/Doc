@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Linux系统PHP配置支持Redis扩展</title>
-    <meta name="description" content="Linux系统PHP配置支持Redis扩展">
+    <title>Linux系统PHP配置支持Redis扩展 - PHP常见问题 - 大屎蛋教程网</title>
+    <meta name="description" content="以Ubuntu系统为例配置linux支持redis模块.其余的linux操作系统类似,只是安装方法名不一样.Ubuntu为apt-get,CentOS为yum.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/php/faq/2.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -33,6 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -45,16 +48,16 @@
 <div class="fullscreen">
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
-        <ol class="breadcrumb">
-            <li><a href="https://dashidan.com/index.html">首页</a></li>
-            <li class="active"><a href="https://dashidan.com/article/php/index.html">PHP</a></li>
-        </ol>
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/php/index.html">php</a> > Linux系统PHP配置支持Redis扩展
+        </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
                 <div>
                     <div class="dsd_title" onclick="clickTitle('doc')">
-                        <h3><span id="doc_title">+ PHP中文手册</span></h3>
+                        <span id="doc_title">+ PHP中文手册</span>
                     </div>
                     <div id="doc" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -63,7 +66,7 @@
                     </div>
 
                     <div class="dsd_title" onclick="clickTitle('faq')">
-                        <h3><span id="faq_title">+ PHP常见问题</span></h3>
+                        <span id="faq_title">+ PHP常见问题</span>
                     </div>
                     <div id="faq" class="dsd_catalog_left_hide">
                         <div class="single_line">
@@ -81,58 +84,54 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>Linux系统PHP配置支持Redis扩展</h1></div>
+                <article class="dsd_title_1"><h1>Linux系统PHP配置支持Redis扩展</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 检查php是否支持redis</a><br><a href="#2">2
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 检查php是否支持redis</a><br><a href="#2">2
                             下载phpredis</a><br><a href="#3">3 解压</a><br><a href="#4">4 安装php5-dev</a><br><a href="#5">5
                             执行phpize</a><br><a href="#6">6 编译</a><br><a href="#7">7 生成redis.so文件</a><br><a href="#8">8
                             将这个文件加入php.ini中的extension</a><br><a href="#9">9 重启php-fpm</a><br><a href="#10">10
-                            重新检查phpinfo</a><br><a href="#11">11 相关文章</a><br></div>
+                            重新检查phpinfo</a></div>
                     </div>
-                    <p>以Ubuntu系统为例,其余的linux操作系统类似,只是安装方法名不一样.</p>
-                    <p>Ubuntu为<code>apt-get</code></p>
-                    <p>CentOS为<code>yum</code></p>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 检查php是否支持redis</h2></a></div>
-                    <p>通过<code>phpinfo()</code>方法.将一下代码复制粘贴到info.php文件中.然后通过浏览器打开info.php文件会显示php的信息.</p>
-                    <p>在显示内容中搜索<code>redis</code>, 能够找到说明支持, 找不到说明不支持.</p>
+                    <p>以Ubuntu系统为例配置linux支持redis模块,其余的linux操作系统类似,只是安装方法名不一样.Ubuntu为apt-get,CentOS为yum.</p>
+                    <div id="1"><h3>1 检查php是否支持redis</h3></div>
+                    <p>通过phpinfo()方法.将一下代码复制粘贴到info.php文件中.然后通过浏览器打开info.php文件会显示php的信息.在显示内容中搜索redis, 能够找到说明支持,
+                        找不到说明不支持.</p>
                     <pre class="prettyprint"><code class="php language-php">&lt;?php
 phpinfo();
 ?&gt;
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 下载phpredis</h2></a></div>
+                    <div id="2"><h3>2 下载phpredis</h3></div>
                     <pre class="prettyprint"><code>wget https://github.com/nicolasff/phpredis/zipball/master -O php-redis.zip
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 解压</h2></a></div>
+                    <div id="3"><h3>3 解压</h3></div>
                     <pre class="prettyprint"><code>unzip php-redis.zip
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 安装php5-dev</h2></a></div>
+                    <div id="4"><h3>4 安装php5-dev</h3></div>
                     <pre class="prettyprint"><code>apt-get install php5-dev
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 执行phpize</h2></a></div>
+                    <div id="5"><h3>5 执行phpize</h3></div>
                     <p>进入php-redis解压目录执行phpize</p>
                     <pre class="prettyprint"><code>cd phpredis-phpredis-24e7859/
 phpize5
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 编译</h2></a></div>
+                    <div id="6"><h3>6 编译</h3></div>
                     <pre class="prettyprint"><code>./configure
 make
 make install
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="7"><h2>7 生成redis.so文件</h2></a></div>
+                    <div id="7"><h3>7 生成redis.so文件</h3></div>
                     <pre class="prettyprint"><code>/usr/lib/php5/20090626/redis.so
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="8"><h2>8 将这个文件加入php.ini中的extension</h2></a></div>
+                    <div id="8"><h3>8 将这个文件加入php.ini中的extension</h3></div>
                     <p>打开php.ini文件, 在末尾加入</p>
                     <pre class="prettyprint"><code>extension=/usr/lib/php5/20090626/redis.so;
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="9"><h2>9 重启php-fpm</h2></a></div>
+                    <div id="9"><h3>9 重启php-fpm</h3></div>
                     <pre class="prettyprint"><code>service php5-fpm restart
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="10"><h2>10 重新检查phpinfo</h2></a></div>
+                    <div id="10"><h3>10 重新检查phpinfo</h3></div>
                     <p>浏览器打开info.php, 搜索redis. 能找到说明成功.</p>
-                    <div class="dsd_title_1"><a href="#top" id="11"><h2>11 相关文章</h2></a></div>
-                    <p><a href="https://dashidan.com/article/php/index.php">PHP常见问题</a></p>
                 </div>
             </div>
         </div>

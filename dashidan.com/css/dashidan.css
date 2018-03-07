@@ -1,31 +1,17 @@
-/** 链接去掉下划线*/
 a, a:hover, a:visited, a:link {
     text-decoration: none;
 }
 
 a:hover {
-    /*鼠标悬停链接颜色*/
     color: #f0ad4e;
 }
 
-/* 超过一行显示省略号*/
 .single_line {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-/* 首行缩进2字符*/
-/*p {*/
-/*text-indent: 2em;*/
-/*}*/
-
-/*pre {*/
-/*margin-left: 3em;*/
-/*!*padding-left: 2em;*!*/
-/*}*/
-
-/** 图片设置为圆角*/
 img {
     border-radius: 6px;
     border-width: 3px;
@@ -39,49 +25,30 @@ img {
     border-radius: 3px;
 }
 
-/** 默认隐藏左边的内容导航*/
 .dsd_catalog_left_hide {
     display: none;
 }
 
-/** 显示左边的内容导航*/
 .dsd_catalog_left_show {
     padding-left: 10px;
 }
 
 .dsd_title {
     border-left: 3px solid #337ab7;
-    /*border-left-color: #337ab7;*/
-    /*border-left-width: 3px;*/
     border-radius: 3px;
     padding: 4px;
-    /*margin-bottom: 4px;*/
-    /*margin-top: 4px;*/
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 24px;
     line-height: 30px;
 }
 
-/** 一级标题*/
 .dsd_title_1 {
-    /*padding-left: 5px;*/
     color: #1c79c0;
 }
 
-/** 二级标题*/
 .dsd_title_2 {
     padding-left: 10px;
-}
-
-#sx_index_button_text {
-    position: fixed;
-    top: 100px;
-    width: 24px;
-    background-color: #337ab7;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    z-index: 999999
 }
 
 #xs_content_border {
@@ -90,9 +57,7 @@ img {
 
 .dsd_callout {
     border-left: 3px solid #5cb85c;
-    /*border-left-width: 3px;*/
     border-radius: 3px;
-    /*border-left-color: #5cb85c;*/
     padding-left: 5px;
 }
 
@@ -102,17 +67,14 @@ html {
 
 body {
     min-height: 100%;
-    /* .footer 的高度，为 footer 占位 */
     padding-bottom: 80px;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
-    /*background-color: #008ace;*/
     letter-spacing: .56px;
 }
 
 .fullscreen {
     min-height: 100%;
-    /** overflow-y属性很重要, 可以撑大内容显示区, 如果不设置这个显示不正常*/
     overflow-y: hidden;
 }
 
@@ -123,8 +85,6 @@ nav {
 }
 
 footer {
-    /*background-color: #1c79c0;*/
-    /*opacity: 0.8;*/
     background: linear-gradient(to right, #1c79c0, #0389ff, #0dd3ff);
 }
 
@@ -134,4 +94,14 @@ footer > a {
 
 .xs_content_border {
     padding-bottom: 80px;
+}
+
+.dsd_panel-primary {
+    height: 100px;
+    background: linear-gradient(36deg, #0dd3ff, #0389ff, #1c79c0);
+    color: white;
+}
+
+.dsd_panel-primary a {
+    color: white;
 }
