@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
 
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+                                                          google_ad_client: "ca-pub-8924316869528600",
+                                                          enable_page_level_ads: true
+                                                      });
+    </script>
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -200,7 +207,7 @@ service php5-fpm restart
                     <div id="7"><h3>7 测试php, mysql连接</h3></div>
                     <p>将以下代码复制到test.php文件中.</p>
                     <pre class="prettyprint"><code class="php language-php">&lt;?php
-    $link=mysql_connect("dashidan.com","root","123");
+    $link=mysql_connect("localhost","root","123");
     if(!$link) echo "请检查php用户名密码.大屎蛋教程网.";
     else echo "OK!可以连接";
 ?&gt;
