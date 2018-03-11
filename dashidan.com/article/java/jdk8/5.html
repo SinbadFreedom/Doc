@@ -57,35 +57,8 @@
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
         <div>
-            <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/java/index.html">java</a> > JDK8的default方法
-            <div class="dsd_share">
-                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#"
-                                                                                                  class="bds_tsina"
-                                                                                                  data-cmd="tsina"
-                                                                                                  title="分享到新浪微博"></a><a
-                    href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq"
-                                                                                       data-cmd="sqq"
-                                                                                       title="分享到QQ好友"></a><a href="#"
-                                                                                                              class="bds_qzone"
-                                                                                                              data-cmd="qzone"
-                                                                                                              title="分享到QQ空间"></a><a
-                    href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a></div>
-                <script>window._bd_share_config = {
-                    "common": {
-                        "bdSnsKey": {},
-                        "bdText": "",
-                        "bdMini": "2",
-                        "bdMiniList": false,
-                        "bdPic": "",
-                        "bdStyle": "1",
-                        "bdSize": "24"
-                    }, "share": {}
-                };
-                with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src =
-                    'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date()
-                                                                                                        / 36e5)];</script>
-            </div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a href="https://dashidan.com/article/java/index.html">java</a>
+            > JDK8的default方法
         </div>
 
         <div class="dsd_content">
@@ -272,7 +245,7 @@ list.forEach(...);// Lambda 表达式
                     <div id="2"><h3>2 java default方法应用</h3></div>
                     <p>从最简单可行的例子开始. 下面代码定义了接口A,以及实现了接口A的Clazz类:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 https://dashidan.com
+ * 大屎蛋教程网 http://dashidan.com
  */
 public  interface  A {
     default  void  foo(){
@@ -284,7 +257,7 @@ public  class  Clazz  implements A {}
 </code></pre>
                     <p>即使Clazz中没有实现foo(),代码也能编译通过.foo()的默认实现在A接口中给出.上例的客户端代码如下:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 https://dashidan.com
+ * 大屎蛋教程网 http://dashidan.com
  */
 Clazz  clazz= new  Clazz();
 clazz.foo();// Calling A.foo()
@@ -292,7 +265,7 @@ clazz.foo();// Calling A.foo()
                     <p>
                         当大家第一次听说default方法,通常会问:“如果一个类实现了两个接口,而这两个接口中各自定义了一个同名的default方法,会怎么样？”让我们用上一个例子来解释上述情况,代码如下所示:</p>
                     <pre class="prettyprint"><code class="java language-java">/**
- * 大屎蛋教程网 https://dashidan.com
+ * 大屎蛋教程网 http://dashidan.com
  */
 public  interface A {
     default  void  foo(){
