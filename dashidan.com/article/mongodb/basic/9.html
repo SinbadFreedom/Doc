@@ -20,7 +20,7 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({
-                                                          google_ad_client: "ca-pub-4232545510088845",
+                                                          google_ad_client: "ca-pub-8924316869528600",
                                                           enable_page_level_ads: true
                                                       });
     </script>
@@ -331,69 +331,45 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td><code>db.collection.find(
-                                <query>)</td>
-                            <td>根据
-                                <query>查询数据.<br>
-                                    coll = db.users;<br>
-                                    coll.find( { name: "Joe" } );
+                            <td><code>db.collection.find(query)</td>
+                            <td>根据query查询数据.<br>
+                                coll = db.users;<br>
+                                coll.find( { name: "Joe" } );
                             </td>
                         </tr>
                         <tr>
-                            <td>db.collection.find(
-                                <query>,
-                                    <projection>)
-                            </td>
-                            <td>根据
-                                <query>查询数据, 返回指定字段
-                                    <projection>数据.<br>
-                                        coll = db.users;<br>
-                                        coll.find( { }, { name: true } );
+                            <td>db.collection.find(query, projection)</td>
+                            <td>根据query查询数据, 返回指定字段projection数据.<br>
+                                coll = db.users;<br>
+                                coll.find( { }, { name: true } );
                             </td>
                         </tr>
                         <tr>
-                            <td>db.collection.find().sort(
-                                <sort order>)
-                            </td>
-                            <td>根据
-                                <query>查询数据, 根据指定字段排序, 1位增序, -1为降序.<br>
-                                    coll = db.users;<br>
-                                    coll.find().sort( { name: 1 } )
+                            <td>db.collection.find().sort(sort order)</td>
+                            <td>根据query查询数据, 根据指定字段排序, 1位增序, -1为降序.<br>
+                                coll = db.users;<br>
+                                coll.find().sort( { name: 1 } )
                             </td>
                         </tr>
                         <tr>
-                            <td>db.collection.find( ... ).limit(
-                                <n> )
-                            </td>
-                            <td>根据
-                                <query>查询数据, 返回
-                                    <n>条数据.
-                            </td>
+                            <td>db.collection.find( ... ).limit( n )</td>
+                            <td>根据query查询数据, 返回n条数据.</td>
                         </tr>
                         <tr>
-                            <td>db.collection.find( ... ).skip(
-                                <n> )td>
-                            <td>查询结果跳过
-                                <n>条.
-                            </td>
+                            <td>db.collection.find( ... ).skip( n )td>
+                            <td>查询结果跳过n条.</td>
                         </tr>
                         <tr>
                             <td>db.collection.count()</td>
                             <td>返回集合中文档总条数.</td>
                         </tr>
                         <tr>
-                            <td>db.collection.find(
-                                <query>).count()
-                            </td>
+                            <td>db.collection.find(query).count()</td>
                             <td>返回查询结果条数, 葫芦skip和limit.</td>
                         </tr>
                         <tr>
-                            <td>db.collection.findOne(
-                                <query>)
-                            </td>
-                            <td>查询
-                                <query>数据, 返回一条.等同find().limit(1)
-                            </td>
+                            <td>db.collection.findOne(query)</td>
+                            <td>查询query数据, 返回一条.等同find().limit(1)</td>
                         </tr>
                         </tbody>
                     </table>
@@ -412,30 +388,15 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>db.cloneDatabase(
-                                <host>)
-                            </td>
-                            <td>复制数据库.
-                                <host>数据库必须在非认证模式.
-                            </td>
+                            <td>db.cloneDatabase(host)</td>
+                            <td>复制数据库.host数据库必须在非认证模式.</td>
                         </tr>
                         <tr>
-                            <td>db.copyDatabase(
-                                <from>,
-                                    <to>,
-                                        <host>)
-                            </td>
-                            <td>复制
-                                <host>的
-                                    <from>数据库到本机的
-                                        <to>数据库.
-                                            <host>数据库必须在非认证模式.
-                            </td>
+                            <td>db.copyDatabase(from, to, host)</td>
+                            <td>复制host的from数据库到本机的to数据库.host数据库必须在非认证模式.</td>
                         </tr>
                         <tr>
-                            <td>db.fromColl.renameCollection(
-                                <toColl>)
-                            </td>
+                            <td>db.fromColl.renameCollection(toColl)</td>
                             <td>mongo集合改名</td>
                         </tr>
                         <tr>
@@ -450,10 +411,7 @@
                     </table>
                     <div id="8"><h3>8 mongo其他常用命令</h3></div>
                     <ul>
-                        <li>Object.bsonsize(
-                            <document>) 打印
-                                <document>文档的BSON格式字节数
-                        </li>
+                        <li>Object.bsonsize(document) 打印document文档的BSON格式字节数</li>
                     </ul>
                     <div id="9"><h3>9 参考文章</h3></div>
                     <p><a href="https://docs.mongodb.com/manual/mongo/">https://docs.mongodb.com/manual/mongo/</a></p>
