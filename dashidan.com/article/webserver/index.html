@@ -1,17 +1,17 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="no-js" lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>web服务器</title>
-    <meta name="description" content="web服务器">
+    <title>网络建站常见问题- WebServer教程 - 大屎蛋教程网</title>
+    <meta name="description" content="网络建站常见问题总结.WebServer,nginx常见问题.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="amphtml" href="https://amp.dashidan.com/article/webserver/index.html">
+    <link rel="amphtml" href="https://amp.dashidan.com/article/webserver/dns/.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -23,6 +23,7 @@
                                                           enable_page_level_ads: true
                                                       });
     </script>
+
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -34,7 +35,6 @@
     </script>
 </head>
 <body>
-
 <nav class="navbar navbar-default">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -53,7 +53,6 @@
         </ul>
     </div>
 </nav>
-
 <div class="fullscreen">
     <div class="container-fluid">
         <div>
@@ -61,25 +60,42 @@
             href="https://dashidan.com/article/webserver/index.html">webserver</a>
         </div>
 
-        <div id="xs_index">
-            <div class="dsd_title" onclick="clickTitle('nginx')">
-                <span id="nginx_title">- Nginx</span>
-            </div>
-            <div id="nginx" class="dsd_catalog_left_show">
-                <div class="single_line">
-                    <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+        <div class="dsd_content">
+            <div id="xs_index" class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                <!-- 循环1-->
+                <div class="dsd_title" onclick="clickTitle('nginx')">
+                    <span id="nginx_title">- Nginx</span>
                 </div>
-                <div class="single_line">
-                    <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                <div id="nginx" class="dsd_catalog_left_show">
+                    <!-- 循环2-->
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                    </div>
                 </div>
-                <div class="single_line">
-                    <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                <!-- 循环1-->
+                <div class="dsd_title" onclick="clickTitle('dns')">
+                    <span id="dns_title">- DNS</span>
                 </div>
-                <div class="single_line">
-                    <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
-                </div>
-                <div class="single_line">
-                    <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                <div id="dns" class="dsd_catalog_left_show">
+                    <!-- 循环2-->
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,7 +105,7 @@
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
 <script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="https://dashidan.com/js/bootstrap.js"></script>
-<script src="https://dashidan.com/js/plugins.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
 <script src="https://dashidan.com/js/main.js"></script>
 </body>
 </html>

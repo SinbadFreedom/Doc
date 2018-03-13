@@ -1,17 +1,17 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="no-js" lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>PHP常见问题</title>
-    <meta name="description" content="PHP常见问题">
+    <title>PHP常见问题- PHP教程 - 大屎蛋教程网</title>
+    <meta name="description" content="PHP使用和维护过程中常见问题总结.PHP中文手册.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="amphtml" href="https://amp.dashidan.com/article/php/index.html">
+    <link rel="amphtml" href="https://amp.dashidan.com/article/php/api/.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -23,6 +23,7 @@
                                                           enable_page_level_ads: true
                                                       });
     </script>
+
     <script>
         var _hmt = _hmt || [];
         (function () {
@@ -34,28 +35,24 @@
     </script>
 </head>
 <body>
-
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://dashidan.com/index.html">首页</a></li>
-                <li><a href="https://dashidan.com/about.html">关于</a></li>
-                <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
-            </ul>
-        </div>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
     </div>
 </nav>
-
 <div class="fullscreen">
     <div class="container-fluid">
         <div>
@@ -63,28 +60,33 @@
             href="https://dashidan.com/article/php/index.html">php</a>
         </div>
 
-        <div id="xs_index">
-            <div class="dsd_title" onclick="clickTitle('doc')">
-                <span id="doc_title">- PHP中文手册</span>
-            </div>
-            <div id="doc" class="dsd_catalog_left_show">
-                <div class="single_line">
-                    <a href="https://dashidan.com/apidoc/php/doc/index.html">1.PHP中文手册</a>
+        <div class="dsd_content">
+            <div id="xs_index" class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                <!-- 循环1-->
+                <div class="dsd_title" onclick="clickTitle('faq')">
+                    <span id="faq_title">- PHP常见问题</span>
                 </div>
-            </div>
-
-            <div class="dsd_title" onclick="clickTitle('faq')">
-                <span id="faq_title">- PHP常见问题</span>
-            </div>
-            <div id="faq" class="dsd_catalog_left_show">
-                <div class="single_line">
-                    <a href="https://dashidan.com/article/php/faq/1.html">1.PHP中文JSON乱码</a>
+                <div id="faq" class="dsd_catalog_left_show">
+                    <!-- 循环2-->
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/1.html">1.PHP中文JSON乱码</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/2.html">2.Linux系统PHP配置支持Redis扩展</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/3.html">3.Ubuntu安装php-redis扩展</a>
+                    </div>
                 </div>
-                <div class="single_line">
-                    <a href="https://dashidan.com/article/php/faq/2.html">2.Linux系统PHP配置支持Redis扩展</a>
+                <!-- 循环1-->
+                <div class="dsd_title" onclick="clickTitle('api')">
+                    <span id="api_title">- PHP中文手册</span>
                 </div>
-                <div class="single_line">
-                    <a href="https://dashidan.com/article/php/faq/3.html">3.Ubuntu安装php-redis扩展</a>
+                <div id="api" class="dsd_catalog_left_show">
+                    <!-- 循环2-->
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/api/1.html">1.php中文手册</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -94,7 +96,7 @@
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
 <script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
 <script src="https://dashidan.com/js/bootstrap.js"></script>
-<script src="https://dashidan.com/js/plugins.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
 <script src="https://dashidan.com/js/main.js"></script>
 </body>
 </html>
