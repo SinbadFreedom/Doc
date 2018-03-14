@@ -2,43 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://dashidan.com/article/git/index.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/git/faq/1.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/git/faq/2.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/git/faq/3.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/git/faq/4.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/git/faq/5.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/git/faq/6.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dashidan.com/article/git/addenda/1.html</loc>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

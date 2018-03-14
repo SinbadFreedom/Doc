@@ -1,0 +1,4 @@
+Fonts.com: https://fast.fonts.net
+Google Fonts: https://fonts.googleapis.com
+Font Awesome: https://maxcdn.bootstrapcdn.com
+Typekit: https://use.typekit.net/kitId.css (replace kitId accordingly)

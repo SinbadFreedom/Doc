@@ -2,109 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://dashidan.com/article/linux/index.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/1.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/2.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/3.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/4.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/5.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/6.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/7.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/8.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/common/9.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://dashidan.com/article/linux/tmux/1.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <loc>https://dashidan.com/article/linux/common/10.html</loc>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://dashidan.com/article/linux/tmux/2.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <loc>https://dashidan.com/article/linux/common/11.html</loc>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://dashidan.com/article/linux/tmux/3.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <loc>https://dashidan.com/article/linux/common/12.html</loc>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/ubuntu/1.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/ubuntu/2.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/ubuntu/3.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/ubuntu/4.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/linux/ubuntu/5.html</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dashidan.com/article/linux/tmux/1.html</loc>
+        <lastmod>2018-03-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dashidan.com/article/linux/tmux/2.html</loc>
+        <lastmod>2018-03-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://dashidan.com/article/linux/tmux/3.html</loc>
+        <lastmod>2018-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
