@@ -1,39 +1,47 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-        <loc>https://dashidan.com/article/java/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
-    </sitemap>
-    <sitemap>
-        <loc>https://dashidan.com/article/mongodb/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
-    </sitemap>
-    <sitemap>
         <loc>https://dashidan.com/article/git/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-14</lastmod>
     </sitemap>
     <sitemap>
         <loc>https://dashidan.com/article/html/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-14</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://dashidan.com/article/java/sitemap.xml</loc>
+        <lastmod>2018-03-14</lastmod>
     </sitemap>
     <sitemap>
         <loc>https://dashidan.com/article/linux/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-14</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://dashidan.com/article/mongodb/sitemap.xml</loc>
+        <lastmod>2018-03-14</lastmod>
     </sitemap>
     <sitemap>
         <loc>https://dashidan.com/article/nodejs/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-14</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://dashidan.com/article/php/sitemap.xml</loc>
+        <lastmod>2018-03-14</lastmod>
     </sitemap>
     <sitemap>
         <loc>https://dashidan.com/article/python/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-14</lastmod>
     </sitemap>
     <sitemap>
-        <loc>https://dashidan.com/article/windows/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
+        <loc>https://dashidan.com/article/redis/sitemap.xml</loc>
+        <lastmod>2018-03-14</lastmod>
     </sitemap>
     <sitemap>
         <loc>https://dashidan.com/article/webserver/sitemap.xml</loc>
-        <lastmod>2018-03-08</lastmod>
+        <lastmod>2018-03-14</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://dashidan.com/article/windows/sitemap.xml</loc>
+        <lastmod>2018-03-14</lastmod>
     </sitemap>
 </sitemapindex>
