@@ -2,6 +2,7 @@
 
 # Allow crawling of all content
 User-agent: *
+Disallow: /article/java/api6/
 Disallow: /article/java/basic/Java%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html
 Disallow: /java/index.html
 Disallow: /article/windows/basic/index.html
