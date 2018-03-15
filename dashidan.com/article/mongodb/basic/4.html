@@ -213,12 +213,8 @@ db.myCollection.insertOne( { x: 1 } );
                     <p>还可以通过以下方式设置mongo命令显示结果：</p>
                     <ul>
                         <li>print() 打印数据, 并不格式化</li>
-                        <li>print(tojson(
-                            <obj>)) 输出JSON格式,同printjson()
-                        </li>
-                        <li>printjson() 输出JSON格式,同print(tojson(
-                            <obj>))
-                        </li>
+                        <li>print(tojson(obj)) 输出JSON格式,同printjson()</li>
+                        <li>printjson() 输出JSON格式,同print(tojson(obj))</li>
                     </ul>
                     <div id="9"><h3>9 mongo命令多行模式</h3></div>
                     <p>在mongo命令行中如果以<code>{</code>,<code>[</code>,<code>(</code>结尾, 则下一行会以<code>...</code>开头,直到遇到与之对应的符号<code>}</code>,<code>]</code>,<code>)</code>.

@@ -199,12 +199,8 @@ db = conn.getDB("myDatabase");
                             <td>db.adminCommand('listDatabases')</td>
                         </tr>
                         <tr>
-                            <td>use?
-                                <db>
-                            </td>
-                            <td>db = db.getSiblingDB('
-                                <db>')
-                            </td>
+                            <td>use?db</td>
+                            <td>db = db.getSiblingDB('db')</td>
                         </tr>
                         <tr>
                             <td>show?collections</td>
@@ -219,12 +215,8 @@ db = conn.getDB("myDatabase");
                             <td>db.getRoles({showBuiltinRoles: true})</td>
                         </tr>
                         <tr>
-                            <td>show?log?
-                                <logname>
-                            </td>
-                            <td>db.adminCommand({ 'getLog' : '
-                                <logname>' })
-                            </td>
+                            <td>show?log?logname</td>
+                            <td>db.adminCommand({ 'getLog' : 'logname' })</td>
                         </tr>
                         <tr>
                             <td>show?logs</td>

@@ -290,9 +290,9 @@ db.collection.getShardDistribution() - prints statistics about data distribution
 }
 </code></pre>
                     <div id="5"><h3>5 cursor帮助</h3></div>
-                    <p>当你在mongo命令行使用<code>find()</code>方法时, 可以使用很多<code>cursor</code>方法来修改<code>find()</code>行为和结果.</p>
+                    <p>当你在mongo命令行使用find()方法时, 可以使用很多cursor方法来修改find()行为和结果.</p>
                     <ul>
-                        <li><p>显示find()方法可用的修改器和<code>cursor</code>处理方法</p>
+                        <li><p>显示find()方法可用的修改器和cursor处理方法</p>
                             <p>db.collection.find().help()</p></li>
                     </ul>
                     <p>显示:</p>
@@ -314,8 +314,7 @@ Cursor methods
     .next()
 </code></pre>
                     <ul>
-                        <li>看<code>cursor</code>方法的实现, 输入<code>db.&lt;collection&gt;.find().&lt;method&gt;</code>,
-                            不包含<code>()</code>.
+                        <li>看cursor方法的实现, 输入<code>db.&lt;collection&gt;.find().&lt;method&gt;</code>, 不包含<code>()</code>.
                             例如:
                         </li>
                     </ul>
@@ -337,13 +336,9 @@ function () {
 </code></pre>
                     <p>常用的cursor方法</p>
                     <ul>
-                        <li>hasNext() 查询<code>cursor</code>是否还有数据.</li>
-                        <li>next() 返回下一个数据对象, 并且<code>cursor</code>指向位置加1.</li>
-                        <li>forEach(
-                            <function>)
-                                <function>方法遍历执行全部结果.
-                                    <function>只有1参数, 迭代器中指向的对象.
-                        </li>
+                        <li>hasNext() 查询cursor是否还有数据.</li>
+                        <li>next() 返回下一个数据对象, 并且cursor指向位置加1.</li>
+                        <li>forEach(function) function方法遍历执行全部结果.function只有1参数, 迭代器中指向的对象.</li>
                     </ul>
                     <div id="6"><h3>6 包装对象帮助</h3></div>
                     <p>可以通过输入help misc来获取对象包装类.</p>
