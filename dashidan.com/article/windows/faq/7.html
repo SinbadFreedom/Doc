@@ -58,77 +58,71 @@
         <!-- 顶部面包屑导航-->
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/windows/index.html">windows</a> > 批处理注释
+                href="https://dashidan.com/article/windows/index.html">windows</a> > 批处理注释
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Windwos常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/windows/faq/1.html">1.windows系统是32位还是64位</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Windwos常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/windows/faq/2.html">2.打开windows命令提示符</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/windows/faq/1.html">1.windows系统是32位还是64位</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/windows/faq/2.html">2.打开windows命令提示符</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/windows/faq/3.html">3.windows显示文件后缀名</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/windows/faq/4.html">4.批处理命令中文乱码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/windows/faq/5.html">5.Win10蓝屏WHEA UNCREATABLE ERROR</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/windows/faq/6.html">6.电脑重启键不管用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/windows/faq/7.html">7.批处理注释</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/windows/faq/8.html">8.手机向电脑安全传输文件</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/windows/faq/3.html">3.windows显示文件后缀名</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/windows/faq/4.html">4.批处理命令中文乱码</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/windows/faq/5.html">5.Win10蓝屏WHEA UNCREATABLE ERROR</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/windows/faq/6.html">6.电脑重启键不管用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/windows/faq/7.html">7.批处理注释</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/windows/faq/8.html">8.手机向电脑安全传输文件</a>
-                    </div>
-                </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
                 <article class="dsd_title_1"><h1>批处理注释</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 批处理::注释</a><br><a href="#2">2
-                            批处理rem注释内容</a><br><a href="#3">3 %注释内容%</a><br><a href="#4">4 goto 标签 注释内容</a></div>
-                    </div>
-                    <div class="jumbotron"><p>
-                        写批处理的程序的时候,我们在需要添加程序描述,或者注释掉一部分代码不执行的时候,需要用到批处理注释.本文中列举了常用的批处理注释(bat注释)方式.</p>
-                    </div>
-                    <div id="1"><h3>1 批处理::注释</h3></div>
-                    <p>批处理遇到以冒号":"开头的行时，会将其后的语句识别为"标记"而不是命令语句，因此类似</p>
-                    <p>
-                        ":label"这样的东东在批处理中仅仅是一个标记。对于"::"而言，之所以可以达到注释的效果，是因为第二个:不是标签的合法字符（把它换成\;.等等都行），它不被当作一个合法的标签.如果在你的批处理中有一个永远用不到的标签hero，那么你就可以用":hero"打头来作为注释。只不过冒号有其先天的优越性--语法上的问题。</p>
-                    <p>第一个冒号后也可以跟任何一个非字母数字的字符,示例:</p>
-                    <pre class="prettyprint"><code>@echo off
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 批处理::注释</a><br><a href="#2">2 批处理rem注释内容</a><br><a href="#3">3 %注释内容%</a><br><a href="#4">4 goto 标签 注释内容</a></div></div><div class="jumbotron">    <p>写批处理的程序的时候,我们在需要添加程序描述,或者注释掉一部分代码不执行的时候,需要用到批处理注释.本文中列举了常用的批处理注释(bat注释)方式.</p>
+</div>
+<div id="1"><h3>1 批处理::注释</h3></div>
+<p>批处理遇到以冒号":"开头的行时，会将其后的语句识别为"标记"而不是命令语句，因此类似</p>
+<p>":label"这样的东东在批处理中仅仅是一个标记。对于"::"而言，之所以可以达到注释的效果，是因为第二个:不是标签的合法字符（把它换成\;.等等都行），它不被当作一个合法的标签.如果在你的批处理中有一个永远用不到的标签hero，那么你就可以用":hero"打头来作为注释。只不过冒号有其先天的优越性--语法上的问题。</p>
+<p>第一个冒号后也可以跟任何一个非字母数字的字符,示例:</p>
+<pre class="prettyprint"><code>@echo off
 :: dashidan.com
 :# 大屎蛋教程网
 </code></pre>
-                    <div id="2"><h3>2 批处理rem注释内容</h3></div>
-                    <p>rem和::都起到注释的作用，然而又有些不同。rem是一条命令，在运行的时候相当于把rem本身及其后面的内容置空。
-                        不能出现重定向符号和管道符号.</p>
-                    <pre class="prettyprint"><code>@echo off
+<div id="2"><h3>2 批处理rem注释内容</h3></div>
+<p>rem和::都起到注释的作用，然而又有些不同。rem是一条命令，在运行的时候相当于把rem本身及其后面的内容置空。
+不能出现重定向符号和管道符号.</p>
+<pre class="prettyprint"><code>@echo off
 rem dashidan.com
 rem 大屎蛋教程网
 </code></pre>
-                    <div id="3"><h3>3 %注释内容%</h3></div>
-                    <p>可以用作行间注释,不能出现重定向符号和管道符号</p>
-                    <pre class="prettyprint"><code>%dashidan.com%
+<div id="3"><h3>3 %注释内容%</h3></div>
+<p>可以用作行间注释,不能出现重定向符号和管道符号</p>
+<pre class="prettyprint"><code>%dashidan.com%
 %大屎蛋教程网%
 </code></pre>
-                    <div id="4"><h3>4 goto 标签 注释内容</h3></div>
-                    <p>可以用作说明goto的条件和执行内容,可以是多行文本,可以是命令
-                        可以包含重定向符号和其他特殊字符.</p>
-                    <pre class="prettyprint"><code class="     language-    ">goto tip
+<div id="4"><h3>4 goto 标签 注释内容</h3></div>
+<p>可以用作说明goto的条件和执行内容,可以是多行文本,可以是命令
+    可以包含重定向符号和其他特殊字符.</p>
+<pre class="prettyprint"><code class="     language-    ">goto tip
     dashidan.com
     大屎蛋教程网
     从tip标签开始到:tip结束之间都是注释
@@ -149,7 +143,7 @@ rem 大屎蛋教程网
             目录
         </div>
     </div>
-    <a href="https://dashidan.com/article/windows/faq/8.html">下一篇: 手机向电脑安全传输文件</a>
+        <a href="https://dashidan.com/article/windows/faq/8.html">下一篇: 手机向电脑安全传输文件</a>
 </footer>
 
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
