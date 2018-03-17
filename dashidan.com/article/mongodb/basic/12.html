@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>MongoDb查询基本操作详解 - Mongodb中文手册 - 大屎蛋教程网</title>
-    <meta name="description" content="MongoDb查询基本操作详解,Mongodb提供了查询文档的方法&#x60;db.collection.find()&#x60;.可以查询一个集合中全部数据,指定条件查询,通过条件操作符来设置查询条件,AND条件查询,OR条件查询,AND和OR联合查询.mongodb与SQL语法对应.">
+    <meta name="description"
+          content="MongoDb查询基本操作详解,Mongodb提供了查询文档的方法&#x60;db.collection.find()&#x60;.可以查询一个集合中全部数据,指定条件查询,通过条件操作符来设置查询条件,AND条件查询,OR条件查询,AND和OR联合查询.mongodb与SQL语法对应.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -58,98 +59,106 @@
         <!-- 顶部面包屑导航-->
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-                href="https://dashidan.com/article/mongodb/index.html">mongodb</a> > MongoDb查询基本操作详解
+            href="https://dashidan.com/article/mongodb/index.html">mongodb</a> > MongoDb查询基本操作详解
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                    <div class="dsd_title" onclick="clickTitle('basic')">
-                        <span id="basic_title">+ Mongodb中文文档</span>
+                <div class="dsd_title" onclick="clickTitle('basic')">
+                    <span id="basic_title">+ Mongodb中文文档</span>
+                </div>
+                <div id="basic" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/1.html">1.MongoDB简介</a>
                     </div>
-                    <div id="basic" class="dsd_catalog_left_hide">
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/1.html">1.MongoDB简介</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/2.html">2.Windows安装MongoDB</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/3.html">3.Ubuntu安装MongoDB</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/4.html">4.mongodb命令行简介</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/5.html">5.配置mongo命令行参数</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/6.html">6.mongo命令提示符帮助</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/7.html">7.mongo命令行运行JavaScript脚本</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/8.html">8.mongo命令行中的数据类型</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/9.html">9.mongo常用命令</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/10.html">10.MongoDB增删改查操作简介</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/11.html">11.MongoDB插入命令详解</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/12.html">12.MongoDb查询基本操作详解</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/13.html">13.MongoDB查询绑定或嵌套的方法</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/14.html">14.MongoDB查询返回指定字段</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/15.html">15.MongoDB查询Null或者空字段</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/16.html">16.MongoDb遍历结果cursor</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/17.html">17.MongoDB修改数据</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/18.html">18.MongoDB删除操作</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/19.html">19.MongoDB块写入操作</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/basic/20.html">20.SQL与MongoDB对应表</a>
-                            </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/2.html">2.Windows安装MongoDB</a>
                     </div>
-                    <div class="dsd_title" onclick="clickTitle('addenda')">
-                        <span id="addenda_title">+ 附录</span>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/3.html">3.Ubuntu安装MongoDB</a>
                     </div>
-                    <div id="addenda" class="dsd_catalog_left_hide">
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/addenda/1.html">1.MongoDb在线测试工具</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/addenda/2.html">2.Mongodb的导入导出及备份恢复</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/mongodb/addenda/3.html">3.Mongodb配置及常用命令</a>
-                            </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/4.html">4.mongodb命令行简介</a>
                     </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/5.html">5.配置mongo命令行参数</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/6.html">6.mongo命令提示符帮助</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/7.html">7.mongo命令行运行JavaScript脚本</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/8.html">8.mongo命令行中的数据类型</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/9.html">9.mongo常用命令</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/10.html">10.MongoDB增删改查操作简介</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/11.html">11.MongoDB插入命令详解</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/12.html">12.MongoDb查询基本操作详解</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/13.html">13.MongoDB查询绑定或嵌套的方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/14.html">14.MongoDB查询返回指定字段</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/15.html">15.MongoDB查询Null或者空字段</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/16.html">16.MongoDb遍历结果cursor</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/17.html">17.MongoDB修改数据</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/18.html">18.MongoDB删除操作</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/19.html">19.MongoDB块写入操作</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/basic/20.html">20.SQL与MongoDB对应表</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('addenda')">
+                    <span id="addenda_title">+ 附录</span>
+                </div>
+                <div id="addenda" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/addenda/1.html">1.MongoDb在线测试工具</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/addenda/2.html">2.Mongodb的导入导出及备份恢复</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/mongodb/addenda/3.html">3.Mongodb配置及常用命令</a>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
                 <article class="dsd_title_1"><h1>MongoDb查询基本操作详解</h1></article>
                 <div id="xs_content_border">
-                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 mongodb查询一个集合中全部数据</a><br><a href="#2">2 mongodb指定条件查询</a><br><a href="#3">3 mongodb通过条件操作符来设置查询条件</a><br><a href="#4">4 mongodb AND条件查询</a><br><a href="#5">5 mongodb OR条件查询</a><br><a href="#6">6 mongodb AND和OR联合查询</a><br><a href="#7">7 mongodb查询行为</a><br><a href="#7.1">&nbsp;&nbsp;7.1 Cursor</a><br><a href="#7.2">&nbsp;&nbsp;7.2 读分离</a><br><a href="#8">8 其他查询方法</a><br><a href="#9">9 参考文章</a><br><a href="#10">10 相关文章</a></div></div><p>Mongodb提供了查询文档的方法<code>db.collection.find()</code>.</p>
-<p>例如:</p>
-<pre class="prettyprint"><code>db.inventory.insertMany([
+                    <div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 mongodb查询一个集合中全部数据</a><br><a href="#2">2
+                            mongodb指定条件查询</a><br><a href="#3">3 mongodb通过条件操作符来设置查询条件</a><br><a href="#4">4 mongodb
+                            AND条件查询</a><br><a href="#5">5 mongodb OR条件查询</a><br><a href="#6">6 mongodb
+                            AND和OR联合查询</a><br><a href="#7">7 mongodb查询行为</a><br><a href="#7.1">&nbsp;&nbsp;7.1
+                            Cursor</a><br><a href="#7.2">&nbsp;&nbsp;7.2 读分离</a><br><a href="#8">8 其他查询方法</a><br><a
+                            href="#9">9 参考文章</a><br><a href="#10">10 相关文章</a></div>
+                    </div>
+                    <p>Mongodb提供了查询文档的方法<code>db.collection.find()</code>.</p>
+                    <p>例如:</p>
+                    <pre class="prettyprint"><code>db.inventory.insertMany([
    { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
    { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
    { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
@@ -157,79 +166,89 @@
    { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
 ]);
 </code></pre>
-<div id="1"><h3>1 mongodb查询一个集合中全部数据</h3></div>
-<p>输入:</p>
-<pre class="prettyprint"><code>db.inventory.find( {} )
+                    <div id="1"><h3>1 mongodb查询一个集合中全部数据</h3></div>
+                    <p>输入:</p>
+                    <pre class="prettyprint"><code>db.inventory.find( {} )
 </code></pre>
-<p>这个对应的SQL语句为</p>
-<pre class="prettyprint"><code>SELECT * FROM inventory
+                    <p>这个对应的SQL语句为</p>
+                    <pre class="prettyprint"><code>SELECT * FROM inventory
 </code></pre>
-<div id="2"><h3>2 mongodb指定条件查询</h3></div>
-<p>MongoDB使用<code>&lt;field&gt;:&lt;value&gt;</code>表达式来指定查询条件.</p>
-<pre class="prettyprint"><code>{ &lt;field1&gt;: &lt;value1&gt;, ... }
+                    <div id="2"><h3>2 mongodb指定条件查询</h3></div>
+                    <p>MongoDB使用<code>&lt;field&gt;:&lt;value&gt;</code>表达式来指定查询条件.</p>
+                    <pre class="prettyprint"><code>{ &lt;field1&gt;: &lt;value1&gt;, ... }
 </code></pre>
-<p>以下例子为从<code>inventory</code>集合中查找<code>status</code>为<code>D</code>的全部文档.</p>
-<pre class="prettyprint"><code>db.inventory.find( { status: "D" } )
+                    <p>以下例子为从<code>inventory</code>集合中查找<code>status</code>为<code>D</code>的全部文档.</p>
+                    <pre class="prettyprint"><code>db.inventory.find( { status: "D" } )
 </code></pre>
-<p>这个对应SQL表达式</p>
-<pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "D"
+                    <p>这个对应SQL表达式</p>
+                    <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "D"
 </code></pre>
-<div id="3"><h3>3 mongodb通过条件操作符来设置查询条件</h3></div>
-<p>MongoDB操作符列表:
-<a href="https://docs.mongodb.com/manual/reference/operator/query/#query-selectors">query operators</a></p>
-<p>操作符使用方式:</p>
-<pre class="prettyprint"><code>{ &lt;field1&gt;: { &lt;operator1&gt;: &lt;value1&gt; }, ... }
+                    <div id="3"><h3>3 mongodb通过条件操作符来设置查询条件</h3></div>
+                    <p>MongoDB操作符列表:
+                        <a href="https://docs.mongodb.com/manual/reference/operator/query/#query-selectors">query
+                            operators</a></p>
+                    <p>操作符使用方式:</p>
+                    <pre class="prettyprint"><code>{ &lt;field1&gt;: { &lt;operator1&gt;: &lt;value1&gt; }, ... }
 </code></pre>
-<p>以下例子为从<code>inventory</code>集合中查找<code>status</code>为<code>A</code>或<code>D</code>的全部文档.</p>
-<pre class="prettyprint"><code>db.inventory.find( { status: { $in: [ "A", "D" ] } } )
+                    <p>以下例子为从<code>inventory</code>集合中查找<code>status</code>为<code>A</code>或<code>D</code>的全部文档.</p>
+                    <pre class="prettyprint"><code>db.inventory.find( { status: { $in: [ "A", "D" ] } } )
 </code></pre>
-<p>另外也可以使用<code>$or</code>操作符来实现以上操作. 当执行相等性检查时, 采用<code>$in</code>而不要用<code>$or</code>(下文<code>OR条件查询</code>有<code>$or</code>的应用场景示例.).</p>
-<p>等同于SQL语句:</p>
-<pre class="prettyprint"><code>SELECT * FROM inventory WHERE status in ("A", "D")
+                    <p>另外也可以使用<code>$or</code>操作符来实现以上操作. 当执行相等性检查时, 采用<code>$in</code>而不要用<code>$or</code>(下文<code>OR条件查询</code>有<code>$or</code>的应用场景示例.).
+                    </p>
+                    <p>等同于SQL语句:</p>
+                    <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status in ("A", "D")
 </code></pre>
-<div id="4"><h3>4 mongodb AND条件查询</h3></div>
-<p>MongoDB可以同时多个条件, 查询同时满足这些条件的文档.</p>
-<p>以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>并且<code>qty</code>小于<code>30</code>的全部文档.</p>
-<pre class="prettyprint"><code>db.inventory.find( { status: "A", qty: { $lt: 30 } } )
+                    <div id="4"><h3>4 mongodb AND条件查询</h3></div>
+                    <p>MongoDB可以同时多个条件, 查询同时满足这些条件的文档.</p>
+                    <p>
+                        以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>并且<code>qty</code>小于<code>30</code>的全部文档.
+                    </p>
+                    <pre class="prettyprint"><code>db.inventory.find( { status: "A", qty: { $lt: 30 } } )
 </code></pre>
-<p>等同于SQL语句:</p>
-<pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" AND qty &lt; 30
+                    <p>等同于SQL语句:</p>
+                    <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" AND qty &lt; 30
 </code></pre>
-<div id="5"><h3>5 mongodb OR条件查询</h3></div>
-<p>MongoDB中可以将多个查询条件放在数组中, 通过<code>$or</code>操作符, 来查询满足其中至少一个条件的文档.</p>
-<p>以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>或者<code>qty</code>小于<code>30</code>的全部文档.</p>
-<pre class="prettyprint"><code>db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
+                    <div id="5"><h3>5 mongodb OR条件查询</h3></div>
+                    <p>MongoDB中可以将多个查询条件放在数组中, 通过<code>$or</code>操作符, 来查询满足其中至少一个条件的文档.</p>
+                    <p>
+                        以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>或者<code>qty</code>小于<code>30</code>的全部文档.
+                    </p>
+                    <pre class="prettyprint"><code>db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
 </code></pre>
-<p>等同于SQL语句:</p>
-<pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" OR qty &lt; 30
+                    <p>等同于SQL语句:</p>
+                    <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" OR qty &lt; 30
 </code></pre>
-<div id="6"><h3>6 mongodb AND和OR联合查询</h3></div>
-<p>以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>的, 并且满足<code>qty</code>小于<code>30</code>或者<code>item</code>数据以<code>p</code>开头的全部文档.</p>
-<pre class="prettyprint"><code>db.inventory.find( {
+                    <div id="6"><h3>6 mongodb AND和OR联合查询</h3></div>
+                    <p>以下为查询<code>inventory</code>集合中同时满足<code>status</code>为<code>A</code>的,
+                        并且满足<code>qty</code>小于<code>30</code>或者<code>item</code>数据以<code>p</code>开头的全部文档.</p>
+                    <pre class="prettyprint"><code>db.inventory.find( {
      status: "A",
      $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ]
 } )
 </code></pre>
-<p>对应以下SQL语句</p>
-<pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" AND ( qty &lt; 30 OR item LIKE "p%")
+                    <p>对应以下SQL语句</p>
+                    <pre class="prettyprint"><code>SELECT * FROM inventory WHERE status = "A" AND ( qty &lt; 30 OR item LIKE "p%")
 </code></pre>
-<p>MongoDB的<code>$regex</code>操作符可以做字符串模式匹配.</p>
-<div id="7"><h3>7 mongodb查询行为</h3></div>
-<div id="7.1"class="dsd_title_c_2"><h4>7.1 Cursor</h4></div>
-<p><code>db.collection.find()</code>方法返回一个<a href="https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/">cursor</a>执行匹配的文档.</p>
-<div id="7.2"class="dsd_title_c_2"><h4>7.2 读分离</h4></div>
-<p>MongoDB3.2新特性</p>
-<p>For reads to replica sets and replica set shards, read concern allows clients to choose a level of isolation for their reads. For more information, see Read Concern.</p>
-<div id="8"><h3>8 其他查询方法</h3></div>
-<ul>
-<li>db.collection.findOne</li>
-<li>In aggregation pipeline, the $match pipeline stage provides access to MongoDB queries.</li>
-</ul>
-<p><code>db.collection.findOne()</code>方法等同于<code>db.collection.find().limit(1)</code>.</p>
-<div id="9"><h3>9 参考文章</h3></div>
-<p><a href="https://docs.mongodb.com/manual/tutorial/query-documents/">https://docs.mongodb.com/manual/tutorial/query-documents/</a></p>
-<div id="10"><h3>10 相关文章</h3></div>
-<p><a href="https://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+                    <p>MongoDB的<code>$regex</code>操作符可以做字符串模式匹配.</p>
+                    <div id="7"><h3>7 mongodb查询行为</h3></div>
+                    <div id="7.1" class="dsd_title_c_2"><h4>7.1 Cursor</h4></div>
+                    <p><code>db.collection.find()</code>方法返回一个<a
+                        href="https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/">cursor</a>执行匹配的文档.</p>
+                    <div id="7.2" class="dsd_title_c_2"><h4>7.2 读分离</h4></div>
+                    <p>MongoDB3.2新特性</p>
+                    <p>For reads to replica sets and replica set shards, read concern allows clients to choose a level
+                        of isolation for their reads. For more information, see Read Concern.</p>
+                    <div id="8"><h3>8 其他查询方法</h3></div>
+                    <ul>
+                        <li>db.collection.findOne</li>
+                        <li>In aggregation pipeline, the $match pipeline stage provides access to MongoDB queries.</li>
+                    </ul>
+                    <p><code>db.collection.findOne()</code>方法等同于<code>db.collection.find().limit(1)</code>.</p>
+                    <div id="9"><h3>9 参考文章</h3></div>
+                    <p><a href="https://docs.mongodb.com/manual/tutorial/query-documents/">https://docs.mongodb.com/manual/tutorial/query-documents/</a>
+                    </p>
+                    <div id="10"><h3>10 相关文章</h3></div>
+                    <p><a href="https://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/mongodb/basic/12.html">原文链接</a>.
@@ -245,7 +264,7 @@
             目录
         </div>
     </div>
-        <a href="https://dashidan.com/article/mongodb/basic/13.html">下一篇: MongoDB查询绑定或嵌套的方法</a>
+    <a href="https://dashidan.com/article/mongodb/basic/13.html">下一篇: MongoDB查询绑定或嵌套的方法</a>
 </footer>
 
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>

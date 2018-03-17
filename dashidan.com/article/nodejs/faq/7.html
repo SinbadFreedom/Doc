@@ -58,68 +58,76 @@
         <!-- 顶部面包屑导航-->
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-                href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > npm升级更新指定模块
+            href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > npm升级更新指定模块
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                    <div class="dsd_title" onclick="clickTitle('faq')">
-                        <span id="faq_title">+ Nodejs常见问题</span>
+                <div class="dsd_title" onclick="clickTitle('faq')">
+                    <span id="faq_title">+ Nodejs常见问题</span>
+                </div>
+                <div id="faq" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
                     </div>
-                    <div id="faq" class="dsd_catalog_left_hide">
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
-                            </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
                     </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
                 <article class="dsd_title_1"><h1>npm升级更新指定模块</h1></article>
                 <div id="xs_content_border">
-                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 npm update命令可以更新制定模块</a><br><a href="#1.1">&nbsp;&nbsp;1.1 使用npm update命令更新模块版本</a><br><a href="#1.2">&nbsp;&nbsp;1.2 npm将模块升级到指定版本</a><br><a href="#2">2 npm install @latest安装最新版模块</a><br><a href="#3">3 npm更新模块版本成功</a></div></div><p>npm update命令可以更新指定模块. npm通过package.json文件里面的模板版本号配置安装指定的模块版本. 当其中一个模块的版本发生变化我可以仅更新这一个模块,不用更新全部的模块.从而节省时间.</p>
-<div id="1"><h3>1 npm update命令可以更新制定模块</h3></div>
-<div id="1.1"class="dsd_title_c_2"><h4>1.1 使用npm update命令更新模块版本</h4></div>
-<p>命令格式</p>
-<pre class="prettyprint"><code>npm update MODULE_NAME
+                    <div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 npm update命令可以更新制定模块</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            使用npm update命令更新模块版本</a><br><a href="#1.2">&nbsp;&nbsp;1.2 npm将模块升级到指定版本</a><br><a
+                            href="#2">2 npm install @latest安装最新版模块</a><br><a href="#3">3 npm更新模块版本成功</a></div>
+                    </div>
+                    <p>npm update命令可以更新指定模块. npm通过package.json文件里面的模板版本号配置安装指定的模块版本.
+                        当其中一个模块的版本发生变化我可以仅更新这一个模块,不用更新全部的模块.从而节省时间.</p>
+                    <div id="1"><h3>1 npm update命令可以更新制定模块</h3></div>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 使用npm update命令更新模块版本</h4></div>
+                    <p>命令格式</p>
+                    <pre class="prettyprint"><code>npm update MODULE_NAME
 </code></pre>
-<p>这个命令npm按照package.json里指定的版本升级规则升级.此方式不会自动更新package.json文件的内容.如果<a href="http://dashidan.com/article/nodejs/faq/8.html">package.json模块版本号控制符</a>允许自动升级到更高版本则不用手动修改.如果版本号超过自动更新的版本范围,则需要手动修改package.json文件中对应npm模块的版本号.例如:</p>
-<pre class="prettyprint"><code>npm update dashidan.com-parser
+                    <p>这个命令npm按照package.json里指定的版本升级规则升级.此方式不会自动更新package.json文件的内容.如果<a
+                        href="http://dashidan.com/article/nodejs/faq/8.html">package.json模块版本号控制符</a>允许自动升级到更高版本则不用手动修改.如果版本号超过自动更新的版本范围,则需要手动修改package.json文件中对应npm模块的版本号.例如:
+                    </p>
+                    <pre class="prettyprint"><code>npm update dashidan.com-parser
 </code></pre>
-<div id="1.2"class="dsd_title_c_2"><h4>1.2 npm将模块升级到指定版本</h4></div>
-<p>我们以大屎蛋教程网的域名dashidan.com作为模块名为例,包名根据自己的需求修改:</p>
-<pre class="prettyprint"><code>npm update dashidan.com@1.0.1
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 npm将模块升级到指定版本</h4></div>
+                    <p>我们以大屎蛋教程网的域名dashidan.com作为模块名为例,包名根据自己的需求修改:</p>
+                    <pre class="prettyprint"><code>npm update dashidan.com@1.0.1
 </code></pre>
-<div id="2"><h3>2 npm install @latest安装最新版模块</h3></div>
-<p>命令格式</p>
-<pre class="prettyprint"><code>npm update MODULE_NAME@latest
+                    <div id="2"><h3>2 npm install @latest安装最新版模块</h3></div>
+                    <p>命令格式</p>
+                    <pre class="prettyprint"><code>npm update MODULE_NAME@latest
 </code></pre>
-<p>@latest表示模块的最新版.npm通过这种方式可以安装更新最新版模块.</p>
-<pre class="prettyprint"><code>npm install dashidan.com-parser@latest
+                    <p>@latest表示模块的最新版.npm通过这种方式可以安装更新最新版模块.</p>
+                    <pre class="prettyprint"><code>npm install dashidan.com-parser@latest
 </code></pre>
-<div id="3"><h3>3 npm更新模块版本成功</h3></div>
-<p>npm更新模块版本成功后,命令行会提示更新后的模块版本信息,可以查看这个版本号是否正确.命令行提示信息示例:</p>
-<pre class="prettyprint"><code>`-- dashidan.com@1.0.1
+                    <div id="3"><h3>3 npm更新模块版本成功</h3></div>
+                    <p>npm更新模块版本成功后,命令行会提示更新后的模块版本信息,可以查看这个版本号是否正确.命令行提示信息示例:</p>
+                    <pre class="prettyprint"><code>`-- dashidan.com@1.0.1
 </code></pre>
                 </div>
                 <div>
@@ -136,7 +144,7 @@
             目录
         </div>
     </div>
-        <a href="https://dashidan.com/article/nodejs/faq/8.html">下一篇: package.json ^ ~ latest符号意义</a>
+    <a href="https://dashidan.com/article/nodejs/faq/8.html">下一篇: package.json ^ ~ latest符号意义</a>
 </footer>
 
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>

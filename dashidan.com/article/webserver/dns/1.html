@@ -58,79 +58,88 @@
         <!-- 顶部面包屑导航-->
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-                href="https://dashidan.com/article/webserver/index.html">webserver</a> > dns解析记录类型
+            href="https://dashidan.com/article/webserver/index.html">webserver</a> > dns解析记录类型
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                    <div class="dsd_title" onclick="clickTitle('nginx')">
-                        <span id="nginx_title">+ Nginx</span>
+                <div class="dsd_title" onclick="clickTitle('nginx')">
+                    <span id="nginx_title">+ Nginx</span>
+                </div>
+                <div id="nginx" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
                     </div>
-                    <div id="nginx" class="dsd_catalog_left_hide">
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
-                            </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
                     </div>
-                    <div class="dsd_title" onclick="clickTitle('dns')">
-                        <span id="dns_title">+ DNS</span>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
                     </div>
-                    <div id="dns" class="dsd_catalog_left_hide">
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
-                            </div>
-                            <div class="single_line">
-                                <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
-                            </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
                     </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('dns')">
+                    <span id="dns_title">+ DNS</span>
+                </div>
+                <div id="dns" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
                 <article class="dsd_title_1"><h1>dns解析记录类型</h1></article>
                 <div id="xs_content_border">
-                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 A记录</a><br><a href="#2">2 CNAME记录</a><br><a href="#3">3 AAAA记录</a><br><a href="#4">4 NS记录</a><br><a href="#5">5 MX记录</a><br><a href="#6">6 SRV记录</a><br><a href="#7">7 TXT记录</a><br><a href="#8">8 CAA记录</a><br><a href="#9">9 显性URL</a><br><a href="#10">10 隐形URL</a><br><a href="#11">11 DNS记录相关常见问题</a><br><a href="#11.1">&nbsp;&nbsp;11.1 什么是A记录</a><br><a href="#11.3">&nbsp;&nbsp;11.3 A记录与CNAME的主要区别</a><br><a href="#11.4">&nbsp;&nbsp;11.4 什么时候用A记录,什么时候用CNAME别名解析</a><br><a href="#11.22">&nbsp;&nbsp;11.22 什么是CNAME别名解析</a></div></div><div id="1"><h3>1 A记录</h3></div>
-<p>将域名指向某个IPV4地址</p>
-<div id="2"><h3>2 CNAME记录</h3></div>
-<p>将域名指向另一个域名</p>
-<div id="3"><h3>3 AAAA记录</h3></div>
-<p>将域名指向一个IPV6地址</p>
-<div id="4"><h3>4 NS记录</h3></div>
-<p>将子域名指向其他DNS服务器解析</p>
-<div id="5"><h3>5 MX记录</h3></div>
-<p>将域名指向邮件服务器地址</p>
-<div id="6"><h3>6 SRV记录</h3></div>
-<p>记录提供特定的服务器的服务器</p>
-<div id="7"><h3>7 TXT记录</h3></div>
-<p>文本长度显示512,通常做SPF记录(反垃圾邮件)</p>
-<div id="8"><h3>8 CAA记录</h3></div>
-<p>CA整数颁发机构授权校验.</p>
-<div id="9"><h3>9 显性URL</h3></div>
-<p>将域名302重定向到另外一个地址</p>
-<div id="10"><h3>10 隐形URL</h3></div>
-<p>与显性URL类似, 但是会隐藏真是目标地址.</p>
-<div id="11"><h3>11 DNS记录相关常见问题</h3></div>
-<div id="11.1"class="dsd_title_c_2"><h4>11.1 什么是A记录</h4></div>
-<p>A记录是IP解析,直接将域名指向某个IP,如果IP有所变动,那么A记录那边也必须更改.</p>
-<div id="11.22"class="dsd_title_c_2"><h4>11.22 什么是CNAME别名解析</h4></div>
-<p>CNAME是别名解析,别名解析是先将域名解析到主机别名再转跳到IP,这样主机IP改变了不用重新解析.</p>
-<div id="11.3"class="dsd_title_c_2"><h4>11.3 A记录与CNAME的主要区别</h4></div>
-<ul>
-<li>cname解析的生效时间要比A记录快,A记录往往要几个小时至48小时,cname几分钟即可.</li>
-<li>如果是A记录,一旦主机的IP发生变化,则必须重新解析;如果是cname解析,则无需重新解析.</li>
-</ul>
-<div id="11.4"class="dsd_title_c_2"><h4>11.4 什么时候用A记录,什么时候用CNAME别名解析</h4></div>
-<p>经常换IP,建议用CNAME别名解析,不经常换IP,建议用A记录直接解析到IP.多线空间,必须用CNAME别名解析.</p>
+                    <div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 A记录</a><br><a href="#2">2 CNAME记录</a><br><a
+                            href="#3">3 AAAA记录</a><br><a href="#4">4 NS记录</a><br><a href="#5">5 MX记录</a><br><a
+                            href="#6">6 SRV记录</a><br><a href="#7">7 TXT记录</a><br><a href="#8">8 CAA记录</a><br><a
+                            href="#9">9 显性URL</a><br><a href="#10">10 隐形URL</a><br><a href="#11">11
+                            DNS记录相关常见问题</a><br><a href="#11.1">&nbsp;&nbsp;11.1 什么是A记录</a><br><a href="#11.3">&nbsp;&nbsp;11.3
+                            A记录与CNAME的主要区别</a><br><a href="#11.4">&nbsp;&nbsp;11.4 什么时候用A记录,什么时候用CNAME别名解析</a><br><a
+                            href="#11.22">&nbsp;&nbsp;11.22 什么是CNAME别名解析</a></div>
+                    </div>
+                    <div id="1"><h3>1 A记录</h3></div>
+                    <p>将域名指向某个IPV4地址</p>
+                    <div id="2"><h3>2 CNAME记录</h3></div>
+                    <p>将域名指向另一个域名</p>
+                    <div id="3"><h3>3 AAAA记录</h3></div>
+                    <p>将域名指向一个IPV6地址</p>
+                    <div id="4"><h3>4 NS记录</h3></div>
+                    <p>将子域名指向其他DNS服务器解析</p>
+                    <div id="5"><h3>5 MX记录</h3></div>
+                    <p>将域名指向邮件服务器地址</p>
+                    <div id="6"><h3>6 SRV记录</h3></div>
+                    <p>记录提供特定的服务器的服务器</p>
+                    <div id="7"><h3>7 TXT记录</h3></div>
+                    <p>文本长度显示512,通常做SPF记录(反垃圾邮件)</p>
+                    <div id="8"><h3>8 CAA记录</h3></div>
+                    <p>CA整数颁发机构授权校验.</p>
+                    <div id="9"><h3>9 显性URL</h3></div>
+                    <p>将域名302重定向到另外一个地址</p>
+                    <div id="10"><h3>10 隐形URL</h3></div>
+                    <p>与显性URL类似, 但是会隐藏真是目标地址.</p>
+                    <div id="11"><h3>11 DNS记录相关常见问题</h3></div>
+                    <div id="11.1" class="dsd_title_c_2"><h4>11.1 什么是A记录</h4></div>
+                    <p>A记录是IP解析,直接将域名指向某个IP,如果IP有所变动,那么A记录那边也必须更改.</p>
+                    <div id="11.22" class="dsd_title_c_2"><h4>11.22 什么是CNAME别名解析</h4></div>
+                    <p>CNAME是别名解析,别名解析是先将域名解析到主机别名再转跳到IP,这样主机IP改变了不用重新解析.</p>
+                    <div id="11.3" class="dsd_title_c_2"><h4>11.3 A记录与CNAME的主要区别</h4></div>
+                    <ul>
+                        <li>cname解析的生效时间要比A记录快,A记录往往要几个小时至48小时,cname几分钟即可.</li>
+                        <li>如果是A记录,一旦主机的IP发生变化,则必须重新解析;如果是cname解析,则无需重新解析.</li>
+                    </ul>
+                    <div id="11.4" class="dsd_title_c_2"><h4>11.4 什么时候用A记录,什么时候用CNAME别名解析</h4></div>
+                    <p>经常换IP,建议用CNAME别名解析,不经常换IP,建议用A记录直接解析到IP.多线空间,必须用CNAME别名解析.</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/webserver/dns/1.html">原文链接</a>.
@@ -146,7 +155,7 @@
             目录
         </div>
     </div>
-        <a href="https://dashidan.com/article/webserver/dns/2.html">下一篇: 网站支持https配置步骤</a>
+    <a href="https://dashidan.com/article/webserver/dns/2.html">下一篇: 网站支持https配置步骤</a>
 </footer>
 
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
