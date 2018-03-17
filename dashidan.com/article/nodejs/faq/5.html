@@ -58,113 +58,105 @@
         <!-- 顶部面包屑导航-->
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > linux安装nodejs及版本切换
+                href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > linux安装nodejs及版本切换
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Nodejs常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Nodejs常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
-                    </div>
-                </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
                 <article class="dsd_title_1"><h1>linux安装nodejs及版本切换</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nvm是什么</a><br><a href="#2">2 linux
-                            nvm安装nodejs指定版本步骤</a><br><a href="#2.1">&nbsp;&nbsp;2.1 linux安装nrm切换npm镜像</a><br><a
-                            href="#2.2">&nbsp;&nbsp;2.2 下载安装nvm脚本</a><br><a href="#2.3">&nbsp;&nbsp;2.3
-                            执行nvm脚本</a><br><a href="#2.4">&nbsp;&nbsp;2.4 查看nodejs版本</a><br><a href="#2.5">&nbsp;&nbsp;2.5
-                            nvm安装nodejs指定版本</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>在linux安装nodejs5.0以上的版本时,经常遇到出其不意的报错.可以通过nvm命令安装和切换nodejs脚本.</p>
-                    </div>
-                    <div id="1"><h3>1 nvm是什么</h3></div>
-                    <p>nvm是的github中的一个开源项目, 可以很方便的在linux中安装和切换node的各个版本.<a href="https://github.com/creationix/nvm">nvm项目链接</a>
-                    </p>
-                    <div id="2"><h3>2 linux nvm安装nodejs指定版本步骤</h3></div>
-                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 linux安装nrm切换npm镜像</h4></div>
-                    <pre class="prettyprint"><code>npm install -g nrm
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nvm是什么</a><br><a href="#2">2 linux nvm安装nodejs指定版本步骤</a><br><a href="#2.1">&nbsp;&nbsp;2.1 linux安装nrm切换npm镜像</a><br><a href="#2.2">&nbsp;&nbsp;2.2 下载安装nvm脚本</a><br><a href="#2.3">&nbsp;&nbsp;2.3 执行nvm脚本</a><br><a href="#2.4">&nbsp;&nbsp;2.4 查看nodejs版本</a><br><a href="#2.5">&nbsp;&nbsp;2.5 nvm安装nodejs指定版本</a></div></div><div class="jumbotron">
+<p>在linux安装nodejs5.0以上的版本时,经常遇到出其不意的报错.可以通过nvm命令安装和切换nodejs脚本.</p>
+</div>
+<div id="1"><h3>1 nvm是什么</h3></div>
+<p>nvm是的github中的一个开源项目, 可以很方便的在linux中安装和切换node的各个版本.<a href="https://github.com/creationix/nvm">nvm项目链接</a>   </p>
+<div id="2"><h3>2 linux nvm安装nodejs指定版本步骤</h3></div>
+<div id="2.1"class="dsd_title_c_2"><h4>2.1 linux安装nrm切换npm镜像</h4></div>
+<pre class="prettyprint"><code>npm install -g nrm
 nrm ls
 nrm use taobao
 </code></pre>
-                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 下载安装nvm脚本</h4></div>
-                    <pre class="prettyprint"><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+<div id="2.2"class="dsd_title_c_2"><h4>2.2 下载安装nvm脚本</h4></div>
+<pre class="prettyprint"><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 </code></pre>
-                    <p>或:</p>
-                    <pre class="prettyprint"><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+<p>或:</p>
+<pre class="prettyprint"><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 </code></pre>
-                    <div id="2.3" class="dsd_title_c_2"><h4>2.3 执行nvm脚本</h4></div>
-                    <pre class="prettyprint"><code>source ~/.nvm/nvm.sh
+<div id="2.3"class="dsd_title_c_2"><h4>2.3 执行nvm脚本</h4></div>
+<pre class="prettyprint"><code>source ~/.nvm/nvm.sh
 </code></pre>
-                    <div id="2.4" class="dsd_title_c_2"><h4>2.4 查看nodejs版本</h4></div>
-                    <ul>
-                        <li>查看nodejs本地已安装nodejs版本</li>
-                    </ul>
-                    <pre class="prettyprint"><code>nvm ls
+<div id="2.4"class="dsd_title_c_2"><h4>2.4 查看nodejs版本</h4></div>
+<ul>
+<li>查看nodejs本地已安装nodejs版本</li>
+</ul>
+<pre class="prettyprint"><code>nvm ls
 </code></pre>
-                    <ul>
-                        <li>查看nodejs远端版本</li>
-                    </ul>
-                    <pre class="prettyprint"><code>nvm ls-remote
+<ul>
+<li>查看nodejs远端版本</li>
+</ul>
+<pre class="prettyprint"><code>nvm ls-remote
 </code></pre>
-                    <div id="2.5" class="dsd_title_c_2"><h4>2.5 nvm安装nodejs指定版本</h4></div>
-                    <p>命令格式:</p>
-                    <pre class="prettyprint"><code>nvm install 版本号
+<div id="2.5"class="dsd_title_c_2"><h4>2.5 nvm安装nodejs指定版本</h4></div>
+<p>命令格式:</p>
+<pre class="prettyprint"><code>nvm install 版本号
 </code></pre>
-                    <p>以安装nodejs5.0为例, 输入:</p>
-                    <pre class="prettyprint"><code>nvm install 5.0
+<p>以安装nodejs5.0为例, 输入:</p>
+<pre class="prettyprint"><code>nvm install 5.0
 </code></pre>
-                    <p>选择切换nodejs版本:</p>
-                    <pre class="prettyprint"><code>nvm use 5.0
+<p>选择切换nodejs版本:</p>
+<pre class="prettyprint"><code>nvm use 5.0
 </code></pre>
-                    <p>运行指定nodejs版本:</p>
-                    <pre class="prettyprint"><code>nvm run 5.0 --version
+<p>运行指定nodejs版本:</p>
+<pre class="prettyprint"><code>nvm run 5.0 --version
 </code></pre>
-                    <p>在指定nodejs版本环境中运行任意命令:</p>
-                    <pre class="prettyprint"><code>nvm exec 4.2 node --version
+<p>在指定nodejs版本环境中运行任意命令:</p>
+<pre class="prettyprint"><code>nvm exec 4.2 node --version
 </code></pre>
-                    <p>查看版本安装路径:</p>
-                    <pre class="prettyprint"><code>nvm which 5.04.4
+<p>查看版本安装路径:</p>
+<pre class="prettyprint"><code>nvm which 5.04.4
 </code></pre>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>在使用过程中发现`source`每次关闭控制台就不管用</p>
-                        <p>解决办法:</p>
-                        <p>修改/etc/profile:</p>
-                        <code>vim /etc/profile</code>
-                        <p>写入:</p>
-                        <code>source ~/.bashrc</code>
-                        <code>source ~/.nvm/nvm.sh</code>
-                    </div>
-                    <p>完成！nodejs各个版本尽在掌控中.</p>
+<div class="bs-callout bs-callout-warning">
+    <p>在使用过程中发现`source`每次关闭控制台就不管用</p>
+    <p>解决办法:</p>
+    <p>修改/etc/profile:</p>
+    <code>vim /etc/profile</code>
+    <p>写入:</p>
+    <code>source ~/.bashrc</code>
+    <code>source ~/.nvm/nvm.sh</code>
+</div>
+<p>完成！nodejs各个版本尽在掌控中.</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/nodejs/faq/5.html">原文链接</a>.
@@ -180,7 +172,7 @@ nrm use taobao
             目录
         </div>
     </div>
-    <a href="https://dashidan.com/article/nodejs/faq/6.html">下一篇: npm安装删除模块</a>
+        <a href="https://dashidan.com/article/nodejs/faq/6.html">下一篇: npm安装删除模块</a>
 </footer>
 
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>

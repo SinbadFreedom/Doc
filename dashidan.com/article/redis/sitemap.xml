@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://dashidan.com/article/redis/index.html</loc>
-        <lastmod>2018-03-15</lastmod>
+        <lastmod>2018-03-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/redis/basic/1.html</loc>
-        <lastmod>2018-03-15</lastmod>
+        <lastmod>2018-03-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://dashidan.com/article/redis/basic/2.html</loc>
-        <lastmod>2018-03-15</lastmod>
+        <lastmod>2018-03-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

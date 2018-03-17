@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>java运算符及java运算符优先级 - java教程 - 大屎蛋教程网</title>
-    <meta name="description" content="java算术运算符 java复合运算符 java关系运算符 java条件运算符 java逻辑运算符 java自增减运算符 java运算符优先级">
+    <meta name="description" content="java算术运算符 复合运算符 关系运算符 条件运算符 逻辑运算符 自增/减运算符 运算符优先级">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -211,27 +211,26 @@
                 <article class="dsd_title_1"><h1>Java运算符</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 Java算数运算符</a><br><a href="#1.1">&nbsp;&nbsp;1.1
-                            java算术运算符类型</a><br><a href="#1.2">&nbsp;&nbsp;1.2 java算数运算符赋值</a><br><a href="#2">2
-                            Java算数运算符自动类型转换</a><br><a href="#2.1">&nbsp;&nbsp;2.1 Java算数运算符自动类型转换规则</a><br><a
-                            href="#2.2">&nbsp;&nbsp;2.2 Java算数运算符类型转换示例代码</a><br><a href="#3">3 Java复合运算符</a><br><a
-                            href="#3.1">&nbsp;&nbsp;3.1 java常用的复合运算符</a><br><a href="#3.2">&nbsp;&nbsp;3.2
-                            java常用的复合运算符示例代码</a><br><a href="#4">4 Java自增运算符++和自减运算符--</a><br><a href="#4.1">&nbsp;&nbsp;4.1
-                            Java自增运算符++</a><br><a href="#4.2">&nbsp;&nbsp;4.2 Java自增运算符--</a><br><a href="#4.3">&nbsp;&nbsp;4.3
-                            Java自增运算符++和自减运算符--示例代码</a><br><a href="#5">5 Java关系运算符</a><br><a href="#5.1">&nbsp;&nbsp;5.1
-                            java基本数据类型的关系运算符</a><br><a href="#5.2">&nbsp;&nbsp;5.2 java基本数据类型的关系运算符示例代码</a><br><a
-                            href="#6">6 Java逻辑运算符</a><br><a href="#6.1">&nbsp;&nbsp;6.1 Java逻辑运算符类型</a><br><a
-                            href="#6.2">&nbsp;&nbsp;6.2 Java逻辑运算符示例代码</a><br><a href="#7">7 Java条件运算符</a><br><a
-                            href="#7.1">&nbsp;&nbsp;7.1 Java条件运算符格式</a><br><a href="#7.2">&nbsp;&nbsp;7.2
-                            Java条件运算符规则</a><br><a href="#7.3">&nbsp;&nbsp;7.3 Java条件运算符示例代码</a><br><a href="#8">8
-                            Java运算符优先级</a><br><a href="#8.1">&nbsp;&nbsp;8.1 Java运算符优先级基本原则</a><br><a href="#8.2">&nbsp;&nbsp;8.2
-                            Java运算符优先级示例代码</a><br><a href="#9">9 Java运算符优先级表</a></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 算数运算符</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            算术运算符类型</a><br><a href="#1.2">&nbsp;&nbsp;1.2 算数运算符赋值</a><br><a href="#2">2
+                            算数运算符自动类型转换</a><br><a href="#2.1">&nbsp;&nbsp;2.1 算数运算符自动类型转换规则</a><br><a href="#2.2">&nbsp;&nbsp;2.2
+                            算数运算符类型转换示例代码</a><br><a href="#3">3 复合运算符</a><br><a href="#3.1">&nbsp;&nbsp;3.1 常用的复合运算符</a><br><a
+                            href="#3.2">&nbsp;&nbsp;3.2 常用的复合运算符示例代码</a><br><a href="#4">4 自增运算符++和自减运算符--</a><br><a
+                            href="#4.1">&nbsp;&nbsp;4.1 自增运算符++</a><br><a href="#4.2">&nbsp;&nbsp;4.2 自增运算符--</a><br><a
+                            href="#4.3">&nbsp;&nbsp;4.3 自增运算符++和自减运算符--示例代码</a><br><a href="#5">5 关系运算符</a><br><a
+                            href="#5.1">&nbsp;&nbsp;5.1 基本数据类型的关系运算符</a><br><a href="#5.2">&nbsp;&nbsp;5.2
+                            基本数据类型的关系运算符示例代码</a><br><a href="#6">6 逻辑运算符</a><br><a href="#6.1">&nbsp;&nbsp;6.1
+                            逻辑运算符类型</a><br><a href="#6.2">&nbsp;&nbsp;6.2 逻辑运算符示例代码</a><br><a href="#7">7
+                            条件运算符</a><br><a href="#7.1">&nbsp;&nbsp;7.1 条件运算符格式</a><br><a href="#7.2">&nbsp;&nbsp;7.2
+                            条件运算符规则</a><br><a href="#7.3">&nbsp;&nbsp;7.3 条件运算符示例代码</a><br><a href="#8">8 运算符优先级</a><br><a
+                            href="#8.1">&nbsp;&nbsp;8.1 运算符优先级基本原则</a><br><a href="#8.2">&nbsp;&nbsp;8.2
+                            运算符优先级示例代码</a><br><a href="#9">9 运算符优先级表</a></div>
                     </div>
                     <div class="jumbotron">
                         <p>Java运算符分为,算术运算符,复合运算符,关系运算符,条件运算符.</p>
                     </div>
-                    <div id="1"><h3>1 Java算数运算符</h3></div>
-                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 java算术运算符类型</h4></div>
+                    <div id="1"><h3>1 算数运算符</h3></div>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 算术运算符类型</h4></div>
                     <p>Java算数运算符包括加,减,乘,除(取模,取余).</p>
                     <ul>
                         <li>加+</li>
@@ -275,11 +274,11 @@ int b = 2;
 int c = a % b;
 System.out.println(c);
 </code></pre>
-                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 java算数运算符赋值</h4></div>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 算数运算符赋值</h4></div>
                     <p>java算数运算符从右往左赋值.即将等号右边的值,赋给等号左边的变量.</p>
-                    <div id="2"><h3>2 Java算数运算符自动类型转换</h3></div>
+                    <div id="2"><h3>2 算数运算符自动类型转换</h3></div>
                     <p>当两个类型不同的数据类型运算时,结果自动转化为取值范围大的数据.</p>
-                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 Java算数运算符自动类型转换规则</h4></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 算数运算符自动类型转换规则</h4></div>
                     <ul>
                         <li>布尔型和其它基本数据类型之间不能相互转换.</li>
                         <li>byte型可以转换为short、int、、long、float和double.</li>
@@ -292,7 +291,7 @@ System.out.println(c);
                     <p>Java算数运算符类型转换规则,简单来说就是根据取值范围由小到大自动转化,如下所示:</p>
                     <pre class="prettyprint"><code>byte-&gt;short-&gt;int-&gt;long-&gt;float-&gt;double
 </code></pre>
-                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 Java算数运算符类型转换示例代码</h4></div>
+                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 算数运算符类型转换示例代码</h4></div>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson7;
 
 /**
@@ -343,8 +342,8 @@ public class Demo1 {
                         <li>取模/对整数取模运算,相当于取结果的整数,去掉余数.</li>
                         <li>取余%对整数取余运算,相当于取结果的余数.</li>
                     </ul>
-                    <div id="3"><h3>3 Java复合运算符</h3></div>
-                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 java常用的复合运算符</h4></div>
+                    <div id="3"><h3>3 复合运算符</h3></div>
+                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 常用的复合运算符</h4></div>
                     <p>复合运算符是一种简写.以+=为例,表示加一个值再赋值给本身.常用的复合运算符:</p>
                     <ul>
                         <li>+=加法赋值
@@ -391,7 +390,7 @@ d = d / 1;
 // 等同于以下
 e = e % 1;
 </code></pre>
-                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 java常用的复合运算符示例代码</h4></div>
+                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 常用的复合运算符示例代码</h4></div>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson7;
 
 /**
@@ -432,8 +431,8 @@ public class Demo2 {
 1
 2
 </code></pre>
-                    <div id="4"><h3>4 Java自增运算符++和自减运算符--</h3></div>
-                    <div id="4.1" class="dsd_title_c_2"><h4>4.1 Java自增运算符++</h4></div>
+                    <div id="4"><h3>4 自增运算符++和自减运算符--</h3></div>
+                    <div id="4.1" class="dsd_title_c_2"><h4>4.1 自增运算符++</h4></div>
                     <p>java自增运算符分前缀式(如++i)和后缀式(如i++).以自增运算符(++)为例:前缀式是先加1再使用,后缀式是先使用再加1.</p>
                     <ul>
                         <li>java单独执行自增自减时前缀式,后缀式单独执行结果一样</li>
@@ -460,9 +459,9 @@ System.out.println(a);
 /** 使用后i加1,i为1*/
 System.out.println(i);
 </code></pre>
-                    <div id="4.2" class="dsd_title_c_2"><h4>4.2 Java自增运算符--</h4></div>
+                    <div id="4.2" class="dsd_title_c_2"><h4>4.2 自增运算符--</h4></div>
                     <p>java自减运算符--原理同自增运算符,只是加1,变成了减1.</p>
-                    <div id="4.3" class="dsd_title_c_2"><h4>4.3 Java自增运算符++和自减运算符--示例代码</h4></div>
+                    <div id="4.3" class="dsd_title_c_2"><h4>4.3 自增运算符++和自减运算符--示例代码</h4></div>
                     <p>Java代码</p>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson7;
 
@@ -515,9 +514,9 @@ public class Demo3 {
                     <ul>
                         <li>倒数第二个输出是<code>0</code>,这个就是后缀式的使用后计算导致的结果.</li>
                     </ul>
-                    <div id="5"><h3>5 Java关系运算符</h3></div>
+                    <div id="5"><h3>5 关系运算符</h3></div>
                     <p>关系运算符用于比较两个数值之间的大小. 其运算结果为一个布尔值(boolean),只有true(真)和false(假)两个取值.</p>
-                    <div id="5.1" class="dsd_title_c_2"><h4>5.1 java基本数据类型的关系运算符</h4></div>
+                    <div id="5.1" class="dsd_title_c_2"><h4>5.1 基本数据类型的关系运算符</h4></div>
                     <ul>
                         <li>&gt;大于</li>
                         <li>&lt;小于</li>
@@ -526,7 +525,7 @@ public class Demo3 {
                         <li>==等于</li>
                         <li>!=不等于</li>
                     </ul>
-                    <div id="5.2" class="dsd_title_c_2"><h4>5.2 java基本数据类型的关系运算符示例代码</h4></div>
+                    <div id="5.2" class="dsd_title_c_2"><h4>5.2 基本数据类型的关系运算符示例代码</h4></div>
                     <p>java代码:</p>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson7;
 
@@ -557,9 +556,9 @@ false
 true
 true
 </code></pre>
-                    <div id="6"><h3>6 Java逻辑运算符</h3></div>
+                    <div id="6"><h3>6 逻辑运算符</h3></div>
                     <p>逻辑运算符主要用于进行条件真(true)假(false)运算.包括&amp;&amp;(且),||(或),!(异或) ,^(非),instanceof(判断对象实例类型).</p>
-                    <div id="6.1" class="dsd_title_c_2"><h4>6.1 Java逻辑运算符类型</h4></div>
+                    <div id="6.1" class="dsd_title_c_2"><h4>6.1 逻辑运算符类型</h4></div>
                     <ul>
                         <li>&amp;&amp;且</li>
                     </ul>
@@ -603,7 +602,7 @@ System.out.println(d);
 // c和d里同时为false,故`^`运算的结果为true,e为true
 System.out.println(e);
 </code></pre>
-                    <div id="6.2" class="dsd_title_c_2"><h4>6.2 Java逻辑运算符示例代码</h4></div>
+                    <div id="6.2" class="dsd_title_c_2"><h4>6.2 逻辑运算符示例代码</h4></div>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson7;
 
 /**
@@ -654,14 +653,14 @@ false
                         <li>a和b里不同,故^运算的结果为true,d为true.</li>
                         <li>c和d里同时为false,故^运算的结果为false,e为false.</li>
                     </ul>
-                    <div id="7"><h3>7 Java条件运算符</h3></div>
+                    <div id="7"><h3>7 条件运算符</h3></div>
                     <p>由?和:两个符号组成,要求有3个操作对象,所以也叫三目运算符.</p>
-                    <div id="7.1" class="dsd_title_c_2"><h4>7.1 Java条件运算符格式</h4></div>
+                    <div id="7.1" class="dsd_title_c_2"><h4>7.1 条件运算符格式</h4></div>
                     <pre class="prettyprint"><code>a&lt;b?a:b;
 </code></pre>
-                    <div id="7.2" class="dsd_title_c_2"><h4>7.2 Java条件运算符规则</h4></div>
+                    <div id="7.2" class="dsd_title_c_2"><h4>7.2 条件运算符规则</h4></div>
                     <p>如果?前边的表达式(a&lt;b)为true,取:前边的值,即a值.如果?前边的表达式(a&lt;b)为false,取:后边的值,即b值.</p>
-                    <div id="7.3" class="dsd_title_c_2"><h4>7.3 Java条件运算符示例代码</h4></div>
+                    <div id="7.3" class="dsd_title_c_2"><h4>7.3 条件运算符示例代码</h4></div>
                     <p>java代码:</p>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson7;
 
@@ -688,17 +687,17 @@ public class Demo6 {
                     <ul>
                         <li>a &gt; b 为false,所以取":"后边的值b赋值给c,故c为2.</li>
                     </ul>
-                    <div id="8"><h3>8 Java运算符优先级</h3></div>
-                    <div id="8.1" class="dsd_title_c_2"><h4>8.1 Java运算符优先级基本原则</h4></div>
+                    <div id="8"><h3>8 运算符优先级</h3></div>
+                    <div id="8.1" class="dsd_title_c_2"><h4>8.1 运算符优先级基本原则</h4></div>
                     <ul>
                         <li>有括号先算括号里.</li>
                         <li>先乘除后加减.</li>
                         <li>乘除都有时,从左往右依次计算.</li>
                         <li>加减从左往右依次计算.</li>
                     </ul>
-                    <div id="8.2" class="dsd_title_c_2"><h4>8.2 Java运算符优先级示例代码</h4></div>
+                    <div id="8.2" class="dsd_title_c_2"><h4>8.2 运算符优先级示例代码</h4></div>
                     <ul>
-                        <li>java乘除优先级示例代码</li>
+                        <li>乘除优先级示例代码</li>
                     </ul>
                     <pre class="prettyprint"><code class="java language-java">int a = 1;
 int b = 2;
@@ -708,7 +707,7 @@ int d = a + b * c;
 System.out.println(d);
 </code></pre>
                     <ul>
-                        <li>java加减乘除运算符混合示例代码</li>
+                        <li>加减乘除运算符混合示例代码</li>
                     </ul>
                     <pre class="prettyprint"><code class="java language-java">package com.dashidan.lesson7;
 
@@ -747,7 +746,7 @@ public class Demo7 {
                         <li>乘号和除号的优先级比加号高,先算乘除,从左往右,b<em>c得6,d(值为4),6/4得1.5.取模运算省去小数,b</em>c/d得1.</li>
                         <li>加减法从左往右计算,a+1-5得-3,赋值给d.故d为-3.</li>
                     </ul>
-                    <div id="9"><h3>9 Java运算符优先级表</h3></div>
+                    <div id="9"><h3>9 运算符优先级表</h3></div>
                     <table class="table table-bordered table-responsive text-center">
                         <caption>Java运算符优先级表</caption>
                         <thead>

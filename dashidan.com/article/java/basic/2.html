@@ -211,20 +211,20 @@
                 <article class="dsd_title_1"><h1>搭建Java开发环境</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 下载Java SDK</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 下载SDK</a><br><a href="#1.1">&nbsp;&nbsp;1.1
                             jdk官网链接</a><br><a href="#1.2">&nbsp;&nbsp;1.2 确认接受协议.</a><br><a href="#1.3">&nbsp;&nbsp;1.3
                             选择适合自己操作系统的版本点击链接下载.</a><br><a href="#2">2 windows安装jdk</a><br><a href="#3">3
                             windows7配置Java环境变量</a><br><a href="#3.1">&nbsp;&nbsp;3.1 选择高级系统设置</a><br><a href="#3.2">&nbsp;&nbsp;3.2
-                            设置java环境变量</a><br><a href="#3.3">&nbsp;&nbsp;3.3 java新建用户变量</a><br><a href="#3.4">&nbsp;&nbsp;3.4
-                            java配置系统变量</a><br><a href="#3.5">&nbsp;&nbsp;3.5 JDK与JRE</a><br><a href="#4">4
-                            重启电脑</a><br><a href="#5">5 测试</a><br><a href="#5.1">&nbsp;&nbsp;5.1 打开"命令提示符"</a><br><a
-                            href="#5.2">&nbsp;&nbsp;5.2 测试java环境变量配置是否生效</a><br><a href="#5.3">&nbsp;&nbsp;5.3
-                            测试java用户变量配置</a><br><a href="#6">6 相关文章</a></div>
+                            设置环境变量</a><br><a href="#3.3">&nbsp;&nbsp;3.3 新建用户变量</a><br><a href="#3.4">&nbsp;&nbsp;3.4
+                            配置系统变量</a><br><a href="#3.5">&nbsp;&nbsp;3.5 JDK与JRE</a><br><a href="#4">4 重启电脑</a><br><a
+                            href="#5">5 测试</a><br><a href="#5.1">&nbsp;&nbsp;5.1 打开"命令提示符"</a><br><a href="#5.2">&nbsp;&nbsp;5.2
+                            测试环境变量配置是否生效</a><br><a href="#5.3">&nbsp;&nbsp;5.3 测试用户变量配置</a><br><a href="#6">6 相关文章</a>
+                        </div>
                     </div>
                     <div class="jumbotron">
                         <p>SDK全称(Standard Development Kit),标准开发工具包. java和JDK的关系,就像鱼和水的关系. </p>
                     </div>
-                    <div id="1"><h3>1 下载Java SDK</h3></div>
+                    <div id="1"><h3>1 下载SDK</h3></div>
                     <div id="1.1" class="dsd_title_c_2"><h4>1.1 jdk官网链接</h4></div>
                     <p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK官网下载链接</a>
                     </p>
@@ -244,11 +244,11 @@
                     <p>选择步骤:计算机-&gt;点右键-&gt;属性-&gt;高级系统设置. 如图:</p>
                     <p><img class="center-block img-responsive" src="https://dashidan.com/img/java/basic/2-2.png"
                             alt="图2-2"/></p>
-                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 设置java环境变量</h4></div>
+                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 设置环境变量</h4></div>
                     <p>设置java环境变量步骤:在高级系统设置弹出窗口中点击-&gt;环境变量.如图:</p>
                     <p><img class="center-block img-responsive" src="https://dashidan.com/img/java/basic/2-3.png"
                             alt="图2-3"/></p>
-                    <div id="3.3" class="dsd_title_c_2"><h4>3.3 java新建用户变量</h4></div>
+                    <div id="3.3" class="dsd_title_c_2"><h4>3.3 新建用户变量</h4></div>
                     <p>在用户变量栏中点击-&gt;新建按钮, 在弹出页面变量名一栏中输入:</p>
                     <pre class="prettyprint"><code>classpath
 </code></pre>
@@ -262,7 +262,7 @@
                     <p>Java用户变量classpath配置.如图:</p>
                     <p><img class="center-block img-responsive" src="https://dashidan.com/img/java/basic/2-4.png"
                             alt="图2-4"/></p>
-                    <div id="3.4" class="dsd_title_c_2"><h4>3.4 java配置系统变量</h4></div>
+                    <div id="3.4" class="dsd_title_c_2"><h4>3.4 配置系统变量</h4></div>
                     <p>在"系统变量"栏中找到Path-&gt;点击"编辑"按钮增加</p>
                     <ul>
                         <li>Win7,xp,8配置Java环境变量
@@ -292,14 +292,14 @@
                     <div id="5.1" class="dsd_title_c_2"><h4>5.1 打开"命令提示符"</h4></div>
                     <p>windows打开"命令提示符"方法:鼠标点击桌面左下角windows图标-&gt;所有程序-&gt;附件-&gt;命令提示符.</p>
                     <p><a href="http://dashidan.com/article/windows/faq/2.html">打开windows命令提示符</a></p>
-                    <div id="5.2" class="dsd_title_c_2"><h4>5.2 测试java环境变量配置是否生效</h4></div>
+                    <div id="5.2" class="dsd_title_c_2"><h4>5.2 测试环境变量配置是否生效</h4></div>
                     <p>在命令提示符中输入java命令java -version:</p>
                     <pre class="prettyprint"><code>java -version
 </code></pre>
                     <p>输出java版本号信息说明配置正确.如图:</p>
                     <p><img class="center-block img-responsive" src="https://dashidan.com/img/java/basic/2-6.png"
                             alt="图2-6"/></p>
-                    <div id="5.3" class="dsd_title_c_2"><h4>5.3 测试java用户变量配置</h4></div>
+                    <div id="5.3" class="dsd_title_c_2"><h4>5.3 测试用户变量配置</h4></div>
                     <p>在命令提示符中输入javac命令:</p>
                     <pre class="prettyprint"><code>javac
 </code></pre>

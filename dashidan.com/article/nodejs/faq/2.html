@@ -58,122 +58,112 @@
         <!-- 顶部面包屑导航-->
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > 发布Node模块到NPM社区
+                href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > 发布Node模块到NPM社区
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Nodejs常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Nodejs常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
-                    </div>
-                </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
                 <!-- 文章内容-->
                 <article class="dsd_title_1"><h1>发布Node模块到NPM社区</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 安装nrm方便切换npm源</a><br><a href="#2">2 查看可用源</a><br><a
-                            href="#3">3 发布前需要切换到npm的默认源</a><br><a href="#4">4 使用grunt重新打包</a><br><a href="#5">5
-                            修改package.json中对模块版本号</a><br><a href="#6">6 注册npmjs.com的账号</a><br><a href="#7">7 添加npm账号</a><br><a
-                            href="#8">8 发布到npm社区</a><br><a href="#9">9 切换回国内源更新</a><br><a href="#10">10 更新依赖包版本</a>
-                        </div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>nodejs项目中node_moudle目录中的代码是从npm源中下载下来.发布到npm社区后,可以在package.json文件中添加依赖,执行npm
-                            install自动下载.非常方便.</p>
-                    </div>
-                    <div id="1"><h3>1 安装nrm方便切换npm源</h3></div>
-                    <p>npm安装nrm命令:</p>
-                    <pre class="prettyprint"><code>npm install nrm
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 安装nrm方便切换npm源</a><br><a href="#2">2 查看可用源</a><br><a href="#3">3 发布前需要切换到npm的默认源</a><br><a href="#4">4 使用grunt重新打包</a><br><a href="#5">5 修改package.json中对模块版本号</a><br><a href="#6">6 注册npmjs.com的账号</a><br><a href="#7">7 添加npm账号</a><br><a href="#8">8 发布到npm社区</a><br><a href="#9">9 切换回国内源更新</a><br><a href="#10">10 更新依赖包版本</a></div></div><div class="jumbotron">
+<p>nodejs项目中node_moudle目录中的代码是从npm源中下载下来.发布到npm社区后,可以在package.json文件中添加依赖,执行npm install自动下载.非常方便.</p>
+</div>
+<div id="1"><h3>1 安装nrm方便切换npm源</h3></div>
+<p>npm安装nrm命令:</p>
+<pre class="prettyprint"><code>npm install nrm
 </code></pre>
-                    <p>参考<a href="https://dashidan.com/article/nodejs/faq/1.html">使用nrm快速切换npm源</a></p>
-                    <div id="2"><h3>2 查看可用源</h3></div>
-                    <pre class="prettyprint"><code>nrm ls
+<p>参考<a href="https://dashidan.com/article/nodejs/faq/1.html">使用nrm快速切换npm源</a></p>
+<div id="2"><h3>2 查看可用源</h3></div>
+<pre class="prettyprint"><code>nrm ls
 </code></pre>
-                    <div class="bs-callout bs-callout-success">
-                        <p>当前使用的源前边有`*`标识</p>
-                    </div>
-                    <div id="3"><h3>3 发布前需要切换到npm的默认源</h3></div>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>我们可能换成了国内淘宝的镜像：http://registry.npm.taobao.org. 淘宝镜像没有开放上传的权限,上传会报以下的错误:</p>
-                        <p>npm ERR! publish Failed PUT 403</p>
-                        <p>npm ERR! Error: no_perms Private modeenable,only admin can publish this module:</p>
-                        <p>nodebb-plugin-route-cms</p>
-                    </div>
-                    <p>切换为默认源才可以上传,切换命令:</p>
-                    <pre class="prettyprint"><code>nrm use npm
+<div class="bs-callout bs-callout-success">
+    <p>当前使用的源前边有`*`标识</p>
+</div>
+<div id="3"><h3>3 发布前需要切换到npm的默认源</h3></div>
+<div class="bs-callout bs-callout-warning">
+    <p>我们可能换成了国内淘宝的镜像：http://registry.npm.taobao.org. 淘宝镜像没有开放上传的权限,上传会报以下的错误:</p>
+    <p>npm ERR! publish Failed PUT 403</p>
+    <p>npm ERR! Error: no_perms Private modeenable,only admin can publish this module:</p>
+    <p>nodebb-plugin-route-cms</p>
+</div>
+<p>切换为默认源才可以上传,切换命令:</p>
+<pre class="prettyprint"><code>nrm use npm
 </code></pre>
-                    <div id="4"><h3>4 使用grunt重新打包</h3></div>
-                    <p>如果项目需要用grunt重新打包则执行下面的命令,没有使用跳过这一步.</p>
-                    <pre class="prettyprint"><code>grunt build --force
+<div id="4"><h3>4 使用grunt重新打包</h3></div>
+<p>如果项目需要用grunt重新打包则执行下面的命令,没有使用跳过这一步.</p>
+<pre class="prettyprint"><code>grunt build --force
 </code></pre>
-                    <div id="5"><h3>5 修改package.json中对模块版本号</h3></div>
-                    <p>第一次提交默认版本号1.0.0,采用默认即可. 后续修改,需要比原版本号高.
-                        例:</p>
-                    <pre class="prettyprint"><code>1.0.0
+<div id="5"><h3>5 修改package.json中对模块版本号</h3></div>
+<p>第一次提交默认版本号1.0.0,采用默认即可. 后续修改,需要比原版本号高.
+例:</p>
+<pre class="prettyprint"><code>1.0.0
 </code></pre>
-                    <p>改为:</p>
-                    <pre class="prettyprint"><code>1.0.1
+<p>改为:</p>
+<pre class="prettyprint"><code>1.0.1
 </code></pre>
-                    <div id="6"><h3>6 注册npmjs.com的账号</h3></div>
-                    <p>如果已经注册过账号,跳过这一步.注册地址: <a href="http://npmjs.com">npmjs.com</a></p>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>这个是npmjs.com的账号,不是github的账号,账号名都为小写.</p>
-                    </div>
-                    <div id="7"><h3>7 添加npm账号</h3></div>
-                    <pre class="prettyprint"><code>npm adduser
+<div id="6"><h3>6 注册npmjs.com的账号</h3></div>
+<p>如果已经注册过账号,跳过这一步.注册地址: <a href="http://npmjs.com">npmjs.com</a>   </p>
+<div class="bs-callout bs-callout-warning">
+    <p>这个是npmjs.com的账号,不是github的账号,账号名都为小写.</p>
+</div>
+<div id="7"><h3>7 添加npm账号</h3></div>
+<pre class="prettyprint"><code>npm adduser
 </code></pre>
-                    <p>按照提示,输入上一步注册的账号,邮箱和密码. </p>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>有时提示需要验证邮件. 如果没有收到验证邮件,可以登陆npmjs.com,上方有个提示`重新发送验证邮件`. 点击重新发送即可收到.
-                        </p>
-                    </div>
-                    <div id="8"><h3>8 发布到npm社区</h3></div>
-                    <pre class="prettyprint"><code>npm publish
+<p>按照提示,输入上一步注册的账号,邮箱和密码. </p>
+<div class="bs-callout bs-callout-warning">
+    <p>有时提示需要验证邮件. 如果没有收到验证邮件,可以登陆npmjs.com,上方有个提示`重新发送验证邮件`. 点击重新发送即可收到.
+    </p>
+</div>
+<div id="8"><h3>8 发布到npm社区</h3></div>
+<pre class="prettyprint"><code>npm publish
 </code></pre>
-                    <div id="9"><h3>9 切换回国内源更新</h3></div>
-                    <p>如果采用官方源更新速度快的话,可以不用切回国内源.</p>
-                    <pre class="prettyprint"><code>nrm use taobao
+<div id="9"><h3>9 切换回国内源更新</h3></div>
+<p>如果采用官方源更新速度快的话,可以不用切回国内源.</p>
+<pre class="prettyprint"><code>nrm use taobao
 </code></pre>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>发布成功后,会有几分钟的延迟才能更新到最新版.</p>
-                        <p>国内taobao源是每10分钟与npm服务器同步一次.</p>
-                    </div>
-                    <div id="10"><h3>10 更新依赖包版本</h3></div>
-                    <p>修改package.json中对应的包的版本号.参考<a
-                        href="https://dashidan.com/article/nodejs/faq/7.html">npm升级更新指定模块</a></p>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>package-lock.json是当 node_modules 或 package.json
-                            发生变化时自动生成的文件.这个文件主要功能是确定当前安装的包的依赖,以便后续重新安装的时候生成相同的依赖,而忽略项目开发过程中有些依赖已经发生的更新.</p>
-                        <p>如果不删除package.json.lock,会导致采用已有的版本,不更新新版本模块.</p>
-                    </div>
-                    <p>好了,npm世界尽在掌控之中.</p>
+<div class="bs-callout bs-callout-warning">
+    <p>发布成功后,会有几分钟的延迟才能更新到最新版.</p>
+    <p>国内taobao源是每10分钟与npm服务器同步一次.</p>
+</div>
+<div id="10"><h3>10 更新依赖包版本</h3></div>
+<p>修改package.json中对应的包的版本号.参考<a href="https://dashidan.com/article/nodejs/faq/7.html">npm升级更新指定模块</a></p>
+<div class="bs-callout bs-callout-warning">
+    <p>package-lock.json是当 node_modules 或 package.json 发生变化时自动生成的文件.这个文件主要功能是确定当前安装的包的依赖,以便后续重新安装的时候生成相同的依赖,而忽略项目开发过程中有些依赖已经发生的更新.</p>
+    <p>如果不删除package.json.lock,会导致采用已有的版本,不更新新版本模块.</p>
+</div>
+<p>好了,npm世界尽在掌控之中.</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/nodejs/faq/2.html">原文链接</a>.
@@ -189,7 +179,7 @@
             目录
         </div>
     </div>
-    <a href="https://dashidan.com/article/nodejs/faq/3.html">下一篇: npm install -g与--save参数</a>
+        <a href="https://dashidan.com/article/nodejs/faq/3.html">下一篇: npm install -g与--save参数</a>
 </footer>
 
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
