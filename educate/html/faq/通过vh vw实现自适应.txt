@@ -1,0 +1,13 @@
+css3 通过vh vw 来实现窗口大小自适应
+
+http://caibaojian.com/vw-vh.html
+
+
+vw可以配合 min-width 和max-width来控制显示范围的最大值和最小值。控制自适应范围来达到最佳适配效果。
+
+
+```
+min-width: 300px;
+max-width: 400px;
+width: 20vw;
+```
