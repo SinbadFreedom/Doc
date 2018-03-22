@@ -3,16 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>模块</title>
-    <meta name="description" content="模块">
+    <title>6.模块 - Python2.7中文文档 - 大屎蛋教程网</title>
+    <meta name="description" content="Python模块及导入包.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
+    <link rel="amphtml" href="https://amp.dashidan.com/article/python/doc27/6.html">
+
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+                                                          google_ad_client: "ca-pub-8924316869528600",
+                                                          enable_page_level_ads: true
+                                                      });
+    </script>
 
     <script>
         var _hmt = _hmt || [];
@@ -33,6 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -45,80 +56,81 @@
 <div class="fullscreen">
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
-        <ol class="breadcrumb">
-            <li><a href="https://dashidan.com/index.html">首页</a></li>
-            <li class="active"><a href="https://dashidan.com/article/python/index.html">Python</a></li>
-        </ol>
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/python/index.html">python</a> > 模块
+        </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                <div>
-                    <div class="dsd_title" onclick="clickTitle('doc27')">
-                        <h3><span id="doc27_title">+ Python中文文档2.7</span></h3>
+                <div class="dsd_title" onclick="clickTitle('doc27')">
+                    <span id="doc27_title">+ Python2.7中文文档</span>
+                </div>
+                <div id="doc27" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/1.html">1.前言</a>
                     </div>
-                    <div id="doc27" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/1.html">1.前言</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/2.html">2.解释器</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/3.html">3.简介</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/6.html">6.模块</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/8.html">8.错误</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/9.html">9.类</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/12.html">12.接下来</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/15.html">15.附录</a>
-                        </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/2.html">2.解释器</a>
                     </div>
-
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/3.html">3.简介</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/6.html">6.模块</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/8.html">8.错误</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/9.html">9.类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/12.html">12.接下来</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/15.html">15.附录</a>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
+
+                <script type="text/javascript">
+                    /*960*90 创建于 2018/3/22*/
+                    var cpro_id = "u3394147";
+                </script>
+                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>模块</h1></div>
+                <article class="dsd_title_1"><h1>模块</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 深入模块</a><br>
-                            <p><a href="#1.1">1.1 作为脚本来执行模块</a></p>
-                            <p><a href="#1.2">1.2 模块的搜索路径</a></p>
-                            <p><a href="#1.3">1.3 “编译的” Python 文件</a></p><a href="#2">2 标准模块</a><br><a href="#3">3 dir()
-                                函数</a><br><a href="#4">4 包</a><br>
-                            <p><a href="#4.1">4.1 从 * 导入包</a></p>
-                            <p><a href="#4.2">4.2 包内引用</a></p>
-                            <p><a href="#4.3">4.3 多重目录中的包</a></p></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 深入模块</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            作为脚本来执行模块</a><br><a href="#1.2">&nbsp;&nbsp;1.2 模块的搜索路径</a><br><a href="#1.3">&nbsp;&nbsp;1.3
+                            “编译的” Python 文件</a><br><a href="#2">2 标准模块</a><br><a href="#3">3 dir() 函数</a><br><a
+                            href="#4">4 包</a><br><a href="#4.1">&nbsp;&nbsp;4.1 从 * 导入包</a><br><a href="#4.2">&nbsp;&nbsp;4.2
+                            包内引用</a><br><a href="#4.3">&nbsp;&nbsp;4.3 多重目录中的包</a></div>
                     </div>
                     <p>﻿如果你退出 Python
                         解释器并重新进入，你做的任何定义(变量和方法)都会丢失。因此，如果你想要编写一些更大的程序，为准备解释器输入使用一个文本编辑器会更好，并以那个文件替代作为输入执行。这就是传说中的
@@ -161,7 +173,7 @@ def fib2(n): # return Fibonacci series up to n
 &gt;&gt;&gt; fib(500)
 1 1 2 3 5 8 13 21 34 55 89 144 233 377
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 深入模块</h2></a></div>
+                    <div id="1"><h3>1 深入模块</h3></div>
                     <p>除了包含函数定义外，模块也可以包含可执行语句。这些语句一般用来初始化模块。它们仅在 <em>第一次</em> 被导入的地方执行一次。[#]_</p>
                     <p>
                         每个模块都有自己私有的符号表，被模块内所有的函数定义作为全局符号表使用。因此，模块的作者可以在模块内部使用全局变量，而无需担心它与某个用户的全局变量意外冲突。从另一个方面讲，如果你确切的知道自己在做什么，你可以使用引用模块函数的表示法访问模块的全局变量，<code>modname.itemname</code>。
@@ -182,7 +194,7 @@ def fib2(n): # return Fibonacci series up to n
                     <p>需要注意的是在实践中往往不鼓励从一个模块或包中使用 <code>*</code> 导入所有，因为这样会让代码变得很难读。不过，在交互式会话中这样用很方便省力。</p>
                     <p>出于性能考虑，每个模块在每个解释器会话中只导入一遍。因此，如果你修改了你的模块，需要重启解释器或者如果你就是想交互式的测试这么一个模块，可以用 <code>reload()</code>
                         重新加载，例如 <code>reload(modulename)</code>。</p>
-                    <div class="dsd_title_2"><a href="#top" id="1.1">1.1 作为脚本来执行模块</a></div>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 作为脚本来执行模块</h4></div>
                     <p>当你使用以下方式运行 Python 模块时，模块中的代码便会被执行::</p>
                     <pre class="prettyprint"><code>python fibo.py &lt;arguments&gt;
 </code></pre>
@@ -201,7 +213,7 @@ def fib2(n): # return Fibonacci series up to n
 &gt;&gt;&gt;
 </code></pre>
                     <p>这通常用来为模块提供一个便于测试的用户接口(将模块作为脚本执行测试需求)。</p>
-                    <div class="dsd_title_2"><a href="#top" id="1.2">1.2 模块的搜索路径</a></div>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 模块的搜索路径</h4></div>
                     <p>导入一个叫 :mod:<code>spam</code> 的模块时，解释器先在当前目录中搜索名为 :file:<code>spam.py</code> 的文件。如果没有找到的话，接着会到
                         <code>sys.path</code> 变量中给出的目录列表中查找。<code>sys.path</code> 变量的初始值来自如下：</p>
                     <ul>
@@ -213,7 +225,7 @@ def fib2(n): # return Fibonacci series up to n
                     <p>实际上，解释器由 <code>sys.path</code> 变量指定的路径目录搜索模块，该变量初始化时默认包含了输入脚本(或者当前目录)，<code>PYTHONPATH</code>
                         和安装目录。这样就允许 Python 程序了解如何修改或替换模块搜索目录。需要注意的是由于这些目录中包含有搜索路径中运行的脚本，所以这些脚本不应该和标准模块重名，否则在导入模块时 Python
                         会尝试把这些脚本当作模块来加载。这通常会引发错误。请参见 :ref:<code>tut-standardmodules</code> 以了解更多的信息。</p>
-                    <div class="dsd_title_2"><a href="#top" id="1.3">1.3 “编译的” Python 文件</a></div>
+                    <div id="1.3" class="dsd_title_c_2"><h4>1.3 “编译的” Python 文件</h4></div>
                     <p>对于引用了大量标准模块的短程序，有一个提高启动速度的重要方法，如果在 :file:<code>spam.py</code> 所在的目录下存在一个名为
                         :file:<code>spam.pyc</code> 的文件，它会被视为 :mod:<code>spam</code> 模块的预“编译”(
                         <code>byte-compiled</code>，二进制编译)版本。用于创建 :file:<code>spam.pyc</code> 的这一版
@@ -242,7 +254,7 @@ def fib2(n): # return Fibonacci series up to n
                         <li><p><code>compileall</code> 模块可以为指定目录中的所有模块创建 :file:<code>.pyc</code> 文件(或者使用 <code>-O</code>
                             参数创建 :file:<code>.pyo</code> 文件)。</p></li>
                     </ul>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 标准模块</h2></a></div>
+                    <div id="2"><h3>2 标准模块</h3></div>
                     <p>Python 带有一个标准模块库，并发布有独立的文档，名为 Python
                         库参考手册(此后称其为“库参考手册”)。有一些模块内置于解释器之中，这些操作的访问接口不是语言内核的一部分，但是已经内置于解释器了。这既是为了提高效率，也是为了给系统调用等操作系统原生访问提供接口。这类模块集合是一个依赖于底层平台的配置选项。例如，:mod:<code>winreg</code>
                         模块只提供在 Windows 系统上才有。有一个具体的模块值得注意：<code>sys</code>，这个模块内置于所有的 Python 解释器。变量 <code>sys.ps1</code>
@@ -263,7 +275,7 @@ C&gt;
                     <pre class="prettyprint"><code>&gt;&gt;&gt; import sys
 &gt;&gt;&gt; sys.path.append('/ufs/guido/lib/python')
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 dir() 函数</h2></a></div>
+                    <div id="3"><h3>3 dir() 函数</h3></div>
                     <p>内置函数 <code>dir()</code> 用于按模块名搜索模块定义，它返回一个排好序的字符串类型的存储列表::</p>
                     <pre class="prettyprint"><code>&gt;&gt;&gt; import fibo, sys
 &gt;&gt;&gt; dir(fibo)
@@ -324,7 +336,7 @@ C&gt;
 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super',
 'tuple', 'type', 'unichr', 'unicode', 'vars', 'xrange', 'zip']
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 包</h2></a></div>
+                    <div id="4"><h3>4 包</h3></div>
                     <p>包通常是使用用“圆点模块名”的结构化模块命名空间。例如，名为 :mod:<code>A.B</code> 的模块表示了名为 <code>A</code> 的包中名为 <code>B</code>
                         的子模块。正如同用模块来保存不同的模块架构可以避免全局变量之间的相互冲突，使用圆点模块名保存像 NumPy 或 Python Imaging Library
                         之类的不同类库架构可以避免模块之间的命名冲突。 </p>
@@ -383,7 +395,7 @@ C&gt;
                         语句首先核对是否包中有这个子项，如果没有，它假定这是一个模块，并尝试加载它。如果没有找到它，会引发一个 <code>ImportError</code> 异常。 </p>
                     <p>相反，使用类似 <code>import item.subitem.subsubitem</code>
                         这样的语法时，这些子项必须是包，最后的子项可以是包或模块，但不能是前面子项中定义的类、函数或变量。</p>
-                    <div class="dsd_title_2"><a href="#top" id="4.1">4.1 从 * 导入包</a></div>
+                    <div id="4.1" class="dsd_title_c_2"><h4>4.1 从 * 导入包</h4></div>
                     <p>那么当用户写下 <code>from sound.effects import *</code>
                         时会发生什么事？理想中，总是希望在文件系统中找出包中所有的子模块，然后导入它们。这可能会花掉很长时间，并且出现期待之外的边界效应，导出了希望只能显式导入的包。 </p>
                     <p>对于包的作者来说唯一的解决方案就是给提供一个明确的包索引。<code>import</code> 语句按如下条件进行转换：执行 <code>from package import
@@ -406,7 +418,7 @@ from sound.effects import *
                     <p>尽管某些模块设计为使用 <code>import *</code> 时它只导出符全某种模式的命名，仍然不建议在生产代码中使用这种写法。 </p>
                     <p>记住，<code>from Package import specific_submodule</code> 没有错误！事实上，除非导入的模块需要使用其它包中的同名子模块，否则这是推荐的写法。
                     </p>
-                    <div class="dsd_title_2"><a href="#top" id="4.2">4.2 包内引用</a></div>
+                    <div id="4.2" class="dsd_title_c_2"><h4>4.2 包内引用</h4></div>
                     <p>如果包中使用了子包结构(就像示例中的 :mod:<code>sound</code> 包)，可以按绝对位置从相邻的包中引入子模块。例如，如果 :mod:<code>sound.filters.vocoder</code>
                         包需要使用 :mod:<code>sound.effects</code> 包中的 :mod:<code>echo</code> 模块，它可以 <code>from sound.effects
                             import echo</code>。 </p>
@@ -417,11 +429,14 @@ from .. import formats
 from ..filters import equalizer
 </code></pre>
                     <p>需要注意的是显式或隐式相对位置导入都基于当前模块的命名。因为主模块的名字总是 <code>"__main__"</code>，Python 应用程序的主模块应该总是用绝对导入。</p>
-                    <div class="dsd_title_2"><a href="#top" id="4.3">4.3 多重目录中的包</a></div>
+                    <div id="4.3" class="dsd_title_c_2"><h4>4.3 多重目录中的包</h4></div>
                     <p>包支持一个更为特殊的特性，:attr:<code>__path__</code>。在包的 :file:<code>__init__.py</code>
                         文件代码执行之前，该变量初始化一个目录名列表。该变量可以修改，它作用于包中的子包和模块的搜索功能。 </p>
                     <p>这个功能可以用于扩展包中的模块集，不过它不常用。</p>
                     <p>.. [#] 事实上函数定义既是“声明”又是“可执行体”；执行体由函数在模块全局语义表中的命名导入。</p>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/python/doc27/6.html">原文链接</a>.
                 </div>
             </div>
         </div>

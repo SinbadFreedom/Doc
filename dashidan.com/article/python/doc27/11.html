@@ -3,16 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>标准库浏览II</title>
-    <meta name="description" content="标准库浏览II">
+    <title>11.标准库浏览II - Python2.7中文文档 - 大屎蛋教程网</title>
+    <meta name="description" content="Python标准库浏览II: 输出格式，模板，多线程等.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
+    <link rel="amphtml" href="https://amp.dashidan.com/article/python/doc27/11.html">
+
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+                                                          google_ad_client: "ca-pub-8924316869528600",
+                                                          enable_page_level_ads: true
+                                                      });
+    </script>
 
     <script>
         var _hmt = _hmt || [];
@@ -33,6 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -45,78 +56,82 @@
 <div class="fullscreen">
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
-        <ol class="breadcrumb">
-            <li><a href="https://dashidan.com/index.html">首页</a></li>
-            <li class="active"><a href="https://dashidan.com/article/python/index.html">Python</a></li>
-        </ol>
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/python/index.html">python</a> > 标准库浏览II
+        </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                <div>
-                    <div class="dsd_title" onclick="clickTitle('doc27')">
-                        <h3><span id="doc27_title">+ Python中文文档2.7</span></h3>
+                <div class="dsd_title" onclick="clickTitle('doc27')">
+                    <span id="doc27_title">+ Python2.7中文文档</span>
+                </div>
+                <div id="doc27" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/1.html">1.前言</a>
                     </div>
-                    <div id="doc27" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/1.html">1.前言</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/2.html">2.解释器</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/3.html">3.简介</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/6.html">6.模块</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/8.html">8.错误</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/9.html">9.类</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/12.html">12.接下来</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/15.html">15.附录</a>
-                        </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/2.html">2.解释器</a>
                     </div>
-
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/3.html">3.简介</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/6.html">6.模块</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/8.html">8.错误</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/9.html">9.类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/12.html">12.接下来</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/15.html">15.附录</a>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
+
+                <script type="text/javascript">
+                    /*960*90 创建于 2018/3/22*/
+                    var cpro_id = "u3394147";
+                </script>
+                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>标准库浏览II</h1></div>
+                <article class="dsd_title_1"><h1>标准库浏览II</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 输出格式</a><br><a href="#2">2 模板</a><br><a href="#3">3
-                            使用二进制数据记录布局</a><br><a href="#4">4 多线程</a><br><a href="#5">5 日志</a><br><a href="#6">6 弱引用</a><br><a
-                            href="#7">7 列表工具</a><br><a href="#8">8 十进制浮点数算法</a><br></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 输出格式</a><br><a href="#2">2 模板</a><br><a
+                            href="#3">3 使用二进制数据记录布局</a><br><a href="#4">4 多线程</a><br><a href="#5">5 日志</a><br><a
+                            href="#6">6 弱引用</a><br><a href="#7">7 列表工具</a><br><a href="#8">8 十进制浮点数算法</a></div>
                     </div>
                     <p>﻿第二部分包含了支持专业编程工作所需的更高级的模块，这些模块很少出现在小脚本中。</p>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 输出格式</h2></a></div>
+                    <div id="1"><h3>1 输出格式</h3></div>
                     <p><code>repr</code> 模块为大型的或深度嵌套的容器缩写显示提供了 <code>repr()</code> 函数的一个定制版本::</p>
                     <pre class="prettyprint"><code>&gt;&gt;&gt; import repr
 &gt;&gt;&gt; repr.repr(set('supercalifragilisticexpialidocious'))
@@ -159,7 +174,7 @@ to separate the wrapped lines.
 ...                      conv['frac_digits'], x), grouping=True)
 '$1,234,567.80'
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 模板</h2></a></div>
+                    <div id="2"><h3>2 模板</h3></div>
                     <p><code>string</code> 提供了一个灵活多变的模版类 <code>Template</code>
                         ，使用它最终用户可以简单地进行编辑。这使用户可以在不进行改变的情况下定制他们的应用程序。 </p>
                     <p>格式使用 <code>$</code> 为开头的 Python 合法标识(数字、字母和下划线)作为占位符。占位符外面的大括号使它可以和其它的字符不加空格混在一起。<code>$$</code>
@@ -199,7 +214,7 @@ img_1076.jpg --&gt; Ashley_1.jpg
 img_1077.jpg --&gt; Ashley_2.jpg
 </code></pre>
                     <p>模板的另一个应用是把多样的输出格式细节从程序逻辑中分类出来。这便使得 XML 文件，纯文本报表和 HTML WEB 报表定制模板成为可能。</p>
-                    <div class="dsd_title_1"><a href="#top" id="3"><h2>3 使用二进制数据记录布局</h2></a></div>
+                    <div id="3"><h3>3 使用二进制数据记录布局</h3></div>
                     <p><code>struct</code> 模块为使用变长的二进制记录格式提供了 <code>pack()</code> 和 <code>unpack()</code>
                         函数。下面的示例演示了在不使用 <code>zipfile</code> 模块的情况下如何迭代一个 ZIP 文件的头信息。压缩码 <code>"H"</code> 和
                         <code>"I"</code> 分别表示2和4字节无符号数字，<code>"&lt;"</code> 表明它们都是标准大小并且按照 little-endian 字节排序::</p>
@@ -222,7 +237,7 @@ for i in range(3):                      # show the first 3 file headers
 
    start += extra_size + comp_size     # skip to the next header
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="4"><h2>4 多线程</h2></a></div>
+                    <div id="4"><h3>4 多线程</h3></div>
                     <p>线程是一个分离无顺序依赖关系任务的技术。在某些任务运行于后台的时候应用程序会变得迟缓，线程可以提升其速度。一个有关的用途是在 I/O 的同时其它线程可以并行计算。 </p>
                     <p>下面的代码显示了高级模块 <code>threading</code> 如何在主程序运行的同时运行任务::</p>
                     <pre class="prettyprint"><code>import threading, zipfile
@@ -248,7 +263,7 @@ print 'Main program waited until background was done.'
                     <p>多线程应用程序的主要挑战是协调线程，诸如线程间共享数据或其它资源。为了达到那个目的，线程模块提供了许多同步化的原生支持，包括：锁，事件，条件变量和信号灯。</p>
                     <p>尽管这些工具很强大，微小的设计错误也可能造成难以挽回的故障。因此，任务协调的首选方法是把对一个资源的所有访问集中在一个单独的线程中，然后使用 <code>Queue</code>
                         模块用那个线程服务其他线程的请求。为内部线程通信和协调而使用 <code>Queue.Queue</code> 对象的应用程序更易于设计，更可读，并且更可靠。</p>
-                    <div class="dsd_title_1"><a href="#top" id="5"><h2>5 日志</h2></a></div>
+                    <div id="5"><h3>5 日志</h3></div>
                     <p><code>logging</code> 模块提供了完整和灵活的日志系统。它最简单的用法是记录信息并发送到一个文件或 <code>sys.stderr</code>::</p>
                     <pre class="prettyprint"><code>import logging
 logging.debug('Debugging information')
@@ -266,7 +281,7 @@ CRITICAL:root:Critical error -- shutting down
                         Server。基于消息属性，新的过滤器可以选择不同的路由：:const:<code>DEBUG</code>，:const:<code>INFO</code>，:const:<code>WARNING</code>，:const:<code>ERROR</code>
                         和 :const:<code>CRITICAL</code> 。 </p>
                     <p>日志系统可以直接在 Python 代码中定制，也可以不经过应用程序直接在一个用户可编辑的配置文件中加载。</p>
-                    <div class="dsd_title_1"><a href="#top" id="6"><h2>6 弱引用</h2></a></div>
+                    <div id="6"><h3>6 弱引用</h3></div>
                     <p>Python 自动进行内存管理(对大多数的对象进行引用计数和垃圾回收 <code>garbage collection</code> 以循环利用)在最后一个引用消失后，内存会很快释放。</p>
                     <p>这个工作方式对大多数应用程序工作良好，但是偶尔会需要跟踪对象来做一些事。不幸的是，仅仅为跟踪它们创建引用也会使其长期存在。<code>weakref</code>
                         模块提供了不用创建引用的跟踪对象工具，一旦对象不再存在，它自动从弱引用表上删除并触发回调。典型的应用包括捕获难以构造的对象::</p>
@@ -293,7 +308,7 @@ Traceback (most recent call last):
    o = self.data[key]()
 KeyError: 'primary'
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="7"><h2>7 列表工具</h2></a></div>
+                    <div id="7"><h3>7 列表工具</h3></div>
                     <p>很多数据结构可能会用到内置列表类型。然而，有时可能需要不同性能代价的实现。 </p>
                     <p><code>array</code> 模块提供了一个类似列表的 <code>array()</code>
                         对象，它仅仅是存储数据，更为紧凑。以下的示例演示了一个存储双字节无符号整数的数组(类型编码 <code>"H"</code> )而非存储 16 字节 Python 整数对象的普通正规列表::
@@ -336,7 +351,7 @@ def breadth_first_search(unsearched):
 &gt;&gt;&gt; [heappop(data) for i in range(3)]  # fetch the three smallest entries
 [-5, 0, 1]
 </code></pre>
-                    <div class="dsd_title_1"><a href="#top" id="8"><h2>8 十进制浮点数算法</h2></a></div>
+                    <div id="8"><h3>8 十进制浮点数算法</h3></div>
                     <p><code>decimal</code> 模块提供了一个 <code>Decimal</code> 数据类型用于浮点数计算。相比内置的二进制浮点数实现 <code>float</code>，这个类型有助于：
                     </p>
                     <ul>
@@ -371,6 +386,9 @@ False
 &gt;&gt;&gt; Decimal(1) / Decimal(7)
 Decimal('0.142857142857142857142857142857142857')
 </code></pre>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/python/doc27/11.html">原文链接</a>.
                 </div>
             </div>
         </div>

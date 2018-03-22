@@ -3,16 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>附录</title>
-    <meta name="description" content="附录">
+    <title>15.附录 - Python2.7中文文档 - 大屎蛋教程网</title>
+    <meta name="description" content="Python附录: 交互模式，错误处理，执行python脚本，定制模块。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
+    <link rel="amphtml" href="https://amp.dashidan.com/article/python/doc27/15.html">
+
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+                                                          google_ad_client: "ca-pub-8924316869528600",
+                                                          enable_page_level_ads: true
+                                                      });
+    </script>
 
     <script>
         var _hmt = _hmt || [];
@@ -33,6 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -45,86 +56,88 @@
 <div class="fullscreen">
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
-        <ol class="breadcrumb">
-            <li><a href="https://dashidan.com/index.html">首页</a></li>
-            <li class="active"><a href="https://dashidan.com/article/python/index.html">Python</a></li>
-        </ol>
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/python/index.html">python</a> > 附录
+        </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                <div>
-                    <div class="dsd_title" onclick="clickTitle('doc27')">
-                        <h3><span id="doc27_title">+ Python中文文档2.7</span></h3>
+                <div class="dsd_title" onclick="clickTitle('doc27')">
+                    <span id="doc27_title">+ Python2.7中文文档</span>
+                </div>
+                <div id="doc27" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/1.html">1.前言</a>
                     </div>
-                    <div id="doc27" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/1.html">1.前言</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/2.html">2.解释器</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/3.html">3.简介</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/6.html">6.模块</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/8.html">8.错误</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/9.html">9.类</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/12.html">12.接下来</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/15.html">15.附录</a>
-                        </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/2.html">2.解释器</a>
                     </div>
-
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/3.html">3.简介</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/6.html">6.模块</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/8.html">8.错误</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/9.html">9.类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/12.html">12.接下来</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/15.html">15.附录</a>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
+
+                <script type="text/javascript">
+                    /*960*90 创建于 2018/3/22*/
+                    var cpro_id = "u3394147";
+                </script>
+                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>附录</h1></div>
+                <article class="dsd_title_1"><h1>附录</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#﻿1">﻿1 交互模式</a><br>
-                            <p><a href="#1.1">1.1 错误处理</a></p>
-                            <p><a href="#1.1">1.1 交互执行文件</a></p>
-                            <p><a href="#1.2">1.2 执行 Python 脚本</a></p>
-                            <p><a href="#1.2">1.2 定制模块</a></p></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#﻿1">﻿1 交互模式</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            错误处理</a><br><a href="#1.1">&nbsp;&nbsp;1.1 交互执行文件</a><br><a href="#1.2">&nbsp;&nbsp;1.2 执行
+                            Python 脚本</a><br><a href="#1.2">&nbsp;&nbsp;1.2 定制模块</a></div>
                     </div>
-                    <div class="dsd_title_1"><a href="#top" id="﻿1"><h2>﻿1 交互模式</h2></a></div>
-                    <div class="dsd_title_2"><a href="#top" id="1.1">1.1 错误处理</a></div>
+                    <div id="﻿1"><h3>﻿1 交互模式</h3></div>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 错误处理</h4></div>
                     <p>有错误发生时，解释器会打印一个错误信息和栈跟踪器。在交互模式下，它返回主提示符，如果从文件输入执行，它在打印栈跟踪器后以非零状态退出。(异常可以由 <code>try</code> 语句中的
                         <code>except</code> 子句来控制，这样就不会出现上文中的错误信息)
                         有一些非常致命的错误会导致非零状态下退出，这通常由内部矛盾和内存溢出造成。所有的错误信息都写入标准错误流；命令中执行的普通输出写入标准输出。</p>
                     <p>在主提示符或从属提示符中输入中断符 (通常是 Control-C 或者 DEL) 就会取消当前输入，回到主命令行。[#]_ 执行命令时输入一个中断符会抛出一个 <code>KeyboardInterrupt</code>
                         异常，它可以被 <code>try</code> 语句截获。</p>
-                    <div class="dsd_title_2"><a href="#top" id="1.2">1.2 执行 Python 脚本</a></div>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 执行 Python 脚本</h4></div>
                     <p>BSD 类的 Unix 系统中，Python 脚本可以像 Shell 脚本那样直接执行。只要在脚本文件开头写一行命令，指定文件和模式::</p>
                     <pre class="prettyprint"><code>#! /usr/bin/env python
 </code></pre>
@@ -137,7 +150,7 @@
 </code></pre>
                     <p>Windows 系统上没有“执行模式”。Python 安装程序自动将 <code>.py</code> 文件关联到 <code>python.exe</code> ，所以在 Python
                         文件图标上双击，它就会作为脚本执行。同样 <code>.pyw</code> 也做了这样的关联，通常它执行时不会显示控制台窗口。</p>
-                    <div class="dsd_title_2"><a href="#top" id="1.1">1.1 交互执行文件</a></div>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 交互执行文件</h4></div>
                     <p>使用 Python 解释器的时候，我们可能需要在每次解释器启动时执行一些命令。你可以在一个文件中包含你想要执行的命令，设定一个名为 <code>PYTHONSTARTUP</code>
                         的环境变量来指定这个文件。这类似于 Unix shell 的 :file:<code>.profile</code> 文件。 </p>
                     <p>这个文件在交互会话期是只读的，当 Python 从脚本中解读文件或以终端 :file:<code>/dev/tty</code> 做为外部命令源时则不会如此
@@ -152,7 +165,7 @@ if filename and os.path.isfile(filename):
       startup_file = fobj.read()
    exec(startup_file)
 </code></pre>
-                    <div class="dsd_title_2"><a href="#top" id="1.2">1.2 定制模块</a></div>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 定制模块</h4></div>
                     <p>Python 提供了两个钩子 (方法) 来本地化: :mod:<code>sitecustomize</code> 和
                         :mod:<code>usercustomize</code>。为了见识它们，你首先需要找到你的 site-packages 的目录。启动 python 执行下面的代码::</p>
                     <pre class="prettyprint"><code>&gt;&gt;&gt; import site
@@ -163,7 +176,10 @@ if filename and os.path.isfile(filename):
                         的每次调用，除非启动的时候加入 <code>-s</code> 选项禁止自动导入。</p>
                     <p>:mod:<code>sitecustomize</code> 的工作方式一样，但是是由电脑的管理账户创建以及在 :mod:<code>usercustomize</code>
                         之前导入。具体可以参见 <code>site</code>。</p>
-                    <p>.. [#] GNU Readline包的一个问题可能禁止此功能。</p>
+                    <p>GNU Readline包的一个问题可能禁止此功能。</p>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/python/doc27/15.html">原文链接</a>.
                 </div>
             </div>
         </div>

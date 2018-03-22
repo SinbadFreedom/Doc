@@ -3,16 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>输入和输出</title>
-    <meta name="description" content="输入和输出">
+    <title>7.输入和输出 - Python2.7中文文档 - 大屎蛋教程网</title>
+    <meta name="description" content="Python格式化输入和输出和文件读写.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
+    <link rel="amphtml" href="https://amp.dashidan.com/article/python/doc27/7.html">
+
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+                                                          google_ad_client: "ca-pub-8924316869528600",
+                                                          enable_page_level_ads: true
+                                                      });
+    </script>
 
     <script>
         var _hmt = _hmt || [];
@@ -33,6 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -45,79 +56,82 @@
 <div class="fullscreen">
     <div class="container-fluid">
         <!-- 顶部面包屑导航-->
-        <ol class="breadcrumb">
-            <li><a href="https://dashidan.com/index.html">首页</a></li>
-            <li class="active"><a href="https://dashidan.com/article/python/index.html">Python</a></li>
-        </ol>
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/python/index.html">python</a> > 输入和输出
+        </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
-                <div>
-                    <div class="dsd_title" onclick="clickTitle('doc27')">
-                        <h3><span id="doc27_title">+ Python中文文档2.7</span></h3>
+                <div class="dsd_title" onclick="clickTitle('doc27')">
+                    <span id="doc27_title">+ Python2.7中文文档</span>
+                </div>
+                <div id="doc27" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/1.html">1.前言</a>
                     </div>
-                    <div id="doc27" class="dsd_catalog_left_hide">
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/1.html">1.前言</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/2.html">2.解释器</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/3.html">3.简介</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/6.html">6.模块</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/8.html">8.错误</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/9.html">9.类</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/12.html">12.接下来</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
-                        </div>
-                        <div class="single_line">
-                            <a href="https://dashidan.com/article/python/doc27/15.html">15.附录</a>
-                        </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/2.html">2.解释器</a>
                     </div>
-
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/3.html">3.简介</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/4.html">4.流程控制</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/5.html">5.数据结构</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/6.html">6.模块</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/7.html">7.输入和输出</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/8.html">8.错误</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/9.html">9.类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/10.html">10.标准库概览</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/11.html">11.标准库浏览II</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/12.html">12.接下来</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/13.html">13.交互式输入</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/14.html">14.浮点数算法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/python/doc27/15.html">15.附录</a>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9">
+
+                <script type="text/javascript">
+                    /*960*90 创建于 2018/3/22*/
+                    var cpro_id = "u3394147";
+                </script>
+                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+
                 <!-- 文章内容-->
-                <div class="dsd_title"><h1>输入和输出</h1></div>
+                <article class="dsd_title_1"><h1>输入和输出</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><a href="#1">1 格式化输出</a><br>
-                            <p><a href="#1.1">1.1 旧式的字符串格式化</a></p><a href="#2">2 文件读写</a><br>
-                            <p><a href="#2.1">2.1 文件对象方法</a></p>
-                            <p><a href="#2.2">2.2 使用json存储结构化数据 </a></p></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 格式化输出</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            旧式的字符串格式化</a><br><a href="#2">2 文件读写</a><br><a href="#2.1">&nbsp;&nbsp;2.1 文件对象方法</a><br><a
+                            href="#2.2">&nbsp;&nbsp;2.2 使用json存储结构化数据 </a></div>
                     </div>
                     <p>﻿一个程序可以有几种输出方式：以人类可读的方式打印数据，或者写入一个文件供以后使用。本章将讨论几种可能性。</p>
-                    <div class="dsd_title_1"><a href="#top" id="1"><h2>1 格式化输出</h2></a></div>
+                    <div id="1"><h3>1 格式化输出</h3></div>
                     <p>我们有两种大相径庭的输出值方法：表达式语句和 <code>print</code> 语句。(第三种方法是使用文件对象的 :meth:<code>write</code>
                         方法，标准文件输出可以参考 <code>sys.stdout</code>，详细内容参见库参考手册。)</p>
                     <p>
@@ -251,7 +265,7 @@ Jack: 4098; Sjoerd: 4127; Dcab: 8637678
 </code></pre>
                     <p>这种方式与新的内置函数 <code>vars()</code> 组合使用非常有效。该函数返回包含所有局部变量的字典。</p>
                     <p>要进一步了解字符串格式化方法 <code>str.format()</code>，参见 <code>Format String Syntax</code>。</p>
-                    <div class="dsd_title_2"><a href="#top" id="1.1">1.1 旧式的字符串格式化</a></div>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 旧式的字符串格式化</h4></div>
                     <p>操作符 <code>%</code> 也可以用于字符串格式化。它以类似 c:<code>sprintf</code> 的方式解析左参数，将右参数应用于此，得到格式化操作生成的字符串，例如:
                     </p>
                     <pre class="prettyprint"><code>&gt;&gt;&gt; import math
@@ -259,7 +273,7 @@ Jack: 4098; Sjoerd: 4127; Dcab: 8637678
 The value of PI is approximately 3.142.
 </code></pre>
                     <p>进一步的信息可以参见 <code>String Formatting Operations</code> 一节。</p>
-                    <div class="dsd_title_1"><a href="#top" id="2"><h2>2 文件读写</h2></a></div>
+                    <div id="2"><h3>2 文件读写</h3></div>
                     <p>函数 <code>open()</code> 返回文件对象，通常的用法需要两个参数：<code>open(filename, mode)</code>。</p>
                     <pre class="prettyprint"><code>&gt;&gt;&gt; f = open('workfile', 'w')
 &gt;&gt;&gt; print f
@@ -273,7 +287,7 @@ The value of PI is approximately 3.142.
                         文本文件没有什么问题，但是操作 :file:<code>JPEG</code> 或 :file:<code>EXE</code>
                         这样的二进制文件时就会产生破坏。在操作这些文件时一定要记得以二进制模式打开。在 Unix 上，加一个 <code>'b'</code>
                         模式也一样是无害的，所以你可以一切二进制文件处理中平台无关的使用它。</p>
-                    <div class="dsd_title_2"><a href="#top" id="2.1">2.1 文件对象方法</a></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 文件对象方法</h4></div>
                     <p>本节中的示例都默认文件对象 <code>f</code> 已经创建。 </p>
                     <p>要读取文件内容，需要调用 <code>f.read(size)</code>，该方法读取若干数量的数据并以字符串形式返回其内容，<em>size</em>
                         是可选的数值，指定字符串长度。如果没有指定 <em>size</em> 或者指定为负数，就会读取并返回整个文件。当文件大小为当前机器内存两倍时，就会产生问题。反之，会尽可能按比较大的 <em>size</em>
@@ -346,14 +360,13 @@ ValueError: I/O operation on closed file
 True
 </code></pre>
                     <p>文件对象还有一些不太常用的附加方法，比如 <code>isatty()</code> 和 <code>truncate()</code> 在库参考手册中有文件对象的完整指南。</p>
-                    <div class="dsd_title_2"><a href="#top" id="2.2">2.2 使用json存储结构化数据 </a></div>
+                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 使用json存储结构化数据 </h4></div>
                     <p>从文件中读写字符串很容易。数值就要多费点儿周折，因为 :meth:<code>read</code> 方法只会返回字符串，应将其传入 <code>int()</code> 这样的函数，就可以将
                         <code>'123'</code> 这样的字符串转换为对应的数值 123。当你想要保存更为复杂的数据类型，例如嵌套的列表和字典，手工解析和序列化它们将变得更复杂。</p>
                     <p>好在用户不是非得自己编写和调试保存复杂数据类型的代码，Python 允许你使用常用的数据交换格式 <code>JSON（JavaScript Object Notation） &lt;http://json.org/&gt;</code>_。标准模块
                         <code>json</code> 可以接受 Python 数据结构，并将它们转换为字符串表示形式；此过程称为 <strong>序列化</strong>。从字符串表示形式重新构建数据结构称为
                         <strong>反序列化</strong>。序列化和反序列化的过程中，表示该对象的字符串可以存储在文件或数据中，也可以通过网络连接传送给远程的机器。</p>
-                    <p>.. note::
-                        JSON 格式经常用于现代应用程序中进行数据交换。许多程序员都已经熟悉它了，使它成为相互协作的一个不错的选择。</p>
+                    <p>JSON 格式经常用于现代应用程序中进行数据交换。许多程序员都已经熟悉它了，使它成为相互协作的一个不错的选择。</p>
                     <p>如果你有一个对象 <code>x</code>，你可以用简单的一行代码查看其 JSON 字符串表示形式::</p>
                     <pre class="prettyprint"><code>&gt;&gt;&gt; json.dumps([1, 'simple', 'list'])
 '[1, "simple", "list"]'
@@ -366,11 +379,16 @@ True
                     <pre class="prettyprint"><code>x = json.load(f)
 </code></pre>
                     <p>这种简单的序列化技术可以处理列表和字典，但序列化任意类实例为 JSON 需要一点额外的努力。 <code>json</code> 模块的手册对此有详细的解释。</p>
-                    <p>.. seealso::</p>
-                    <p><code>pickle</code> - pickle 模块</p>
-                    <p>与 :ref:<code>JSON &lt;tut-json&gt;</code> 不同，<em>pickle</em> 是一个协议，它允许任意复杂的 Python
-                        对象的序列化。因此，它只能用于 Python 而不能用来与其他语言编写的应用程序进行通信。默认情况下它也是不安全的：如果数据由熟练的攻击者精心设计， 反序列化来自一个不受信任源的 pickle
-                        数据可以执行任意代码。</p>
+                    <ul>
+                        <li><p>相关参考</p>
+                            <p><code>pickle</code> - pickle 模块</p>
+                            <p>与 :ref:<code>JSON &lt;tut-json&gt;</code> 不同，<em>pickle</em> 是一个协议，它允许任意复杂的 Python
+                                对象的序列化。因此，它只能用于 Python 而不能用来与其他语言编写的应用程序进行通信。默认情况下它也是不安全的：如果数据由熟练的攻击者精心设计，
+                                反序列化来自一个不受信任源的 pickle 数据可以执行任意代码。</p></li>
+                    </ul>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/python/doc27/7.html">原文链接</a>.
                 </div>
             </div>
         </div>
