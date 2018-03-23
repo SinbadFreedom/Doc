@@ -53,98 +53,233 @@
         </ul>
     </div>
 </nav>
+
 <div class="fullscreen">
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
             href="https://dashidan.com/article/linux/index.html">linux</a>
         </div>
-
-        <div class="dsd_content">
-            <div id="xs_index" class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                <!-- 循环1-->
-                <div class="dsd_title" onclick="clickTitle('common')">
-                    <span id="common_title">- Linux常用命令</span>
-                </div>
-                <div id="common" class="dsd_catalog_left_show">
-                    <!-- 循环2-->
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/1.html">1.linux常用命令</a>
+        <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+            <div class="dsd_title">
+                <a href="#common_title">Linux常用命令</a>
+            </div>
+            <div class="dsd_title">
+                <a href="#ubuntu_title">Ubuntu常用命令</a>
+            </div>
+            <div class="dsd_title">
+                <a href="#tmux_title">Tmux常用命令</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div>
+                <span id="common_title"><h3>Linux常用命令</h3></span>
+            </div>
+            <hr>
+            <div id="common">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/1.html"><span
+                            class="dsd_index_title">1.linux常用命令</span></a>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/2.html">2.linux定时任务crontab</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/3.html">3.linux通过ssh建立代理</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/4.html">4.linux修改root密码</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/5.html">5.linux修改打开文件数限制</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/6.html">6.linux中文乱码</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/7.html">7.Linux与Windows文件互传</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/8.html">8.Linux退出telnet</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/9.html">9.Linux压缩和解压缩</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/10.html">10.Linux查看系统版本</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/11.html">11.Linux的shell脚本中数组及数组遍历</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/common/12.html">12.localefacet_S_create_c_locale
-                            name not valid</a>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        linux常用运维命令, linux磁盘信息, linux挂在磁盘, linux日常关键词查找.
                     </div>
                 </div>
-                <!-- 循环1-->
-                <div class="dsd_title" onclick="clickTitle('ubuntu')">
-                    <span id="ubuntu_title">- Ubuntu常用命令</span>
-                </div>
-                <div id="ubuntu" class="dsd_catalog_left_show">
-                    <!-- 循环2-->
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/ubuntu/1.html">1.linux搭建nginx+mysql+php+php-fpm</a>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/2.html"><span
+                            class="dsd_index_title">2.linux定时任务crontab</span></a>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/ubuntu/2.html">2.linux安装配置SVN及常用命令</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/ubuntu/3.html">3.linux安装配置Apollo及常用命令</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/ubuntu/4.html">4.linux安装配置Zookeeper及常用命令</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/ubuntu/5.html">5.Ubuntu允许root用户登录</a>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        linux的crontab命令是定时任务, 用来设置linux服务器在固定时间或固定间隔执行特定命令.crontab命令格式,crontab命令参数及示例.
                     </div>
                 </div>
-                <!-- 循环1-->
-                <div class="dsd_title" onclick="clickTitle('tmux')">
-                    <span id="tmux_title">- Tmux常用命令</span>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/3.html"><span
+                            class="dsd_index_title">3.linux通过ssh建立代理</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        通过ssh连接linux服务器建立socket5代理管道, 侦听本地端口, 通过代理转发信息.
+                    </div>
                 </div>
-                <div id="tmux" class="dsd_catalog_left_show">
-                    <!-- 循环2-->
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/4.html"><span
+                            class="dsd_index_title">4.linux修改root密码</span></a>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/tmux/2.html">2.ubuntu安装tmux服务必需组件</a>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在linux使用过程中, 偶尔会有部分服务器不经常使用, 需要将密码改复杂或者将复杂的密码改简单.可以通过passwd命令来修改制定用户的密码.
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/linux/tmux/3.html">3.tmux常用命令及快捷键</a>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/5.html"><span
+                            class="dsd_index_title">5.linux修改打开文件数限制</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        linux默认打开的文件socket连接数量上限是1024, 高并发的时候如果超过这个数量限制会报错. 在linux系统中可以通过ulimit命令修改打开文件数上限.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/6.html"><span
+                            class="dsd_index_title">6.linux中文乱码</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        linux部分系统默认语言设置为英文,会导致中文显示乱码.可以通过修改LANG参数设置系统编码为utf-8来修改乱码问题.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/7.html"><span
+                            class="dsd_index_title">7.Linux与Windows文件互传</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        通过rz命令能够很方便的从windows向linux服务器传送文件.sz命令能够从linux向windows传文件.这两个命令在同一个程序安装包lrzsz中.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/8.html"><span
+                            class="dsd_index_title">8.Linux退出telnet</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在linux系统中可通过输入Ctrl+c,Ctrl+z,或者输入quit命令退出telnet命令行.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/9.html"><span
+                            class="dsd_index_title">9.Linux压缩和解压缩</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在linux系统中,可以通过tar命令来对文件和目录进行压缩和解压缩.tar是最常用的压缩和解压缩命令, 还有gz, bzip2, zip, unzip等压缩和解压缩的命令.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/10.html"><span
+                            class="dsd_index_title">10.Linux查看系统版本</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        不同的linux系统在系统内核,命令,软件安装,卸载等有区别,当通过SSH工具远程连接到一台linux服务器后,需要知道这个系统版本信息.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/11.html"><span
+                            class="dsd_index_title">11.Linux的shell脚本中数组及数组遍历</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在linux的shell中编写脚本的时候,经常会用到数组的操作.本文举例说明了linux的shell声明数组, linux数组数据的读取, linux数组的遍历,
+                        linux执行shell遍历数组的时候报错解决.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/12.html"><span
+                            class="dsd_index_title">12.localefacet_S_create_c_locale name not valid</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        linux系统执行mongo备份脚本的时候出现错误S_create_c_locale name not valid解决方法.
                     </div>
                 </div>
             </div>
+            <div>
+                <span id="ubuntu_title"><h3>Ubuntu常用命令</h3></span>
+            </div>
+            <hr>
+            <div id="ubuntu">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/ubuntu/1.html"><span
+                            class="dsd_index_title">1.linux搭建nginx+mysql+php+php-fpm</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        新一代的linux系统web组合LNMP(Linux, Nginx, Mysql, PHP)环境搭建过程.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/ubuntu/2.html"><span
+                            class="dsd_index_title">2.linux安装配置SVN及常用命令</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        linux安装svn服务 linux创建svn仓储 linux修改匿名访问的权限 linux修改认证用户的权限 linux修改svn用户名和密码 linux启动svn服务
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/ubuntu/3.html"><span
+                            class="dsd_index_title">3.linux安装配置Apollo及常用命令</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        Apollo是apache基金会的一个开源项目源于ActiveMQ基础上重新设计的效率更高的消息中间件.广泛应用于服务器间的消息分发和收取.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/ubuntu/4.html"><span
+                            class="dsd_index_title">4.linux安装配置Zookeeper及常用命令</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        linux系统zookeeper的下载,安装,设置zookeeper环境变量,启动及zookeeper的常用命令.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/ubuntu/5.html"><span
+                            class="dsd_index_title">5.Ubuntu允许root用户登录</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        修改ubuntu设置允许root用户登录.在安全性要求不高的环境中,直接使用root登陆会很方便.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span id="tmux_title"><h3>Tmux常用命令</h3></span>
+            </div>
+            <hr>
+            <div id="tmux">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/tmux/1.html"><span
+                            class="dsd_index_title">1.linux安装tmux及常用命令</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在linux系统中,tmux是一个常用的分屏工具.在实际工作过程中更多的通过tmux来创建个多后台进程,来更方便的管理多个同时运行的后台进程.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/tmux/2.html"><span
+                            class="dsd_index_title">2.ubuntu安装tmux服务必需组件</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        ubuntu安装tmux服务必需组件
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/tmux/3.html"><span
+                            class="dsd_index_title">3.tmux常用命令及快捷键</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        tmux常用命令及快捷键
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+            <div><span style="color: darkgray">广告赞助</span></div>
+            <script type="text/javascript">
+                /*160*600 创建于 2018/3/23*/
+                var cpro_id = "u3395011";
+            </script>
+            <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
         </div>
     </div>
 </div>

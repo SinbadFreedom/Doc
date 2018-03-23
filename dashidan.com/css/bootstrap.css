@@ -38,7 +38,7 @@ audio:not([controls]) {
 
 a {
     background-color: transparent;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 a:active,

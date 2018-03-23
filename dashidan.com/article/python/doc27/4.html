@@ -55,14 +55,13 @@
 </nav>
 <div class="fullscreen">
     <div class="container-fluid">
-        <!-- 顶部面包屑导航-->
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/python/index.html">python</a> > 流程控制
+            href="https://dashidan.com/article/python/index.html">python</a> > doc27 > 4.流程控制
         </div>
 
         <div class="dsd_content">
-            <div id="xs_index" class="col-sm-3 col-md-3 col-lg-3 col-xs-12 hidden-xs">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
                 <div class="dsd_title" onclick="clickTitle('doc27')">
                     <span id="doc27_title">+ Python2.7中文文档</span>
                 </div>
@@ -114,16 +113,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9 col-md-9 col-lg-9">
-
-                <script type="text/javascript">
-                    /*960*90 创建于 2018/3/22*/
-                    var cpro_id = "u3394147";
-                </script>
-                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
-
-                <!-- 文章内容-->
-                <article class="dsd_title_1"><h1>流程控制</h1></article>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>4.流程控制</h1></article>
                 <div id="xs_content_border">
                     <div>
                         <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 if 语句</a><br><a href="#2">2 for 语句</a><br><a
@@ -179,17 +170,14 @@ defenestrate 12
 &gt;&gt;&gt; words
 ['defenestrate', 'cat', 'window', 'defenestrate']
 </code></pre>
-                    <p>.. _tut-range:</p>
                     <div id="3"><h3>3 range() 函数</h3></div>
                     <p>如果你需要一个数值序列，内置函数 <code>range()</code> 会很方便，它生成一个等差级数链表::</p>
                     <pre class="prettyprint"><code>&gt;&gt;&gt; range(10)
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </code></pre>
-                    <pre><code>
-</code></pre>
                     <p><code>range(10)</code> 生成了一个包含 10 个值的链表，它用链表的索引值填充了这个长度为 10 的列表，所生成的链表中不包括范围中的结束值。也可以让 range
                         操作从另一个数值开始，或者可以指定一个不同的步进值(甚至是负数，有时这也被称为 "步长")::</p>
-                    <pre class="prettyprint"><code class="     language-    ">&gt;&gt;&gt; range(5, 10)
+                    <pre class="prettyprint"><code>&gt;&gt;&gt; range(5, 10)
 [5, 6, 7, 8, 9]
 &gt;&gt;&gt; range(0, 10, 3)
 [0, 3, 6, 9]
@@ -210,9 +198,6 @@ defenestrate 12
                     <p>不过，这种场合可以方便地使用 <code>enumerate()</code>，请参见 :ref:<code>tut-loopidioms</code>。</p>
                     <div id="4"><h3>4 <code>break</code>_ 和 <code>continue</code>_ 语句, 以及循环中的 <code>else</code>_ 子句</h3>
                     </div>
-                    <p>.. _break
-                        .. _continue
-                        .. _else</p>
                     <p><code>break</code> 语句和 C 中的类似，用于跳出最近的一级 <code>for</code> 或 <code>while</code> 循环。</p>
                     <p>循环可以有一个 <code>else</code> 子句；它在循环迭代完整个列表 (对于 <code>for</code>) 后或执行条件为 false (对于
                         <code>while</code>) 时执行，但循环被 <code>break</code> 中止的情况下不会执行。以下搜索素数的示例程序演示了这个子句::</p>
@@ -254,7 +239,6 @@ Found a number 7
 Found an even number 8
 Found a number 9
 </code></pre>
-                    <p>.. _tut-pass:</p>
                     <div id="5"><h3>5 pass 语句</h3></div>
                     <p><code>pass</code> 语句什么也不做。它用于那些语法上必须要有什么语句，但程序什么也不做的场合，例如::</p>
                     <pre class="prettyprint"><code>&gt;&gt;&gt; while True:
@@ -551,17 +535,41 @@ sketch : Cheese Shop Sketch
                     转载请保留<a href="https://dashidan.com/article/python/doc27/4.html">原文链接</a>.
                 </div>
             </div>
+
+            <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div><span style="color: darkgray">广告赞助</span></div>
+                <script type="text/javascript">
+                    /*160*600 创建于 2018/3/23*/
+                    var cpro_id = "u3395011";
+                </script>
+                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+            </div>
         </div>
     </div>
 </div>
 
-<footer class="text-center navbar-fixed-bottom">
-    <div class="visible-xs-block">
-        <div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">
-            目录
-        </div>
+<hr>
+
+<footer>
+    <!--<div class="visible-xs-block visible-sm-block">-->
+    <!--<div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">-->
+    <!--目录-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="https://dashidan.com/article/python/doc27/3.html"> &lt; 3.简介</a>
     </div>
-    <a href="https://dashidan.com/article/python/doc27/5.html">下一篇: 数据结构</a>
+    <!--<div class="visible-xs-block visible-sm-block">-->
+    <!--<div class="bg-primary text-center" onclick="window.open('../index.html','_self')" style="cursor: pointer">-->
+    <!--目录-->
+    <!--</div>-->
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/python/index.html">目录</a>
+    </div>
+    <!--</div>-->
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="https://dashidan.com/article/python/doc27/5.html"> 5.数据结构 &gt;</a>
+    </div>
 </footer>
 
 <script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>

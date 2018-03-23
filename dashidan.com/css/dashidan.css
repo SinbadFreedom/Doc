@@ -16,7 +16,7 @@ img {
     border-radius: 6px;
     border-width: 3px;
     border-style: solid;
-    border-color: #fbbc05;
+    border-color: #eee;
 }
 
 .dsd_catalog {
@@ -87,9 +87,9 @@ nav {
     background: linear-gradient(36deg, #0dd3ff, #0389ff, #1c79c0);
 }
 
-footer {
-    background: linear-gradient(to right, #1c79c0, #0389ff, #0dd3ff);
-}
+/*footer {*/
+/*background: linear-gradient(to right, #1c79c0, #0389ff, #0dd3ff);*/
+/*}*/
 
 footer > a {
     color: white;

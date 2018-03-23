@@ -53,42 +53,79 @@
         </ul>
     </div>
 </nav>
+
 <div class="fullscreen">
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
             href="https://dashidan.com/article/php/index.html">php</a>
         </div>
-
-        <div class="dsd_content">
-            <div id="xs_index" class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                <!-- 循环1-->
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">- PHP常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_show">
-                    <!-- 循环2-->
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/1.html">1.PHP中文JSON乱码</a>
+        <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+            <div class="dsd_title">
+                <a href="#faq_title">PHP常见问题</a>
+            </div>
+            <div class="dsd_title">
+                <a href="#api_title">PHP中文手册</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div>
+                <span id="faq_title"><h3>PHP常见问题</h3></span>
+            </div>
+            <hr>
+            <div id="faq">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/php/faq/1.html"><span
+                            class="dsd_index_title">1.PHP中文JSON乱码</span></a>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/2.html">2.Linux系统PHP配置支持Redis扩展</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/3.html">3.Ubuntu安装php-redis扩展</a>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        php5.4以下json_encode方法封装JSON数据时会有乱码,加入header采用utf-8编码.
                     </div>
                 </div>
-                <!-- 循环1-->
-                <div class="dsd_title" onclick="clickTitle('api')">
-                    <span id="api_title">- PHP中文手册</span>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/php/faq/2.html"><span
+                            class="dsd_index_title">2.Linux系统PHP配置支持Redis扩展</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        以Ubuntu系统为例配置linux支持redis模块.其余的linux操作系统类似,只是安装方法名不一样.Ubuntu为apt-get,CentOS为yum.
+                    </div>
                 </div>
-                <div id="api" class="dsd_catalog_left_show">
-                    <!-- 循环2-->
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/api/1.html">1.php中文手册</a>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/php/faq/3.html"><span
+                            class="dsd_index_title">3.Ubuntu安装php-redis扩展</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        Ubuntu安装php-redis扩展, php支持redis扩展.
                     </div>
                 </div>
             </div>
+            <div>
+                <span id="api_title"><h3>PHP中文手册</h3></span>
+            </div>
+            <hr>
+            <div id="api">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/php/api/1.html"><span
+                            class="dsd_index_title">1.php中文手册</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        PHP中文手册在线文档
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+            <div><span style="color: darkgray">广告赞助</span></div>
+            <script type="text/javascript">
+                /*160*600 创建于 2018/3/23*/
+                var cpro_id = "u3395011";
+            </script>
+            <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
         </div>
     </div>
 </div>

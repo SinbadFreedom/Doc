@@ -53,51 +53,106 @@
         </ul>
     </div>
 </nav>
+
 <div class="fullscreen">
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
             href="https://dashidan.com/article/webserver/index.html">webserver</a>
         </div>
-
-        <div class="dsd_content">
-            <div id="xs_index" class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
-                <!-- 循环1-->
-                <div class="dsd_title" onclick="clickTitle('nginx')">
-                    <span id="nginx_title">- Nginx</span>
-                </div>
-                <div id="nginx" class="dsd_catalog_left_show">
-                    <!-- 循环2-->
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+        <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+            <div class="dsd_title">
+                <a href="#nginx_title">Nginx</a>
+            </div>
+            <div class="dsd_title">
+                <a href="#dns_title">DNS</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div>
+                <span id="nginx_title"><h3>Nginx</h3></span>
+            </div>
+            <hr>
+            <div id="nginx">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/webserver/nginx/1.html"><span
+                            class="dsd_index_title">1.windows搭建nginx服务器</span></a>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        windows系统nginx的下载,安装,nginx的启动停止.修改nginx网站根目录.
                     </div>
                 </div>
-                <!-- 循环1-->
-                <div class="dsd_title" onclick="clickTitle('dns')">
-                    <span id="dns_title">- DNS</span>
-                </div>
-                <div id="dns" class="dsd_catalog_left_show">
-                    <!-- 循环2-->
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/webserver/nginx/2.html"><span
+                            class="dsd_index_title">2.windows系统nginx停止启动及常用命令</span></a>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        windows系统nginx停止启动及常用命令.重新载入Nginx配置,重新打开日志文件,查看Nginx版本.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/webserver/nginx/3.html"><span
+                            class="dsd_index_title">3.linux系统配置nginx支持PHP解析</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        3.linux系统配置nginx支持PHP解析.nginx配置表中带有php文件解析的配置,默认情况下是注销掉的.有2种支持php的方式,通过php-cgi和php-fpm.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/webserver/nginx/4.html"><span
+                            class="dsd_index_title">4.nginx目录路径重定向</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        nginx目录路径重定向的四种实现方式.修改root映射,通过Nginx rewrite内部跳转,设置别名alias映射实现,通过nginx的permanent 301绝对跳转实现.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/webserver/nginx/5.html"><span
+                            class="dsd_index_title">5.nginx设置404页面跳转</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        Nginx设置404错误指向页面.如何避免出现404错误.roboot.txt加入屏蔽404页面.
                     </div>
                 </div>
             </div>
+            <div>
+                <span id="dns_title"><h3>DNS</h3></span>
+            </div>
+            <hr>
+            <div id="dns">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/webserver/dns/1.html"><span
+                            class="dsd_index_title">1.dns解析记录类型</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        dns解析记录类型详细介绍
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/webserver/dns/2.html"><span
+                            class="dsd_index_title">2.网站支持https配置步骤</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        网站支持https配置详细图文教程
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+            <div><span style="color: darkgray">广告赞助</span></div>
+            <script type="text/javascript">
+                /*160*600 创建于 2018/3/23*/
+                var cpro_id = "u3395011";
+            </script>
+            <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
         </div>
     </div>
 </div>
