@@ -1,0 +1,54 @@
+https://www.cnblogs.com/xiaohuochai/p/5848612.html
+
+window.matchMedia()方法用来检查CSS的mediaQuery语句
+
+　　[注意]IE9-浏览器不支持，可以使用第三方函数库matchMedia.js
+
+属性
+
+　　window.matchMedia()方法接受一个mediaQuery语句的字符串作为参数，返回一个MediaQueryList对象。该对象有media和matches两个属性
+
+media：返回所查询的mediaQuery语句字符串
+matches：返回一个布尔值，表示当前环境是否匹配查询语句
+var result = window.matchMedia('(min-width: 600px)');
+console.log(result.media); //'(min-width: 600px)'
+console.log(result.matches); // true
+　　可以根据matchMedia()方法的matches属性的不同结果，进行对应的设置
+
+复制代码
+var result = window.matchMedia('(min-width: 600px)');
+if (result.matches) {
+  //
+}else{
+ //
+}
+复制代码
+　　[注意]如果window.matchMedia无法解析mediaQuery参数，matches属性返回的总是false，而不是报错
+
+var result = window.matchMedia('123');
+console.log(result.matches);//false
+事件
+
+　　window.matchMedia方法返回的MediaQueryList对象有两个方法，用来监听事件：addListener方法和removeListener方法
+
+// 指定回调函数
+mql.addListener(mqCallback);
+// 撤销回调函数
+mql.removeListener(mqCallback);
+　　注意，只有mediaQuery查询结果发生变化时，才调用指定的回调函数
+
+　　所以，如果想要mediaQuery查询未变化时，就显示相应效果，需要提前调用一次函数
+
+　　下面这个例子是当页面宽度小于1000px时，页面背景颜色为品红色；否则为淡蓝色
+
+复制代码
+var mql = window.matchMedia("(min-width: 1000px)");
+mqCallback(mql);
+mql.addListener(mqCallback);
+function mqCallback(mql) {
+  if (mql.matches) {
+    document.body.background = 'pink';
+  }else{
+      document.body.background = 'lightblue';
+  }
+}
