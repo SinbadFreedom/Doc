@@ -25,4 +25,4 @@ apt-get update
 apt-get install -y mongodb-enterprise
 ```
 
-安装mongodb 这一步需要时间较长,大概20分钟左右.
+安装mongodb 这一步需要时间较长,大概一个小时左右.
