@@ -1,0 +1,28 @@
+ubuntu安装mongodb-enterprese版本的时候提示"Unable to locate package mongodb-enterprise".以ubuntu 16.04为例.解决这个问题需要按照一下步骤操作安装.
+
+1 执行一下脚本配置mongodb-enterprise信息
+===
+
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+echo "deb [ arch=amd64 ] http://repo.mongodb.com/apt/ubuntu precise/mongodb-enterprise/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise.list
+echo "deb [ arch=amd64 ] http://repo.mongodb.com/apt/ubuntu trusty/mongodb-enterprise/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise.list
+echo "deb [ arch=amd64,arm64,ppc64el,s390x ] http://repo.mongodb.com/apt/ubuntu xenial/mongodb-enterprise/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-enterprise.list
+```
+
+2 更新系统包版本
+===
+```
+apt-get update
+```
+执行完第一步后，这一步必须执行。这样才能找到mongodb-enterprese.
+
+
+3 安装mongodb-enterprese
+===
+
+```
+apt-get install -y mongodb-enterprise
+```
+
+安装mongodb 这一步需要时间较长,大概20分钟左右.
