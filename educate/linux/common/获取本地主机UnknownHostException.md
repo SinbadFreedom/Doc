@@ -46,9 +46,3 @@ vim /etc/hosts
 这里的Ubuntu改为你第一步hostname显示的字符.
 
 注意这个文件是/etc/hosts不是/etc/host。修改完生效，不用重启服务器。
-
-3 参考文章
-===
-https://hacpai.com/article/1470117785255?p=1&m=0
-https://blog.csdn.net/tengdazhang770960436/article/details/51800026
-https://unix.stackexchange.com/questions/283550/i-got-error-hostname-name-or-service-not-known-when-checking-ip-of-hostname
