@@ -3,16 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>linux修改打开文件数限制</title>
-    <meta name="description"
-          content="linux默认打开的文件socket连接数量上限是1024, 高并发的时候如果超过这个数量限制会报错. 在linux系统中可以通过ulimit命令修改打开文件数上限.">
+    <title>linux服务器间传输文件和文件夹</title>
+    <meta name="description" content="通过scp命令可以在linux服务间传输文件及文件夹.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/common/5.html">
+    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/common/13.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -50,7 +49,7 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/linux/index.html">linux</a> > common > 5.linux修改打开文件数限制
+            href="https://dashidan.com/article/linux/index.html">linux</a> > common > 13.linux服务器间传输文件和文件夹
         </div>
 
         <div class="dsd_content">
@@ -139,88 +138,70 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <article class="dsd_title_1"><h1>5.linux修改打开文件数限制</h1></article>
+                <article class="dsd_title_1"><h1>13.linux服务器间传输文件和文件夹</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 ulimit命令参数介绍</a><br><a href="#2">2
-                            linux查看当前用户进程数量和最大文件打开数量</a></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 通过ssh连接文件源服务器</a><br><a href="#2">2
+                            通过pwd查看需要传输文件的路径</a><br><a href="#3">3 通过scp命令传输文件或者文件夹</a><br><a href="#3.1">&nbsp;&nbsp;3.1
+                            scp命令格式传输文件夹(包括文件夹本身)</a><br><a href="#3.2">&nbsp;&nbsp;3.2 传输文件夹下所有文件(不包括文件夹本身)</a><br><a
+                            href="#3.3">&nbsp;&nbsp;3.3 传输文件并重命名</a><br><a href="#4">4 确认开始传输</a><br><a href="#5">5
+                            输入目标服务器密码</a><br><a href="#6">6 传输完成</a></div>
                     </div>
                     <div class="jumbotron">
-                        <p>linux默认打开的文件socket连接数量上限是1024, 高并发的时候如果超过这个数量限制会报错<code>open too many files</code>.
-                            在linux系统中可以通过ulimit命令修改打开文件数上限.比如在使用java做socket连接服务器时, 同时连接用户超过默认设置1024个以后,
-                            就会报这个错误导致连接更多的用户从而使服务器的性能无法充分利用.所以需要根据实际情况设置最大文件打开数来重复发挥服务器的性能.</p>
+                        <p>
+                            在工作过程中经常会遇到部署多台服务器环境的情况。这个时候我们需要将一个linux服务器中的文件传输到另一台服务器上。如果文件太大或者本地网速较慢时会浪费很多时间。解决方案：可以通过scp命令，在linux服务间传输文件及文件夹。</p>
                     </div>
-                    <div id="1"><h3>1 ulimit命令参数介绍</h3></div>
-                    <p>可以用ulimit -a 来显示当前的用户进程限制和命令参数.</p>
-                    <pre class="prettyprint"><code>-a:显示目前资源限制的设定
--c &lt;core文件上限&gt;:设定core文件的最大值,单位为区块
--d &lt;数据节区大小&gt;:程序数据节区的最大值,单位为KB
--f &lt;文件大小&gt;:shell所能建立的最大文件,单位为区块
--H:设定资源的硬性限制,也就是管理员所设下的限制
--m &lt;内存大小&gt;:指定可使用内存的上限,单位为KB
--n &lt;文件数目&gt;:指定同一时间最多可开启的文件数
--p &lt;缓冲区大小&gt;:指定管道缓冲区的大小,单位512字节
--s &lt;堆叠大小&gt;:指定堆叠的上限,单位为KB
--S:设定资源的弹性限制
--t &lt;CPU时间&gt;:指定CPU使用时间的上限,单位为秒
--u &lt;程序数目&gt;:用户最多可开启的程序数目
--v &lt;虚拟内存大小&gt;:指定可使用的虚拟内存上限,单位为KB.
+                    <div id="1"><h3>1 通过ssh连接文件源服务器</h3></div>
+                    <p>推荐采用Xshell，一个很方便的SSH工具。功能很强大，界面也比较美观。</p>
+                    <div id="2"><h3>2 通过pwd查看需要传输文件的路径</h3></div>
+                    <p>可以通过cd命令进入需要传输的文件目录，然后通过pwd命令查看当前目录的完整路径。</p>
+                    <div id="3"><h3>3 通过scp命令传输文件或者文件夹</h3></div>
+                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 scp命令格式传输文件夹(包括文件夹本身)</h4></div>
+                    <p>scp命令格式:</p>
+                    <pre class="prettyprint"><code>scp -r LOCAL_FOLDER NAME@IP:TARGET_FOLDER
 </code></pre>
-                    <div id="2" class="dsd_title_c_2"><h4>2 linux查看当前用户进程数量和最大文件打开数量</h4></div>
-                    <p>ulimit -a命令可以查看最大文件打开数量</p>
-                    <pre class="prettyprint"><code>ulimit -a
+                    <p>参数说明:</p>
+                    <ul>
+                        <li>LOCAL_FOLDER 本机文件目录</li>
+                        <li>NAME 登陆目标服务器的用户名</li>
+                        <li>TARGET_FOLDER 目标服务器的目录名</li>
+                        <li><code>-r</code> 表示传输目录</li>
+                    </ul>
+                    <p>示例:</p>
+                    <pre class="prettyprint"><code>scp -r /home/dashidan.com/1.png root@1.2.3.4:/home/test
 </code></pre>
-                    <p>显示如下</p>
-                    <pre class="prettyprint"><code>core file size          (blocks, -c) 0
-data seg size           (kbytes, -d) unlimited
-scheduling priority             (-e) 0
-file size               (blocks, -f) unlimited
-pending signals                 (-i) 3820
-max locked memory       (kbytes, -l) 64
-max memory size         (kbytes, -m) unlimited
-open files                      (-n) 65535
-pipe size            (512 bytes, -p) 8
-POSIX message queues     (bytes, -q) 819200
-real-time priority              (-r) 0
-stack size              (kbytes, -s) 8192
-cpu time               (seconds, -t) unlimited
-max user processes              (-u) 3820
-virtual memory          (kbytes, -v) unlimited
-file locks                      (-x) unlimited
+                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 传输文件夹下所有文件(不包括文件夹本身)</h4></div>
+                    <p>命令格式:</p>
+                    <pre class="prettyprint"><code>scp LOCAL_FOLDER NAME@IP:TARGET_FOLDER
 </code></pre>
-                    <p>其中"open files"表示最大打开文件数.</p>
-                    <pre class="prettyprint"><code>open files                      (-n) 65535
-···
-
-3 修改当前用户最大文件打开数
-===
-Linux对于每个用户,系统限制其最大进程数和最大文件打开数量.可以通过"ulimit -n"修改最大文件打开数.通过"ulimit -u"修改最大进程数.在做服务器处理高并发连接时,linux默认最大文件打开数量为1024, 这个也是同时连接socket连接的数量, 修改这个值可以让linux同时处理更多的socket连接.
-
-在shell命令行中输入命令:
+                    <p>比传输目录少了-r. </p>
+                    <p>示例:</p>
+                    <pre class="prettyprint"><code>scp /home/dashidan.com/* root@1.2.3.4:/home/test
 </code></pre>
-                    <p>ulimit -n 65535
-                        ulimit -u 65535</p>
-                    <pre class="prettyprint"><code>参数说明
-- ulimit -u 65535 最大进程数修改
-- ulimit -n 65535 最大文件打开数修改
-
-通过命令行设置ulimit命令参数只对当前用户生效.
-
-4 修改所有linux用户的环境变量文件
-===
-
-修改/etc/profile文件可以针对全部用户生效.这样修改是永久有效.
+                    <div id="3.3" class="dsd_title_c_2"><h4>3.3 传输文件并重命名</h4></div>
+                    <p>命令格式:</p>
+                    <pre class="prettyprint"><code>scp LOCAL_FOLDER NAME@IP/FILE_NAME:TARGET_FOLDER/NEW_FILE_NAME
 </code></pre>
-                    <p>vi /etc/profile
-                        ulimit -u 10000
-                        ulimit -n 4096</p>
-                    <pre class="prettyprint"><code>保存后,通过source命令使配置生效:
+                    <ul>
+                        <li>LOCAL_FOLDER 本机文件目录</li>
+                        <li>NAME 登陆目标服务器的用户名</li>
+                        <li>FILE_NAME 本机文件名</li>
+                        <li>TARGET_FOLDER 目标服务器的目录名</li>
+                        <li>NEW<em>FILE</em>NAME 修改后的文件名</li>
+                    </ul>
+                    <p>示例:</p>
+                    <pre class="prettyprint"><code>scp /home/dashidan.com/1.txt root@1.2.3.4:/home/test/2.txt
 </code></pre>
-                    <p>source /etc/profile
-                        ```</p>
+                    <div id="4"><h3>4 确认开始传输</h3></div>
+                    <p>输入scp命令，按回车后，会提示"Are you sure you want to continue connecting (yes/no)? ".</p>
+                    <p>输入yes开始传输。</p>
+                    <div id="5"><h3>5 输入目标服务器密码</h3></div>
+                    <p>接上一步，会提示输入目标服务器密码。</p>
+                    <div id="6"><h3>6 传输完成</h3></div>
+                    <p>控制台会输出传输状态。传输完成会返回命令行。</p>
                 </div>
                 <div>
-                    转载请保留<a href="https://dashidan.com/article/linux/common/5.html">原文链接</a>.
+                    转载请保留<a href="https://dashidan.com/article/linux/common/13.html">原文链接</a>.
                 </div>
             </div>
 
@@ -240,13 +221,14 @@ Linux对于每个用户,系统限制其最大进程数和最大文件打开数�
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/linux/common/4.html"> &lt; 4.linux修改root密码</a>
+        <a href="https://dashidan.com/article/linux/common/12.html"> &lt; 12.localefacet_S_create_c_locale name not
+            valid</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/linux/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/linux/common/6.html"> 6.linux中文乱码 &gt;</a>
+        <a href="https://dashidan.com/article/linux/common/14.html"> 14.获取本地主机UnknownHostException &gt;</a>
     </div>
 </footer>
 
