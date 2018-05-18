@@ -1,0 +1,50 @@
+1 HashMap中put方法和putIfAbsent方法区别
+===
+
+- put方法
+
+HashMap中的put方式是将key和value放入Map队列中.put方法源码:
+
+```
+public V put(K key, V value) {
+	return putVal(hash(key), key, value, false, true);
+}
+```
+
+- putIfAbsent方法
+
+putIfAbsense方法源码:
+
+```
+public V putIfAbsent(K key, V value) {
+	return putVal(hash(key), key, value, true, true);
+}
+```
+
+这两个方法的区别调用putVal方法的第三个参数true，表示如果存在不替换现有数据，如果false，替换现有数据。
+
+2 HashMap如何判断key是否存在
+===
+
+HashMap通过Hash值来判断。这个值不是Object对象中提供的hashCode值。是通过HashMap中的hash()方法计算出来的.
+
+该方法是通过hashCode返回的值，进行高位异或运算得出的。如果key值是空，返回0.
+
+2.1 hash()方法
+---
+
+```
+static final int hash(Object key) {
+	int h;
+	return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+2.2 hashCode()方法
+---
+hashCode()方法返回对象的哈希码。相同对象返回相同值。这个在JDK中是通过native方法实现。
+
+```
+public native int hashCode();
+```
+
