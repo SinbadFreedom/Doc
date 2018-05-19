@@ -3,15 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>java JDK8方法引用 - java教程 - 大屎蛋教程网</title>
-    <meta name="description" content="java方法引用(method references)的概念.java方法引用的种类.静态方法引用,某个对象的方法引用,特定类的任意对象的方法引用.">
+    <title>HashMap与ConcurrentHashMap的区别与应用场景 - java常见问题 - 大屎蛋教程网</title>
+    <meta name="description"
+          content="从JDK1.5开始加入了ConcurrentHashMap，在面试的过程中我问过很多程序员，HashpMap与ConcurrentHashMap的区别是什么呢。我得到的回答一般都是HashpMap不是线程安全的，ConcurrentHashMap是线程安全的。这个结论很笼统。下面我来详细的举例说明他们之间的区别。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="amphtml" href="https://amp.dashidan.com/article/java/jdk8/6.html">
+    <link rel="amphtml" href="https://amp.dashidan.com/article/java/faq/1.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -49,7 +50,7 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/java/index.html">java</a> > jdk8 > 6.JDK8方法引用
+            href="https://dashidan.com/article/java/index.html">java</a> > faq > 1.HashMap与ConcurrentHashMap的区别与应用场景
         </div>
 
         <div class="dsd_content">
@@ -212,157 +213,282 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <article class="dsd_title_1"><h1>6.JDK8方法引用</h1></article>
+                <article class="dsd_title_1"><h1>1.HashMap与ConcurrentHashMap的区别与应用场景</h1></article>
                 <div id="xs_content_border">
                     <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 java方法引用的概念</a><br><a href="#2">2
-                            java方法引用的种类</a><br><a href="#2.1">&nbsp;&nbsp;2.1 java静态方法引用</a><br><a href="#2.2">&nbsp;&nbsp;2.2
-                            java某个对象的方法引用</a><br><a href="#2.3">&nbsp;&nbsp;2.3 java特定类的任意对象的方法引用</a><br><a href="#2.4">&nbsp;&nbsp;2.4
-                            java构造方法引用</a><br><a href="#3">3 参考文章</a></div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 HashMap与ConcurrentHashMap多线程同步的误区</a><br><a
+                            href="#1.1">&nbsp;&nbsp;1.1 编码思路</a><br><a href="#1.2">&nbsp;&nbsp;1.2 需要验证的结论</a><br><a
+                            href="#1.3">&nbsp;&nbsp;1.3 验证代码</a><br><a href="#2">2 HashMap应用场景</a><br><a href="#2.1">&nbsp;&nbsp;2.1
+                            HashpMap多线程情况下的ConcurrentModificationException</a><br><a href="#2.3">&nbsp;&nbsp;2.3
+                            推荐HashMap应用场景</a><br><a href="#3">3 推荐ConcurrentHashMap应用场景</a></div>
                     </div>
                     <div class="jumbotron">
-                        <p>jdk8.0引入了方法引用的概念.</p>
+                        <p>
+                            从JDK1.5开始加入了ConcurrentHashMap，在面试的过程中我问过很多程序员，HashpMap与ConcurrentHashMap的区别是什么呢。我得到的回答一般都是HashpMap不是线程安全的，ConcurrentHashMap是线程安全的。这个结论很笼统。下面我来详细的举例说明他们之间的区别。</p>
                     </div>
-                    <div id="1"><h3>1 java方法引用的概念</h3></div>
-                    <p>某些lambda表达式里面仅仅是执行一个方法调用.
-                        在这种情况下,不用lambda表达式,直接通过方法名称引用方法的形式可读性更高一些,这种形式就是方法引用.方法引用是一种更简洁易懂的lambda表达式.</p>
-                    <p>看下面这个Person类:</p>
-                    <pre class="prettyprint"><code class="java language-java">public class Person {
-       public enum Sex {
-              MALE, FEMALE
-       }
-       String name;
-       LocalDate birthday;
-       Sex gender;
-       String emailAddress;
-       public int getAge() {
-              // ...
-       }
-       public Calendar getBirthday() {
-              return birthday;
-       }
-       public static int compareByAge(Person a, Person b) {
-              return a.birthday.compareTo(b.birthday);
-       }
-}
-</code></pre>
-                    <p>假设你社交网络里的好友们构成一个数组, 然后你想按好友年龄对数组排序.你可能会这么写代码:</p>
-                    <pre class="prettyprint"><code class="java language-java">Person[]rosterAsArray = roster.toArray(new Person[roster.size()]);//可认为roster是你好友的名册
-class PersonAgeComparator implements Comparator&lt;Person&gt; {
-public int compare(Person a, Person b) {
-        return a.getBirthday().compareTo(b.getBirthday());
-    }
-}
-Arrays.sort(rosterAsArray, new PersonAgeComparator());
-</code></pre>
-                    <p>sort方法定义如下:</p>
-                    <pre class="prettyprint"><code class="java language-java">static &lt;T&gt; void sort(T[] a, Comparator&lt;? super T&gt; c)
-</code></pre>
-                    <p>Comparator接口是一个函数接口. 因此,这里可以使用lambda表达式,省去了定义PersonAgeComparator类和创建一个类实例.</p>
-                    <p>修改如下:</p>
-                    <pre class="prettyprint"><code class="java language-java">Arrays.sort(rosterAsArray,
-    (Person a, Person b) -&gt; {
-        return a.getBirthday().compareTo(b.getBirthday());
-    }
-);
-</code></pre>
-                    <p>然而, 比较两个Person对象的生日大小的方法Person.compareByAge,已经在Person类中定义了.
-                        这样,在lambda表达式主体内直接调用Person.compareByAge就好了:</p>
-                    <pre class="prettyprint"><code class="java language-java">Arrays.sort(rosterAsArray,
-    (a, b) -&gt; Person.compareByAge(a, b)
-);
-</code></pre>
-                    <p>因为上面的lamdba表达式调用了一个现成的方法,所以可以用方法引用替代这个lamdba表达式:</p>
-                    <pre class="prettyprint"><code class="java language-java">Arrays.sort(rosterAsArray,
-   Person::compareByAge
-);
-</code></pre>
-                    <p>方法引用Person::compareByAge跟lambda表达式(a, b) -&gt; Person.compareByAge(a,b)在语义上是等价的. </p>
-                    <p>两者有如下的共同点:</p>
-                    <p>1.形参相同.都是(Person, Person).
-                        2.调用方法Person.compareByAge.</p>
-                    <div id="2"><h3>2 java方法引用的种类</h3></div>
-                    <table class="table table-bordered table-responsive text-center">
-                        <thead>
-                        <tr class="info">
-                            <td>类型</td>
-                            <td>示例</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>类静态方法引用</td>
-                            <td>ContainingClass::staticMethodName</td>
-                        </tr>
-                        <tr>
-                            <td>某个对象的方法引用</td>
-                            <td>ContainingObject::instanceMethodName</td>
-                        </tr>
-                        <tr>
-                            <td>特定类的任意对象的方法引用</td>
-                            <td>ContainingType::methodName</td>
-                        </tr>
-                        <tr>
-                            <td>构造方法引用</td>
-                            <td>ClassName::new</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 java静态方法引用</h4></div>
-                    <p>方法引用Person::compareByAge 就是对一个静态方法引用.</p>
-                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 java某个对象的方法引用</h4></div>
-                    <p>下面就是一个对特定对象的实例方法引用的例子:</p>
-                    <pre class="prettyprint"><code class="java language-java">class ComparisonProvider {
-    public int compareByName(Person a, Person b) {
-        return a.getName().compareTo(b.getName());
-    }
-    public int compareByAge(Person a, Person b) {
-        return a.getBirthday().compareTo(b.getBirthday());
-    }
-}
-ComparisonProvider myComparisonProvider = new ComparisonProvider();
-Arrays.sort(rosterAsArray, myComparisonProvider::compareByName);
-</code></pre>
-                    <p>这个方法引用myComparisonProvider::compareByName调用了myComparisonProvider对象的compareByName方法.
-                        JRE会推断出方法的类型参数,比如在这个例子中是(Person, Person).</p>
-                    <div id="2.3" class="dsd_title_c_2"><h4>2.3 java特定类的任意对象的方法引用</h4></div>
-                    <pre class="prettyprint"><code class="java language-java">String[]stringArray = { "Barbara", "James", "Mary", "John",
-    "Patricia", "Robert", "Michael", "Linda" };
-Arrays.sort(stringArray, String::compareToIgnoreCase);
-</code></pre>
-                    <p>与这个方法引用String::compareToIgnoreCase等价的lambda表达式要有形参列表(String a, String
-                        b),此处a和b是随意取的名字.这个方法引用将会触发a.compareToIgnoreCase(b) 方法执行.</p>
-                    <div id="2.4" class="dsd_title_c_2"><h4>2.4 java构造方法引用</h4></div>
-                    <p>使用new关键词引用构造方法就像引用类静态方法一样.下面方法实现了从一个集合复制其元素到另一个集合中:</p>
-                    <pre class="prettyprint"><code class="java language-java">public static &lt;T, SOURCE extends Collection&lt;T&gt;, DEST extends Collection&lt;T&gt;&gt;
-    DEST transferElements(
-        SOURCEsourceCollection,
-        Supplier&lt;DEST&gt;collectionFactory) {
-      DESTresult = collectionFactory.get();
-        for (T t : sourceCollection) {
-           result.add(t);
+                    <div id="1"><h3>1 HashMap与ConcurrentHashMap多线程同步的误区</h3></div>
+                    <p>使用了ConcurrentHashMap就意味着多线程环境中的数据是线程同步的吗？</p>
+                    <p>答案是不一定。用以下代码来作为示例来说明.</p>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 编码思路</h4></div>
+                    <ul>
+                        <li>分别创建一个全局HashMap和一个全局ConcurrentHashMap</li>
+                        <li>分别赋予初始值。</li>
+                        <li>多线程修改这两个集合</li>
+                        <li>然后输出值，比较最终结果。</li>
+                    </ul>
+                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 需要验证的结论</h4></div>
+                    <ul>
+                        <li>HashMap在多线程情况下操作不能保证数据同步。</li>
+                        <li>ConcurrentHashMap多线程操作同样不能保证数据同步。</li>
+                    </ul>
+                    <div id="1.3" class="dsd_title_c_2"><h4>1.3 验证代码</h4></div>
+                    <ul>
+                        <li>Demo1类，验证HashMap多线程操作数据不同步.</li>
+                    </ul>
+                    <pre class="prettyprint"><code>package com.dashidan.faq;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ *
+ * 大屎蛋教程网-dashidan.com
+ * HashMap与ConcurrentHashMap的区别于应用场景
+ * Created by 大屎蛋 on 2018/5/18.
+ */
+public class Demo1 {
+
+    public static void main(String[] args) {
+        /** 全局HashMap*/
+        HashMap&lt;Integer, Integer&gt; hashMap = new HashMap();
+        hashMap.put(0, 0);
+
+        /** 多线程编辑100次*/
+        for (int i = 0; i &lt; 100; i++) {
+            new Thread(new EditThread(hashMap)).start();
         }
-        return result;
+
+        /** 读取线程*/
+        new Thread(new ReadThread(hashMap)).start();
+        /** 输出最终结果*/
+        System.out.println("Demo1 main value " + hashMap.get(0));
+    }
+}
+
+class EditThread implements Runnable {
+
+    Map&lt;Integer, Integer&gt; hashMap;
+
+    public EditThread(Map&lt;Integer, Integer&gt; hashMap) {
+        this.hashMap = hashMap;
+    }
+
+    @Override
+    public void run() {
+        hashMap.put(0, hashMap.get(0) + 1);
+    }
+}
+
+class ReadThread implements Runnable {
+
+    Map&lt;Integer, Integer&gt; hashMap;
+
+    public ReadThread(Map&lt;Integer, Integer&gt; hashMap) {
+        this.hashMap = hashMap;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("value " + hashMap.get(0));
+    }
 }
 </code></pre>
-                    <p>函数接口Supplier有一个方法get,get无输入参数,输出是一个对象.这样,你可以使用一个lambda 表达式调用transferElements方法,如下所示:</p>
-                    <pre class="prettyprint"><code class="java language-java">Set&lt;Person&gt;rosterSetLambda =
-    transferElements(roster, () -&gt; { return new HashSet&lt;&gt;(); });
+                    <p>输出结果</p>
+                    <pre class="prettyprint"><code>Demo1 main value 76
+value 94
 </code></pre>
-                    <p>进一步,你可以使用构造方法引用来替代lambda 表达式:</p>
-                    <pre class="prettyprint"><code class="java language-java">Set&lt;Person&gt;rosterSet = transferElements(roster, HashSet::new);
+                    <p>这里每次运行的结果可能会不一样。</p>
+                    <ul>
+                        <li>Demo2类，验证ConcurrentHashMap多线程操作数据不同步.</li>
+                    </ul>
+                    <pre class="prettyprint"><code>package com.dashidan.faq;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * Created by bj on 2018/5/18.
+ */
+public class Demo2 {
+
+    public static void main(String[] args) {
+        /** 全局ConcurrentHashMap*/
+        ConcurrentHashMap&lt;Integer, Integer&gt; hashMap = new ConcurrentHashMap();
+        hashMap.put(0, 0);
+
+        /** 多线程编辑100次*/
+        for (int i = 0; i &lt; 100; i++) {
+            new Thread(new EditThread(hashMap)).start();
+        }
+
+        /** 读取线程*/
+        new Thread(new ReadThread(hashMap)).start();
+        /** 输出最终结果*/
+        System.out.println("Demo2 main value " + hashMap.get(0));
+    }
+}
 </code></pre>
-                    <p>Java编译器推断出你想创建一个HashSet集合,其中包含Person类型的元素.当然,你也可以像下面这样显式的指定集合元素的类型为Person</p>
-                    <pre class="prettyprint"><code class="java language-java">Set&lt;Person&gt;rosterSet = transferElements(roster,HashSet&lt;Person&gt;::new);
+                    <p>输出结果:</p>
+                    <pre class="prettyprint"><code>Demo2 main value 81
+value 84
 </code></pre>
-                    <div id="3"><h3>3 参考文章</h3></div>
-                    <p><a href="http://blog.csdn.net/wwwsssaaaddd/article/details/37573517">http://blog.csdn.net/wwwsssaaaddd/article/details/37573517</a>
-                    </p>
-                    <p><a href="http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html</a>
-                    </p>
+                    <p>多次运行，输出的结果可能不一致。这样说明多线程修改ConcurrentHashMap中的数据，不能保证多线程同步。需要进行加锁或者其他能达到线程同步的方式配合使用。</p>
+                    <div id="2"><h3>2 HashMap应用场景</h3></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 HashpMap多线程情况下的ConcurrentModificationException</h4>
+                    </div>
+                    <p>当方法检测到对象的并发修改(单线程情况也可能)，但不允许这种修改时，抛出ConcurrentModificationException异常。</p>
+                    <pre class="prettyprint"><code>package com.dashidan.faq;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * HashMap与ConcurrentHashMap的区别于应用场景
+ * Created by 大屎蛋 on 2018/5/18.
+ */
+public class Demo3 {
+
+    public static void main(String[] args) {
+        /** 全局HashMap*/
+        HashMap&lt;Integer, Integer&gt; hashMap = new HashMap();
+
+        /** 多线程编辑100次*/
+        for (int i = 0; i &lt; 1000; i++) {
+            hashMap.put(i, i);
+        }
+
+        new Thread(new AddThread(hashMap)).start();
+        new Thread(new RemoveThread(hashMap)).start();
+
+        /** 读取线程*/
+        new Thread(new IteratorThread(hashMap)).start();
+        /** 输出最终结果*/
+    }
+}
+
+class AddThread implements Runnable {
+    Map&lt;Integer, Integer&gt; hashMap;
+
+    public AddThread(Map&lt;Integer, Integer&gt; hashMap) {
+        this.hashMap = hashMap;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            int random = new Random().nextInt();
+            hashMap.put(random, random);
+        }
+    }
+}
+
+class RemoveThread implements Runnable {
+    Map&lt;Integer, Integer&gt; hashMap;
+
+    public RemoveThread(Map&lt;Integer, Integer&gt; hashMap) {
+        this.hashMap = hashMap;
+    }
+
+    @Override
+    public void run() {
+        int random = new Random().nextInt(1000);
+        while (true) {
+            hashMap.remove(random);
+        }
+    }
+}
+
+
+class IteratorThread implements Runnable {
+
+    Map&lt;Integer, Integer&gt; hashMap;
+
+    public IteratorThread(Map&lt;Integer, Integer&gt; hashMap) {
+        this.hashMap = hashMap;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("------------------ " + hashMap.size());
+        for (Integer value : hashMap.values()) {
+//            System.out.println("value " + value);
+        }
+        System.out.println("+++++++++++++++++++ " + hashMap.size());
+    }
+}
+</code></pre>
+                    <p>输出结果:</p>
+                    <pre class="prettyprint"><code>------------------ 1259
+Exception in thread "Thread-2" java.util.ConcurrentModificationException
+    at java.util.HashMap$HashIterator.nextNode(HashMap.java:1429)
+    at java.util.HashMap$ValueIterator.next(HashMap.java:1458)
+    at com.dashidan.faq.IteratorThread.run(Demo3.java:78)
+    at java.lang.Thread.run(Thread.java:745
+</code></pre>
+                    <p>输出结果可能不一致，多次运行有几率出现ConcurrentModificationException异常.这个异常会导致程序运行停止.</p>
+                    <div id="2.3" class="dsd_title_c_2"><h4>2.3 推荐HashMap应用场景</h4></div>
+                    <p>
+                        上文中的输出示例验证了多线程操作下HashMap无法保证数据同步，多线程修改HashMap并且有遍历的操作时，可能会产生ConcurrentModificationException异常。所以，推荐的HashMap应用场景是单线程运行环境，并且不需要遍历操作的场景。</p>
+                    <p>这个推荐场景不是硬性条件。比如多线操作HashMap，我们通过加锁或者加入同步控制依然能正常应用HashMap，只是需要加上同步操作的代价。</p>
+                    <div id="3"><h3>3 推荐ConcurrentHashMap应用场景</h3></div>
+                    <p>ConcurrentHashMap所有操作都是线程安全的，但获取操作不必锁定，并且不支持以某种防止所有访问的方式锁定整个表。获取操作（包括 get）通常不会受阻塞，因此，可能与更新操作交迭（包括
+                        put 和 remove）。在创建迭代器/枚举时或自此之后，Iterators 和 Enumerations返回在某一时间点上影响哈希表状态的元素。它们不会 抛出
+                        ConcurrentModificationException。</p>
+                    <p>在上文中的HashMap示例中，我们将HashMap改为ConcurrentHashMap，来看看会发生什么.以下示例代码：</p>
+                    <pre class="prettyprint"><code>package com.dashidan.faq;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * HashMap与ConcurrentHashMap的区别于应用场景
+ * Created by 大屎蛋 on 2018/5/18.
+ */
+public class Demo4 {
+
+    public static void main(String[] args) {
+        /** 全局ConcurrentHashMap*/
+        ConcurrentHashMap&lt;Integer, Integer&gt; hashMap = new ConcurrentHashMap();
+
+        /** 多线程编辑1000次*/
+        for (int i = 0; i &lt; 1000; i++) {
+            hashMap.put(i, i);
+        }
+
+        new Thread(new AddThread(hashMap)).start();
+        new Thread(new RemoveThread(hashMap)).start();
+
+        /** 读取线程*/
+        new Thread(new IteratorThread(hashMap)).start();
+    }
+}
+</code></pre>
+                    <p>输出结果</p>
+                    <pre class="prettyprint"><code>------------------ 1381
++++++++++++++++++++ 3072
+</code></pre>
+                    <p>每次运行输出结果可能会不一致。这个是多线程操作下，不能保证插入顺序，所以插入的随机值位置不固定。输出遍历前h后的ConcurrentHashMap长度不一致。</p>
+                    <p>
+                        这种情况说明，在遍历ConcurrentHashMap时如果遍历过程中，该集合的机构发生变化，比如put,remove数据。这时不会抛出ConcurrentModificationException，能够正常遍历完成ConcurrentHashMap.</p>
+                    <ul>
+                        <li>ConcurrentHashMap推荐应用场景
+                            多线程对HashMap数据添加删除操作时，可以采用ConcurrentHashMap。
+                        </li>
+                    </ul>
                 </div>
                 <div>
-                    转载请保留<a href="https://dashidan.com/article/java/jdk8/6.html">原文链接</a>.
+                    转载请保留<a href="https://dashidan.com/article/java/faq/1.html">原文链接</a>.
                 </div>
             </div>
 
@@ -382,13 +508,12 @@ Arrays.sort(stringArray, String::compareToIgnoreCase);
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/java/jdk8/5.html"> &lt; 5.JDK8的default方法</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/java/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/java/jdk8/7.html"> 7.JDK8集合类库的批量数据操作 &gt;</a>
+        <a href="https://dashidan.com/article/java/faq/2.html"> 2.HashMap中的put和putIfAbsense区别 &gt;</a>
     </div>
 </footer>
 

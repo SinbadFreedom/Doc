@@ -1,0 +1,4 @@
+{
+  "title": "HashMap与ConcurrentHashMap的区别与应用场景 - java常见问题 - 大屎蛋教程网",
+  "desc": "从JDK1.5开始加入了ConcurrentHashMap，在面试的过程中我问过很多程序员，HashpMap与ConcurrentHashMap的区别是什么呢。我得到的回答一般都是HashpMap不是线程安全的，ConcurrentHashMap是线程安全的。这个结论很笼统。下面我来详细的举例说明他们之间的区别。"
+}

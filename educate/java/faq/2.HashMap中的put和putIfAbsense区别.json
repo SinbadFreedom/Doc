@@ -1,0 +1,4 @@
+{
+  "title": "HashMap中的put和putIfAbsense区别 - java常见问题 - 大屎蛋教程网",
+  "desc": "HashMap集合类中有put()方法，还提供了一个putIfAbsent方法，在项目中一个同事用错putIfAbsent方法，从而导致了一个比较严重的bug。在本文中总结了一下这两个方法的区别与应用场景, 避免用错。"
+}

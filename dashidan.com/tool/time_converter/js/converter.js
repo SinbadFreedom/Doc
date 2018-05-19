@@ -24,7 +24,7 @@ function generateExamples(config) {
                    / 1000
                    - parseInt(eval(config.time),
                               10),
-        10) + '</p>'
+                   10) + '</p>'
         + examples;
 }
 
