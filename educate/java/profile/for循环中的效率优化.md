@@ -1,0 +1,203 @@
+在编码中，我们像竞技运动员一样追求更快的速度。追求最优的算法，看到一些同学的编码质量停留着实现功能的层面，距离最优编码相差很远。所以一直想整理一下自己在实际项目遇到的问题和效率优化的文章和大家分享一下。本文是该系列文章的第一篇。for循环的效率优化。
+
+1 for循环和增强for循环的选择
+===
+
+jdk5.0加入了增强for循环，代码比普通for循环更加简洁。
+
+- 普通for循环格式举例
+
+```
+for (int i = 0; i < 1000000; i++) {
+	list.add(i);
+}
+```
+
+- 增强for循环格式举例
+
+```
+for (Integer i : list) {
+	int n = i;
+}
+```
+
+我们通过一个简单的代码场景来比较一下普通for循环和增强for循环的效率。
+
+1.1 实验场景
+---
+
+初始化一个长度为1000000的ArrayList，分别通过for循环和增强for循环来遍历，计算时间差。
+
+示例代码:
+
+```
+package com.dashidan.profile;
+
+import java.util.ArrayList;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * HashMap与ConcurrentHashMap的区别于应用场景
+ * Created by 大屎蛋 on 2018/5/22.
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+
+        /** 初始化数组*/
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 1000000; i++) {
+            list.add(i);
+        }
+
+        /** 普通for循环遍历*/
+        long t1 = System.currentTimeMillis();
+        for (int i = 0; i < list.size(); i++) {
+            int n = list.get(i);
+        }
+
+        /** 增强for循环遍历*/
+        long t2 = System.currentTimeMillis();
+        for (Integer i : list) {
+            int n = i;
+        }
+        long t3 = System.currentTimeMillis();
+
+        System.out.println(t2 - t1);
+        System.out.println(t3 - t2);
+    }
+}
+
+```
+
+输出
+```
+5
+5
+```
+
+这个值根据电脑配置不同，输出可能会有区别。多运行几次，整体看来区别不大，所以这两种for循环便利效率区别不大.增强for循环代码更加简洁。对集合进行遍历推荐采用增强for循环.
+
+2 for循环遍历HashMap的优化
+===
+
+for循环遍历HashMap常用的有4种方式。
+
+- 通过hashMap.keySet()遍历
+
+keySet()方法返回HashMap中的key值的集合，然后通过get()方法传入key值，可以得到key对应的value值。示例代码:
+```
+	for (Integer key : hashMap.keySet()) {
+		int value = hashMap.get(key);
+	}
+```
+
+- 通过hashMap.values()遍历
+
+values()方法返回HashMap中的value值的集合。示例代码:
+
+```
+for (Integer v : hashMap.values()) {
+	int value = v;
+}
+```
+
+- 通过hashMap.entrySet()遍历
+entrySet()方法返回HashMap中的key-value键值对集合。key和value一一对应，都可以获取到。示例代码:
+
+```
+for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+	int key = entry.getKey();
+	int value = entry.getValue();
+}
+```
+
+- 通过Iterator遍历
+
+以上3中遍历方式都可以获取结果集合的迭代器(Iterator),通过Iterator.next()方法遍历结果集.示例代码:
+
+```
+Iterator<Integer> integerIterator = hashMap.values().iterator();
+while (integerIterator.hasNext()) {
+	int value = integerIterator.next();
+}
+```
+
+
+写一个测试程序测试一下上述4中遍历方式的效率.示例代码:
+
+```
+package com.dashidan.profile;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * for循环中的效率优化
+ * Created by 大屎蛋 on 2018/5/22.
+ */
+public class Demo2 {
+    public static void main(String[] args) {
+        int count = 1000000;
+        /** 初始化HashMap*/
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+        long t0 = System.currentTimeMillis();
+        for (int i = 0; i < count; i++) {
+            hashMap.put(i, i);
+        }
+
+        /** 遍历Key获取Value*/
+        long t1 = System.currentTimeMillis();
+        for (Integer key : hashMap.keySet()) {
+            int value = hashMap.get(key);
+        }
+
+        /** 遍历value*/
+        long t2 = System.currentTimeMillis();
+        for (Integer v : hashMap.values()) {
+            int value = v;
+        }
+
+        long t3 = System.currentTimeMillis();
+        /** 遍历Entry*/
+        for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+            int key = entry.getKey();
+            int value = entry.getValue();
+        }
+
+        long t4 = System.currentTimeMillis();
+        /** Iterator 遍历*/
+        Iterator<Integer> integerIterator = hashMap.values().iterator();
+        while (integerIterator.hasNext()) {
+            int value = integerIterator.next();
+        }
+
+        long t5 = System.currentTimeMillis();
+
+        System.out.println(t1 - t0);
+        System.out.println(t2 - t1);
+        System.out.println(t3 - t2);
+        System.out.println(t4 - t3);
+        System.out.println(t5 - t4);
+    }
+}
+
+```
+
+输出结果
+
+```
+78
+21
+10
+11
+9
+```
+
+注意这个输出结果，每次运行可能显示不一致。总体说来，HashMap的put方法耗时会多余get方法。通过遍历keySet，然后再通过key获取value的方式效率最低。其余集中方式效率差不多。
+
+结论:
+- 如果只需要遍历value值，推荐采用遍历values()集合的方式。
+- 如果遍历hashmap时，key和value都需要用到，推荐采用遍历entrySet的方式.
