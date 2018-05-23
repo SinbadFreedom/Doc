@@ -1,0 +1,1 @@
+JDK提供的Collection.sort()方法排序和自定义内存排序.
