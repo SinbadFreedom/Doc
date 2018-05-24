@@ -1,0 +1,446 @@
+在我的项目中部分功能模块会用到遍历一个集合类，遍历的同时根据条件判断集合中的对象，如果不符合条件则将该对象从集合中移除。这种情况很容易产生ConcurrentModificationExceptionException，这个异常会导致程序停止继续运行，所以遇到这个异常必须要处理来保证程序正确运行。
+
+1 关于ConcurrentModificationException
+===
+
+ConcurrentModificationException这个异常是从JDK1.2时就存在。当方法检测到对象的并发修改，但不允许这种修改时，抛出此异常。这个异常在单线程和多线程运行环境都可以产生。
+
+某个线程在 Collection 上进行迭代时，通常不允许另一个线性修改该Collection。通常在这些情况下，迭代的结果是不确定的。如果检测到这种行为，一些迭代器实现（包括JRE提供的所有通用collection实现）可能选择抛出此异常。
+
+执行该操作的迭代器称为快速失败迭代器，因为迭代器很快就完全失败，而不会冒着在将来某个时间任意发生不确定行为的风险。
+
+执行该操作的迭代器称为快速失败迭代器，因为迭代器很快就完全失败，而不会冒着在将来某个时间任意发生不确定行为的风险。迭代器的快速失败行为无法得到保证，因为一般来说，不可能对是否出现不同步并发修改做出任何硬性保证。快速失败操作会尽最大努力抛出ConcurrentModificationException。
+
+因此，为提高此类操作的正确性而编写一个依赖于此异常的程序是错误的做法，正确做法是：ConcurrentModificationException 应该仅用于检测 bug。
+
+2 单线程触发场景举例
+===
+
+2.1 单线程触发举例
+---
+
+如果线程使用快速失败迭代器在collection上迭代时直接修改该collection，则迭代器将抛出此异常。
+
+触发场景
+1.初始化集合类访入100个对象，并给这些对象的属性value值赋1-100的值。
+2.遍历该集合类，判断对象的value值小于10则删除。
+3.运行程序会抛出ConcurrentModificationException异常。
+
+```
+package com.dashidan.faq4;
+
+import java.util.ArrayList;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * 4.ConcurrentModifyException的产生原因及如何避免
+ * Created by 大屎蛋 on 2018/5/24.
+ */
+public class Demo1 {
+
+    public static void main(String[] args) {
+        /** 初始化集合类*/
+        ArrayList<TestObj> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(new TestObj(i));
+        }
+
+        /** 遍历时删除元素*/
+        for (TestObj obj : list) {
+            if (obj.getValue() < 10) {
+                /** 这里会抛出ConcurrentModificationException*/
+                list.remove(obj);
+            }
+        }
+    }
+}
+
+class TestObj {
+    int value;
+
+    public TestObj(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+}
+```
+
+运行结果:
+
+```
+Exception in thread "main" java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:901)
+	at java.util.ArrayList$Itr.next(ArrayList.java:851)
+	at com.dashidan.faq4.Demo1.main(Demo1.java:20)
+```
+
+看.抛出这个异常就是这么简单。
+
+2.2 解决单线程环境的ConcurrentModificationException异常
+---
+
+单线程环境中可以通过将ArrayList集合改为CopyOnWriteArrayList，或者可以通过迭代器遍历删除，可以避免出现ConcurrentModificationException异常.
+
+
+2.3 ArrayList集合改为CopyOnWriteArrayLis
+---
+
+示例代码:
+
+```
+package com.dashidan.faq4;
+
+import java.util.concurrent.CopyOnWriteArrayList;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * 4.ConcurrentModifyException的产生原因及如何避免
+ * Created by 大屎蛋 on 2018/5/24.
+ */
+public class Demo2 {
+
+    public static void main(String[] args) {
+        /** 初始化集合类*/
+        CopyOnWriteArrayList<TestObj> list = new CopyOnWriteArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(new TestObj(i));
+        }
+
+        /** 遍历时删除元素*/
+        for (TestObj obj : list) {
+            if (obj.getValue() < 10) {
+                /** 这里不会抛出ConcurrentModificationException*/
+                list.remove(obj);
+            }
+        }
+
+        System.out.println();
+    }
+}
+
+```
+
+2.4 通过迭代器遍历删除
+---
+
+通过集合类的iterator()方法获取迭代器对象Iterator<TestObj>,通过迭代器对象的iterator.hasNext()方法判断是否还有数据，如果有的话，通过iterator.next()方法得到下一个对象，然后通过iterator.remove()方法删除.在单线程环境中这样可以避免出现ConcurrentModificationException。
+
+
+示例代码:
+
+```
+package com.dashidan.faq4;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * 4.ConcurrentModifyException的产生原因及如何避免
+ * Created by 大屎蛋 on 2018/5/24.
+ */
+public class Demo3 {
+
+    public static void main(String[] args) {
+        for (int n = 0; n < 1000000; n++) {
+            /** 初始化集合类*/
+            ArrayList<TestObj> list = new ArrayList<>();
+            for (int i = 0; i < 100; i++) {
+                list.add(new TestObj(i));
+            }
+
+            /** 遍历时删除元素*/
+            Iterator<TestObj> iterator = list.iterator();
+            while (iterator.hasNext()) {
+                TestObj testObj = iterator.next();
+                if (testObj.getValue() < 10) {
+                    iterator.remove();
+                }
+            }
+        }
+	}
+}
+
+
+```
+
+2.5 这两种方式的效率比较
+---
+
+每个都执行一百万次比较时间：
+
+- Demo2测试代码
+
+```
+package com.dashidan.faq4;
+
+import java.util.concurrent.CopyOnWriteArrayList;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * 4.ConcurrentModifyException的产生原因及如何避免
+ * Created by 大屎蛋 on 2018/5/24.
+ */
+public class Demo2 {
+
+    public static void main(String[] args) {
+        long t1 = System.currentTimeMillis();
+        for (int n = 0; n < 1000000; n++) {
+            /** 初始化集合类*/
+            CopyOnWriteArrayList<TestObj> list = new CopyOnWriteArrayList<>();
+            for (int i = 0; i < 100; i++) {
+                list.add(new TestObj(i));
+            }
+
+            /** 遍历时删除元素*/
+            for (TestObj obj : list) {
+                if (obj.getValue() < 10) {
+                    /** 这里不会抛出ConcurrentModificationException*/
+                    list.remove(obj);
+                }
+            }
+        }
+
+        long t2 = System.currentTimeMillis();
+        System.out.println("t2 - t1 " + (t2 - t1));
+    }
+}
+```
+
+输出结果:
+
+```
+t2 - t1 7013
+```
+
+- Demo1测试代码
+
+```
+package com.dashidan.faq4;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * 4.ConcurrentModifyException的产生原因及如何避免
+ * Created by 大屎蛋 on 2018/5/24.
+ */
+public class Demo3 {
+
+    public static void main(String[] args) {
+        long t1 = System.currentTimeMillis();
+        for (int n = 0; n < 1000000; n++) {
+            /** 初始化集合类*/
+            ArrayList<TestObj> list = new ArrayList<>();
+            for (int i = 0; i < 100; i++) {
+                list.add(new TestObj(i));
+            }
+
+            /** 遍历时删除元素*/
+            Iterator<TestObj> iterator = list.iterator();
+            while (iterator.hasNext()) {
+                TestObj testObj = iterator.next();
+                if (testObj.getValue() < 10) {
+                    iterator.remove();
+                }
+            }
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println("t2 - t1 " + (t2 - t1));
+    }
+}
+
+```
+
+输出结果:
+```
+t2 - t1 1919
+```
+
+输出结果可能不一样，但可以从数据上看出第二种方法效率高于第一种方法.
+
+单线程环境中推荐第二种方式，第二种方式的适应性适应性更广，继承自Collection类的集合类，都可以采用这种方式。
+
+3 多线程触发举例
+===
+
+多线程情景中，一个线程遍历，一个线程修改，即使采用迭代器(Iterator)来遍历还是会出现ConcurrentModificationException异常，单线程情境下安全的操作，多线程情境中不再安全。
+
+3.1 多线程触发步骤
+---
+
+1.初始化一个集合类。
+2.启动一个线程随机删除数据。
+3.主线程不停的遍历该集合。
+
+3.2 示例代码
+---
+
+```
+package com.dashidan.faq4;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * 4.ConcurrentModifyException的产生原因及如何避免
+ * Created by 大屎蛋 on 2018/5/24.
+ */
+public class Demo4 {
+
+    public static void main(String[] args) {
+        /** 初始化集合类*/
+        ArrayList<TestObj> list = new ArrayList<>();
+        for (int i = 0; i < 10000000; i++) {
+            list.add(new TestObj(i));
+        }
+
+        /**启动一个线程随机删除数据*/
+        new Thread(new ThreadClass(list)).start();
+
+        /** 遍历元素*/
+<TestObj> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            TestObj testObj = iterator.next();
+        }
+    }
+}
+
+
+class ThreadClass implements Runnable {
+
+    List<TestObj> list;
+
+    public ThreadClass(List<TestObj> list) {
+        this.list = list;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            int index = new Random().nextInt(list.size());
+            list.remove(index);
+        }
+    }
+}
+```
+
+3.3 解决多线程环境的ConcurrentModificationException异常
+---
+
+将ArrayList改为CopyOnWriteArrayList在多线程环境中同样可以避免出现这个异常。
+
+示例代码:
+
+```
+package com.dashidan.faq4;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * 4.ConcurrentModifyException的产生原因及如何避免
+ * Created by 大屎蛋 on 2018/5/24.
+ */
+public class Demo5 {
+    public static void main(String[] args) {
+        /** 初始化集合类*/
+        ArrayList<TestObj> list = new ArrayList<>();
+        for (int i = 0; i < 10000000; i++) {
+            list.add(new TestObj(i));
+        }
+
+        CopyOnWriteArrayList<TestObj> list1 = new CopyOnWriteArrayList<>(list);
+
+        /**启动一个线程随机删除数据*/
+        new Thread(new ThreadClass(list1)).start();
+
+        /** 遍历元素*/
+        Iterator<TestObj> iterator = list1.iterator();
+        while (iterator.hasNext()) {
+            TestObj testObj = iterator.next();
+        }
+
+        System.out.println("end");
+    }
+}
+
+```
+
+这里需要注意的是需要先放入ArrayList中然后在通过CopyOnWriteArrayList构造函数中传入参数来实现这个测试。
+
+如果直接将3.2中的实例代码中的ArrayList改为CopyOnWriteArrayList，程序会花大量的时间用在初始化上。因为CopyOnWriteArrayList每次修改数据都会复制一个新的数组。这种效率上的消耗也是比较大。
+
+
+3.4 采用ConcurrentHashMap替换HashMap
+---
+
+如果上述例子中的ArrayList替换为HashMap，也会出现这个异常。解决方案是：多线程环境修改和遍历HashMap，采用ConcurrentHashMap替换HashMap类，可以避免出现ConcurrentModificationException异常。
+
+示例代码:
+```
+package com.dashidan.faq4;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * 4.ConcurrentModifyException的产生原因及如何避免
+ * Created by 大屎蛋 on 2018/5/24.
+ */
+public class Demo6 {
+    public static void main(String[] args) {
+        /** 初始化集合类*/
+        ConcurrentHashMap<Integer, TestObj> map = new ConcurrentHashMap<>();
+        for (int i = 0; i < 1000000; i++) {
+            map.put(i, new TestObj(i));
+        }
+
+        /**启动一个线程随机删除数据*/
+        new Thread(new ThreadClass1(map)).start();
+
+        /** 遍历元素*/
+        Iterator<TestObj> iterator = map.values().iterator();
+        while (iterator.hasNext()) {
+            TestObj testObj = iterator.next();
+        }
+
+        System.out.println("end");
+    }
+}
+
+class ThreadClass1 implements Runnable {
+
+    Map<Integer, TestObj> map;
+
+    public ThreadClass1(Map<Integer, TestObj> map) {
+        this.map = map;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            if (map.size() > 0) {
+                int index = new Random().nextInt(map.size());
+                map.remove(index);
+            }
+        }
+    }
+}
+```
+
+4 其他方法
+===
+
+文中提到是作者常用的一些解决方案，还有其他的替代方案，比如采用同步锁等的方案等。在写代码的过程中多思考多总结。办法总比问题多。
