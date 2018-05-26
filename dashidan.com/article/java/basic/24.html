@@ -1,0 +1,418 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>transient关键字详解 - java教程 - 大屎蛋教程网</title>
+    <meta name="description"
+          content="我在自己的项目中很少使用transient关键字。这个关键字的作用是和序列化相关的。JDK的源码中ArrayList类用到了transient关键字. 整理一下这个关键字相关的内容.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/java/basic/24.html">
+
+    <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/java/index.html">java</a> > basic > 24.transient关键字详解
+        </div>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div class="dsd_title" onclick="clickTitle('basic')">
+                    <span id="basic_title">+ Java入门到精通</span>
+                </div>
+                <div id="basic" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('jdk8')">
+                    <span id="jdk8_title">+ JDK8新特性</span>
+                </div>
+                <div id="jdk8" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('addenda')">
+                    <span id="addenda_title">+ 附录</span>
+                </div>
+                <div id="addenda" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('idea')">
+                    <span id="idea_title">+ Intelij IDEA</span>
+                </div>
+                <div id="idea" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('api')">
+                    <span id="api_title">+ Java中文手册</span>
+                </div>
+                <div id="api" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('faq')">
+                    <span id="faq_title">+ FAQ</span>
+                </div>
+                <div id="faq" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayListt原理及转化成数组常用方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('profile')">
+                    <span id="profile_title">+ 程序优化专题</span>
+                </div>
+                <div id="profile" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>24.transient关键字详解</h1></article>
+                <div id="xs_content_border">
+                    <div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 接口 Serializable</a><br><a href="#2">2
+                            序列化与反序列化</a><br><a href="#3">3 transient关键字</a><br><a href="#3.1">&nbsp;&nbsp;3.1
+                            JDK中transient关键字应用举例</a><br><a href="#3.2">&nbsp;&nbsp;3.2 对象序列化transient关键字应用举例</a></div>
+                    </div>
+                    <div class="jumbotron">
+                        <p>我在自己的项目中很少使用transient关键字。这个关键字的作用是和序列化相关的。JDK的源码中ArrayList类用到了transient关键字.整理一下这个关键字相关的内容.
+                        </p>
+                    </div>
+                    <div id="1"><h3>1 接口 Serializable</h3></div>
+                    <p>提到transient关键字之前需要先了解Serializable接口. <a href="https://dashidan.com/apidoc/java/api6/index.html">Serializable接口
+                        JDK1.6文档</a>.
+                        java.io.Serializable接口中没有任何方法或者字段，仅用于标识可序列化的语义。类通过实现接口以启用其序列化功能。未实现此接口的类将无法使其任何状态序列化或反序列化。可序列化类的所有子类型本身都是可序列化的。
+                    </p>
+                    <div id="2"><h3>2 序列化与反序列化</h3></div>
+                    <p>序列化是指将对象的状态信息转换为可以存储或传输的形式的过程。简单理解为，对象转换为字节序列的过程称为对象的序列化；把字节序列恢复为对象的过程称为对象的反序列化。</p>
+                    <div id="3"><h3>3 transient关键字</h3></div>
+                    <p>这个类实现了Serilizable接口，这个类的所有属性和方法都会自动序列化。</p>
+                    <p>在实际开发过程中，这个类的有些属性需要序列化，而其他属性不需要被序列化。
+                        例如：一些敏感信息（如密码，银行卡号等），为了安全起见，不希望在网络操作（主要涉及到序列化操作，本地序列化缓存也适用）中被传输，这些信息对应的变量就可以加上transient关键字。换句话说，这个字段的生命周期仅存于调用者的内存中而不会写到磁盘里持久化。</p>
+                    <p>实现Serilizable接口，将不需要序列化的属性前添加关键字transient，序列化对象的时候，这个属性就不会序列化到指定的目的地中。</p>
+                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 JDK中transient关键字应用举例</h4></div>
+                    <p>ArrayList源码中应用到了transient关键字。</p>
+                    <pre class="prettyprint"><code>transient Object[] elementData; // non-private to simplify nested class access
+</code></pre>
+                    <p>
+                        elementData是一个缓存数组，通常会预留一些容量，等容量不足时再扩充。扩充空间超过实际数据长度的冗余部分，没有实际意义。不需要进行序列化。所以ArrayList的设计者将elementData设计为transient，然后在writeObject方法中只序列化了实际存储的那些元素，而不是整个数组。</p>
+                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 对象序列化transient关键字应用举例</h4></div>
+                    <ul>
+                        <li><p>实现步骤：
+                            1.创建一个简单的类，定义几个成员变量，其中的一个变量设置为transient关键字修饰。
+                            2.创建一个字节输出流，将这个对象序列化，输出到字节数组中。
+                            3.创建一个输入流，从这个字节数组反序列化，实例化这个对象。
+                            4.输出这个对象的属性，查看有transient关键字修饰修饰的变量，和没有这个关键词修饰的变量的区别。</p></li>
+                        <li><p>示例代码</p></li>
+                    </ul>
+                    <pre class="prettyprint"><code>package com.dashidan.lesson24;
+
+import java.io.*;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * Java教程基础篇:  24.transient关键字详解
+ * 2018/5/26
+ */
+public class Demo1 {
+
+    static int id = 100;
+    static String name = "大屎蛋";
+    static String url = "http://dashidan.com";
+    static String weather = "晴朗";
+
+    public static void main(String[] args) {
+
+        /** 创建测试对象*/
+        TestObject testObject = new TestObject(id, name, url, weather);
+        try {
+            /** 将对象序列化，输出到byte[]中*/
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream outputStream = new ObjectOutputStream(byteArrayOutputStream);
+            outputStream.writeObject(testObject);
+            outputStream.close();
+            byte[] bytes = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.close();
+
+            /** 将byte[]字节反序列化，转化为对象*/
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+            ObjectInputStream inputStream = new ObjectInputStream(byteArrayInputStream);
+            TestObject obj = (TestObject) inputStream.readObject();
+            inputStream.close();
+            byteArrayInputStream.close();
+
+            /** 输出运行结果*/
+            System.out.println(obj.getId());
+            System.out.println(obj.getName());
+            System.out.println(obj.getUrl());
+            System.out.println(obj.getWeather());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+/**
+ * 实现Serializable接口的测试类，其中weather属性被定义transient
+ */
+class TestObject implements Serializable {
+
+    int id;
+    String name;
+    String url;
+    transient String weather;
+
+    public TestObject(int id, String name, String url, String weather) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.weather = weather;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+}
+</code></pre>
+                    <p>输出结果</p>
+                    <pre class="prettyprint"><code>100
+大屎蛋
+http://dashidan.com
+null
+</code></pre>
+                    <p>从这个输出结果可以看出由transient修饰的变量输出为null,说明没有序列化。</p>
+                    <p>将这个关键字删除，再运行一遍，输出结果:</p>
+                    <pre class="prettyprint"><code>100
+大屎蛋
+http://dashidan.com
+晴朗
+</code></pre>
+                    <p>移除这个关键字以后，输出结果中就能反序列出这个属性的值。通过这个简单的例子可以理解transient关键字在序列化与反序列化中的作用。</p>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/java/basic/24.html">原文链接</a>.
+                </div>
+            </div>
+
+            <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div><span style="color: darkgray">广告赞助</span></div>
+                <script type="text/javascript">
+                    /*160*600 创建于 2018/3/23*/
+                    var cpro_id = "u3395011";
+                </script>
+                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="https://dashidan.com/article/java/basic/23.html"> &lt; 23.final关键字作用详解</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/java/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+    </div>
+</footer>
+
+<script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="https://dashidan.com/js/bootstrap.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="https://dashidan.com/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+{
+  "title": "java数组拷贝的3种方式和效率对比 - java效率优化专题 - 大屎蛋教程网",
+  "desc": "Java语言中常用的数组拷贝方式有：for循环拷贝，通过Arrays.copyOf()方法，System.arraycopy和clone()方法拷贝。"
+}

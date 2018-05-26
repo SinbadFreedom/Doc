@@ -11,7 +11,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="amphtml" href="https://amp.dashidan.com/article/java/faq/.html">
+    <link rel="amphtml" href="https://amp.dashidan.com/article/java/profile/.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -70,6 +70,9 @@
             </div>
             <div class="dsd_title">
                 <a href="#faq_title">FAQ</a>
+            </div>
+            <div class="dsd_title">
+                <a href="#profile_title">程序优化专题</a>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -285,6 +288,15 @@
                         在java中final关键字有第一无二的特性，就是只可以赋值一次，一旦赋值，就无法改变其值。利用好这个特性可以写出非常好的代码。
                     </div>
                 </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/java/basic/24.html"><span
+                            class="dsd_index_title">24.transient关键字详解</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        我在自己的项目中很少使用transient关键字。这个关键字的作用是和序列化相关的。JDK的源码中ArrayList类用到了transient关键字. 整理一下这个关键字相关的内容.
+                    </div>
+                </div>
             </div>
             <div>
                 <span id="jdk8_title"><h3>JDK8新特性</h3></span>
@@ -486,6 +498,75 @@
                     <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
                         HashMap集合类中有put()方法，还提供了一个putIfAbsent方法，在项目中一个同事用错putIfAbsent方法，从而导致了一个比较严重的bug。在本文中总结了一下这两个方法的区别与应用场景,
                         避免用错。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/java/faq/3.html"><span
+                            class="dsd_index_title">3.java ArrayListt原理及转化成数组常用方法</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在实际项目中会用根据需求用到ArrayList和数组之间的转换。比如往MongoDB数据库中存入一个整型数组(int[])，读取的时候可以得到一个ArrayList&lt;Integer&gt;，无法直接得到一个整型数组(int[]).这个时候就会需要用到ArrayList转化为数组.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/java/faq/4.html"><span
+                            class="dsd_index_title">4.ConcurrentModifyException的产生原因及如何避免</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在我做的一个模块中，会用到遍历一个集合类，遍历的同时根据条件判断集合中的对象，如果不符合条件则将该对象从集合中移除。这种情况很容易产生ConcurrentModificationExceptionException，这个异常会导致程序停止继续运行，所以遇到这个异常必须要处理来保证程序正确运行。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/java/faq/5.html"><span
+                            class="dsd_index_title">5.Java随机数Random类</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        随机数Random类是在做随机规则时需要用到的类。用途很广，比如随机抽奖，随机密码，随机验证码，随机奖励等，随机数，计算概率等。
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span id="profile_title"><h3>程序优化专题</h3></span>
+            </div>
+            <hr>
+            <div id="profile">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/java/profile/1.html"><span
+                            class="dsd_index_title">1.for循环中的效率优化</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在编码中，我们像竞技运动员一样追求更快的速度。追求最优的算法，看到一些同学的编码质量停留着实现功能的层面，距离最优编码相差很远。所以一直想整理一下自己在实际项目遇到的问题和效率优化的文章和大家分享一下。本文是该系列文章的第一篇。for循环的效率优化。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/java/profile/2.html"><span
+                            class="dsd_index_title">2.java数组拷贝的3种方式和效率对比</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        Java语言中常用的数组拷贝方式有：for循环拷贝，通过Arrays.copyOf()方法，System.arraycopy和clone()方法拷贝。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/java/profile/3.html"><span
+                            class="dsd_index_title">3.java浮点数运算和整数型运算的效率比较</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        部分程序员对应浮点数(float,double)做运算的时候，会有一个误区就是浮点数运算效率比整型运算效率低很多。产生这个认识的原因是因为以人的角度来考虑这个问题，做小数除法要比做整数除法麻烦一些而得出的。通过实际代码来比较一下这差异。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/java/profile/4.html"><span
+                            class="dsd_index_title">4.3目运算符效率优化</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        3目运算符也称条件运算符。根据条件true或者false，选择对应的值。在使用3目运算符的优势是代码简介，将一个if-else语句简化为了一行代码。效率略低于if-else语句。
                     </div>
                 </div>
             </div>

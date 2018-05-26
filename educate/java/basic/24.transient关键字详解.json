@@ -1,0 +1,4 @@
+{
+  "title": "transient关键字详解 - java教程 - 大屎蛋教程网",
+  "desc": "我在自己的项目中很少使用transient关键字。这个关键字的作用是和序列化相关的。JDK的源码中ArrayList类用到了transient关键字. 整理一下这个关键字相关的内容."
+}

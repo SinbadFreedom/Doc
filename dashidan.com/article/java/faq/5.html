@@ -1,0 +1,364 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>5.Java随机数Random类 - java常见问题 - 大屎蛋教程网</title>
+    <meta name="description" content="随机数Random类是在做随机规则时需要用到的类。用途很广，比如随机抽奖，随机密码，随机验证码，随机奖励等，随机数，计算概率等。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/java/faq/5.html">
+
+    <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/java/index.html">java</a> > faq > 5.Java随机数Random类
+        </div>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div class="dsd_title" onclick="clickTitle('basic')">
+                    <span id="basic_title">+ Java入门到精通</span>
+                </div>
+                <div id="basic" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('jdk8')">
+                    <span id="jdk8_title">+ JDK8新特性</span>
+                </div>
+                <div id="jdk8" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('addenda')">
+                    <span id="addenda_title">+ 附录</span>
+                </div>
+                <div id="addenda" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('idea')">
+                    <span id="idea_title">+ Intelij IDEA</span>
+                </div>
+                <div id="idea" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('api')">
+                    <span id="api_title">+ Java中文手册</span>
+                </div>
+                <div id="api" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('faq')">
+                    <span id="faq_title">+ FAQ</span>
+                </div>
+                <div id="faq" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayListt原理及转化成数组常用方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('profile')">
+                    <span id="profile_title">+ 程序优化专题</span>
+                </div>
+                <div id="profile" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>5.Java随机数Random类</h1></article>
+                <div id="xs_content_border">
+                    <div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 随机生成一个整数</a><br><a href="#2">2
+                            随机生成一定范围内的整数</a><br><a href="#3">3 随机从数组中取一个值</a><br><a href="#4">4 随机生成不重复的值</a></div>
+                    </div>
+                    <div class="jumbotron">
+                        <p>随机数Random类是在做随机规则时需要用到的类。用途很广，比如随机抽奖，随机密码，随机验证码，随机奖励等，随机数，计算概率等。</p>
+                    </div>
+                    <div id="1"><h3>1 随机生成一个整数</h3></div>
+                    <pre class="prettyprint"><code>Random random = new Random();
+/** 随机产生一个整数，包括正负数*/
+for (int i = 0; i &lt; 100; i++) {
+    int r = random.nextInt();
+    System.out.println(r);
+}
+</code></pre>
+                    <p>输出结果</p>
+                    <pre class="prettyprint"><code>...
+...
+-652449732
+-394876378
+-608984380
+2017359929
+1203463897
+606478979
+...
+...
+</code></pre>
+                    <div id="2"><h3>2 随机生成一定范围内的整数</h3></div>
+                    <p>Random提供的nextInt方法，可生成一个大于等于0 小于指定值的随机数。</p>
+                    <pre class="prettyprint"><code>/** 随机产生一个正整数，大于等于0 小于指定值*/
+for (int i = 0; i &lt; 100; i++) {
+    int r = random.nextInt(100);
+    System.out.println(r);
+}
+</code></pre>
+                    <p>如果要生成一个范围值比如，100~200之间随机，采用100加上0到100的随机值就能实现。</p>
+                    <pre class="prettyprint"><code>for (int i = 0; i &lt; 100; i++) {
+    int r = 100 + random.nextInt(100);
+    System.out.println(r);
+}
+</code></pre>
+                    <div id="3"><h3>3 随机从数组中取一个值</h3></div>
+                    <p>原理是通过nextInt生成一个随机的索引，然后从数组中获取指定的索引。</p>
+                    <pre class="prettyprint"><code>/** 随机从数组中取一个值*/
+
+/** 初始化数组*/
+int[] arr = new int[100];
+for (int i = 0; i &lt; arr.length; i++) {
+    arr[i] = i + 1000;
+}
+
+/** 随机索引*/
+int index = random.nextInt(arr.length);
+/** 随机值*/
+int randomValue = arr[index];
+System.out.println(" randomValue " + randomValue);
+</code></pre>
+                    <div id="4"><h3>4 随机生成不重复的值</h3></div>
+                    <p>随机生成指定个数和范围不重复的值，最简单的方法是随机生成一个值，放入HashSet中，利用Set自带的去重功能，实现去重。数量不到就一直随机值，并且放入HashSet，直到数量满足条件。</p>
+                    <pre class="prettyprint"><code>/** 随机生成指定个数不重复的值*/
+HashSet&lt;Integer&gt; set = new HashSet&lt;&gt;();
+while (set.size() &lt; 10) {
+    set.add(random.nextInt(100));
+}
+
+for (Integer i : set) {
+    System.out.println("i " + i);
+}
+</code></pre>
+                    <p>输出结果:</p>
+                    <pre class="prettyprint"><code>i 33
+i 1
+i 50
+i 20
+i 42
+i 58
+i 12
+i 61
+i 30
+i 15
+</code></pre>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/java/faq/5.html">原文链接</a>.
+                </div>
+            </div>
+
+            <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div><span style="color: darkgray">广告赞助</span></div>
+                <script type="text/javascript">
+                    /*160*600 创建于 2018/3/23*/
+                    var cpro_id = "u3395011";
+                </script>
+                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="https://dashidan.com/article/java/faq/4.html"> &lt; 4.ConcurrentModifyException的产生原因及如何避免</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/java/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+    </div>
+</footer>
+
+<script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="https://dashidan.com/js/bootstrap.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="https://dashidan.com/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+{
+  "title": "java ArrayListt原理及转化成数组常用方法 - java常见问题 - 大屎蛋教程网",
+  "desc": "在实际项目中会用根据需求用到ArrayList和数组之间的转换。比如往MongoDB数据库中存入一个整型数组(int[])，读取的时候可以得到一个ArrayList<Integer>，无法直接得到一个整型数组(int[]).这个时候就会需要用到ArrayList转化为数组."
+}

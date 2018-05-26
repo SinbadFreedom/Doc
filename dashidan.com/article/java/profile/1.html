@@ -1,0 +1,463 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>for循环中的效率优化 - java效率优化专题 - 大屎蛋教程网</title>
+    <meta name="description"
+          content="在编码中，我们像竞技运动员一样追求更快的速度。追求最优的算法，看到一些同学的编码质量停留着实现功能的层面，距离最优编码相差很远。所以一直想整理一下自己在实际项目遇到的问题和效率优化的文章和大家分享一下。本文是该系列文章的第一篇。for循环的效率优化。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/java/profile/1.html">
+
+    <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/java/index.html">java</a> > profile > 1.for循环中的效率优化
+        </div>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div class="dsd_title" onclick="clickTitle('basic')">
+                    <span id="basic_title">+ Java入门到精通</span>
+                </div>
+                <div id="basic" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('jdk8')">
+                    <span id="jdk8_title">+ JDK8新特性</span>
+                </div>
+                <div id="jdk8" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('addenda')">
+                    <span id="addenda_title">+ 附录</span>
+                </div>
+                <div id="addenda" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('idea')">
+                    <span id="idea_title">+ Intelij IDEA</span>
+                </div>
+                <div id="idea" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('api')">
+                    <span id="api_title">+ Java中文手册</span>
+                </div>
+                <div id="api" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('faq')">
+                    <span id="faq_title">+ FAQ</span>
+                </div>
+                <div id="faq" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayListt原理及转化成数组常用方法</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('profile')">
+                    <span id="profile_title">+ 程序优化专题</span>
+                </div>
+                <div id="profile" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>1.for循环中的效率优化</h1></article>
+                <div id="xs_content_border">
+                    <div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 for循环和增强for循环的选择</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                            实验场景</a><br><a href="#2">2 for循环遍历HashMap的优化</a></div>
+                    </div>
+                    <div class="jumbotron">
+                        <p>
+                            在编码中，我们像竞技运动员一样追求更快的速度。追求最优的算法，看到一些同学的编码质量停留着实现功能的层面，距离最优编码相差很远。所以一直想整理一下自己在实际项目遇到的问题和效率优化的文章和大家分享一下。本文是该系列文章的第一篇。for循环的效率优化。</p>
+                    </div>
+                    <div id="1"><h3>1 for循环和增强for循环的选择</h3></div>
+                    <p>jdk5.0加入了增强for循环，代码比普通for循环更加简洁。</p>
+                    <ul>
+                        <li>普通for循环格式举例</li>
+                    </ul>
+                    <pre class="prettyprint"><code>for (int i = 0; i &lt; 1000000; i++) {
+    list.add(i);
+}
+</code></pre>
+                    <ul>
+                        <li>增强for循环格式举例</li>
+                    </ul>
+                    <pre class="prettyprint"><code>for (Integer i : list) {
+    int n = i;
+}
+</code></pre>
+                    <p>我们通过一个简单的代码场景来比较一下普通for循环和增强for循环的效率。</p>
+                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 实验场景</h4></div>
+                    <p>初始化一个长度为1000000的ArrayList，分别通过for循环和增强for循环来遍历，计算时间差。</p>
+                    <p>示例代码:</p>
+                    <pre class="prettyprint"><code>package com.dashidan.profile;
+
+import java.util.ArrayList;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * HashMap与ConcurrentHashMap的区别于应用场景
+ * Created by 大屎蛋 on 2018/5/22.
+ */
+public class Demo1 {
+    public static void main(String[] args) {
+
+        /** 初始化数组*/
+        ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; 1000000; i++) {
+            list.add(i);
+        }
+
+        /** 普通for循环遍历*/
+        long t1 = System.currentTimeMillis();
+        for (int i = 0; i &lt; list.size(); i++) {
+            int n = list.get(i);
+        }
+
+        /** 增强for循环遍历*/
+        long t2 = System.currentTimeMillis();
+        for (Integer i : list) {
+            int n = i;
+        }
+        long t3 = System.currentTimeMillis();
+
+        System.out.println(t2 - t1);
+        System.out.println(t3 - t2);
+    }
+}
+</code></pre>
+                    <p>输出</p>
+                    <pre class="prettyprint"><code>5
+5
+</code></pre>
+                    <p>这个值根据电脑配置不同，输出可能会有区别。多运行几次，整体看来区别不大，所以这两种for循环便利效率区别不大.增强for循环代码更加简洁。对集合进行遍历推荐采用增强for循环.</p>
+                    <div id="2"><h3>2 for循环遍历HashMap的优化</h3></div>
+                    <p>for循环遍历HashMap常用的有4种方式。</p>
+                    <ul>
+                        <li>通过hashMap.keySet()遍历</li>
+                    </ul>
+                    <p>keySet()方法返回HashMap中的key值的集合，然后通过get()方法传入key值，可以得到key对应的value值。示例代码:</p>
+                    <pre class="prettyprint"><code>    for (Integer key : hashMap.keySet()) {
+        int value = hashMap.get(key);
+    }
+</code></pre>
+                    <ul>
+                        <li>通过hashMap.values()遍历</li>
+                    </ul>
+                    <p>values()方法返回HashMap中的value值的集合。示例代码:</p>
+                    <pre class="prettyprint"><code>for (Integer v : hashMap.values()) {
+    int value = v;
+}
+</code></pre>
+                    <ul>
+                        <li>通过hashMap.entrySet()遍历
+                            entrySet()方法返回HashMap中的key-value键值对集合。key和value一一对应，都可以获取到。示例代码:
+                        </li>
+                    </ul>
+                    <pre class="prettyprint"><code>for (Map.Entry&lt;Integer, Integer&gt; entry : hashMap.entrySet()) {
+    int key = entry.getKey();
+    int value = entry.getValue();
+}
+</code></pre>
+                    <ul>
+                        <li>通过Iterator遍历</li>
+                    </ul>
+                    <p>以上3中遍历方式都可以获取结果集合的迭代器(Iterator),通过Iterator.next()方法遍历结果集.示例代码:</p>
+                    <pre class="prettyprint"><code>Iterator&lt;Integer&gt; integerIterator = hashMap.values().iterator();
+while (integerIterator.hasNext()) {
+    int value = integerIterator.next();
+}
+</code></pre>
+                    <p>写一个测试程序测试一下上述4中遍历方式的效率.示例代码:</p>
+                    <pre class="prettyprint"><code>package com.dashidan.profile;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+/**
+ * 大屎蛋教程网-dashidan.com
+ * for循环中的效率优化
+ * Created by 大屎蛋 on 2018/5/22.
+ */
+public class Demo2 {
+    public static void main(String[] args) {
+        int count = 1000000;
+        /** 初始化HashMap*/
+        HashMap&lt;Integer, Integer&gt; hashMap = new HashMap&lt;&gt;();
+
+        long t0 = System.currentTimeMillis();
+        for (int i = 0; i &lt; count; i++) {
+            hashMap.put(i, i);
+        }
+
+        /** 遍历Key获取Value*/
+        long t1 = System.currentTimeMillis();
+        for (Integer key : hashMap.keySet()) {
+            int value = hashMap.get(key);
+        }
+
+        /** 遍历value*/
+        long t2 = System.currentTimeMillis();
+        for (Integer v : hashMap.values()) {
+            int value = v;
+        }
+
+        long t3 = System.currentTimeMillis();
+        /** 遍历Entry*/
+        for (Map.Entry&lt;Integer, Integer&gt; entry : hashMap.entrySet()) {
+            int key = entry.getKey();
+            int value = entry.getValue();
+        }
+
+        long t4 = System.currentTimeMillis();
+        /** Iterator 遍历*/
+        Iterator&lt;Integer&gt; integerIterator = hashMap.values().iterator();
+        while (integerIterator.hasNext()) {
+            int value = integerIterator.next();
+        }
+
+        long t5 = System.currentTimeMillis();
+
+        System.out.println(t1 - t0);
+        System.out.println(t2 - t1);
+        System.out.println(t3 - t2);
+        System.out.println(t4 - t3);
+        System.out.println(t5 - t4);
+    }
+}
+</code></pre>
+                    <p>输出结果</p>
+                    <pre class="prettyprint"><code>78
+21
+10
+11
+9
+</code></pre>
+                    <p>
+                        注意这个输出结果，每次运行可能显示不一致。总体说来，HashMap的put方法耗时会多余get方法。通过遍历keySet，然后再通过key获取value的方式效率最低。其余集中方式效率差不多。</p>
+                    <p>结论:</p>
+                    <ul>
+                        <li>如果只需要遍历value值，推荐采用遍历values()集合的方式。</li>
+                        <li>如果遍历hashmap时，key和value都需要用到，推荐采用遍历entrySet的方式.</li>
+                    </ul>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/java/profile/1.html">原文链接</a>.
+                </div>
+            </div>
+
+            <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div><span style="color: darkgray">广告赞助</span></div>
+                <script type="text/javascript">
+                    /*160*600 创建于 2018/3/23*/
+                    var cpro_id = "u3395011";
+                </script>
+                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/java/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="https://dashidan.com/article/java/profile/2.html"> 2.java数组拷贝的3种方式和效率对比 &gt;</a>
+    </div>
+</footer>
+
+<script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="https://dashidan.com/js/bootstrap.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="https://dashidan.com/js/main.js"></script>
+</body>
+</html>
