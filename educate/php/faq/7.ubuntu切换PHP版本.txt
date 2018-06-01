@@ -1,0 +1,91 @@
+ubuntu16.04上默认安装的php版本是70.如果我们想换成5.x的版本或者7.1,7.2的版本。最简单的方法是通过第三方源来安装，[ppa:ondrej/php](https://launchpad.net/~ondrej/+archive/php)是一个比较知名的PHP源（目前维护php5.6,php7.0,php7.1,php7.2）
+
+1 为什么要从php7.0换成5.6
+===
+
+原因是我遇到了一个问题php7.0的mongodb不支持MongoClent方式创建Mongodb对象。改变了Mongodb的API。如果适应php7.0需要修改所有涉及到Mongodb操作的代码，改动量比较大，不值得。还是降级为php5.6更方便。
+
+2 ubuntu卸载php7.0
+===
+
+首先安装aptitude
+```
+apt-get install aptitude
+```
+
+执行卸载php命令
+
+```
+sudo aptitude purge `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`
+```
+
+3 添加第三方源
+===
+ppa:ondrej/php 是一直知名的php版本的第三方源，有5.6， 7.0， 7.1， 7.2这几个版本.通过add-apt-repository命令设置第三方源。
+
+支持的php版本：http://php.net/supported-versions.php
+
+支持的ubuntu版本 https://wiki.ubuntu.com/Releases， 支持ubunt14.04以上的版本。
+```
+apt-get install software-properties-common
+add-apt-repository ppa:ondrej/php
+```
+
+
+ppa:ondrej/php附加说明:
+1. 如果使用php-gearman, 需要添加 ppa:ondrej/pkg-gearman
+2. 如果使用apache2, 建议添加 ppa:ondrej/apache2
+3. 如果使用nginx, 建议添加 ppa:ondrej/nginx-mainline
+???or ppa:ondrej/nginx
+
+
+
+4 安装php5.6
+===
+
+设置完第三方源之后，需要先执行apt-get update，否则找不到对应的安装包.
+
+```
+sudo apt-get update
+apt-get install php5.6 php5.6-cli php5.6-fpm php5.6-dev
+```
+
+5 修改nginx配置文件支持php
+===
+
+php-fpm通过.sock文件与nginx关联。先查找.sock文件的位置，然后修改nginx.conf中的对应配置为这个路径.
+
+```
+find / -name *.sock
+```
+
+显示如下：
+
+```
+/run/php/php5.6-fpm.sock
+```
+
+修改nginx默认配置文件default:
+
+```
+vim /etc/nginx/sites-enabled/default 
+```
+
+修改其中 .php配置的部分，指向这个文件，修改示例如下:
+
+```
+location ~ \.php$ {
+	include snippets/fastcgi-php.conf;
+
+#	# With php7.0-cgi alone:
+#	fastcgi_pass 127.0.0.1:9000;
+#	# With php7.0-fpm:
+	fastcgi_pass unix:/run/php/php5.6-fpm.sock;
+}
+```
+
+重启nginx
+
+```
+service nginx restart
+```

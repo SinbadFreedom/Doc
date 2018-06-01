@@ -1,0 +1,141 @@
+php支持mongodb的操作，需要安装mongodb扩展。分别介绍一下php在windows系统和linux安装mongodb扩展的步骤。
+
+1 下载php的mongodb扩展组件
+===
+
+[php的mongodb扩展参考文章](http://php.net/manual/en/mongo.installation.php),包含以下安装方式。
+
+- Manual Installation
+- Installing on *NIX
+- Installing on Windows
+- OS X
+- Gentoo
+- Red Hat
+- Third-Party Installation Instructions
+
+以windows和linux为例分别说一下安装过程.
+
+2 windows系统php安装mongodb扩展
+===
+
+2.1 下载DLL文件
+---
+
+windows系统的php-mongo扩展分2种，线程安全和非线程安全的。推荐采用线程安全的版本。
+
+[64位 线程安全版 php-mongo扩展下载链接](https://windows.php.net/downloads/pecl/releases/mongo/1.6.16/php_mongo-1.6.16-5.6-ts-vc11-x64.zip)
+[64位 非线程安全版 php-mongo扩展下载链接](https://windows.php.net/downloads/pecl/releases/mongo/1.6.16/php_mongo-1.6.16-5.6-nts-vc11-x64.zip)
+
+区分自己的系统是64位还是32位，可以参考[windows系统是32位还是64位](http://localhost/article/windows/faq/1.html)
+
+
+2.2 复制php_mongodb.dll文件
+---
+
+下载完成后解压缩，将其中的php_mongodb.dll 文件，复制到php安装目录下的ext目录中。
+
+
+2.3 修改php.ini
+---
+
+修改php.ini, 加入extension=php_mongodb.dll。
+
+2.4 重启php程序
+---
+
+打开windows任务管理器，找到php进程，点右键停止进程。
+
+2.5 查看phpinfo中是否有mongodb模块
+---
+
+将以下代码保存为info.php，放在web根目录，通过浏览器输入http://localhost/info.php，查看phpinfo信息.
+
+```
+<?php
+phpinfo();
+```
+
+在显示的信息网页中，搜索mongodb，查看信息,如果有mongodb相关信息，说明配置成功。
+
+信息显示如图所示:
+
+![4-2](http://localhost/img/php/faq/4-2.png)
+
+
+3 ubuntu安装php mongodb扩展
+===
+
+3.1 通过apt-get安装php-mongodb
+---
+
+```
+apt-get install php-mongodb 
+```
+
+3.2 修改php.ini加入mongo.so
+---
+
+```
+extension=mongo.so
+```
+
+3 linux系统php安装mongodb扩展
+===
+
+3.1 执行安装mongo扩展命令
+---
+
+```
+$ sudo pecl install mongo
+```
+
+在Ubuntu12.04版本系统上跑这个命令的时候报错"WARNING: "pecl/mongo" is deprecated in favor of "channel:///mongodb"
+pecl/mongo requires PHP (version >= 5.3.0, version <= 5.99.99)".
+
+详细报错信息:
+
+```
+WARNING: "pecl/mongo" is deprecated in favor of "channel:///mongodb"
+pecl/mongo requires PHP (version >= 5.3.0, version <= 5.99.99), installed version is 7.0.28-0ubuntu0.16.04.1
+No valid packages found
+nstall failed
+```
+
+服务器安装的php版本是PHP Version 7.0.28-0ubuntu0.16.04.1。这个命令与这个版本不兼容。可以通过源码安装。
+
+3.2 通过源码安装mongob扩展
+---
+
+下载源码:
+
+```
+wget http://pecl.php.net/get/mongo-1.6.16.tgz
+```
+
+解压缩文件
+
+```
+tar -zxvf mongo-1.6.16.tgz
+```
+
+进入解压后的文件目录
+
+```
+cd mongo-1.6.16
+```
+
+执行phpize命令编译源码。这个命令在php-dev包中，如果找不到这个包，需要安装对应版本的php-dev包。
+
+```
+phpize
+./configure
+make
+make install
+```
+
+3.2 修改php.ini加入extension=mongo.so
+---
+
+```
+extension=mongo.so
+```

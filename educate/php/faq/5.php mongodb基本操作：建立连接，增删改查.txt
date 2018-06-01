@@ -1,0 +1,148 @@
+1 php连接mongodb
+===
+
+[PHP MongoDB 驱动手册](http://php.net/mongo)
+
+示例代码:
+
+1.1 基本的连接方式
+---
+
+- MongoClient默认连接localhost:27017
+
+```
+<?php
+$connection = new MongoClient(); // connects to localhost:27017
+?>
+```
+
+- 指定url默认端口27017
+```
+<?php
+$connection = new MongoClient( "mongodb://dashidan.com" ); // connect to a remote host (default port: 27017)
+?>
+```
+
+- 指定url和端口
+```
+$connection = new MongoClient( "mongodb://dashidan.com:65432" ); // connect to a remote host at a given port
+```
+
+
+1.2 php通过ssl连接mongodb
+---
+```
+<?php
+$mc = new MongoClient("mongodb://server1", array("ssl" => true));
+?>
+```
+
+1.3 php连接mongodb验证用户名和密码
+---
+
+```
+$m = new MongoClient("mongodb://${username}:${password}@localhost");
+或以下方式，用户名和密码是可选的
+$m = new MongoClient("mongodb://localhost", array("username" => $username, "password" => $password));
+```
+
+1.4 php mongodb连接指定数据库
+---
+
+通过用户名，密码连接指定数据库.
+
+```
+<?php
+// 方式一(推荐)
+$m = new MongoClient("mongodb://${username}:${password}@localhost/myDatabase");
+
+// 方式二(可选)
+$m = new MongoClient("mongodb://${username}:${password}@localhost", array("db" => "myDatabase"));
+?>
+```
+
+1.5 php mongodb的持久化链接
+---
+
+自1.3.0以来，所有版本的驱动程序都使用持久连接来最大限度地减少与每个数据库服务器的连接数量。这些连接由PHP工作进程保存，并可能在多个请求之间重用。
+
+在连接到数据库服务器之前，驱动程序将根据主机，端口，副本集名称（如果有），任何验证凭据（例如用户名，密码，数据库）和进程ID为连接创建哈希。如果该散列已经存在连接，则将用它来代替创建与该散列关联的新连接。 MongoClient :: getConnections（）可用于检索有关每个持久连接的信息。考虑以下程序：
+
+```
+<?php
+
+$m1 = new MongoClient('mongodb://localhost');
+$m2 = new MongoClient('mongodb://localhost');
+$m3 = new MongoClient('mongodb://user:pw@localhost');
+$m4 = new MongoClient('mongodb://127.0.0.1');
+$m5 = new MongoClient('mongodb://rs1.local:30017,rs2.local:30018/?replicaSet=rs');
+$m6 = new MongoClient('mongodb://sharding.local:40017');
+
+foreach (MongoClient::getConnections() as $conn) {
+    echo $conn['hash'], "\n";
+}
+
+?>
+```
+上述例子可能会输出:
+
+```
+本地主机：27017;  - ; X; 15487
+本地主机：27017;  - ;管理/用户/ C56C ... 8bbc; 15487
+127.0.0.1:27017;-;X;15487
+rs1.local：30017; RS; X; 15487
+rs2.local：30018; RS; X; 15487
+sharding.local：40017;  - ; X; 15487
+```
+
+2 php mongodb扩展的基本操作
+===
+
+2.1 获取指定数据库
+---
+通过MongoClient连接数据库以后，访问指定数据库名，来获取指定数据库对象。
+
+代码示例:
+
+```
+<?php
+$connection = new MongoClient();
+$db = $connection->dbname;
+?>
+```
+
+2.2 整体操作流程示例
+---
+
+包括建立连接，指定数据库， 指定集合， 加入数据， 查找数据和遍历结果集。
+
+```
+<?php
+
+// 链接
+$m = new MongoClient();
+
+// 指定数据库
+$db = $m->comedy;
+
+// 指定集合
+$collection = $db->cartoons;
+
+// 加入数据
+$document = array( "title" => "Calvin and Hobbes", "author" => "Bill Watterson" );
+$collection->insert($document);
+
+// 加入数据
+$document = array( "title" => "XKCD", "online" => true );
+$collection->insert($document);
+
+// 查找数据
+$cursor = $collection->find();
+
+// 遍历结果
+foreach ($cursor as $document) {
+    echo $document["title"] . "\n";
+}
+
+?>
+```
