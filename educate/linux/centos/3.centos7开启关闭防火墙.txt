@@ -6,7 +6,7 @@ CentOS7的防火墙配置跟以前版本有很大区别，CentOS7这个版本的防火墙默认使用的是fire
 输入firewall-comd --state命令可以查看防火墙状态:
 
 ```
-firewall-cmd    --state
+firewall-cmd --state
 ```
 
 控制台显示状态意义：

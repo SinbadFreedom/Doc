@@ -24,6 +24,10 @@ phpinfo();
 2.1 加入第三方php源
 ---
 
+```
+yum install epel-release
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+```
 参考[centos7安装nginx+php+php-fpm](http://localhost/article/linux/centos/2.html)加入第三方php源。
 
 2.2 查找php-mongo包

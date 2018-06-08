@@ -38,7 +38,7 @@ src/redis-server
 将2.1中的命令写入redis_start.sh脚本中,
 
 ```
-src/redis-server &
+/workplace/upload/redis-4.0.9/src/redis-server &
 ```
 这个命令中&符号表示后台运行，关闭控制台以后，redis正常运行。执行以下命令运行脚本启动redis:
 
