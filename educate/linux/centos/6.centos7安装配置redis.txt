@@ -1,0 +1,54 @@
+1 源码安装Redis4.0
+===
+
+[linux安装Redis官方文档](https://redis.io/download)
+
+```
+wget http://download.redis.io/releases/redis-4.0.9.tar.gz
+tar xzf redis-4.0.9.tar.gz
+cd redis-4.0.9
+#make centos7.0默认采用make会报错换成make MALLOC=libc
+make MALLOC=libc
+make install
+```
+centos7源码编译安装redis时需要注意：
+
+- make编译时需要gcc命令
+
+```
+yum install gcc 
+```
+
+- 如果报错编译报致命错误：jemallocjemalloc.h需要将make 换成make MALLOC=libc
+centos源码安装redis4.0默认编译make时报[7.redis编译报致命错误：jemallocjemalloc.h：没有那个文件或目录](http://localhost/article/linux/centos/7.html)这里需要将make 换成make MALLOC=libc可以解决这个问题。
+
+
+2 启动Redis
+===
+
+2.1 方法一命令行直接启动redis
+---
+```
+src/redis-server
+```
+
+2.2 写一个启动脚本启动redis
+---
+
+将2.1中的命令写入redis_start.sh脚本中,
+
+```
+src/redis-server &
+```
+这个命令中&符号表示后台运行，关闭控制台以后，redis正常运行。执行以下命令运行脚本启动redis:
+
+```
+sh redis_start.sh
+```
+
+2.3 停止redis
+---
+
+```
+killall redis-server
+```

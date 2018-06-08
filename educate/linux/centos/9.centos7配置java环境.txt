@@ -1,0 +1,56 @@
+Centos7通过源码安装配置java环境。
+
+1 下载jdk8源码
+===
+
+通过wget命令从java官方下载jdk8.0源码.
+
+```
+wget  http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz
+```
+
+由于这个链接带安全验证，如果无法下载可以去官网从新点击下载。
+
+
+2 解压缩源码
+===
+
+```
+tar zxvf jdk-8u111-linux-x64.tar.gz 
+```
+
+3 centos配置java环境变量
+===
+
+修改/etc/profile文件
+
+```
+vim /etc/profile
+```
+
+文件末尾加入:
+
+```
+export JAVA_HOME=/workplace/upload/jdk1.8.0_111
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+```
+
+3 使java环境变量生效
+===
+
+通过source命令使环境变量配置生效。
+
+```
+source /etc/profile
+```
+
+4 测试java环境
+===
+
+```
+java
+javac
+```
+
+有对应的java信息输出说明配置成功。
