@@ -148,7 +148,7 @@ function renderText() {
                 ctx.fillStyle = "#000000";
                 ctx.font = "20px 微软雅黑";
                 ctx.fillText(textArr[textArrayIndex].substr(textIndex, 1), 30 * textIndex,
-                             100 + textArrayIndex * 30 + 100);
+                    100 + textArrayIndex * 30 + 100);
                 textIndex++;
             }
         } else {

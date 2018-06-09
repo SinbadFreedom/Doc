@@ -1,0 +1,155 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>php写入log文件</title>
+    <meta name="description"
+          content="在使用php5.6接收http post请求的数据，解析post数据中json字符串时。php服务器返回报错信息.Deprecated: Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set &#x27;always_populate_raw_post_data&#x27; to &#x27;-1&#x27; in php.ini and use the php://input stream instead. in Unknown on line 0Warning: Cannot modify header information - headers already sent in Unknown on line 0 No input file specified.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/php/faq/9.html">
+
+    <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+            href="https://dashidan.com/article/php/index.html">php</a> > faq
+            > 9.php写入log文件
+        </div>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                <div class="dsd_title" onclick="clickTitle('faq')">
+                    <span id="faq_title">+ PHP常见问题</span>
+                </div>
+                <div id="faq" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/1.html">1.PHP中文JSON乱码</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/2.html">2.Linux系统PHP配置支持Redis扩展</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/3.html">3.Ubuntu安装php-redis扩展</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/4.html">4.php安装mongodb扩展</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/5.html">5.php mongodb基本操作：建立连接，增删改查</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/6.html">6.php安装时报错configure error Cannot find
+                            OpenSSL&#x27;s libraries</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/7.html">7.ubuntu切换PHP版本</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/8.html">8.php $HTTP_RAW_POST_DATA is
+                            deprecated</a>
+                    </div>
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/faq/9.html">9.php写入log文件</a>
+                    </div>
+                </div>
+                <div class="dsd_title" onclick="clickTitle('api')">
+                    <span id="api_title">+ PHP中文手册</span>
+                </div>
+                <div id="api" class="dsd_catalog_left_hide">
+                    <div class="single_line">
+                        <a href="https://dashidan.com/article/php/api/1.html">1.php中文手册</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>9.php写入log文件</h1></article>
+                <div id="xs_content_border">
+                    <div>
+                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 php写入log文件</a><br><a href="#2">2
+                            php输出变量</a><br><a href="#2.1">&nbsp;&nbsp;2.1 通过var_export方法可以将对象数据输出到日志文件</a><br><a
+                            href="#2.2">&nbsp;&nbsp;2.2 通过var_dump方法可以将对象数据返回</a><br><a href="#3">3 php日志文件按天分割</a>
+                        </div>
+                    </div>
+                    <div class="jumbotron">
+                        <p>php标准库中提供了error_log方法。http://php.net/manual/en/function.error-log.php， 可以将信息输出到文件中。"</p>
+                    </div>
+                    <div id="1"><h3>1 php写入log文件</h3></div>
+                    <pre class="prettyprint"><code>error_log("登录验证请求参数：" . var_export($arrTicket, true), 3, './logs.log');
+</code></pre>
+                    <div id="2"><h3>2 php输出变量</h3></div>
+                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 通过var_export方法可以将对象数据输出到日志文件</h4></div>
+                    <pre class="prettyprint"><code>var_export($arrTicket, true)
+</code></pre>
+                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 通过var_dump方法可以将对象数据返回</h4></div>
+                    <p>var_dump方法会把变量输出到返回值中。</p>
+                    <pre class="prettyprint"><code>var_dump($array)
+</code></pre>
+                    <div id="3"><h3>3 php日志文件按天分割</h3></div>
+                    <p>TODO</p>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/php/faq/9.html">原文链接</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="https://dashidan.com/article/php/faq/8.html"> &lt; 8.php $HTTP_RAW_POST_DATA is deprecated</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/php/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+    </div>
+</footer>
+
+<script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="https://dashidan.com/js/bootstrap.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="https://dashidan.com/js/main.js"></script>
+</body>
+</html>

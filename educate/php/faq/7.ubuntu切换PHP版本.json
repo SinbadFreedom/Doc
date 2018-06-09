@@ -1,0 +1,4 @@
+{
+  "title": "ubuntu切换PHP版本",
+  "desc": "ubuntu16.04上默认安装的php版本是70.如果我们想换成5.x的版本或者7.1,7.2的版本。最简单的方法是通过第三方源来安装，[ppa:ondrej/php](https://launchpad.net/~ondrej/+archive/php)是一个比较知名的PHP源(目前维护php5.6,php7.0,php7.1,php7.2)。"
+}

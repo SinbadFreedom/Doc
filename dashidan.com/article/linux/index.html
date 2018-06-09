@@ -11,7 +11,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/tmux/.html">
+    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/centos/.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -19,7 +19,6 @@
     <script>
         var _hmt = _hmt || [];
         (function () {
-            var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
@@ -61,6 +60,9 @@
             </div>
             <div class="dsd_title">
                 <a href="#tmux_title">Tmux常用命令</a>
+            </div>
+            <div class="dsd_title">
+                <a href="#centos_title">Centos常见问题</a>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -196,6 +198,24 @@
                         解决方法是修改/etc/hosts将主机名加在127.0.0.1后边
                     </div>
                 </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/15.html"><span
+                            class="dsd_index_title">15.find命令卡住</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在linux执行find命令的时候卡住很久不动的终极解决办法。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/common/16.html"><span
+                            class="dsd_index_title">16.linux环境变量配错导致所有命令无法使用</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        在centos7中配置java环境变量的时候，path变量路径写错。导致所有的命令都找不到。
+                    </div>
+                </div>
             </div>
             <div>
                 <span id="ubuntu_title"><h3>Ubuntu常用命令</h3></span>
@@ -247,6 +267,15 @@
                         修改ubuntu设置允许root用户登录.在安全性要求不高的环境中,直接使用root登陆会很方便.
                     </div>
                 </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/ubuntu/6.html"><span
+                            class="dsd_index_title">6.ubuntu apt-get切换源</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        更改apt-get源地址为国内阿里源.
+                    </div>
+                </div>
             </div>
             <div>
                 <span id="tmux_title"><h3>Tmux常用命令</h3></span>
@@ -281,15 +310,93 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
-            <div><span style="color: darkgray">广告赞助</span></div>
-            <script type="text/javascript">
-                /*160*600 创建于 2018/3/23*/
-                var cpro_id = "u3395011";
-            </script>
-            <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
+            <div>
+                <span id="centos_title"><h3>Centos常见问题</h3></span>
+            </div>
+            <hr>
+            <div id="centos">
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/1.html"><span
+                            class="dsd_index_title">1.centos设置dns和静态IP地址</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        通过vmware装了一个centos7系统，默认最小化安装，这样安装完成后无法连接网络。需要配置dns和ip地址。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/2.html"><span
+                            class="dsd_index_title">2.centos7安装nginx+php+php-fpm</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        ngix+php+php-fpm是一个高效的web后端组合，安装和配置都很简单。安装版本为：nginx1.14，php5.6.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/3.html"><span
+                            class="dsd_index_title">3.centos7开启关闭防火墙</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        CentOS7的防火墙配置跟以前版本有很大区别，CentOS7这个版本的防火墙默认使用的是firewall，与之前的版本使用iptables不一样.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/4.html"><span
+                            class="dsd_index_title">4.centos7关闭SELinux</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        centos7开启nginx后，本机可以ping通80端口，其他机器不能。首先可以关闭防火墙。如果还不通，可以关闭SELinux.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/5.html"><span
+                            class="dsd_index_title">5.centos7 yum安装mongodb</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        centos7开启nginx后，本机可以ping通80端口，其他机器不能。首先可以关闭防火墙。如果还不通，可以关闭SELinux.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/6.html"><span
+                            class="dsd_index_title">6.centos7安装配置redis</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        CentOS7 源码安装Redis4.0及redis的启动停止。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/7.html"><span
+                            class="dsd_index_title">7.redis编译报致命错误：jemallocjemalloc.h：没有那个文件或目录</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        CentOS7通过源码编译redis安装的时候控制台报错:redis编译报致命错误：jemallocjemalloc.h：没有那个文件或目录.
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/8.html"><span
+                            class="dsd_index_title">8.centos7 php安装mongodb redis扩展</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        安装php以后如果php不支持访问mongdb和redis，需要安装对应的扩展模块。
+                    </div>
+                </div>
+                <div style="margin-top: 3px;">
+                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                        <a href="https://dashidan.com/article/linux/centos/9.html"><span
+                            class="dsd_index_title">9.centos7配置java环境</span></a>
+                    </div>
+                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                        Centos7通过源码安装配置java环境JDK8.0。
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

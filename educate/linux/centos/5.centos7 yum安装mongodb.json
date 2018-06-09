@@ -1,0 +1,4 @@
+{
+  "title": "centos7 yum安装mongodb",
+  "desc": "centos7开启nginx后，本机可以ping通80端口，其他机器不能。首先可以关闭防火墙。如果还不通，可以关闭SELinux."
+}

@@ -1,0 +1,4 @@
+{
+  "title": "php安装时报错configure error Cannot find OpenSSL's libraries",
+  "desc": "ubuntu 16.04 采用源码安装php的mongodb扩展,执行./configure命令时报错configure: error: Cannot find OpenSSL's libraries。"
+}

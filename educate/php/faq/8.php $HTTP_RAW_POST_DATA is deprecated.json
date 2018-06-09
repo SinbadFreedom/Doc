@@ -1,0 +1,4 @@
+{
+  "title": "8.php $HTTP_RAW_POST_DATA is deprecated",
+  "desc": "在使用php5.6接收http post请求的数据，解析post数据中json字符串时。php服务器返回报错信息.Deprecated: Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0Warning: Cannot modify header information - headers already sent in Unknown on line 0 No input file specified."
+}

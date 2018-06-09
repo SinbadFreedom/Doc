@@ -1,0 +1,4 @@
+{
+  "title": "centos7安装nginx+php+php-fpm",
+  "desc": "ngix+php+php-fpm是一个高效的web后端组合，安装和配置都很简单。安装版本为：nginx1.14，php5.6."
+}

@@ -1,0 +1,4 @@
+{
+  "title": "php mongodb基本操作：建立连接，增删改查",
+  "desc": "php支持mongodb的操作，需要安装mongodb扩展。建立连接，增删改查"
+}

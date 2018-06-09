@@ -1,0 +1,4 @@
+{
+  "title": "php安装mongodb扩展",
+  "desc": "php支持mongodb的操作，需要安装mongodb扩展。分别介绍一下php在windows系统和linux安装mongodb扩展的步骤。"
+}

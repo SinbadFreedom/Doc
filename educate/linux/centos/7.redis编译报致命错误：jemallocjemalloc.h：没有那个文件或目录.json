@@ -1,0 +1,4 @@
+{
+  "title": "redis编译报致命错误：jemallocjemalloc.h：没有那个文件或目录",
+  "desc": "CentOS7通过源码编译redis安装的时候控制台报错:redis编译报致命错误：jemallocjemalloc.h：没有那个文件或目录."
+}
