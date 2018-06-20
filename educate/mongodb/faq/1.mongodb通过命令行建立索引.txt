@@ -1,0 +1,53 @@
+1 mongodb通过命令行连接mongodb并执行js脚本
+===
+
+1.1 命令格式举例
+---
+
+```
+mongo IP:PORT/DB_NAME JS_FILE.js
+```
+
+命令举例:
+
+```
+mongo IP:PORT/db_role db_role.js
+```
+
+1.2 编写js脚本
+---
+
+将以下代码粘贴，保存到db_role.js文件中。通过createCollection命令创建数据库，通过ensureIndex创建索引.
+
+```
+db.createCollection("col_role");
+db.col_account.ensureIndex({"roleId":1});
+```
+
+2 mongodb的唯一索引
+===
+加入"unique":true参数来创建唯一索引。例子如下：
+```
+db.col_account.ensureIndex({"roleId":1}, {"unique":true});
+```
+
+自己在实际项目中实践发现:
+
+- 一个表中只有一个唯一索引，如果创建了多个唯一索引，后创建的会替代先创建的唯一性。
+- 采用同样的情景测试，唯一性的索引效率比不唯一的索引读取效率低。
+
+以上结论是自己通过测试程序得出，没有在官网文档中看到。不保证这个结论的通用性。只是在自己的项目测试总得出。
+
+
+
+3 mongodb创建联合索引
+===
+
+在第一个索引参数中加入多个属性，可以创建联合联合索引。
+
+创建代码示例：
+
+```
+db.col_account.ensureIndex({"roleId":1, "age":1});
+```
+

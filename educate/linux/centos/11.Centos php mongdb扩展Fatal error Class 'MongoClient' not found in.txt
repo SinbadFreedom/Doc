@@ -1,0 +1,18 @@
+在Centos7.2系统通过yum安装php5.6的mongdb扩展，通过phpinfo显示已经有了mongodb的扩展。但运行    $m = new MongoClient();这一句时依然报“Fatal error Class 'MongoClient' not found in”这样的错误。经过自己多次尝试，通过源码安装mongodb扩展解决了这个问题。
+
+通过php的log日志查看php报错定位：
+
+cat /var/log/php-fpm/www-error.log
+
+http://php.net/manual/zh/mongo.installation.php#mongo.installation.manual
+
+下载php-mongo扩展源码:
+http://pecl.php.net/package/mongo1.4.5
+
+http://pecl.php.net/get/mongo-1.4.5.tgz
+
+安装phpize命令：
+
+yum install php56w-devel.x86_64
+
+源码安装后运行成功。
