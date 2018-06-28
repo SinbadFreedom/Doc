@@ -1,0 +1,165 @@
+Centos7系统在与tomcat交互数据时发现有中文乱码的现象。
+
+1 centos中文乱码情况分析
+===
+导致centos或者其他linux系统中文乱码的原因可能是以下几种，可以逐一排查。
+
+- 系统语言中文字符集设置
+- SSH工具显示中文字符集设置
+- Tomcat中文字符集设置
+
+2 查看系统是否安装了中文语言包
+===
+
+locale -a 命令可以列出所有可用的公共语言环境的名称。
+
+```
+locale -a
+```
+
+显示
+```
+...
+zh_CN
+zh_CN.gb18030
+zh_CN.gb2312
+zh_CN.gbk
+zh_CN.utf8
+...
+```
+
+zh_CN开头的是中文编码标准。如果没有以上几项，需要手动安装。
+
+```
+yum install kde-l10n-Chinese
+```
+
+3 查看系统当前语言环境
+===
+
+通过locale命令。
+
+```
+locale  
+```
+
+显示
+```
+LANG=zh_CN.UTF-8
+LC_CTYPE="zh_CN.UTF-8"
+LC_NUMERIC="zh_CN.UTF-8"
+LC_TIME="zh_CN.UTF-8"
+LC_COLLATE="zh_CN.UTF-8"
+LC_MONETARY="zh_CN.UTF-8"
+LC_MESSAGES="zh_CN.UTF-8"
+LC_PAPER="zh_CN.UTF-8"
+LC_NAME="zh_CN.UTF-8"
+LC_ADDRESS="zh_CN.UTF-8"
+LC_TELEPHONE="zh_CN.UTF-8"
+LC_MEASUREMENT="zh_CN.UTF-8"
+LC_IDENTIFICATION="zh_CN.UTF-8"
+LC_ALL=
+```
+
+显示信息中每项的意义:
+
+- LANG:当前系统的语言
+- LC_CTYPE：语言符号及其分类
+- LC_NUMERIC：数字
+- LC_COLLATE：比较和排序习惯
+- LC_TIME：时间显示格式
+- LC_MONETARY：货币单位
+- LC_MESSAGES：信息主要是提示信息,错误信息, 状态信息, 标题, 标签, 按钮和菜单等
+- LC_NAME：姓名书写方式
+- LC_ADDRESS：地址书写方式
+- LC_TELEPHONE：电话号码书写方式
+- LC_MEASUREMENT：度量衡表达方式
+- LC_PAPER：默认纸张尺寸大小
+- LC_IDENTIFICATION：对locale自身包含信息的概述
+- LC_ALL：优先级最高变量，若设置了此变量，所有LC_* 和LANG变量会强制跟随它的值
+
+
+如果显示信息中不是"LANG=zh_CN.UTF-8"，这样的中文设置，比如是"LANG=en_US.UTF-8"就需要修改系统设置。改为支持中文的设置。
+
+4 修改系统配置支持中文
+===
+
+4.1 修改/etc/locale.conf文件改为中文
+---
+
+```
+vim /etc/locale.conf
+```
+
+加入以下设置:
+```
+LANG="zh_CN.UTF-8"
+```
+
+4.2 使配置生效
+---
+
+```
+source /etc/locale.conf
+```
+
+4.3 退出当前控制台
+---
+
+即使执行了source命令是配置生效，在当前的控制台中还是有中文乱码的现象。需要退出当前控制台，重新进一次。
+
+网上有些文章提到需要reboot命令重启，经过自己测试，退出控制台重进即可，并不需要重启。
+
+4.4 重新连接
+---
+
+输入locale命令查看当前系统语言配置。显示LANG="zh_CN.UTF-8"为配置正常。
+
+
+5 SSH工具显示中文字符集设置
+===
+
+以XShell为例，设置中文编码为UTF-8。设置步骤:
+
+文件 -> 属性 -> 终端 -> 编码 -> Unicode(UTF-8). 
+
+如图:
+
+![13-1](http://loccalhost/image/article/linux/centos/13-1.png)
+
+
+6 修改tomcat配置
+===
+
+一般情况修改系统语言字符集以后，不需要再设置tomcat。这里记录一下tomcat请求编码采用utf-8的设置方法。
+
+6.1 方法1
+---
+
+修改web项目WebRoot目录中的WEB-INF目录中的web.xml文件。加入以下配置:
+
+```
+<filter>
+	<filter-name>encodingFilter</filter-name>
+	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+	<init-param>
+		<param-name>forceEncoding</param-name>
+		<param-value>true</param-value>
+	</init-param>
+</filter>
+```
+
+这个配置可以使传入tomcat的所有请求采用utf-8编码。
+
+6.1 方法2
+---
+
+针对单独请求，代码中加入设置,请求头进行编码转换为utf-8。
+
+```
+request.setCharacterEncoding("UTF-8");
+```

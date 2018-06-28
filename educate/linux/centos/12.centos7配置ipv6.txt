@@ -1,0 +1,51 @@
+苹果审核应用要求必须支持IPV6. 将阿里云CentOS7.2配置支持IPV6.本文中的操作需要root权限。
+
+1 修改/etc/modprobe.d/disable_ipv6.conf
+===
+
+ipv6 disable设置成0.
+
+```
+vim /etc/modprobe.d/disable_ipv6.conf
+options ipv6 disable=0
+```
+
+2 修改/etc/sysconfig/network
+===
+
+NETWORKING_IPV6 设置成 yes
+
+```
+vim /etc/sysconfig/network
+NETWORKING_IPV6=yes
+```
+
+3 重启network服务
+===
+
+```
+service network restart
+```
+
+4 修改/etc/sysctl.conf
+===
+
+```
+net.ipv6.conf.all.disable_ipv6 = 0
+net.ipv6.conf.default.disable_ipv6 = 0
+net.ipv6.conf.lo.disable_ipv6 = 0
+```
+
+5 启用IPv6
+===
+
+运行sysctl -p命令启用IPv6.
+
+```
+sysctl -p
+```
+
+6 查看IPV6地址
+===
+
+使用 ip addr 查看是否已经有 inet6 的地址，如果有说明已经开启ipv6.
