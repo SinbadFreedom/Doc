@@ -1,0 +1,74 @@
+https://blog.csdn.net/DragonAssassin/article/details/51010947
+
+
+1 找出进程ID
+===
+
+```
+ps -ef|grep java
+```
+
+2 找出进程内最耗费CPU的线程
+===
+
+```
+top -Hp pid
+```
+
+按Shift + T ，按运行时间排序，这个即是最消耗CPU的线程排序。
+
+显示如下：
+```
+15137 root      20   0 6706372 394472  13528 S  0.0 10.2   0:05.43 java                                                                                                                                                                                                      
+15138 root      20   0 6706372 394472  13528 S  0.0 10.2   0:03.93 java                                                                                                                                                                                                      
+15124 root      20   0 6706372 394472  13528 S  0.0 10.2   0:03.76 java                                                                                                                                                                                                      
+15139 root      20   0 6706372 394472  13528 S  0.0 10.2   0:03.70 java                                                                                                                                                                                                      
+15142 root      20   0 6706372 394472  13528 S  0.0 10.2   0:03.15 java                                                                                                                                                                                                      
+15140 root      20   0 6706372 394472  13528 S  0.0 10.2   0:02.59 java                                                                                                                                                                                                      
+15153 root      20   0 6706372 394472  13528 S  0.3 10.2   0:01.93 java    
+```
+
+网上有资料列举了3个命令。其他两个没有成功，列在这里以后可以尝试。
+
+```
+ps -Lfp pid
+ps -mp pid -o THREAD, tid, time
+top -Hp pid
+```
+
+3 通过jstack定位线程中耗时的方法
+===
+
+3.1 将线程ID转化为16进制
+---
+
+如上所示最耗时的线程ID为15137，转化为16进制
+
+```
+printf "%x\n" 15137
+```
+
+输出
+```
+3b21
+```
+
+3.2 jstack查找进程中该线程的堆栈信息
+---
+
+jstack查找线程的堆栈信息中，线程ID是用16进制记录的。根据线程ID的十六进制值采用grep命令查找。
+
+```
+jstack 15123 | grep 3b21
+```
+
+显示
+```
+"C2 CompilerThread0" #5 daemon prio=9 os_prio=0 tid=0x00007f3348207000 nid=0x3b21 waiting on condition [0x0000000000000000]
+```
+
+C2 CompilerThread0这个线程是jvm的编译线程。有关这个线程的说明。可以参考：
+https://blog.csdn.net/chenxiusheng/article/details/74007750
+
+
+
