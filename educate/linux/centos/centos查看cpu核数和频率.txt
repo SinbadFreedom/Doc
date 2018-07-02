@@ -1,0 +1,32 @@
+https://www.cnblogs.com/uglyliu/p/6065954.html
+
+top命令按1，看到几个CPU就代表是几核的。
+
+查看CPU有几颗逻辑cpu,4代表有4个逻辑CPU，同时CPU的型号也打印出了，服务器一般都是至强的CPU
+
+[root@svn ~]# cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c 
+4 Intel(R) Xeon(R) CPU E5-2407 v2 @ 2.40GHz 
+
+查看cpu是几核的，也可以用命令显示，4代表就是4核
+
+[root@svn ~]# cat /proc/cpuinfo |grep "cores"|uniq
+cpu cores : 4
+
+查看物理CPU的个数，1代表只有一个物理CPU
+
+[root@svn ~]# cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
+1
+
+逻辑CPU数量=物理cpu数量 x cpu cores 这个规格值 x 2(如果支持并开启ht)
+
+附加：
+
+常用的几种型号：
+
+Intel Xeon E312xx (Sandy Bridge)  #百度云主机
+
+Intel(R) Xeon(R) CPU E5-2407 v2 @ 2.40GHz #dell r420服务器
+
+Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.60GHz #阿里云主机
+
+Intel(R) Xeon(R) CPU E5-2620 v3 @ 2.40GHz #百度云主机
