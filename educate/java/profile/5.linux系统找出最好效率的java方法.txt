@@ -1,5 +1,4 @@
-https://blog.csdn.net/DragonAssassin/article/details/51010947
-
+在实际项目大部分采用linux系统作为生产环境的服务器操作系统。没有详细的数据，从自身角度看来，我们所经历的项目的生产环境超过90%采用linux系统。在生产环境中，不方便采用jprofile这样比较消耗效率的第三方法检测工具，这样会严重拖慢程序运行速度。我们可以采用以下的方式来找出效率瓶颈。
 
 1 找出进程ID
 ===
@@ -71,4 +70,7 @@ C2 CompilerThread0这个线程是jvm的编译线程。有关这个线程的说明。可以参考：
 https://blog.csdn.net/chenxiusheng/article/details/74007750
 
 
+4 参考文章
+===
 
+[JVM性能调优监控工具jps、jstack、jmap、jhat、jstat、hprof使用详解](https://blog.csdn.net/DragonAssassin/article/details/51010947)
