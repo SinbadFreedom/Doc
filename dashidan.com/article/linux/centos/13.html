@@ -1,0 +1,349 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>centos7 tomcat中文乱码</title>
+    <meta name="description" content="Centos7系统在与tomcat交互数据时发现有中文乱码的现象。centos7 tomcat中文乱码解决方案。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/centos/13.html">
+
+    <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+                href="https://dashidan.com/article/linux/index.html">linux</a> > centos
+            > 13.centos7 tomcat中文乱码
+        </div>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                    <div class="dsd_title" onclick="clickTitle('common')">
+                        <span id="common_title">+ Linux常用命令</span>
+                    </div>
+                    <div id="common" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/1.html">1.linux常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/2.html">2.linux定时任务crontab</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/3.html">3.linux通过ssh建立代理</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/4.html">4.linux修改root密码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/5.html">5.linux修改打开文件数限制</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/6.html">6.linux中文乱码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/7.html">7.Linux与Windows文件互传</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/8.html">8.Linux退出telnet</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/9.html">9.Linux压缩和解压缩</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/10.html">10.Linux查看系统版本</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/11.html">11.Linux的shell脚本中数组及数组遍历</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/12.html">12.localefacet_S_create_c_locale name not valid</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/13.html">13.linux服务器间传输文件和文件夹</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/14.html">14.获取本地主机UnknownHostException</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/15.html">15.find命令卡住</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/16.html">16.linux环境变量配错导致所有命令无法使用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/17.html">17.linux查看指定端口客户端连接数</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/18.html">18.linux日志相关的方法cat tail head grep sed</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/19.html">19.linux日志查询常用操作</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('ubuntu')">
+                        <span id="ubuntu_title">+ Ubuntu常用命令</span>
+                    </div>
+                    <div id="ubuntu" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/1.html">1.linux搭建nginx+mysql+php+php-fpm</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/2.html">2.linux安装配置SVN及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/3.html">3.linux安装配置Apollo及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/4.html">4.linux安装配置Zookeeper及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/5.html">5.Ubuntu允许root用户登录</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/6.html">6.ubuntu apt-get切换源</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/7.html">7.Ubuntu apt-get彻底卸载软件包</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/8.html">8.ubuntu搭建pptpd</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('tmux')">
+                        <span id="tmux_title">+ Tmux常用命令</span>
+                    </div>
+                    <div id="tmux" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/2.html">2.ubuntu安装tmux服务必需组件</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/3.html">3.tmux常用命令及快捷键</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('centos')">
+                        <span id="centos_title">+ Centos常见问题</span>
+                    </div>
+                    <div id="centos" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/1.html">1.centos设置dns和静态IP地址</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/2.html">2.centos7安装nginx+php+php-fpm</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/3.html">3.centos7开启关闭防火墙</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/4.html">4.centos7关闭SELinux</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/5.html">5.centos7 yum安装mongodb</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/6.html">6.centos7安装配置redis</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/7.html">7.redis编译报致命错误：jemallocjemalloc.h：没有那个文件或目录</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/8.html">8.centos7 php安装mongodb redis扩展</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/9.html">9.centos7配置java环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/10.html">10.centos7 安装tomcat</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/11.html">11.Centos php mongdb扩展Fatal error Class &#x27;MongoClient&#x27; not found in</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/12.html">12.centos7配置ipv6</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/13.html">13.centos7 tomcat中文乱码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/14.html">14.centos查看cpu核数和频率</a>
+                            </div>
+                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>13.centos7 tomcat中文乱码</h1></article>
+                <div id="xs_content_border">
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 centos中文乱码情况分析</a><br><a href="#2">2 查看系统是否安装了中文语言包</a><br><a href="#3">3 查看系统当前语言环境</a><br><a href="#4">4 修改系统配置支持中文</a><br><a href="#4.1">&nbsp;&nbsp;4.1 修改/etc/locale.conf文件改为中文</a><br><a href="#4.2">&nbsp;&nbsp;4.2 使配置生效</a><br><a href="#4.3">&nbsp;&nbsp;4.3 退出当前控制台</a><br><a href="#4.4">&nbsp;&nbsp;4.4 重新连接</a><br><a href="#5">5 SSH工具显示中文字符集设置</a><br><a href="#6">6 修改tomcat配置</a><br><a href="#6.1">&nbsp;&nbsp;6.1 方法1</a><br><a href="#6.1">&nbsp;&nbsp;6.1 方法2</a></div></div><div class="jumbotron">
+<p>Centos7系统在与tomcat交互数据时发现有中文乱码的现象。</p>
+</div>
+<div id="1"><h3>1 centos中文乱码情况分析</h3></div>
+<p>导致centos或者其他linux系统中文乱码的原因可能是以下几种，可以逐一排查。</p>
+<ul>
+<li>系统语言中文字符集设置</li>
+<li>SSH工具显示中文字符集设置</li>
+<li>Tomcat中文字符集设置</li>
+</ul>
+<div id="2"><h3>2 查看系统是否安装了中文语言包</h3></div>
+<p>locale -a 命令可以列出所有可用的公共语言环境的名称。</p>
+<pre class="prettyprint"><code>locale -a
+</code></pre>
+<p>显示</p>
+<pre class="prettyprint"><code>...
+zh_CN
+zh_CN.gb18030
+zh_CN.gb2312
+zh_CN.gbk
+zh_CN.utf8
+...
+</code></pre>
+<p>zh_CN开头的是中文编码标准。如果没有以上几项，需要手动安装。</p>
+<pre class="prettyprint"><code>yum install kde-l10n-Chinese
+</code></pre>
+<div id="3"><h3>3 查看系统当前语言环境</h3></div>
+<p>通过locale命令。</p>
+<pre class="prettyprint"><code>locale
+</code></pre>
+<p>显示</p>
+<pre class="prettyprint"><code>LANG=zh_CN.UTF-8
+LC_CTYPE="zh_CN.UTF-8"
+LC_NUMERIC="zh_CN.UTF-8"
+LC_TIME="zh_CN.UTF-8"
+LC_COLLATE="zh_CN.UTF-8"
+LC_MONETARY="zh_CN.UTF-8"
+LC_MESSAGES="zh_CN.UTF-8"
+LC_PAPER="zh_CN.UTF-8"
+LC_NAME="zh_CN.UTF-8"
+LC_ADDRESS="zh_CN.UTF-8"
+LC_TELEPHONE="zh_CN.UTF-8"
+LC_MEASUREMENT="zh_CN.UTF-8"
+LC_IDENTIFICATION="zh_CN.UTF-8"
+LC_ALL=
+</code></pre>
+<p>显示信息中每项的意义:</p>
+<ul>
+<li>LANG:当前系统的语言</li>
+<li>LC_CTYPE：语言符号及其分类</li>
+<li>LC_NUMERIC：数字</li>
+<li>LC_COLLATE：比较和排序习惯</li>
+<li>LC_TIME：时间显示格式</li>
+<li>LC_MONETARY：货币单位</li>
+<li>LC_MESSAGES：信息主要是提示信息,错误信息, 状态信息, 标题, 标签, 按钮和菜单等</li>
+<li>LC_NAME：姓名书写方式</li>
+<li>LC_ADDRESS：地址书写方式</li>
+<li>LC_TELEPHONE：电话号码书写方式</li>
+<li>LC_MEASUREMENT：度量衡表达方式</li>
+<li>LC_PAPER：默认纸张尺寸大小</li>
+<li>LC_IDENTIFICATION：对locale自身包含信息的概述</li>
+<li>LC<em>ALL：优先级最高变量，若设置了此变量，所有LC</em>* 和LANG变量会强制跟随它的值</li>
+</ul>
+<p>如果显示信息中不是"LANG=zh<em>CN.UTF-8"，这样的中文设置，比如是"LANG=en</em>US.UTF-8"就需要修改系统设置。改为支持中文的设置。</p>
+<div id="4"><h3>4 修改系统配置支持中文</h3></div>
+<div id="4.1"class="dsd_title_c_2"><h4>4.1 修改/etc/locale.conf文件改为中文</h4></div>
+<pre class="prettyprint"><code>vim /etc/locale.conf
+</code></pre>
+<p>加入以下设置:</p>
+<pre class="prettyprint"><code>LANG="zh_CN.UTF-8"
+</code></pre>
+<div id="4.2"class="dsd_title_c_2"><h4>4.2 使配置生效</h4></div>
+<pre class="prettyprint"><code>source /etc/locale.conf
+</code></pre>
+<div id="4.3"class="dsd_title_c_2"><h4>4.3 退出当前控制台</h4></div>
+<p>即使执行了source命令是配置生效，在当前的控制台中还是有中文乱码的现象。需要退出当前控制台，重新进一次。</p>
+<p>网上有些文章提到需要reboot命令重启，经过自己测试，退出控制台重进即可，并不需要重启。</p>
+<div id="4.4"class="dsd_title_c_2"><h4>4.4 重新连接</h4></div>
+<p>输入locale命令查看当前系统语言配置。显示LANG="zh_CN.UTF-8"为配置正常。</p>
+<div id="5"><h3>5 SSH工具显示中文字符集设置</h3></div>
+<p>以XShell为例，设置中文编码为UTF-8。设置步骤:</p>
+<p>文件 -&gt; 属性 -&gt; 终端 -&gt; 编码 -&gt; Unicode(UTF-8). </p>
+<p>如图:</p>
+<p><img class="center-block img-responsive" src="http://loccalhost/image/article/linux/centos/13-1.png" alt="13-1" /></p>
+<div id="6"><h3>6 修改tomcat配置</h3></div>
+<p>一般情况修改系统语言字符集以后，不需要再设置tomcat。这里记录一下tomcat请求编码采用utf-8的设置方法。</p>
+<div id="6.1"class="dsd_title_c_2"><h4>6.1 方法1</h4></div>
+<p>修改web项目WebRoot目录中的WEB-INF目录中的web.xml文件。加入以下配置:</p>
+<pre class="prettyprint"><code>&lt;filter&gt;
+    &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;encoding&lt;/param-name&gt;
+        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;forceEncoding&lt;/param-name&gt;
+        &lt;param-value&gt;true&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+</code></pre>
+<p>这个配置可以使传入tomcat的所有请求采用utf-8编码。</p>
+<div id="6.1"class="dsd_title_c_2"><h4>6.1 方法2</h4></div>
+<p>针对单独请求，代码中加入设置,请求头进行编码转换为utf-8。</p>
+<pre class="prettyprint"><code>request.setCharacterEncoding("UTF-8");
+</code></pre>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/linux/centos/13.html">原文链接</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="https://dashidan.com/article/linux/centos/12.html"> &lt; 12.centos7配置ipv6</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="https://dashidan.com/article/linux/centos/14.html"> 14.centos查看cpu核数和频率 &gt;</a>
+    </div>
+</footer>
+
+<script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="https://dashidan.com/js/bootstrap.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="https://dashidan.com/js/main.js"></script>
+</body>
+</html>

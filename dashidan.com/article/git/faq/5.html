@@ -49,62 +49,58 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/git/index.html">git</a> > faq
+                href="https://dashidan.com/article/git/index.html">git</a> > faq
             > 5.Git解决冲突
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Git常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Git常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/6.html">6.Git忽略文件</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                    <div class="dsd_title" onclick="clickTitle('addenda')">
+                        <span id="addenda_title">+ 附录</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                    <div id="addenda" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/addenda/1.html">1.大公司Github主页</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/6.html">6.Git忽略文件</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('addenda')">
-                    <span id="addenda_title">+ 附录</span>
-                </div>
-                <div id="addenda" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/addenda/1.html">1.大公司Github主页</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>5.Git解决冲突</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 Git设置对比工具</a><br><a href="#2">2
-                            Git运行代码合并工具</a><br><a href="#3">3 git使用第三方文件对比工具解决冲突</a></div>
-                    </div>
-                    <div id="1"><h3>1 Git设置对比工具</h3></div>
-                    <p>git自带对比工具不是很方便.可以设置为更好的文件对比工具比如Compare Merge.来进行差异比较和文件合并.
-                        参考文章:<a href="https://dashidan.com/article/git/faq/4.html">Git设置外部对比工具</a>;</p>
-                    <div id="2"><h3>2 Git运行代码合并工具</h3></div>
-                    <p>执行git的合并工具命令:</p>
-                    <pre class="prettyprint"><code>git mergetool
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 Git设置对比工具</a><br><a href="#2">2 Git运行代码合并工具</a><br><a href="#3">3 git使用第三方文件对比工具解决冲突</a></div></div><div id="1"><h3>1 Git设置对比工具</h3></div>
+<p>git自带对比工具不是很方便.可以设置为更好的文件对比工具比如Compare Merge.来进行差异比较和文件合并.
+参考文章:<a href="https://dashidan.com/article/git/faq/4.html">Git设置外部对比工具</a>;</p>
+<div id="2"><h3>2 Git运行代码合并工具</h3></div>
+<p>执行git的合并工具命令:</p>
+<pre class="prettyprint"><code>git mergetool
 </code></pre>
-                    <p>执行git mergetool命令会启动预先配置的Beyond Compare来显示文件差异.</p>
-                    <div id="3"><h3>3 git使用第三方文件对比工具解决冲突</h3></div>
-                    <p>有冲突的文件会顺次显示以下提示:</p>
-                    <pre class="prettyprint"><code>$ git mergetool
+<p>执行git mergetool命令会启动预先配置的Beyond Compare来显示文件差异.</p>
+<div id="3"><h3>3 git使用第三方文件对比工具解决冲突</h3></div>
+<p>有冲突的文件会顺次显示以下提示:</p>
+<pre class="prettyprint"><code>$ git mergetool
 Merging:
 test.txt
 
@@ -112,7 +108,7 @@ Normal merge conflict for 'test.txt':
   {local}: modified
   {remote}: modified
 </code></pre>
-                    <p>输入local采用本地合并.然后在文件对比工具中将冲突的地方合并.保存后会自动到下一个冲突文件.直到全部冲突都解决.</p>
+<p>输入local采用本地合并.然后在文件对比工具中将冲突的地方合并.保存后会自动到下一个冲突文件.直到全部冲突都解决.</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/git/faq/5.html">原文链接</a>.
@@ -126,13 +122,13 @@ Normal merge conflict for 'test.txt':
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/git/faq/4.html"> &lt; 4.Git设置外部对比工具</a>
+            <a href="https://dashidan.com/article/git/faq/4.html"> &lt; 4.Git设置外部对比工具</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/git/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/git/faq/6.html"> 6.Git忽略文件 &gt;</a>
+            <a href="https://dashidan.com/article/git/faq/6.html"> 6.Git忽略文件 &gt;</a>
     </div>
 </footer>
 

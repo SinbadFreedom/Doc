@@ -49,68 +49,63 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/git/index.html">git</a> > faq
+                href="https://dashidan.com/article/git/index.html">git</a> > faq
             > 4.Git设置外部对比工具
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Git常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Git常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/6.html">6.Git忽略文件</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                    <div class="dsd_title" onclick="clickTitle('addenda')">
+                        <span id="addenda_title">+ 附录</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                    <div id="addenda" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/addenda/1.html">1.大公司Github主页</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/6.html">6.Git忽略文件</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('addenda')">
-                    <span id="addenda_title">+ 附录</span>
-                </div>
-                <div id="addenda" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/addenda/1.html">1.大公司Github主页</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>4.Git设置外部对比工具</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 git查看命令帮助</a><br><a href="#2">2
-                            git设置外部文本对比工具</a><br><a href="#3">3 git设置外部合并工具</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>在通过GIt比较文本差异的时候,采用外部对比工具比如Compare Merge会比Git自带的对比工具更直观. windows下设置git的对比工具,beyond compare
-                            3或者Compare Merge.</p>
-                    </div>
-                    <div id="1"><h3>1 git查看命令帮助</h3></div>
-                    <pre class="prettyprint"><code>$ git difftool --tool-help
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 git查看命令帮助</a><br><a href="#2">2 git设置外部文本对比工具</a><br><a href="#3">3 git设置外部合并工具</a></div></div><div class="jumbotron">
+    <p>在通过GIt比较文本差异的时候,采用外部对比工具比如Compare Merge会比Git自带的对比工具更直观. windows下设置git的对比工具,beyond compare 3或者Compare Merge.</p>
+</div>
+<div id="1"><h3>1 git查看命令帮助</h3></div>
+<pre class="prettyprint"><code>$ git difftool --tool-help
 </code></pre>
-                    <div id="2"><h3>2 git设置外部文本对比工具</h3></div>
-                    <pre class="prettyprint"><code>$ git config --global diff.tool bc3
+<div id="2"><h3>2 git设置外部文本对比工具</h3></div>
+<pre class="prettyprint"><code>$ git config --global diff.tool bc3
 $ git config --global difftool.bc3.path "D:\Program Files\Beyond Compare 4\BCompare.exe"
 </code></pre>
-                    <div id="3"><h3>3 git设置外部合并工具</h3></div>
-                    <pre class="prettyprint"><code>$ git config --global merge.tool bc3
+<div id="3"><h3>3 git设置外部合并工具</h3></div>
+<pre class="prettyprint"><code>$ git config --global merge.tool bc3
 $ git config --global mergetool.bc3.path "D:\Program Files\Beyond Compare 4\BCompare.exe"
 </code></pre>
-                    <p>也可以直接修改.gitconfig文件,直接增加如下:</p>
-                    <pre class="prettyprint"><code>[diff]
+<p>也可以直接修改.gitconfig文件,直接增加如下:</p>
+<pre class="prettyprint"><code>[diff]
     tool = bc3
 [difftool "bc3"]
     path = D:\Program Files\Beyond Compare 4\BCompare.exe
@@ -119,9 +114,9 @@ $ git config --global mergetool.bc3.path "D:\Program Files\Beyond Compare 4\BCom
 [mergetool "bc3"]
     path = D:\Program Files\Beyond Compare 4\BCompare.exe
 </code></pre>
-                    <p>设置好后,使用命令是 git difftool 而不是之前的 git diff 了。</p>
-                    <p>注:
-                        文中对比工具的路径设置为自己.</p>
+<p>设置好后,使用命令是 git difftool 而不是之前的 git diff 了。</p>
+<p>注:
+文中对比工具的路径设置为自己.</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/git/faq/4.html">原文链接</a>.
@@ -135,13 +130,13 @@ $ git config --global mergetool.bc3.path "D:\Program Files\Beyond Compare 4\BCom
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/git/faq/3.html"> &lt; 3.Git撤销提交</a>
+            <a href="https://dashidan.com/article/git/faq/3.html"> &lt; 3.Git撤销提交</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/git/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/git/faq/5.html"> 5.Git解决冲突 &gt;</a>
+            <a href="https://dashidan.com/article/git/faq/5.html"> 5.Git解决冲突 &gt;</a>
     </div>
 </footer>
 

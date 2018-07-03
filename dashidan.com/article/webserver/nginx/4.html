@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>nginx目录路径重定向</title>
-    <meta name="description"
-          content="nginx目录路径重定向的四种实现方式.修改root映射,通过Nginx rewrite内部跳转,设置别名alias映射实现,通过nginx的permanent 301绝对跳转实现.">
+    <meta name="description" content="nginx目录路径重定向的四种实现方式.修改root映射,通过Nginx rewrite内部跳转,设置别名alias映射实现,通过nginx的permanent 301绝对跳转实现.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -50,84 +49,81 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/webserver/index.html">webserver</a> > nginx
+                href="https://dashidan.com/article/webserver/index.html">webserver</a> > nginx
             > 4.nginx目录路径重定向
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('nginx')">
-                    <span id="nginx_title">+ Nginx</span>
-                </div>
-                <div id="nginx" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                    <div class="dsd_title" onclick="clickTitle('nginx')">
+                        <span id="nginx_title">+ Nginx</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                    <div id="nginx" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/6.html">6.nginx开启ipv6支持</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                    <div class="dsd_title" onclick="clickTitle('dns')">
+                        <span id="dns_title">+ DNS</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                    <div id="dns" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('dns')">
-                    <span id="dns_title">+ DNS</span>
-                </div>
-                <div id="dns" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>4.nginx目录路径重定向</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nginx修改root映射</a><br><a href="#2">2 通过nginx
-                            rewrite内部跳转实现访问重定向</a><br><a href="#3">3 nginx设置别名alias映射实现</a><br><a href="#4">4
-                            通过nginx的permanent 301绝对跳转实现</a><br><a href="#5">5 通过判断uri实现页面跳转</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>如果希望域名后边跟随的路径指向本地磁盘的其他目录,而不是默认的web目录时,需要设置nginx目录访问重定向.
-                            应用场景:dashidan.com/image自动跳转到dashidan.com/folderName/image.nginx目录路径重定向的四种实现方式.修改root映射,通过Nginx
-                            rewrite内部跳转,设置别名alias映射实现,通过nginx的permanent 301绝对跳转实现.</p>
-                    </div>
-                    <div id="1"><h3>1 nginx修改root映射</h3></div>
-                    <p>修改root映射实现nginx目录访问重定向是最简单的方式, 推荐采用这一种.</p>
-                    <pre class="prettyprint"><code>location  /image {
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nginx修改root映射</a><br><a href="#2">2 通过nginx rewrite内部跳转实现访问重定向</a><br><a href="#3">3 nginx设置别名alias映射实现</a><br><a href="#4">4 通过nginx的permanent 301绝对跳转实现</a><br><a href="#5">5 通过判断uri实现页面跳转</a></div></div><div class="jumbotron">
+<p>如果希望域名后边跟随的路径指向本地磁盘的其他目录,而不是默认的web目录时,需要设置nginx目录访问重定向.
+应用场景:dashidan.com/image自动跳转到dashidan.com/folderName/image.nginx目录路径重定向的四种实现方式.修改root映射,通过Nginx rewrite内部跳转,设置别名alias映射实现,通过nginx的permanent 301绝对跳转实现.</p>
+</div>
+<div id="1"><h3>1 nginx修改root映射</h3></div>
+<p>修改root映射实现nginx目录访问重定向是最简单的方式, 推荐采用这一种.</p>
+<pre class="prettyprint"><code>location  /image {
     root   /folderName;
 }
 </code></pre>
-                    <div id="2"><h3>2 通过nginx rewrite内部跳转实现访问重定向</h3></div>
-                    <p>nginx配置代码示例:</p>
-                    <pre class="prettyprint"><code>location /image {
+<div id="2"><h3>2 通过nginx rewrite内部跳转实现访问重定向</h3></div>
+<p>nginx配置代码示例:</p>
+<pre class="prettyprint"><code>location /image {
     rewrite ^/image/(.*)$     /folderName/image/$1 last;
 }
 </code></pre>
-                    <div id="3"><h3>3 nginx设置别名alias映射实现</h3></div>
-                    <p>配置示例:</p>
-                    <pre class="prettyprint"><code>location  /image  {
+<div id="3"><h3>3 nginx设置别名alias映射实现</h3></div>
+<p>配置示例:</p>
+<pre class="prettyprint"><code>location  /image  {
     alias  /folderName/image;  #这里写绝对路径
 }
 </code></pre>
-                    <div id="4"><h3>4 通过nginx的permanent 301绝对跳转实现</h3></div>
-                    <p>配置示例:</p>
-                    <pre class="prettyprint"><code>location /image {
+<div id="4"><h3>4 通过nginx的permanent 301绝对跳转实现</h3></div>
+<p>配置示例:</p>
+<pre class="prettyprint"><code>location /image {
     rewrite ^/image/(.*)$   http://dashidan.com/folderName/image/$1;
 }
 </code></pre>
-                    <div id="5"><h3>5 通过判断uri实现页面跳转</h3></div>
-                    <p>配置示例:</p>
-                    <pre class="prettyprint"><code>if ( $request_uri ~* ^(/image)){
+<div id="5"><h3>5 通过判断uri实现页面跳转</h3></div>
+<p>配置示例:</p>
+<pre class="prettyprint"><code>if ( $request_uri ~* ^(/image)){
     rewrite ^/image/(.*)$ /folderName/image/$1 last;
 }
 </code></pre>
@@ -144,13 +140,13 @@
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/webserver/nginx/3.html"> &lt; 3.linux系统配置nginx支持PHP解析</a>
+            <a href="https://dashidan.com/article/webserver/nginx/3.html"> &lt; 3.linux系统配置nginx支持PHP解析</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/webserver/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/webserver/nginx/5.html"> 5.nginx设置404页面跳转 &gt;</a>
+            <a href="https://dashidan.com/article/webserver/nginx/5.html"> 5.nginx设置404页面跳转 &gt;</a>
     </div>
 </footer>
 

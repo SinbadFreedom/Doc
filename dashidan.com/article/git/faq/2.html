@@ -49,67 +49,63 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/git/index.html">git</a> > faq
+                href="https://dashidan.com/article/git/index.html">git</a> > faq
             > 2.Git修改文件名大小写时不更新
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Git常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Git常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/1.html">1.Git清除本地保存的账号信息</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/2.html">2.Git修改文件名大小写时不更新</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/faq/6.html">6.Git忽略文件</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/3.html">3.Git撤销提交</a>
+                    <div class="dsd_title" onclick="clickTitle('addenda')">
+                        <span id="addenda_title">+ 附录</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/4.html">4.Git设置外部对比工具</a>
+                    <div id="addenda" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/git/addenda/1.html">1.大公司Github主页</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/5.html">5.Git解决冲突</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/faq/6.html">6.Git忽略文件</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('addenda')">
-                    <span id="addenda_title">+ 附录</span>
-                </div>
-                <div id="addenda" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/git/addenda/1.html">1.大公司Github主页</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>2.Git修改文件名大小写时不更新</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 方案一设置Git大小写敏感</a><br><a href="#2">2 方案二
-                            先删除文件再添加进去：</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>windows使用git时,如果一个文件只是把文件名的大小写改一下,提交后默认更新下来还是改之前的情况，需要修改Git识别文件大小写.</p>
-                    </div>
-                    <div id="1"><h3>1 方案一设置Git大小写敏感</h3></div>
-                    <p>通过修改"core.ignorecase false"来设置git大小写敏感.需要在提交端修改.</p>
-                    <pre class="prettyprint"><code>$ git config core.ignorecase false
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 方案一设置Git大小写敏感</a><br><a href="#2">2 方案二 先删除文件再添加进去：</a></div></div><div class="jumbotron">
+    <p>windows使用git时,如果一个文件只是把文件名的大小写改一下,提交后默认更新下来还是改之前的情况，需要修改Git识别文件大小写.</p>
+</div>
+<div id="1"><h3>1 方案一设置Git大小写敏感</h3></div>
+<p>通过修改"core.ignorecase false"来设置git大小写敏感.需要在提交端修改.</p>
+<pre class="prettyprint"><code>$ git config core.ignorecase false
 </code></pre>
-                    <div id="2"><h3>2 方案二 先删除文件再添加进去：</h3></div>
-                    <pre class="prettyprint"><code>$ git rm ;
+<div id="2"><h3>2 方案二 先删除文件再添加进去：</h3></div>
+<pre class="prettyprint"><code>$ git rm ;
 git add  ;
 git commit -m "rename file"
 </code></pre>
-                    <div class="bs-callout bs-callout-warning">
-                        <h4>有的时候方案2不管用.</h4>
-                        在这种情况下, 可以先删除文件, 改下文件名, 比如名字后加个1, 提交更新.更新后.再将文件名改回来, 从新提交更新.这样无论怎样都能正确更新下来了.
-                    </div>
+<div class="bs-callout bs-callout-warning">
+<h4>有的时候方案2不管用.</h4>
+在这种情况下, 可以先删除文件, 改下文件名, 比如名字后加个1, 提交更新.更新后.再将文件名改回来, 从新提交更新.这样无论怎样都能正确更新下来了.
+</div>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/git/faq/2.html">原文链接</a>.
@@ -123,13 +119,13 @@ git commit -m "rename file"
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/git/faq/1.html"> &lt; 1.Git清除本地保存的账号信息</a>
+            <a href="https://dashidan.com/article/git/faq/1.html"> &lt; 1.Git清除本地保存的账号信息</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/git/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/git/faq/3.html"> 3.Git撤销提交 &gt;</a>
+            <a href="https://dashidan.com/article/git/faq/3.html"> 3.Git撤销提交 &gt;</a>
     </div>
 </footer>
 

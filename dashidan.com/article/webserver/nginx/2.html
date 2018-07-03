@@ -49,84 +49,81 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/webserver/index.html">webserver</a> > nginx
+                href="https://dashidan.com/article/webserver/index.html">webserver</a> > nginx
             > 2.windows系统nginx停止启动及常用命令
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('nginx')">
-                    <span id="nginx_title">+ Nginx</span>
-                </div>
-                <div id="nginx" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                    <div class="dsd_title" onclick="clickTitle('nginx')">
+                        <span id="nginx_title">+ Nginx</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                    <div id="nginx" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/6.html">6.nginx开启ipv6支持</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                    <div class="dsd_title" onclick="clickTitle('dns')">
+                        <span id="dns_title">+ DNS</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                    <div id="dns" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('dns')">
-                    <span id="dns_title">+ DNS</span>
-                </div>
-                <div id="dns" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>2.windows系统nginx停止启动及常用命令</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 windows启动nginx</a><br><a href="#2">2
-                            windows停止nginx</a><br><a href="#3">3 重新载入Nginx配置</a><br><a href="#4">4 重新打开日志文件</a><br><a
-                            href="#5">5 查看Nginx版本</a></div>
-                    </div>
-                    <div id="1"><h3>1 windows启动nginx</h3></div>
-                    <p>可以直接双击nginx.exe启动或者将下边的脚本保存为bat文件双击运行.</p>
-                    <pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;start nginx
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 windows启动nginx</a><br><a href="#2">2 windows停止nginx</a><br><a href="#3">3 重新载入Nginx配置</a><br><a href="#4">4 重新打开日志文件</a><br><a href="#5">5 查看Nginx版本</a></div></div><div id="1"><h3>1 windows启动nginx</h3></div>
+<p>可以直接双击nginx.exe启动或者将下边的脚本保存为bat文件双击运行.</p>
+<pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;start nginx
 </code></pre>
-                    <p>或</p>
-                    <pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe
+<p>或</p>
+<pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe
 </code></pre>
-                    <p>建议使用第一种,第二种会使你的cmd窗口一直处于执行中,不能进行其他命令操作.</p>
-                    <p>注:<code>d:\dashidan.com</code>换成自己的nginx安装路径</p>
-                    <div id="2"><h3>2 windows停止nginx</h3></div>
-                    <p>可以直接在资源管理器中找到nginx.exe进程点右键,选择结束进程,
-                        或者将下边的脚本保存为nginx_stop.bat文件双击运行.需要将nginx.exe的路径改为nginx的安装目录.</p>
-                    <pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe -s stop
+<p>建议使用第一种,第二种会使你的cmd窗口一直处于执行中,不能进行其他命令操作.</p>
+<p>注:<code>d:\dashidan.com</code>换成自己的nginx安装路径</p>
+<div id="2"><h3>2 windows停止nginx</h3></div>
+<p>可以直接在资源管理器中找到nginx.exe进程点右键,选择结束进程, 或者将下边的脚本保存为nginx_stop.bat文件双击运行.需要将nginx.exe的路径改为nginx的安装目录.</p>
+<pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe -s stop
 </code></pre>
-                    <p>或</p>
-                    <pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe -s quit
+<p>或</p>
+<pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe -s quit
 </code></pre>
-                    <ul>
-                        <li>stop是快速停止nginx,可能并不保存相关信息.</li>
-                        <li>quit是完整有序的停止nginx,并保存相关信息.</li>
-                    </ul>
-                    <div id="3"><h3>3 重新载入Nginx配置</h3></div>
-                    <p>nginx配置有修改,但你不想重启nginx的时候,可以使用reload命令重新加载配置文件.</p>
-                    <pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe -s reload
+<ul>
+<li>stop是快速停止nginx,可能并不保存相关信息.</li>
+<li>quit是完整有序的停止nginx,并保存相关信息.</li>
+</ul>
+<div id="3"><h3>3 重新载入Nginx配置</h3></div>
+<p>nginx配置有修改,但你不想重启nginx的时候,可以使用reload命令重新加载配置文件.</p>
+<pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe -s reload
 </code></pre>
-                    <div id="4"><h3>4 重新打开日志文件</h3></div>
-                    <p>通过nginx.exe -s reopen命令可以重新打开日志文件.</p>
-                    <pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe -s reopen
+<div id="4"><h3>4 重新打开日志文件</h3></div>
+<p>通过nginx.exe -s reopen命令可以重新打开日志文件.</p>
+<pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx.exe -s reopen
 </code></pre>
-                    <div id="5"><h3>5 查看Nginx版本</h3></div>
-                    <p>nginx -v查看Nginx版本号.</p>
-                    <pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx -v
+<div id="5"><h3>5 查看Nginx版本</h3></div>
+<p>nginx -v查看Nginx版本号.</p>
+<pre class="prettyprint"><code>d:\dashidan.com\nginx-1.0.2&gt;nginx -v
 </code></pre>
                 </div>
                 <div>
@@ -141,13 +138,13 @@
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/webserver/nginx/1.html"> &lt; 1.windows搭建nginx服务器</a>
+            <a href="https://dashidan.com/article/webserver/nginx/1.html"> &lt; 1.windows搭建nginx服务器</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/webserver/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/webserver/nginx/3.html"> 3.linux系统配置nginx支持PHP解析 &gt;</a>
+            <a href="https://dashidan.com/article/webserver/nginx/3.html"> 3.linux系统配置nginx支持PHP解析 &gt;</a>
     </div>
 </footer>
 

@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>nginx开启ipv6支持</title>
+    <meta name="description" content="从Nginx 1.3的某个版本起，默认ipv6only是打开的，所以，我们只需要在监听中加入ipv6监听即可.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/webserver/nginx/6.html">
+
+    <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+                href="https://dashidan.com/article/webserver/index.html">webserver</a> > nginx
+            > 6.nginx开启ipv6支持
+        </div>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                    <div class="dsd_title" onclick="clickTitle('nginx')">
+                        <span id="nginx_title">+ Nginx</span>
+                    </div>
+                    <div id="nginx" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/6.html">6.nginx开启ipv6支持</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('dns')">
+                        <span id="dns_title">+ DNS</span>
+                    </div>
+                    <div id="dns" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
+                            </div>
+                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>6.nginx开启ipv6支持</h1></article>
+                <div id="xs_content_border">
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nginx 开启ipv6的方式</a></div></div><div class="jumbotron">
+<p>从Nginx 1.3的某个版本起，默认ipv6only是打开的，所以，我们只需要在监听中加入ipv6监听即可.
+</p>
+</div>
+<div id="1"><h3>1 nginx 开启ipv6的方式</h3></div>
+<pre class="prettyprint"><code>listen [::]:80 ipv6only=on;
+</code></pre>
+<p>https://blog.csdn.net/shenxianfeng/article/details/72859970</p>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/webserver/nginx/6.html">原文链接</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="https://dashidan.com/article/webserver/nginx/5.html"> &lt; 5.nginx设置404页面跳转</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/webserver/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+    </div>
+</footer>
+
+<script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="https://dashidan.com/js/bootstrap.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="https://dashidan.com/js/main.js"></script>
+</body>
+</html>

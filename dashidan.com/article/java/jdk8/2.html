@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>java JDK8函数式接口 - java教程 - 大屎蛋教程网</title>
-    <meta name="description"
-          content="JDK8提供了函数式接口(Functional Interface)是指只有一个抽象方法的接口.这种类型的接口也称为SAM(Single Abstract Method).">
+    <meta name="description" content="JDK8提供了函数式接口(Functional Interface)是指只有一个抽象方法的接口.这种类型的接口也称为SAM(Single Abstract Method).">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -50,216 +49,215 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/java/index.html">java</a> > jdk8
+                href="https://dashidan.com/article/java/index.html">java</a> > jdk8
             > 2.JDK8函数式接口
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('basic')">
-                    <span id="basic_title">+ Java入门到精通</span>
-                </div>
-                <div id="basic" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                    <div class="dsd_title" onclick="clickTitle('basic')">
+                        <span id="basic_title">+ Java入门到精通</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                    <div id="basic" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                    <div class="dsd_title" onclick="clickTitle('jdk8')">
+                        <span id="jdk8_title">+ JDK8新特性</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                    <div id="jdk8" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                    <div class="dsd_title" onclick="clickTitle('addenda')">
+                        <span id="addenda_title">+ 附录</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                    <div id="addenda" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                    <div class="dsd_title" onclick="clickTitle('idea')">
+                        <span id="idea_title">+ Intelij IDEA</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                    <div id="idea" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                    <div class="dsd_title" onclick="clickTitle('api')">
+                        <span id="api_title">+ Java中文手册</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                    <div id="api" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ FAQ</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayList原理及转化成数组常用方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                    <div class="dsd_title" onclick="clickTitle('profile')">
+                        <span id="profile_title">+ 程序优化专题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                    <div id="profile" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/5.html">5.linux系统找出最好效率的java方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/6.html">6.java开启jmx设置 jsoncole远程连接java程序</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('jdk8')">
-                    <span id="jdk8_title">+ JDK8新特性</span>
-                </div>
-                <div id="jdk8" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('addenda')">
-                    <span id="addenda_title">+ 附录</span>
-                </div>
-                <div id="addenda" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('idea')">
-                    <span id="idea_title">+ Intelij IDEA</span>
-                </div>
-                <div id="idea" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('api')">
-                    <span id="api_title">+ Java中文手册</span>
-                </div>
-                <div id="api" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ FAQ</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayList原理及转化成数组常用方法</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('profile')">
-                    <span id="profile_title">+ 程序优化专题</span>
-                </div>
-                <div id="profile" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>2.JDK8函数式接口</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 函数式接口定义</a><br><a href="#2">2
-                            函数式接口应用场景</a><br><a href="#3">3 @FunctionalInterface注解</a><br><a href="#4">4
-                            java函数式接口里允许定义default方法</a><br><a href="#5">5 java函数式接口里允许定义静态方法</a><br><a href="#6">6
-                            函数式接口里允许定义java.lang.Object里的public方法</a><br><a href="#7">7 JDK中的函数式接口举例</a><br><a href="#8">8
-                            参考文章</a></div>
-                    </div>
-                    <div class="bs-callout bs-callout-success">
-                        JDK8.0开始新增了函数式接口.
-                    </div>
-                    <div id="1"><h3>1 函数式接口定义</h3></div>
-                    <p>java 函数式接口(Functional Interface)是指只有一个抽象方法的接口.这种类型的接口也称为SAM(Single Abstract Method).</p>
-                    <div id="2"><h3>2 函数式接口应用场景</h3></div>
-                    <p>函数式接口主要应用在Lambda表达式上.如定义了一个函数式接口如下:</p>
-                    <pre class="prettyprint"><code class="java language-java">/**
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 函数式接口定义</a><br><a href="#2">2 函数式接口应用场景</a><br><a href="#3">3 @FunctionalInterface注解</a><br><a href="#4">4 java函数式接口里允许定义default方法</a><br><a href="#5">5 java函数式接口里允许定义静态方法</a><br><a href="#6">6 函数式接口里允许定义java.lang.Object里的public方法</a><br><a href="#7">7 JDK中的函数式接口举例</a><br><a href="#8">8 参考文章</a></div></div><div class="bs-callout bs-callout-success">
+    JDK8.0开始新增了函数式接口.
+</div>
+<div id="1"><h3>1 函数式接口定义</h3></div>
+<p>java 函数式接口(Functional Interface)是指只有一个抽象方法的接口.这种类型的接口也称为SAM(Single Abstract Method).</p>
+<div id="2"><h3>2 函数式接口应用场景</h3></div>
+<p>函数式接口主要应用在Lambda表达式上.如定义了一个函数式接口如下:</p>
+<pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网 http://dashidan.com
  */
 @FunctionalInterface
@@ -268,18 +266,18 @@ interface GreetingService
     void sayMessage(String message);
 }
 </code></pre>
-                    <p>那么就可以使用Lambda表达式来表示该接口的一个实现.</p>
-                    <pre class="prettyprint"><code class="java language-java">/**
+<p>那么就可以使用Lambda表达式来表示该接口的一个实现.</p>
+<pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网 http://dashidan.com
  */
 GreetingService greetService1 = message -&gt; System.out.println("Hello " + message);
 </code></pre>
-                    <div class="bs-callout bs-callout-warning">
-                        JDK8.0之前一般是用匿名类实现的.
-                    </div>
-                    <div id="3"><h3>3 @FunctionalInterface注解</h3></div>
-                    <p>JDK8为函数式接口引入了一个新注解@FunctionalInterface,主要用于编译级错误检查.加上该注解,当你写的接口不符合函数式接口定义的时候,编译器会报错.例:</p>
-                    <pre class="prettyprint"><code class="java language-java">/**
+<div class="bs-callout bs-callout-warning">
+    JDK8.0之前一般是用匿名类实现的.
+</div>
+<div id="3"><h3>3 @FunctionalInterface注解</h3></div>
+<p>JDK8为函数式接口引入了一个新注解@FunctionalInterface,主要用于编译级错误检查.加上该注解,当你写的接口不符合函数式接口定义的时候,编译器会报错.例:</p>
+<pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网 http://dashidan.com
  */
 @FunctionalInterface
@@ -288,15 +286,14 @@ interface GreetingService
     void sayMessage(String message);
 }
 </code></pre>
-                    <div class="bs-callout bs-callout-warning">
-                        <h4>@FunctionalInterface注解</h4>
-                        加不加@FunctionalInterface对于接口是不是函数式接口没有影响,该注解提醒编译器去检查该接口是否仅包含一个抽象方法.
-                        加上该注解表示该接口中只能有一个抽象方法.如果接口中包含了两个或以上的抽象方法, 则违反了函数式接口的定义.采用Eclipse或者Intelij IDEA等IDE会提示错误.
-                    </div>
-                    <div id="4"><h3>4 java函数式接口里允许定义default方法</h3></div>
-                    <p>default方法也是<a href="https://dashidan.com/article/java/jdk8/1.html">JDK8新增语法特性</a>.接口中使用该关键字表示该方法是可以在接口中直接实现该方法.函数式接口里是可以包含default方法,因为default方法不是抽象方法,其有一个默认实现,所以是符合函数式接口的定义的.如下代码不会报错:
-                    </p>
-                    <pre class="prettyprint"><code class="java language-java">/**
+<div class="bs-callout bs-callout-warning">
+    <h4>@FunctionalInterface注解</h4>
+    加不加@FunctionalInterface对于接口是不是函数式接口没有影响,该注解提醒编译器去检查该接口是否仅包含一个抽象方法.
+    加上该注解表示该接口中只能有一个抽象方法.如果接口中包含了两个或以上的抽象方法, 则违反了函数式接口的定义.采用Eclipse或者Intelij IDEA等IDE会提示错误.
+</div>
+<div id="4"><h3>4 java函数式接口里允许定义default方法</h3></div>
+<p>default方法也是<a href="https://dashidan.com/article/java/jdk8/1.html">JDK8新增语法特性</a>.接口中使用该关键字表示该方法是可以在接口中直接实现该方法.函数式接口里是可以包含default方法,因为default方法不是抽象方法,其有一个默认实现,所以是符合函数式接口的定义的.如下代码不会报错:</p>
+<pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网 http://dashidan.com
  */
 @FunctionalInterface
@@ -315,9 +312,9 @@ interface GreetingService
     }
 }
 </code></pre>
-                    <div id="5"><h3>5 java函数式接口里允许定义静态方法</h3></div>
-                    <p>函数式接口里是可以包含静态方法,因为静态方法不能是抽象方法,是一个已经实现了的方法,所以是符合函数式接口的定义的.如下代码不会报错:</p>
-                    <pre class="prettyprint"><code class="java language-java">/**
+<div id="5"><h3>5 java函数式接口里允许定义静态方法</h3></div>
+<p>函数式接口里是可以包含静态方法,因为静态方法不能是抽象方法,是一个已经实现了的方法,所以是符合函数式接口的定义的.如下代码不会报错:</p>
+<pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网 http://dashidan.com
  */
 @FunctionalInterface
@@ -329,10 +326,9 @@ interface GreetingService
     }
 }
 </code></pre>
-                    <div id="6"><h3>6 函数式接口里允许定义java.lang.Object里的public方法</h3></div>
-                    <p>
-                        函数式接口里是可以包含Object里的public方法.这些方法对于函数式接口来说,不被当成是抽象方法(虽然它们是抽象方法).因为任何一个函数式接口的实现,默认都继承了Object类,包含了来自java.lang.Object里对这些抽象方法的实现.如下代码不会报错:</p>
-                    <pre class="prettyprint"><code class="java language-java">/**
+<div id="6"><h3>6 函数式接口里允许定义java.lang.Object里的public方法</h3></div>
+<p>函数式接口里是可以包含Object里的public方法.这些方法对于函数式接口来说,不被当成是抽象方法(虽然它们是抽象方法).因为任何一个函数式接口的实现,默认都继承了Object类,包含了来自java.lang.Object里对这些抽象方法的实现.如下代码不会报错:</p>
+<pre class="prettyprint"><code class="java language-java">/**
  * 大屎蛋教程网 http://dashidan.com
  */
 @FunctionalInterface
@@ -344,8 +340,8 @@ interface GreetingService
     boolean equals(Object obj);
 }
 </code></pre>
-                    <div id="7"><h3>7 JDK中的函数式接口举例</h3></div>
-                    <pre class="prettyprint"><code class="java language-java">java.lang.Runnable,
+<div id="7"><h3>7 JDK中的函数式接口举例</h3></div>
+<pre class="prettyprint"><code class="java language-java">java.lang.Runnable,
 
 java.awt.event.ActionListener,
 
@@ -355,11 +351,9 @@ java.util.concurrent.Callable
 
 java.util.function包下的接口,如Consumer、Predicate、Supplier等
 </code></pre>
-                    <div id="8"><h3>8 参考文章</h3></div>
-                    <p><a href="http://www.linuxidc.com/Linux/2016-09/135437.htm">http://www.linuxidc.com/Linux/2016-09/135437.htm</a>
-                    </p>
-                    <p><a href="http://www.techempower.com/blog/2013/03/26/everything-about-java-8/">http://www.techempower.com/blog/2013/03/26/everything-about-java-8/</a>
-                    </p>
+<div id="8"><h3>8 参考文章</h3></div>
+<p><a href="http://www.linuxidc.com/Linux/2016-09/135437.htm">http://www.linuxidc.com/Linux/2016-09/135437.htm</a></p>
+<p><a href="http://www.techempower.com/blog/2013/03/26/everything-about-java-8/">http://www.techempower.com/blog/2013/03/26/everything-about-java-8/</a></p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/java/jdk8/2.html">原文链接</a>.
@@ -373,13 +367,13 @@ java.util.function包下的接口,如Consumer、Predicate、Supplier等
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/java/jdk8/1.html"> &lt; 1.JDK8新增语法特性简介</a>
+            <a href="https://dashidan.com/article/java/jdk8/1.html"> &lt; 1.JDK8新增语法特性简介</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/java/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/java/jdk8/3.html"> 3.Java兰姆达(Lambda)表达式 &gt;</a>
+            <a href="https://dashidan.com/article/java/jdk8/3.html"> 3.Java兰姆达(Lambda)表达式 &gt;</a>
     </div>
 </footer>
 
