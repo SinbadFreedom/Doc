@@ -1,0 +1,95 @@
+https://blog.csdn.net/lfw19891101/article/details/7204282
+
+
+1 安装pptpd
+===
+
+apt-get install pptpd
+
+2 配置PPP 连接的地址
+===
+
+```
+vim /etc/pptpd.conf
+```
+
+修改localip和remoteip:
+
+```
+localip 192.168.0.1
+remoteip 192.168.0.234-238,192.168.0.245
+
+```
+
+3 设置安全认证方式及DNS等信息
+===
+
+```
+vim /etc/ppp/pptpd-options
+```
+
+加入
+
+```
+ms-dns 8.8.8.8
+```
+
+
+4 添加PPTP连接的账户信息
+===
+
+```
+vim /etc/ppp/chap-secrets
+```
+
+加入:
+
+```
+user    pptpd   password  *
+```
+
+5 开启内核IP转发
+===
+
+```
+vim /etc/sysctl.conf
+```
+设置
+
+```
+net.ipv4.ip_forward=1
+```
+
+使配置生效
+
+```
+sysctl -psysc	
+```
+
+6 NAT转发设置
+===
+安装iptables
+apt-get install iptables
+
+设置nat转发
+
+sudo iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
+
+
+192.168.0.0/24是你在上面设置的IP段，让这个段转发
+
+注意eth0是你连接外网的那块网卡，不一定是0也有可能是1或者看你的机器哪块网卡连的外网了。
+这样就以NAT的方式请求外网的东西了。不知道你的机器哪块网卡连的外网的话ifconfig一下看看哪个网卡是外网IP就知道了。
+
+
+
+
+
+7.启动pptpd服务
+===
+
+```
+service pptpd start
+```
+
+如果已经启动了，需要重启。
