@@ -1,0 +1,4 @@
+{
+  "title": "8.centos7 php安装mongodb redis扩展",
+  "desc": "安装php以后如果php不支持访问mongdb和redis，需要安装对应的扩展模块。"
+}
