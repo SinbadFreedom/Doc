@@ -1,0 +1,276 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>centos7 安装tomcat</title>
+    <meta name="description" content="Centos7安装配置tomcat8.5。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/centos/10.html">
+
+    <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+                href="https://dashidan.com/article/linux/index.html">linux</a> > centos
+            > 10.centos7 安装tomcat
+        </div>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                    <div class="dsd_title" onclick="clickTitle('common')">
+                        <span id="common_title">+ Linux常用命令</span>
+                    </div>
+                    <div id="common" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/1.html">1.linux常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/2.html">2.linux定时任务crontab</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/3.html">3.linux通过ssh建立代理</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/4.html">4.linux修改root密码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/5.html">5.linux修改打开文件数限制</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/6.html">6.linux中文乱码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/7.html">7.Linux与Windows文件互传</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/8.html">8.Linux退出telnet</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/9.html">9.Linux压缩和解压缩</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/10.html">10.Linux查看系统版本</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/11.html">11.Linux的shell脚本中数组及数组遍历</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/12.html">12.localefacet_S_create_c_locale name not valid</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/13.html">13.linux服务器间传输文件和文件夹</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/14.html">14.获取本地主机UnknownHostException</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/15.html">15.find命令卡住</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/16.html">16.linux环境变量配错导致所有命令无法使用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/17.html">17.linux查看指定端口客户端连接数</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/18.html">18.linux日志相关的方法cat tail head grep sed</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/19.html">19.linux日志查询常用操作</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('ubuntu')">
+                        <span id="ubuntu_title">+ Ubuntu常用命令</span>
+                    </div>
+                    <div id="ubuntu" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/1.html">1.linux搭建nginx+mysql+php+php-fpm</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/2.html">2.linux安装配置SVN及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/3.html">3.linux安装配置Apollo及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/4.html">4.linux安装配置Zookeeper及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/5.html">5.Ubuntu允许root用户登录</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/6.html">6.ubuntu apt-get切换源</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/7.html">7.Ubuntu apt-get彻底卸载软件包</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/8.html">8.ubuntu搭建pptpd</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('tmux')">
+                        <span id="tmux_title">+ Tmux常用命令</span>
+                    </div>
+                    <div id="tmux" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/2.html">2.ubuntu安装tmux服务必需组件</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/3.html">3.tmux常用命令及快捷键</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('centos')">
+                        <span id="centos_title">+ Centos常见问题</span>
+                    </div>
+                    <div id="centos" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/1.html">1.centos设置dns和静态IP地址</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/2.html">2.centos7安装nginx+php+php-fpm</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/3.html">3.centos7开启关闭防火墙</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/4.html">4.centos7关闭SELinux</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/5.html">5.centos7 yum安装mongodb</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/6.html">6.centos7安装配置redis</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/7.html">7.redis编译报致命错误：jemallocjemalloc.h：没有那个文件或目录</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/8.html">8.centos7 php安装mongodb redis扩展</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/9.html">9.centos7配置java环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/10.html">10.centos7 安装tomcat</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/11.html">11.Centos php mongdb扩展Fatal error Class &#x27;MongoClient&#x27; not found in</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/12.html">12.centos7配置ipv6</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/13.html">13.centos7 tomcat中文乱码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/14.html">14.centos查看cpu核数和频率</a>
+                            </div>
+                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>10.centos7 安装tomcat</h1></article>
+                <div id="xs_content_border">
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 下载tomcat8.5源码</a><br><a href="#2">2 解压</a><br><a href="#3">3 启动</a><br><a href="#4">4 停止</a><br><a href="#5">5 修改tomcat默认根目录</a><br><a href="#5.1">&nbsp;&nbsp;5.1 找到tomcat安装目录下面conf目录下的server.xml文件</a><br><a href="#5.2">&nbsp;&nbsp;5.2 找到如下文字</a><br><a href="#5.3">&nbsp;&nbsp;5.3 在上面找到的文字后面添加如下内容：</a><br><a href="#5.4">&nbsp;&nbsp;5.4 保存server.xml并重启tomcat.</a></div></div><div id="1"><h3>1 下载tomcat8.5源码</h3></div>
+<p><a href="https://tomcat.apache.org/download-80.cgi">tomcat官网下载链接</a></p>
+<p><a href="http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz">tomcat8.0 源码下载链接</a></p>
+<pre class="prettyprint"><code>wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
+</code></pre>
+<div id="2"><h3>2 解压</h3></div>
+<pre class="prettyprint"><code>tar zxvf apache-tomcat-8.5.31.tar.gz
+</code></pre>
+<div id="3"><h3>3 启动</h3></div>
+<p>进入解压后的apache-tomcat-7.0.70 -- bin目录，执行命令:</p>
+<pre class="prettyprint"><code>cd /workplace/upload/apache-tomcat-8.5.31/bin
+sh startup.sh
+</code></pre>
+<div id="4"><h3>4 停止</h3></div>
+<pre class="prettyprint"><code>sh shutdown.sh
+</code></pre>
+<div id="5"><h3>5 修改tomcat默认根目录</h3></div>
+<p>tomcat的默认根目录是在ROOT目录下面，这样的设置多有不便，因为，通常我们会有一个自己的开发目录(里面保存自己的开发文件），如果每次测试都将文件拷贝到ROOT下面，是件很麻烦的事情，可以用下面的方法将根目录进行修改。</p>
+<div id="5.1"class="dsd_title_c_2"><h4>5.1 找到tomcat安装目录下面conf目录下的server.xml文件</h4></div>
+<p>windows可以用记事本打开，linux可以使用vim命令修改文件.</p>
+<pre class="prettyprint"><code>vim server.xml
+</code></pre>
+<div id="5.2"class="dsd_title_c_2"><h4>5.2 找到如下文字</h4></div>
+<pre class="prettyprint"><code>&lt;Host name="localhost" appBase="webapps"
+ unpackWARs="true" autoDeploy="true"
+ xmlValidation="false" xmlNamespaceAware="false"&gt;
+</code></pre>
+<div id="5.3"class="dsd_title_c_2"><h4>5.3 在上面找到的文字后面添加如下内容：</h4></div>
+<pre class="prettyprint"><code>&lt;Context path="" docBase="WEB_ROOT_FOLDER" debug="0" reloadable="true" /&gt;
+</code></pre>
+<p>注意：其中红色部分为你的根目录，这里用反斜杠“/”代替windows路径种的斜杠“/”.</p>
+<div id="5.4"class="dsd_title_c_2"><h4>5.4 保存server.xml并重启tomcat.</h4></div>
+<p>设置完成以后，你就可以直接将该目录下的相对路径加到主机名和端口的后面进行访问了。</p>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/linux/centos/10.html">原文链接</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="https://dashidan.com/article/linux/centos/9.html"> &lt; 9.centos7配置java环境</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="https://dashidan.com/article/linux/centos/11.html"> 11.Centos php mongdb扩展Fatal error Class &#x27;MongoClient&#x27; not found in &gt;</a>
+    </div>
+</footer>
+
+<script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="https://dashidan.com/js/bootstrap.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="https://dashidan.com/js/main.js"></script>
+</body>
+</html>

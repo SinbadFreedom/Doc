@@ -49,115 +49,99 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/redis/index.html">redis</a> > basic
+                href="https://dashidan.com/article/redis/index.html">redis</a> > basic
             > 2.Redis常用命令
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('basic')">
-                    <span id="basic_title">+ Redis常用命令</span>
-                </div>
-                <div id="basic" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/redis/basic/1.html">1.Ubuntu安装配置Redis</a>
+                    <div class="dsd_title" onclick="clickTitle('basic')">
+                        <span id="basic_title">+ Redis常用命令</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/redis/basic/2.html">2.Redis常用命令</a>
+                    <div id="basic" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/redis/basic/1.html">1.Ubuntu安装配置Redis</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/redis/basic/2.html">2.Redis常用命令</a>
+                            </div>
                     </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>2.Redis常用命令</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 redis常用命令</a><br><a href="#1.1">&nbsp;&nbsp;1.1
-                            命令行连接Redis</a><br><a href="#1.2">&nbsp;&nbsp;1.2 redis查看所有的key</a><br><a href="#1.3">&nbsp;&nbsp;1.3
-                            redis查看key的类型</a><br><a href="#1.4">&nbsp;&nbsp;1.4 redis获取一个key</a><br><a href="#1.5">&nbsp;&nbsp;1.5
-                            redis删除key</a><br><a href="#1.6">&nbsp;&nbsp;1.6 redis返回满足给定patterm的所有key</a><br><a
-                            href="#1.7">&nbsp;&nbsp;1.7 redis确认一个key是否存在</a><br><a href="#1.8">&nbsp;&nbsp;1.8
-                            redis设置一个key的过期时间</a><br><a href="#1.9">&nbsp;&nbsp;1.9 redis获取hash类型的全部数据</a><br><a
-                            href="#1.10">&nbsp;&nbsp;1.10 redis获取hash类型的一个数据</a><br><a href="#1.11">&nbsp;&nbsp;1.11
-                            redis将当前数据库中的key转移到其他数据库中</a><br><a href="#1.12">&nbsp;&nbsp;1.12
-                            redis移除给定key的过期时间</a><br><a href="#1.16">&nbsp;&nbsp;1.16 redis实时传储收到的请求</a><br><a
-                            href="#1.17">&nbsp;&nbsp;1.17 redis选择一个数据库</a><br><a href="#1.19">&nbsp;&nbsp;1.19
-                            测试redis是否联通</a><br><a href="#1.20">&nbsp;&nbsp;1.20 redis退出连接</a><br><a href="#1.21">&nbsp;&nbsp;1.21
-                            redis返回当前数据库中key的数量</a><br><a href="#1.21">&nbsp;&nbsp;1.21 获取redis服务器信息</a><br><a
-                            href="#1.22">&nbsp;&nbsp;1.22 redis删除当前选择的数据库中的key</a><br><a href="#1.23">&nbsp;&nbsp;1.23
-                            redis删除所有数据库中的所有key</a><br><a href="#1.24">&nbsp;&nbsp;1.24 redis设置密码</a></div>
-                    </div>
-                    <div id="1"><h3>1 redis常用命令</h3></div>
-                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 命令行连接Redis</h4></div>
-                    <pre class="prettyprint"><code>redis-cli
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 redis常用命令</a><br><a href="#1.1">&nbsp;&nbsp;1.1 命令行连接Redis</a><br><a href="#1.2">&nbsp;&nbsp;1.2 redis查看所有的key</a><br><a href="#1.3">&nbsp;&nbsp;1.3 redis查看key的类型</a><br><a href="#1.4">&nbsp;&nbsp;1.4 redis获取一个key</a><br><a href="#1.5">&nbsp;&nbsp;1.5 redis删除key</a><br><a href="#1.6">&nbsp;&nbsp;1.6 redis返回满足给定patterm的所有key</a><br><a href="#1.7">&nbsp;&nbsp;1.7 redis确认一个key是否存在</a><br><a href="#1.8">&nbsp;&nbsp;1.8 redis设置一个key的过期时间</a><br><a href="#1.9">&nbsp;&nbsp;1.9 redis获取hash类型的全部数据</a><br><a href="#1.10">&nbsp;&nbsp;1.10 redis获取hash类型的一个数据</a><br><a href="#1.11">&nbsp;&nbsp;1.11 redis将当前数据库中的key转移到其他数据库中</a><br><a href="#1.12">&nbsp;&nbsp;1.12 redis移除给定key的过期时间</a><br><a href="#1.16">&nbsp;&nbsp;1.16 redis实时传储收到的请求</a><br><a href="#1.17">&nbsp;&nbsp;1.17 redis选择一个数据库</a><br><a href="#1.19">&nbsp;&nbsp;1.19 测试redis是否联通</a><br><a href="#1.20">&nbsp;&nbsp;1.20 redis退出连接</a><br><a href="#1.21">&nbsp;&nbsp;1.21 redis返回当前数据库中key的数量</a><br><a href="#1.21">&nbsp;&nbsp;1.21 获取redis服务器信息</a><br><a href="#1.22">&nbsp;&nbsp;1.22 redis删除当前选择的数据库中的key</a><br><a href="#1.23">&nbsp;&nbsp;1.23 redis删除所有数据库中的所有key</a><br><a href="#1.24">&nbsp;&nbsp;1.24 redis设置密码</a></div></div><div id="1"><h3>1 redis常用命令</h3></div>
+<div id="1.1"class="dsd_title_c_2"><h4>1.1 命令行连接Redis</h4></div>
+<pre class="prettyprint"><code>redis-cli
 </code></pre>
-                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 redis查看所有的key</h4></div>
-                    <pre><code>keys *
+<div id="1.2"class="dsd_title_c_2"><h4>1.2 redis查看所有的key</h4></div>
+<pre><code>keys *
 </code></pre>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>keys命令后边没有分号, 中间有空格</p>
-                    </div>
-                    <div id="1.3" class="dsd_title_c_2"><h4>1.3 redis查看key的类型</h4></div>
-                    <pre class="prettyprint"><code>type BO:Server
+<div class="bs-callout bs-callout-warning">
+    <p>keys命令后边没有分号, 中间有空格</p>
+</div>
+<div id="1.3"class="dsd_title_c_2"><h4>1.3 redis查看key的类型</h4></div>
+<pre class="prettyprint"><code>type BO:Server
 </code></pre>
-                    <div id="1.4" class="dsd_title_c_2"><h4>1.4 redis获取一个key</h4></div>
-                    <pre class="prettyprint"><code>get key
+<div id="1.4"class="dsd_title_c_2"><h4>1.4 redis获取一个key</h4></div>
+<pre class="prettyprint"><code>get key
 </code></pre>
-                    <div id="1.5" class="dsd_title_c_2"><h4>1.5 redis删除key</h4></div>
-                    <p>删除单个key</p>
-                    <pre class="prettyprint"><code>del key
+<div id="1.5"class="dsd_title_c_2"><h4>1.5 redis删除key</h4></div>
+<p>删除单个key</p>
+<pre class="prettyprint"><code>del key
 </code></pre>
-                    <p>删除多个key</p>
-                    <pre class="prettyprint"><code>redis-cli -a pass(密码) keys "WX_ACT_USER_KEY_*" | xargs redis-cli -a pass(密码) del
+<p>删除多个key</p>
+<pre class="prettyprint"><code>redis-cli -a pass(密码) keys "WX_ACT_USER_KEY_*" | xargs redis-cli -a pass(密码) del
 </code></pre>
-                    <div id="1.6" class="dsd_title_c_2"><h4>1.6 redis返回满足给定patterm的所有key</h4></div>
-                    <pre class="prettyprint"><code>keys    #(*)取出所有的key
+<div id="1.6"class="dsd_title_c_2"><h4>1.6 redis返回满足给定patterm的所有key</h4></div>
+<pre class="prettyprint"><code>keys    #(*)取出所有的key
         (my*)取出和关键字相关的
 </code></pre>
-                    <div id="1.7" class="dsd_title_c_2"><h4>1.7 redis确认一个key是否存在</h4></div>
-                    <pre class="prettyprint"><code>exists
+<div id="1.7"class="dsd_title_c_2"><h4>1.7 redis确认一个key是否存在</h4></div>
+<pre class="prettyprint"><code>exists
 </code></pre>
-                    <div id="1.8" class="dsd_title_c_2"><h4>1.8 redis设置一个key的过期时间</h4></div>
-                    <pre class="prettyprint"><code>expire
+<div id="1.8"class="dsd_title_c_2"><h4>1.8 redis设置一个key的过期时间</h4></div>
+<pre class="prettyprint"><code>expire
 </code></pre>
-                    <div id="1.9" class="dsd_title_c_2"><h4>1.9 redis获取hash类型的全部数据</h4></div>
-                    <pre class="prettyprint"><code>hgetall key
+<div id="1.9"class="dsd_title_c_2"><h4>1.9 redis获取hash类型的全部数据</h4></div>
+<pre class="prettyprint"><code>hgetall key
 </code></pre>
-                    <div id="1.10" class="dsd_title_c_2"><h4>1.10 redis获取hash类型的一个数据</h4></div>
-                    <pre class="prettyprint"><code>hget key key1
+<div id="1.10"class="dsd_title_c_2"><h4>1.10 redis获取hash类型的一个数据</h4></div>
+<pre class="prettyprint"><code>hget key key1
 </code></pre>
-                    <div id="1.11" class="dsd_title_c_2"><h4>1.11 redis将当前数据库中的key转移到其他数据库中</h4></div>
-                    <pre class="prettyprint"><code>move            #0-15数据库
+<div id="1.11"class="dsd_title_c_2"><h4>1.11 redis将当前数据库中的key转移到其他数据库中</h4></div>
+<pre class="prettyprint"><code>move            #0-15数据库
 </code></pre>
-                    <div id="1.12" class="dsd_title_c_2"><h4>1.12 redis移除给定key的过期时间</h4></div>
-                    <pre class="prettyprint"><code>persist                    #取消定时
+<div id="1.12"class="dsd_title_c_2"><h4>1.12 redis移除给定key的过期时间</h4></div>
+<pre class="prettyprint"><code>persist                    #取消定时
 </code></pre>
-                    <div id="1.16" class="dsd_title_c_2"><h4>1.16 redis实时传储收到的请求</h4></div>
-                    <pre class="prettyprint"><code>config get dir/*
+<div id="1.16"class="dsd_title_c_2"><h4>1.16 redis实时传储收到的请求</h4></div>
+<pre class="prettyprint"><code>config get dir/*
 </code></pre>
-                    <div id="1.17" class="dsd_title_c_2"><h4>1.17 redis选择一个数据库</h4></div>
-                    <pre class="prettyprint"><code>select 0
+<div id="1.17"class="dsd_title_c_2"><h4>1.17 redis选择一个数据库</h4></div>
+<pre class="prettyprint"><code>select 0
 </code></pre>
-                    <p>0为数据库ID</p>
-                    <div id="1.19" class="dsd_title_c_2"><h4>1.19 测试redis是否联通</h4></div>
-                    <pre class="prettyprint"><code>ping
+<p>0为数据库ID</p>
+<div id="1.19"class="dsd_title_c_2"><h4>1.19 测试redis是否联通</h4></div>
+<pre class="prettyprint"><code>ping
 </code></pre>
-                    <div id="1.20" class="dsd_title_c_2"><h4>1.20 redis退出连接</h4></div>
-                    <pre class="prettyprint"><code>quit
+<div id="1.20"class="dsd_title_c_2"><h4>1.20 redis退出连接</h4></div>
+<pre class="prettyprint"><code>quit
 </code></pre>
-                    <div id="1.21" class="dsd_title_c_2"><h4>1.21 redis返回当前数据库中key的数量</h4></div>
-                    <pre class="prettyprint"><code>dbsize
+<div id="1.21"class="dsd_title_c_2"><h4>1.21 redis返回当前数据库中key的数量</h4></div>
+<pre class="prettyprint"><code>dbsize
 </code></pre>
-                    <div id="1.21" class="dsd_title_c_2"><h4>1.21 获取redis服务器信息</h4></div>
-                    <pre class="prettyprint"><code>info
+<div id="1.21"class="dsd_title_c_2"><h4>1.21 获取redis服务器信息</h4></div>
+<pre class="prettyprint"><code>info
 </code></pre>
-                    <div id="1.22" class="dsd_title_c_2"><h4>1.22 redis删除当前选择的数据库中的key</h4></div>
-                    <pre class="prettyprint"><code>flushdb
+<div id="1.22"class="dsd_title_c_2"><h4>1.22 redis删除当前选择的数据库中的key</h4></div>
+<pre class="prettyprint"><code>flushdb
 </code></pre>
-                    <div id="1.23" class="dsd_title_c_2"><h4>1.23 redis删除所有数据库中的所有key</h4></div>
-                    <pre class="prettyprint"><code>flushall
+<div id="1.23"class="dsd_title_c_2"><h4>1.23 redis删除所有数据库中的所有key</h4></div>
+<pre class="prettyprint"><code>flushall
 </code></pre>
-                    <div id="1.24" class="dsd_title_c_2"><h4>1.24 redis设置密码</h4></div>
-                    <pre class="prettyprint"><code>vi /etc/redis.conf
+<div id="1.24"class="dsd_title_c_2"><h4>1.24 redis设置密码</h4></div>
+<pre class="prettyprint"><code>vi /etc/redis.conf
 requirepass pp123456
 pkill redis     #杀死进程
 service  redis start
@@ -176,7 +160,7 @@ auth        pp123456
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/redis/basic/1.html"> &lt; 1.Ubuntu安装配置Redis</a>
+            <a href="https://dashidan.com/article/redis/basic/1.html"> &lt; 1.Ubuntu安装配置Redis</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/redis/index.html">目录</a>

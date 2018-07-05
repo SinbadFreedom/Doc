@@ -49,90 +49,83 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/webserver/index.html">webserver</a> > nginx
+                href="https://dashidan.com/article/webserver/index.html">webserver</a> > nginx
             > 5.nginx设置404页面跳转
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('nginx')">
-                    <span id="nginx_title">+ Nginx</span>
-                </div>
-                <div id="nginx" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                    <div class="dsd_title" onclick="clickTitle('nginx')">
+                        <span id="nginx_title">+ Nginx</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                    <div id="nginx" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/1.html">1.windows搭建nginx服务器</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/2.html">2.windows系统nginx停止启动及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/nginx/6.html">6.nginx开启ipv6支持</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/3.html">3.linux系统配置nginx支持PHP解析</a>
+                    <div class="dsd_title" onclick="clickTitle('dns')">
+                        <span id="dns_title">+ DNS</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/4.html">4.nginx目录路径重定向</a>
+                    <div id="dns" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/nginx/5.html">5.nginx设置404页面跳转</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('dns')">
-                    <span id="dns_title">+ DNS</span>
-                </div>
-                <div id="dns" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/dns/1.html">1.dns解析记录类型</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/webserver/dns/2.html">2.网站支持https配置步骤</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>5.nginx设置404页面跳转</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nginx设置404错误指向页面</a><br><a href="#2">2
-                            制作一个404.html页面</a><br><a href="#3">3 重启nginx使配置生效</a><br><a href="#4">4 避免出现404错误</a><br><a
-                            href="#5">5 roboot.txt屏蔽404页面</a><br><a href="#6">6 nginx对404页面进行301重定向</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>
-                            如果网页的链接地址改变了,在通过这个地址访问的时候会返回一个错误码404.表示没有找到该地址内容.这个在建站初期是很容易发生的事.我的文章开始是通过中文名作为URL的，后来改为数字作为URL.这时网上已经有很多文章中存储了以前的已经失效的地址.这样导致搜索引擎抓取网页时会有大量的失效链接.死连数量多会导致搜索引擎降权,
-                            我的网站dashidan.com就没有被bing收录. 很惨痛的教训.针对404有2种补救措施。发生404错误时指向404.html页面或者做网页重定向.</p>
-                    </div>
-                    <div id="1"><h3>1 nginx设置404错误指向页面</h3></div>
-                    <p>更改nginx.conf中在server区域加入error_page页面:</p>
-                    <pre class="prettyprint"><code>error_page 404 /404.html
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nginx设置404错误指向页面</a><br><a href="#2">2 制作一个404.html页面</a><br><a href="#3">3 重启nginx使配置生效</a><br><a href="#4">4 避免出现404错误</a><br><a href="#5">5 roboot.txt屏蔽404页面</a><br><a href="#6">6 nginx对404页面进行301重定向</a></div></div><div class="jumbotron">
+<p>如果网页的链接地址改变了,在通过这个地址访问的时候会返回一个错误码404.表示没有找到该地址内容.这个在建站初期是很容易发生的事.我的文章开始是通过中文名作为URL的，后来改为数字作为URL.这时网上已经有很多文章中存储了以前的已经失效的地址.这样导致搜索引擎抓取网页时会有大量的失效链接.死连数量多会导致搜索引擎降权, 我的网站dashidan.com就没有被bing收录. 很惨痛的教训.针对404有2种补救措施。发生404错误时指向404.html页面或者做网页重定向.</p>
+</div>
+<div id="1"><h3>1 nginx设置404错误指向页面</h3></div>
+<p>更改nginx.conf中在server区域加入error_page页面:</p>
+<pre class="prettyprint"><code>error_page 404 /404.html
 </code></pre>
-                    <div id="2"><h3>2 制作一个404.html页面</h3></div>
-                    <p>可以做一个静态html页面来作为道歉页面,404页面最好有主页的链接,方便用户找到主页.参考页面<a href="http://dashidan.com/404.html">http://dashidan.com/404.html</a>.
-                    </p>
-                    <div id="3"><h3>3 重启nginx使配置生效</h3></div>
-                    <p>重启完成后,可以输入一个不存在的页面来查看效果.</p>
-                    <div id="4"><h3>4 避免出现404错误</h3></div>
-                    <p>网页避免出现404错误的最佳方案是在设计网站之初对整体的URL做好完整的规划. 否则只能在出现问题后补救了.
-                        以大屎蛋教程网的url规划为例：</p>
-                    <ul>
-                        <li>文章均放在article目录</li>
-                        <li>文章根据语言分类 article/java, article/mongodb...</li>
-                        <li>图片放在img目录</li>
-                        <li>下载资源放在download目录</li>
-                        <li>css文件放在css目录</li>
-                        <li>js脚本文件放在js目录</li>
-                    </ul>
-                    <p>有了合理的规划就能最大程度避免出现404错误.</p>
-                    <div id="5"><h3>5 roboot.txt屏蔽404页面</h3></div>
-                    <p>
-                        在roboot.txt文件中加入死链url,来避免搜索引擎访问并收录已失效的网页.也是针对404错误的一种补救措施.这种方式也是在外部链接地址无法修改的情况的解决方案.通过这种方式告诉搜索引擎这些页面不存在了,从索引中移除,
-                        减少搜索引擎中的死链.对网站评级有一定的帮助.</p>
-                    <p>通过robot设置屏蔽指定网页的示例：</p>
-                    <pre class="prettyprint"><code>User-agent: *
+<div id="2"><h3>2 制作一个404.html页面</h3></div>
+<p>可以做一个静态html页面来作为道歉页面,404页面最好有主页的链接,方便用户找到主页.参考页面<a href="http://dashidan.com/404.html">http://dashidan.com/404.html</a>.</p>
+<div id="3"><h3>3 重启nginx使配置生效</h3></div>
+<p>重启完成后,可以输入一个不存在的页面来查看效果.</p>
+<div id="4"><h3>4 避免出现404错误</h3></div>
+<p>网页避免出现404错误的最佳方案是在设计网站之初对整体的URL做好完整的规划. 否则只能在出现问题后补救了.
+以大屎蛋教程网的url规划为例：</p>
+<ul>
+<li>文章均放在article目录</li>
+<li>文章根据语言分类 article/java, article/mongodb...</li>
+<li>图片放在img目录</li>
+<li>下载资源放在download目录</li>
+<li>css文件放在css目录</li>
+<li>js脚本文件放在js目录</li>
+</ul>
+<p>有了合理的规划就能最大程度避免出现404错误.</p>
+<div id="5"><h3>5 roboot.txt屏蔽404页面</h3></div>
+<p>在roboot.txt文件中加入死链url,来避免搜索引擎访问并收录已失效的网页.也是针对404错误的一种补救措施.这种方式也是在外部链接地址无法修改的情况的解决方案.通过这种方式告诉搜索引擎这些页面不存在了,从索引中移除, 减少搜索引擎中的死链.对网站评级有一定的帮助.</p>
+<p>通过robot设置屏蔽指定网页的示例：</p>
+<pre class="prettyprint"><code>User-agent: *
 Disallow: /article/java/basic/屏蔽.html
 Disallow: /article/java/basic/大屎蛋教程网
 Disallow: /article/java/basic/dashidan.com
 </code></pre>
-                    <div id="6" class="dsd_title_c_2"><h4>6 nginx对404页面进行301重定向</h4></div>
-                    <pre class="prettyprint"><code>return 301 https://$server_name$request_uri;
+<div id="6"class="dsd_title_c_2"><h4>6 nginx对404页面进行301重定向</h4></div>
+<pre class="prettyprint"><code>return 301 https://$server_name$request_uri;
 </code></pre>
                 </div>
                 <div>
@@ -147,12 +140,13 @@ Disallow: /article/java/basic/dashidan.com
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/webserver/nginx/4.html"> &lt; 4.nginx目录路径重定向</a>
+            <a href="https://dashidan.com/article/webserver/nginx/4.html"> &lt; 4.nginx目录路径重定向</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/webserver/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="https://dashidan.com/article/webserver/nginx/6.html"> 6.nginx开启ipv6支持 &gt;</a>
     </div>
 </footer>
 

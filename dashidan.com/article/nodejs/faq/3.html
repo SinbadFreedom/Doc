@@ -49,59 +49,54 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > faq
+                href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > faq
             > 3.npm install -g与--save参数
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Nodejs常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Nodejs常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>3.npm install -g与--save参数</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 本地安装npm install</a><br><a href="#2">2 全局安装npm
-                            install -g</a><br><a href="#3">3 加入dependencies --save</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>npm的包安装分为本地安装(local)、全局安装(global)两种, -g表示全局安装.--save表示是否加入package.json的dependencies中.</p>
-                    </div>
-                    <div id="1"><h3>1 本地安装npm install</h3></div>
-                    <p>npm install不加-g参数, 为本地安装.将安装包放在"./node_modules"下(运行npm时所在的目录).</p>
-                    <div id="2"><h3>2 全局安装npm install -g</h3></div>
-                    <p>npm install -g为全局安装.安装nodejs的模板作为全局模块, 下载到系统默认的node<em>mudule目录中,而不是项目中的node</em>mudole目录.</p>
-                    <div id="3"><h3>3 加入dependencies --save</h3></div>
-                    <p>使用npm install的--save参数, 将安装的包加入package.json的dependencies中.以后在使用npm
-                        install会自动下载dependencies中的依赖包.</p>
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 本地安装npm install</a><br><a href="#2">2 全局安装npm install -g</a><br><a href="#3">3 加入dependencies --save</a></div></div><div class="jumbotron">
+<p>npm的包安装分为本地安装(local)、全局安装(global)两种, -g表示全局安装.--save表示是否加入package.json的dependencies中.</p>
+</div>
+<div id="1"><h3>1 本地安装npm install</h3></div>
+<p>npm install不加-g参数, 为本地安装.将安装包放在"./node_modules"下(运行npm时所在的目录).</p>
+<div id="2"><h3>2 全局安装npm install -g</h3></div>
+<p>npm install -g为全局安装.安装nodejs的模板作为全局模块, 下载到系统默认的node<em>mudule目录中,而不是项目中的node</em>mudole目录.</p>
+<div id="3"><h3>3 加入dependencies --save</h3></div>
+<p>使用npm install的--save参数, 将安装的包加入package.json的dependencies中.以后在使用npm install会自动下载dependencies中的依赖包.</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/nodejs/faq/3.html">原文链接</a>.
@@ -115,13 +110,13 @@
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/nodejs/faq/2.html"> &lt; 2.发布Node模块到NPM社区</a>
+            <a href="https://dashidan.com/article/nodejs/faq/2.html"> &lt; 2.发布Node模块到NPM社区</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/nodejs/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/nodejs/faq/4.html"> 4.npm install --save与--save-dev的区别 &gt;</a>
+            <a href="https://dashidan.com/article/nodejs/faq/4.html"> 4.npm install --save与--save-dev的区别 &gt;</a>
     </div>
 </footer>
 

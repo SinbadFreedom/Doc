@@ -49,128 +49,119 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/php/index.html">php</a>
+                href="https://dashidan.com/article/php/index.html">php</a>
         </div>
         <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-            <div class="dsd_title">
-                <a href="#faq_title">PHP常见问题</a>
-            </div>
-            <div class="dsd_title">
-                <a href="#api_title">PHP中文手册</a>
-            </div>
+                <div class="dsd_title">
+                    <a href="#faq_title">PHP常见问题</a>
+                </div>
+                <div class="dsd_title">
+                    <a href="#api_title">PHP中文手册</a>
+                </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-            <div>
-                <span id="faq_title"><h3>PHP常见问题</h3></span>
-            </div>
-            <hr>
-            <div id="faq">
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/1.html"><span
-                            class="dsd_index_title">1.PHP中文JSON乱码</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        php5.4以下json_encode方法封装JSON数据时会有乱码,加入header采用utf-8编码.
-                    </div>
+                <div>
+                    <span id="faq_title"><h3>PHP常见问题</h3></span>
                 </div>
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/2.html"><span
-                            class="dsd_index_title">2.Linux系统PHP配置支持Redis扩展</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        以Ubuntu系统为例配置linux支持redis模块.其余的linux操作系统类似,只是安装方法名不一样.Ubuntu为apt-get,CentOS为yum.
-                    </div>
+                <hr>
+                <div id="faq">
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/1.html"><span
+                                        class="dsd_index_title">1.PHP中文JSON乱码</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                php5.4以下json_encode方法封装JSON数据时会有乱码,加入header采用utf-8编码.
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/2.html"><span
+                                        class="dsd_index_title">2.Linux系统PHP配置支持Redis扩展</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                以Ubuntu系统为例配置linux支持redis模块.其余的linux操作系统类似,只是安装方法名不一样.Ubuntu为apt-get,CentOS为yum.
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/3.html"><span
+                                        class="dsd_index_title">3.Ubuntu安装php-redis扩展</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                Ubuntu安装php-redis扩展, php支持redis扩展.
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/4.html"><span
+                                        class="dsd_index_title">4.php安装mongodb扩展</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                php支持mongodb的操作，需要安装mongodb扩展。分别介绍一下php在windows系统和linux安装mongodb扩展的步骤。
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/5.html"><span
+                                        class="dsd_index_title">5.php mongodb基本操作：建立连接，增删改查</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                php支持mongodb的操作，需要安装mongodb扩展。建立连接，增删改查
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/6.html"><span
+                                        class="dsd_index_title">6.php安装时报错configure error Cannot find OpenSSL&#x27;s libraries</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                ubuntu 16.04 采用源码安装php的mongodb扩展,执行./configure命令时报错configure: error: Cannot find OpenSSL&#x27;s libraries。
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/7.html"><span
+                                        class="dsd_index_title">7.ubuntu切换PHP版本</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                ubuntu16.04上默认安装的php版本是70.如果我们想换成5.x的版本或者7.1,7.2的版本。最简单的方法是通过第三方源来安装，[ppa:ondrej/php](https://launchpad.net/~ondrej/+archive/php)是一个比较知名的PHP源(目前维护php5.6,php7.0,php7.1,php7.2)。
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/8.html"><span
+                                        class="dsd_index_title">8.php $HTTP_RAW_POST_DATA is deprecated</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                在使用php5.6接收http post请求的数据，解析post数据中json字符串时。php服务器返回报错信息.Deprecated: Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set &#x27;always_populate_raw_post_data&#x27; to &#x27;-1&#x27; in php.ini and use the php://input stream instead. in Unknown on line 0Warning: Cannot modify header information - headers already sent in Unknown on line 0 No input file specified.
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/faq/9.html"><span
+                                        class="dsd_index_title">9.php写入log文件</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                在使用php5.6接收http post请求的数据，解析post数据中json字符串时。php服务器返回报错信息.Deprecated: Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set &#x27;always_populate_raw_post_data&#x27; to &#x27;-1&#x27; in php.ini and use the php://input stream instead. in Unknown on line 0Warning: Cannot modify header information - headers already sent in Unknown on line 0 No input file specified.
+                            </div>
+                        </div>
                 </div>
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/3.html"><span
-                            class="dsd_index_title">3.Ubuntu安装php-redis扩展</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        Ubuntu安装php-redis扩展, php支持redis扩展.
-                    </div>
+                <div>
+                    <span id="api_title"><h3>PHP中文手册</h3></span>
                 </div>
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/4.html"><span
-                            class="dsd_index_title">4.php安装mongodb扩展</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        php支持mongodb的操作，需要安装mongodb扩展。分别介绍一下php在windows系统和linux安装mongodb扩展的步骤。
-                    </div>
+                <hr>
+                <div id="api">
+                        <div style="margin-top: 3px;">
+                            <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
+                                <a href="https://dashidan.com/article/php/api/1.html"><span
+                                        class="dsd_index_title">1.php中文手册</span></a>
+                            </div>
+                            <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
+                                PHP中文手册在线文档
+                            </div>
+                        </div>
                 </div>
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/5.html"><span
-                            class="dsd_index_title">5.php mongodb基本操作：建立连接，增删改查</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        php支持mongodb的操作，需要安装mongodb扩展。建立连接，增删改查
-                    </div>
-                </div>
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/6.html"><span
-                            class="dsd_index_title">6.php安装时报错configure error Cannot find OpenSSL&#x27;s libraries</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        ubuntu 16.04 采用源码安装php的mongodb扩展,执行./configure命令时报错configure: error: Cannot find OpenSSL&#x27;s
-                        libraries。
-                    </div>
-                </div>
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/7.html"><span
-                            class="dsd_index_title">7.ubuntu切换PHP版本</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        ubuntu16.04上默认安装的php版本是70.如果我们想换成5.x的版本或者7.1,7.2的版本。最简单的方法是通过第三方源来安装，[ppa:ondrej/php](https://launchpad.net/~ondrej/+archive/php)是一个比较知名的PHP源(目前维护php5.6,php7.0,php7.1,php7.2)。
-                    </div>
-                </div>
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/8.html"><span
-                            class="dsd_index_title">8.php $HTTP_RAW_POST_DATA is deprecated</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        在使用php5.6接收http post请求的数据，解析post数据中json字符串时。php服务器返回报错信息.Deprecated: Automatically populating
-                        $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning
-                        set &#x27;always_populate_raw_post_data&#x27; to &#x27;-1&#x27; in php.ini and use the
-                        php://input stream instead. in Unknown on line 0Warning: Cannot modify header information -
-                        headers already sent in Unknown on line 0 No input file specified.
-                    </div>
-                </div>
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/faq/9.html"><span
-                            class="dsd_index_title">9.php写入log文件</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        在使用php5.6接收http post请求的数据，解析post数据中json字符串时。php服务器返回报错信息.Deprecated: Automatically populating
-                        $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning
-                        set &#x27;always_populate_raw_post_data&#x27; to &#x27;-1&#x27; in php.ini and use the
-                        php://input stream instead. in Unknown on line 0Warning: Cannot modify header information -
-                        headers already sent in Unknown on line 0 No input file specified.
-                    </div>
-                </div>
-            </div>
-            <div>
-                <span id="api_title"><h3>PHP中文手册</h3></span>
-            </div>
-            <hr>
-            <div id="api">
-                <div style="margin-top: 3px;">
-                    <div style="font-size: 16px; margin-top: 10px; margin-left: 5px">
-                        <a href="https://dashidan.com/article/php/api/1.html"><span
-                            class="dsd_index_title">1.php中文手册</span></a>
-                    </div>
-                    <div class="jumbotron" style="font-size: 14px; margin-top: 10px; margin-left: 10px;">
-                        PHP中文手册在线文档
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

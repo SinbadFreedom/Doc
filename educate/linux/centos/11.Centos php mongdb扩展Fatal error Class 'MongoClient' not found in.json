@@ -1,6 +1,4 @@
 {
   "title": "11.Centos php mongdb扩展Fatal error Class 'MongoClient' not found in",
-  "desc": "在Centos7.2系统通过yum安装php5.6的mongdb扩展，通过phpinfo显示已经有了mongodb的扩展。
-运行$m = new MongoClient();这一句时依然报“Fatal error Class 'MongoClient' not found in”这样的错误。
-经过自己多次尝试，通过源码安装mongodb扩展解决了这个问题。记录一下解决步骤。"
+  "desc": "在Centos7.2系统通过yum安装php5.6的mongdb扩展，通过phpinfo显示已经有了mongodb的扩展。运行$m = new MongoClient();这一句时依然报Fatal error Class 'MongoClient' not found in这样的错误。经过自己多次尝试，通过源码安装mongodb扩展解决了这个问题。记录一下解决步骤。"
 }

@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>HashMap与ConcurrentHashMap的区别与应用场景 - java常见问题 - 大屎蛋教程网</title>
-    <meta name="description"
-          content="从JDK1.5开始加入了ConcurrentHashMap，在面试的过程中我问过很多程序员，HashpMap与ConcurrentHashMap的区别是什么呢。我得到的回答一般都是HashpMap不是线程安全的，ConcurrentHashMap是线程安全的。这个结论很笼统。下面我来详细的举例说明他们之间的区别。">
+    <meta name="description" content="从JDK1.5开始加入了ConcurrentHashMap，在面试的过程中我问过很多程序员，HashpMap与ConcurrentHashMap的区别是什么呢。我得到的回答一般都是HashpMap不是线程安全的，ConcurrentHashMap是线程安全的。这个结论很笼统。下面我来详细的举例说明他们之间的区别。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -20,12 +19,12 @@
     <script>
         var _hmt = _hmt || [];
         (function () {
-            var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -50,231 +49,230 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/java/index.html">java</a> > faq > 1.HashMap与ConcurrentHashMap的区别与应用场景
+                href="https://dashidan.com/article/java/index.html">java</a> > faq
+            > 1.HashMap与ConcurrentHashMap的区别与应用场景
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('basic')">
-                    <span id="basic_title">+ Java入门到精通</span>
-                </div>
-                <div id="basic" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                    <div class="dsd_title" onclick="clickTitle('basic')">
+                        <span id="basic_title">+ Java入门到精通</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                    <div id="basic" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                    <div class="dsd_title" onclick="clickTitle('jdk8')">
+                        <span id="jdk8_title">+ JDK8新特性</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                    <div id="jdk8" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                    <div class="dsd_title" onclick="clickTitle('addenda')">
+                        <span id="addenda_title">+ 附录</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                    <div id="addenda" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                    <div class="dsd_title" onclick="clickTitle('idea')">
+                        <span id="idea_title">+ Intelij IDEA</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                    <div id="idea" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                    <div class="dsd_title" onclick="clickTitle('api')">
+                        <span id="api_title">+ Java中文手册</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                    <div id="api" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ FAQ</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayList原理及转化成数组常用方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                    <div class="dsd_title" onclick="clickTitle('profile')">
+                        <span id="profile_title">+ 程序优化专题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                    <div id="profile" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/5.html">5.linux系统找出最好效率的java方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/6.html">6.java开启jmx设置 jsoncole远程连接java程序</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('jdk8')">
-                    <span id="jdk8_title">+ JDK8新特性</span>
-                </div>
-                <div id="jdk8" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('addenda')">
-                    <span id="addenda_title">+ 附录</span>
-                </div>
-                <div id="addenda" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('idea')">
-                    <span id="idea_title">+ Intelij IDEA</span>
-                </div>
-                <div id="idea" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('api')">
-                    <span id="api_title">+ Java中文手册</span>
-                </div>
-                <div id="api" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ FAQ</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayList原理及转化成数组常用方法</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('profile')">
-                    <span id="profile_title">+ 程序优化专题</span>
-                </div>
-                <div id="profile" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>1.HashMap与ConcurrentHashMap的区别与应用场景</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 HashMap与ConcurrentHashMap多线程同步的误区</a><br><a
-                            href="#1.1">&nbsp;&nbsp;1.1 编码思路</a><br><a href="#1.2">&nbsp;&nbsp;1.2 需要验证的结论</a><br><a
-                            href="#1.3">&nbsp;&nbsp;1.3 验证代码</a><br><a href="#2">2 HashMap应用场景</a><br><a href="#2.1">&nbsp;&nbsp;2.1
-                            HashpMap多线程情况下的ConcurrentModificationException</a><br><a href="#2.3">&nbsp;&nbsp;2.3
-                            推荐HashMap应用场景</a><br><a href="#3">3 推荐ConcurrentHashMap应用场景</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>
-                            从JDK1.5开始加入了ConcurrentHashMap，在面试的过程中我问过很多程序员，HashpMap与ConcurrentHashMap的区别是什么呢。我得到的回答一般都是HashpMap不是线程安全的，ConcurrentHashMap是线程安全的。这个结论很笼统。下面我来详细的举例说明他们之间的区别。</p>
-                    </div>
-                    <div id="1"><h3>1 HashMap与ConcurrentHashMap多线程同步的误区</h3></div>
-                    <p>使用了ConcurrentHashMap就意味着多线程环境中的数据是线程同步的吗？</p>
-                    <p>答案是不一定。用以下代码来作为示例来说明.</p>
-                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 编码思路</h4></div>
-                    <ul>
-                        <li>分别创建一个全局HashMap和一个全局ConcurrentHashMap</li>
-                        <li>分别赋予初始值。</li>
-                        <li>多线程修改这两个集合</li>
-                        <li>然后输出值，比较最终结果。</li>
-                    </ul>
-                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 需要验证的结论</h4></div>
-                    <ul>
-                        <li>HashMap在多线程情况下操作不能保证数据同步。</li>
-                        <li>ConcurrentHashMap多线程操作同样不能保证数据同步。</li>
-                    </ul>
-                    <div id="1.3" class="dsd_title_c_2"><h4>1.3 验证代码</h4></div>
-                    <ul>
-                        <li>Demo1类，验证HashMap多线程操作数据不同步.</li>
-                    </ul>
-                    <pre class="prettyprint"><code>package com.dashidan.faq;
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 HashMap与ConcurrentHashMap多线程同步的误区</a><br><a href="#1.1">&nbsp;&nbsp;1.1 编码思路</a><br><a href="#1.2">&nbsp;&nbsp;1.2 需要验证的结论</a><br><a href="#1.3">&nbsp;&nbsp;1.3 验证代码</a><br><a href="#2">2 HashMap应用场景</a><br><a href="#2.1">&nbsp;&nbsp;2.1 HashpMap多线程情况下的ConcurrentModificationException</a><br><a href="#2.3">&nbsp;&nbsp;2.3 推荐HashMap应用场景</a><br><a href="#3">3 推荐ConcurrentHashMap应用场景</a></div></div><div class="jumbotron">
+<p>从JDK1.5开始加入了ConcurrentHashMap，在面试的过程中我问过很多程序员，HashpMap与ConcurrentHashMap的区别是什么呢。我得到的回答一般都是HashpMap不是线程安全的，ConcurrentHashMap是线程安全的。这个结论很笼统。下面我来详细的举例说明他们之间的区别。</p>
+</div>
+<div id="1"><h3>1 HashMap与ConcurrentHashMap多线程同步的误区</h3></div>
+<p>使用了ConcurrentHashMap就意味着多线程环境中的数据是线程同步的吗？</p>
+<p>答案是不一定。用以下代码来作为示例来说明.</p>
+<div id="1.1"class="dsd_title_c_2"><h4>1.1 编码思路</h4></div>
+<ul>
+<li>分别创建一个全局HashMap和一个全局ConcurrentHashMap</li>
+<li>分别赋予初始值。</li>
+<li>多线程修改这两个集合</li>
+<li>然后输出值，比较最终结果。</li>
+</ul>
+<div id="1.2"class="dsd_title_c_2"><h4>1.2 需要验证的结论</h4></div>
+<ul>
+<li>HashMap在多线程情况下操作不能保证数据同步。</li>
+<li>ConcurrentHashMap多线程操作同样不能保证数据同步。</li>
+</ul>
+<div id="1.3"class="dsd_title_c_2"><h4>1.3 验证代码</h4></div>
+<ul>
+<li>Demo1类，验证HashMap多线程操作数据不同步.</li>
+</ul>
+<pre class="prettyprint"><code>package com.dashidan.faq;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -332,15 +330,15 @@ class ReadThread implements Runnable {
     }
 }
 </code></pre>
-                    <p>输出结果</p>
-                    <pre class="prettyprint"><code>Demo1 main value 76
+<p>输出结果</p>
+<pre class="prettyprint"><code>Demo1 main value 76
 value 94
 </code></pre>
-                    <p>这里每次运行的结果可能会不一样。</p>
-                    <ul>
-                        <li>Demo2类，验证ConcurrentHashMap多线程操作数据不同步.</li>
-                    </ul>
-                    <pre class="prettyprint"><code>package com.dashidan.faq;
+<p>这里每次运行的结果可能会不一样。</p>
+<ul>
+<li>Demo2类，验证ConcurrentHashMap多线程操作数据不同步.</li>
+</ul>
+<pre class="prettyprint"><code>package com.dashidan.faq;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -366,16 +364,15 @@ public class Demo2 {
     }
 }
 </code></pre>
-                    <p>输出结果:</p>
-                    <pre class="prettyprint"><code>Demo2 main value 81
+<p>输出结果:</p>
+<pre class="prettyprint"><code>Demo2 main value 81
 value 84
 </code></pre>
-                    <p>多次运行，输出的结果可能不一致。这样说明多线程修改ConcurrentHashMap中的数据，不能保证多线程同步。需要进行加锁或者其他能达到线程同步的方式配合使用。</p>
-                    <div id="2"><h3>2 HashMap应用场景</h3></div>
-                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 HashpMap多线程情况下的ConcurrentModificationException</h4>
-                    </div>
-                    <p>当方法检测到对象的并发修改(单线程情况也可能)，但不允许这种修改时，抛出ConcurrentModificationException异常。</p>
-                    <pre class="prettyprint"><code>package com.dashidan.faq;
+<p>多次运行，输出的结果可能不一致。这样说明多线程修改ConcurrentHashMap中的数据，不能保证多线程同步。需要进行加锁或者其他能达到线程同步的方式配合使用。</p>
+<div id="2"><h3>2 HashMap应用场景</h3></div>
+<div id="2.1"class="dsd_title_c_2"><h4>2.1 HashpMap多线程情况下的ConcurrentModificationException</h4></div>
+<p>当方法检测到对象的并发修改(单线程情况也可能)，但不允许这种修改时，抛出ConcurrentModificationException异常。</p>
+<pre class="prettyprint"><code>package com.dashidan.faq;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -457,25 +454,22 @@ class IteratorThread implements Runnable {
     }
 }
 </code></pre>
-                    <p>输出结果:</p>
-                    <pre class="prettyprint"><code>------------------ 1259
+<p>输出结果:</p>
+<pre class="prettyprint"><code>------------------ 1259
 Exception in thread "Thread-2" java.util.ConcurrentModificationException
     at java.util.HashMap$HashIterator.nextNode(HashMap.java:1429)
     at java.util.HashMap$ValueIterator.next(HashMap.java:1458)
     at com.dashidan.faq.IteratorThread.run(Demo3.java:78)
     at java.lang.Thread.run(Thread.java:745
 </code></pre>
-                    <p>输出结果可能不一致，多次运行有几率出现ConcurrentModificationException异常.这个异常会导致程序运行停止.</p>
-                    <div id="2.3" class="dsd_title_c_2"><h4>2.3 推荐HashMap应用场景</h4></div>
-                    <p>
-                        上文中的输出示例验证了多线程操作下HashMap无法保证数据同步，多线程修改HashMap并且有遍历的操作时，可能会产生ConcurrentModificationException异常。所以，推荐的HashMap应用场景是单线程运行环境，并且不需要遍历操作的场景。</p>
-                    <p>这个推荐场景不是硬性条件。比如多线操作HashMap，我们通过加锁或者加入同步控制依然能正常应用HashMap，只是需要加上同步操作的代价。</p>
-                    <div id="3"><h3>3 推荐ConcurrentHashMap应用场景</h3></div>
-                    <p>ConcurrentHashMap所有操作都是线程安全的，但获取操作不必锁定，并且不支持以某种防止所有访问的方式锁定整个表。获取操作（包括 get）通常不会受阻塞，因此，可能与更新操作交迭（包括
-                        put 和 remove）。在创建迭代器/枚举时或自此之后，Iterators 和 Enumerations返回在某一时间点上影响哈希表状态的元素。它们不会 抛出
-                        ConcurrentModificationException。</p>
-                    <p>在上文中的HashMap示例中，我们将HashMap改为ConcurrentHashMap，来看看会发生什么.以下示例代码：</p>
-                    <pre class="prettyprint"><code>package com.dashidan.faq;
+<p>输出结果可能不一致，多次运行有几率出现ConcurrentModificationException异常.这个异常会导致程序运行停止.</p>
+<div id="2.3"class="dsd_title_c_2"><h4>2.3 推荐HashMap应用场景</h4></div>
+<p>上文中的输出示例验证了多线程操作下HashMap无法保证数据同步，多线程修改HashMap并且有遍历的操作时，可能会产生ConcurrentModificationException异常。所以，推荐的HashMap应用场景是单线程运行环境，并且不需要遍历操作的场景。</p>
+<p>这个推荐场景不是硬性条件。比如多线操作HashMap，我们通过加锁或者加入同步控制依然能正常应用HashMap，只是需要加上同步操作的代价。</p>
+<div id="3"><h3>3 推荐ConcurrentHashMap应用场景</h3></div>
+<p>ConcurrentHashMap所有操作都是线程安全的，但获取操作不必锁定，并且不支持以某种防止所有访问的方式锁定整个表。获取操作（包括 get）通常不会受阻塞，因此，可能与更新操作交迭（包括 put 和 remove）。在创建迭代器/枚举时或自此之后，Iterators 和 Enumerations返回在某一时间点上影响哈希表状态的元素。它们不会 抛出 ConcurrentModificationException。</p>
+<p>在上文中的HashMap示例中，我们将HashMap改为ConcurrentHashMap，来看看会发生什么.以下示例代码：</p>
+<pre class="prettyprint"><code>package com.dashidan.faq;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -503,31 +497,20 @@ public class Demo4 {
     }
 }
 </code></pre>
-                    <p>输出结果</p>
-                    <pre class="prettyprint"><code>------------------ 1381
+<p>输出结果</p>
+<pre class="prettyprint"><code>------------------ 1381
 +++++++++++++++++++ 3072
 </code></pre>
-                    <p>每次运行输出结果可能会不一致。这个是多线程操作下，不能保证插入顺序，所以插入的随机值位置不固定。输出遍历前h后的ConcurrentHashMap长度不一致。</p>
-                    <p>
-                        这种情况说明，在遍历ConcurrentHashMap时如果遍历过程中，该集合的机构发生变化，比如put,remove数据。这时不会抛出ConcurrentModificationException，能够正常遍历完成ConcurrentHashMap.</p>
-                    <ul>
-                        <li>ConcurrentHashMap推荐应用场景
-                            多线程对HashMap数据添加删除操作时，可以采用ConcurrentHashMap。
-                        </li>
-                    </ul>
+<p>每次运行输出结果可能会不一致。这个是多线程操作下，不能保证插入顺序，所以插入的随机值位置不固定。输出遍历前h后的ConcurrentHashMap长度不一致。</p>
+<p>这种情况说明，在遍历ConcurrentHashMap时如果遍历过程中，该集合的机构发生变化，比如put,remove数据。这时不会抛出ConcurrentModificationException，能够正常遍历完成ConcurrentHashMap.</p>
+<ul>
+<li>ConcurrentHashMap推荐应用场景
+多线程对HashMap数据添加删除操作时，可以采用ConcurrentHashMap。</li>
+</ul>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/java/faq/1.html">原文链接</a>.
                 </div>
-            </div>
-
-            <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div><span style="color: darkgray">广告赞助</span></div>
-                <script type="text/javascript">
-                    /*160*600 创建于 2018/3/23*/
-                    var cpro_id = "u3395011";
-                </script>
-                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
             </div>
         </div>
     </div>
@@ -542,7 +525,7 @@ public class Demo4 {
         <a href="https://dashidan.com/article/java/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/java/faq/2.html"> 2.HashMap中的put和putIfAbsense区别 &gt;</a>
+            <a href="https://dashidan.com/article/java/faq/2.html"> 2.HashMap中的put和putIfAbsense区别 &gt;</a>
     </div>
 </footer>
 

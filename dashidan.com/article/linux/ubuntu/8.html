@@ -1,0 +1,290 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ubuntu搭建pptpd</title>
+    <meta name="description" content="ubuntu搭建pptpd">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/ubuntu/8.html">
+
+    <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://dashidan.com/index.html">首页</a></li>
+            <li><a href="https://dashidan.com/about.html">关于</a></li>
+            <li><a href="https://dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="fullscreen">
+    <div class="container-fluid">
+        <div>
+            <a href="https://dashidan.com/index.html">首页</a> > <a
+                href="https://dashidan.com/article/linux/index.html">linux</a> > ubuntu
+            > 8.ubuntu搭建pptpd
+        </div>
+
+        <div class="dsd_content">
+            <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                    <div class="dsd_title" onclick="clickTitle('common')">
+                        <span id="common_title">+ Linux常用命令</span>
+                    </div>
+                    <div id="common" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/1.html">1.linux常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/2.html">2.linux定时任务crontab</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/3.html">3.linux通过ssh建立代理</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/4.html">4.linux修改root密码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/5.html">5.linux修改打开文件数限制</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/6.html">6.linux中文乱码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/7.html">7.Linux与Windows文件互传</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/8.html">8.Linux退出telnet</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/9.html">9.Linux压缩和解压缩</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/10.html">10.Linux查看系统版本</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/11.html">11.Linux的shell脚本中数组及数组遍历</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/12.html">12.localefacet_S_create_c_locale name not valid</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/13.html">13.linux服务器间传输文件和文件夹</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/14.html">14.获取本地主机UnknownHostException</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/15.html">15.find命令卡住</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/16.html">16.linux环境变量配错导致所有命令无法使用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/17.html">17.linux查看指定端口客户端连接数</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/18.html">18.linux日志相关的方法cat tail head grep sed</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/19.html">19.linux日志查询常用操作</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('ubuntu')">
+                        <span id="ubuntu_title">+ Ubuntu常用命令</span>
+                    </div>
+                    <div id="ubuntu" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/1.html">1.linux搭建nginx+mysql+php+php-fpm</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/2.html">2.linux安装配置SVN及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/3.html">3.linux安装配置Apollo及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/4.html">4.linux安装配置Zookeeper及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/5.html">5.Ubuntu允许root用户登录</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/6.html">6.ubuntu apt-get切换源</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/7.html">7.Ubuntu apt-get彻底卸载软件包</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/ubuntu/8.html">8.ubuntu搭建pptpd</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('tmux')">
+                        <span id="tmux_title">+ Tmux常用命令</span>
+                    </div>
+                    <div id="tmux" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/1.html">1.linux安装tmux及常用命令</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/2.html">2.ubuntu安装tmux服务必需组件</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/tmux/3.html">3.tmux常用命令及快捷键</a>
+                            </div>
+                    </div>
+                    <div class="dsd_title" onclick="clickTitle('centos')">
+                        <span id="centos_title">+ Centos常见问题</span>
+                    </div>
+                    <div id="centos" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/1.html">1.centos设置dns和静态IP地址</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/2.html">2.centos7安装nginx+php+php-fpm</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/3.html">3.centos7开启关闭防火墙</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/4.html">4.centos7关闭SELinux</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/5.html">5.centos7 yum安装mongodb</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/6.html">6.centos7安装配置redis</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/7.html">7.redis编译报致命错误：jemallocjemalloc.h：没有那个文件或目录</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/8.html">8.centos7 php安装mongodb redis扩展</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/9.html">9.centos7配置java环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/10.html">10.centos7 安装tomcat</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/11.html">11.Centos php mongdb扩展Fatal error Class &#x27;MongoClient&#x27; not found in</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/12.html">12.centos7配置ipv6</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/13.html">13.centos7 tomcat中文乱码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/centos/14.html">14.centos查看cpu核数和频率</a>
+                            </div>
+                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <article class="dsd_title_1"><h1>8.ubuntu搭建pptpd</h1></article>
+                <div id="xs_content_border">
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 安装pptpd</a><br><a href="#2">2 配置PPP 连接的地址</a><br><a href="#3">3 设置安全认证方式及DNS等信息</a><br><a href="#4">4 添加PPTP连接的账户信息</a><br><a href="#5">5 开启内核IP转发</a><br><a href="#6">6 NAT转发设置</a><br><a href="#7">7 启动pptpd服务</a><br><a href="#8">8 参考文章</a></div></div><div id="1"><h3>1 安装pptpd</h3></div>
+<pre class="prettyprint"><code>apt-get install pptpd
+</code></pre>
+<div id="2"><h3>2 配置PPP 连接的地址</h3></div>
+<pre class="prettyprint"><code>vim /etc/pptpd.conf
+</code></pre>
+<p>修改localip和remoteip:</p>
+<pre class="prettyprint"><code>localip 192.168.0.1
+remoteip 192.168.0.234-238,192.168.0.245
+</code></pre>
+<div id="3"><h3>3 设置安全认证方式及DNS等信息</h3></div>
+<pre class="prettyprint"><code>vim /etc/ppp/pptpd-options
+</code></pre>
+<p>加入</p>
+<pre class="prettyprint"><code>ms-dns 8.8.8.8
+</code></pre>
+<div id="4"><h3>4 添加PPTP连接的账户信息</h3></div>
+<pre class="prettyprint"><code>vim /etc/ppp/chap-secrets
+</code></pre>
+<p>加入:</p>
+<pre class="prettyprint"><code>user    pptpd   password  *
+</code></pre>
+<div id="5"><h3>5 开启内核IP转发</h3></div>
+<pre class="prettyprint"><code>vim /etc/sysctl.conf
+</code></pre>
+<p>设置</p>
+<pre class="prettyprint"><code>net.ipv4.ip_forward=1
+</code></pre>
+<p>使配置生效</p>
+<pre class="prettyprint"><code>sysctl -psysc
+</code></pre>
+<div id="6"><h3>6 NAT转发设置</h3></div>
+<p>安装iptables</p>
+<pre class="prettyprint"><code>apt-get install iptables
+</code></pre>
+<p>设置nat转发</p>
+<pre class="prettyprint"><code>sudo iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
+</code></pre>
+<p>192.168.0.0/24是你在上面设置的IP段，让这个段转发</p>
+<p>注意:</p>
+<p>eth0是你连接外网的那块网卡，不一定是0也有可能是1或者看你的机器哪块网卡连的外网了。</p>
+<p>这样就以NAT的方式请求外网的东西了。不知道你的机器哪块网卡连的外网的话ifconfig一下看看哪个网卡是外网IP就知道了。</p>
+<div id="7"><h3>7 启动pptpd服务</h3></div>
+<pre class="prettyprint"><code>service pptpd start
+</code></pre>
+<p>如果已经启动了，需要重启。</p>
+<div id="8"><h3>8 参考文章</h3></div>
+<p><a href="https://blog.csdn.net/lfw19891101/article/details/7204282">ubuntu pptpd</a></p>
+                </div>
+                <div>
+                    转载请保留<a href="https://dashidan.com/article/linux/ubuntu/8.html">原文链接</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="https://dashidan.com/article/linux/ubuntu/7.html"> &lt; 7.Ubuntu apt-get彻底卸载软件包</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="https://dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+    </div>
+</footer>
+
+<script src="https://dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="https://dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="https://dashidan.com/js/bootstrap.js"></script>
+<script src="https://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="https://dashidan.com/js/main.js"></script>
+</body>
+</html>

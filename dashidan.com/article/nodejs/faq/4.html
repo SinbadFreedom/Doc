@@ -49,75 +49,67 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > faq
+                href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > faq
             > 4.npm install --save与--save-dev的区别
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Nodejs常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Nodejs常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>4.npm install --save与--save-dev的区别</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 npm install不带--save和--save-dev参数</a><br><a
-                            href="#2">2 npm install --save</a><br><a href="#3">3 npm install --save-dev</a><br><a
-                            href="#4">4 npm install --save和--save-dev参数使用原则</a></div>
-                    </div>
-                    <div id="1"><h3>1 npm install不带--save和--save-dev参数</h3></div>
-                    <ul>
-                        <li>把模块安装到当前目录node_modules目录中.</li>
-                        <li>不修改package.json.</li>
-                        <li>之后运行npm install命令时,不会自动安装这个模块.</li>
-                    </ul>
-                    <div id="2"><h3>2 npm install --save</h3></div>
-                    <ul>
-                        <li>把模块安装到node_modules目录中.</li>
-                        <li>在package.json的dependencies属性下添加这个模块.</li>
-                        <li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
-                        <li>之后运行<code>npm install --production</code> 或者注明NODE<em>ENV变量值为production时,
-                            会自动安装这个模块到node</em>modules目录中.
-                        </li>
-                    </ul>
-                    <div id="3"><h3>3 npm install --save-dev</h3></div>
-                    <ul>
-                        <li>把msbuild包安装到node_modules目录中.</li>
-                        <li>在package.json的devDependencies属性下添加这个模块.</li>
-                        <li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
-                        <li>之后运行"npm install --production"或者注明NODE<em>ENV变量值为production时, 不会自动安装这个模块到node</em>modules目录中.
-                        </li>
-                    </ul>
-                    <div id="4"><h3>4 npm install --save和--save-dev参数使用原则</h3></div>
-                    <p>运行时需要用到的包使用--save,否则使用--save-dev.</p>
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 npm install不带--save和--save-dev参数</a><br><a href="#2">2 npm install --save</a><br><a href="#3">3 npm install --save-dev</a><br><a href="#4">4 npm install --save和--save-dev参数使用原则</a></div></div><div id="1"><h3>1 npm install不带--save和--save-dev参数</h3></div>
+<ul>
+<li>把模块安装到当前目录node_modules目录中.</li>
+<li>不修改package.json.</li>
+<li>之后运行npm install命令时,不会自动安装这个模块.</li>
+</ul>
+<div id="2"><h3>2 npm install --save</h3></div>
+<ul>
+<li>把模块安装到node_modules目录中.</li>
+<li>在package.json的dependencies属性下添加这个模块.</li>
+<li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
+<li>之后运行<code>npm install --production</code> 或者注明NODE<em>ENV变量值为production时, 会自动安装这个模块到node</em>modules目录中.</li>
+</ul>
+<div id="3"><h3>3 npm install --save-dev</h3></div>
+<ul>
+<li>把msbuild包安装到node_modules目录中.</li>
+<li>在package.json的devDependencies属性下添加这个模块.</li>
+<li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
+<li>之后运行"npm install --production"或者注明NODE<em>ENV变量值为production时, 不会自动安装这个模块到node</em>modules目录中.</li>
+</ul>
+<div id="4"><h3>4 npm install --save和--save-dev参数使用原则</h3></div>
+<p>运行时需要用到的包使用--save,否则使用--save-dev.</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/nodejs/faq/4.html">原文链接</a>.
@@ -131,13 +123,13 @@
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/nodejs/faq/3.html"> &lt; 3.npm install -g与--save参数</a>
+            <a href="https://dashidan.com/article/nodejs/faq/3.html"> &lt; 3.npm install -g与--save参数</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/nodejs/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/nodejs/faq/5.html"> 5.linux安装nodejs及版本切换 &gt;</a>
+            <a href="https://dashidan.com/article/nodejs/faq/5.html"> 5.linux安装nodejs及版本切换 &gt;</a>
     </div>
 </footer>
 

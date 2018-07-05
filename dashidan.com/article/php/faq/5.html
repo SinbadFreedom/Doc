@@ -49,102 +49,92 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/php/index.html">php</a> > faq
+                href="https://dashidan.com/article/php/index.html">php</a> > faq
             > 5.php mongodb基本操作：建立连接，增删改查
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ PHP常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/1.html">1.PHP中文JSON乱码</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ PHP常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/2.html">2.Linux系统PHP配置支持Redis扩展</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/1.html">1.PHP中文JSON乱码</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/2.html">2.Linux系统PHP配置支持Redis扩展</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/3.html">3.Ubuntu安装php-redis扩展</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/4.html">4.php安装mongodb扩展</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/5.html">5.php mongodb基本操作：建立连接，增删改查</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/6.html">6.php安装时报错configure error Cannot find OpenSSL&#x27;s libraries</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/7.html">7.ubuntu切换PHP版本</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/8.html">8.php $HTTP_RAW_POST_DATA is deprecated</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/faq/9.html">9.php写入log文件</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/3.html">3.Ubuntu安装php-redis扩展</a>
+                    <div class="dsd_title" onclick="clickTitle('api')">
+                        <span id="api_title">+ PHP中文手册</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/4.html">4.php安装mongodb扩展</a>
+                    <div id="api" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/php/api/1.html">1.php中文手册</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/5.html">5.php mongodb基本操作：建立连接，增删改查</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/6.html">6.php安装时报错configure error Cannot find
-                            OpenSSL&#x27;s libraries</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/7.html">7.ubuntu切换PHP版本</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/8.html">8.php $HTTP_RAW_POST_DATA is
-                            deprecated</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/faq/9.html">9.php写入log文件</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('api')">
-                    <span id="api_title">+ PHP中文手册</span>
-                </div>
-                <div id="api" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/php/api/1.html">1.php中文手册</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>5.php mongodb基本操作：建立连接，增删改查</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 php连接mongodb</a><br><a href="#1.1">&nbsp;&nbsp;1.1
-                            基本的连接方式</a><br><a href="#1.2">&nbsp;&nbsp;1.2 php通过ssl连接mongodb</a><br><a href="#1.3">&nbsp;&nbsp;1.3
-                            php连接mongodb验证用户名和密码</a><br><a href="#1.4">&nbsp;&nbsp;1.4 php mongodb连接指定数据库</a><br><a
-                            href="#1.5">&nbsp;&nbsp;1.5 php mongodb的持久化链接</a><br><a href="#2">2 php
-                            mongodb扩展的基本操作</a><br><a href="#2.1">&nbsp;&nbsp;2.1 获取指定数据库</a><br><a href="#2.2">&nbsp;&nbsp;2.2
-                            整体操作流程示例</a></div>
-                    </div>
-                    <div id="1"><h3>1 php连接mongodb</h3></div>
-                    <p><a href="http://php.net/mongo">PHP MongoDB 驱动手册</a></p>
-                    <p>示例代码:</p>
-                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 基本的连接方式</h4></div>
-                    <ul>
-                        <li>MongoClient默认连接localhost:27017</li>
-                    </ul>
-                    <pre class="prettyprint"><code>&lt;?php
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 php连接mongodb</a><br><a href="#1.1">&nbsp;&nbsp;1.1 基本的连接方式</a><br><a href="#1.2">&nbsp;&nbsp;1.2 php通过ssl连接mongodb</a><br><a href="#1.3">&nbsp;&nbsp;1.3 php连接mongodb验证用户名和密码</a><br><a href="#1.4">&nbsp;&nbsp;1.4 php mongodb连接指定数据库</a><br><a href="#1.5">&nbsp;&nbsp;1.5 php mongodb的持久化链接</a><br><a href="#2">2 php mongodb扩展的基本操作</a><br><a href="#2.1">&nbsp;&nbsp;2.1 获取指定数据库</a><br><a href="#2.2">&nbsp;&nbsp;2.2 整体操作流程示例</a></div></div><div id="1"><h3>1 php连接mongodb</h3></div>
+<p><a href="http://php.net/mongo">PHP MongoDB 驱动手册</a></p>
+<p>示例代码:</p>
+<div id="1.1"class="dsd_title_c_2"><h4>1.1 基本的连接方式</h4></div>
+<ul>
+<li>MongoClient默认连接localhost:27017</li>
+</ul>
+<pre class="prettyprint"><code>&lt;?php
 $connection = new MongoClient(); // connects to localhost:27017
 ?&gt;
 </code></pre>
-                    <ul>
-                        <li>指定url默认端口27017</li>
-                    </ul>
-                    <pre class="prettyprint"><code>&lt;?php
+<ul>
+<li>指定url默认端口27017</li>
+</ul>
+<pre class="prettyprint"><code>&lt;?php
 $connection = new MongoClient( "mongodb://dashidan.com" ); // connect to a remote host (default port: 27017)
 ?&gt;
 </code></pre>
-                    <ul>
-                        <li>指定url和端口</li>
-                    </ul>
-                    <pre class="prettyprint"><code>$connection = new MongoClient( "mongodb://dashidan.com:65432" ); // connect to a remote host at a given port
+<ul>
+<li>指定url和端口</li>
+</ul>
+<pre class="prettyprint"><code>$connection = new MongoClient( "mongodb://dashidan.com:65432" ); // connect to a remote host at a given port
 </code></pre>
-                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 php通过ssl连接mongodb</h4></div>
-                    <pre class="prettyprint"><code>&lt;?php
+<div id="1.2"class="dsd_title_c_2"><h4>1.2 php通过ssl连接mongodb</h4></div>
+<pre class="prettyprint"><code>&lt;?php
 $mc = new MongoClient("mongodb://server1", array("ssl" =&gt; true));
 ?&gt;
 </code></pre>
-                    <div id="1.3" class="dsd_title_c_2"><h4>1.3 php连接mongodb验证用户名和密码</h4></div>
-                    <pre class="prettyprint"><code>$m = new MongoClient("mongodb://${username}:${password}@localhost");
+<div id="1.3"class="dsd_title_c_2"><h4>1.3 php连接mongodb验证用户名和密码</h4></div>
+<pre class="prettyprint"><code>$m = new MongoClient("mongodb://${username}:${password}@localhost");
 或以下方式，用户名和密码是可选的
 $m = new MongoClient("mongodb://localhost", array("username" =&gt; $username, "password" =&gt; $password));
 </code></pre>
-                    <div id="1.4" class="dsd_title_c_2"><h4>1.4 php mongodb连接指定数据库</h4></div>
-                    <p>通过用户名，密码连接指定数据库.</p>
-                    <pre class="prettyprint"><code>&lt;?php
+<div id="1.4"class="dsd_title_c_2"><h4>1.4 php mongodb连接指定数据库</h4></div>
+<p>通过用户名，密码连接指定数据库.</p>
+<pre class="prettyprint"><code>&lt;?php
 // 方式一(推荐)
 $m = new MongoClient("mongodb://${username}:${password}@localhost/myDatabase");
 
@@ -152,12 +142,10 @@ $m = new MongoClient("mongodb://${username}:${password}@localhost/myDatabase");
 $m = new MongoClient("mongodb://${username}:${password}@localhost", array("db" =&gt; "myDatabase"));
 ?&gt;
 </code></pre>
-                    <div id="1.5" class="dsd_title_c_2"><h4>1.5 php mongodb的持久化链接</h4></div>
-                    <p>自1.3.0以来，所有版本的驱动程序都使用持久连接来最大限度地减少与每个数据库服务器的连接数量。这些连接由PHP工作进程保存，并可能在多个请求之间重用。</p>
-                    <p>
-                        在连接到数据库服务器之前，驱动程序将根据主机，端口，副本集名称（如果有），任何验证凭据（例如用户名，密码，数据库）和进程ID为连接创建哈希。如果该散列已经存在连接，则将用它来代替创建与该散列关联的新连接。
-                        MongoClient :: getConnections（）可用于检索有关每个持久连接的信息。考虑以下程序：</p>
-                    <pre class="prettyprint"><code>&lt;?php
+<div id="1.5"class="dsd_title_c_2"><h4>1.5 php mongodb的持久化链接</h4></div>
+<p>自1.3.0以来，所有版本的驱动程序都使用持久连接来最大限度地减少与每个数据库服务器的连接数量。这些连接由PHP工作进程保存，并可能在多个请求之间重用。</p>
+<p>在连接到数据库服务器之前，驱动程序将根据主机，端口，副本集名称（如果有），任何验证凭据（例如用户名，密码，数据库）和进程ID为连接创建哈希。如果该散列已经存在连接，则将用它来代替创建与该散列关联的新连接。 MongoClient :: getConnections（）可用于检索有关每个持久连接的信息。考虑以下程序：</p>
+<pre class="prettyprint"><code>&lt;?php
 
 $m1 = new MongoClient('mongodb://localhost');
 $m2 = new MongoClient('mongodb://localhost');
@@ -172,26 +160,26 @@ foreach (MongoClient::getConnections() as $conn) {
 
 ?&gt;
 </code></pre>
-                    <p>上述例子可能会输出:</p>
-                    <pre class="prettyprint"><code>本地主机：27017;  - ; X; 15487
+<p>上述例子可能会输出:</p>
+<pre class="prettyprint"><code>本地主机：27017;  - ; X; 15487
 本地主机：27017;  - ;管理/用户/ C56C ... 8bbc; 15487
 127.0.0.1:27017;-;X;15487
 rs1.local：30017; RS; X; 15487
 rs2.local：30018; RS; X; 15487
 sharding.local：40017;  - ; X; 15487
 </code></pre>
-                    <div id="2"><h3>2 php mongodb扩展的基本操作</h3></div>
-                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 获取指定数据库</h4></div>
-                    <p>通过MongoClient连接数据库以后，访问指定数据库名，来获取指定数据库对象。</p>
-                    <p>代码示例:</p>
-                    <pre class="prettyprint"><code>&lt;?php
+<div id="2"><h3>2 php mongodb扩展的基本操作</h3></div>
+<div id="2.1"class="dsd_title_c_2"><h4>2.1 获取指定数据库</h4></div>
+<p>通过MongoClient连接数据库以后，访问指定数据库名，来获取指定数据库对象。</p>
+<p>代码示例:</p>
+<pre class="prettyprint"><code>&lt;?php
 $connection = new MongoClient();
 $db = $connection-&gt;dbname;
 ?&gt;
 </code></pre>
-                    <div id="2.2" class="dsd_title_c_2"><h4>2.2 整体操作流程示例</h4></div>
-                    <p>包括建立连接，指定数据库， 指定集合， 加入数据， 查找数据和遍历结果集。</p>
-                    <pre class="prettyprint"><code>&lt;?php
+<div id="2.2"class="dsd_title_c_2"><h4>2.2 整体操作流程示例</h4></div>
+<p>包括建立连接，指定数据库， 指定集合， 加入数据， 查找数据和遍历结果集。</p>
+<pre class="prettyprint"><code>&lt;?php
 
 // 链接
 $m = new MongoClient();
@@ -233,14 +221,13 @@ foreach ($cursor as $document) {
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/php/faq/4.html"> &lt; 4.php安装mongodb扩展</a>
+            <a href="https://dashidan.com/article/php/faq/4.html"> &lt; 4.php安装mongodb扩展</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/php/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/php/faq/6.html"> 6.php安装时报错configure error Cannot find OpenSSL&#x27;s
-            libraries &gt;</a>
+            <a href="https://dashidan.com/article/php/faq/6.html"> 6.php安装时报错configure error Cannot find OpenSSL&#x27;s libraries &gt;</a>
     </div>
 </footer>
 

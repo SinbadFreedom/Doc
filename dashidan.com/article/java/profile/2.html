@@ -19,12 +19,12 @@
     <script>
         var _hmt = _hmt || [];
         (function () {
-            var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -49,266 +49,265 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/java/index.html">java</a> > profile > 2.java数组拷贝的3种方式和效率对比
+                href="https://dashidan.com/article/java/index.html">java</a> > profile
+            > 2.java数组拷贝的3种方式和效率对比
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('basic')">
-                    <span id="basic_title">+ Java入门到精通</span>
-                </div>
-                <div id="basic" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                    <div class="dsd_title" onclick="clickTitle('basic')">
+                        <span id="basic_title">+ Java入门到精通</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                    <div id="basic" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/1.html">1.Java教程概述</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/2.html">2.搭建Java开发环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/3.html">3.第一个Java程序</a>
+                    <div class="dsd_title" onclick="clickTitle('jdk8')">
+                        <span id="jdk8_title">+ JDK8新特性</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/4.html">4.Java代码注释</a>
+                    <div id="jdk8" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/5.html">5.Java变量</a>
+                    <div class="dsd_title" onclick="clickTitle('addenda')">
+                        <span id="addenda_title">+ 附录</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/6.html">6.Java集成开发环境</a>
+                    <div id="addenda" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/7.html">7.Java运算符</a>
+                    <div class="dsd_title" onclick="clickTitle('idea')">
+                        <span id="idea_title">+ Intelij IDEA</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/8.html">8.Java方法</a>
+                    <div id="idea" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/9.html">9.Java流程控制</a>
+                    <div class="dsd_title" onclick="clickTitle('api')">
+                        <span id="api_title">+ Java中文手册</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/10.html">10.Java命名空间</a>
+                    <div id="api" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/11.html">11.Java数组</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ FAQ</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/12.html">12.Java静态变量与常量</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayList原理及转化成数组常用方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/13.html">13.Java对象</a>
+                    <div class="dsd_title" onclick="clickTitle('profile')">
+                        <span id="profile_title">+ 程序优化专题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/14.html">14.Java包装类</a>
+                    <div id="profile" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/5.html">5.linux系统找出最好效率的java方法</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/6.html">6.java开启jmx设置 jsoncole远程连接java程序</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/15.html">15.Java集合类</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/16.html">16.Java异常</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/17.html">17.Java位运算</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/18.html">18.Java转义字符</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/19.html">19.Java线程</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/20.html">20.Java设计模式</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/21.html">21.Java编码优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/22.html">22.jvm参数优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/23.html">23.final关键字作用详解</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/basic/24.html">24.transient关键字详解</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('jdk8')">
-                    <span id="jdk8_title">+ JDK8新特性</span>
-                </div>
-                <div id="jdk8" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/1.html">1.JDK8新增语法特性简介</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/2.html">2.JDK8函数式接口</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/3.html">3.Java兰姆达(Lambda)表达式</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/4.html">4.java拉姆达(Lambda)表达式应用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/5.html">5.JDK8的default方法</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/6.html">6.JDK8方法引用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/jdk8/7.html">7.JDK8集合类库的批量数据操作</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('addenda')">
-                    <span id="addenda_title">+ 附录</span>
-                </div>
-                <div id="addenda" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/1.html">1.Java中@Override标签作用</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/2.html">2.Java编码规范</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/3.html">3.Java保留关键字</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/4.html">4.Linux搭建Java开发环境配置环境变量</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/addenda/5.html">5.阿里巴巴Java开发手册</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('idea')">
-                    <span id="idea_title">+ Intelij IDEA</span>
-                </div>
-                <div id="idea" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/idea/1.html">1.IntelliJ IDEA设置xmx和xms</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/idea/2.html">2.IntelliJ IDEA格式化代码目录</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('api')">
-                    <span id="api_title">+ Java中文手册</span>
-                </div>
-                <div id="api" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/1.html">1.JDK6中文手册</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/2.html">2.JDK8英文手册</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/api/3.html">3.JDK9英文手册</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ FAQ</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/1.html">1.HashMap与ConcurrentHashMap的区别与应用场景</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/2.html">2.HashMap中的put和putIfAbsense区别</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/3.html">3.java ArrayList原理及转化成数组常用方法</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/4.html">4.ConcurrentModifyException的产生原因及如何避免</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/faq/5.html">5.Java随机数Random类</a>
-                    </div>
-                </div>
-                <div class="dsd_title" onclick="clickTitle('profile')">
-                    <span id="profile_title">+ 程序优化专题</span>
-                </div>
-                <div id="profile" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/1.html">1.for循环中的效率优化</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/2.html">2.java数组拷贝的3种方式和效率对比</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/3.html">3.java浮点数运算和整数型运算的效率比较</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>2.java数组拷贝的3种方式和效率对比</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 测试场景</a><br><a href="#1.1">&nbsp;&nbsp;1.1
-                            初始化数组</a><br><a href="#1.1">&nbsp;&nbsp;1.1 for循环拷贝数组</a><br><a href="#1.2">&nbsp;&nbsp;1.2
-                            Arrays.copyOf拷贝数组</a><br><a href="#1.3">&nbsp;&nbsp;1.3 System.arraycopy复制数组</a><br><a
-                            href="#1.4">&nbsp;&nbsp;1.4 clone()方法拷贝数组</a><br><a href="#2">2 测试这几种复制方法</a><br><a
-                            href="#2.1">&nbsp;&nbsp;2.1 示例代码</a><br><a href="#3">3 结论</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>Java语言中常用的数组拷贝方式有：for循环拷贝，通过Arrays.copyOf()方法，System.arraycopy和clone()方法拷贝。</p>
-                    </div>
-                    <div id="1"><h3>1 测试场景</h3></div>
-                    <p>我们用最简单的整数数组来测试。首先创建一个整型数组，并且初始化数据。然后分别用这3种方式来拷贝数组同样的次数。来测分别试这三种情况的效率。</p>
-                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 初始化数组</h4></div>
-                    <pre class="prettyprint"><code>int len = 1000;
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 测试场景</a><br><a href="#1.1">&nbsp;&nbsp;1.1 初始化数组</a><br><a href="#1.1">&nbsp;&nbsp;1.1 for循环拷贝数组</a><br><a href="#1.2">&nbsp;&nbsp;1.2 Arrays.copyOf拷贝数组</a><br><a href="#1.3">&nbsp;&nbsp;1.3 System.arraycopy复制数组</a><br><a href="#1.4">&nbsp;&nbsp;1.4 clone()方法拷贝数组</a><br><a href="#2">2 测试这几种复制方法</a><br><a href="#2.1">&nbsp;&nbsp;2.1 示例代码</a><br><a href="#3">3 结论</a></div></div><div class="jumbotron">
+<p>Java语言中常用的数组拷贝方式有：for循环拷贝，通过Arrays.copyOf()方法，System.arraycopy和clone()方法拷贝。</p>
+</div>
+<div id="1"><h3>1 测试场景</h3></div>
+<p>我们用最简单的整数数组来测试。首先创建一个整型数组，并且初始化数据。然后分别用这3种方式来拷贝数组同样的次数。来测分别试这三种情况的效率。</p>
+<div id="1.1"class="dsd_title_c_2"><h4>1.1 初始化数组</h4></div>
+<pre class="prettyprint"><code>int len = 1000;
 int[] arr0 = new int[len];
 for (int i = 0; i &lt; len; i++) {
     arr0[i] = i;
 }
 </code></pre>
-                    <div id="1.1" class="dsd_title_c_2"><h4>1.1 for循环拷贝数组</h4></div>
-                    <p>采用for循环遍历数组，然后根据数组下标对应赋值，来实现复制数组。</p>
-                    <pre class="prettyprint"><code>/** 1 for 循环拷贝*/
+<div id="1.1"class="dsd_title_c_2"><h4>1.1 for循环拷贝数组</h4></div>
+<p>采用for循环遍历数组，然后根据数组下标对应赋值，来实现复制数组。</p>
+<pre class="prettyprint"><code>/** 1 for 循环拷贝*/
 int[] arr1 = new int[len];
 for (int i = 0; i &lt; len; i++) {
     arr1[i] = arr0[i];
 }
 </code></pre>
-                    <div id="1.2" class="dsd_title_c_2"><h4>1.2 Arrays.copyOf拷贝数组</h4></div>
-                    <p>
-                        java.util.Arrays类中提供了一个copyOf()方法，通过这个方法可以实现数组复制。这个方法的原理是内部创建了一个数组对象，然后通过System.arraycopy来实现数组复制.</p>
-                    <ul>
-                        <li>copyOf方法源码</li>
-                    </ul>
-                    <pre class="prettyprint"><code>public static int[] copyOf(int[] original, int newLength) {
+<div id="1.2"class="dsd_title_c_2"><h4>1.2 Arrays.copyOf拷贝数组</h4></div>
+<p>java.util.Arrays类中提供了一个copyOf()方法，通过这个方法可以实现数组复制。这个方法的原理是内部创建了一个数组对象，然后通过System.arraycopy来实现数组复制.</p>
+<ul>
+<li>copyOf方法源码</li>
+</ul>
+<pre class="prettyprint"><code>public static int[] copyOf(int[] original, int newLength) {
     int[] copy = new int[newLength];
     System.arraycopy(original, 0, copy, 0,
                      Math.min(original.length, newLength));
     return copy;
 }
 </code></pre>
-                    <ul>
-                        <li>System.arraycopy源码</li>
-                    </ul>
-                    <p>System.arraycop方法是通过native方法,Java虚拟机内部实现的。</p>
-                    <pre class="prettyprint"><code>public static native void arraycopy(Object src,  int  srcPos,
+<ul>
+<li>System.arraycopy源码</li>
+</ul>
+<p>System.arraycop方法是通过native方法,Java虚拟机内部实现的。</p>
+<pre class="prettyprint"><code>public static native void arraycopy(Object src,  int  srcPos,
                                     Object dest, int destPos,
                                     int length);
 </code></pre>
-                    <ul>
-                        <li>调用Arrays.copyOf()方法</li>
-                    </ul>
-                    <pre class="prettyprint"><code>int[] arr2 = Arrays.copyOf(arr0, arr0.length);
+<ul>
+<li>调用Arrays.copyOf()方法</li>
+</ul>
+<pre class="prettyprint"><code>int[] arr2 = Arrays.copyOf(arr0, arr0.length);
 </code></pre>
-                    <div id="1.3" class="dsd_title_c_2"><h4>1.3 System.arraycopy复制数组</h4></div>
-                    <p>System.arraycopy方法提供了从数组中截取一部分，生成一个新的数组，也是Arrays.copyOf()方法的底层实现。</p>
-                    <pre class="prettyprint"><code>int[] arr3 = new int[len];
+<div id="1.3"class="dsd_title_c_2"><h4>1.3 System.arraycopy复制数组</h4></div>
+<p>System.arraycopy方法提供了从数组中截取一部分，生成一个新的数组，也是Arrays.copyOf()方法的底层实现。</p>
+<pre class="prettyprint"><code>int[] arr3 = new int[len];
 System.arraycopy(arr0, 0, arr3, 0, arr0.length);
 </code></pre>
-                    <div id="1.4" class="dsd_title_c_2"><h4>1.4 clone()方法拷贝数组</h4></div>
-                    <p>Java的Object</p>
-                    <pre class="prettyprint"><code>int[] arr3 = arr0.clone();
+<div id="1.4"class="dsd_title_c_2"><h4>1.4 clone()方法拷贝数组</h4></div>
+<p>Java的Object</p>
+<pre class="prettyprint"><code>int[] arr3 = arr0.clone();
 </code></pre>
-                    <div id="2"><h3>2 测试这几种复制方法</h3></div>
-                    <p>将上述4中复制方式，对一个长度1000的数组，复制一千万次，来看一下执行时间。</p>
-                    <div id="2.1" class="dsd_title_c_2"><h4>2.1 示例代码</h4></div>
-                    <pre class="prettyprint"><code>package com.dashidan.profile1;
+<div id="2"><h3>2 测试这几种复制方法</h3></div>
+<p>将上述4中复制方式，对一个长度1000的数组，复制一千万次，来看一下执行时间。</p>
+<div id="2.1"class="dsd_title_c_2"><h4>2.1 示例代码</h4></div>
+<pre class="prettyprint"><code>package com.dashidan.profile1;
 
 import java.util.Arrays;
 
@@ -369,68 +368,59 @@ public class Demo1 {
     }
 }
 </code></pre>
-                    <p>输出结果:</p>
-                    <pre class="prettyprint"><code>1 for 循环复制: 4451
+<p>输出结果:</p>
+<pre class="prettyprint"><code>1 for 循环复制: 4451
 2 Arrays.copyOf复制数组:  6474
 3 System.arraycopy复制数组:  6439
 4 Object.clone() 复制数组: * 6436
 </code></pre>
-                    <p>这个输出结果根据电脑和运行环境，可能会不一致。从这个输出可以看出：</p>
-                    <p>for循环遍历数组复制的方式用时最小.比其他3中少了50%左右的时间。</p>
-                    <ul>
-                        <li>其他不变，只将循环次数改为一百万次的输出结果</li>
-                    </ul>
-                    <pre class="prettyprint"><code>1 for 循环复制: 640
+<p>这个输出结果根据电脑和运行环境，可能会不一致。从这个输出可以看出：</p>
+<p>for循环遍历数组复制的方式用时最小.比其他3中少了50%左右的时间。</p>
+<ul>
+<li>其他不变，只将循环次数改为一百万次的输出结果</li>
+</ul>
+<pre class="prettyprint"><code>1 for 循环复制: 640
 2 Arrays.copyOf复制数组:  828
 3 System.arraycopy复制数组:  643
 4 Object.clone() 复制数组: * 645
 </code></pre>
-                    <p>这个差距就很小了。</p>
-                    <ul>
-                        <li>其他不变，循环次数改为一千万次的输出结果，初始数组的长度100的输出结果</li>
-                    </ul>
-                    <pre class="prettyprint"><code>1 for 循环复制: 948
+<p>这个差距就很小了。</p>
+<ul>
+<li>其他不变，循环次数改为一千万次的输出结果，初始数组的长度100的输出结果</li>
+</ul>
+<pre class="prettyprint"><code>1 for 循环复制: 948
 2 Arrays.copyOf复制数组:  709
 3 System.arraycopy复制数组:  659
 4 Object.clone() 复制数组: * 666
 </code></pre>
-                    <p>这个差距也不大。反而是for循环遍历耗时最多。</p>
-                    <ul>
-                        <li>其他不变，循环次数改为一千万次的输出结果，初始数组的长度10的输出结果</li>
-                    </ul>
-                    <pre class="prettyprint"><code>1 for 循环复制: 250
+<p>这个差距也不大。反而是for循环遍历耗时最多。</p>
+<ul>
+<li>其他不变，循环次数改为一千万次的输出结果，初始数组的长度10的输出结果</li>
+</ul>
+<pre class="prettyprint"><code>1 for 循环复制: 250
 2 Arrays.copyOf复制数组:  127
 3 System.arraycopy复制数组:  157
 4 Object.clone() 复制数组: * 193
 </code></pre>
-                    <p>在数组长度为10的时候，for循环遍历赋值耗时要超过其他3种方式。</p>
-                    <ul>
-                        <li>其他不变，循环次数改为一百万次，初始数组的长度10000的输出结果</li>
-                    </ul>
-                    <pre class="prettyprint"><code>1 for 循环复制: 5851
+<p>在数组长度为10的时候，for循环遍历赋值耗时要超过其他3种方式。</p>
+<ul>
+<li>其他不变，循环次数改为一百万次，初始数组的长度10000的输出结果</li>
+</ul>
+<pre class="prettyprint"><code>1 for 循环复制: 5851
 2 Arrays.copyOf复制数组:  6471
 3 System.arraycopy复制数组:  6443
 4 Object.clone() 复制数组:  6485
 </code></pre>
-                    <p>这个输出结果差不多。</p>
-                    <div id="3"><h3>3 结论</h3></div>
-                    <p>通过上述测试代码的输出数据，可以简单分析一下，当数组长度超过一定值的时候(测试代码中，长度改为1000，这个值不精确)，for循环遍历赋值，效率会略高出其他3种方式。</p>
-                    <p>另外在运行次数长的时候（测试代码改为运行1千万次，数组长度1000）的时候，for循环遍历赋值效率最高，而且优势明显(快50%左右)。数组长度改为100，就没那么明显了。</p>
-                    <p>System.arraycopy提供了截取数组中的一部分来生成新的数组，这个功能很方便。（也可以用for循环遍历来实现）。</p>
-                    <p>Arrays.copyOf()和clone()方法可以复制整个数组，在数组长度比较短的时候，代码比较简介，推荐采用。</p>
+<p>这个输出结果差不多。</p>
+<div id="3"><h3>3 结论</h3></div>
+<p>通过上述测试代码的输出数据，可以简单分析一下，当数组长度超过一定值的时候(测试代码中，长度改为1000，这个值不精确)，for循环遍历赋值，效率会略高出其他3种方式。</p>
+<p>另外在运行次数长的时候（测试代码改为运行1千万次，数组长度1000）的时候，for循环遍历赋值效率最高，而且优势明显(快50%左右)。数组长度改为100，就没那么明显了。</p>
+<p>System.arraycopy提供了截取数组中的一部分来生成新的数组，这个功能很方便。（也可以用for循环遍历来实现）。</p>
+<p>Arrays.copyOf()和clone()方法可以复制整个数组，在数组长度比较短的时候，代码比较简介，推荐采用。</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/java/profile/2.html">原文链接</a>.
                 </div>
-            </div>
-
-            <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div><span style="color: darkgray">广告赞助</span></div>
-                <script type="text/javascript">
-                    /*160*600 创建于 2018/3/23*/
-                    var cpro_id = "u3395011";
-                </script>
-                <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js"></script>
             </div>
         </div>
     </div>
@@ -440,13 +430,13 @@ public class Demo1 {
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="https://dashidan.com/article/java/profile/1.html"> &lt; 1.for循环中的效率优化</a>
+            <a href="https://dashidan.com/article/java/profile/1.html"> &lt; 1.for循环中的效率优化</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/java/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/java/profile/3.html"> 3.java浮点数运算和整数型运算的效率比较 &gt;</a>
+            <a href="https://dashidan.com/article/java/profile/3.html"> 3.java浮点数运算和整数型运算的效率比较 &gt;</a>
     </div>
 </footer>
 

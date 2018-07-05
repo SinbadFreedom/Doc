@@ -49,67 +49,59 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-            href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > faq
+                href="https://dashidan.com/article/nodejs/index.html">nodejs</a> > faq
             > 1.使用nrm快速切换npm源
         </div>
 
         <div class="dsd_content">
             <div id="xs_index" class="hidden-xs hidden-sm col-md-2 col-lg-2">
-                <div class="dsd_title" onclick="clickTitle('faq')">
-                    <span id="faq_title">+ Nodejs常见问题</span>
-                </div>
-                <div id="faq" class="dsd_catalog_left_hide">
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                    <div class="dsd_title" onclick="clickTitle('faq')">
+                        <span id="faq_title">+ Nodejs常见问题</span>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                    <div id="faq" class="dsd_catalog_left_hide">
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/1.html">1.使用nrm快速切换npm源</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/2.html">2.发布Node模块到NPM社区</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
+                            </div>
                     </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/3.html">3.npm install -g与--save参数</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/4.html">4.npm install --save与--save-dev的区别</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/5.html">5.linux安装nodejs及版本切换</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/6.html">6.npm安装删除模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/7.html">7.npm升级更新指定模块</a>
-                    </div>
-                    <div class="single_line">
-                        <a href="https://dashidan.com/article/nodejs/faq/8.html">8.package.json ^ ~ latest符号意义</a>
-                    </div>
-                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>1.使用nrm快速切换npm源</h1></article>
                 <div id="xs_content_border">
-                    <div>
-                        <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 国内最快的npm源taobao</a><br><a href="#2">2
-                            安装nrm</a><br><a href="#3">3 nrm常用命令</a><br><a href="#3.1">&nbsp;&nbsp;3.1
-                            nrm列出可选的源</a><br><a href="#3.2">&nbsp;&nbsp;3.2 nrm查看当前npm源</a><br><a href="#3.3">&nbsp;&nbsp;3.3
-                            nrm切换npm源</a><br><a href="#3.4">&nbsp;&nbsp;3.4 nrm增加源</a><br><a href="#3.5">&nbsp;&nbsp;3.5
-                            nrm删除源</a><br><a href="#3.6">&nbsp;&nbsp;3.6 nrm测试源速度</a><br><a href="#3.7">&nbsp;&nbsp;3.7
-                            nrm测试所有源的响应时间</a><br><a href="#4">4 nrm项目官网地址</a></div>
-                    </div>
-                    <div class="jumbotron">
-                        <p>nrm是一个npm源管理器,是目前最方便的快速切换npm源的工具.</p>
-                    </div>
-                    <div id="1"><h3>1 国内最快的npm源taobao</h3></div>
-                    <p>淘宝推出了国内npm镜像源<code>taobao</code>, 访问速度和同步速度都很快. 造福国人, 强力点赞. 可以通过<code>nrm</code>功能快速切换源.</p>
-                    <div id="2"><h3>2 安装nrm</h3></div>
-                    <pre><code>npm install -g nrm
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 国内最快的npm源taobao</a><br><a href="#2">2 安装nrm</a><br><a href="#3">3 nrm常用命令</a><br><a href="#3.1">&nbsp;&nbsp;3.1 nrm列出可选的源</a><br><a href="#3.2">&nbsp;&nbsp;3.2 nrm查看当前npm源</a><br><a href="#3.3">&nbsp;&nbsp;3.3 nrm切换npm源</a><br><a href="#3.4">&nbsp;&nbsp;3.4 nrm增加源</a><br><a href="#3.5">&nbsp;&nbsp;3.5 nrm删除源</a><br><a href="#3.6">&nbsp;&nbsp;3.6 nrm测试源速度</a><br><a href="#3.7">&nbsp;&nbsp;3.7 nrm测试所有源的响应时间</a><br><a href="#4">4 nrm项目官网地址</a></div></div><div class="jumbotron">
+<p>nrm是一个npm源管理器,是目前最方便的快速切换npm源的工具.</p>
+</div>
+<div id="1"><h3>1 国内最快的npm源taobao</h3></div>
+<p>淘宝推出了国内npm镜像源<code>taobao</code>, 访问速度和同步速度都很快. 造福国人, 强力点赞. 可以通过<code>nrm</code>功能快速切换源.</p>
+<div id="2"><h3>2 安装nrm</h3></div>
+<pre><code>npm install -g nrm
 </code></pre>
-                    <div id="3"><h3>3 nrm常用命令</h3></div>
-                    <div id="3.1" class="dsd_title_c_2"><h4>3.1 nrm列出可选的源</h4></div>
-                    <pre class="prettyprint"><code>nrm ls
+<div id="3"><h3>3 nrm常用命令</h3></div>
+<div id="3.1"class="dsd_title_c_2"><h4>3.1 nrm列出可选的源</h4></div>
+<pre class="prettyprint"><code>nrm ls
 </code></pre>
-                    <p>显示:</p>
-                    <pre class="prettyprint"><code>* npm ---- https://registry.npmjs.org/
+<p>显示:</p>
+<pre class="prettyprint"><code>* npm ---- https://registry.npmjs.org/
   cnpm --- http://r.cnpmjs.org/
   taobao - https://registry.npm.taobao.org/
   nj ----- https://registry.nodejitsu.com/
@@ -117,41 +109,41 @@
   npmMirror  https://skimdb.npmjs.com/registry/
   edunpm - http://registry.enpmjs.org/
 </code></pre>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>带`*`的是当前使用的源, 上面的输出表明当前源是官方源.</p>
-                    </div>
-                    <div id="3.2" class="dsd_title_c_2"><h4>3.2 nrm查看当前npm源</h4></div>
-                    <pre class="prettyprint"><code>nrm current
+<div class="bs-callout bs-callout-warning">
+    <p>带`*`的是当前使用的源, 上面的输出表明当前源是官方源.</p>
+</div>
+<div id="3.2"class="dsd_title_c_2"><h4>3.2 nrm查看当前npm源</h4></div>
+<pre class="prettyprint"><code>nrm current
 </code></pre>
-                    <div id="3.3" class="dsd_title_c_2"><h4>3.3 nrm切换npm源</h4></div>
-                    <p>nrm切换到taobao源:</p>
-                    <pre class="prettyprint"><code>nrm use taobao
+<div id="3.3"class="dsd_title_c_2"><h4>3.3 nrm切换npm源</h4></div>
+<p>nrm切换到taobao源:</p>
+<pre class="prettyprint"><code>nrm use taobao
 </code></pre>
-                    <p>输出:</p>
-                    <pre class="prettyprint"><code>Registry has been set to: https://registry.npm.taobao.org/
+<p>输出:</p>
+<pre class="prettyprint"><code>Registry has been set to: https://registry.npm.taobao.org/
 </code></pre>
-                    <div id="3.4" class="dsd_title_c_2"><h4>3.4 nrm增加源</h4></div>
-                    <p>nrm可以增加定制的源, 适用于添加企业内部的私有源.私有源可以使用cnpmjs架设.</p>
-                    <pre class="prettyprint"><code>nrm add  &lt;registry&gt; &lt;url&gt; [home]
+<div id="3.4"class="dsd_title_c_2"><h4>3.4 nrm增加源</h4></div>
+<p>nrm可以增加定制的源, 适用于添加企业内部的私有源.私有源可以使用cnpmjs架设.</p>
+<pre class="prettyprint"><code>nrm add  &lt;registry&gt; &lt;url&gt; [home]
 </code></pre>
-                    <div id="3.5" class="dsd_title_c_2"><h4>3.5 nrm删除源</h4></div>
-                    <pre class="prettyprint"><code>nrm del &lt;registry&gt;
+<div id="3.5"class="dsd_title_c_2"><h4>3.5 nrm删除源</h4></div>
+<pre class="prettyprint"><code>nrm del &lt;registry&gt;
 </code></pre>
-                    <div id="3.6" class="dsd_title_c_2"><h4>3.6 nrm测试源速度</h4></div>
-                    <p>测试相应源的响应时间:</p>
-                    <pre class="prettyprint"><code>nrm test
+<div id="3.6"class="dsd_title_c_2"><h4>3.6 nrm测试源速度</h4></div>
+<p>测试相应源的响应时间:</p>
+<pre class="prettyprint"><code>nrm test
 </code></pre>
-                    <p>例如,测试官方源的响应时间：</p>
-                    <pre class="prettyprint"><code>nrm test npm
+<p>例如,测试官方源的响应时间：</p>
+<pre class="prettyprint"><code>nrm test npm
 </code></pre>
-                    <p>输出:</p>
-                    <pre class="prettyprint"><code>npm ---- 1130ms
+<p>输出:</p>
+<pre class="prettyprint"><code>npm ---- 1130ms
 </code></pre>
-                    <div id="3.7" class="dsd_title_c_2"><h4>3.7 nrm测试所有源的响应时间</h4></div>
-                    <pre class="prettyprint"><code>nrm test
+<div id="3.7"class="dsd_title_c_2"><h4>3.7 nrm测试所有源的响应时间</h4></div>
+<pre class="prettyprint"><code>nrm test
 </code></pre>
-                    <p>输出:</p>
-                    <pre class="prettyprint"><code>  npm ---- 335ms
+<p>输出:</p>
+<pre class="prettyprint"><code>  npm ---- 335ms
   cnpm --- 222ms
 * taobao - 239ms
   nj ----- Fetch Error
@@ -159,8 +151,8 @@
   npmMirror  3859ms
   edunpm - Fetch Error
 </code></pre>
-                    <div id="4"><h3>4 nrm项目官网地址</h3></div>
-                    <p><a href="http://github.com/Pana/nrm">http://github.com/Pana/nrm</a>;</p>
+<div id="4"><h3>4 nrm项目官网地址</h3></div>
+<p><a href="http://github.com/Pana/nrm">http://github.com/Pana/nrm</a>;</p>
                 </div>
                 <div>
                     转载请保留<a href="https://dashidan.com/article/nodejs/faq/1.html">原文链接</a>.
@@ -179,7 +171,7 @@
         <a href="https://dashidan.com/article/nodejs/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="https://dashidan.com/article/nodejs/faq/2.html"> 2.发布Node模块到NPM社区 &gt;</a>
+            <a href="https://dashidan.com/article/nodejs/faq/2.html"> 2.发布Node模块到NPM社区 &gt;</a>
     </div>
 </footer>
 
