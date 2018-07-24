@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Linux搭建Java开发环境配置环境变量 - java教程 - 大屎蛋教程网</title>
-    <meta name="description" content="linux安装jdk,搭建java开发环境详细步骤.linux,Ubuntu,CentOS配置java环境变量.">
+    <title>log4j生产环境配置优化</title>
+    <meta name="description" content="在高并发生产环境中，日志是个相当重要的记录。但也是效率消耗的&#x27;油老虎&#x27;。针对这个效率消耗,来优log4j配置。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="amphtml" href="https://amp.dashidan.com/article/java/addenda/4.html">
+    <link rel="amphtml" href="https://amp.dashidan.com/article/java/profile/7.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -49,8 +49,8 @@
     <div class="container-fluid">
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
-                href="https://dashidan.com/article/java/index.html">java</a> > addenda
-            > 4.Linux搭建Java开发环境配置环境变量
+                href="https://dashidan.com/article/java/index.html">java</a> > profile
+            > 7.log4j生产环境配置优化
         </div>
 
         <div class="dsd_content">
@@ -251,63 +251,48 @@
                     </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <article class="dsd_title_1"><h1>4.Linux搭建Java开发环境配置环境变量</h1></article>
+                <article class="dsd_title_1"><h1>7.log4j生产环境配置优化</h1></article>
                 <div id="xs_content_border">
-                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux下载Java SDK</a><br><a href="#2">2 将jdk上传至linux服务器</a><br><a href="#3">3 linux解压jdk安装包</a><br><a href="#4">4 linux配置环境变量</a><br><a href="#5">5 linux使java环境变量生效</a><br><a href="#6">6 linux测试jdk是否安装成功</a><br><a href="#7">7 相关文章</a></div></div><div class="jumbotron">
-<p>由于jdk需要有验证才能下载, linux里面直接从官网下载链接下载不是很方便, 可以先从本地下载, 然后再传到linux服务器中.</p>
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 生产环境中log4j的作用</a><br><a href="#2">2 开发环境的log4j配置</a><br><a href="#3">3 生产环境的log4j配置</a></div></div><div class="jumbotron">
+<p>在高并发生产环境中，日志是个相当重要的记录。但也是效率消耗的"油老虎"。针对这个效率消耗,来优log4j配置。</p>
 </div>
-<div id="1"><h3>1 linux下载Java SDK</h3></div>
-<ol>
-<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">JDK官网下载链接</a>  </li>
-<li>选中<code>Java SE Development Kit 8u144</code>中的<code>Accept License Agreement</code>.   </li>
-<li>选择适合自己操作系统的版本点击链接下载.</li>
-</ol>
-<div id="2"><h3>2 将jdk上传至linux服务器</h3></div>
-<p>通过rz命令可以由<a href="https://dashidan.com/article/linux/common/7.html">windows向linux传文件</a>.</p>
-<pre class="prettyprint"><code>rz
+<div id="1"><h3>1 生产环境中log4j的作用</h3></div>
+<p>生产环境和开发环境有很大的区别。</p>
+<p>在开发环境中，我们可以借助IDE来进行调试和输出，比如常用的System.out.println()方法输出信息。</p>
+<p>在生产环境中，java代码大多采用jar包发布的方式，通常情况是无人值守，有专门的运维人员来维护发布程序。无法通过控制台输出查看信息。即使能通过控制台查看信息，这个信息在高并发的环境中也是飞速刷屏的情况。所以在身缠环境中，需要通过查询日志文件来进行信息的统计和数据查询。log4j作为java应用最广的日志框架，在这种情况下，应运而生。</p>
+<div id="2"><h3>2 开发环境的log4j配置</h3></div>
+<p>在开发环境中，程序员需要第一时间看到日志输出，来方便调试功能。这时需求日志输出到控制台,日志的级别为DEBUG。在配置log4j的时候可以通过设置rootLogger = CONSOLE来实现。</p>
+<p>配置示例:</p>
+<pre class="prettyprint"><code>log4j.rootLogger=DEBUG, CONSOLE
+log4j.logger.infoLogger=DEBUG, logInfo
+log4j.appender.logInfo=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.logInfo.DatePattern='_'yyyy-MM-dd'.log'
+log4j.appender.logInfo.layout=org.apache.log4j.PatternLayout
+log4j.appender.logInfo.Encoding=UTF-8
+log4j.appender.logInfo.layout.ConversionPattern=%l %d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %x - %m%n
+log4j.appender.logInfo.file=/log/info.log
+
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.Target=System.out
+log4j.appender.CONSOLE.Encoding=UTF-8
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%l %d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %x - %m%n
 </code></pre>
-<p>如果没有rz命令, 安装lrzsz包.</p>
-<ul>
-<li>ubuntu安装rz命令:</li>
-</ul>
-<pre class="prettyprint"><code>apt-get install lrzsz
+<div id="3"><h3>3 生产环境的log4j配置</h3></div>
+<p>在生产环境中,不需要将日志输出到控制台,日志的级别建议设置为WARN，这个日志级别可以根据项目的实际需要来设置。这样配置后，日志不在往控制台输出，DEBUG信息也不再写入日志，达到提高运行效率的目的。</p>
+<p>配置示例:</p>
+<pre class="prettyprint"><code>log4j.rootLogger=WARN
+log4j.logger.infoLogger=WARN, logInfo
+log4j.appender.logInfo=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.logInfo.DatePattern='_'yyyy-MM-dd'.log'
+log4j.appender.logInfo.layout=org.apache.log4j.PatternLayout
+log4j.appender.logInfo.Encoding=UTF-8
+log4j.appender.logInfo.layout.ConversionPattern=%l %d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %x - %m%n
+log4j.appender.logInfo.file=/log/info.log
 </code></pre>
-<ul>
-<li>CentOS安装rz命令:</li>
-</ul>
-<pre class="prettyprint"><code>yum install lrzsz
-</code></pre>
-<div id="3"><h3>3 linux解压jdk安装包</h3></div>
-<p><a href="https://dashidan.com/article/linux/common/9.html">Linux压缩和解压缩</a></p>
-<pre class="prettyprint"><code>tar -zxvf 压缩文件 (将安装包解压到本目录下)
-tar -zxvf 压缩文件 -C 指定目录路径 （将安装包解压到指定目录）
-</code></pre>
-<div id="4"><h3>4 linux配置环境变量</h3></div>
-<p>采用修改/etc/profile文件的方式修改环境变量对所有用户生效.</p>
-<pre class="prettyprint"><code>vim /etc/profile
-</code></pre>
-<p>在文件末尾添加三个环境变量</p>
-<pre class="prettyprint"><code>export JAVA_HOME=/java/jdk1.8.0_111(改为jdk解压后文件所在目录)
-export PATH=$JAVA_HOME/bin:$PATH
-export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-</code></pre>
-<div id="5"><h3>5 linux使java环境变量生效</h3></div>
-<p>linux系统source命令可以使修改的配置文件生效，不用重启服务器.</p>
-<pre class="prettyprint"><code>source /etc/profile
-</code></pre>
-<div id="6"><h3>6 linux测试jdk是否安装成功</h3></div>
-<p>通过java -version查看jdk版本号</p>
-<pre class="prettyprint"><code>java -version
-</code></pre>
-<p>测试javac命令是否生效</p>
-<pre class="prettyprint"><code>javac
-</code></pre>
-<p>显示javac命令参数列表, 说明配置成功.</p>
-<div id="7"><h3>7 相关文章</h3></div>
-<p><a href="https://dashidan.com/article/java/basic/2.html">windows搭建Java开发环境</a>   </p>
                 </div>
                 <div>
-                    转载请保留<a href="https://dashidan.com/article/java/addenda/4.html">原文链接</a>.
+                    转载请保留<a href="https://dashidan.com/article/java/profile/7.html">原文链接</a>.
                 </div>
             </div>
         </div>
@@ -318,13 +303,12 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="https://dashidan.com/article/java/addenda/3.html"> &lt; 3.Java保留关键字</a>
+            <a href="https://dashidan.com/article/java/profile/6.html"> &lt; 6.java开启jmx设置 jsoncole远程连接java程序</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/java/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="https://dashidan.com/article/java/addenda/5.html"> 5.阿里巴巴Java开发手册 &gt;</a>
     </div>
 </footer>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>linux系统找出最好效率的java方法</title>
+    <title>linux系统找出最耗效率的java方法</title>
     <meta name="description" content="在实际项目大部分采用linux系统作为生产环境的服务器操作系统。没有详细的数据，从自身角度看来，我们所经历的项目的生产环境超过90%采用linux系统。在生产环境中，不方便采用jprofile这样比较消耗效率的第三方法检测工具，这样会严重拖慢程序运行速度。我们可以采用以下的方式来找出效率瓶颈。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
@@ -50,7 +50,7 @@
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
                 href="https://dashidan.com/article/java/index.html">java</a> > profile
-            > 5.linux系统找出最好效率的java方法
+            > 5.linux系统找出最耗效率的java方法
         </div>
 
         <div class="dsd_content">
@@ -240,15 +240,18 @@
                                 <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
                             </div>
                             <div class="single_line">
-                                <a href="https://dashidan.com/article/java/profile/5.html">5.linux系统找出最好效率的java方法</a>
+                                <a href="https://dashidan.com/article/java/profile/5.html">5.linux系统找出最耗效率的java方法</a>
                             </div>
                             <div class="single_line">
                                 <a href="https://dashidan.com/article/java/profile/6.html">6.java开启jmx设置 jsoncole远程连接java程序</a>
                             </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/7.html">7.log4j生产环境配置优化</a>
+                            </div>
                     </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <article class="dsd_title_1"><h1>5.linux系统找出最好效率的java方法</h1></article>
+                <article class="dsd_title_1"><h1>5.linux系统找出最耗效率的java方法</h1></article>
                 <div id="xs_content_border">
                     <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 找出进程ID</a><br><a href="#2">2 找出进程内最耗费CPU的线程</a><br><a href="#3">3 通过jstack定位线程中耗时的方法</a><br><a href="#3.1">&nbsp;&nbsp;3.1 将线程ID转化为16进制</a><br><a href="#3.2">&nbsp;&nbsp;3.2 jstack查找进程中该线程的堆栈信息</a><br><a href="#4">4 参考文章</a></div></div><div id="1"><h3>1 找出进程ID</h3></div>
 <p>通过 ps命令查找java进程id.</p>

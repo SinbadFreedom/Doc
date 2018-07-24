@@ -116,6 +116,9 @@
                             <div class="single_line">
                                 <a href="https://dashidan.com/article/linux/common/19.html">19.linux日志查询常用操作</a>
                             </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/linux/common/20.html">20.linux修改root密码</a>
+                            </div>
                     </div>
                     <div class="dsd_title" onclick="clickTitle('ubuntu')">
                         <span id="ubuntu_title">+ Ubuntu常用命令</span>
@@ -211,7 +214,7 @@
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <article class="dsd_title_1"><h1>6.linux中文乱码</h1></article>
                 <div id="xs_content_border">
-                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux查看系统编码   </a><br><a href="#2">2 linux修改系统编码为utf-8</a><br><a href="#3">3 修改/etc/environment</a><br><a href="#4">4 linux运行java程序,控制台中文乱码</a></div></div><div class="jumbotron">
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux查看系统编码   </a><br><a href="#2">2 linux修改系统编码为utf-8</a><br><a href="#3">3 修改/etc/environment</a><br><a href="#4">4 退出当前控制台重新登录</a><br><a href="#5">5 linux运行java程序,控制台中文乱码</a></div></div><div class="jumbotron">
 <p>linux部分系统默认语言设置为英文,会导致中文显示乱码.可以通过修改LANG参数设置系统编码为utf-8来修改乱码问题.</p>
 </div>
 <div id="1"><h3>1 linux查看系统编码   </h3></div>
@@ -227,7 +230,9 @@
 <pre class="prettyprint"><code>LANG="zh_CN:zh:en_US:en"
 LANGUAGE="zh_CN:zh:en_US:en"
 </code></pre>
-<div id="4"><h3>4 linux运行java程序,控制台中文乱码</h3></div>
+<div id="4"><h3>4 退出当前控制台重新登录</h3></div>
+<p>修改完需要退出控制台从新登陆。如果是在tmux中运行的程序，需要关闭tmux，重新启动一个控制台。如果不退出当前控制台的话，有时设置会不生效。依然是中文乱码。退出控制台重进还有乱码的话，重启服务器。</p>
+<div id="5"><h3>5 linux运行java程序,控制台中文乱码</h3></div>
 <p>启动时加入参数:</p>
 <pre class="prettyprint"><code>java -Dfile.encoding="UTF-8" -jar xxx.jar
 </code></pre>

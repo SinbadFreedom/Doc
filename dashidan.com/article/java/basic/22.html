@@ -240,10 +240,13 @@
                                 <a href="https://dashidan.com/article/java/profile/4.html">4.3目运算符效率优化</a>
                             </div>
                             <div class="single_line">
-                                <a href="https://dashidan.com/article/java/profile/5.html">5.linux系统找出最好效率的java方法</a>
+                                <a href="https://dashidan.com/article/java/profile/5.html">5.linux系统找出最耗效率的java方法</a>
                             </div>
                             <div class="single_line">
                                 <a href="https://dashidan.com/article/java/profile/6.html">6.java开启jmx设置 jsoncole远程连接java程序</a>
+                            </div>
+                            <div class="single_line">
+                                <a href="https://dashidan.com/article/java/profile/7.html">7.log4j生产环境配置优化</a>
                             </div>
                     </div>
             </div>
@@ -375,13 +378,14 @@
 <p>以下是个人建议, 不一定使用全部场景.根据自己的应用场景配置.不要过分纠结有时采用更高配置的硬件更有效.</p>
 <pre class="prettyprint"><code class="     language-    ">-d64
 -Xms4g
--Xmx4g
+-Xmx8g
 -XX:+HeapDumpOnOutOfMemoryError
--Dcom.sun.management.jmxremote
 -Dcom.sun.management.jmxremote.port=9999
 -Dcom.sun.management.jmxremote.ssl=false
 -Dcom.sun.management.jmxremote.authenticate=false
+-Djava.rmi.server.hostname=192.168.1.100
 </code></pre>
+<p>-Djava.rmi.server.hostnam 这个参数后边的ip要修改为服务器IP, 否则Jconsole无法连接到远程服务器。</p>
 <div id="6"><h3>6 jvm参数参考文章</h3></div>
 <p><a href="https://docs.oracle.com/cd/E22289_01/html/821-1274/configuring-the-default-jvm-and-java-arguments.html">配置jvm和java参数</a></p>
 <p><a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/java.html">java技术文档</a></p>

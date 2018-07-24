@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Linux的shell脚本中数组及数组遍历</title>
-    <meta name="description" content="在linux的shell中编写脚本的时候,经常会用到数组的操作.本文举例说明了linux的shell声明数组, linux数组数据的读取, linux数组的遍历, linux执行shell遍历数组的时候报错解决.">
+    <title>linux修改root密码</title>
+    <meta name="description" content="linux日志相关的方法cat tail head grep sed。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/common/11.html">
+    <link rel="amphtml" href="https://amp.dashidan.com/article/linux/common/20.html">
 
     <link rel="stylesheet" href="https://dashidan.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
@@ -50,7 +50,7 @@
         <div>
             <a href="https://dashidan.com/index.html">首页</a> > <a
                 href="https://dashidan.com/article/linux/index.html">linux</a> > common
-            > 11.Linux的shell脚本中数组及数组遍历
+            > 20.linux修改root密码
         </div>
 
         <div class="dsd_content">
@@ -212,50 +212,20 @@
                     </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <article class="dsd_title_1"><h1>11.Linux的shell脚本中数组及数组遍历</h1></article>
+                <article class="dsd_title_1"><h1>20.linux修改root密码</h1></article>
                 <div id="xs_content_border">
-                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux声明数组</a><br><a href="#2">2 linux数组数据的读取</a><br><a href="#3">3 linux数组的遍历</a><br><a href="#4">4 linux执行shell遍历数组的时候报错</a></div></div><div class="jumbotron">
-<p>在linux的shell中编写脚本的时候, 经常会用到数组的操作.本文举例说明了linux的shell声明数组, linux数组数据的读取, linux数组的遍历, linux执行shell遍历数组的时候报错解决.</p>
+                    <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 修改root密码命令</a></div></div><div class="jumbotron">
+<p>通过SSH工具连接linux系统后，通常会设置记住用户名和密码，这样时间长了容易忘掉root密码，但通过SSH工具的记忆功能依然能够登陆。如果换一个SSH工具后，就无法登陆了。在这种情形中，最简单的方式就是修改root密码。
+</p>
 </div>
-<div id="1"><h3>1 linux声明数组</h3></div>
-<p>linux声明数组是用圆括号包数组元素包起来，数组元素之间用空格隔开。</p>
-<p>示例:</p>
-<pre class="prettyprint"><code>array=(element1 element2 element3 .... elementN)
+<div id="1"><h3>1 修改root密码命令</h3></div>
+<p>passwd命令就是修改root密码的命令。通过SSH工具, 以root用户身份进入linux系统后，输入</p>
+<pre class="prettyprint"><code>passwd
 </code></pre>
-<div id="2"><h3>2 linux数组数据的读取</h3></div>
-<pre class="prettyprint"><code>#echo ${array[0]}
-#echo ${array[index]}
-</code></pre>
-<div id="3"><h3>3 linux数组的遍历</h3></div>
-<p>获取数组全部数据：</p>
-<pre class="prettyprint"><code>${array[@]}
-</code></pre>
-<p>遍历数组数据:</p>
-<pre class="prettyprint"><code>for data in ${array[@]}
-do
-    echo ${data}
-done
-</code></pre>
-<div id="4"><h3>4 linux执行shell遍历数组的时候报错</h3></div>
-<p>linux执行shell遍历数组的时候报错Syntax error: "(" unexpected.</p>
-<ul>
-<li>脚本示例:</li>
-</ul>
-<pre class="prettyprint"><code>#!/bin/sh
-a=(1 2 3)
-for number in a[@]doechonumber
-done
-</code></pre>
-<ul>
-<li><p>原因分析:
-sh被重定向到dash，因此，如果执行./example.sh，则使用的是dash.dash不支持数组.</p></li>
-<li><p>解决方案:</p></li>
-</ul>
-<p>1.将脚本第一行改为 #!/bin/bash
-2.通过bash example.sh执行</p>
+<p>再输入两次新密码，即可修改root密码。</p>
                 </div>
                 <div>
-                    转载请保留<a href="https://dashidan.com/article/linux/common/11.html">原文链接</a>.
+                    转载请保留<a href="https://dashidan.com/article/linux/common/20.html">原文链接</a>.
                 </div>
             </div>
         </div>
@@ -266,13 +236,12 @@ sh被重定向到dash，因此，如果执行./example.sh，则使用的是dash.
 
 <footer>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="https://dashidan.com/article/linux/common/10.html"> &lt; 10.Linux查看系统版本</a>
+            <a href="https://dashidan.com/article/linux/common/19.html"> &lt; 19.linux日志查询常用操作</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="https://dashidan.com/article/linux/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="https://dashidan.com/article/linux/common/12.html"> 12.localefacet_S_create_c_locale name not valid &gt;</a>
     </div>
 </footer>
 
