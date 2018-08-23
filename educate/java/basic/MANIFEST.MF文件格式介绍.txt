@@ -1,0 +1,28 @@
+https://blog.csdn.net/chendeng8899/article/details/8500132
+
+
+【说明】
+Java打包文件(jar文件)中通常会包含清单文件(META-INF/MANIFEST.MF)，该文件可以包含主类以及加载类路径等信息。
+该文件有着严格的格式要求，甚至一个空格都会引起错误。
+
+【MANIFEST.MF格式说明】
+1. 文件中的内容以键值对的形式出现，键值对之间采用"冒号+空格"进行分隔(注意：冒号后的空格必须有，否则格式有错误)
+2. 文件每行最多72个字符，可以分多行写，但是在行的末尾必须加上空格符作为续行符(注意：末尾的续行符不能少)
+3. 文件的最后必须要空两行，并且这两行都必须顶格
+4. 通常指定Class-Path时会采用每一行一个JAR包的方法，因为每一行的长度有限制，当JAR较多时容易超过
+
+【MANIFEST.MF示例】
+Manifest-Version: 1.0
+Created-By: 1.6.0_10-rc2 (Sun Microsystems Inc.)
+Premain-Class: itracer.ITracer
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Can-Set-Native-Method-Prefix: true
+Class-Path: lib/asm-4.0.jar 
+ lib/asm-util-4.0.jar 
+ lib/log4j.jar
+
+
+
+(注：示例中指定Class-Path时采用了分行的方法，则每行的后面（除最后一行外）都有一个空格，并且由于多个Classpath之间有空格符进行分隔，所以
+在每行的开头有一个空格符。整个文件的最后空两行，并且这两行都必须顶格)
