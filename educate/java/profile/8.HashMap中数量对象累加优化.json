@@ -1,0 +1,4 @@
+{
+  "title": "HashMap中数量对象累加优化",
+  "desc": "在项目开发过程中，遇到在HashMap中，需要对HashMap中的数量进行累加的需求。可以针对HashMap中value为基本类型对应的外包类的操作进行优化。"
+}
