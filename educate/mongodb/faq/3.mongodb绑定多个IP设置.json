@@ -1,0 +1,4 @@
+{
+  "title": "Unable to locate package mongodb-enterprise",
+  "desc": "ubuntu安装mongodb-enterprese版本的时候提示Unable to locate package mongodb-enterprise.以ubuntu16.04为例.解决这个问题需要按照一下步骤操作安装."
+}
