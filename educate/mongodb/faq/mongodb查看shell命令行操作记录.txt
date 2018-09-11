@@ -1,0 +1,5 @@
+http://www.cnblogs.com/huey/p/6120401.html
+
+You can retrieve previous commands issued in the mongo shell with the up and down arrow keys. Command history is stored in ~/.dbshell file. See .dbshell for more information.
+
+
