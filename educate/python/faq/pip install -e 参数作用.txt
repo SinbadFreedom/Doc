@@ -1,0 +1,5 @@
+pip install -e的-e，表示editable mode，它会把源文件下载到当前文件夹的src目录。
+
+
+如果想进行二次开发，修改代码从新编译安装的话，可以进入项目根目录,采用pip install -e来安装:
+pip install -e .

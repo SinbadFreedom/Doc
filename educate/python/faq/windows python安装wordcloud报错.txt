@@ -1,0 +1,45 @@
+系统版本： win10
+python版本：3.7.0
+
+使用pip命令安装wordcloud的时候报错
+
+```
+pip install wordcloud
+```
+
+报错信息:
+
+error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": http://landinghub.visualstudio.com/visual-cpp-build-tools
+Command "d:\programs\python\python37-32\python.exe -u -c "import setuptools, tokenize;__file__='C:\\Users\\sinbad\\AppData\\Local\\Temp\\pip-install-q992xvf1\\wordcloud\\setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record C:\Users\sinbad\AppData\Local\Temp\pip-record-qs0vei4l\install-record.txt --single-version-externally-managed --compile" failed with error code 1 in C:\Users\sinbad\AppData\Local\Temp\pip-install-q992xvf1\wordcloud\
+
+
+报错信息中的网址无法打开，所以无法按照报错提示解决问题。采用手动安装wordcloud库来解决这个问题。
+
+
+wordcloud在github上的链接：https://github.com/amueller/word_cloud/
+
+打开链接，下载源码的zip包。
+
+
+解决方案:
+
+采用conda安装.
+
+下载conda：
+https://www.anaconda.com/download/
+官网地址下载慢。可以用清华开源镜像下载:
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/
+
+
+Conda 是一个开源的软件包管理系统和环境管理系统，用于安装多个版本的软件包及其依赖关系，并在它们之间轻松切换。
+Conda 是为 Python 程序创建的，适用于 Linux，OS X 和W indows，也可以打包和分发其他软件,目前最流行的 Python 环境管理工具.
+
+
+```
+conda install -c conda-forge wordcloud
+```
+
+
+
+
+

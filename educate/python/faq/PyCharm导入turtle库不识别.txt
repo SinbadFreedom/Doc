@@ -1,0 +1,53 @@
+导入random库后，在pycharm中调用random库里面的方法，pycharm都能识别。
+但是导入turtle库以后，这个库里面的方法PyCharm都不能识别，方法下边有红色波浪线。
+
+这样很不方便，无法排除一些简单的拼写错误，或者自动补全。
+
+
+原因分析
+
+turtle源文件\Lib\turtle.py中，魔法变量__all__是这样定义的：
+
+```
+__all__ = (_tg_classes + _tg_screen_functions + _tg_turtle_functions +
+_tg_utilities + ['Terminator']) # + _math_functions)
+```
+PyCharm检测代码的时候不运行这部分代码。PyCharm不能找出什么方法可以用在模块级别的。
+
+
+
+
+解决办法1:
+注释掉原魔法变量__all__
+重新定义为:
+
+```
+__all__ = ['ScrolledCanvas', 'TurtleScreen', 'Screen', 'RawTurtle', 'Turtle', 'RawPen', 'Pen', 'Shape', 'Vec2D', 'back',
+'backward', 'begin_fill', 'begin_poly', 'bk', 'addshape', 'bgcolor', 'bgpic', 'bye', 'clearscreen',
+'colormode', 'delay', 'exitonclick', 'getcanvas', 'getshapes', 'listen', 'mainloop', 'mode', 'numinput',
+'onkey', 'onkeypress', 'onkeyrelease', 'onscreenclick', 'ontimer', 'register_shape', 'resetscreen',
+'screensize', 'setup', 'Terminator', 'setworldcoordinates', 'textinput', 'title', 'tracer', 'turtles',
+'update', 'window_height', 'window_width', 'write_docstringdict', 'done', 'circle', 'clear', 'clearstamp',
+'clearstamps', 'clone', 'color', 'degrees', 'distance', 'dot', 'down', 'end_fill', 'end_poly', 'fd',
+'fillcolor', 'filling', 'forward', 'get_poly', 'getpen', 'getscreen', 'get_shapepoly', 'getturtle', 'goto',
+'heading', 'hideturtle', 'home', 'ht', 'isdown', 'isvisible', 'left', 'lt', 'onclick', 'ondrag', 'onrelease',
+'pd', 'pen', 'pencolor', 'pendown', 'pensize', 'penup', 'pos', 'position', 'pu', 'radians', 'right', 'reset',
+'resizemode', 'rt', 'seth', 'setheading', 'setpos', 'setposition', 'settiltangle', 'setundobuffer', 'setx',
+'sety', 'shape', 'shapesize', 'shapetransform', 'shearfactor', 'showturtle', 'speed', 'st', 'stamp', 'tilt',
+'tiltangle', 'towards', 'turtlesize', 'undo', 'undobufferentries', 'up', 'width', 'write', 'xcor', 'ycor']
+```
+
+解决办法2:
+
+以类的方式使用turtle。这个对于熟悉面向对象编程的程序员来说是个很好方式。不用修改源代码。
+
+这种方式也更加方便的让程序员直观看到这个方法属于哪个包里面的，代码量多的项目中，采用这中面向对象编程的方式编写代码更易于维护。
+
+```
+T = turtle.Turtle()
+T.color('red')
+````
+
+参考文章:
+https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000123150-PyCharm-Turtle-Help-
+

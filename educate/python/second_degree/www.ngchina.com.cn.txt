@@ -1,0 +1,756 @@
+
+<!doctype html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="国家地理,国家地理中文网,美国国家地理,美国国家地理中文网,地理杂志,每日新闻,每日一图,华夏地理,摄影大赛,地理,国家地理视频,图片,摄影,动物,环境,旅行,探险,装备,杂志,科技新知">
+<meta name="description" content="美国国家地理中文网是由《华夏地理》杂志与美国国家地理版权合作的科技人文线上平台，美国国家地理中文网囊括了生物与环境、历史与文化、旅游与探险等众多极具特色的专题栏目，将以影像和视频的呈现方式，倚靠雄厚的科技人文资源，深度发掘全球文化，在多元化的差异中展现真实的人文底蕴。美国国家地理中文网力求为您带来每日最新、最鲜活的人文与科学资讯。">
+<meta name="viewpoint" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>国家地理中文网</title>
+<link rel="stylesheet" type="text/css" href="/statics/css/template2017/sections.css">
+<link rel="stylesheet" type="text/css" href="/statics/css/template2017/header_footer.css">
+<script language="JavaScript" src="/statics/js/template2017/jquery-1.11.1.min.js"></script>
+<script language="JavaScript" src="/statics/js/template2017/sea.2.1.0.js"></script>
+<script language="JavaScript" src="/statics/js/template2017/rem.js"></script>
+<script type="text/javascript">
+		function loginshow()
+		{
+			$.get('/index.php?m=member&c=ajaxlogin&a=login', function(msg){
+                if(msg.success==1){
+                	$('#logined_username_nologin').hide();
+                	$('#logined_username').show();
+                    $('#logined_username').html(msg.username);
+                    if(msg.nickname){$('#logined_username').html(msg.nickname);}
+                    if(msg.message_count>0){
+                    	if(msg.message_count>99){
+	                    	$('.mess_num').html('99+');
+	                    }else{
+	                    	$('.mess_num').html(msg.message_count);
+	                    }
+                    }
+                }     
+		    },"json");
+		}
+		
+		$(function(){
+		   loginshow();
+		});
+	</script>
+</head>
+<body>
+<div class="header js_header">
+<div class="user_con">
+<ul class="user_act">
+<li><a href="http://wap.ngchina.cn/article/down/jsp" style="color:#FFF" target="_blank">APP</a></li>
+<li><a href="javascript:;" class="wx s_wx" style="color:#FFF">微信<img class="QR_code" title="QR code" src="/statics/images/ewm.jpg" /></a></li>
+<li><a href="https://weibo.com/geochannel" style="color:#FFF">微博</a></li>
+<li><a href="https://weidian.com/?userid=984434868" style="color:#FFF">微店</a></li>
+<li><a id="logined_username_nologin" href="http://www.ngchina.com.cn/index.php?m=member&c=index&a=login" style="color:#FFF">登录</a><a href="javascript:void(0);" class="login" id="logined_username" style="display:none;">登录</a></li>
+</ul>
+<div class="user_nav_wrapper" style="display:none;">
+<ul>
+<li><a href="http://www.ngchina.com.cn/index.php?m=message&c=index&a=group">我的消息<span class="mess_num"></span></a></li>
+<li><a href="http://www.ngchina.com.cn/index.php?m=member&c=index">我的资料</a></li>
+<li><a href="http://www.ngchina.com.cn/index.php?m=content&c=index&a=favorite_list">我的收藏</a></li>
+
+<li><a class="logout" href="http://www.ngchina.com.cn/index.php?m=member&c=index&a=logout">退出</a></li>
+</ul>
+</div>
+</div>
+<div class="menu_btn_wrapper cf">
+<h1 class="logo"><a href="http://www.ngchina.com.cn/"><img src="/statics/images/template2017/logo.png" /></a></h1>
+<div class="s_category"><a href="/photography/photocontest/2018">摄影大赛</a><a href="http://www.ngchina.com.cn/events/" class="br">活动</a><a href="http://www.ngchina.com.cn/news/8548.html">4月1日起，本站域名将更换为www.ngchina.com.cn</a></div>
+<div class="menu_btn_list">
+<a class="btn_search" href="#">搜索</a>
+<a class="btn_menu js_btn_menu" href="javascript:;">menu</a>
+</div>
+</div>
+</div>
+<div class="menu_con js_menu_con cf" style="display:none;">
+<div class="menu_imgs" style="display:block;">
+<div class="photo_story_up">
+<a href="/photography/picture_story/5488.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0912/20180912054035946.jpg" width="968px" />
+</a>
+<div class="title">
+<span class="ico_line">图片故事</span>
+<a href="/photography/picture_story/5488.html"><h2>跨越大半个地球，疾驰5400公里，只为抓住昼夜最美瞬息</h2></a>
+</div>
+</div>
+<div class="photo_story_down">
+<ul class="cf">
+<li>
+<a href="/photography/picture_story/5485.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0911/thumb_469_352_20180911123558591.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">图片故事</span>
+<a href="/photography/picture_story/5485.html"><h2>老照片 |《国家地理》躲猫猫？</h2></a>
+</div>
+</li>
+<li>
+<a href="/photography/picture_story/5484.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0910/thumb_469_352_20180910053652381.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">图片故事</span>
+<a href="/photography/picture_story/5484.html"><h2>一年仅存在8天的城市，他们到底在这里做...</h2></a>
+</div>
+</li>
+<li>
+<a href="/photography/picture_story/5478.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0906/thumb_469_352_20180906011816320.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">图片故事</span>
+<a href="/photography/picture_story/5478.html"><h2>从阿根廷到瑞士，带你领略瀑布的美</h2></a>
+</div>
+</li>
+<li>
+<a href="/photography/picture_story/5476.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0905/thumb_469_352_20180905105610808.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">图片故事</span>
+<a href="/photography/picture_story/5476.html"><h2>影像记录：格陵兰岛神秘的水下“未知领域”</h2></a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="menu_imgs">
+<div class="photo_story_up">
+<a href="/video/animals/8128.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2017/1024/20171024023609391.jpg" width="968px" />
+</a>
+<div class="title">
+<span class="ico_line">精选</span>
+<a href="/video/animals/8128.html"><h2>撒哈拉邂逅小奶猫怎么办，当然是先拍下来啊！</h2></a>
+</div>
+</div>
+<div class="photo_story_down">
+<ul class="cf">
+<li>
+<a href="/video/animals/8805.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0824/thumb_469_352_20180824054325356.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">精选</span>
+<a href="/video/animals/8805.html"><h2>亡命之猴挑战高空跳跃，7层楼高度跳下竟...</h2></a>
+</div>
+</li>
+<li>
+<a href="/video/animals/8802.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0823/thumb_469_352_20180823054126855.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">精选</span>
+<a href="/video/animals/8802.html"><h2>前方高能！这种小蝙蝠竟然在这里冬眠……</h2></a>
+</div>
+</li>
+<li>
+<a href="/video/travel/8753.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0717/thumb_469_352_20180717055303642.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">精选</span>
+<a href="/video/travel/8753.html"><h2>无塑料的旅行？其实比你想象的更容易！</h2></a>
+</div>
+</li>
+<li>
+<a href="/video/selected/8751.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0716/thumb_469_352_20180716055214274.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">精选</span>
+<a href="/video/selected/8751.html"><h2>一笔画龙身</h2></a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="menu_imgs">
+<div class="photo_story_up">
+<a href="/animals/facts/8838.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0913/20180913054747396.jpg" width="968px" />
+</a>
+<div class="title">
+<span class="ico_line">知识速递</span>
+<a href="/animals/facts/8838.html"><h2>动物探秘：大角羊长距离迁徙的奥秘</h2></a>
+</div>
+</div>
+<div class="photo_story_down">
+<ul class="cf">
+<li>
+<a href="/animals/facts/8830.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0906/thumb_469_352_20180906041953428.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">知识速递</span>
+<a href="/animals/facts/8830.html"><h2>影像故事：寻找盔犀鸟的漫漫长路</h2></a>
+</div>
+</li>
+<li>
+<a href="/animals/facts/8819.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0828/thumb_469_352_20180828072324430.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">知识速递</span>
+<a href="/animals/facts/8819.html"><h2>没有大脑的水母如何统治海洋？</h2></a>
+</div>
+</li>
+<li>
+<a href="/animals/facts/8814.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0827/thumb_469_352_20180827051015964.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">知识速递</span>
+<a href="/animals/facts/8814.html"><h2>小龙虾如何搅动原生生物的“朋友圈”</h2></a>
+</div>
+</li>
+<li>
+<a href="/animals/facts/8799.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0822/thumb_469_352_20180822113723979.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">知识速递</span>
+<a href="/animals/facts/8799.html"><h2>一山不能容二虎：猫咪杀手与爬行动物间...</h2></a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="menu_imgs">
+<div class="photo_story_up">
+<a href="/science/archaeology/8839.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0914/20180914123504609.jpg" width="968px" />
+</a>
+<div class="title">
+<span class="ico_line">考古发现</span>
+<a href="/science/archaeology/8839.html"><h2>考古前线：4000年前的埃及大型墓葬群重现天日</h2></a>
+</div>
+</div>
+<div class="photo_story_down">
+<ul class="cf">
+<li>
+<a href="/science/space/8837.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0912/thumb_469_352_20180912042652707.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">宇宙空间</span>
+<a href="/science/space/8837.html"><h2>两个螺旋星系在茫茫宇宙中的相遇</h2></a>
+</div>
+</li>
+<li>
+<a href="/science/archaeology/8832.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0907/thumb_469_352_20180907064737388.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">考古发现</span>
+<a href="/science/archaeology/8832.html"><h2>7200年前的奶酪痕迹惹争议：是奶酪还是奶？</h2></a>
+</div>
+</li>
+<li>
+<a href="/science/science/8827.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0905/thumb_469_352_20180905121102696.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">科技新知</span>
+<a href="/science/science/8827.html"><h2>重大突破！科学家首次观测到&ldquo;上帝粒子...</h2></a>
+</div>
+</li>
+<li>
+<a href="/science/space/8825.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0904/thumb_469_352_20180904113047365.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">宇宙空间</span>
+<a href="/science/space/8825.html"><h2>8月最佳太空图片：火箭升空，星石陨落</h2></a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="menu_imgs">
+<div class="photo_story_up">
+<a href="/travel/destinations/8828.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0905/20180905022810340.jpg" width="968px" />
+</a>
+<div class="title">
+<span class="ico_line">目的地</span>
+<a href="/travel/destinations/8828.html"><h2>京都，最具镜头感的千年古都</h2></a>
+</div>
+</div>
+<div class="photo_story_down">
+<ul class="cf">
+<li>
+<a href="/travel/destinations/8798.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0821/thumb_469_352_20180821053803771.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">目的地</span>
+<a href="/travel/destinations/8798.html"><h2>18条亚洲必游路线，你值得拥有！</h2></a>
+</div>
+</li>
+<li>
+<a href="/travel/destinations/8794.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0815/thumb_469_352_20180815055521769.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">目的地</span>
+<a href="/travel/destinations/8794.html"><h2>独库公路为什么号称“中国最美公路”？</h2></a>
+</div>
+</li>
+<li>
+<a href="/travel/destinations/8789.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0813/thumb_469_352_20180813042604187.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">目的地</span>
+<a href="/travel/destinations/8789.html"><h2>诗画大陈 | &ldquo;江南第一古村落&rdquo;，就连...</h2></a>
+</div>
+</li>
+<li>
+<a href="/travel/destinations/8787.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0809/thumb_469_352_20180809040808198.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">目的地</span>
+<a href="/travel/destinations/8787.html"><h2>&ldquo;进击&rdquo;的新加坡 | 一块&ldquo;沼泽地&rdquo;的...</h2></a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="menu_imgs">
+<div class="photo_story_up">
+<a href="/environment/8835.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0911/20180911041518133.jpg" width="968px" />
+</a>
+<div class="title">
+<span class="ico_line">环境保护</span>
+<a href="/environment/8835.html"><h2>人类进入海洋清理时代！海洋垃圾回收机将在加州投入使用</h2></a>
+</div>
+</div>
+<div class="photo_story_down">
+<ul class="cf">
+ <li>
+<a href="/environment/8822.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0830/thumb_469_352_20180830041105624.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">环境保护</span>
+<a href="/environment/8822.html"><h2>东南亚：水电站大坝之殇</h2></a>
+</div>
+</li>
+<li>
+<a href="/environment/8817.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0828/thumb_469_352_20180828021708567.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">环境保护</span>
+<a href="/environment/8817.html"><h2>独家报道：即使在冬季，北极的某些地方...</h2></a>
+</div>
+</li>
+<li>
+<a href="/environment/8795.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0816/thumb_469_352_20180816114720332.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">环境保护</span>
+<a href="/environment/8795.html"><h2>该换了！更环保的洗发皂了解一下？</h2></a>
+</div>
+</li>
+<li>
+<a href="/environment/8793.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0815/thumb_469_352_20180815115409125.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">环境保护</span>
+<a href="/environment/8793.html"><h2>佛罗里达赤潮：人类是罪魁祸首吗？</h2></a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="menu_imgs">
+<div class="photo_story_up">
+<a href="/culture/8823.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0830/20180830053437215.jpg" width="968px" />
+</a>
+<div class="title">
+<span class="ico_line">人文</span>
+<a href="/culture/8823.html"><h2>他用自己50年的记忆，拍出了一座“新魔都”！</h2></a>
+</div>
+</div>
+<div class="photo_story_down">
+<ul class="cf">
+<li>
+<a href="/culture/8820.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0829/thumb_469_352_20180829044309568.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">人文</span>
+<a href="/culture/8820.html"><h2>塞尔维亚 | 时间在此流逝，也于此开始</h2></a>
+</div>
+</li>
+<li>
+<a href="/culture/8813.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0827/thumb_469_352_20180827023404500.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">人文</span>
+<a href="/culture/8813.html"><h2>神秘的现代洞穴生活：几千人生活在这古...</h2></a>
+</div>
+</li>
+<li>
+<a href="/culture/8791.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0814/thumb_469_352_20180814020138926.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">人文</span>
+<a href="/culture/8791.html"><h2>女人能顶半边天：印加古道上的女性搬运工</h2></a>
+</div>
+</li>
+<li>
+<a href="/culture/8777.html">
+<img title="photo story" src="http://image.ngchina.com.cn/2018/0802/thumb_469_352_20180802042751267.jpg" width="469px" />
+</a>
+<div class="title">
+<span class="ico_line">人文</span>
+<a href="/culture/8777.html"><h2> 世间“无底洞”：墨西哥Sistema Huautla洞穴</h2></a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="menu_list js_menu_list">
+<div class="nav_btns cf">
+<a class="btn_search" href="#">搜索</a>
+<a class="btn_close js_btn_close" href="#">X</a>
+</div>
+<div class="nav_categories">
+<ul>
+<li class="nav_photography">
+<a href="http://www.ngchina.com.cn/photography/">
+<span>摄影</span>
+<p class="focus"></p>
+</a>
+</li>
+<li class="nav_video">
+<a href="http://www.ngchina.com.cn/video/">
+<span>视频</span>
+<p class="focus"></p>
+</a>
+</li>
+<li class="nav_animals">
+<a href="http://www.ngchina.com.cn/animals/">
+<span>动物</span>
+<p class="focus"></p>
+</a>
+</li>
+<li class="nav_science">
+<a href="http://www.ngchina.com.cn/science/">
+<span>科技</span>
+<p class="focus"></p>
+</a>
+</li>
+<li class="nav_travel">
+<a href="http://www.ngchina.com.cn/travel/">
+<span>旅行</span>
+<p class="focus"></p>
+</a>
+</li>
+<li class="nav_environment">
+<a href="http://www.ngchina.com.cn/environment/">
+<span>环境</span>
+<p class="focus"></p>
+</a>
+</li>
+<li class="nav_culture">
+<a href="http://www.ngchina.com.cn/culture/">
+<span>人文</span>
+<p class="focus"></p>
+</a>
+</li>
+</ul>
+</div>
+<div class="nav_social cf">
+
+<a class="nav_wb" href="https://weibo.com/geochannel"></a>
+<a class="nav_sd" href="https://weidian.com/?userid=984434868"></a>
+</div>
+</div>
+</div>
+<div class="search_wrapper js_search_wrapper" style="display:none;">
+<div class="search_con">
+<a class="btn_close" href="javascript:;">X</a>
+<div class="search_form">
+<form action="http://www.ngchina.com.cn/index.php" method="get" target="_blank" id="subform">
+<input class="gSearch_text" name="q" id="q" type="text" placeholder="搜索">
+<input type="hidden" name="m" value="search" />
+<input type="hidden" name="c" value="index" />
+<input type="hidden" name="a" value="init" />
+<input type="hidden" name="typeid" value="0" id="typeid" />
+<input type="hidden" name="siteid" value="1" id="siteid" />
+<i></i>
+
+</form>
+</div>
+</div>
+</div> <link rel="stylesheet" type="text/css" href="/statics/css/template2017/index.css">
+<div class="content js_content">
+<div class="sec_hot add_pad_b" style="margin-top:0;">
+<div class="con cf">
+<div class="hot_textList">
+<h2 class="title"><i class="ico"></i><span>最新资讯</span></h2>
+<div class="list">
+<div class="reco_t">
+<a href="/science/archaeology/8839.html" target="_blank"><img src="http://image.ngchina.com.cn/2018/0914/20180914123504609.jpg" width="100%"></a>
+<p><span>考古发现</span></p>
+<a href="/science/archaeology/8839.html" target="_blank"><h3>考古前线：4000年前的埃及大型墓葬群重现天日</h3></a>
+<i class="ico_line"></i>
+</div>
+<div class="reco_t">
+<p><span>目的地</span></p>
+<a href="/travel/destinations/7011.html" target="_blank"><h3>吃货福利：探秘你所不知道的“沙县小吃”</h3></a>
+<i class="ico_line"></i>
+</div>
+<div class="reco_t">
+<p><span>知识速递</span></p>
+<a href="/animals/facts/8838.html" target="_blank"><h3>动物探秘：大角羊长距离迁徙的奥秘</h3></a>
+<i class="ico_line"></i>
+</div>
+<div class="reco_t">
+<p><span>影像</span></p>
+<a href="/travel/photo_galleries/5489.html" target="_blank"><h3>影像记录：土耳其萎缩的旅游业</h3></a>
+<i class="ico_line"></i>
+</div>
+</div>
+</div>
+<div class="hot_imgList">
+<h2 class="title"><span></span></h2>
+<div class="video">
+<div class="yx-rotaion">
+<ul class="rotaion_list">
+<li><a href="http://city.vivo.com.cn/" target="_blank"><img src="http://image.ngchina.com.cn/2018/0906/20180906045515633.jpg" alt="vivo影像寻城记第五季" /></a></li>
+<li><a href="http://qmsd.ngchina.cn/" target="_blank"><img src="http://image.ngchina.com.cn/2018/0419/20180419032912194.jpg" alt="棉•自然•人•年度摄影大赛" /></a></li>
+<li><a href="http://syds.ngchina.cn/" target="_blank"><img src="http://image.ngchina.com.cn/2018/0906/20180906045605964.jpg" alt="美国《国家地理》全球摄影大赛中国区" /></a></li>
+<li><a href="http://www.ngchina.com.cn/animals/photo/5458.html" target="_blank"><img src="http://image.ngchina.com.cn/2018/0824/20180824041843472.jpg" alt="大熊猫不是你想拍，想拍就能拍" /></a></li>
+<li><a href="https://weidian.com/?userid=984434868&spider_token=eac3&spider=seller.itemdetail.item_seller.1" target="_blank"><img src="http://image.nationalgeographic.com.cn/2018/0117/20180117040447998.jpg" alt="美国国家地理大陆官方微店" /></a></li>
+</ul> </div>
+</div>
+<div class="imgs cf">
+<div><img alt="undefinedpic" src="http://image.ngchina.com.cn/2018/0824/20180824055710518.jpg" /><br />
+<p><span>赞助商内容</span></p>
+<h3><a href="http://www.ngchina.com.cn/events/brand_events/8815.html">融创全新产品线&ldquo;九府系&rdquo;发布，打造新东方式美好生活</a></h3>
+</div>
+<div><img alt="undefinedpic" src="http://image.ngchina.com.cn/2018/0905/20180905044413795.jpg" /><br />
+<p><span>图片故事</span></p>
+<h3><a href="http://www.ngchina.com.cn/photography/picture_story/5468.html">灵魂净化之旅：30座全球最令人惊叹的寺庙殿宇</a></h3>
+</div>
+</div>
+<br /> </div>
+</div>
+</div>
+<div class="sec_videos del_mar_t" id="sec_videos">
+<h2 class="title"><i class="ico"></i><span>脑力汁视频</span><span style="font-size:1rem;"><a href="https://weibo.com/knowledgevideo?is_all=1" target="_blank">微博</a></span></h2>
+<div class="con cf">
+<div class="video_wrapper">
+<iframe id="video_frame" frameborder="0" src="" allowfullscreen=""></iframe>
+</div>
+<div class="video_list" id="video_list">
+<div class="scrollbar" style="height: 200px;display: none;">
+<div class="track" style="height: 200px;">
+<div class="thumb" style="top: 69.4444px; height: 69.4444px;">
+<div class="end"></div>
+</div>
+</div>
+</div>
+<div class="viewport">
+<ul class="overview">
+<li class="hoverEffect">
+<img src="http://image.ngchina.com.cn/2018/0914/20180914050951153.jpg" width="312" height="173" />
+<a class="hoverEffect_link" href="javascript:;" data-url="https://v.miaopai.com/iframe?scid=8AUxCVFxRzjnmhMwTl6qZNoz93x~CWsmPRlJeA__" data-description="通体透明，在水中冉冉飘动，像浮在半空中的天使。传说是幸运之神，可以为人们带来浪漫的爱情……" data-href="https://v.miaopai.com/iframe?scid=8AUxCVFxRzjnmhMwTl6qZNoz93x~CWsmPRlJeA__">
+<div class="shawdow"></div>
+<div class="video_con cf">
+<span class="video_btn"></span>
+<div class="video_info">
+<h3>探秘：两只透明的海洋天使，两颗嘭嘭嘭的心……</h3>
+</div>
+</div>
+</a>
+</li>
+<li class="hoverEffect">
+<img src="http://image.ngchina.com.cn/2018/0913/20180913045519148.jpg" width="312" height="173" />
+<a class="hoverEffect_link" href="javascript:;" data-url="https://v.miaopai.com/iframe?scid=C47ZEBb~Hp8Fy0TxaiV5zzPSbOFQ6GpOSfhNzw__" data-description="近日台风、飓风将接二连三袭击人类大陆，“百里嘉”已经广东上岸，“山竹”正在逼近。大西洋飓风“佛罗伦萨”也将在36小时内肆虐美洲大陆。台风、飓风的形成机制到底是什么？它们的威力又来自于何处？<br /><br />
+" data-href="https://v.miaopai.com/iframe?scid=C47ZEBb~Hp8Fy0TxaiV5zzPSbOFQ6GpOSfhNzw__">
+<div class="shawdow"></div>
+<div class="video_con cf">
+<span class="video_btn"></span>
+<div class="video_info">
+<h3>探秘：进击的风暴正在袭来，它是何方“妖孽”？</h3>
+</div>
+</div>
+</a>
+</li>
+<li class="hoverEffect">
+<img src="http://image.ngchina.com.cn/2018/0912/20180912045308275.jpg" width="312" height="173" />
+<a class="hoverEffect_link" href="javascript:;" data-url="https://v.miaopai.com/iframe?scid=gdVUnyeTlkVBQRxxOLxSpxPKFyFf1tXFCVdfNw__" data-description="在阿根廷的海滩上，一头重达4吨的虎鲸搁浅了。它的搁浅都是因为它的“贪欲”，人类还是帮助了它……<br /><br /><br />
+" data-href="https://v.miaopai.com/iframe?scid=gdVUnyeTlkVBQRxxOLxSpxPKFyFf1tXFCVdfNw__">
+<div class="shawdow"></div>
+<div class="video_con cf">
+<span class="video_btn"></span>
+<div class="video_info">
+<h3>探秘：如何把4吨重的虎鲸，“搬”回大海？</h3>
+</div>
+</div>
+</a>
+</li>
+<li class="hoverEffect">
+<img src="http://image.ngchina.com.cn/2018/0911/20180911060818263.jpg" width="312" height="173" />
+<a class="hoverEffect_link" href="javascript:;" data-url="https://v.miaopai.com/iframe?scid=luLMWrTTh88~AMOdmo4nUMqfa5syxx3sfY4vfg__" data-description="一头非洲大象在一场“战斗”中，被另一头雄性大象戳破了肚子，这将导致接下来的死亡。这场死亡对于生态系统来说是一个开始，仅留下来的尸体，都为生态系统的延续发挥最后一点作用！<br /><br /><br /><br />
+" data-href="https://v.miaopai.com/iframe?scid=luLMWrTTh88~AMOdmo4nUMqfa5syxx3sfY4vfg__">
+<div class="shawdow"></div>
+<div class="video_con cf">
+<span class="video_btn"></span>
+<div class="video_info">
+<h3>探秘：一头大象从死亡到完全消失，它会经历什么？</h3>
+</div>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<script language="JavaScript" src="/statics/js/template2017/mod_video.js"></script>
+</div>
+<div class="video_mess">
+<a href=""><h3></h3></a>
+<p></p>
+</div>
+</div>
+<div class="sec_oneimg cf">
+<img src="http://image.ngchina.com.cn/2018/0914/20180914030858900.jpg">
+<h2 class="title"><i class="ico"></i><span>每日一图</span></h2>
+<a class="ico_more" href="/photography/photo_of_the_day/">查看全部<span>+</span></a>
+<div class="bg_shawdow"></div>
+<a href="http://www.ngchina.com.cn/photography/photo_of_the_day/5491.html" class="con">
+<div class="oneimg_mess cf">
+<div>
+<h3>惊鸿一瞥</h3>
+</div>
+<p>摄影：Gabe Brodowy，你来掌镜YOURSHOT</p>
+</div>
+</a>
+</div>
+
+<div class="ads" id="ads">
+<div class="ads-default"><img src="/statics/images/jili/ads0208.jpg" width="100%"></div>
+<div class="ads-count">3</div>
+<a class="ads-spread" href="http://www.nationalgeographic.com.cn/events/jili/" target="_blank"><img src="/statics/images/template2017/ads-spread.jpg" width="100%"></a>
+</div>
+<script>
+			$(function(){
+				function countdown(){
+					var num = 3;
+					var timer = setInterval(function(){
+						$('#ads .ads-count').text(num);
+						num--;
+						if(num < 0){
+							clearInterval(timer);
+						$('#ads .ads-default').slideDown('slow');
+						$('#ads .ads-spread').slideUp('slow');
+						}
+					}, 1000)
+				}
+				$('#ads .ads-default').on('mouseover', function(){
+					var adsFirst = localStorage.getItem('adsFirst');
+					if(adsFirst){
+						return;
+					}else{
+						$('#ads .ads-default').slideUp('slow');
+						$('#ads .ads-spread').slideDown('slow');
+						localStorage.setItem('adsFirst', true);
+						countdown();
+					}
+				})
+				$('#ads .ads-default').on('click', function(){
+				var adsFirst = localStorage.getItem('adsFirst');
+					if(adsFirst){
+						$('#ads .ads-default').slideUp('slow');
+						$('#ads .ads-spread').slideDown('slow');
+						localStorage.setItem('adsFirst', true);
+						countdown();
+					}
+				})
+			})
+		</script>
+
+
+<div class="sec_magazine magazine_act">
+<div class="con"><a class="a_link" href="http://www.ngchina.com.cn/magazine/2018/09/1330.html"><img alt="凯蒂的三面人生" src="http://image.ngchina.com.cn/2018/0905/20180905054935438.jpg" style="width: 1454px; height: 770px;" /></a>
+<div class="text_wrapper">
+<div class="text_wrapper_con">
+<div class="disc"> 
+<div>&nbsp;</div>
+</div>
+<div class="text magazine_text">
+<p>那张脸躺在一只手术托盘里， 双眼空盲，嘴张成一个黑洞，好像在惊呼：&ldquo; 噢！&rdquo;</p>
+<p>16个小时前，克利夫兰医学中心19号手术室的外科医生们开始了把这张脸从一位31岁女性（已于更早三日前在法律上和医学上被宣布死亡）头上剥离的精细工作。再过不久，医生们将把它带给一位刚刚21岁、却已花了三年多时间等待新脸的姑娘。</p>
+<p>有片刻时间，那张脸就在满面惊讶的孤寂中空置着。</p>
+<p>外科医生、住院实习医师、护士们突然静默了，心怀敬畏地望着它，与此同时，医学中心的工作人员就像异常规矩的&ldquo;狗仔队&rdquo;般，端着相机凑上来记录这个时刻。被剥夺供血的人脸变得苍白。以脱离状态度过的每一秒钟都让它变得越发像一个19世纪的死亡面具。</p>
+<p>整容外科老手弗兰克&middot;帕佩戴着手套小心端起托盘，走向20号手术室，凯蒂&middot;斯塔布菲尔德在那里等待。</p>
+<p>凯蒂将成为美国最年轻的全脸移植接受者。她的移植手术是该机构的第3例，全球已知的第40例，移植范围属最大之列，这会使她成为这项仍处于实验阶段的外科手术的终生研究对象。</p>
+<p>帕佩低头望着托盘中的脸，心中生出一种敬意。他想，有些人甘为他人奉献的程度真是了不起&mdash;&mdash;竟能捐献心脏、肝甚至整张面目。他默念了一段感谢的祷词，然后把那张脸带向它的下一段人生。</p>
+<p>人类属于某个独树一帜的类群：能从镜中认出自己的动物。除了我们，已知能认得自身镜像的动物只有类人猿、亚洲象、喜鹊、宽吻海豚。刚满七个月的海豚就会在镜子前摆姿势、扭腰身、直接把脸贴上去看自己。已知只有人类会在看着自己镜像的时候流露沮丧。</p>
+</div>
+</div>
+<div class="other"><a href="http://www.ngchina.com.cn/magazine/2018/09/"><img src="http://image.ngchina.com.cn/2018/0905/20180905054952188.jpg" style="width: 243px; height: 243px;" /></a>
+<div class="aside">
+<p><a href="http://www.ngchina.com.cn/magazine/2018/09/1330.html">凯蒂的三面人生</a></p>
+<p><a href="http://www.ngchina.com.cn/magazine/2018/09/1331.html">三江源国家公园，人与猛兽共生之地</a></p>
+<p><a href="http://www.ngchina.com.cn/magazine/2018/09/1332.html">老河沟：公益保护地的探索之路</a></p>
+<p><a href="http://www.ngchina.com.cn/magazine/2018/09/1333.html">头胄之祸：这种珍稀鸟类挣扎在生死边缘</a></p>
+</div>
+</div>
+</div>
+</div>
+<a class="btn" href="http://www.ngchina.com.cn/magazine/2018/09/">阅读更多</a> </div>
+</div>
+<script type="text/javascript">
+    seajs.use("index");
+</script>
+<div class="footer js_footer">
+<div class="footer_top cf">
+<ul>
+
+<li><a href="http://www.ngchina.com.cn/html/about_us/">关于我们</a></li>
+<li><a href="http://www.ngchina.com.cn/html/contact_us/">联系我们</a></li>
+<li><a href="http://www.ngchina.com.cn/html/links/">合作网站</a></li>
+</ul>
+<p class="cf">
+<a class="wx s_wx" href="#"><img class="QR_code" title="QR code" src="/statics/images/ewm.jpg" /></a>
+<a class="wb" href="https://weibo.com/geochannel"></a>
+<a class="sd" href="https://weidian.com/?userid=984434868"></a>
+</p>
+</div>
+<div class="footer_bottom">
+<p class="copyright">2003-2018 国家地理中文网版权所有 NATIONAL GEOGRAPHIC All Rights Reserved.</p>
+<p class="record">京ICP备09113085号-3 京公网安备11010502015207</p>
+</div>
+</div>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ca8fdc4afd8dbaec0d0f29ebf69ff42a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>
