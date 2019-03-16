@@ -17,7 +17,7 @@ switch ($page) {
 {
     "icon":"https://dashidan.com/2","name":"Sinbad2","note":"这是第二个笔记测试1"},
 {
-    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试1"},
+    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试1"}
 
 ]';
         break;
@@ -28,8 +28,7 @@ switch ($page) {
 {
     "icon":"https://dashidan.com/2","name":"Sinbad2","note":"这是第二个笔记测试2"},
 {
-    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试2"},
-git
+    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试2"}
 ]';
         break;
     case '3':
@@ -39,7 +38,7 @@ git
 {
     "icon":"https://dashidan.com/2","name":"Sinbad2","note":"这是第二个笔记测试3"},
 {
-    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试3"},
+    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试3"}
 
 ]';
         break;
