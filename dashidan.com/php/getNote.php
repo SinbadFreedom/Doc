@@ -45,4 +45,4 @@ git
         break;
 }
 
-return $noteStr;
+echo $noteStr;
