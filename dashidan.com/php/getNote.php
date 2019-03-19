@@ -6,42 +6,25 @@
  * Time: 12:20
  */
 
-
-$page = $_GET['page'];
-
-switch ($page) {
-    case '1':
-        $noteStr = '[
-{
-    "icon":"https://dashidan.com/1","name":"Sinbad1","note":"这是第一个笔记测试1"},
-{
-    "icon":"https://dashidan.com/2","name":"Sinbad2","note":"这是第二个笔记测试1"},
-{
-    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试1"}
-
-]';
-        break;
-    case '2':
-        $noteStr = '[
-{
-    "icon":"https://dashidan.com/1","name":"Sinbad1","note":"这是第一个笔记测试2"},
-{
-    "icon":"https://dashidan.com/2","name":"Sinbad2","note":"这是第二个笔记测试2"},
-{
-    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试2"}
-]';
-        break;
-    case '3':
-        $noteStr = '[
-{
-    "icon":"https://dashidan.com/1","name":"Sinbad1","note":"这是第一个笔记测试3"},
-{
-    "icon":"https://dashidan.com/2","name":"Sinbad2","note":"这是第二个笔记测试3"},
-{
-    "icon":"https://dashidan.com/3","name":"Sinbad3","note":"这是第三个笔记测试3"}
-
-]';
-        break;
+$num = $_GET['num'];
+//TODO check num is number format
+if (!$num) {
+    return;
 }
 
-echo $noteStr;
+$db_name = 'python3';
+
+$manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
+$query = new MongoDB\Driver\Query(['num' => $num]);
+$cursor = $manager->executeQuery($db_name, $query);
+
+$data = [];
+foreach($cursor as $doc) {
+    $data[] = $doc;
+}
+
+print_r($data);
+
+$info = $data[0];
+
+echo json_encode($info);
