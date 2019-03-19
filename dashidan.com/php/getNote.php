@@ -24,8 +24,6 @@ foreach ($cursor as $doc) {
     array_push($data, $doc);
 }
 
-print_r($data);
-
 //TODO 笔记数据分页
 if (sizeof($data) > 0) {
     $info = $data[0];
