@@ -26,8 +26,7 @@ foreach ($cursor as $doc) {
 
 //TODO 笔记数据分页
 if (sizeof($data) > 0) {
-    $info = $data[0];
-    echo json_encode($info);
+    echo json_encode($data);
 } else {
     echo "{}";
 }
