@@ -28,5 +28,5 @@ foreach ($cursor as $doc) {
 if (sizeof($data) > 0) {
     echo json_encode($data);
 } else {
-    echo "{}";
+    echo "";
 }
