@@ -6,7 +6,7 @@
  * Time: 11:27
  */
 
-$file  = 'log_' . date('Y-m-d H:i:s', time()) . '.txt';
+$file  = 'log_' . date('Y-m-d', time()) . '.txt';
 $content = file_get_contents("php://input");
 $content = $content . '\n';
 file_put_contents($file, $content, FILE_APPEND);
