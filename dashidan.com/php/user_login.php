@@ -81,11 +81,11 @@ if (isset($_POST['channel'])) {
     echo "param error 9";
     return;
 }
-
-echo "--------------------------------2";
-
+echo "--------------------------------1";
 $user_id = -1;
-$database = (new MongoDB\Client)->account;
+$mongo_client = new MongoDB\Client();
+echo "--------------------------------2";
+$database = $mongo_client->account;
 echo "--------------------------------3";
 $user = $database->user->findOne(['openid' => $openid]);
 echo "--------------------------------4";
@@ -99,7 +99,7 @@ if ($user) {
 } else {
     /** 新用户*/
     echo "--------------------------------6";
-    $collection = (new MongoDB\Client)->account->increase;
+    $collection = $mongo_client->account->increase;
 
     $user_id = $collection->findOneAndUpdate(
         ['table' => 'inc_user_id'],
@@ -113,7 +113,7 @@ if ($user) {
     echo "--------------------------------7";
     var_dump($user_id);
     /** 插入数据库*/
-    $collection = (new MongoDB\Client)->account->users;
+    $collection = $mongo_client->account->users;
     $insertOneResult = $collection->insertOne([
         'openid' => $openid,
         'access_token' => $access_token,
