@@ -115,10 +115,12 @@ if ($user_info) {
     echo "--------------------------------6+";
     $command = new MongoDB\Driver\Command($query);
     echo "--------------------------------7";
-    $commandRes = $manager->executeCommand('db_account', $command);
-    var_dump($commandRes);
+    $command_cursor = $manager->executeCommand('db_account', $command);
+    $command_iterator = new IteratorIterator($command_cursor);
+    $id_info = $command_iterator->current();
+    var_dump($id_info);
     echo "--------------------------------8";
-    $user_id = $commandRes['user_id'];
+    $user_id = $id_info['user_id'];
     echo "--------------------------------8+";
     $bulkInsertUser = new MongoDB\Driver\BulkWrite();
     $bulkInsertUser->insert([
