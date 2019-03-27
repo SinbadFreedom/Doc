@@ -88,22 +88,12 @@ $options = array(
 );
 $query_find = new MongoDB\Driver\Query($filter, $options);
 $cursor = $manager->executeQuery('db_account.col_user', $query_find);
-echo "--------------------------------4";
 $user_info = $cursor->toArray()[0];
-//var_dump($cursor);
-//echo "--------------------------------4+";
-//$iterator = new IteratorIterator($cursor);
-//$user_info = $iterator->current();
-echo "--------------------------------4++";
-var_dump($user_info);
-echo "--------------------------------4+++";
 if ($user_info) {
     /** 老用户*/
     $user_id = $user_info->user_id;
-    echo "--------------------------------5";
 } else {
     /** 新用户*/
-    echo "--------------------------------6";
     $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
     $query = array(
         "findandmodify" => "col_increase",
@@ -113,16 +103,11 @@ if ($user_info) {
         'new' => true,
         'fields' => ['user_id_now' => 1]
     );
-    echo "--------------------------------6+";
     $command = new MongoDB\Driver\Command($query);
-    echo "--------------------------------7";
     $command_cursor = $manager->executeCommand('db_account', $command);
     $response = $command_cursor->toArray()[0];
-    var_dump($response);
-    echo "--------------------------------8";
+    /** 新用户id*/
     $user_id = $response->value->user_id_now;
-    echo "--------------------------------8+";
-    echo "--------------------------------8++".$user_id;
     $bulkInsertUser = new MongoDB\Driver\BulkWrite();
     $bulkInsertUser->insert([
         'openid' => $openid,
@@ -139,15 +124,11 @@ if ($user_info) {
         'channel' => $channel,
         'user_id' => $user_id,
     ]);
-    echo "--------------------------------9";
     /** 插入数据库*/
     $insertOneResult = $manager->executeBulkWrite('db_account.col_user', $bulkInsertUser, $writeConcern);
-    var_dump($insertOneResult);
-    echo "--------------------------------10";
 }
 
-echo "--------------------------------11";
 $res = new stdClass;
 $res->user_id = $user_id;
 
-var_dump(json_encode($res));
+echo json_encode($res);
