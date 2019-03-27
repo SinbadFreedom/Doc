@@ -6,7 +6,7 @@
  * Time: 11:27
  */
 
-$file  = 'log_' . date('Y-m-d', time()) . '.txt';
+$file = 'log_' . date('Y-m-d', time()) . '.txt';
 $content = file_get_contents("php://input");
 $content = $content . '\n';
 file_put_contents($file, $content, FILE_APPEND);
@@ -81,27 +81,26 @@ if (isset($_POST['channel'])) {
     echo "param error 9";
     return;
 }
-echo "--------------------------------1";
 $user_id = -1;
 $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-echo "--------------------------------2";
-$filter =  ['openid'=>$openid];
+$filter = ['openid' => $openid];
 $options = array(
     'limit' => 1
 );
 $query = new MongoDB\Driver\Query($filter, $options);
-echo "--------------------------------3";
-$user = $manager->executeQuery('account.user', $query);
+$cursor = $manager->executeQuery('account.user', $query);
 echo "--------------------------------4";
-//foreach($user as $r){
-//    var_dump($r);
-//}
-var_dump($user);
-
-if ($user) {
+var_dump($cursor);
+echo "--------------------------------4+";
+$iterator = new IteratorIterator($cursor);
+$user_info = $iterator->current();
+echo "--------------------------------4++";
+var_dump($user_info);
+echo "--------------------------------4+++";
+if ($user_info) {
     /** 老用户*/
     echo "--------------------------------5";
-    $user_id = $user['user_id'];
+    $user_id = $user_info['user_id'];
 } else {
     $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
 
