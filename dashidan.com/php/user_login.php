@@ -110,17 +110,16 @@ if ($user_info) {
         "update" =>  ['$inc' => ['user_id_now' => 1]],
         'upsert' => true,
         'new' => true,
-        'projection' => ['user_id_now' => 1]
+        'fields' => ['user_id_now' => 1]
     );
     echo "--------------------------------6+";
     $command = new MongoDB\Driver\Command($query);
     echo "--------------------------------7";
     $command_cursor = $manager->executeCommand('db_account', $command);
     $response = $command_cursor->toArray()[0];
-//    $id_info = $command_iterator->current();
     var_dump($response);
     echo "--------------------------------8";
-    $user_id = $response['user_id_now'];
+    $user_id = $response->value->user_id_now;
     echo "--------------------------------8+";
     echo "--------------------------------8++".$user_id;
     $bulkInsertUser = new MongoDB\Driver\BulkWrite();
