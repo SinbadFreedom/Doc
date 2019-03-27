@@ -116,7 +116,7 @@ if ($user_info) {
     $command = new MongoDB\Driver\Command($query);
     echo "--------------------------------7";
     $command_cursor = $manager->executeCommand('db_account', $command);
-    $response = $cursor->toArray()[0];
+    $response = $command_cursor->toArray()[0];
 //    $id_info = $command_iterator->current();
     var_dump($response);
     echo "--------------------------------8";
