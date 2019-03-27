@@ -99,6 +99,7 @@ var_dump($user_info);
 echo "--------------------------------4+++";
 if ($user_info) {
     /** 老用户*/
+    $user_id = $user_info->user_id;
     echo "--------------------------------5";
 } else {
     /** 新用户*/
