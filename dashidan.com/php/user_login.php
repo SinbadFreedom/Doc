@@ -81,6 +81,7 @@ if (isset($_POST['channel'])) {
     return;
 }
 $user_id = -1;
+/** 根据openid 查找用户数据*/
 $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 $filter = ['openid' => $openid];
 $options = array(
@@ -89,12 +90,14 @@ $options = array(
 $query_find = new MongoDB\Driver\Query($filter, $options);
 $cursor = $manager->executeQuery('db_account.col_user', $query_find);
 $user_info = $cursor->toArray()[0];
+/** 区分新老用户*/
 if ($user_info) {
     /** 老用户*/
     $user_id = $user_info->user_id;
 } else {
     /** 新用户*/
-    $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
+    $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);
+    /** 生成自增id*/
     $query = array(
         "findandmodify" => "col_increase",
         "query" => ['table' => 'inc_user_id'],
@@ -106,8 +109,9 @@ if ($user_info) {
     $command = new MongoDB\Driver\Command($query);
     $command_cursor = $manager->executeCommand('db_account', $command);
     $response = $command_cursor->toArray()[0];
-    /** 新用户id*/
+    /** 获取新用户id*/
     $user_id = $response->value->user_id_now;
+    /** 插入用户表*/
     $bulkInsertUser = new MongoDB\Driver\BulkWrite();
     $bulkInsertUser->insert([
         'openid' => $openid,
@@ -127,7 +131,7 @@ if ($user_info) {
     /** 插入数据库*/
     $insertOneResult = $manager->executeBulkWrite('db_account.col_user', $bulkInsertUser, $writeConcern);
 }
-
+/** 返回用户id*/
 $res = new stdClass;
 $res->user_id = $user_id;
 
