@@ -90,7 +90,7 @@ $options = array(
 $query = new MongoDB\Driver\Query($filter, $options);
 $cursor = $manager->executeQuery('account.user', $query);
 echo "--------------------------------4";
-var_dump($cursor);
+//var_dump($cursor);
 echo "--------------------------------4+";
 $iterator = new IteratorIterator($cursor);
 $user_info = $iterator->current();
@@ -102,12 +102,12 @@ if ($user_info) {
     echo "--------------------------------5";
     $user_id = $user_info['user_id'];
 } else {
-    $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
-
-    $bulkIncreaseId = new MongoDB\Driver\BulkWrite();
     /** 新用户*/
     echo "--------------------------------6";
-    $user_id = $bulkIncreaseId->update(
+    $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
+    $bulkIncreaseId = new MongoDB\Driver\BulkWrite();
+    echo "--------------------------------6+";
+    $bulkIncreaseId->update(
         ['table' => 'inc_user_id'],
         ['$inc' => ['user_id_now' => 1]],
         [
@@ -116,7 +116,6 @@ if ($user_info) {
             'returnDocument' => MongoDB\Operation\FindOneAndUpdate::RETURN_DOCUMENT_AFTER,
         ]
     );
-    var_dump($user_id);
     echo "--------------------------------7";
     $increaseIdResult = $manager->executeBulkWrite('account.increase', $bulkIncreaseId, $writeConcern);
     var_dump($increaseIdResult);
@@ -137,13 +136,14 @@ if ($user_info) {
         'channel' => $channel,
         'user_id' => $user_id,
     ]);
+    echo "--------------------------------9";
     /** 插入数据库*/
     $insertOneResult = $manager->executeBulkWrite('account.user', $bulkInsertUser, $writeConcern);
     var_dump($insertOneResult);
-    echo "--------------------------------9";
+    echo "--------------------------------10";
 }
 
-echo "--------------------------------10";
+echo "--------------------------------11";
 $res = new stdClass;
 $res['user_id'] = $user_id;
 

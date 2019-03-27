@@ -24,5 +24,3 @@ $bulk->insert(['num' => $num, 'note' => $note]);
 
 $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
 $res = $manager->executeBulkWrite($db_collection_name, $bulk, $writeConcern);
-//echo '<pre>';
-//print_r($res);
