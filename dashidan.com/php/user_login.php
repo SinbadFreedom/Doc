@@ -83,25 +83,29 @@ if (isset($_POST['channel'])) {
 }
 echo "--------------------------------1";
 $user_id = -1;
-$mongo_client = new MongoDB\Client();
+$manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 echo "--------------------------------2";
-$database = $mongo_client->account;
+$filter =  ['openid'=>$openid];
+$query = new MongoDB\Driver\Query($filter);
+$options = array(
+    'limit' => 1
+);
 echo "--------------------------------3";
-$user = $database->user->findOne(['openid' => $openid]);
+$user = $manager->executeQuery('account.user', $query, $options);
 echo "--------------------------------4";
 var_dump($user);
 
 if ($user) {
     /** 老用户*/
-    var_dump($user);
     echo "--------------------------------5";
     $user_id = $user['user_id'];
 } else {
+    $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
+
+    $bulkIncreaseId = new MongoDB\Driver\BulkWrite();
     /** 新用户*/
     echo "--------------------------------6";
-    $collection = $mongo_client->account->increase;
-
-    $user_id = $collection->findOneAndUpdate(
+    $user_id = $bulkIncreaseId->update(
         ['table' => 'inc_user_id'],
         ['$inc' => ['user_id_now' => 1]],
         [
@@ -110,11 +114,13 @@ if ($user) {
             'returnDocument' => MongoDB\Operation\FindOneAndUpdate::RETURN_DOCUMENT_AFTER,
         ]
     );
-    echo "--------------------------------7";
     var_dump($user_id);
-    /** 插入数据库*/
-    $collection = $mongo_client->account->users;
-    $insertOneResult = $collection->insertOne([
+    echo "--------------------------------7";
+    $increaseIdResult = $manager->executeBulkWrite('account.increase', $bulkIncreaseId, $writeConcern);
+    var_dump($increaseIdResult);
+    echo "--------------------------------8";
+    $bulkInsertUser = new MongoDB\Driver\BulkWrite();
+    $bulkInsertUser->insert([
         'openid' => $openid,
         'access_token' => $access_token,
         'refresh_token' => $refresh_token,
@@ -129,19 +135,14 @@ if ($user) {
         'channel' => $channel,
         'user_id' => $user_id,
     ]);
-
-    echo "--------------------------------8";
+    /** 插入数据库*/
+    $insertOneResult = $manager->executeBulkWrite('account.user', $bulkInsertUser, $writeConcern);
     var_dump($insertOneResult);
+    echo "--------------------------------9";
 }
-echo "--------------------------------9";
 
+echo "--------------------------------10";
 $res = new stdClass;
 $res['user_id'] = $user_id;
 
 var_dump(json_encode($res));
-
-
-
-//$restaurant = $database->restaurants->findOne([
-//    '_id' => new MongoDB\BSON\ObjectId('594d5ef280a846852a4b3f70'),
-//]);
