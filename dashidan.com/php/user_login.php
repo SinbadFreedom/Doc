@@ -93,7 +93,10 @@ $options = array(
 echo "--------------------------------3";
 $user = $manager->executeQuery('account.user', $query, $options);
 echo "--------------------------------4";
-var_dump($user);
+foreach($user as $r){
+    var_dump($r);
+}
+//var_dump($user);
 
 if ($user) {
     /** 老用户*/
