@@ -112,8 +112,7 @@ if ($user_info) {
         ['$inc' => ['user_id_now' => 1]],
         [
             'upsert' => true,
-            'projection' => ['user_id_now' => 1],
-            'returnDocument' => MongoDB\Operation\FindOneAndUpdate::RETURN_DOCUMENT_AFTER,
+            'projection' => ['user_id_now' => 1]
         ]
     );
     echo "--------------------------------7";
