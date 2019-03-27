@@ -11,7 +11,6 @@ $content = file_get_contents("php://input");
 $content = $content . '\n';
 file_put_contents($file, $content, FILE_APPEND);
 
-echo "--------------------------------0";
 if (isset($_POST['openid'])) {
     $openid = $_POST['openid'];
 } else {
@@ -87,13 +86,14 @@ $filter = ['openid' => $openid];
 $options = array(
     'limit' => 1
 );
-$query = new MongoDB\Driver\Query($filter, $options);
-$cursor = $manager->executeQuery('db_account.col_user', $query);
+$query_find = new MongoDB\Driver\Query($filter, $options);
+$cursor = $manager->executeQuery('db_account.col_user', $query_find);
 echo "--------------------------------4";
+$user_info = $cursor->toArray()[0];
 //var_dump($cursor);
-echo "--------------------------------4+";
-$iterator = new IteratorIterator($cursor);
-$user_info = $iterator->current();
+//echo "--------------------------------4+";
+//$iterator = new IteratorIterator($cursor);
+//$user_info = $iterator->current();
 echo "--------------------------------4++";
 var_dump($user_info);
 echo "--------------------------------4+++";
