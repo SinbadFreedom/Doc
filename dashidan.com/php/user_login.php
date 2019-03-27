@@ -12,25 +12,73 @@ $content = $content . '\n';
 file_put_contents($file, $content, FILE_APPEND);
 
 echo "--------------------------------0";
+if (isset($_POST['openid'])) {
+    $openid = $_POST['openid'];
+} else {
+    echo "param error 0";
+    return;
+}
 
-$openid = $_POST['openid'];
-$access_token = $_POST['access_token'];
-$refresh_token = $_POST['refresh_token'];
-$scope = $_POST['scope'];
+if (isset($_POST['access_token'])) {
+    $access_token = $_POST['access_token'];
+} else {
+    echo "param error 1";
+    return;
+}
 
-$headimgurl = $_POST['headimgurl'];
-$nickname = $_POST['nickname'];
-$sex = $_POST['sex'];
-$province = $_POST['province'];
-$city = $_POST['city'];
+if (isset($_POST['refresh_token'])) {
+    $refresh_token = $_POST['refresh_token'];
+} else {
+    echo "param error 2";
+    return;
+}
 
-$channel = $_POST['channel'];
+if (isset($_POST['scope'])) {
+    $scope = $_POST['scope'];
+} else {
+    echo "param error 3";
+    return;
+}
 
-echo "--------------------------------1";
+if (isset($_POST['headimgurl'])) {
+    $headimgurl = $_POST['headimgurl'];
+} else {
+    echo "param error 4";
+    return;
+}
 
+if (isset($_POST['nickname'])) {
+    $nickname = $_POST['nickname'];
+} else {
+    echo "param error 5";
+    return;
+}
 
-if (!$openid || !$access_token || $refresh_token || $scope || $headimgurl || $nickname || $sex || $province || $city || $channel) {
-    echo 'param error';
+if (isset($_POST['sex'])) {
+    $sex = $_POST['sex'];
+} else {
+    echo "param error 6";
+    return;
+}
+
+if (isset($_POST['province'])) {
+    $province = $_POST['province'];
+} else {
+    echo "param error 7";
+    return;
+}
+
+if (isset($_POST['city'])) {
+    $city = $_POST['city'];
+} else {
+    echo "param error 8";
+    return;
+}
+
+if (isset($_POST['channel'])) {
+    $channel = $_POST['channel'];
+} else {
+    echo "param error 9";
     return;
 }
 
