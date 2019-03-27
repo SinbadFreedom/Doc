@@ -6,6 +6,13 @@
  * Time: 11:27
  */
 
+$file  = 'log_' . date('Y-m-d H:i:s', time()) . '.txt';
+$content = file_get_contents("php://input");
+$content = $content . '\n';
+file_put_contents($file, $content, FILE_APPEND);
+
+echo "--------------------------------0";
+
 $openid = $_POST['openid'];
 $access_token = $_POST['access_token'];
 $refresh_token = $_POST['refresh_token'];
