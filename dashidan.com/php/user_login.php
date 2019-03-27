@@ -100,25 +100,26 @@ echo "--------------------------------4+++";
 if ($user_info) {
     /** 老用户*/
     echo "--------------------------------5";
-    $user_id = $user_info['user_id'];
 } else {
     /** 新用户*/
     echo "--------------------------------6";
     $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
-    $bulkIncreaseId = new MongoDB\Driver\BulkWrite();
-    echo "--------------------------------6+";
-    $bulkIncreaseId->update(
-        ['table' => 'inc_user_id'],
-        ['$inc' => ['user_id_now' => 1]],
-        [
-            'upsert' => true,
-            'projection' => ['user_id_now' => 1]
-        ]
+    $query = array(
+        "findandmodify" => "account.increase",
+        "query" => ['table' => 'inc_user_id'],
+        "update" =>  ['$inc' => ['user_id_now' => 1]],
+        'upsert' => true,
+        'new' => true,
+        'fields' => ['user_id_now' => 1]
     );
+    echo "--------------------------------6+";
+    $command = new MongoDB\Driver\Command($query);
     echo "--------------------------------7";
-    $increaseIdResult = $manager->executeBulkWrite('account.increase', $bulkIncreaseId, $writeConcern);
-    var_dump($increaseIdResult);
+    $commandRes = $manager->executeCommand('account.increase', $command);
+    var_dump($commandRes);
     echo "--------------------------------8";
+    $user_id = $commandRes['user_id'];
+    echo "--------------------------------8+";
     $bulkInsertUser = new MongoDB\Driver\BulkWrite();
     $bulkInsertUser->insert([
         'openid' => $openid,
@@ -144,6 +145,6 @@ if ($user_info) {
 
 echo "--------------------------------11";
 $res = new stdClass;
-$res['user_id'] = $user_id;
+$res->user_id = $user_id;
 
 var_dump(json_encode($res));
