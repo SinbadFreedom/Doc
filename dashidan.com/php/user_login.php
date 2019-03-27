@@ -86,12 +86,12 @@ $user_id = -1;
 $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 echo "--------------------------------2";
 $filter =  ['openid'=>$openid];
-$query = new MongoDB\Driver\Query($filter);
 $options = array(
     'limit' => 1
 );
+$query = new MongoDB\Driver\Query($filter, $options);
 echo "--------------------------------3";
-$user = $manager->executeQuery('account.user', $query, $options);
+$user = $manager->executeQuery('account.user', $query);
 echo "--------------------------------4";
 //foreach($user as $r){
 //    var_dump($r);
