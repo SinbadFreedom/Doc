@@ -88,7 +88,7 @@ $options = array(
     'limit' => 1
 );
 $query = new MongoDB\Driver\Query($filter, $options);
-$cursor = $manager->executeQuery('account.user', $query);
+$cursor = $manager->executeQuery('db_account.col_user', $query);
 echo "--------------------------------4";
 //var_dump($cursor);
 echo "--------------------------------4+";
@@ -105,7 +105,7 @@ if ($user_info) {
     echo "--------------------------------6";
     $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
     $query = array(
-        "findandmodify" => "account.increase",
+        "findandmodify" => "col_increase",
         "query" => ['table' => 'inc_user_id'],
         "update" =>  ['$inc' => ['user_id_now' => 1]],
         'upsert' => true,
@@ -115,7 +115,7 @@ if ($user_info) {
     echo "--------------------------------6+";
     $command = new MongoDB\Driver\Command($query);
     echo "--------------------------------7";
-    $commandRes = $manager->executeCommand('account.increase', $command);
+    $commandRes = $manager->executeCommand('db_account', $command);
     var_dump($commandRes);
     echo "--------------------------------8";
     $user_id = $commandRes['user_id'];
@@ -138,7 +138,7 @@ if ($user_info) {
     ]);
     echo "--------------------------------9";
     /** 插入数据库*/
-    $insertOneResult = $manager->executeBulkWrite('account.user', $bulkInsertUser, $writeConcern);
+    $insertOneResult = $manager->executeBulkWrite('db_account.col_user', $bulkInsertUser, $writeConcern);
     var_dump($insertOneResult);
     echo "--------------------------------10";
 }
