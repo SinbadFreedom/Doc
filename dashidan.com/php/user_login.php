@@ -81,6 +81,7 @@ if (isset($_POST['channel'])) {
     return;
 }
 $user_id = -1;
+$is_new = false;
 /** 根据openid 查找用户数据*/
 $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 $filter = ['openid' => $openid];
@@ -96,6 +97,7 @@ if ($user_info) {
     $user_id = $user_info->user_id;
 } else {
     /** 新用户*/
+    $is_new = true;
     $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);
     /** 生成自增id*/
     $query = array(
@@ -134,5 +136,6 @@ if ($user_info) {
 /** 返回用户id*/
 $res = new stdClass;
 $res->user_id = $user_id;
+$res->is_new = $is_new;
 
 echo json_encode($res);
