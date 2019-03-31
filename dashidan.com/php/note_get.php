@@ -101,7 +101,7 @@ if ($noteCount > 0) {
     <meta charset="UTF-8">
 </head>
 <body>
-该文章尚未有笔记记录。登录应用点击添加。
+该文章尚没有笔记。点击编辑添加。
 </body>
 </html>';
 }
