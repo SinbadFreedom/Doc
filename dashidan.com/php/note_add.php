@@ -43,7 +43,7 @@ $db_collection_name = 'python3.note_' . $num;
 
 $manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
 $bulk = new MongoDB\Driver\BulkWrite;
-$bulk->insert(['num' => $num, 'note' => $note, 'openid' => $open_id, 'userid' => $user_id, 'name' => $nick_name, 'time' => $time]);
+$bulk->insert(['note' => $note, 'openid' => $open_id, 'userid' => $user_id, 'name' => $nick_name, 'time' => $time]);
 
 $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);//可选，修改确认
 $res = $manager->executeBulkWrite($db_collection_name, $bulk, $writeConcern);

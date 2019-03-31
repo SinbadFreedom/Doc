@@ -58,7 +58,7 @@ if ($noteCount > 0) {
 
         $note_list_content .= '<li class="row">'
             . '<div>'
-            . '<img src="../head_img/'. $open_id.  '.jpg" width="132px" height="132px">'
+            . '<img src="../head_img/'. $open_id.  '.jpg" width="50px" height="50px">'
             . '<p class="text-center">'
             . $nick_name
             . '</p>'
