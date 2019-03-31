@@ -35,23 +35,22 @@ if ($noteCount > 0) {
     $cursor = $manager->executeQuery($db_name . '.' . $col_name, $query);
     //TODO 笔记数据分页
     /**
-    <li style="display: flex">
-    <div>
-    <img src="" width="50px" height="50px">
-    <p class="text-center">
-    名字
-    </p>
-    </div>
-    <div>
-    <div style="text-align: right">
-    2018-08-08
-    </div>
-    <div>
-    这里是笔记内容
-    </div>
-    </div>
-    </li>
-
+     * <li style="display: flex">
+     * <div>
+     * <img src="" width="50px" height="50px">
+     * <p class="text-center">
+     * 名字
+     * </p>
+     * </div>
+     * <div>
+     * <div style="text-align: right">
+     * 2018-08-08
+     * </div>
+     * <div>
+     * 这里是笔记内容
+     * </div>
+     * </div>
+     * </li>
      */
     $note_list_content = '<ul>';
     foreach ($cursor as $doc) {
@@ -64,21 +63,21 @@ if ($noteCount > 0) {
 
         $note_list_content .= '<li style="display: flex">'
             . '<div>'
-            . '<img class="img-responsive center-block" src="../head_img/'. $open_id.  '.jpg" width="50px" height="50px">'
+            . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
             . '<p class="text-center">'
             . $nick_name
             . '</p>'
             . '</div>'
             . '<div style="width: 100%">'
             . '<div class="text-right">'
-            . date("Y-m-d",$time)
+            . date("Y-m-d H:i:s", $time)
             . '</div>'
             . '<div>'
             . $note
             . '</div>'
             . '</div>'
             . '</li>';
-            
+
     }
     $note_list_content .= '</ul>';
 
