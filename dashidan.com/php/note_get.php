@@ -63,13 +63,13 @@ if ($noteCount > 0) {
         $time = $doc->time;
 
         $note_list_content .= '<li style="display: flex">'
-            . '<div class="col-1">'
+            . '<div>'
             . '<img class="img-responsive center-block" src="../head_img/'. $open_id.  '.jpg" width="50px" height="50px">'
             . '<p class="text-center">'
             . $nick_name
             . '</p>'
             . '</div>'
-            . '<div class="col-11">'
+            . '<div>'
             . '<div class="text-right">'
             . date("Y-m-d",$time)
             . '</div>'
