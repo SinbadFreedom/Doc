@@ -69,7 +69,7 @@ if ($noteCount > 0) {
             . $nick_name
             . '</p>'
             . '</div>'
-            . '<div>'
+            . '<div style="width: 100%">'
             . '<div class="text-right">'
             . date("Y-m-d",$time)
             . '</div>'
