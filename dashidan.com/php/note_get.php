@@ -7,26 +7,90 @@
  */
 
 $num = $_GET['num'];
-//TODO check num is number format
-if (!$num) {
-    return;
-}
 
-/** collection name*/;
-$db_collection_name = 'python3.note_' . $num;
+if (!is_numeric($num)) {
+    echo 'param error 0';
+    return;
+}/** collection name*/;
+$db_name = 'python3';
+$col_name = 'note_' . $num;
 
 $manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
-$query = new MongoDB\Driver\Query(['num' => $num]);
-$cursor = $manager->executeQuery($db_collection_name, $query);
 
-$data = [];
-foreach ($cursor as $doc) {
-    array_push($data, $doc);
-}
+//$collection = new MongoDB\Collection($manager, $db_name, $col_name);
+//$noteCount = $collection->count([]);
 
-//TODO 笔记数据分页
-if (sizeof($data) > 0) {
-    echo json_encode($data);
+$query = array(
+    "count" => $col_name,
+    "query" => [],
+);
+$command = new MongoDB\Driver\Command($query);
+$command_cursor = $manager->executeCommand($db_name, $command);
+/** 笔记总条数*/
+$noteCount = $command_cursor->toArray()[0]->n;
+
+
+if ($noteCount > 0) {
+    $query = new MongoDB\Driver\Query([]);
+    $cursor = $manager->executeQuery($db_name . '.' . $col_name, $query);
+    //TODO 笔记数据分页
+    /**
+    <li class="row">
+    <div>
+    <img src="" width="132px" height="132px">
+    <p class="text-center">
+    名字
+    </p>
+    </div>
+    <div >
+    这里是笔记内容
+    </div>
+    </li>
+
+     */
+    $note_list_content = '<ul>';
+    foreach ($cursor as $doc) {
+
+        $note = $doc->note;
+        $open_id = $doc->openid;
+        $user_id = $doc->userid;
+        $nick_name = $doc->name;
+
+        $note_list_content .= '<li class="row">'
+            . '<div>'
+            . '<img src="../head_img/'. $open_id.  '.jpg" width="132px" height="132px">'
+            . '<p class="text-center">'
+            . $nick_name
+            . '</p>'
+            . '</div>'
+            . '<div>'
+            . $note
+            . '</div>'
+            . '</li>';
+            
+    }
+    $note_list_content .= '</ul>';
+
+    echo '<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://dashidan.com/and_doc/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="https://dashidan.com/and_doc/lib/google-code-prettify/run_prettify.js"></script>
+    <link rel="stylesheet" href="../css/dashidan.css">
+</head>
+<body>
+' . $note_list_content . '
+</body>
+</html>';
 } else {
-    echo "";
+    echo '<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+该文章尚未有笔记记录。登录应用点击添加。
+</body>
+</html>';
 }
