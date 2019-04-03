@@ -55,5 +55,5 @@ if ($response->value) {
 }
 echo '-----------------3';
 //$res->state = 1;
-var_dump($res);
-json_encode($res);
+//var_dump($res);
+echo json_encode($res);
