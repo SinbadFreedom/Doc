@@ -5,6 +5,11 @@
  * Date: 2019/3/20
  * Time: 1:03
  */
+$file = 'note_add_' . date('Y-m-d', time()) . '.txt';
+$content = file_get_contents("php://input");
+$content = $content . "\n";
+file_put_contents($file, $content, FILE_APPEND);
+
 $num = $_POST['num'];
 $note = $_POST['note'];
 $open_id = $_POST['openid'];

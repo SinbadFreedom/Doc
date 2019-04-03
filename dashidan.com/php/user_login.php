@@ -6,9 +6,9 @@
  * Time: 11:27
  */
 
-$file = 'log_' . date('Y-m-d', time()) . '.txt';
+$file = 'user_login_' . date('Y-m-d', time()) . '.txt';
 $content = file_get_contents("php://input");
-$content = $content . '\n';
+$content = $content . "\n";
 file_put_contents($file, $content, FILE_APPEND);
 
 if (isset($_POST['openid'])) {

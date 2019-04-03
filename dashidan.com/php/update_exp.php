@@ -6,9 +6,13 @@
  * Time: 16:42
  */
 
+$file = 'update_exp_' . date('Y-m-d', time()) . '.txt';
+$content = file_get_contents("php://input");
+$content = $content . "\n";
+file_put_contents($file, $content, FILE_APPEND);
+
 $open_id = $_POST['openid'];
 $user_id = $_POST['userid'];
-
 
 if (!$open_id) {
     echo 'param error 1';
