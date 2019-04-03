@@ -31,7 +31,7 @@ $can_edit_time = time() - 60;
 $query = array(
     "findandmodify" => "col_user",
     "query" => ['openid' => $open_id, 'exp_time' => ['$lt' => $can_edit_time]],
-    "update" => ['$inc' => ['exp' => 1]],
+    "update" => ['$inc' => ['exp' => 1], 'exp_time' => time()],
     'upsert' => false,
 //    'new' => false,
     'fields' => ['exp' => 1]
