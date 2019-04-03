@@ -107,7 +107,6 @@ if ($user_info) {
         "query" => ['table' => 'inc_user_id'],
         "update" => ['$inc' => ['user_id_now' => 1]],
         'upsert' => true,
-//        'new' => true,
         'fields' => ['user_id_now' => 1]
     );
     $command = new MongoDB\Driver\Command($query);

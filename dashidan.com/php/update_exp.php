@@ -33,7 +33,6 @@ $query = array(
     "query" => ['openid' => $open_id, 'exp_time' => ['$lt' => $can_edit_time]],
     "update" => ['$inc' => ['exp' => 1], '$set' => ['exp_time' => $time_stamp]],
     'upsert' => false,
-//    'new' => false,
     'fields' => ['exp' => 1]
 );
 
@@ -41,9 +40,6 @@ $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 $command = new MongoDB\Driver\Command($query);
 $command_cursor = $manager->executeCommand('db_account', $command);
 $response = $command_cursor->toArray()[0];
-echo '-----------------1';
-var_dump($response);
-echo '-----------------2';
 /** 获取新用户id*/
 $res = new stdClass();
 if ($response->value) {
@@ -53,7 +49,4 @@ if ($response->value) {
 } else {
     $res->state = -1;
 }
-echo '-----------------3';
-//$res->state = 1;
-//var_dump($res);
 echo json_encode($res);
