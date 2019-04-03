@@ -81,6 +81,7 @@ if (isset($_POST['channel'])) {
     return;
 }
 $user_id = -1;
+$exp = 1;
 $is_new = false;
 /** 根据openid 查找用户数据*/
 $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
@@ -95,6 +96,7 @@ $user_info = $cursor->toArray()[0];
 if ($user_info) {
     /** 老用户*/
     $user_id = $user_info->user_id;
+    $exp = $user_info->exp;
 } else {
     /** 新用户*/
     $is_new = true;
@@ -105,7 +107,7 @@ if ($user_info) {
         "query" => ['table' => 'inc_user_id'],
         "update" =>  ['$inc' => ['user_id_now' => 1]],
         'upsert' => true,
-        'new' => true,
+//        'new' => true,
         'fields' => ['user_id_now' => 1]
     );
     $command = new MongoDB\Driver\Command($query);
@@ -129,6 +131,9 @@ if ($user_info) {
 
         'channel' => $channel,
         'user_id' => $user_id,
+        'exp' => $exp,
+        'exp_time' => time(),
+        'create_time' => time()
     ]);
     /** 插入数据库*/
     $insertOneResult = $manager->executeBulkWrite('db_account.col_user', $bulkInsertUser, $writeConcern);
@@ -137,5 +142,6 @@ if ($user_info) {
 $res = new stdClass;
 $res->user_id = $user_id;
 $res->is_new = $is_new;
+$res->exp = $exp;
 
 echo json_encode($res);
