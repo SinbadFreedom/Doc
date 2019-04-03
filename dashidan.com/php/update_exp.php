@@ -30,8 +30,8 @@ $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJ
 $can_edit_time = time() - 60 * 1000;
 $query = array(
     "findandmodify" => "col_user",
-    "query" => ['openid' => $open_id, 'exp_time' => ['$lt' => $can_edit_time ]],
-    "update" =>  ['$inc' => ['exp' => 1]],
+    "query" => ['openid' => $open_id, 'exp_time' => ['$lt' => $can_edit_time]],
+    "update" => ['$inc' => ['exp' => 1]],
     'upsert' => false,
 //    'new' => false,
     'fields' => ['exp' => 1]
@@ -45,10 +45,15 @@ echo '-----------------1';
 var_dump($response);
 echo '-----------------2';
 /** 获取新用户id*/
-$exp = $response->value->exp;
-echo '-----------------3';
 $res = new stdClass();
+if ($response->value) {
+    $res->state = 0;
+    $exp = $response->value->exp;
+    $res->exp = $exp;
+} else {
+    $res->state = -1;
+}
+echo '-----------------3';
 //$res->state = 1;
-$res->exp = $exp;
-
+var_dump($res);
 json_encode($res);

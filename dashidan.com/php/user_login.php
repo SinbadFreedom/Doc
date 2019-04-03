@@ -105,7 +105,7 @@ if ($user_info) {
     $query = array(
         "findandmodify" => "col_increase",
         "query" => ['table' => 'inc_user_id'],
-        "update" =>  ['$inc' => ['user_id_now' => 1]],
+        "update" => ['$inc' => ['user_id_now' => 1]],
         'upsert' => true,
 //        'new' => true,
         'fields' => ['user_id_now' => 1]
