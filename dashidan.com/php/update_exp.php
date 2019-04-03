@@ -5,8 +5,8 @@
  * Date: 2019/4/3
  * Time: 16:42
  */
-
-$file = 'log_update_exp_' . date('Y-m-d', time()) . '.txt';
+$time_stamp = time();
+$file = 'log_update_exp_' . date('Y-m-d', $time_stamp) . '.txt';
 $content = file_get_contents("php://input");
 $content = $content . "\n";
 file_put_contents($file, $content, FILE_APPEND);
@@ -27,11 +27,11 @@ if (!$user_id) {
 $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);
 /** 生成自增id*/
 /** 有效更新时间，间隔至少1分钟*/
-$can_edit_time = time() - 60;
+$can_edit_time = $time_stamp - 60;
 $query = array(
     "findandmodify" => "col_user",
     "query" => ['openid' => $open_id, 'exp_time' => ['$lt' => $can_edit_time]],
-    "update" => ['$inc' => ['exp' => 1], 'exp_time' => time()],
+    "update" => ['$inc' => ['exp' => 1], '$set' => ['exp_time' => $time_stamp]],
     'upsert' => false,
 //    'new' => false,
     'fields' => ['exp' => 1]
