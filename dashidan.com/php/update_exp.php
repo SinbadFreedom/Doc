@@ -27,7 +27,7 @@ if (!$user_id) {
 $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 3000);
 /** 生成自增id*/
 /** 有效更新时间，间隔至少1分钟*/
-$can_edit_time = time() - 60 * 1000;
+$can_edit_time = time() - 60;
 $query = array(
     "findandmodify" => "col_user",
     "query" => ['openid' => $open_id, 'exp_time' => ['$lt' => $can_edit_time]],
