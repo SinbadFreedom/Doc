@@ -6,7 +6,7 @@
  * Time: 16:42
  */
 
-$file = 'update_exp_' . date('Y-m-d', time()) . '.txt';
+$file = 'log_update_exp_' . date('Y-m-d', time()) . '.txt';
 $content = file_get_contents("php://input");
 $content = $content . "\n";
 file_put_contents($file, $content, FILE_APPEND);
@@ -36,12 +36,17 @@ $query = array(
 //    'new' => false,
     'fields' => ['exp' => 1]
 );
+
+$manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 $command = new MongoDB\Driver\Command($query);
 $command_cursor = $manager->executeCommand('db_account', $command);
 $response = $command_cursor->toArray()[0];
+echo '-----------------1';
+var_dump($response);
+echo '-----------------2';
 /** 获取新用户id*/
 $exp = $response->value->exp;
-
+echo '-----------------3';
 $res = new stdClass();
 //$res->state = 1;
 $res->exp = $exp;
