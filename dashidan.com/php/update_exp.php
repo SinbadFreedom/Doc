@@ -33,6 +33,7 @@ $query = array(
     "query" => ['openid' => $open_id, 'exp_time' => ['$lt' => $can_edit_time]],
     "update" => ['$inc' => ['exp' => 1], '$set' => ['exp_time' => $time_stamp]],
     'upsert' => false,
+    'new' => true,
     'fields' => ['exp' => 1]
 );
 
