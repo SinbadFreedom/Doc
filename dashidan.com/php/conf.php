@@ -8,7 +8,7 @@
 
 $conf = new stdClass();
 /** 1级经验为9，数组下边做为等级，每级涨10%，总经验，不是当前级别经验*/
-$conf->rankConf = [9,
+$conf->exp_conf = [9,
     19,
     30,
     42,
