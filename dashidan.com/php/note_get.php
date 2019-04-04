@@ -6,12 +6,31 @@
  * Time: 12:20
  */
 
+$open_id = $_GET['openid'];
+$user_id = $_GET['userid'];
 $num = $_GET['num'];
 
-if (!is_numeric($num)) {
-    echo 'param error 0';
+if (!$open_id) {
+    echo 'param error 1';
     return;
-}/** collection name*/;
+}
+
+if (!$user_id) {
+    echo 'param error 2';
+    return;
+}
+
+if (!is_numeric($num)) {
+    echo 'param error 3';
+    return;
+}
+
+$time_stamp = time();
+$file = 'log_note_get_' . date('Y-m-d', $time_stamp) . '.txt';
+$content = "$open_id " . " $user_id " . " $num" . " $time_stamp\n";;
+file_put_contents($file, $content, FILE_APPEND);
+
+/** collection name*/;
 $db_name = 'python3';
 $col_name = 'note_' . $num;
 

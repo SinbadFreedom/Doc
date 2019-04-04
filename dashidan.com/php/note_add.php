@@ -5,9 +5,10 @@
  * Date: 2019/3/20
  * Time: 1:03
  */
-$file = 'log_note_add_' . date('Y-m-d', time()) . '.txt';
+$time_stamp = time();
+$file = 'log_note_add_' . date('Y-m-d', $time_stamp) . '.txt';
 $content = file_get_contents("php://input");
-$content = $content . "\n";
+$content = $content . " $time_stamp\n";
 file_put_contents($file, $content, FILE_APPEND);
 
 $num = $_POST['num'];
