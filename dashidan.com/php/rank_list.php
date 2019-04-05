@@ -6,25 +6,6 @@
  * Time: 10:02
  */
 
-if (!isset($_GET['openid'])) {
-    echo 'param error 1';
-    return;
-}
-
-if (!isset($_GET['userid'])) {
-    echo 'param error 2';
-    return;
-}
-
-if (!isset($_GET['type'])) {
-    echo 'param error 3';
-    return;
-}
-
-$open_id = $_GET['openid'];
-$user_id = $_GET['userid'];
-$type = $_GET['type'];
-
 const TYPE_TODAY = 1;
 const TYPE_YESTERDAY = 2;
 const TYPE_WEEK = 3;
@@ -33,11 +14,21 @@ const TYPE_MONTH = 5;
 const TYPE_MONTH_LAST = 6;
 const TYPE_ALL = 7;
 
+/** 排行榜类型 默认今日*/
+$type = TYPE_TODAY;
+if (isset($_GET['type'])) {
+    $type = $_GET['type'];
+}
 
 $time_stamp = time();
 $today = date('Y-m-d', $time_stamp);
 $file = 'log_rank_list_' . $today . '.log';
-$content = 'openid ' . $open_id . ' userid ' . $user_id . ' type ' . $type . " $time_stamp\n";
+if (isset($_GET['userid'])) {
+    $user_id = $_GET['userid'];
+    $content = ' userid ' . $user_id . ' type ' . $type . " $time_stamp\n";
+} else {
+    $content = ' type ' . $type . " $time_stamp\n";
+}
 file_put_contents($file, $content, FILE_APPEND);
 
 
@@ -94,7 +85,6 @@ if ($key) {
         foreach ($rank_list as $value) {
 
             $open_id = $value->openid;
-            $user_id = $value->userid;
             $nick_name = $value->nickname;
             $exp = $value->exp;
 
