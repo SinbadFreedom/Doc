@@ -72,7 +72,6 @@ switch ($type) {
 
 if ($key) {
     $res = $redis->get($key);
-    var_dump($res);
     $rank_list = json_decode($res);
     if (sizeof($rank_list) > 0) {
 
