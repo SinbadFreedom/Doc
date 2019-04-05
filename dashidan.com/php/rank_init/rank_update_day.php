@@ -31,19 +31,16 @@ $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 /** 获取对用排行榜数据,前100名 每日更新 昨日，上周，上月*/
 /** ['val0' => 0, 'val2' => 2, 'val10' => 10] */
 $res_2 = $redis->zRange($col_yesterday, 0, 99, true);
-getUserInfo($res_2, $manager);
-$redis->set("rank_yesterday", json_encode($res_2));
+getUserInfo($res_2, $manager, $redis, "rank_yesterday");
 $res_4 = $redis->zRange($col_week_last, 0, 99, true);
-getUserInfo($res_4, $manager);
-$redis->set("rank_week_last", json_encode($res_4));
+getUserInfo($res_4, $manager, $redis, "rank_week_last");
 $res_6 = $redis->zRange($col_month_last, 0, 99, true);
-getUserInfo($res_6, $manager);
-$redis->set("rank_month_last", json_encode($res_6));
+getUserInfo($res_6, $manager, $redis, "rank_month_last");
 
-
-/** 参数加入& 采用引用传递，修改传入参数的值*/
-function getUserInfo(&$res, $manager)
+/** 将玩家信息加入redis 排行榜中，更新redis排行榜数据*/
+function getUserInfo($res, $manager, $redis, $redis_key)
 {
+    $info_arr = [];
     foreach ($res as $key => $value) {
         $filter = ['user_id' => $key];
         $options = array(
@@ -57,7 +54,10 @@ function getUserInfo(&$res, $manager)
         $info->exp = $value;
         $info->nickname = $user_info->nickname;
         $info->openid = $user_info->openid;
-        /** 将原玩家id转化为玩家信息对象*/
-        $res[$key] = $info;
+        $info->userid = $key;
+        /** 将原玩家id转化为玩家信息对象, 存入数组*/
+        array_push($info_arr, $info);
     }
+    /** 存入redis*/
+    $redis->set($redis_key, json_encode($info_arr));
 }

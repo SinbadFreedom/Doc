@@ -72,7 +72,67 @@ switch ($type) {
 
 if ($key) {
     $res = $redis->get($key);
-    echo json_encode($res);
-} else {
-    echo "ERROR, type " . $type;
+    var_dump($res);
+    $rank_list = json_decode($res);
+    if (sizeof($rank_list) > 0) {
+
+        /**
+         * <ul>
+         * <li style="display: flex">
+         * <div class="col-md-4 col-sm-4 col-xs-4">
+         * <img class="img-responsive center-block" src="" width="50px" height="50px">
+         * </div>
+         * <div class="col-md-4 col-sm-4 col-xs-4">
+         * 姓名
+         * </div>
+         * <div class="col-md-4 col-sm-4 col-xs-4">
+         * 经验
+         * </div>
+         * </li>
+         * </ul>
+         */
+        $note_list_content = '<ul>';
+        foreach ($rank_list as $value) {
+
+            $open_id = $value->openid;
+            $user_id = $value->userid;
+            $nick_name = $value->nickname;
+            $exp = $value->exp;
+
+            $note_list_content .= '<li style="display: flex">'
+                . '<div class="col-md-4 col-sm-4 col-xs-4">'
+                . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
+                . '</div>'
+                . '<div class="col-md-4 col-sm-4 col-xs-4">'
+                . $nick_name
+                . '</div>'
+                . '<div class="col-md-4 col-sm-4 col-xs-4">'
+                . $exp
+                . '</div>'
+                . '</li>';
+        }
+        $note_list_content .= '</ul>';
+    } else {
+        echo " rank list null";
+    }
 }
+?>
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://dashidan.com/and_doc/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="https://dashidan.com/and_doc/lib/google-code-prettify/run_prettify.js"></script>
+    <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
+</head>
+<body>
+<div class="col-md-12 text-center">
+    <h2>今日排行榜</h2>
+</div>
+<div class="col-md-12 text-center">
+    <?php
+    echo $note_list_content;
+    ?>
+</div>
+</body>
+</html>
