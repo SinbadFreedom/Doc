@@ -32,8 +32,10 @@ $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 /** ['val0' => 0, 'val2' => 2, 'val10' => 10] */
 $res_2 = $redis->zRange($col_yesterday, 0, 99, true);
 getUserInfo($res_2, $manager, $redis, "rank_yesterday");
+
 $res_4 = $redis->zRange($col_week_last, 0, 99, true);
 getUserInfo($res_4, $manager, $redis, "rank_week_last");
+
 $res_6 = $redis->zRange($col_month_last, 0, 99, true);
 getUserInfo($res_6, $manager, $redis, "rank_month_last");
 

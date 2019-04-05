@@ -37,34 +37,42 @@ $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
 
 $key = null;
+$title = "排行榜";
 switch ($type) {
     case TYPE_TODAY:
         $key = 'rank_today';
+        $title = "今日排行榜";
         break;
     case TYPE_YESTERDAY:
         $key = 'rank_yesterday';
+        $title = "昨日排行榜";
         break;
     case TYPE_WEEK:
         $key = 'rank_week';
+        $title = "本周排行榜";
         break;
     case TYPE_WEEK_LAST:
         $key = 'rank_week_last';
+        $title = "上周排行榜";
         break;
     case TYPE_MONTH:
         $key = 'rank_month';
+        $title = "本月排行榜";
         break;
     case TYPE_MONTH_LAST:
         $key = 'rank_month_last';
+        $title = "上月排行榜";
         break;
     case TYPE_ALL:
         $key = 'rank_all';
+        $title = "总排行榜";
         break;
 }
 
 if ($key) {
     $res = $redis->get($key);
     $rank_list = json_decode($res);
-    if (sizeof($rank_list) > 0) {
+    if ($rank_list && sizeof($rank_list) > 0) {
 
         /**
          * <ul>
@@ -102,7 +110,7 @@ if ($key) {
         }
         $note_list_content .= '</ul>';
     } else {
-        echo " rank list null";
+        $note_list_content = "尚没有排行榜数据，敬请期待。昨日排行榜每日更新，上周排行榜每周更新，上月排行榜每月更新。";
     }
 }
 ?>
@@ -116,7 +124,9 @@ if ($key) {
 </head>
 <body>
 <div class="col-md-12 text-center">
-    <h2>今日排行榜</h2>
+    <h2>
+        <?php echo $title; ?>
+    </h2>
 </div>
 <div class="col-md-12 text-center">
     <?php

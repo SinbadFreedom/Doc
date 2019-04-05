@@ -36,16 +36,15 @@ $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 /** ['val0' => 0, 'val2' => 2, 'val10' => 10] */
 $res_1 = $redis->zRange($col_today, 0, 99, true);
 getUserInfo($res_1, $manager, $redis, "rank_today");
-//$redis->set("rank_today", json_encode($res_1));
+
 $res_3 = $redis->zRange($col_week, 0, 99, true);
 getUserInfo($res_3, $manager, $redis, "rank_week");
-//$redis->set("rank_week", json_encode($res_3));
+
 $res_5 = $redis->zRange($col_month, 0, 99, true);
 getUserInfo($res_5, $manager, $redis, "rank_month");
-$redis->set("rank_month", json_encode($res_5));
+
 $res_7 = $redis->zRange($col_all, 0, 99, true);
 getUserInfo($res_7, $manager, $redis, "rank_all");
-$redis->set("rank_all", json_encode($res_7));
 
 /** 将玩家信息加入redis 排行榜中，更新redis排行榜数据*/
 function getUserInfo($res, $manager, $redis, $redis_key)
