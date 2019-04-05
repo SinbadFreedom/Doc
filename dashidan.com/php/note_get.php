@@ -6,22 +6,30 @@
  * Time: 12:20
  */
 
-$open_id = $_GET['openid'];
-$user_id = $_GET['userid'];
-$num = $_GET['num'];
 
-if (!$open_id) {
+
+if (!isset($_GET['openid'])) {
     echo 'param error 1';
     return;
 }
 
-if (!$user_id) {
+if (!isset($_GET['userid'])) {
     echo 'param error 2';
     return;
 }
 
-if (!is_numeric($num)) {
+if (!isset($_GET['num'])) {
     echo 'param error 3';
+    return;
+}
+
+$open_id = $_GET['openid'];
+$user_id = $_GET['userid'];
+$num = $_GET['num'];
+
+
+if (!is_numeric($num)) {
+    echo 'param error 4';
     return;
 }
 

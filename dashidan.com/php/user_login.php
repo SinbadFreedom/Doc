@@ -12,75 +12,67 @@ $content = file_get_contents("php://input");
 $content = $content . " $time_stamp\n";
 file_put_contents($file, $content, FILE_APPEND);
 
-if (isset($_POST['openid'])) {
-    $openid = $_POST['openid'];
-} else {
+if (!isset($_POST['openid'])) {
     echo "param error 0";
     return;
 }
 
-if (isset($_POST['access_token'])) {
-    $access_token = $_POST['access_token'];
-} else {
+if (!isset($_POST['access_token'])) {
     echo "param error 1";
     return;
 }
 
-if (isset($_POST['refresh_token'])) {
-    $refresh_token = $_POST['refresh_token'];
-} else {
+if (!isset($_POST['refresh_token'])) {
     echo "param error 2";
     return;
 }
 
-if (isset($_POST['scope'])) {
-    $scope = $_POST['scope'];
-} else {
-    echo "param error 3";
+if (!isset($_POST['scope'])) {
     return;
 }
 
-if (isset($_POST['headimgurl'])) {
-    $headimgurl = $_POST['headimgurl'];
-} else {
+if (!isset($_POST['headimgurl'])) {
     echo "param error 4";
     return;
 }
 
-if (isset($_POST['nickname'])) {
-    $nickname = $_POST['nickname'];
-} else {
+if (!isset($_POST['nickname'])) {
     echo "param error 5";
     return;
 }
 
-if (isset($_POST['sex'])) {
-    $sex = $_POST['sex'];
-} else {
+if (!isset($_POST['sex'])) {
     echo "param error 6";
     return;
 }
 
-if (isset($_POST['province'])) {
-    $province = $_POST['province'];
-} else {
+if (!isset($_POST['province'])) {
     echo "param error 7";
     return;
 }
 
-if (isset($_POST['city'])) {
-    $city = $_POST['city'];
-} else {
+if (!isset($_POST['city'])) {
     echo "param error 8";
     return;
 }
 
-if (isset($_POST['channel'])) {
-    $channel = $_POST['channel'];
-} else {
+if (!isset($_POST['channel'])) {
     echo "param error 9";
     return;
 }
+
+$scope = $_POST['scope'];
+$openid = $_POST['openid'];
+$access_token = $_POST['access_token'];
+$refresh_token = $_POST['refresh_token'];
+$headimgurl = $_POST['headimgurl'];
+$nickname = $_POST['nickname'];
+$sex = $_POST['sex'];
+$province = $_POST['province'];
+$city = $_POST['city'];
+$channel = $_POST['channel'];
+
+
 $user_id = -1;
 $exp = 1;
 $is_new = false;
@@ -133,8 +125,8 @@ if ($user_info) {
         'channel' => $channel,
         'user_id' => $user_id,
         'exp' => $exp,
-        'exp_time' => time(),
-        'create_time' => time()
+        'exp_time' => $time_stamp,
+        'create_time' => $time_stamp
     ]);
     /** 插入数据库*/
     $insertOneResult = $manager->executeBulkWrite('db_account.col_user', $bulkInsertUser, $writeConcern);
