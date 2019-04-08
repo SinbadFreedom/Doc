@@ -9,21 +9,39 @@
 <body>
 <div class="col-md-12 text-center">
     <h2>今日排行榜</h2>
+    <p class="text-right">
+        每分钟更新
+    </p>
 </div>
-<div class="col-md-12 text-center">
-    <ul>
-        <li style="display: flex">
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <img class="img-responsive center-block" src="" width="50px" height="50px">
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                姓名
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                经验
-            </div>
-        </li>
-    </ul>
-</div>
+<table class="table">
+    <thead>
+    <tr class="table-active">
+        <th>排名</th>
+        <th>头像</th>
+        <th>昵称</th>
+        <th>经验</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-danger">
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr class="table-warning">
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
