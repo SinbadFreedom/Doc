@@ -84,7 +84,7 @@ if ($key) {
          */
         $note_list_content = '<table class="table">
 <thead>
-        <tr>
+        <tr class="table-active">
             <th>等级</th>
             <th>头像</th>
             <th>昵称</th>
@@ -102,13 +102,13 @@ if ($key) {
             /** 前三名的格式特殊处理*/
             switch ($rank) {
                 case 1:
-                    $note_list_content .= '<tr class="danger">';
+                    $note_list_content .= '<tr class="table-danger">';
                     break;
                 case 2:
-                    $note_list_content .= '<tr class="warning">';
+                    $note_list_content .= '<tr class="table-warning">';
                     break;
                 case 3:
-                    $note_list_content .= '<tr class="success">';
+                    $note_list_content .= '<tr class="table-success">';
                     break;
                 default:
                     $note_list_content .= '<tr>';
