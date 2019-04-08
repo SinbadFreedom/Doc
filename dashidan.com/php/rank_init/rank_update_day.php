@@ -62,4 +62,6 @@ function getUserInfo($res, $manager, $redis, $redis_key)
     }
     /** 存入redis*/
     $redis->set($redis_key, json_encode($info_arr));
+    /** 输出*/
+    var_dump($info_arr);
 }

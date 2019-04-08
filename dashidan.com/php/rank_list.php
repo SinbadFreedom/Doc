@@ -75,40 +75,57 @@ if ($key) {
     if ($rank_list && sizeof($rank_list) > 0) {
 
         /**
-         * <ul>
-         * <li style="display: flex">
-         * <div class="col-md-4 col-sm-4 col-xs-4">
-         * <img class="img-responsive center-block" src="" width="50px" height="50px">
-         * </div>
-         * <div class="col-md-4 col-sm-4 col-xs-4">
-         * 姓名
-         * </div>
-         * <div class="col-md-4 col-sm-4 col-xs-4">
-         * 经验
-         * </div>
-         * </li>
-         * </ul>
+         * <tr>
+         * <th scope="row">1</th>
+         * <td>头像</td>
+         * <td>Sinbad</td>
+         * <td>95</td>
+         * </tr>
          */
-        $note_list_content = '<ul>';
+        $note_list_content = '<table class="table table-striped">
+<thead>
+        <tr>
+            <th>等级</th>
+            <th>头像</th>
+            <th>昵称</th>
+            <th>经验</th>
+        </tr>
+        </thead>
+        <tbody>';
+        $rank = 1;
         foreach ($rank_list as $value) {
 
             $open_id = $value->openid;
             $nick_name = $value->nickname;
             $exp = $value->exp;
 
-            $note_list_content .= '<li style="display: flex">'
-                . '<div class="col-md-4 col-sm-4 col-xs-4">'
-                . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
-                . '</div>'
-                . '<div class="col-md-4 col-sm-4 col-xs-4">'
-                . $nick_name
-                . '</div>'
-                . '<div class="col-md-4 col-sm-4 col-xs-4">'
-                . $exp
-                . '</div>'
-                . '</li>';
+            /** 前三名的格式特殊处理*/
+            switch ($rank) {
+                case 1:
+                    $note_list_content .= '<tr class="danger">';
+                    break;
+                case 2:
+                    $note_list_content .= '<tr class="warning">';
+                    break;
+                case 3:
+                    $note_list_content .= '<tr class="success">';
+                    break;
+                default:
+                    $note_list_content .= '<tr>';
+                    break;
+            }
+
+            $note_list_content . '<th scope="row">' . $rank . '</th>'
+            . '<td>'
+            . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
+            . '</td>'
+            . '<td>' . $nick_name . '</td>'
+            . '<td>' . $exp . '</td>'
+            . '</tr>';
+
+            $rank++;
         }
-        $note_list_content .= '</ul>';
+        $note_list_content .= '</tbody></table>';
     } else {
         $note_list_content = "<p>尚没有排行榜数据，敬请期待。</p><p>昨日排行榜每日更新，上周排行榜每周更新，上月排行榜每月更新。</p>";
     }
