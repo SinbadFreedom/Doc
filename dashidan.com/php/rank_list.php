@@ -140,13 +140,13 @@ if ($key) {
     <link rel="stylesheet" href="https://dashidan.com/css/dashidan.css">
 </head>
 <body>
-<div class="col-md-12 text-center">
+<div class="text-center">
     <h2>
         <?php echo $title; ?>
     </h2>
 </div>
 
-<div class="col-md-12 text-center">
+<div class="text-center">
     <?php
     echo $note_list_content;
     ?>
