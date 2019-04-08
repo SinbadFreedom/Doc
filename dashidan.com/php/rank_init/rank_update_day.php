@@ -21,7 +21,7 @@ $week = intval(($time_stamp - 4 * 24 * 60 * 60) / (7 * 24 * 60 * 60));
 $col_yesterday = "col_day_" . $yesterday;
 $col_week_last = "col_week_" . ($week - 1);
 if ($month > 1) {
-    $col_month_last = "col_month_" . $year . "_" . $month;
+    $col_month_last = "col_month_" . $year . "_" . ($month - 1);
 } else {
     $col_month_last = "col_month_" . ($year - 1) . "_" . 12;
 }
