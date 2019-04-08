@@ -115,13 +115,13 @@ if ($key) {
                     break;
             }
 
-            $note_list_content . '<th scope="row">' . $rank . '</th>'
-            . '<td>'
-            . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
-            . '</td>'
-            . '<td>' . $nick_name . '</td>'
-            . '<td>' . $exp . '</td>'
-            . '</tr>';
+            $note_list_content .= '<th scope="row">' . $rank . '</th>'
+                . '<td>'
+                . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
+                . '</td>'
+                . '<td>' . $nick_name . '</td>'
+                . '<td>' . $exp . '</td>'
+                . '</tr>';
 
             $rank++;
         }
