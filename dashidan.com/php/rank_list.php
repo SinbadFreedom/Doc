@@ -85,7 +85,7 @@ if ($key) {
         $note_list_content = '<table class="table">
 <thead>
         <tr class="table-active">
-            <th>等级</th>
+            <th>排名</th>
             <th>头像</th>
             <th>昵称</th>
             <th>经验</th>
