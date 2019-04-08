@@ -145,7 +145,7 @@ if ($key) {
         <?php echo $title; ?>
     </h2>
 </div>
-<hr>
+
 <div class="col-md-12 text-center">
     <?php
     echo $note_list_content;
