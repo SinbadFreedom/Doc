@@ -82,7 +82,7 @@ if ($key) {
          * <td>95</td>
          * </tr>
          */
-        $note_list_content = '<table class="table table-striped">
+        $note_list_content = '<table class="table">
 <thead>
         <tr>
             <th>等级</th>
