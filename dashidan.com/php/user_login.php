@@ -61,6 +61,11 @@ if (!isset($_POST['channel'])) {
     return;
 }
 
+if (!isset($_POST['logintype'])) {
+    echo "param error 10";
+    return;
+}
+
 $scope = $_POST['scope'];
 $openid = $_POST['openid'];
 $access_token = $_POST['access_token'];
@@ -71,6 +76,7 @@ $sex = $_POST['sex'];
 $province = $_POST['province'];
 $city = $_POST['city'];
 $channel = $_POST['channel'];
+$login_type = $_POST['logintype'];
 
 
 $user_id = -1;
@@ -126,7 +132,8 @@ if ($user_info) {
         'user_id' => $user_id,
         'exp' => $exp,
         'exp_time' => $time_stamp,
-        'create_time' => $time_stamp
+        'create_time' => $time_stamp,
+        'logintype' => $login_type
     ]);
     /** 插入数据库*/
     $insertOneResult = $manager->executeBulkWrite('db_account.col_user', $bulkInsertUser, $writeConcern);
