@@ -44,7 +44,7 @@ $command_cursor = $manager->executeCommand('db_account', $command);
 $response = $command_cursor->toArray()[0];
 /** 获取新用户id*/
 $res = new stdClass();
-var_dump($response);
+
 if ($response->value) {
     /** 返回最新经验值*/
     $res->state = 0;
