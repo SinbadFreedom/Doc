@@ -44,13 +44,11 @@ $col_name = 'note_' . $num;
 
 $manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
 
-//$collection = new MongoDB\Collection($manager, $db_name, $col_name);
-//$noteCount = $collection->count([]);
-
 $query = array(
     "count" => $col_name,
     "query" => [],
 );
+
 $command = new MongoDB\Driver\Command($query);
 $command_cursor = $manager->executeCommand($db_name, $command);
 /** 笔记总条数*/

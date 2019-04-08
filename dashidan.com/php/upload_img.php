@@ -10,7 +10,7 @@ if (!isset($_POST['openid'])) {
     echo "param error 0";
     return;
 }
-if (isset($_POST['imgdata'])) {
+if (!isset($_POST['imgdata'])) {
     echo "param error 1";
     return;
 }
