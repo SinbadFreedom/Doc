@@ -110,7 +110,7 @@ if ($key) {
         }
         $note_list_content .= '</ul>';
     } else {
-        $note_list_content = "尚没有排行榜数据，敬请期待。昨日排行榜每日更新，上周排行榜每周更新，上月排行榜每月更新。";
+        $note_list_content = "<p>尚没有排行榜数据，敬请期待。</p><p>昨日排行榜每日更新，上周排行榜每周更新，上月排行榜每月更新。</p>";
     }
 }
 ?>
@@ -128,6 +128,7 @@ if ($key) {
         <?php echo $title; ?>
     </h2>
 </div>
+<hr>
 <div class="col-md-12 text-center">
     <?php
     echo $note_list_content;
