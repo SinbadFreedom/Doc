@@ -203,7 +203,9 @@ if ($key) {
          * <td>95</td>
          * </tr>
          */
-        $note_list_content = '<table class="table">
+        if ($type == TYPE_ALL) {
+            /** 总榜显示等级*/
+            $note_list_content = '<table class="table">
 <thead>
         <tr class="table-active">
             <th>排名</th>
@@ -214,6 +216,19 @@ if ($key) {
         </tr>
         </thead>
         <tbody>';
+        } else {
+            /** 其他榜不显示等级*/
+            $note_list_content = '<table class="table">
+<thead>
+        <tr class="table-active">
+            <th>排名</th>
+            <th>头像</th>
+            <th>昵称</th>
+            <th>经验</th>
+        </tr>
+        </thead>
+        <tbody>';
+        }
         $rank = 1;
         foreach ($rank_list as $value) {
 
@@ -238,14 +253,26 @@ if ($key) {
                     break;
             }
 
-            $note_list_content .= '<th scope="row">' . $rank . '</th>'
-                . '<td>'
-                . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
-                . '</td>'
-                . '<td>' . $nick_name . '</td>'
-                . '<td>' . $level . '</td>'
-                . '<td>' . $exp . '</td>'
-                . '</tr>';
+            if ($type == TYPE_ALL) {
+                /** 总榜显示等级*/
+                $note_list_content .= '<th scope="row">' . $rank . '</th>'
+                    . '<td>'
+                    . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
+                    . '</td>'
+                    . '<td>' . $nick_name . '</td>'
+                    . '<td>' . $level . '</td>'
+                    . '<td>' . $exp . '</td>'
+                    . '</tr>';
+            } else {
+                /** 其他榜不显示等级*/
+                $note_list_content .= '<th scope="row">' . $rank . '</th>'
+                    . '<td>'
+                    . '<img class="img-responsive center-block" src="../head_img/' . $open_id . '.jpg" width="50px" height="50px">'
+                    . '</td>'
+                    . '<td>' . $nick_name . '</td>'
+                    . '<td>' . $exp . '</td>'
+                    . '</tr>';
+            }
 
             $rank++;
         }
