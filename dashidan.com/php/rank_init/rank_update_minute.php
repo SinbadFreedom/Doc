@@ -28,7 +28,6 @@ if ($month > 1) {
 } else {
     $col_month_last = "col_month_" . ($year - 1) . "_" . 12;
 }
-$col_all = "col_all";
 
 $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
@@ -43,8 +42,8 @@ getUserInfo($res_3, $manager, $redis, "rank_week");
 $res_5 = $redis->zrevrange($col_month, 0, 99, true);
 getUserInfo($res_5, $manager, $redis, "rank_month");
 
-$res_7 = $redis->zrevrange($col_all, 0, 99, true);
-getUserInfo($res_7, $manager, $redis, "rank_all");
+/** 总榜单独处理*/
+updateAllRank($manager, $redis, "rank_all");
 
 /** 将玩家信息加入redis 排行榜中，更新redis排行榜数据*/
 function getUserInfo($res, $manager, $redis, $redis_key)
@@ -70,6 +69,41 @@ function getUserInfo($res, $manager, $redis, $redis_key)
     /** 存入redis*/
     $redis->set($redis_key, json_encode($info_arr));
     /** 输出*/
+    echo '$redis_key ' . $redis_key . '<br>';
     var_dump($info_arr);
+    echo '<br>';
 }
 
+/**
+ * 总榜直接查库，排序
+ */
+function updateAllRank($manager, $redis, $redis_key)
+{
+    $filter = [];
+    $options = [
+        'projection' => ['_id' => 0], /** 不输出_id字段*/
+        'sort' => ['exp' => -1], /** 根据user_id字段排序 1是升序，-1是降序*/
+        'limit' => 100
+    ];
+    $query_find = new MongoDB\Driver\Query($filter, $options);
+    $cursor = $manager->executeQuery('db_account.col_user', $query_find);
+
+    $rank_info = $cursor->toArray();
+    $info_arr = [];
+    foreach ($rank_info as $user_info) {
+        /** 插入玩家信息*/
+        $info = new stdClass();
+        $info->userid = $user_info->user_id;
+        $info->openid = $user_info->openid;
+        $info->nickname = $user_info->nickname;
+        $info->exp = $user_info->exp;
+        /** 将原玩家id转化为玩家信息对象, 存入数组*/
+        array_push($info_arr, $info);
+    }
+    /** 存入redis*/
+    $redis->set($redis_key, json_encode($info_arr));
+    /** 输出*/
+    echo '$redis_key ' . $redis_key . '<br>';
+    var_dump($info_arr);
+    echo '<br>';
+}

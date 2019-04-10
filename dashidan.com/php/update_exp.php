@@ -59,12 +59,10 @@ if ($response->value) {
     $col_today = "col_day_" . $today;
     $col_week = "col_week_" . $week;
     $col_month = "col_month_" . $year . "_" . $month;
-    $col_all = "col_all";
 
     updateExpAddValue($user_id, $manager, $col_today);
     updateExpAddValue($user_id, $manager, $col_week);
     updateExpAddValue($user_id, $manager, $col_month);
-    updateExpAddValue($user_id, $manager, $col_all);
 } else {
     $res->state = -1;
 }
