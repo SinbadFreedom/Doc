@@ -1,0 +1,82 @@
+1. windows php 安装curl扩展
+----
+
+1.1 找到php.ini 文件打开注释extension=curl
+---
+
+```
+extension=curl
+```
+
+1.2 重启php
+---
+
+2. linux php7.0安装curl扩展
+---
+
+2.1 下载curl
+---
+
+curl 官网： https://curl.haxx.se/download.html
+
+[curl-7.64.1.tar.gz](https://curl.haxx.se/download/curl-7.64.1.tar.gz)
+
+```
+wget https://curl.haxx.se/download/curl-7.64.1.tar.gz
+```
+
+2.2 解压
+---
+
+```
+tar -zxvf https://curl.haxx.se/download/curl-7.64.1.tar.gz
+```
+
+2.3 编译安装
+---
+
+```
+cd curl-7.64.1
+./configure
+make
+make install
+```
+
+2.4 安装扩展
+---
+修改php.ini加入curl.so
+
+```
+extension=libcurl.so
+```
+
+2.5 重启php
+---
+
+```
+service php7.0-fpm restart
+```
+
+用这个方法修改完之后没有效果，于是找到了方法3
+
+3. ubuntu php7.0安装curl扩展
+---
+
+3.1 直接采用命令安装
+---
+
+```
+apt-get install curl libcurl3 libcurl3-dev php7.0-curl
+```
+
+3.2 重启php
+---
+
+```
+service php7.0-fpm restart
+```
+
+查看phpinfo, 方法3成功.
+
+
+
